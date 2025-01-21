@@ -1,0 +1,16 @@
+# RTPTransactionDetails
+
+RTP specific details about the transaction.
+
+
+## Fields
+
+| Field                                                                              | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `status`                                                                           | [Components\RTPTransactionStatus](../../Models/Components/RTPTransactionStatus.md) | :heavy_check_mark:                                                                 | Status of a transaction within the RTP lifecycle.                                  |
+| `networkResponseCode`                                                              | *?string*                                                                          | :heavy_minus_sign:                                                                 | Response code returned by network on failure.                                      |
+| `failureCode`                                                                      | [?Components\RTPFailureCode](../../Models/Components/RTPFailureCode.md)            | :heavy_minus_sign:                                                                 | Status codes for RTP failures.                                                     |
+| `initiatedOn`                                                                      | [\DateTime](https://www.php.net/manual/en/class.datetime.php)                      | :heavy_minus_sign:                                                                 | N/A                                                                                |
+| `completedOn`                                                                      | [\DateTime](https://www.php.net/manual/en/class.datetime.php)                      | :heavy_minus_sign:                                                                 | N/A                                                                                |
+| `failedOn`                                                                         | [\DateTime](https://www.php.net/manual/en/class.datetime.php)                      | :heavy_minus_sign:                                                                 | N/A                                                                                |
+| `acceptedWithoutPostingOn`                                                         | [\DateTime](https://www.php.net/manual/en/class.datetime.php)                      | :heavy_minus_sign:                                                                 | N/A                                                                                |

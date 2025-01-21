@@ -1,0 +1,11 @@
+# ListPartnerPricingAgreementsRequest
+
+
+## Fields
+
+| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `accountID`                                                                                   | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `xMoovVersion`                                                                                | [?Components\Versions](../../Models/Components/Versions.md)                                   | :heavy_minus_sign:                                                                            | Specify an API version.                                                                       |
+| `agreementID`                                                                                 | array<*string*>                                                                               | :heavy_minus_sign:                                                                            | A comma-separated list of agreement IDs to filter the results by.                             |
+| `status`                                                                                      | array<[Components\FeePlanAgreementStatus](../../Models/Components/FeePlanAgreementStatus.md)> | :heavy_minus_sign:                                                                            | A comma-separated list of statuses to filter the results by.                                  |

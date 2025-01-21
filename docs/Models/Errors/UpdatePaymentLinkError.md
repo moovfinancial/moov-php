@@ -1,0 +1,12 @@
+# UpdatePaymentLinkError
+
+
+## Fields
+
+| Field                                                                                 | Type                                                                                  | Required                                                                              | Description                                                                           |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `amount`                                                                              | [?Components\AmountValidationError](../../Models/Components/AmountValidationError.md) | :heavy_minus_sign:                                                                    | N/A                                                                                   |
+| `expiresOn`                                                                           | *?string*                                                                             | :heavy_minus_sign:                                                                    | N/A                                                                                   |
+| `display`                                                                             | [?Components\DisplayOptionsError](../../Models/Components/DisplayOptionsError.md)     | :heavy_minus_sign:                                                                    | N/A                                                                                   |
+| `payment`                                                                             | [?Components\PaymentDetailsError](../../Models/Components/PaymentDetailsError.md)     | :heavy_minus_sign:                                                                    | N/A                                                                                   |
+| `payout`                                                                              | [?Components\PayoutDetailsError](../../Models/Components/PayoutDetailsError.md)       | :heavy_minus_sign:                                                                    | N/A                                                                                   |

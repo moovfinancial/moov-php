@@ -1,0 +1,10 @@
+# PaymentDetailsError
+
+
+## Fields
+
+| Field                                                                                     | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `allowedMethods`                                                                          | *?string*                                                                                 | :heavy_minus_sign:                                                                        | N/A                                                                                       |
+| `cardDetails`                                                                             | [?Components\CardPaymentDetailsError](../../Models/Components/CardPaymentDetailsError.md) | :heavy_minus_sign:                                                                        | N/A                                                                                       |
+| `achDetails`                                                                              | [?Components\ACHPaymentDetailsError](../../Models/Components/ACHPaymentDetailsError.md)   | :heavy_minus_sign:                                                                        | N/A                                                                                       |

@@ -1,0 +1,9 @@
+# CreateTransferDestinationACH
+
+
+## Fields
+
+| Field                                                                               | Type                                                                                | Required                                                                            | Description                                                                         | Example                                                                             |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `companyEntryDescription`                                                           | *?string*                                                                           | :heavy_minus_sign:                                                                  | An optional override of the default NACHA company entry description for a transfer. | Gym dues                                                                            |
+| `originatingCompanyName`                                                            | *?string*                                                                           | :heavy_minus_sign:                                                                  | An optional override of the default NACHA company name for a transfer.              | Whole Body Fit                                                                      |

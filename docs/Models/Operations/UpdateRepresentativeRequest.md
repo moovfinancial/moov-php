@@ -1,0 +1,11 @@
+# UpdateRepresentativeRequest
+
+
+## Fields
+
+| Field                                                                              | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `accountID`                                                                        | *string*                                                                           | :heavy_check_mark:                                                                 | ID of the account.                                                                 |
+| `representativeID`                                                                 | *string*                                                                           | :heavy_check_mark:                                                                 | ID of the representative.                                                          |
+| `updateRepresentative`                                                             | [Components\UpdateRepresentative](../../Models/Components/UpdateRepresentative.md) | :heavy_check_mark:                                                                 | N/A                                                                                |
+| `xMoovVersion`                                                                     | [?Components\Versions](../../Models/Components/Versions.md)                        | :heavy_minus_sign:                                                                 | Specify an API version.                                                            |

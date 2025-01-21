@@ -1,0 +1,25 @@
+speakeasyVersion: 1.469.12
+sources:
+    latest:
+        sourceNamespace: latest
+        sourceRevisionDigest: sha256:51a23fee756d32cec99ce95192e1e8f25245a788f184257f3cc0d65e17ebaf5d
+        sourceBlobDigest: sha256:6a1fd6ac8e6811db3c9c6171307397490feba4635b1c42f8f04ec394df54e977
+        tags:
+            - latest
+targets:
+    latest:
+        source: latest
+        sourceNamespace: latest
+        sourceRevisionDigest: sha256:51a23fee756d32cec99ce95192e1e8f25245a788f184257f3cc0d65e17ebaf5d
+        sourceBlobDigest: sha256:6a1fd6ac8e6811db3c9c6171307397490feba4635b1c42f8f04ec394df54e977
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        latest:
+            inputs:
+                - location: registry.speakeasyapi.dev/moov/moov/api-latest
+    targets:
+        latest:
+            target: php
+            source: latest

@@ -1,0 +1,14 @@
+workflowVersion: 1.0.0
+speakeasyVersion: latest
+sources:
+    latest:
+        inputs:
+            - location: registry.speakeasyapi.dev/moov/moov/api-latest
+targets:
+    latest:
+        target: php
+        source: latest
+        publish:
+            packagist:
+                username: moov
+                token: $packagist_token

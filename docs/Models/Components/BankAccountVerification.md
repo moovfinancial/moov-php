@@ -1,0 +1,10 @@
+# BankAccountVerification
+
+
+## Fields
+
+| Field                                                                                                | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `verificationMethod`                                                                                 | [Components\BankAccountVerificationMethod](../../Models/Components/BankAccountVerificationMethod.md) | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
+| `status`                                                                                             | [Components\BankAccountVerificationStatus](../../Models/Components/BankAccountVerificationStatus.md) | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
+| `exceptionDetails`                                                                                   | [?Components\BankAccountException](../../Models/Components/BankAccountException.md)                  | :heavy_minus_sign:                                                                                   | Reason for, and details related to, an `errored` or `verificationFailed` bank account status.        |

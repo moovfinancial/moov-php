@@ -1,0 +1,12 @@
+# CreateTransferDestination
+
+The final stage of a transfer and the ultimate recipient of the funds.
+
+
+## Fields
+
+| Field                                                                                                 | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `paymentMethodID`                                                                                     | *string*                                                                                              | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
+| `cardDetails`                                                                                         | [?Components\CreateTransferDestinationCard](../../Models/Components/CreateTransferDestinationCard.md) | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |
+| `achDetails`                                                                                          | [?Components\CreateTransferDestinationACH](../../Models/Components/CreateTransferDestinationACH.md)   | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |
