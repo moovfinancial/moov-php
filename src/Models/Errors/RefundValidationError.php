@@ -8,9 +8,7 @@ declare(strict_types=1);
 
 namespace Moov\OpenAPI\Models\Errors;
 
-
 use Moov\OpenAPI\Utils;
-
 class RefundValidationError
 {
     /**
@@ -33,6 +31,7 @@ class RefundValidationError
     /**
      * @param  ?string  $amount
      * @param  ?string  $error
+     * @phpstan-pure
      */
     public function __construct(?string $amount = null, ?string $error = null)
     {

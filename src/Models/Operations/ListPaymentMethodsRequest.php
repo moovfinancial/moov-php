@@ -20,15 +20,11 @@ class ListPaymentMethodsRequest
     public string $accountID;
 
     /**
-     * Specify an API version.
+     * Optional parameter to filter the account's payment methods by source ID. 
      *
-     * @var ?Components\Versions $xMoovVersion
-     */
-    #[SpeakeasyMetadata('header:style=simple,explode=false,name=x-moov-version')]
-    public ?Components\Versions $xMoovVersion = null;
-
-    /**
-     * Optional parameter to filter the account's payment methods by source ID. A source ID can be a [walletID](https://docs.moov.io/api/sources/wallets/list/), [cardID](https://docs.moov.io/api/sources/cards/list/), or [bankAccountID](https://docs.moov.io/api/sources/bank-accounts/list/).
+     *
+     * A source ID can be a [walletID](https://docs.moov.io/api/sources/wallets/list/), [cardID](https://docs.moov.io/api/sources/cards/list/), 
+     * or [bankAccountID](https://docs.moov.io/api/sources/bank-accounts/list/).
      *
      * @var ?string $sourceID
      */
@@ -44,16 +40,34 @@ class ListPaymentMethodsRequest
     public ?Components\PaymentMethodType $paymentMethodType = null;
 
     /**
+     * Specify an API version.
+     *
+     *
+     * API versioning follows the format `vYYYY.QQ.BB`, where 
+     *   - `YYYY` is the year
+     *   - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)
+     *   - `BB` is an **optional** build number starting at `.01` for subsequent builds in the same quarter. 
+     *     - If no build number is specified, the version refers to the initial release of the quarter.
+     *
+     * The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release.
+     *
+     * @var ?string $xMoovVersion
+     */
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=x-moov-version')]
+    public ?string $xMoovVersion = null;
+
+    /**
      * @param  string  $accountID
-     * @param  ?Components\Versions  $xMoovVersion
+     * @param  ?string  $xMoovVersion
      * @param  ?string  $sourceID
      * @param  ?Components\PaymentMethodType  $paymentMethodType
+     * @phpstan-pure
      */
-    public function __construct(string $accountID, ?Components\Versions $xMoovVersion = null, ?string $sourceID = null, ?Components\PaymentMethodType $paymentMethodType = null)
+    public function __construct(string $accountID, ?string $sourceID = null, ?Components\PaymentMethodType $paymentMethodType = null, ?string $xMoovVersion = 'v2024.01')
     {
         $this->accountID = $accountID;
-        $this->xMoovVersion = $xMoovVersion;
         $this->sourceID = $sourceID;
         $this->paymentMethodType = $paymentMethodType;
+        $this->xMoovVersion = $xMoovVersion;
     }
 }

@@ -111,6 +111,7 @@ class TransferDestination
      * @param  mixed  $applePay
      * @param  ?CardTransactionDetails  $cardDetails
      * @param  ?RTPTransactionDetails  $rtpDetails
+     * @phpstan-pure
      */
     public function __construct(string $paymentMethodID, string $paymentMethodType, TransferAccount $account, ?BankAccount $bankAccount = null, mixed $wallet = null, mixed $card = null, ?ACHTransactionDetails $achDetails = null, mixed $applePay = null, ?CardTransactionDetails $cardDetails = null, ?RTPTransactionDetails $rtpDetails = null)
     {

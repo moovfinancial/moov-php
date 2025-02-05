@@ -28,6 +28,7 @@ class Logo
     /**
      * @param  string  $name
      * @param  string  $url
+     * @phpstan-pure
      */
     public function __construct(string $name, string $url)
     {

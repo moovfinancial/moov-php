@@ -8,9 +8,7 @@ declare(strict_types=1);
 
 namespace Moov\OpenAPI\Models\Errors;
 
-
 use Moov\OpenAPI\Utils;
-
 class OnboardingInviteError
 {
     /**
@@ -65,6 +63,7 @@ class OnboardingInviteError
      * @param  ?array<string, string>  $scopes
      * @param  ?array<string, string>  $capabilities
      * @param  ?array<string, string>  $feePlanCodes
+     * @phpstan-pure
      */
     public function __construct(?string $returnURL = null, ?string $termsOfServiceURL = null, ?array $scopes = null, ?array $capabilities = null, ?array $feePlanCodes = null)
     {

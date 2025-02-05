@@ -65,6 +65,7 @@ class CardAddress
      * @param  ?string  $city
      * @param  ?string  $stateOrProvince
      * @param  ?string  $country
+     * @phpstan-pure
      */
     public function __construct(string $postalCode, ?string $addressLine1 = null, ?string $addressLine2 = null, ?string $city = null, ?string $stateOrProvince = null, ?string $country = null)
     {

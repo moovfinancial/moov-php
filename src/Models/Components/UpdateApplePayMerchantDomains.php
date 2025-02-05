@@ -34,6 +34,7 @@ class UpdateApplePayMerchantDomains
     /**
      * @param  ?array<string>  $addDomains
      * @param  ?array<string>  $removeDomains
+     * @phpstan-pure
      */
     public function __construct(?array $addDomains = null, ?array $removeDomains = null)
     {

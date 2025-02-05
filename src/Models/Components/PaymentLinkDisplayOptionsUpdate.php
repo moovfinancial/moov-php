@@ -48,6 +48,7 @@ class PaymentLinkDisplayOptionsUpdate
      * @param  ?string  $title
      * @param  ?string  $description
      * @param  ?CallToAction  $callToAction
+     * @phpstan-pure
      */
     public function __construct(?string $title = null, ?string $description = null, ?CallToAction $callToAction = null)
     {

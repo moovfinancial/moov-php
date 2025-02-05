@@ -5,27 +5,29 @@
 
 ### Available Operations
 
-* [createRepresentative](#createrepresentative) - Moov accounts associated with businesses require information regarding individuals who represent the business. 
+* [create](#create) - Moov accounts associated with businesses require information regarding individuals who represent the business. 
 You can provide this information by creating a representative. Each account is allowed a maximum of 7 representatives. 
 Read our [business representatives guide](https://docs.moov.io/guides/accounts/requirements/business-representatives/) to learn more.
 
-To use this endpoint from the browser, you’ll need to specify the `/accounts/{accountID}/representatives.write` scope when generating a [token](https://docs.moov.io/api/authentication/access-tokens/).
-* [deleteRepresentative](#deleterepresentative) - Deletes a business representative associated with a Moov account. Read our [business representatives guide](https://docs.moov.io/guides/accounts/requirements/business-representatives/) to learn more.
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/representatives.write` scope.
+* [delete](#delete) - Deletes a business representative associated with a Moov account. Read our [business representatives guide](https://docs.moov.io/guides/accounts/requirements/business-representatives/) to learn more.
 
-To use this endpoint from the browser, you’ll need to specify the `/accounts/{accountID}/representatives.write` scope when generating a [token](https://docs.moov.io/api/authentication/access-tokens/).
-* [getRepresentative](#getrepresentative) - Retrieve a specific representative associated with a given Moov account. Read our [business representatives guide](https://docs.moov.io/guides/accounts/requirements/business-representatives/) to learn more.
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/representatives.write` scope.
+* [get](#get) - Retrieve a specific representative associated with a given Moov account. Read our [business representatives guide](https://docs.moov.io/guides/accounts/requirements/business-representatives/) to learn more.
 
-To use this endpoint from the browser, you’ll need to specify the `/accounts/{accountID}/representatives.read` scope when generating a [token](https://docs.moov.io/api/authentication/access-tokens/).
-* [listRepresentatives](#listrepresentatives) - A Moov account may have multiple representatives depending on the associated business’s ownership and management structure. 
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/representatives.read` scope.
+* [list](#list) - A Moov account may have multiple representatives depending on the associated business's ownership and management structure. 
 You can use this method to list all the representatives for a given Moov account. 
 Note that Moov accounts associated with an individual do not have representatives. 
 Read our [business representatives guide](https://docs.moov.io/guides/accounts/requirements/business-representatives/) to learn more.
 
-To use this endpoint from the browser, you’ll need to specify the `/accounts/{accountID}/representatives.read` scope when generating a [token](https://docs.moov.io/api/authentication/access-tokens/).
-* [updateRepresentative](#updaterepresentative) - If a representative’s information has changed you can patch the information associated with a specific representative ID. 
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/representatives.read` scope.
+* [update](#update) - If a representative's information has changed you can patch the information associated with a specific representative ID. 
 Read our [business representatives guide](https://docs.moov.io/guides/accounts/requirements/business-representatives/) to learn more.
-
-To use this endpoint from the browser, you’ll need to specify the `/accounts/{accountID}/representatives.write` scope when generating a [token](https://docs.moov.io/api/authentication/access-tokens/).
 
 When **can** profile data be updated:
 
@@ -33,19 +35,23 @@ When **can** profile data be updated:
 - During the verification process, missing or incomplete profile data can be edited.
 - Verified representatives can only add missing profile data.
 
-When **can’t** profile data be updated:
+When **can't** profile data be updated:
 
 - Verified representatives cannot change any existing profile data.
 
 If you need to update information in a locked state, please contact Moov support.
 
-## createRepresentative
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/representatives.write` scope.
+
+## create
 
 Moov accounts associated with businesses require information regarding individuals who represent the business. 
 You can provide this information by creating a representative. Each account is allowed a maximum of 7 representatives. 
 Read our [business representatives guide](https://docs.moov.io/guides/accounts/requirements/business-representatives/) to learn more.
 
-To use this endpoint from the browser, you’ll need to specify the `/accounts/{accountID}/representatives.write` scope when generating a [token](https://docs.moov.io/api/authentication/access-tokens/).
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/representatives.write` scope.
 
 ### Example Usage
 
@@ -56,9 +62,15 @@ require 'vendor/autoload.php';
 
 use Moov\OpenAPI;
 use Moov\OpenAPI\Models\Components;
-use Moov\OpenAPI\Models\Operations;
 
-$sdk = OpenAPI\Moov::builder()->build();
+$sdk = OpenAPI\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
 
 $createRepresentative = new Components\CreateRepresentative(
     name: new Components\IndividualName(
@@ -90,18 +102,11 @@ $createRepresentative = new Components\CreateRepresentative(
         jobTitle: 'CEO',
     ),
 );
-$requestSecurity = new Operations\CreateRepresentativeSecurity(
-    basicAuth: new Components\SchemeBasicAuth(
-        username: '',
-        password: '',
-    ),
-);
 
-$response = $sdk->representatives->createRepresentative(
-    security: $requestSecurity,
-    accountID: '602bcb92-e33e-47e9-874b-f8c8cdea8a6e',
+$response = $sdk->representatives->create(
+    accountID: '7a621cf0-21cd-49cf-8540-3315211a509a',
     createRepresentative: $createRepresentative,
-    xMoovVersion: Components\Versions::Latest
+    xMoovVersion: 'v2024.01'
 
 );
 
@@ -112,12 +117,11 @@ if ($response->representative !== null) {
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `security`                                                                                         | [Operations\CreateRepresentativeSecurity](../../Models/Operations/CreateRepresentativeSecurity.md) | :heavy_check_mark:                                                                                 | The security requirements to use for the request.                                                  |
-| `accountID`                                                                                        | *string*                                                                                           | :heavy_check_mark:                                                                                 | ID of the account.                                                                                 |
-| `createRepresentative`                                                                             | [Components\CreateRepresentative](../../Models/Components/CreateRepresentative.md)                 | :heavy_check_mark:                                                                                 | N/A                                                                                                |
-| `xMoovVersion`                                                                                     | [?Components\Versions](../../Models/Components/Versions.md)                                        | :heavy_minus_sign:                                                                                 | Specify an API version.                                                                            |
+| Parameter                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Required                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `accountID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | ID of the account.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `createRepresentative`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | [Components\CreateRepresentative](../../Models/Components/CreateRepresentative.md)                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `xMoovVersion`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | *?string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Specify an API version.<br/><br/>API versioning follows the format `vYYYY.QQ.BB`, where <br/>  - `YYYY` is the year<br/>  - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)<br/>  - `BB` is an **optional** build number starting at `.01` for subsequent builds in the same quarter. <br/>    - If no build number is specified, the version refers to the initial release of the quarter.<br/><br/>The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release. |
 
 ### Response
 
@@ -131,11 +135,12 @@ if ($response->representative !== null) {
 | Errors\RepresentativeValidationError | 422                                  | application/json                     |
 | Errors\APIException                  | 4XX, 5XX                             | \*/\*                                |
 
-## deleteRepresentative
+## delete
 
 Deletes a business representative associated with a Moov account. Read our [business representatives guide](https://docs.moov.io/guides/accounts/requirements/business-representatives/) to learn more.
 
-To use this endpoint from the browser, you’ll need to specify the `/accounts/{accountID}/representatives.write` scope when generating a [token](https://docs.moov.io/api/authentication/access-tokens/).
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/representatives.write` scope.
 
 ### Example Usage
 
@@ -146,23 +151,22 @@ require 'vendor/autoload.php';
 
 use Moov\OpenAPI;
 use Moov\OpenAPI\Models\Components;
-use Moov\OpenAPI\Models\Operations;
 
-$sdk = OpenAPI\Moov::builder()->build();
+$sdk = OpenAPI\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
 
 
-$requestSecurity = new Operations\DeleteRepresentativeSecurity(
-    basicAuth: new Components\SchemeBasicAuth(
-        username: '',
-        password: '',
-    ),
-);
 
-$response = $sdk->representatives->deleteRepresentative(
-    security: $requestSecurity,
-    accountID: '8c15ae30-39cc-45a6-a9b1-f96dfd44efa8',
-    representativeID: '302eff0a-1b46-4437-bfa0-532d4401ffcd',
-    xMoovVersion: Components\Versions::V20240000
+$response = $sdk->representatives->delete(
+    accountID: '8b6fe91a-a0b1-4b3e-ab7b-e83a32f2399e',
+    representativeID: '7aa10743-a04f-44af-84fe-b54259caa1ba',
+    xMoovVersion: 'v2024.01'
 
 );
 
@@ -173,12 +177,11 @@ if ($response->statusCode === 200) {
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `security`                                                                                         | [Operations\DeleteRepresentativeSecurity](../../Models/Operations/DeleteRepresentativeSecurity.md) | :heavy_check_mark:                                                                                 | The security requirements to use for the request.                                                  |
-| `accountID`                                                                                        | *string*                                                                                           | :heavy_check_mark:                                                                                 | ID of the account.                                                                                 |
-| `representativeID`                                                                                 | *string*                                                                                           | :heavy_check_mark:                                                                                 | ID of the representative.                                                                          |
-| `xMoovVersion`                                                                                     | [?Components\Versions](../../Models/Components/Versions.md)                                        | :heavy_minus_sign:                                                                                 | Specify an API version.                                                                            |
+| Parameter                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Required                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `accountID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | ID of the account.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `representativeID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | ID of the representative.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `xMoovVersion`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | *?string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Specify an API version.<br/><br/>API versioning follows the format `vYYYY.QQ.BB`, where <br/>  - `YYYY` is the year<br/>  - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)<br/>  - `BB` is an **optional** build number starting at `.01` for subsequent builds in the same quarter. <br/>    - If no build number is specified, the version refers to the initial release of the quarter.<br/><br/>The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release. |
 
 ### Response
 
@@ -191,11 +194,12 @@ if ($response->statusCode === 200) {
 | Errors\GenericError | 400, 409            | application/json    |
 | Errors\APIException | 4XX, 5XX            | \*/\*               |
 
-## getRepresentative
+## get
 
 Retrieve a specific representative associated with a given Moov account. Read our [business representatives guide](https://docs.moov.io/guides/accounts/requirements/business-representatives/) to learn more.
 
-To use this endpoint from the browser, you’ll need to specify the `/accounts/{accountID}/representatives.read` scope when generating a [token](https://docs.moov.io/api/authentication/access-tokens/).
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/representatives.read` scope.
 
 ### Example Usage
 
@@ -206,23 +210,22 @@ require 'vendor/autoload.php';
 
 use Moov\OpenAPI;
 use Moov\OpenAPI\Models\Components;
-use Moov\OpenAPI\Models\Operations;
 
-$sdk = OpenAPI\Moov::builder()->build();
+$sdk = OpenAPI\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
 
 
-$requestSecurity = new Operations\GetRepresentativeSecurity(
-    basicAuth: new Components\SchemeBasicAuth(
-        username: '',
-        password: '',
-    ),
-);
 
-$response = $sdk->representatives->getRepresentative(
-    security: $requestSecurity,
-    accountID: '64980616-9a3a-476e-b482-151eb6571b76',
-    representativeID: '7b611595-93d0-48cc-9da4-3aac709d069a',
-    xMoovVersion: Components\Versions::V20240000
+$response = $sdk->representatives->get(
+    accountID: 'b888f774-3e7c-4135-a18c-6b985523c4bc',
+    representativeID: 'e50f7622-81da-484b-9c66-1c8a99c6b71b',
+    xMoovVersion: 'v2024.01'
 
 );
 
@@ -233,12 +236,11 @@ if ($response->representative !== null) {
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `security`                                                                                   | [Operations\GetRepresentativeSecurity](../../Models/Operations/GetRepresentativeSecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
-| `accountID`                                                                                  | *string*                                                                                     | :heavy_check_mark:                                                                           | ID of the account.                                                                           |
-| `representativeID`                                                                           | *string*                                                                                     | :heavy_check_mark:                                                                           | ID of the representative.                                                                    |
-| `xMoovVersion`                                                                               | [?Components\Versions](../../Models/Components/Versions.md)                                  | :heavy_minus_sign:                                                                           | Specify an API version.                                                                      |
+| Parameter                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Required                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `accountID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | ID of the account.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `representativeID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | ID of the representative.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `xMoovVersion`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | *?string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Specify an API version.<br/><br/>API versioning follows the format `vYYYY.QQ.BB`, where <br/>  - `YYYY` is the year<br/>  - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)<br/>  - `BB` is an **optional** build number starting at `.01` for subsequent builds in the same quarter. <br/>    - If no build number is specified, the version refers to the initial release of the quarter.<br/><br/>The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release. |
 
 ### Response
 
@@ -250,14 +252,15 @@ if ($response->representative !== null) {
 | ------------------- | ------------------- | ------------------- |
 | Errors\APIException | 4XX, 5XX            | \*/\*               |
 
-## listRepresentatives
+## list
 
-A Moov account may have multiple representatives depending on the associated business’s ownership and management structure. 
+A Moov account may have multiple representatives depending on the associated business's ownership and management structure. 
 You can use this method to list all the representatives for a given Moov account. 
 Note that Moov accounts associated with an individual do not have representatives. 
 Read our [business representatives guide](https://docs.moov.io/guides/accounts/requirements/business-representatives/) to learn more.
 
-To use this endpoint from the browser, you’ll need to specify the `/accounts/{accountID}/representatives.read` scope when generating a [token](https://docs.moov.io/api/authentication/access-tokens/).
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/representatives.read` scope.
 
 ### Example Usage
 
@@ -268,22 +271,21 @@ require 'vendor/autoload.php';
 
 use Moov\OpenAPI;
 use Moov\OpenAPI\Models\Components;
-use Moov\OpenAPI\Models\Operations;
 
-$sdk = OpenAPI\Moov::builder()->build();
+$sdk = OpenAPI\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
 
 
-$requestSecurity = new Operations\ListRepresentativesSecurity(
-    basicAuth: new Components\SchemeBasicAuth(
-        username: '',
-        password: '',
-    ),
-);
 
-$response = $sdk->representatives->listRepresentatives(
-    security: $requestSecurity,
-    accountID: '33c72fc5-9781-4400-9547-0fa6966c8791',
-    xMoovVersion: Components\Versions::V20240000
+$response = $sdk->representatives->list(
+    accountID: 'c8a232aa-0b11-4b8a-b005-71e9e705d0e6',
+    xMoovVersion: 'v2024.01'
 
 );
 
@@ -294,11 +296,10 @@ if ($response->representatives !== null) {
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `security`                                                                                       | [Operations\ListRepresentativesSecurity](../../Models/Operations/ListRepresentativesSecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
-| `accountID`                                                                                      | *string*                                                                                         | :heavy_check_mark:                                                                               | ID of the account.                                                                               |
-| `xMoovVersion`                                                                                   | [?Components\Versions](../../Models/Components/Versions.md)                                      | :heavy_minus_sign:                                                                               | Specify an API version.                                                                          |
+| Parameter                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Required                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `accountID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | ID of the account.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `xMoovVersion`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | *?string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Specify an API version.<br/><br/>API versioning follows the format `vYYYY.QQ.BB`, where <br/>  - `YYYY` is the year<br/>  - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)<br/>  - `BB` is an **optional** build number starting at `.01` for subsequent builds in the same quarter. <br/>    - If no build number is specified, the version refers to the initial release of the quarter.<br/><br/>The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release. |
 
 ### Response
 
@@ -310,12 +311,10 @@ if ($response->representatives !== null) {
 | ------------------- | ------------------- | ------------------- |
 | Errors\APIException | 4XX, 5XX            | \*/\*               |
 
-## updateRepresentative
+## update
 
-If a representative’s information has changed you can patch the information associated with a specific representative ID. 
+If a representative's information has changed you can patch the information associated with a specific representative ID. 
 Read our [business representatives guide](https://docs.moov.io/guides/accounts/requirements/business-representatives/) to learn more.
-
-To use this endpoint from the browser, you’ll need to specify the `/accounts/{accountID}/representatives.write` scope when generating a [token](https://docs.moov.io/api/authentication/access-tokens/).
 
 When **can** profile data be updated:
 
@@ -323,11 +322,14 @@ When **can** profile data be updated:
 - During the verification process, missing or incomplete profile data can be edited.
 - Verified representatives can only add missing profile data.
 
-When **can’t** profile data be updated:
+When **can't** profile data be updated:
 
 - Verified representatives cannot change any existing profile data.
 
 If you need to update information in a locked state, please contact Moov support.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/representatives.write` scope.
 
 ### Example Usage
 
@@ -338,9 +340,15 @@ require 'vendor/autoload.php';
 
 use Moov\OpenAPI;
 use Moov\OpenAPI\Models\Components;
-use Moov\OpenAPI\Models\Operations;
 
-$sdk = OpenAPI\Moov::builder()->build();
+$sdk = OpenAPI\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
 
 $updateRepresentative = new Components\UpdateRepresentative(
     name: new Components\IndividualNameUpdate(
@@ -371,19 +379,12 @@ $updateRepresentative = new Components\UpdateRepresentative(
         jobTitle: 'CEO',
     ),
 );
-$requestSecurity = new Operations\UpdateRepresentativeSecurity(
-    basicAuth: new Components\SchemeBasicAuth(
-        username: '',
-        password: '',
-    ),
-);
 
-$response = $sdk->representatives->updateRepresentative(
-    security: $requestSecurity,
-    accountID: '377d9553-179a-45f6-8ed4-c92810fbb4d0',
-    representativeID: '54619159-548e-45ed-b917-271fb71fc438',
+$response = $sdk->representatives->update(
+    accountID: 'd95fa7f0-e743-42ce-b47c-b60cc78135dd',
+    representativeID: 'b85898c1-25a1-4907-a1c5-562af6646dad',
     updateRepresentative: $updateRepresentative,
-    xMoovVersion: Components\Versions::Latest
+    xMoovVersion: 'v2024.01'
 
 );
 
@@ -394,13 +395,12 @@ if ($response->representative !== null) {
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `security`                                                                                         | [Operations\UpdateRepresentativeSecurity](../../Models/Operations/UpdateRepresentativeSecurity.md) | :heavy_check_mark:                                                                                 | The security requirements to use for the request.                                                  |
-| `accountID`                                                                                        | *string*                                                                                           | :heavy_check_mark:                                                                                 | ID of the account.                                                                                 |
-| `representativeID`                                                                                 | *string*                                                                                           | :heavy_check_mark:                                                                                 | ID of the representative.                                                                          |
-| `updateRepresentative`                                                                             | [Components\UpdateRepresentative](../../Models/Components/UpdateRepresentative.md)                 | :heavy_check_mark:                                                                                 | N/A                                                                                                |
-| `xMoovVersion`                                                                                     | [?Components\Versions](../../Models/Components/Versions.md)                                        | :heavy_minus_sign:                                                                                 | Specify an API version.                                                                            |
+| Parameter                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Required                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `accountID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | ID of the account.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `representativeID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | ID of the representative.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `updateRepresentative`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | [Components\UpdateRepresentative](../../Models/Components/UpdateRepresentative.md)                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `xMoovVersion`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | *?string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Specify an API version.<br/><br/>API versioning follows the format `vYYYY.QQ.BB`, where <br/>  - `YYYY` is the year<br/>  - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)<br/>  - `BB` is an **optional** build number starting at `.01` for subsequent builds in the same quarter. <br/>    - If no build number is specified, the version refers to the initial release of the quarter.<br/><br/>The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release. |
 
 ### Response
 

@@ -31,6 +31,7 @@ class TermsOfService
     /**
      * @param  \DateTime  $acceptedDate
      * @param  string  $acceptedIP
+     * @phpstan-pure
      */
     public function __construct(\DateTime $acceptedDate, string $acceptedIP)
     {

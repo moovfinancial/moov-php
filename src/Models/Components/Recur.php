@@ -53,6 +53,7 @@ class Recur
      * @param  RunTransfer  $runTransfer
      * @param  ?bool  $indefinite
      * @param  ?\DateTime  $start
+     * @phpstan-pure
      */
     public function __construct(string $recurrenceRule, RunTransfer $runTransfer, ?bool $indefinite = null, ?\DateTime $start = null)
     {

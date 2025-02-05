@@ -8,9 +8,7 @@ declare(strict_types=1);
 
 namespace Moov\OpenAPI\Models\Errors;
 
-
 use Moov\OpenAPI\Utils;
-
 class RepresentativeValidationError
 {
     /**
@@ -23,6 +21,7 @@ class RepresentativeValidationError
 
     /**
      * @param  Error  $error
+     * @phpstan-pure
      */
     public function __construct(Error $error)
     {

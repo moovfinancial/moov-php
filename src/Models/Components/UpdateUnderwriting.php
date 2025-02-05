@@ -63,6 +63,7 @@ class UpdateUnderwriting
      * @param  VolumeByCustomerType  $volumeByCustomerType
      * @param  CardVolumeDistribution  $cardVolumeDistribution
      * @param  FulfillmentDetails  $fulfillment
+     * @phpstan-pure
      */
     public function __construct(int $averageTransactionSize, int $maxTransactionSize, int $averageMonthlyTransactionVolume, VolumeByCustomerType $volumeByCustomerType, CardVolumeDistribution $cardVolumeDistribution, FulfillmentDetails $fulfillment)
     {

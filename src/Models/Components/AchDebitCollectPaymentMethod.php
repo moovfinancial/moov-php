@@ -40,6 +40,7 @@ class AchDebitCollectPaymentMethod
      * @param  string  $paymentMethodID
      * @param  BankAccount  $bankAccount
      * @param  AchDebitCollectPaymentMethodPaymentMethodType  $paymentMethodType
+     * @phpstan-pure
      */
     public function __construct(string $paymentMethodID, BankAccount $bankAccount, AchDebitCollectPaymentMethodPaymentMethodType $paymentMethodType)
     {

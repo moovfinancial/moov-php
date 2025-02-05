@@ -91,6 +91,7 @@ class UpdateCard
      * @param  ?string  $merchantAccountID
      * @param  ?bool  $verifyName
      * @param  ?string  $holderName
+     * @phpstan-pure
      */
     public function __construct(?E2EETokenUpdate $e2ee = null, ?UpdateCardAddress $billingAddress = null, ?UpdateCardExpiration $expiration = null, ?string $cardCvv = null, ?bool $cardOnFile = null, ?string $merchantAccountID = null, ?bool $verifyName = null, ?string $holderName = null)
     {

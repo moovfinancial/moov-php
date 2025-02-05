@@ -85,6 +85,7 @@ class Capability
      * @param  ?array<CapabilityRequirement>  $requirements
      * @param  ?string  $disabledReason
      * @param  ?\DateTime  $disabledOn
+     * @phpstan-pure
      */
     public function __construct(CapabilityID $capability, string $accountID, CapabilityStatus $status, \DateTime $createdOn, \DateTime $updatedOn, ?array $requirements = null, ?string $disabledReason = null, ?\DateTime $disabledOn = null)
     {

@@ -43,7 +43,7 @@ class CreateAccount
      * @var TermsOfServiceToken|ManualTermsOfService|null $termsOfService
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('termsOfService')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\TermsOfServiceToken|\Moov\OpenAPI\Models\Components\ManualTermsOfService')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\TermsOfServiceToken|\Moov\OpenAPI\Models\Components\ManualTermsOfService|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public TermsOfServiceToken|ManualTermsOfService|null $termsOfService = null;
 
@@ -97,6 +97,7 @@ class CreateAccount
      * @param  ?CustomerSupport  $customerSupport
      * @param  ?Settings  $settings
      * @param  ?array<CapabilityID>  $capabilities
+     * @phpstan-pure
      */
     public function __construct(AccountType $accountType, CreateProfile $profile, ?array $metadata = null, TermsOfServiceToken|ManualTermsOfService|null $termsOfService = null, ?string $foreignID = null, ?CustomerSupport $customerSupport = null, ?Settings $settings = null, ?array $capabilities = null)
     {

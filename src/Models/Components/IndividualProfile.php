@@ -71,6 +71,7 @@ class IndividualProfile
      * @param  ?Address  $address
      * @param  ?bool  $birthDateProvided
      * @param  ?bool  $governmentIDProvided
+     * @phpstan-pure
      */
     public function __construct(IndividualName $name, ?PhoneNumber $phone = null, ?string $email = null, ?Address $address = null, ?bool $birthDateProvided = null, ?bool $governmentIDProvided = null)
     {

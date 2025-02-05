@@ -46,6 +46,7 @@ class LinkApplePaymentMethod
      * @param  string  $displayName
      * @param  string  $network
      * @param  string  $type
+     * @phpstan-pure
      */
     public function __construct(string $displayName, string $network, string $type)
     {

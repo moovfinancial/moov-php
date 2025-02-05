@@ -97,6 +97,7 @@ class LinkCard
      * @param  ?bool  $cardOnFile
      * @param  ?string  $merchantAccountID
      * @param  ?bool  $verifyName
+     * @phpstan-pure
      */
     public function __construct(string $cardNumber, string $cardCvv, CardExpiration $expiration, CardAddress $billingAddress, ?E2EEToken $e2ee = null, ?string $holderName = null, ?bool $cardOnFile = null, ?string $merchantAccountID = null, ?bool $verifyName = null)
     {

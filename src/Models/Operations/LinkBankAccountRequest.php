@@ -27,14 +27,6 @@ class LinkBankAccountRequest
     public Components\BankAccountPayload|Components\PlaidPayload|Components\PlaidLinkPayload|Components\MxPayload $linkBankAccount;
 
     /**
-     * Specify an API version.
-     *
-     * @var ?Components\Versions $xMoovVersion
-     */
-    #[SpeakeasyMetadata('header:style=simple,explode=false,name=x-moov-version')]
-    public ?Components\Versions $xMoovVersion = null;
-
-    /**
      * Optional header to wait for certain events, such as the creation of a payment method, to occur before returning a response.
      *
      *
@@ -47,16 +39,34 @@ class LinkBankAccountRequest
     public ?Components\BankAccountWaitFor $xWaitFor = null;
 
     /**
+     * Specify an API version.
+     *
+     *
+     * API versioning follows the format `vYYYY.QQ.BB`, where 
+     *   - `YYYY` is the year
+     *   - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)
+     *   - `BB` is an **optional** build number starting at `.01` for subsequent builds in the same quarter. 
+     *     - If no build number is specified, the version refers to the initial release of the quarter.
+     *
+     * The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release.
+     *
+     * @var ?string $xMoovVersion
+     */
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=x-moov-version')]
+    public ?string $xMoovVersion = null;
+
+    /**
      * @param  string  $accountID
      * @param  Components\BankAccountPayload|Components\PlaidPayload|Components\PlaidLinkPayload|Components\MxPayload  $linkBankAccount
-     * @param  ?Components\Versions  $xMoovVersion
+     * @param  ?string  $xMoovVersion
      * @param  ?Components\BankAccountWaitFor  $xWaitFor
+     * @phpstan-pure
      */
-    public function __construct(string $accountID, Components\BankAccountPayload|Components\PlaidPayload|Components\PlaidLinkPayload|Components\MxPayload $linkBankAccount, ?Components\Versions $xMoovVersion = null, ?Components\BankAccountWaitFor $xWaitFor = null)
+    public function __construct(string $accountID, Components\BankAccountPayload|Components\PlaidPayload|Components\PlaidLinkPayload|Components\MxPayload $linkBankAccount, ?Components\BankAccountWaitFor $xWaitFor = null, ?string $xMoovVersion = 'v2024.01')
     {
         $this->accountID = $accountID;
         $this->linkBankAccount = $linkBankAccount;
-        $this->xMoovVersion = $xMoovVersion;
         $this->xWaitFor = $xWaitFor;
+        $this->xMoovVersion = $xMoovVersion;
     }
 }

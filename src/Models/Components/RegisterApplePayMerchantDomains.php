@@ -33,6 +33,7 @@ class RegisterApplePayMerchantDomains
     /**
      * @param  ?string  $displayName
      * @param  ?array<string>  $domains
+     * @phpstan-pure
      */
     public function __construct(?string $displayName = null, ?array $domains = null)
     {

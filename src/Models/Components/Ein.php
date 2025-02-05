@@ -20,6 +20,7 @@ class Ein
 
     /**
      * @param  string  $number
+     * @phpstan-pure
      */
     public function __construct(string $number)
     {

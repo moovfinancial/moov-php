@@ -8,9 +8,7 @@ declare(strict_types=1);
 
 namespace Moov\OpenAPI\Models\Errors;
 
-
 use Moov\OpenAPI\Utils;
-
 class UpdateUnderwritingError
 {
     /**
@@ -23,6 +21,7 @@ class UpdateUnderwritingError
 
     /**
      * @param  UpdateUnderwritingErrorError  $error
+     * @phpstan-pure
      */
     public function __construct(UpdateUnderwritingErrorError $error)
     {

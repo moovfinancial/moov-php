@@ -22,6 +22,7 @@ class CreateBusinessErrorTaxID
 
     /**
      * @param  ?CreateBusinessErrorEin  $ein
+     * @phpstan-pure
      */
     public function __construct(?CreateBusinessErrorEin $ein = null)
     {

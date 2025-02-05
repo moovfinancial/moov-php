@@ -39,6 +39,7 @@ class BirthDateUpdate
      * @param  ?int  $day
      * @param  ?int  $month
      * @param  ?int  $year
+     * @phpstan-pure
      */
     public function __construct(?int $day = null, ?int $month = null, ?int $year = null)
     {

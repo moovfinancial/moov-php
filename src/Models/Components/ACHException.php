@@ -39,6 +39,7 @@ class ACHException
      * @param  ?string  $code
      * @param  ?string  $reason
      * @param  ?string  $description
+     * @phpstan-pure
      */
     public function __construct(?string $code = null, ?string $reason = null, ?string $description = null)
     {

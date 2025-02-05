@@ -30,6 +30,7 @@ class FulfillmentDetailsError
     /**
      * @param  ?string  $shipmentDurationDays
      * @param  ?string  $returnPolicy
+     * @phpstan-pure
      */
     public function __construct(?string $shipmentDurationDays = null, ?string $returnPolicy = null)
     {

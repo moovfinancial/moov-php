@@ -21,6 +21,7 @@ class ReversedWithCancellation
 
     /**
      * @param  Cancellation  $cancellation
+     * @phpstan-pure
      */
     public function __construct(Cancellation $cancellation)
     {

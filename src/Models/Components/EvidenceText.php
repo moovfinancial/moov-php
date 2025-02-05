@@ -53,6 +53,7 @@ class EvidenceText
      * @param  EvidenceType  $evidenceType
      * @param  string  $text
      * @param  \DateTime  $createdOn
+     * @phpstan-pure
      */
     public function __construct(string $evidenceID, string $disputeID, EvidenceType $evidenceType, string $text, \DateTime $createdOn)
     {

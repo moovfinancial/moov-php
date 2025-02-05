@@ -30,6 +30,7 @@ class Itin
     /**
      * @param  ?string  $full
      * @param  ?string  $lastFour
+     * @phpstan-pure
      */
     public function __construct(?string $full = null, ?string $lastFour = null)
     {

@@ -10,7 +10,6 @@ namespace Moov\OpenAPI\Models\Errors;
 
 use Moov\OpenAPI\Models\Components;
 use Moov\OpenAPI\Utils;
-
 class AssignCountriesError
 {
     /**
@@ -23,6 +22,7 @@ class AssignCountriesError
 
     /**
      * @param  Components\CountriesErrors  $error
+     * @phpstan-pure
      */
     public function __construct(Components\CountriesErrors $error)
     {

@@ -8,9 +8,7 @@ declare(strict_types=1);
 
 namespace Moov\OpenAPI\Models\Errors;
 
-
 use Moov\OpenAPI\Utils;
-
 class FeePlanAgreementError
 {
     /**
@@ -23,6 +21,7 @@ class FeePlanAgreementError
 
     /**
      * @param  ?string  $planID
+     * @phpstan-pure
      */
     public function __construct(?string $planID = null)
     {

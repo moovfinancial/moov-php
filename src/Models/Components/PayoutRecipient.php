@@ -26,6 +26,7 @@ class PayoutRecipient
 
     /**
      * @param  string  $email
+     * @phpstan-pure
      */
     public function __construct(string $email)
     {

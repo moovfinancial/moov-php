@@ -41,6 +41,7 @@ class LinkedApplePayPaymentMethod
      * @param  string  $paymentMethodID
      * @param  PaymentMethodType  $paymentMethodType
      * @param  ApplePayResponse  $applePay
+     * @phpstan-pure
      */
     public function __construct(string $paymentMethodID, PaymentMethodType $paymentMethodType, ApplePayResponse $applePay)
     {

@@ -41,8 +41,6 @@ class MoovBuilder
      */
     public function setSecurity(Models\Components\Security $security): MoovBuilder
     {
-        $this->sdkConfig->security = $security;
-
         $this->sdkConfig->securitySource = fn () => $security;
 
         return $this;
@@ -85,6 +83,22 @@ class MoovBuilder
     public function setServerIndex(int $serverIdx): MoovBuilder
     {
         $this->sdkConfig->serverIndex = $serverIdx;
+
+        return $this;
+    }
+    /**
+     * setXMoovVersion is used to configure the x-moov-version parameter for the SDK.
+     *
+     * @param  string  $xMoovVersion
+     * @return MoovBuilder
+     */
+    public function setXMoovVersion(string $xMoovVersion): MoovBuilder
+    {
+        if (! array_key_exists('header', $this->sdkConfig->globals['parameters'])) {
+            $this->sdkConfig->globals['parameters']['header'] = [];
+        }
+
+        $this->sdkConfig->globals['parameters']['header']['xMoovVersion'] = $xMoovVersion;
 
         return $this;
     }

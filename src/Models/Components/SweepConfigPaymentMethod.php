@@ -35,6 +35,7 @@ class SweepConfigPaymentMethod
     /**
      * @param  string  $paymentMethodID
      * @param  ?\DateTime  $disabledOn
+     * @phpstan-pure
      */
     public function __construct(string $paymentMethodID, ?\DateTime $disabledOn = null)
     {

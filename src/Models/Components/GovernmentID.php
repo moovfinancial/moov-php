@@ -32,6 +32,7 @@ class GovernmentID
     /**
      * @param  ?Ssn  $ssn
      * @param  ?Itin  $itin
+     * @phpstan-pure
      */
     public function __construct(?Ssn $ssn = null, ?Itin $itin = null)
     {

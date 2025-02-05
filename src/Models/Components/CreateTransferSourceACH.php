@@ -54,6 +54,7 @@ class CreateTransferSourceACH
      * @param  ?string  $originatingCompanyName
      * @param  ?DebitHoldPeriod  $debitHoldPeriod
      * @param  ?SECCode  $secCode
+     * @phpstan-pure
      */
     public function __construct(?string $companyEntryDescription = null, ?string $originatingCompanyName = null, ?DebitHoldPeriod $debitHoldPeriod = null, ?SECCode $secCode = null)
     {

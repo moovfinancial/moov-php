@@ -22,6 +22,7 @@ class Error
 
     /**
      * @param  ?string  $message
+     * @phpstan-pure
      */
     public function __construct(?string $message = null)
     {

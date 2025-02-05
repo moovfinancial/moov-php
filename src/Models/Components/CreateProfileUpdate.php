@@ -32,6 +32,7 @@ class CreateProfileUpdate
     /**
      * @param  ?CreateIndividualProfileUpdate  $individual
      * @param  ?CreateBusinessProfileUpdate  $business
+     * @phpstan-pure
      */
     public function __construct(?CreateIndividualProfileUpdate $individual = null, ?CreateBusinessProfileUpdate $business = null)
     {

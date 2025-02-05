@@ -45,7 +45,7 @@ class CreateAccountUpdate
      * @var TermsOfServiceTokenUpdate|ManualTermsOfServiceUpdate|null $termsOfService
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('termsOfService')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\TermsOfServiceTokenUpdate|\Moov\OpenAPI\Models\Components\ManualTermsOfServiceUpdate')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\TermsOfServiceTokenUpdate|\Moov\OpenAPI\Models\Components\ManualTermsOfServiceUpdate|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public TermsOfServiceTokenUpdate|ManualTermsOfServiceUpdate|null $termsOfService = null;
 
@@ -99,6 +99,7 @@ class CreateAccountUpdate
      * @param  ?CustomerSupportUpdate  $customerSupport
      * @param  ?SettingsUpdate  $settings
      * @param  ?array<CapabilityID>  $capabilities
+     * @phpstan-pure
      */
     public function __construct(?AccountType $accountType = null, ?CreateProfileUpdate $profile = null, ?array $metadata = null, TermsOfServiceTokenUpdate|ManualTermsOfServiceUpdate|null $termsOfService = null, ?string $foreignID = null, ?CustomerSupportUpdate $customerSupport = null, ?SettingsUpdate $settings = null, ?array $capabilities = null)
     {

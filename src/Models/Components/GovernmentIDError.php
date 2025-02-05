@@ -32,6 +32,7 @@ class GovernmentIDError
     /**
      * @param  ?GovernmentIDErrorSsn  $ssn
      * @param  ?GovernmentIDErrorItin  $itin
+     * @phpstan-pure
      */
     public function __construct(?GovernmentIDErrorSsn $ssn = null, ?GovernmentIDErrorItin $itin = null)
     {

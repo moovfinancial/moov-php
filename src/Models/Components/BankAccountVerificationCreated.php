@@ -30,6 +30,7 @@ class BankAccountVerificationCreated
     /**
      * @param  BankAccountVerificationMethod  $verificationMethod
      * @param  BankAccountVerificationStatus  $status
+     * @phpstan-pure
      */
     public function __construct(BankAccountVerificationMethod $verificationMethod, BankAccountVerificationStatus $status)
     {

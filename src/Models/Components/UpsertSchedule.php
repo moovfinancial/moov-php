@@ -44,6 +44,7 @@ class UpsertSchedule
      * @param  ?string  $description
      * @param  ?array<Occurrence>  $occurrences
      * @param  ?Recur  $recur
+     * @phpstan-pure
      */
     public function __construct(?string $description = null, ?array $occurrences = null, ?Recur $recur = null)
     {

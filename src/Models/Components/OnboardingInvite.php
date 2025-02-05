@@ -131,6 +131,7 @@ class OnboardingInvite
      * @param  ?OnboardingPartnerAccount  $partner
      * @param  ?\DateTime  $revokedOn
      * @param  ?\DateTime  $redeemedOn
+     * @phpstan-pure
      */
     public function __construct(string $code, string $link, array $scopes, array $capabilities, array $feePlanCodes, \DateTime $createdOn, ?string $returnURL = null, ?string $termsOfServiceURL = null, ?CreateAccount $prefill = null, ?OnboardingPartnerAccount $partner = null, ?\DateTime $revokedOn = null, ?\DateTime $redeemedOn = null)
     {

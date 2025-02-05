@@ -73,6 +73,7 @@ class CreateTransfer
      * @param  ?FacilitatorFee  $facilitatorFee
      * @param  ?string  $description
      * @param  ?array<string, string>  $metadata
+     * @phpstan-pure
      */
     public function __construct(CreateTransferSource $source, CreateTransferDestination $destination, Amount $amount, ?FacilitatorFee $facilitatorFee = null, ?string $description = null, ?array $metadata = null)
     {

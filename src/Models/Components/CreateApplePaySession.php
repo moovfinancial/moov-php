@@ -30,6 +30,7 @@ class CreateApplePaySession
     /**
      * @param  string  $domain
      * @param  string  $displayName
+     * @phpstan-pure
      */
     public function __construct(string $domain, string $displayName)
     {

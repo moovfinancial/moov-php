@@ -21,6 +21,7 @@ class CardPayment
 
     /**
      * @param  ?string  $statementDescriptor
+     * @phpstan-pure
      */
     public function __construct(?string $statementDescriptor = null)
     {

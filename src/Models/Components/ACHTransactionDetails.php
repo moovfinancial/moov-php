@@ -138,6 +138,7 @@ class ACHTransactionDetails
      * @param  ?\DateTime  $returnedOn
      * @param  ?\DateTime  $completedOn
      * @param  ?DebitHoldPeriod  $debitHoldPeriod
+     * @phpstan-pure
      */
     public function __construct(ACHTransactionStatus $status, string $traceNumber, ?ACHException $return = null, ?ACHException $correction = null, ?string $companyEntryDescription = null, ?string $originatingCompanyName = null, ?SECCode $secCode = null, ?\DateTime $initiatedOn = null, ?\DateTime $originatedOn = null, ?\DateTime $correctedOn = null, ?\DateTime $returnedOn = null, ?\DateTime $completedOn = null, ?DebitHoldPeriod $debitHoldPeriod = null)
     {

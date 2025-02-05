@@ -81,6 +81,7 @@ class Error
      * @param  ?Components\BirthDateValidationError  $birthDate
      * @param  ?Components\GovernmentIDError  $governmentID
      * @param  ?Components\RepresentativeResponsibilitiesError  $responsibilities
+     * @phpstan-pure
      */
     public function __construct(?Components\IndividualNameError $name = null, ?Components\PhoneNumberError $phone = null, ?string $email = null, ?Components\AddressError $address = null, ?Components\BirthDateValidationError $birthDate = null, ?Components\GovernmentIDError $governmentID = null, ?Components\RepresentativeResponsibilitiesError $responsibilities = null)
     {

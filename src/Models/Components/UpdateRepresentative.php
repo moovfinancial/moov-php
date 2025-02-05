@@ -34,7 +34,7 @@ class UpdateRepresentative
      * @var string|Two|null $email
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('email')]
-    #[\Speakeasy\Serializer\Annotation\Type('string|\Moov\OpenAPI\Models\Components\Two')]
+    #[\Speakeasy\Serializer\Annotation\Type('string|\Moov\OpenAPI\Models\Components\Two|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public string|Two|null $email = null;
 
@@ -82,6 +82,7 @@ class UpdateRepresentative
      * @param  ?UpdateRepresentativeBirthDate  $birthDate
      * @param  ?UpdateRepresentativeGovernmentID  $governmentID
      * @param  ?Responsibilities  $responsibilities
+     * @phpstan-pure
      */
     public function __construct(?IndividualNameUpdate $name = null, ?Phone $phone = null, string|Two|null $email = null, ?UpdateRepresentativeAddress $address = null, ?UpdateRepresentativeBirthDate $birthDate = null, ?UpdateRepresentativeGovernmentID $governmentID = null, ?Responsibilities $responsibilities = null)
     {

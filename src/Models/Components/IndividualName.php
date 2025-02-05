@@ -50,6 +50,7 @@ class IndividualName
      * @param  string  $lastName
      * @param  ?string  $middleName
      * @param  ?string  $suffix
+     * @phpstan-pure
      */
     public function __construct(string $firstName, string $lastName, ?string $middleName = null, ?string $suffix = null)
     {

@@ -32,6 +32,7 @@ class CreateIndividualErrorGovernmentID
     /**
      * @param  ?CreateIndividualErrorSsn  $ssn
      * @param  ?CreateIndividualErrorItin  $itin
+     * @phpstan-pure
      */
     public function __construct(?CreateIndividualErrorSsn $ssn = null, ?CreateIndividualErrorItin $itin = null)
     {

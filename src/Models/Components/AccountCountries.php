@@ -23,6 +23,7 @@ class AccountCountries
 
     /**
      * @param  array<string>  $countries
+     * @phpstan-pure
      */
     public function __construct(array $countries)
     {

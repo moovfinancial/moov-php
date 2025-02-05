@@ -73,6 +73,7 @@ class UpdatePaymentLink
      * @param  ?PaymentLinkPaymentDetailsUpdate  $payment
      * @param  ?PaymentLinkPayoutDetailsUpdate  $payout
      * @param  ?\DateTime  $expiresOn
+     * @phpstan-pure
      */
     public function __construct(?AmountUpdate $amount = null, ?PaymentLinkDisplayOptionsUpdate $display = null, ?PaymentLinkCustomerOptions $customer = null, ?PaymentLinkPaymentDetailsUpdate $payment = null, ?PaymentLinkPayoutDetailsUpdate $payout = null, ?\DateTime $expiresOn = null)
     {

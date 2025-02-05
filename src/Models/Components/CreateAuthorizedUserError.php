@@ -40,6 +40,7 @@ class CreateAuthorizedUserError
      * @param  ?string  $firstName
      * @param  ?string  $lastName
      * @param  ?BirthDateError  $birthDate
+     * @phpstan-pure
      */
     public function __construct(?string $firstName = null, ?string $lastName = null, ?BirthDateError $birthDate = null)
     {

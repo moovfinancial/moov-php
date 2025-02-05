@@ -33,6 +33,7 @@ class UpdateEvidence
     /**
      * @param  ?string  $text
      * @param  ?EvidenceType  $evidenceType
+     * @phpstan-pure
      */
     public function __construct(?string $text = null, ?EvidenceType $evidenceType = null)
     {

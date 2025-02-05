@@ -10,7 +10,6 @@ namespace Moov\OpenAPI\Models\Errors;
 
 use Moov\OpenAPI\Models\Components;
 use Moov\OpenAPI\Utils;
-
 class RequestCardError
 {
     /**
@@ -71,6 +70,7 @@ class RequestCardError
      * @param  ?string  $memo
      * @param  ?Components\CardExpirationError  $expiration
      * @param  ?Components\IssuingControlsError  $controls
+     * @phpstan-pure
      */
     public function __construct(?string $fundingWalletID = null, ?string $formFactor = null, ?Components\CreateAuthorizedUserError $authorizedUser = null, ?string $memo = null, ?Components\CardExpirationError $expiration = null, ?Components\IssuingControlsError $controls = null)
     {

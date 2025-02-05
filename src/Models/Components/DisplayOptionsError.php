@@ -39,6 +39,7 @@ class DisplayOptionsError
      * @param  ?string  $title
      * @param  ?string  $description
      * @param  ?string  $callToAction
+     * @phpstan-pure
      */
     public function __construct(?string $title = null, ?string $description = null, ?string $callToAction = null)
     {

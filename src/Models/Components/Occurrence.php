@@ -56,6 +56,7 @@ class Occurrence
      * @param  ?string  $occurrenceID
      * @param  ?\DateTime  $runOn
      * @param  ?RunTransfer  $runTransfer
+     * @phpstan-pure
      */
     public function __construct(?bool $canceled = null, ?string $occurrenceID = null, ?\DateTime $runOn = null, ?RunTransfer $runTransfer = null)
     {

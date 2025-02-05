@@ -55,6 +55,7 @@ class BillableFee
     public ?string $feeName = null;
 
     /**
+     * Defines the specific parameters used for fee calculation.
      *
      * @var ?FeeProperties $feeProperties
      */
@@ -81,6 +82,7 @@ class BillableFee
      * @param  ?string  $feeName
      * @param  ?FeeProperties  $feeProperties
      * @param  ?array<string, mixed>  $feeConditions
+     * @phpstan-pure
      */
     public function __construct(FeeModel $feeModel, FeeCategory $feeCategory, ?string $billableFeeID = null, ?string $billableEvent = null, ?string $feeName = null, ?FeeProperties $feeProperties = null, ?array $feeConditions = null)
     {

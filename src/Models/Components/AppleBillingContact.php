@@ -70,6 +70,7 @@ class AppleBillingContact
      * @param  ?string  $postalCode
      * @param  ?string  $administrativeArea
      * @param  ?string  $countryCode
+     * @phpstan-pure
      */
     public function __construct(?array $addressLines = null, ?string $locality = null, ?string $postalCode = null, ?string $administrativeArea = null, ?string $countryCode = null)
     {

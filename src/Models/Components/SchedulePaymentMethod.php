@@ -40,6 +40,7 @@ class SchedulePaymentMethod
      * @param  string  $paymentMethodID
      * @param  ?AchDetails  $achDetails
      * @param  ?CardDetails  $cardDetails
+     * @phpstan-pure
      */
     public function __construct(string $paymentMethodID, ?AchDetails $achDetails = null, ?CardDetails $cardDetails = null)
     {

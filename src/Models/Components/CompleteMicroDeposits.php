@@ -23,6 +23,7 @@ class CompleteMicroDeposits
 
     /**
      * @param  array<int>  $amounts
+     * @phpstan-pure
      */
     public function __construct(array $amounts)
     {

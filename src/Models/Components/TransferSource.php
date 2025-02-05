@@ -100,6 +100,7 @@ class TransferSource
      * @param  mixed  $applePay
      * @param  ?CardTransactionDetails  $cardDetails
      * @param  ?ACHTransactionDetails  $achDetails
+     * @phpstan-pure
      */
     public function __construct(string $paymentMethodID, string $paymentMethodType, TransferAccount $account, ?BankAccount $bankAccount = null, mixed $wallet = null, mixed $card = null, mixed $applePay = null, ?CardTransactionDetails $cardDetails = null, ?ACHTransactionDetails $achDetails = null)
     {

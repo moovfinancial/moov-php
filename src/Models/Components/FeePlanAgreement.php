@@ -74,6 +74,7 @@ class FeePlanAgreement
      * @param  CardAcquringModel  $cardAcquringModel
      * @param  array<BillableFee>  $billableFees
      * @param  ?string  $accountID
+     * @phpstan-pure
      */
     public function __construct(string $aggreementID, string $planID, \DateTime $acceptedOn, FeePlanAgreementStatus $status, CardAcquringModel $cardAcquringModel, array $billableFees, ?string $accountID = null)
     {

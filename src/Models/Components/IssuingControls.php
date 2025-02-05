@@ -33,6 +33,7 @@ class IssuingControls
     /**
      * @param  ?bool  $singleUse
      * @param  ?array<IssuingVelocityLimit>  $velocityLimits
+     * @phpstan-pure
      */
     public function __construct(?bool $singleUse = null, ?array $velocityLimits = null)
     {

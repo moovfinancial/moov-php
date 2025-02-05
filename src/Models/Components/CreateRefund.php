@@ -28,6 +28,7 @@ class CreateRefund
 
     /**
      * @param  ?int  $amount
+     * @phpstan-pure
      */
     public function __construct(?int $amount = null)
     {

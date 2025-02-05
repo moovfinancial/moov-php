@@ -36,6 +36,7 @@ class TransferAccount
      * @param  string  $accountID
      * @param  string  $email
      * @param  string  $displayName
+     * @phpstan-pure
      */
     public function __construct(string $accountID, string $email, string $displayName)
     {

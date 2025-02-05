@@ -70,6 +70,7 @@ class PatchAccountError
      * @param  ?string  $foreignID
      * @param  ?CustomerSupportError  $customerSupport
      * @param  ?CreateAccountSettings  $settings
+     * @phpstan-pure
      */
     public function __construct(?CreateProfileError $profile = null, ?string $metadata = null, ?TermsOfServiceError $termsOfService = null, ?string $foreignID = null, ?CustomerSupportError $customerSupport = null, ?CreateAccountSettings $settings = null)
     {

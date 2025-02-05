@@ -54,6 +54,7 @@ class CreateTransferSource
      * @param  ?string  $paymentMethodID
      * @param  ?CreateTransferSourceCard  $cardDetails
      * @param  ?CreateTransferSourceACH  $achDetails
+     * @phpstan-pure
      */
     public function __construct(?string $transferID = null, ?string $paymentMethodID = null, ?CreateTransferSourceCard $cardDetails = null, ?CreateTransferSourceACH $achDetails = null)
     {

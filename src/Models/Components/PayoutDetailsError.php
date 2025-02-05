@@ -31,6 +31,7 @@ class PayoutDetailsError
     /**
      * @param  ?string  $allowedMethods
      * @param  ?PayoutRecipientError  $recipient
+     * @phpstan-pure
      */
     public function __construct(?string $allowedMethods = null, ?PayoutRecipientError $recipient = null)
     {

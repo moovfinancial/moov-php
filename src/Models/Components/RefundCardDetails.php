@@ -76,6 +76,7 @@ class RefundCardDetails
      * @param  ?\DateTime  $settledOn
      * @param  ?\DateTime  $failedOn
      * @param  ?\DateTime  $completedOn
+     * @phpstan-pure
      */
     public function __construct(RefundCardStatus $status, ?CardTransactionFailureCode $failureCode = null, ?\DateTime $initiatedOn = null, ?\DateTime $confirmedOn = null, ?\DateTime $settledOn = null, ?\DateTime $failedOn = null, ?\DateTime $completedOn = null)
     {

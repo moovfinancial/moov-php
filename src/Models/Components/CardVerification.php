@@ -50,6 +50,7 @@ class CardVerification
      * @param  CardVerificationResult  $addressLine1
      * @param  CardVerificationResult  $postalCode
      * @param  AccountNameVerification  $accountName
+     * @phpstan-pure
      */
     public function __construct(CardVerificationResult $cvv, CardVerificationResult $addressLine1, CardVerificationResult $postalCode, AccountNameVerification $accountName)
     {

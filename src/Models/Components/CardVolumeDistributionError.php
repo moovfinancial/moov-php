@@ -48,6 +48,7 @@ class CardVolumeDistributionError
      * @param  ?string  $cardPresentPercentage
      * @param  ?string  $mailOrPhonePercentage
      * @param  ?string  $debtRepaymentPercentage
+     * @phpstan-pure
      */
     public function __construct(?string $ecommercePercentage = null, ?string $cardPresentPercentage = null, ?string $mailOrPhonePercentage = null, ?string $debtRepaymentPercentage = null)
     {

@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace Moov\OpenAPI\Models\Operations;
 
-use Moov\OpenAPI\Models\Components;
 use Moov\OpenAPI\Utils\SpeakeasyMetadata;
 class ListSchedulesRequest
 {
@@ -18,14 +17,6 @@ class ListSchedulesRequest
      */
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=accountID')]
     public string $accountID;
-
-    /**
-     * Specify an API version.
-     *
-     * @var ?Components\Versions $xMoovVersion
-     */
-    #[SpeakeasyMetadata('header:style=simple,explode=false,name=x-moov-version')]
-    public ?Components\Versions $xMoovVersion = null;
 
     /**
      *
@@ -42,16 +33,34 @@ class ListSchedulesRequest
     public ?int $count = null;
 
     /**
+     * Specify an API version.
+     *
+     *
+     * API versioning follows the format `vYYYY.QQ.BB`, where 
+     *   - `YYYY` is the year
+     *   - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)
+     *   - `BB` is an **optional** build number starting at `.01` for subsequent builds in the same quarter. 
+     *     - If no build number is specified, the version refers to the initial release of the quarter.
+     *
+     * The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release.
+     *
+     * @var ?string $xMoovVersion
+     */
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=x-moov-version')]
+    public ?string $xMoovVersion = null;
+
+    /**
      * @param  string  $accountID
-     * @param  ?Components\Versions  $xMoovVersion
+     * @param  ?string  $xMoovVersion
      * @param  ?int  $skip
      * @param  ?int  $count
+     * @phpstan-pure
      */
-    public function __construct(string $accountID, ?Components\Versions $xMoovVersion = null, ?int $skip = null, ?int $count = null)
+    public function __construct(string $accountID, ?int $skip = null, ?int $count = null, ?string $xMoovVersion = 'v2024.01')
     {
         $this->accountID = $accountID;
-        $this->xMoovVersion = $xMoovVersion;
         $this->skip = $skip;
         $this->count = $count;
+        $this->xMoovVersion = $xMoovVersion;
     }
 }

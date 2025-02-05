@@ -97,6 +97,7 @@ class FileDetails
      * @param  int  $fileSizeBytes
      * @param  \DateTime  $createdOn
      * @param  \DateTime  $updatedOn
+     * @phpstan-pure
      */
     public function __construct(string $fileID, string $fileName, string $accountID, FilePurpose $filePurpose, FileStatus $fileStatus, string $metadata, string $decisionReason, int $fileSizeBytes, \DateTime $createdOn, \DateTime $updatedOn)
     {

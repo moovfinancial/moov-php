@@ -71,6 +71,7 @@ class CreateIndividualError
      * @param  ?AddressError  $address
      * @param  ?BirthDateError  $birthDate
      * @param  ?CreateIndividualErrorGovernmentID  $governmentID
+     * @phpstan-pure
      */
     public function __construct(?IndividualNameError $name = null, ?PhoneNumberError $phone = null, ?string $email = null, ?AddressError $address = null, ?BirthDateError $birthDate = null, ?CreateIndividualErrorGovernmentID $governmentID = null)
     {

@@ -1,21 +1,26 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 1400cc1c0d1de1df92719a13aefce704
+  docChecksum: 3c832597bc6f910ad1cc9d7461fd4373
   docVersion: latest
-  speakeasyVersion: 1.469.12
-  generationVersion: 2.493.34
-  releaseVersion: 0.0.1
-  configChecksum: a12018e128212381514fff2e78bc8dca
+  speakeasyVersion: 1.484.1
+  generationVersion: 2.503.2
+  releaseVersion: 0.1.0
+  configChecksum: 7c21711591934fe20172f6ab58fec848
+  repoURL: https://github.com/moovfinancial/moov-php.git
+  installationURL: https://github.com/moovfinancial/moov-php
+  published: true
 features:
   php:
-    core: 3.7.9
+    constsAndDefaults: 0.2.0
+    core: 3.7.13
     deprecations: 2.81.1
     flattening: 2.81.1
     globalSecurity: 2.81.7
     globalServerURLs: 2.82.1
+    globals: 2.82.2
     methodArguments: 0.1.0
-    methodSecurity: 2.82.1
+    nameOverrides: 2.81.2
     nullables: 1.0.0
     responseFormat: 0.1.0
     unions: 0.1.4
@@ -37,7 +42,6 @@ generatedFiles:
   - docs/Models/Components/AccountNameVerification.md
   - docs/Models/Components/AccountType.md
   - docs/Models/Components/AccountVerificationStatus.md
-  - docs/Models/Components/AccountWaitFor.md
   - docs/Models/Components/AchCreditSameDayPaymentMethod.md
   - docs/Models/Components/AchCreditSameDayPaymentMethodPaymentMethodType.md
   - docs/Models/Components/AchCreditStandardPaymentMethod.md
@@ -90,9 +94,10 @@ generatedFiles:
   - docs/Models/Components/BirthDateError.md
   - docs/Models/Components/BirthDateUpdate.md
   - docs/Models/Components/BirthDateValidationError.md
-  - docs/Models/Components/Brand.md
   - docs/Models/Components/BrandColor.md
   - docs/Models/Components/BrandColorValidationError.md
+  - docs/Models/Components/BrandColors.md
+  - docs/Models/Components/BrandProperties.md
   - docs/Models/Components/BusinessProfile.md
   - docs/Models/Components/BusinessType.md
   - docs/Models/Components/CallToAction.md
@@ -131,7 +136,6 @@ generatedFiles:
   - docs/Models/Components/CardVolumeDistribution.md
   - docs/Models/Components/CardVolumeDistributionError.md
   - docs/Models/Components/CollectionPaymentMethodType.md
-  - docs/Models/Components/Colors.md
   - docs/Models/Components/ColorsValidationError.md
   - docs/Models/Components/CompleteBankAccountVerification.md
   - docs/Models/Components/CompleteMicroDeposits.md
@@ -219,6 +223,7 @@ generatedFiles:
   - docs/Models/Components/FileUploadRequestMultiPart.md
   - docs/Models/Components/FileUploadRequestMultiPartFile.md
   - docs/Models/Components/FinancialInstitutions.md
+  - docs/Models/Components/FixedAmount.md
   - docs/Models/Components/FulfillmentDetails.md
   - docs/Models/Components/FulfillmentDetailsError.md
   - docs/Models/Components/FullIssuedCard.md
@@ -263,7 +268,9 @@ generatedFiles:
   - docs/Models/Components/Manual.md
   - docs/Models/Components/ManualTermsOfService.md
   - docs/Models/Components/ManualTermsOfServiceUpdate.md
+  - docs/Models/Components/MaxPerTransaction.md
   - docs/Models/Components/MicroDepositStatus.md
+  - docs/Models/Components/MinPerTransaction.md
   - docs/Models/Components/Mode.md
   - docs/Models/Components/MoovFeeDetails.md
   - docs/Models/Components/MoovWalletPaymentMethod.md
@@ -337,7 +344,6 @@ generatedFiles:
   - docs/Models/Components/SECCode.md
   - docs/Models/Components/SchedulePaymentMethod.md
   - docs/Models/Components/ScheduleResponse.md
-  - docs/Models/Components/SchemeBasicAuth.md
   - docs/Models/Components/Security.md
   - docs/Models/Components/Settings.md
   - docs/Models/Components/SettingsUpdate.md
@@ -362,6 +368,7 @@ generatedFiles:
   - docs/Models/Components/TransferDestination.md
   - docs/Models/Components/TransferFailureReason.md
   - docs/Models/Components/TransferOptions.md
+  - docs/Models/Components/TransferResponse.md
   - docs/Models/Components/TransferSource.md
   - docs/Models/Components/TransferStatus.md
   - docs/Models/Components/TransferWaitFor.md
@@ -390,7 +397,6 @@ generatedFiles:
   - docs/Models/Components/Verification.md
   - docs/Models/Components/VerificationStatus.md
   - docs/Models/Components/VerificationStatusDetail.md
-  - docs/Models/Components/Versions.md
   - docs/Models/Components/VolumeByCustomerType.md
   - docs/Models/Components/VolumeByCustomerTypeError.md
   - docs/Models/Components/Wallet.md
@@ -416,7 +422,6 @@ generatedFiles:
   - docs/Models/Errors/LinkCardError.md
   - docs/Models/Errors/MicroDepositValidationError.md
   - docs/Models/Errors/OnboardingInviteError.md
-  - docs/Models/Errors/PatchAccountResponseBody.md
   - docs/Models/Errors/PatchSweepConfigError.md
   - docs/Models/Errors/RefundValidationError.md
   - docs/Models/Errors/RepresentativeValidationError.md
@@ -427,6 +432,7 @@ generatedFiles:
   - docs/Models/Errors/Transfer.md
   - docs/Models/Errors/TransferOptionsValidationError.md
   - docs/Models/Errors/TransferValidationError.md
+  - docs/Models/Errors/UpdateAccountResponseBody.md
   - docs/Models/Errors/UpdateCardError.md
   - docs/Models/Errors/UpdateIssuedCardError.md
   - docs/Models/Errors/UpdatePaymentLinkError.md
@@ -434,363 +440,249 @@ generatedFiles:
   - docs/Models/Errors/UpdateUnderwritingErrorError.md
   - docs/Models/Operations/AcceptDisputeRequest.md
   - docs/Models/Operations/AcceptDisputeResponse.md
-  - docs/Models/Operations/AcceptDisputeSecurity.md
-  - docs/Models/Operations/AddCapabilitiesRequest.md
-  - docs/Models/Operations/AddCapabilitiesResponse.md
-  - docs/Models/Operations/AddCapabilitiesSecurity.md
   - docs/Models/Operations/AssignAccountCountriesRequest.md
   - docs/Models/Operations/AssignAccountCountriesResponse.md
-  - docs/Models/Operations/AssignAccountCountriesSecurity.md
   - docs/Models/Operations/CancelScheduleRequest.md
   - docs/Models/Operations/CancelScheduleResponse.md
-  - docs/Models/Operations/CancelScheduleSecurity.md
   - docs/Models/Operations/CompleteBankAccountVerificationRequest.md
   - docs/Models/Operations/CompleteBankAccountVerificationResponse.md
-  - docs/Models/Operations/CompleteBankAccountVerificationSecurity.md
   - docs/Models/Operations/CompleteMicroDepositsRequest.md
   - docs/Models/Operations/CompleteMicroDepositsResponse.md
-  - docs/Models/Operations/CompleteMicroDepositsSecurity.md
+  - docs/Models/Operations/CreateAccessTokenRequest.md
+  - docs/Models/Operations/CreateAccessTokenResponse.md
   - docs/Models/Operations/CreateAccountRequest.md
   - docs/Models/Operations/CreateAccountResponse.md
-  - docs/Models/Operations/CreateAccountSecurity.md
   - docs/Models/Operations/CreateApplePaySessionRequest.md
   - docs/Models/Operations/CreateApplePaySessionResponse.md
-  - docs/Models/Operations/CreateApplePaySessionSecurity.md
-  - docs/Models/Operations/CreateAuthTokenRequest.md
-  - docs/Models/Operations/CreateAuthTokenResponse.md
+  - docs/Models/Operations/CreateBrandRequest.md
+  - docs/Models/Operations/CreateBrandResponse.md
   - docs/Models/Operations/CreateFeePlanAgreementsRequest.md
   - docs/Models/Operations/CreateFeePlanAgreementsResponse.md
-  - docs/Models/Operations/CreateFeePlanAgreementsSecurity.md
   - docs/Models/Operations/CreateOnboardingInviteRequest.md
   - docs/Models/Operations/CreateOnboardingInviteResponse.md
-  - docs/Models/Operations/CreateOnboardingInviteSecurity.md
   - docs/Models/Operations/CreatePaymentLinkRequest.md
   - docs/Models/Operations/CreatePaymentLinkResponse.md
-  - docs/Models/Operations/CreatePaymentLinkSecurity.md
   - docs/Models/Operations/CreateRepresentativeRequest.md
   - docs/Models/Operations/CreateRepresentativeResponse.md
-  - docs/Models/Operations/CreateRepresentativeSecurity.md
+  - docs/Models/Operations/CreateReversalRequest.md
+  - docs/Models/Operations/CreateReversalResponse.md
   - docs/Models/Operations/CreateScheduleRequest.md
   - docs/Models/Operations/CreateScheduleResponse.md
-  - docs/Models/Operations/CreateScheduleSecurity.md
   - docs/Models/Operations/CreateSweepConfigRequest.md
   - docs/Models/Operations/CreateSweepConfigResponse.md
-  - docs/Models/Operations/CreateSweepConfigSecurity.md
   - docs/Models/Operations/CreateTransferOptionsRequest.md
   - docs/Models/Operations/CreateTransferOptionsResponse.md
-  - docs/Models/Operations/CreateTransferOptionsSecurity.md
   - docs/Models/Operations/CreateTransferRequest.md
   - docs/Models/Operations/CreateTransferResponse.md
-  - docs/Models/Operations/CreateTransferResponseBody.md
-  - docs/Models/Operations/CreateTransferSecurity.md
   - docs/Models/Operations/DeleteDisputeEvidenceFileRequest.md
   - docs/Models/Operations/DeleteDisputeEvidenceFileResponse.md
-  - docs/Models/Operations/DeleteDisputeEvidenceFileSecurity.md
   - docs/Models/Operations/DeleteRepresentativeRequest.md
   - docs/Models/Operations/DeleteRepresentativeResponse.md
-  - docs/Models/Operations/DeleteRepresentativeSecurity.md
   - docs/Models/Operations/DisableBankAccountRequest.md
   - docs/Models/Operations/DisableBankAccountResponse.md
-  - docs/Models/Operations/DisableBankAccountSecurity.md
   - docs/Models/Operations/DisableCapabilityRequest.md
   - docs/Models/Operations/DisableCapabilityResponse.md
-  - docs/Models/Operations/DisableCapabilitySecurity.md
   - docs/Models/Operations/DisableCardRequest.md
   - docs/Models/Operations/DisableCardResponse.md
-  - docs/Models/Operations/DisableCardSecurity.md
   - docs/Models/Operations/DisablePaymentLinkRequest.md
   - docs/Models/Operations/DisablePaymentLinkResponse.md
-  - docs/Models/Operations/DisablePaymentLinkSecurity.md
   - docs/Models/Operations/DisconnectAccountRequest.md
   - docs/Models/Operations/DisconnectAccountResponse.md
-  - docs/Models/Operations/DisconnectAccountSecurity.md
   - docs/Models/Operations/GenerateEndToEndKeyRequest.md
   - docs/Models/Operations/GenerateEndToEndKeyResponse.md
   - docs/Models/Operations/GetAccountCountriesRequest.md
   - docs/Models/Operations/GetAccountCountriesResponse.md
-  - docs/Models/Operations/GetAccountCountriesSecurity.md
   - docs/Models/Operations/GetAccountRequest.md
   - docs/Models/Operations/GetAccountResponse.md
-  - docs/Models/Operations/GetAccountSecurity.md
   - docs/Models/Operations/GetAdjustmentRequest.md
   - docs/Models/Operations/GetAdjustmentResponse.md
-  - docs/Models/Operations/GetAdjustmentSecurity.md
   - docs/Models/Operations/GetApplePayMerchantDomainsRequest.md
   - docs/Models/Operations/GetApplePayMerchantDomainsResponse.md
-  - docs/Models/Operations/GetApplePayMerchantDomainsSecurity.md
   - docs/Models/Operations/GetAvatarRequest.md
   - docs/Models/Operations/GetAvatarResponse.md
-  - docs/Models/Operations/GetAvatarSecurity.md
   - docs/Models/Operations/GetBankAccountRequest.md
   - docs/Models/Operations/GetBankAccountResponse.md
-  - docs/Models/Operations/GetBankAccountSecurity.md
   - docs/Models/Operations/GetBankAccountVerificationRequest.md
   - docs/Models/Operations/GetBankAccountVerificationResponse.md
-  - docs/Models/Operations/GetBankAccountVerificationSecurity.md
   - docs/Models/Operations/GetBrandRequest.md
   - docs/Models/Operations/GetBrandResponse.md
-  - docs/Models/Operations/GetBrandSecurity.md
   - docs/Models/Operations/GetCapabilityRequest.md
   - docs/Models/Operations/GetCapabilityResponse.md
-  - docs/Models/Operations/GetCapabilitySecurity.md
   - docs/Models/Operations/GetCardRequest.md
   - docs/Models/Operations/GetCardResponse.md
-  - docs/Models/Operations/GetCardSecurity.md
   - docs/Models/Operations/GetDisputeEvidenceDataRequest.md
   - docs/Models/Operations/GetDisputeEvidenceDataResponse.md
-  - docs/Models/Operations/GetDisputeEvidenceDataSecurity.md
   - docs/Models/Operations/GetDisputeEvidenceRequest.md
   - docs/Models/Operations/GetDisputeEvidenceResponse.md
-  - docs/Models/Operations/GetDisputeEvidenceSecurity.md
   - docs/Models/Operations/GetDisputeRequest.md
   - docs/Models/Operations/GetDisputeResponse.md
-  - docs/Models/Operations/GetDisputeSecurity.md
   - docs/Models/Operations/GetEnrichmentAddressRequest.md
   - docs/Models/Operations/GetEnrichmentAddressResponse.md
-  - docs/Models/Operations/GetEnrichmentAddressSecurity.md
   - docs/Models/Operations/GetEnrichmentProfileRequest.md
   - docs/Models/Operations/GetEnrichmentProfileResponse.md
-  - docs/Models/Operations/GetEnrichmentProfileSecurity.md
   - docs/Models/Operations/GetFileDetailsRequest.md
   - docs/Models/Operations/GetFileDetailsResponse.md
-  - docs/Models/Operations/GetFileDetailsSecurity.md
   - docs/Models/Operations/GetFullIssuedCardRequest.md
   - docs/Models/Operations/GetFullIssuedCardResponse.md
-  - docs/Models/Operations/GetFullIssuedCardSecurity.md
   - docs/Models/Operations/GetIssuedCardAuthorizationRequest.md
   - docs/Models/Operations/GetIssuedCardAuthorizationResponse.md
-  - docs/Models/Operations/GetIssuedCardAuthorizationSecurity.md
   - docs/Models/Operations/GetIssuedCardRequest.md
   - docs/Models/Operations/GetIssuedCardResponse.md
-  - docs/Models/Operations/GetIssuedCardSecurity.md
   - docs/Models/Operations/GetIssuedCardTransactionRequest.md
   - docs/Models/Operations/GetIssuedCardTransactionResponse.md
-  - docs/Models/Operations/GetIssuedCardTransactionSecurity.md
   - docs/Models/Operations/GetMerchantProcessingAgreementRequest.md
   - docs/Models/Operations/GetMerchantProcessingAgreementResponse.md
-  - docs/Models/Operations/GetMerchantProcessingAgreementSecurity.md
   - docs/Models/Operations/GetOnboardingInviteRequest.md
   - docs/Models/Operations/GetOnboardingInviteResponse.md
-  - docs/Models/Operations/GetOnboardingInviteSecurity.md
   - docs/Models/Operations/GetPaymentLinkQRCodeRequest.md
   - docs/Models/Operations/GetPaymentLinkQRCodeResponse.md
-  - docs/Models/Operations/GetPaymentLinkQRCodeSecurity.md
   - docs/Models/Operations/GetPaymentLinkRequest.md
   - docs/Models/Operations/GetPaymentLinkResponse.md
-  - docs/Models/Operations/GetPaymentLinkSecurity.md
   - docs/Models/Operations/GetPaymentMethodRequest.md
   - docs/Models/Operations/GetPaymentMethodResponse.md
-  - docs/Models/Operations/GetPaymentMethodSecurity.md
   - docs/Models/Operations/GetRefundRequest.md
   - docs/Models/Operations/GetRefundResponse.md
-  - docs/Models/Operations/GetRefundSecurity.md
   - docs/Models/Operations/GetRepresentativeRequest.md
   - docs/Models/Operations/GetRepresentativeResponse.md
-  - docs/Models/Operations/GetRepresentativeSecurity.md
   - docs/Models/Operations/GetScheduledOccurrenceRequest.md
   - docs/Models/Operations/GetScheduledOccurrenceResponse.md
-  - docs/Models/Operations/GetScheduledOccurrenceSecurity.md
   - docs/Models/Operations/GetSchedulesRequest.md
   - docs/Models/Operations/GetSchedulesResponse.md
-  - docs/Models/Operations/GetSchedulesSecurity.md
   - docs/Models/Operations/GetSweepConfigRequest.md
   - docs/Models/Operations/GetSweepConfigResponse.md
-  - docs/Models/Operations/GetSweepConfigSecurity.md
   - docs/Models/Operations/GetSweepRequest.md
   - docs/Models/Operations/GetSweepResponse.md
-  - docs/Models/Operations/GetSweepSecurity.md
   - docs/Models/Operations/GetTermsOfServiceTokenRequest.md
   - docs/Models/Operations/GetTermsOfServiceTokenResponse.md
   - docs/Models/Operations/GetTransferRequest.md
   - docs/Models/Operations/GetTransferResponse.md
-  - docs/Models/Operations/GetTransferSecurity.md
   - docs/Models/Operations/GetUnderwritingRequest.md
   - docs/Models/Operations/GetUnderwritingResponse.md
-  - docs/Models/Operations/GetUnderwritingSecurity.md
   - docs/Models/Operations/GetWalletRequest.md
   - docs/Models/Operations/GetWalletResponse.md
-  - docs/Models/Operations/GetWalletSecurity.md
   - docs/Models/Operations/GetWalletTransactionRequest.md
   - docs/Models/Operations/GetWalletTransactionResponse.md
-  - docs/Models/Operations/GetWalletTransactionSecurity.md
   - docs/Models/Operations/InitiateBankAccountVerificationRequest.md
   - docs/Models/Operations/InitiateBankAccountVerificationResponse.md
-  - docs/Models/Operations/InitiateBankAccountVerificationSecurity.md
   - docs/Models/Operations/InitiateMicroDepositsRequest.md
   - docs/Models/Operations/InitiateMicroDepositsResponse.md
-  - docs/Models/Operations/InitiateMicroDepositsSecurity.md
+  - docs/Models/Operations/InitiateRefundRequest.md
+  - docs/Models/Operations/InitiateRefundResponse.md
   - docs/Models/Operations/LinkApplePayTokenRequest.md
   - docs/Models/Operations/LinkApplePayTokenResponse.md
-  - docs/Models/Operations/LinkApplePayTokenSecurity.md
   - docs/Models/Operations/LinkBankAccountRequest.md
   - docs/Models/Operations/LinkBankAccountResponse.md
-  - docs/Models/Operations/LinkBankAccountSecurity.md
   - docs/Models/Operations/LinkCardRequest.md
   - docs/Models/Operations/LinkCardResponse.md
-  - docs/Models/Operations/LinkCardSecurity.md
   - docs/Models/Operations/ListAccountsRequest.md
   - docs/Models/Operations/ListAccountsResponse.md
-  - docs/Models/Operations/ListAccountsSecurity.md
   - docs/Models/Operations/ListAdjustmentsRequest.md
   - docs/Models/Operations/ListAdjustmentsResponse.md
-  - docs/Models/Operations/ListAdjustmentsSecurity.md
   - docs/Models/Operations/ListBankAccountsRequest.md
   - docs/Models/Operations/ListBankAccountsResponse.md
-  - docs/Models/Operations/ListBankAccountsSecurity.md
   - docs/Models/Operations/ListCapabilitiesRequest.md
   - docs/Models/Operations/ListCapabilitiesResponse.md
-  - docs/Models/Operations/ListCapabilitiesSecurity.md
   - docs/Models/Operations/ListCardsRequest.md
   - docs/Models/Operations/ListCardsResponse.md
-  - docs/Models/Operations/ListCardsSecurity.md
   - docs/Models/Operations/ListDisputeEvidenceRequest.md
   - docs/Models/Operations/ListDisputeEvidenceResponse.md
-  - docs/Models/Operations/ListDisputeEvidenceSecurity.md
   - docs/Models/Operations/ListDisputesRequest.md
   - docs/Models/Operations/ListDisputesResponse.md
-  - docs/Models/Operations/ListDisputesSecurity.md
   - docs/Models/Operations/ListFeePlanAgreementsRequest.md
   - docs/Models/Operations/ListFeePlanAgreementsResponse.md
-  - docs/Models/Operations/ListFeePlanAgreementsSecurity.md
   - docs/Models/Operations/ListFeePlansRequest.md
   - docs/Models/Operations/ListFeePlansResponse.md
-  - docs/Models/Operations/ListFeePlansSecurity.md
   - docs/Models/Operations/ListFilesRequest.md
   - docs/Models/Operations/ListFilesResponse.md
-  - docs/Models/Operations/ListFilesSecurity.md
   - docs/Models/Operations/ListIndustriesRequest.md
   - docs/Models/Operations/ListIndustriesResponse.md
-  - docs/Models/Operations/ListIndustriesSecurity.md
   - docs/Models/Operations/ListInstitutionsRequest.md
   - docs/Models/Operations/ListInstitutionsResponse.md
-  - docs/Models/Operations/ListInstitutionsSecurity.md
   - docs/Models/Operations/ListIssuedCardAuthorizationEventsRequest.md
   - docs/Models/Operations/ListIssuedCardAuthorizationEventsResponse.md
-  - docs/Models/Operations/ListIssuedCardAuthorizationEventsSecurity.md
   - docs/Models/Operations/ListIssuedCardAuthorizationsRequest.md
   - docs/Models/Operations/ListIssuedCardAuthorizationsResponse.md
-  - docs/Models/Operations/ListIssuedCardAuthorizationsSecurity.md
   - docs/Models/Operations/ListIssuedCardTransactionsRequest.md
   - docs/Models/Operations/ListIssuedCardTransactionsResponse.md
-  - docs/Models/Operations/ListIssuedCardTransactionsSecurity.md
   - docs/Models/Operations/ListIssuedCardsRequest.md
   - docs/Models/Operations/ListIssuedCardsResponse.md
-  - docs/Models/Operations/ListIssuedCardsSecurity.md
   - docs/Models/Operations/ListOnboardingInvitesRequest.md
   - docs/Models/Operations/ListOnboardingInvitesResponse.md
-  - docs/Models/Operations/ListOnboardingInvitesSecurity.md
   - docs/Models/Operations/ListPartnerPricingAgreementsRequest.md
   - docs/Models/Operations/ListPartnerPricingAgreementsResponse.md
-  - docs/Models/Operations/ListPartnerPricingAgreementsSecurity.md
   - docs/Models/Operations/ListPartnerPricingRequest.md
   - docs/Models/Operations/ListPartnerPricingResponse.md
-  - docs/Models/Operations/ListPartnerPricingSecurity.md
   - docs/Models/Operations/ListPaymentLinksRequest.md
   - docs/Models/Operations/ListPaymentLinksResponse.md
-  - docs/Models/Operations/ListPaymentLinksSecurity.md
   - docs/Models/Operations/ListPaymentMethodsRequest.md
   - docs/Models/Operations/ListPaymentMethodsResponse.md
-  - docs/Models/Operations/ListPaymentMethodsSecurity.md
   - docs/Models/Operations/ListRefundsRequest.md
   - docs/Models/Operations/ListRefundsResponse.md
-  - docs/Models/Operations/ListRefundsSecurity.md
   - docs/Models/Operations/ListRepresentativesRequest.md
   - docs/Models/Operations/ListRepresentativesResponse.md
-  - docs/Models/Operations/ListRepresentativesSecurity.md
   - docs/Models/Operations/ListSchedulesRequest.md
   - docs/Models/Operations/ListSchedulesResponse.md
-  - docs/Models/Operations/ListSchedulesSecurity.md
   - docs/Models/Operations/ListSweepConfigsRequest.md
   - docs/Models/Operations/ListSweepConfigsResponse.md
-  - docs/Models/Operations/ListSweepConfigsSecurity.md
   - docs/Models/Operations/ListSweepsRequest.md
   - docs/Models/Operations/ListSweepsResponse.md
-  - docs/Models/Operations/ListSweepsSecurity.md
   - docs/Models/Operations/ListTransfersRequest.md
   - docs/Models/Operations/ListTransfersResponse.md
-  - docs/Models/Operations/ListTransfersSecurity.md
   - docs/Models/Operations/ListWalletTransactionsRequest.md
   - docs/Models/Operations/ListWalletTransactionsResponse.md
-  - docs/Models/Operations/ListWalletTransactionsSecurity.md
   - docs/Models/Operations/ListWalletsRequest.md
   - docs/Models/Operations/ListWalletsResponse.md
-  - docs/Models/Operations/ListWalletsSecurity.md
-  - docs/Models/Operations/PatchAccountRequest.md
-  - docs/Models/Operations/PatchAccountResponse.md
-  - docs/Models/Operations/PatchAccountSecurity.md
-  - docs/Models/Operations/PatchSweepConfigRequest.md
-  - docs/Models/Operations/PatchSweepConfigResponse.md
-  - docs/Models/Operations/PatchSweepConfigSecurity.md
-  - docs/Models/Operations/PatchTransferRequest.md
-  - docs/Models/Operations/PatchTransferResponse.md
-  - docs/Models/Operations/PatchTransferSecurity.md
   - docs/Models/Operations/PingRequest.md
   - docs/Models/Operations/PingResponse.md
-  - docs/Models/Operations/PingSecurity.md
-  - docs/Models/Operations/PostBrandRequest.md
-  - docs/Models/Operations/PostBrandResponse.md
-  - docs/Models/Operations/PostBrandSecurity.md
-  - docs/Models/Operations/RefundTransferRequest.md
-  - docs/Models/Operations/RefundTransferResponse.md
-  - docs/Models/Operations/RefundTransferSecurity.md
   - docs/Models/Operations/RegisterApplePayMerchantDomainsRequest.md
   - docs/Models/Operations/RegisterApplePayMerchantDomainsResponse.md
-  - docs/Models/Operations/RegisterApplePayMerchantDomainsSecurity.md
+  - docs/Models/Operations/RequestCapabilitiesRequest.md
+  - docs/Models/Operations/RequestCapabilitiesResponse.md
   - docs/Models/Operations/RequestCardRequest.md
   - docs/Models/Operations/RequestCardResponse.md
-  - docs/Models/Operations/RequestCardSecurity.md
-  - docs/Models/Operations/ReverseTransferRequest.md
-  - docs/Models/Operations/ReverseTransferResponse.md
-  - docs/Models/Operations/ReverseTransferSecurity.md
-  - docs/Models/Operations/RevokeAuthTokenRequest.md
-  - docs/Models/Operations/RevokeAuthTokenResponse.md
+  - docs/Models/Operations/RevokeAccessTokenRequest.md
+  - docs/Models/Operations/RevokeAccessTokenResponse.md
   - docs/Models/Operations/RevokeOnboardingInviteRequest.md
   - docs/Models/Operations/RevokeOnboardingInviteResponse.md
-  - docs/Models/Operations/RevokeOnboardingInviteSecurity.md
   - docs/Models/Operations/SubmitDisputeEvidenceRequest.md
   - docs/Models/Operations/SubmitDisputeEvidenceResponse.md
-  - docs/Models/Operations/SubmitDisputeEvidenceSecurity.md
   - docs/Models/Operations/TestEndToEndTokenRequest.md
   - docs/Models/Operations/TestEndToEndTokenResponse.md
-  - docs/Models/Operations/TestEndToEndTokenSecurity.md
+  - docs/Models/Operations/UpdateAccountRequest.md
+  - docs/Models/Operations/UpdateAccountResponse.md
   - docs/Models/Operations/UpdateApplePayMerchantDomainsRequest.md
   - docs/Models/Operations/UpdateApplePayMerchantDomainsResponse.md
-  - docs/Models/Operations/UpdateApplePayMerchantDomainsSecurity.md
   - docs/Models/Operations/UpdateBrandRequest.md
   - docs/Models/Operations/UpdateBrandResponse.md
-  - docs/Models/Operations/UpdateBrandSecurity.md
   - docs/Models/Operations/UpdateCardRequest.md
   - docs/Models/Operations/UpdateCardResponse.md
-  - docs/Models/Operations/UpdateCardSecurity.md
   - docs/Models/Operations/UpdateDisputeEvidenceRequest.md
   - docs/Models/Operations/UpdateDisputeEvidenceResponse.md
-  - docs/Models/Operations/UpdateDisputeEvidenceSecurity.md
   - docs/Models/Operations/UpdateIssuedCardRequest.md
   - docs/Models/Operations/UpdateIssuedCardResponse.md
-  - docs/Models/Operations/UpdateIssuedCardSecurity.md
   - docs/Models/Operations/UpdatePaymentLinkRequest.md
   - docs/Models/Operations/UpdatePaymentLinkResponse.md
-  - docs/Models/Operations/UpdatePaymentLinkSecurity.md
   - docs/Models/Operations/UpdateRepresentativeRequest.md
   - docs/Models/Operations/UpdateRepresentativeResponse.md
-  - docs/Models/Operations/UpdateRepresentativeSecurity.md
   - docs/Models/Operations/UpdateScheduleRequest.md
   - docs/Models/Operations/UpdateScheduleResponse.md
-  - docs/Models/Operations/UpdateScheduleSecurity.md
+  - docs/Models/Operations/UpdateSweepConfigRequest.md
+  - docs/Models/Operations/UpdateSweepConfigResponse.md
+  - docs/Models/Operations/UpdateTransferRequest.md
+  - docs/Models/Operations/UpdateTransferResponse.md
   - docs/Models/Operations/UpdateUnderwritingRequest.md
   - docs/Models/Operations/UpdateUnderwritingResponse.md
-  - docs/Models/Operations/UpdateUnderwritingSecurity.md
   - docs/Models/Operations/UploadDisputeEvidenceFileRequest.md
   - docs/Models/Operations/UploadDisputeEvidenceFileResponse.md
-  - docs/Models/Operations/UploadDisputeEvidenceFileSecurity.md
   - docs/Models/Operations/UploadDisputeEvidenceTextRequest.md
   - docs/Models/Operations/UploadDisputeEvidenceTextResponse.md
-  - docs/Models/Operations/UploadDisputeEvidenceTextSecurity.md
   - docs/Models/Operations/UploadFileRequest.md
   - docs/Models/Operations/UploadFileResponse.md
-  - docs/Models/Operations/UploadFileSecurity.md
+  - docs/Models/Operations/UpsertBrandRequest.md
+  - docs/Models/Operations/UpsertBrandResponse.md
   - docs/sdks/accounts/README.md
   - docs/sdks/adjustments/README.md
+  - docs/sdks/applepay/README.md
   - docs/sdks/authentication/README.md
   - docs/sdks/avatars/README.md
   - docs/sdks/bankaccounts/README.md
@@ -825,6 +717,7 @@ generatedFiles:
   - rector.php
   - src/Accounts.php
   - src/Adjustments.php
+  - src/ApplePay.php
   - src/Authentication.php
   - src/Avatars.php
   - src/BankAccounts.php
@@ -871,7 +764,6 @@ generatedFiles:
   - src/Models/Components/AccountNameVerification.php
   - src/Models/Components/AccountType.php
   - src/Models/Components/AccountVerificationStatus.php
-  - src/Models/Components/AccountWaitFor.php
   - src/Models/Components/AchCreditSameDayPaymentMethod.php
   - src/Models/Components/AchCreditSameDayPaymentMethodPaymentMethodType.php
   - src/Models/Components/AchCreditStandardPaymentMethod.php
@@ -924,9 +816,10 @@ generatedFiles:
   - src/Models/Components/BirthDateError.php
   - src/Models/Components/BirthDateUpdate.php
   - src/Models/Components/BirthDateValidationError.php
-  - src/Models/Components/Brand.php
   - src/Models/Components/BrandColor.php
   - src/Models/Components/BrandColorValidationError.php
+  - src/Models/Components/BrandColors.php
+  - src/Models/Components/BrandProperties.php
   - src/Models/Components/BusinessProfile.php
   - src/Models/Components/BusinessType.php
   - src/Models/Components/CallToAction.php
@@ -965,7 +858,6 @@ generatedFiles:
   - src/Models/Components/CardVolumeDistribution.php
   - src/Models/Components/CardVolumeDistributionError.php
   - src/Models/Components/CollectionPaymentMethodType.php
-  - src/Models/Components/Colors.php
   - src/Models/Components/ColorsValidationError.php
   - src/Models/Components/CompleteBankAccountVerification.php
   - src/Models/Components/CompleteMicroDeposits.php
@@ -1049,6 +941,7 @@ generatedFiles:
   - src/Models/Components/FileUploadRequestMultiPart.php
   - src/Models/Components/FileUploadRequestMultiPartFile.php
   - src/Models/Components/FinancialInstitutions.php
+  - src/Models/Components/FixedAmount.php
   - src/Models/Components/FulfillmentDetails.php
   - src/Models/Components/FulfillmentDetailsError.php
   - src/Models/Components/FullIssuedCard.php
@@ -1092,7 +985,9 @@ generatedFiles:
   - src/Models/Components/Manual.php
   - src/Models/Components/ManualTermsOfService.php
   - src/Models/Components/ManualTermsOfServiceUpdate.php
+  - src/Models/Components/MaxPerTransaction.php
   - src/Models/Components/MicroDepositStatus.php
+  - src/Models/Components/MinPerTransaction.php
   - src/Models/Components/Mode.php
   - src/Models/Components/MoovFeeDetails.php
   - src/Models/Components/MoovWalletPaymentMethod.php
@@ -1164,7 +1059,6 @@ generatedFiles:
   - src/Models/Components/SECCode.php
   - src/Models/Components/SchedulePaymentMethod.php
   - src/Models/Components/ScheduleResponse.php
-  - src/Models/Components/SchemeBasicAuth.php
   - src/Models/Components/Security.php
   - src/Models/Components/Settings.php
   - src/Models/Components/SettingsUpdate.php
@@ -1217,7 +1111,6 @@ generatedFiles:
   - src/Models/Components/Verification.php
   - src/Models/Components/VerificationStatus.php
   - src/Models/Components/VerificationStatusDetail.php
-  - src/Models/Components/Versions.php
   - src/Models/Components/VolumeByCustomerType.php
   - src/Models/Components/VolumeByCustomerTypeError.php
   - src/Models/Components/Wallet.php
@@ -1260,8 +1153,6 @@ generatedFiles:
   - src/Models/Errors/MicroDepositValidationErrorThrowable.php
   - src/Models/Errors/OnboardingInviteError.php
   - src/Models/Errors/OnboardingInviteErrorThrowable.php
-  - src/Models/Errors/PatchAccountResponseBody.php
-  - src/Models/Errors/PatchAccountResponseBodyThrowable.php
   - src/Models/Errors/PatchSweepConfigError.php
   - src/Models/Errors/PatchSweepConfigErrorThrowable.php
   - src/Models/Errors/RefundValidationError.php
@@ -1282,6 +1173,8 @@ generatedFiles:
   - src/Models/Errors/TransferThrowable.php
   - src/Models/Errors/TransferValidationError.php
   - src/Models/Errors/TransferValidationErrorThrowable.php
+  - src/Models/Errors/UpdateAccountResponseBody.php
+  - src/Models/Errors/UpdateAccountResponseBodyThrowable.php
   - src/Models/Errors/UpdateCardError.php
   - src/Models/Errors/UpdateCardErrorThrowable.php
   - src/Models/Errors/UpdateIssuedCardError.php
@@ -1293,360 +1186,246 @@ generatedFiles:
   - src/Models/Errors/UpdateUnderwritingErrorThrowable.php
   - src/Models/Operations/AcceptDisputeRequest.php
   - src/Models/Operations/AcceptDisputeResponse.php
-  - src/Models/Operations/AcceptDisputeSecurity.php
-  - src/Models/Operations/AddCapabilitiesRequest.php
-  - src/Models/Operations/AddCapabilitiesResponse.php
-  - src/Models/Operations/AddCapabilitiesSecurity.php
   - src/Models/Operations/AssignAccountCountriesRequest.php
   - src/Models/Operations/AssignAccountCountriesResponse.php
-  - src/Models/Operations/AssignAccountCountriesSecurity.php
   - src/Models/Operations/CancelScheduleRequest.php
   - src/Models/Operations/CancelScheduleResponse.php
-  - src/Models/Operations/CancelScheduleSecurity.php
   - src/Models/Operations/CompleteBankAccountVerificationRequest.php
   - src/Models/Operations/CompleteBankAccountVerificationResponse.php
-  - src/Models/Operations/CompleteBankAccountVerificationSecurity.php
   - src/Models/Operations/CompleteMicroDepositsRequest.php
   - src/Models/Operations/CompleteMicroDepositsResponse.php
-  - src/Models/Operations/CompleteMicroDepositsSecurity.php
+  - src/Models/Operations/CreateAccessTokenRequest.php
+  - src/Models/Operations/CreateAccessTokenResponse.php
   - src/Models/Operations/CreateAccountRequest.php
   - src/Models/Operations/CreateAccountResponse.php
-  - src/Models/Operations/CreateAccountSecurity.php
   - src/Models/Operations/CreateApplePaySessionRequest.php
   - src/Models/Operations/CreateApplePaySessionResponse.php
-  - src/Models/Operations/CreateApplePaySessionSecurity.php
-  - src/Models/Operations/CreateAuthTokenRequest.php
-  - src/Models/Operations/CreateAuthTokenResponse.php
+  - src/Models/Operations/CreateBrandRequest.php
+  - src/Models/Operations/CreateBrandResponse.php
   - src/Models/Operations/CreateFeePlanAgreementsRequest.php
   - src/Models/Operations/CreateFeePlanAgreementsResponse.php
-  - src/Models/Operations/CreateFeePlanAgreementsSecurity.php
   - src/Models/Operations/CreateOnboardingInviteRequest.php
   - src/Models/Operations/CreateOnboardingInviteResponse.php
-  - src/Models/Operations/CreateOnboardingInviteSecurity.php
   - src/Models/Operations/CreatePaymentLinkRequest.php
   - src/Models/Operations/CreatePaymentLinkResponse.php
-  - src/Models/Operations/CreatePaymentLinkSecurity.php
   - src/Models/Operations/CreateRepresentativeRequest.php
   - src/Models/Operations/CreateRepresentativeResponse.php
-  - src/Models/Operations/CreateRepresentativeSecurity.php
+  - src/Models/Operations/CreateReversalRequest.php
+  - src/Models/Operations/CreateReversalResponse.php
   - src/Models/Operations/CreateScheduleRequest.php
   - src/Models/Operations/CreateScheduleResponse.php
-  - src/Models/Operations/CreateScheduleSecurity.php
   - src/Models/Operations/CreateSweepConfigRequest.php
   - src/Models/Operations/CreateSweepConfigResponse.php
-  - src/Models/Operations/CreateSweepConfigSecurity.php
   - src/Models/Operations/CreateTransferOptionsRequest.php
   - src/Models/Operations/CreateTransferOptionsResponse.php
-  - src/Models/Operations/CreateTransferOptionsSecurity.php
   - src/Models/Operations/CreateTransferRequest.php
   - src/Models/Operations/CreateTransferResponse.php
-  - src/Models/Operations/CreateTransferSecurity.php
   - src/Models/Operations/DeleteDisputeEvidenceFileRequest.php
   - src/Models/Operations/DeleteDisputeEvidenceFileResponse.php
-  - src/Models/Operations/DeleteDisputeEvidenceFileSecurity.php
   - src/Models/Operations/DeleteRepresentativeRequest.php
   - src/Models/Operations/DeleteRepresentativeResponse.php
-  - src/Models/Operations/DeleteRepresentativeSecurity.php
   - src/Models/Operations/DisableBankAccountRequest.php
   - src/Models/Operations/DisableBankAccountResponse.php
-  - src/Models/Operations/DisableBankAccountSecurity.php
   - src/Models/Operations/DisableCapabilityRequest.php
   - src/Models/Operations/DisableCapabilityResponse.php
-  - src/Models/Operations/DisableCapabilitySecurity.php
   - src/Models/Operations/DisableCardRequest.php
   - src/Models/Operations/DisableCardResponse.php
-  - src/Models/Operations/DisableCardSecurity.php
   - src/Models/Operations/DisablePaymentLinkRequest.php
   - src/Models/Operations/DisablePaymentLinkResponse.php
-  - src/Models/Operations/DisablePaymentLinkSecurity.php
   - src/Models/Operations/DisconnectAccountRequest.php
   - src/Models/Operations/DisconnectAccountResponse.php
-  - src/Models/Operations/DisconnectAccountSecurity.php
   - src/Models/Operations/GenerateEndToEndKeyRequest.php
   - src/Models/Operations/GenerateEndToEndKeyResponse.php
   - src/Models/Operations/GetAccountCountriesRequest.php
   - src/Models/Operations/GetAccountCountriesResponse.php
-  - src/Models/Operations/GetAccountCountriesSecurity.php
   - src/Models/Operations/GetAccountRequest.php
   - src/Models/Operations/GetAccountResponse.php
-  - src/Models/Operations/GetAccountSecurity.php
   - src/Models/Operations/GetAdjustmentRequest.php
   - src/Models/Operations/GetAdjustmentResponse.php
-  - src/Models/Operations/GetAdjustmentSecurity.php
   - src/Models/Operations/GetApplePayMerchantDomainsRequest.php
   - src/Models/Operations/GetApplePayMerchantDomainsResponse.php
-  - src/Models/Operations/GetApplePayMerchantDomainsSecurity.php
   - src/Models/Operations/GetAvatarRequest.php
   - src/Models/Operations/GetAvatarResponse.php
-  - src/Models/Operations/GetAvatarSecurity.php
   - src/Models/Operations/GetBankAccountRequest.php
   - src/Models/Operations/GetBankAccountResponse.php
-  - src/Models/Operations/GetBankAccountSecurity.php
   - src/Models/Operations/GetBankAccountVerificationRequest.php
   - src/Models/Operations/GetBankAccountVerificationResponse.php
-  - src/Models/Operations/GetBankAccountVerificationSecurity.php
   - src/Models/Operations/GetBrandRequest.php
   - src/Models/Operations/GetBrandResponse.php
-  - src/Models/Operations/GetBrandSecurity.php
   - src/Models/Operations/GetCapabilityRequest.php
   - src/Models/Operations/GetCapabilityResponse.php
-  - src/Models/Operations/GetCapabilitySecurity.php
   - src/Models/Operations/GetCardRequest.php
   - src/Models/Operations/GetCardResponse.php
-  - src/Models/Operations/GetCardSecurity.php
   - src/Models/Operations/GetDisputeEvidenceDataRequest.php
   - src/Models/Operations/GetDisputeEvidenceDataResponse.php
-  - src/Models/Operations/GetDisputeEvidenceDataSecurity.php
   - src/Models/Operations/GetDisputeEvidenceRequest.php
   - src/Models/Operations/GetDisputeEvidenceResponse.php
-  - src/Models/Operations/GetDisputeEvidenceSecurity.php
   - src/Models/Operations/GetDisputeRequest.php
   - src/Models/Operations/GetDisputeResponse.php
-  - src/Models/Operations/GetDisputeSecurity.php
   - src/Models/Operations/GetEnrichmentAddressRequest.php
   - src/Models/Operations/GetEnrichmentAddressResponse.php
-  - src/Models/Operations/GetEnrichmentAddressSecurity.php
   - src/Models/Operations/GetEnrichmentProfileRequest.php
   - src/Models/Operations/GetEnrichmentProfileResponse.php
-  - src/Models/Operations/GetEnrichmentProfileSecurity.php
   - src/Models/Operations/GetFileDetailsRequest.php
   - src/Models/Operations/GetFileDetailsResponse.php
-  - src/Models/Operations/GetFileDetailsSecurity.php
   - src/Models/Operations/GetFullIssuedCardRequest.php
   - src/Models/Operations/GetFullIssuedCardResponse.php
-  - src/Models/Operations/GetFullIssuedCardSecurity.php
   - src/Models/Operations/GetIssuedCardAuthorizationRequest.php
   - src/Models/Operations/GetIssuedCardAuthorizationResponse.php
-  - src/Models/Operations/GetIssuedCardAuthorizationSecurity.php
   - src/Models/Operations/GetIssuedCardRequest.php
   - src/Models/Operations/GetIssuedCardResponse.php
-  - src/Models/Operations/GetIssuedCardSecurity.php
   - src/Models/Operations/GetIssuedCardTransactionRequest.php
   - src/Models/Operations/GetIssuedCardTransactionResponse.php
-  - src/Models/Operations/GetIssuedCardTransactionSecurity.php
   - src/Models/Operations/GetMerchantProcessingAgreementRequest.php
   - src/Models/Operations/GetMerchantProcessingAgreementResponse.php
-  - src/Models/Operations/GetMerchantProcessingAgreementSecurity.php
   - src/Models/Operations/GetOnboardingInviteRequest.php
   - src/Models/Operations/GetOnboardingInviteResponse.php
-  - src/Models/Operations/GetOnboardingInviteSecurity.php
   - src/Models/Operations/GetPaymentLinkQRCodeRequest.php
   - src/Models/Operations/GetPaymentLinkQRCodeResponse.php
-  - src/Models/Operations/GetPaymentLinkQRCodeSecurity.php
   - src/Models/Operations/GetPaymentLinkRequest.php
   - src/Models/Operations/GetPaymentLinkResponse.php
-  - src/Models/Operations/GetPaymentLinkSecurity.php
   - src/Models/Operations/GetPaymentMethodRequest.php
   - src/Models/Operations/GetPaymentMethodResponse.php
-  - src/Models/Operations/GetPaymentMethodSecurity.php
   - src/Models/Operations/GetRefundRequest.php
   - src/Models/Operations/GetRefundResponse.php
-  - src/Models/Operations/GetRefundSecurity.php
   - src/Models/Operations/GetRepresentativeRequest.php
   - src/Models/Operations/GetRepresentativeResponse.php
-  - src/Models/Operations/GetRepresentativeSecurity.php
   - src/Models/Operations/GetScheduledOccurrenceRequest.php
   - src/Models/Operations/GetScheduledOccurrenceResponse.php
-  - src/Models/Operations/GetScheduledOccurrenceSecurity.php
   - src/Models/Operations/GetSchedulesRequest.php
   - src/Models/Operations/GetSchedulesResponse.php
-  - src/Models/Operations/GetSchedulesSecurity.php
   - src/Models/Operations/GetSweepConfigRequest.php
   - src/Models/Operations/GetSweepConfigResponse.php
-  - src/Models/Operations/GetSweepConfigSecurity.php
   - src/Models/Operations/GetSweepRequest.php
   - src/Models/Operations/GetSweepResponse.php
-  - src/Models/Operations/GetSweepSecurity.php
   - src/Models/Operations/GetTermsOfServiceTokenRequest.php
   - src/Models/Operations/GetTermsOfServiceTokenResponse.php
   - src/Models/Operations/GetTransferRequest.php
   - src/Models/Operations/GetTransferResponse.php
-  - src/Models/Operations/GetTransferSecurity.php
   - src/Models/Operations/GetUnderwritingRequest.php
   - src/Models/Operations/GetUnderwritingResponse.php
-  - src/Models/Operations/GetUnderwritingSecurity.php
   - src/Models/Operations/GetWalletRequest.php
   - src/Models/Operations/GetWalletResponse.php
-  - src/Models/Operations/GetWalletSecurity.php
   - src/Models/Operations/GetWalletTransactionRequest.php
   - src/Models/Operations/GetWalletTransactionResponse.php
-  - src/Models/Operations/GetWalletTransactionSecurity.php
   - src/Models/Operations/InitiateBankAccountVerificationRequest.php
   - src/Models/Operations/InitiateBankAccountVerificationResponse.php
-  - src/Models/Operations/InitiateBankAccountVerificationSecurity.php
   - src/Models/Operations/InitiateMicroDepositsRequest.php
   - src/Models/Operations/InitiateMicroDepositsResponse.php
-  - src/Models/Operations/InitiateMicroDepositsSecurity.php
+  - src/Models/Operations/InitiateRefundRequest.php
+  - src/Models/Operations/InitiateRefundResponse.php
   - src/Models/Operations/LinkApplePayTokenRequest.php
   - src/Models/Operations/LinkApplePayTokenResponse.php
-  - src/Models/Operations/LinkApplePayTokenSecurity.php
   - src/Models/Operations/LinkBankAccountRequest.php
   - src/Models/Operations/LinkBankAccountResponse.php
-  - src/Models/Operations/LinkBankAccountSecurity.php
   - src/Models/Operations/LinkCardRequest.php
   - src/Models/Operations/LinkCardResponse.php
-  - src/Models/Operations/LinkCardSecurity.php
   - src/Models/Operations/ListAccountsRequest.php
   - src/Models/Operations/ListAccountsResponse.php
-  - src/Models/Operations/ListAccountsSecurity.php
   - src/Models/Operations/ListAdjustmentsRequest.php
   - src/Models/Operations/ListAdjustmentsResponse.php
-  - src/Models/Operations/ListAdjustmentsSecurity.php
   - src/Models/Operations/ListBankAccountsRequest.php
   - src/Models/Operations/ListBankAccountsResponse.php
-  - src/Models/Operations/ListBankAccountsSecurity.php
   - src/Models/Operations/ListCapabilitiesRequest.php
   - src/Models/Operations/ListCapabilitiesResponse.php
-  - src/Models/Operations/ListCapabilitiesSecurity.php
   - src/Models/Operations/ListCardsRequest.php
   - src/Models/Operations/ListCardsResponse.php
-  - src/Models/Operations/ListCardsSecurity.php
   - src/Models/Operations/ListDisputeEvidenceRequest.php
   - src/Models/Operations/ListDisputeEvidenceResponse.php
-  - src/Models/Operations/ListDisputeEvidenceSecurity.php
   - src/Models/Operations/ListDisputesRequest.php
   - src/Models/Operations/ListDisputesResponse.php
-  - src/Models/Operations/ListDisputesSecurity.php
   - src/Models/Operations/ListFeePlanAgreementsRequest.php
   - src/Models/Operations/ListFeePlanAgreementsResponse.php
-  - src/Models/Operations/ListFeePlanAgreementsSecurity.php
   - src/Models/Operations/ListFeePlansRequest.php
   - src/Models/Operations/ListFeePlansResponse.php
-  - src/Models/Operations/ListFeePlansSecurity.php
   - src/Models/Operations/ListFilesRequest.php
   - src/Models/Operations/ListFilesResponse.php
-  - src/Models/Operations/ListFilesSecurity.php
   - src/Models/Operations/ListIndustriesRequest.php
   - src/Models/Operations/ListIndustriesResponse.php
-  - src/Models/Operations/ListIndustriesSecurity.php
   - src/Models/Operations/ListInstitutionsRequest.php
   - src/Models/Operations/ListInstitutionsResponse.php
-  - src/Models/Operations/ListInstitutionsSecurity.php
   - src/Models/Operations/ListIssuedCardAuthorizationEventsRequest.php
   - src/Models/Operations/ListIssuedCardAuthorizationEventsResponse.php
-  - src/Models/Operations/ListIssuedCardAuthorizationEventsSecurity.php
   - src/Models/Operations/ListIssuedCardAuthorizationsRequest.php
   - src/Models/Operations/ListIssuedCardAuthorizationsResponse.php
-  - src/Models/Operations/ListIssuedCardAuthorizationsSecurity.php
   - src/Models/Operations/ListIssuedCardTransactionsRequest.php
   - src/Models/Operations/ListIssuedCardTransactionsResponse.php
-  - src/Models/Operations/ListIssuedCardTransactionsSecurity.php
   - src/Models/Operations/ListIssuedCardsRequest.php
   - src/Models/Operations/ListIssuedCardsResponse.php
-  - src/Models/Operations/ListIssuedCardsSecurity.php
   - src/Models/Operations/ListOnboardingInvitesRequest.php
   - src/Models/Operations/ListOnboardingInvitesResponse.php
-  - src/Models/Operations/ListOnboardingInvitesSecurity.php
   - src/Models/Operations/ListPartnerPricingAgreementsRequest.php
   - src/Models/Operations/ListPartnerPricingAgreementsResponse.php
-  - src/Models/Operations/ListPartnerPricingAgreementsSecurity.php
   - src/Models/Operations/ListPartnerPricingRequest.php
   - src/Models/Operations/ListPartnerPricingResponse.php
-  - src/Models/Operations/ListPartnerPricingSecurity.php
   - src/Models/Operations/ListPaymentLinksRequest.php
   - src/Models/Operations/ListPaymentLinksResponse.php
-  - src/Models/Operations/ListPaymentLinksSecurity.php
   - src/Models/Operations/ListPaymentMethodsRequest.php
   - src/Models/Operations/ListPaymentMethodsResponse.php
-  - src/Models/Operations/ListPaymentMethodsSecurity.php
   - src/Models/Operations/ListRefundsRequest.php
   - src/Models/Operations/ListRefundsResponse.php
-  - src/Models/Operations/ListRefundsSecurity.php
   - src/Models/Operations/ListRepresentativesRequest.php
   - src/Models/Operations/ListRepresentativesResponse.php
-  - src/Models/Operations/ListRepresentativesSecurity.php
   - src/Models/Operations/ListSchedulesRequest.php
   - src/Models/Operations/ListSchedulesResponse.php
-  - src/Models/Operations/ListSchedulesSecurity.php
   - src/Models/Operations/ListSweepConfigsRequest.php
   - src/Models/Operations/ListSweepConfigsResponse.php
-  - src/Models/Operations/ListSweepConfigsSecurity.php
   - src/Models/Operations/ListSweepsRequest.php
   - src/Models/Operations/ListSweepsResponse.php
-  - src/Models/Operations/ListSweepsSecurity.php
   - src/Models/Operations/ListTransfersRequest.php
   - src/Models/Operations/ListTransfersResponse.php
-  - src/Models/Operations/ListTransfersSecurity.php
   - src/Models/Operations/ListWalletTransactionsRequest.php
   - src/Models/Operations/ListWalletTransactionsResponse.php
-  - src/Models/Operations/ListWalletTransactionsSecurity.php
   - src/Models/Operations/ListWalletsRequest.php
   - src/Models/Operations/ListWalletsResponse.php
-  - src/Models/Operations/ListWalletsSecurity.php
-  - src/Models/Operations/PatchAccountRequest.php
-  - src/Models/Operations/PatchAccountResponse.php
-  - src/Models/Operations/PatchAccountSecurity.php
-  - src/Models/Operations/PatchSweepConfigRequest.php
-  - src/Models/Operations/PatchSweepConfigResponse.php
-  - src/Models/Operations/PatchSweepConfigSecurity.php
-  - src/Models/Operations/PatchTransferRequest.php
-  - src/Models/Operations/PatchTransferResponse.php
-  - src/Models/Operations/PatchTransferSecurity.php
   - src/Models/Operations/PingRequest.php
   - src/Models/Operations/PingResponse.php
-  - src/Models/Operations/PingSecurity.php
-  - src/Models/Operations/PostBrandRequest.php
-  - src/Models/Operations/PostBrandResponse.php
-  - src/Models/Operations/PostBrandSecurity.php
-  - src/Models/Operations/RefundTransferRequest.php
-  - src/Models/Operations/RefundTransferResponse.php
-  - src/Models/Operations/RefundTransferSecurity.php
   - src/Models/Operations/RegisterApplePayMerchantDomainsRequest.php
   - src/Models/Operations/RegisterApplePayMerchantDomainsResponse.php
-  - src/Models/Operations/RegisterApplePayMerchantDomainsSecurity.php
+  - src/Models/Operations/RequestCapabilitiesRequest.php
+  - src/Models/Operations/RequestCapabilitiesResponse.php
   - src/Models/Operations/RequestCardRequest.php
   - src/Models/Operations/RequestCardResponse.php
-  - src/Models/Operations/RequestCardSecurity.php
-  - src/Models/Operations/ReverseTransferRequest.php
-  - src/Models/Operations/ReverseTransferResponse.php
-  - src/Models/Operations/ReverseTransferSecurity.php
-  - src/Models/Operations/RevokeAuthTokenRequest.php
-  - src/Models/Operations/RevokeAuthTokenResponse.php
+  - src/Models/Operations/RevokeAccessTokenRequest.php
+  - src/Models/Operations/RevokeAccessTokenResponse.php
   - src/Models/Operations/RevokeOnboardingInviteRequest.php
   - src/Models/Operations/RevokeOnboardingInviteResponse.php
-  - src/Models/Operations/RevokeOnboardingInviteSecurity.php
   - src/Models/Operations/SubmitDisputeEvidenceRequest.php
   - src/Models/Operations/SubmitDisputeEvidenceResponse.php
-  - src/Models/Operations/SubmitDisputeEvidenceSecurity.php
   - src/Models/Operations/TestEndToEndTokenRequest.php
   - src/Models/Operations/TestEndToEndTokenResponse.php
-  - src/Models/Operations/TestEndToEndTokenSecurity.php
+  - src/Models/Operations/UpdateAccountRequest.php
+  - src/Models/Operations/UpdateAccountResponse.php
   - src/Models/Operations/UpdateApplePayMerchantDomainsRequest.php
   - src/Models/Operations/UpdateApplePayMerchantDomainsResponse.php
-  - src/Models/Operations/UpdateApplePayMerchantDomainsSecurity.php
   - src/Models/Operations/UpdateBrandRequest.php
   - src/Models/Operations/UpdateBrandResponse.php
-  - src/Models/Operations/UpdateBrandSecurity.php
   - src/Models/Operations/UpdateCardRequest.php
   - src/Models/Operations/UpdateCardResponse.php
-  - src/Models/Operations/UpdateCardSecurity.php
   - src/Models/Operations/UpdateDisputeEvidenceRequest.php
   - src/Models/Operations/UpdateDisputeEvidenceResponse.php
-  - src/Models/Operations/UpdateDisputeEvidenceSecurity.php
   - src/Models/Operations/UpdateIssuedCardRequest.php
   - src/Models/Operations/UpdateIssuedCardResponse.php
-  - src/Models/Operations/UpdateIssuedCardSecurity.php
   - src/Models/Operations/UpdatePaymentLinkRequest.php
   - src/Models/Operations/UpdatePaymentLinkResponse.php
-  - src/Models/Operations/UpdatePaymentLinkSecurity.php
   - src/Models/Operations/UpdateRepresentativeRequest.php
   - src/Models/Operations/UpdateRepresentativeResponse.php
-  - src/Models/Operations/UpdateRepresentativeSecurity.php
   - src/Models/Operations/UpdateScheduleRequest.php
   - src/Models/Operations/UpdateScheduleResponse.php
-  - src/Models/Operations/UpdateScheduleSecurity.php
+  - src/Models/Operations/UpdateSweepConfigRequest.php
+  - src/Models/Operations/UpdateSweepConfigResponse.php
+  - src/Models/Operations/UpdateTransferRequest.php
+  - src/Models/Operations/UpdateTransferResponse.php
   - src/Models/Operations/UpdateUnderwritingRequest.php
   - src/Models/Operations/UpdateUnderwritingResponse.php
-  - src/Models/Operations/UpdateUnderwritingSecurity.php
   - src/Models/Operations/UploadDisputeEvidenceFileRequest.php
   - src/Models/Operations/UploadDisputeEvidenceFileResponse.php
-  - src/Models/Operations/UploadDisputeEvidenceFileSecurity.php
   - src/Models/Operations/UploadDisputeEvidenceTextRequest.php
   - src/Models/Operations/UploadDisputeEvidenceTextResponse.php
-  - src/Models/Operations/UploadDisputeEvidenceTextSecurity.php
   - src/Models/Operations/UploadFileRequest.php
   - src/Models/Operations/UploadFileResponse.php
-  - src/Models/Operations/UploadFileSecurity.php
+  - src/Models/Operations/UpsertBrandRequest.php
+  - src/Models/Operations/UpsertBrandResponse.php
   - src/Moov.php
   - src/MoovBuilder.php
   - src/Onboarding.php
@@ -1799,7 +1578,7 @@ examples:
         header: {}
       responses:
         "200":
-          application/json: [{"adjustmentID": "96b97f3f-0d80-4009-b359-c402faa37813", "walletID": "744c19da-697d-4cfc-89f8-f80d886ed2f2", "amount": {"currency": "Mexican Peso", "valueDecimal": "12.987654321"}, "createdOn": "2023-03-30T20:55:00.660Z"}, {"adjustmentID": "64a49a4a-4f5c-4f39-b104-32ace3219a8d", "walletID": "37146b91-373a-42f5-9a1e-30c8158a194c", "amount": {"currency": "Lek", "valueDecimal": "12.987654321"}, "createdOn": "2025-08-21T09:03:55.201Z"}, {"adjustmentID": "1432dd28-c763-4cfb-8e05-33e72377ff45", "walletID": "9357cd43-fcf3-4f46-9532-7d5e0f92271d", "amount": {"currency": "Sri Lanka Rupee", "valueDecimal": "12.987654321"}, "createdOn": "2023-05-14T05:31:18.789Z"}]
+          application/json: [{"adjustmentID": "96b97f3f-0d80-4009-b359-c402faa37813", "walletID": "744c19da-697d-4cfc-89f8-f80d886ed2f2", "amount": {"currency": "USD", "valueDecimal": "12.987654321"}, "createdOn": "2023-03-30T20:55:00.660Z"}, {"adjustmentID": "64a49a4a-4f5c-4f39-b104-32ace3219a8d", "walletID": "37146b91-373a-42f5-9a1e-30c8158a194c", "amount": {"currency": "USD", "valueDecimal": "12.987654321"}, "createdOn": "2025-08-21T09:03:55.201Z"}, {"adjustmentID": "1432dd28-c763-4cfb-8e05-33e72377ff45", "walletID": "9357cd43-fcf3-4f46-9532-7d5e0f92271d", "amount": {"currency": "USD", "valueDecimal": "12.987654321"}, "createdOn": "2023-05-14T05:31:18.789Z"}]
   getAdjustment:
     speakeasy-default-get-adjustment:
       parameters:
@@ -1809,7 +1588,7 @@ examples:
         header: {}
       responses:
         "200":
-          application/json: {"adjustmentID": "394bed82-c0e6-43f2-ab37-e1667215de40", "walletID": "3c25451d-91a3-41e7-a262-f0e081ecaf44", "amount": {"currency": "Iceland Krona", "valueDecimal": "12.987654321"}, "createdOn": "2024-02-22T13:21:12.893Z"}
+          application/json: {"adjustmentID": "394bed82-c0e6-43f2-ab37-e1667215de40", "walletID": "3c25451d-91a3-41e7-a262-f0e081ecaf44", "amount": {"currency": "USD", "valueDecimal": "12.987654321"}, "createdOn": "2024-02-22T13:21:12.893Z"}
   registerApplePayMerchantDomains:
     speakeasy-default-register-apple-pay-merchant-domains:
       parameters:
@@ -2168,7 +1947,7 @@ examples:
           disputeID: "c3dddece-4b5f-4b6e-b8a0-719d5e192fc7"
         header: {}
       requestBody:
-        multipart/form-data: {"file": {"": "0xcfAb2d31B5"}, "evidenceType": "cover-letter"}
+        multipart/form-data: {"file": {"": "0xd1d0C399fD"}, "evidenceType": "cover-letter"}
       responses:
         "400":
           application/json: {"error": "<value>"}
@@ -2195,7 +1974,7 @@ examples:
         header: {}
       responses:
         "200":
-          application/json: {"disputeID": "6e356108-fdfa-4910-bbe4-1e3c8abf5520", "merchantAccountID": "34233b72-780c-4e0e-8b08-cbbe1bc878f8", "amount": {"currency": "USD", "value": 257753}, "networkReasonCode": "10.4", "transfer": {"transferID": "ecac148a-917e-4ee0-b46a-c51408939fff"}, "respondBy": "2024-12-23T18:55:00Z", "status": "response-needed", "phase": "chargeback", "createdOn": "2024-12-23T17:55:00Z"}
+          application/json: {"disputeID": "6e356108-fdfa-4910-bbe4-1e3c8abf5520", "merchantAccountID": "34233b72-780c-4e0e-8b08-cbbe1bc878f8", "amount": {"currency": "USD", "value": 1204}, "networkReasonCode": "10.4", "transfer": {"transferID": "ecac148a-917e-4ee0-b46a-c51408939fff"}, "respondBy": "2024-12-23T18:55:00Z", "status": "response-needed", "phase": "chargeback", "createdOn": "2024-12-23T17:55:00Z"}
         "400":
           application/json: {"error": "<value>"}
   getDisputeEvidence:
@@ -2257,7 +2036,7 @@ examples:
         header: {}
       responses:
         "200":
-          application/json: [{"aggreementID": "e326d153-ca61-4e3e-a86a-3e450e955fd6", "planID": "7a6c5eb4-879b-4c21-b9fa-71eb2181b3ad", "acceptedOn": "2024-03-10T19:49:08.718Z", "status": "terminated", "cardAcquringModel": "flat-rate", "billableFees": [{"billableEvent": "ach-volume", "feeName": "ACH Direct Debit", "feeModel": "fixed", "feeCategory": "network-passthrough", "feeProperties": {"fixedAmount": "0.15", "variableRate": "0.14", "minPerTransaction": "1.75", "maxPerTransaction": "3.50"}, "feeConditions": {"cardBrand": ["visa"]}}]}, {"aggreementID": "0c6542c4-837f-4de6-bbbf-3a11a1ba31f2", "planID": "50844514-ef1f-40ee-adc6-d314e85a7739", "acceptedOn": "2024-02-27T23:25:25.370Z", "status": "terminated", "cardAcquringModel": "cost-plus", "billableFees": [{"billableEvent": "ach-volume", "feeName": "ACH Direct Debit", "feeModel": "blended", "feeCategory": "other", "feeProperties": {"fixedAmount": "0.15", "variableRate": "0.14", "minPerTransaction": "1.75", "maxPerTransaction": "3.50"}, "feeConditions": {"cardBrand": ["visa"]}}]}]
+          application/json: [{"aggreementID": "e326d153-ca61-4e3e-a86a-3e450e955fd6", "planID": "7a6c5eb4-879b-4c21-b9fa-71eb2181b3ad", "acceptedOn": "2024-03-10T19:49:08.718Z", "status": "terminated", "cardAcquringModel": "flat-rate", "billableFees": [{"billableEvent": "ach-volume", "feeName": "ACH Direct Debit", "feeModel": "fixed", "feeCategory": "network-passthrough", "feeProperties": {"fixedAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "variableRate": "0.05", "minPerTransaction": {"currency": "USD", "valueDecimal": "12.987654321"}, "maxPerTransaction": {"currency": "USD", "valueDecimal": "12.987654321"}}, "feeConditions": {"cardBrand": ["visa"]}}]}, {"aggreementID": "0c6542c4-837f-4de6-bbbf-3a11a1ba31f2", "planID": "50844514-ef1f-40ee-adc6-d314e85a7739", "acceptedOn": "2024-02-27T23:25:25.370Z", "status": "terminated", "cardAcquringModel": "cost-plus", "billableFees": [{"billableEvent": "ach-volume", "feeName": "ACH Direct Debit", "feeModel": "blended", "feeCategory": "other", "feeProperties": {"fixedAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "variableRate": "0.05", "minPerTransaction": {"currency": "USD", "valueDecimal": "12.987654321"}, "maxPerTransaction": {"currency": "USD", "valueDecimal": "12.987654321"}}, "feeConditions": {"cardBrand": ["visa"]}}]}]
   createFeePlanAgreements:
     speakeasy-default-create-fee-plan-agreements:
       parameters:
@@ -2268,7 +2047,7 @@ examples:
         application/json: {"planID": "b97c2d59-80c5-49ac-b1fc-40e3a81d8daf"}
       responses:
         "201":
-          application/json: {"aggreementID": "0e7fb8cc-5d6a-4a0e-8955-4d9f85c03fa6", "planID": "10fadd5b-11fb-4499-ae95-794da03fdea6", "acceptedOn": "2024-03-30T02:16:07.411Z", "status": "active", "cardAcquringModel": "cost-plus", "billableFees": [{"billableEvent": "ach-volume", "feeName": "ACH Direct Debit", "feeModel": "fixed", "feeCategory": "ach", "feeProperties": {"fixedAmount": "0.15", "variableRate": "0.14", "minPerTransaction": "1.75", "maxPerTransaction": "3.50"}, "feeConditions": {"cardBrand": ["visa"]}}]}
+          application/json: {"aggreementID": "0e7fb8cc-5d6a-4a0e-8955-4d9f85c03fa6", "planID": "10fadd5b-11fb-4499-ae95-794da03fdea6", "acceptedOn": "2024-03-30T02:16:07.411Z", "status": "active", "cardAcquringModel": "cost-plus", "billableFees": [{"billableEvent": "ach-volume", "feeName": "ACH Direct Debit", "feeModel": "fixed", "feeCategory": "ach", "feeProperties": {"fixedAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "variableRate": "0.05", "minPerTransaction": {"currency": "USD", "valueDecimal": "12.987654321"}, "maxPerTransaction": {"currency": "USD", "valueDecimal": "12.987654321"}}, "feeConditions": {"cardBrand": ["visa"]}}]}
         "400":
           application/json: {"error": "<value>"}
         "422":
@@ -2282,7 +2061,7 @@ examples:
         header: {}
       responses:
         "200":
-          application/json: [{"planID": "f1a4db2c-3482-4573-9821-edd05204e301", "name": "Fixed Rate Merchant Plan", "cardAcquringModel": "flat-rate", "billableFees": [{"billableEvent": "ach-volume", "feeName": "ACH Direct Debit", "feeModel": "blended", "feeCategory": "network-passthrough", "feeProperties": {"fixedAmount": "0.15", "variableRate": "0.14", "minPerTransaction": "1.75", "maxPerTransaction": "3.50"}, "feeConditions": {"cardBrand": ["visa"]}}, {"billableEvent": "ach-volume", "feeName": "ACH Direct Debit", "feeModel": "blended", "feeCategory": "network-passthrough", "feeProperties": {"fixedAmount": "0.15", "variableRate": "0.14", "minPerTransaction": "1.75", "maxPerTransaction": "3.50"}, "feeConditions": {"cardBrand": ["visa"]}}, {"billableEvent": "ach-volume", "feeName": "ACH Direct Debit", "feeModel": "blended", "feeCategory": "other", "feeProperties": {"fixedAmount": "0.15", "variableRate": "0.14", "minPerTransaction": "1.75", "maxPerTransaction": "3.50"}, "feeConditions": {"cardBrand": ["visa"]}}], "createdAt": "2023-12-22T05:57:14.362Z"}, {"planID": "a628b889-6bfb-4f2f-912a-3c4b130a524d", "name": "Fixed Rate Merchant Plan", "cardAcquringModel": "cost-plus", "billableFees": [{"billableEvent": "ach-volume", "feeName": "ACH Direct Debit", "feeModel": "blended", "feeCategory": "card-pull", "feeProperties": {"fixedAmount": "0.15", "variableRate": "0.14", "minPerTransaction": "1.75", "maxPerTransaction": "3.50"}, "feeConditions": {"cardBrand": ["visa"]}}], "createdAt": "2023-01-09T04:17:35.274Z"}, {"planID": "9cfe1840-53c0-4033-9160-f52358028560", "name": "Fixed Rate Merchant Plan", "cardAcquringModel": "flat-rate", "billableFees": [{"billableEvent": "ach-volume", "feeName": "ACH Direct Debit", "feeModel": "fixed", "feeCategory": "network-passthrough", "feeProperties": {"fixedAmount": "0.15", "variableRate": "0.14", "minPerTransaction": "1.75", "maxPerTransaction": "3.50"}, "feeConditions": {"cardBrand": ["visa"]}}, {"billableEvent": "ach-volume", "feeName": "ACH Direct Debit", "feeModel": "blended", "feeCategory": "card-pull", "feeProperties": {"fixedAmount": "0.15", "variableRate": "0.14", "minPerTransaction": "1.75", "maxPerTransaction": "3.50"}, "feeConditions": {"cardBrand": ["visa"]}}, {"billableEvent": "ach-volume", "feeName": "ACH Direct Debit", "feeModel": "blended", "feeCategory": "card-push", "feeProperties": {"fixedAmount": "0.15", "variableRate": "0.14", "minPerTransaction": "1.75", "maxPerTransaction": "3.50"}, "feeConditions": {"cardBrand": ["visa"]}}], "createdAt": "2023-09-22T11:26:32.898Z"}]
+          application/json: [{"planID": "f1a4db2c-3482-4573-9821-edd05204e301", "name": "Fixed Rate Merchant Plan", "cardAcquringModel": "flat-rate", "billableFees": [{"billableEvent": "ach-volume", "feeName": "ACH Direct Debit", "feeModel": "blended", "feeCategory": "network-passthrough", "feeProperties": {"fixedAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "variableRate": "0.05", "minPerTransaction": {"currency": "USD", "valueDecimal": "12.987654321"}, "maxPerTransaction": {"currency": "USD", "valueDecimal": "12.987654321"}}, "feeConditions": {"cardBrand": ["visa"]}}, {"billableEvent": "ach-volume", "feeName": "ACH Direct Debit", "feeModel": "blended", "feeCategory": "network-passthrough", "feeProperties": {"fixedAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "variableRate": "0.05", "minPerTransaction": {"currency": "USD", "valueDecimal": "12.987654321"}, "maxPerTransaction": {"currency": "USD", "valueDecimal": "12.987654321"}}, "feeConditions": {"cardBrand": ["visa"]}}, {"billableEvent": "ach-volume", "feeName": "ACH Direct Debit", "feeModel": "blended", "feeCategory": "other", "feeProperties": {"fixedAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "variableRate": "0.05", "minPerTransaction": {"currency": "USD", "valueDecimal": "12.987654321"}, "maxPerTransaction": {"currency": "USD", "valueDecimal": "12.987654321"}}, "feeConditions": {"cardBrand": ["visa"]}}], "createdAt": "2023-12-22T05:57:14.362Z"}, {"planID": "a628b889-6bfb-4f2f-912a-3c4b130a524d", "name": "Fixed Rate Merchant Plan", "cardAcquringModel": "cost-plus", "billableFees": [{"billableEvent": "ach-volume", "feeName": "ACH Direct Debit", "feeModel": "blended", "feeCategory": "card-pull", "feeProperties": {"fixedAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "variableRate": "0.05", "minPerTransaction": {"currency": "USD", "valueDecimal": "12.987654321"}, "maxPerTransaction": {"currency": "USD", "valueDecimal": "12.987654321"}}, "feeConditions": {"cardBrand": ["visa"]}}], "createdAt": "2023-01-09T04:17:35.274Z"}, {"planID": "9cfe1840-53c0-4033-9160-f52358028560", "name": "Fixed Rate Merchant Plan", "cardAcquringModel": "flat-rate", "billableFees": [{"billableEvent": "ach-volume", "feeName": "ACH Direct Debit", "feeModel": "fixed", "feeCategory": "network-passthrough", "feeProperties": {"fixedAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "variableRate": "0.05", "minPerTransaction": {"currency": "USD", "valueDecimal": "12.987654321"}, "maxPerTransaction": {"currency": "USD", "valueDecimal": "12.987654321"}}, "feeConditions": {"cardBrand": ["visa"]}}, {"billableEvent": "ach-volume", "feeName": "ACH Direct Debit", "feeModel": "blended", "feeCategory": "card-pull", "feeProperties": {"fixedAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "variableRate": "0.05", "minPerTransaction": {"currency": "USD", "valueDecimal": "12.987654321"}, "maxPerTransaction": {"currency": "USD", "valueDecimal": "12.987654321"}}, "feeConditions": {"cardBrand": ["visa"]}}, {"billableEvent": "ach-volume", "feeName": "ACH Direct Debit", "feeModel": "blended", "feeCategory": "card-push", "feeProperties": {"fixedAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "variableRate": "0.05", "minPerTransaction": {"currency": "USD", "valueDecimal": "12.987654321"}, "maxPerTransaction": {"currency": "USD", "valueDecimal": "12.987654321"}}, "feeConditions": {"cardBrand": ["visa"]}}], "createdAt": "2023-09-22T11:26:32.898Z"}]
   listPartnerPricing:
     speakeasy-default-list-partner-pricing:
       parameters:
@@ -2292,7 +2071,7 @@ examples:
         header: {}
       responses:
         "200":
-          application/json: [{"planID": "22ea0420-e1a7-4f8c-a9bf-8f0da89f6cb4", "name": "Fixed Rate Merchant Plan", "revenueShare": 10, "cardAcquringModel": "cost-plus", "billableFees": [{"billableEvent": "ach-volume", "feeName": "ACH Direct Debit", "feeModel": "fixed", "feeCategory": "other", "feeProperties": {"fixedAmount": "0.15", "variableRate": "0.14", "minPerTransaction": "1.75", "maxPerTransaction": "3.50"}, "feeConditions": {"cardBrand": ["visa"]}}, {"billableEvent": "ach-volume", "feeName": "ACH Direct Debit", "feeModel": "fixed", "feeCategory": "ach", "feeProperties": {"fixedAmount": "0.15", "variableRate": "0.14", "minPerTransaction": "1.75", "maxPerTransaction": "3.50"}, "feeConditions": {"cardBrand": ["visa"]}}], "createdAt": "2025-08-17T12:11:01.383Z"}, {"planID": "324369ab-9721-41b3-a7e8-71264af093a2", "name": "Fixed Rate Merchant Plan", "revenueShare": 10, "cardAcquringModel": "flat-rate", "billableFees": [{"billableEvent": "ach-volume", "feeName": "ACH Direct Debit", "feeModel": "fixed", "feeCategory": "card-other", "feeProperties": {"fixedAmount": "0.15", "variableRate": "0.14", "minPerTransaction": "1.75", "maxPerTransaction": "3.50"}, "feeConditions": {"cardBrand": ["visa"]}}, {"billableEvent": "ach-volume", "feeName": "ACH Direct Debit", "feeModel": "blended", "feeCategory": "rtp", "feeProperties": {"fixedAmount": "0.15", "variableRate": "0.14", "minPerTransaction": "1.75", "maxPerTransaction": "3.50"}, "feeConditions": {"cardBrand": ["visa"]}}], "createdAt": "2024-12-29T12:10:26.937Z"}, {"planID": "6958b000-957d-46d5-aac4-ed28a886adea", "name": "Fixed Rate Merchant Plan", "revenueShare": 10, "cardAcquringModel": "flat-rate", "billableFees": [], "createdAt": "2023-01-12T00:50:08.214Z"}]
+          application/json: [{"planID": "22ea0420-e1a7-4f8c-a9bf-8f0da89f6cb4", "name": "Fixed Rate Merchant Plan", "revenueShare": 10, "cardAcquringModel": "cost-plus", "billableFees": [{"billableEvent": "ach-volume", "feeName": "ACH Direct Debit", "feeModel": "fixed", "feeCategory": "other", "feeProperties": {"fixedAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "variableRate": "0.05", "minPerTransaction": {"currency": "USD", "valueDecimal": "12.987654321"}, "maxPerTransaction": {"currency": "USD", "valueDecimal": "12.987654321"}}, "feeConditions": {"cardBrand": ["visa"]}}, {"billableEvent": "ach-volume", "feeName": "ACH Direct Debit", "feeModel": "fixed", "feeCategory": "ach", "feeProperties": {"fixedAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "variableRate": "0.05", "minPerTransaction": {"currency": "USD", "valueDecimal": "12.987654321"}, "maxPerTransaction": {"currency": "USD", "valueDecimal": "12.987654321"}}, "feeConditions": {"cardBrand": ["visa"]}}], "createdAt": "2025-08-17T12:11:01.383Z"}, {"planID": "324369ab-9721-41b3-a7e8-71264af093a2", "name": "Fixed Rate Merchant Plan", "revenueShare": 10, "cardAcquringModel": "flat-rate", "billableFees": [{"billableEvent": "ach-volume", "feeName": "ACH Direct Debit", "feeModel": "fixed", "feeCategory": "card-other", "feeProperties": {"fixedAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "variableRate": "0.05", "minPerTransaction": {"currency": "USD", "valueDecimal": "12.987654321"}, "maxPerTransaction": {"currency": "USD", "valueDecimal": "12.987654321"}}, "feeConditions": {"cardBrand": ["visa"]}}, {"billableEvent": "ach-volume", "feeName": "ACH Direct Debit", "feeModel": "blended", "feeCategory": "rtp", "feeProperties": {"fixedAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "variableRate": "0.05", "minPerTransaction": {"currency": "USD", "valueDecimal": "12.987654321"}, "maxPerTransaction": {"currency": "USD", "valueDecimal": "12.987654321"}}, "feeConditions": {"cardBrand": ["visa"]}}], "createdAt": "2024-12-29T12:10:26.937Z"}, {"planID": "6958b000-957d-46d5-aac4-ed28a886adea", "name": "Fixed Rate Merchant Plan", "revenueShare": 10, "cardAcquringModel": "flat-rate", "billableFees": [], "createdAt": "2023-01-12T00:50:08.214Z"}]
   listPartnerPricingAgreements:
     speakeasy-default-list-partner-pricing-agreements:
       parameters:
@@ -2302,7 +2081,7 @@ examples:
         header: {}
       responses:
         "200":
-          application/json: [{"aggreementID": "2e58b719-fcad-47dc-8484-21ac31dce8dd", "planID": "3f51f992-c3cc-4fd2-b0b7-17c682c67267", "acceptedOn": "2025-10-11T07:38:13.898Z", "status": "active", "cardAcquringModel": "flat-rate", "billableFees": [{"billableEvent": "ach-volume", "feeName": "ACH Direct Debit", "feeModel": "blended", "feeCategory": "card-pull", "feeProperties": {"fixedAmount": "0.15", "variableRate": "0.14", "minPerTransaction": "1.75", "maxPerTransaction": "3.50"}, "feeConditions": {"cardBrand": ["visa"]}}, {"billableEvent": "ach-volume", "feeName": "ACH Direct Debit", "feeModel": "blended", "feeCategory": "card-push", "feeProperties": {"fixedAmount": "0.15", "variableRate": "0.14", "minPerTransaction": "1.75", "maxPerTransaction": "3.50"}, "feeConditions": {"cardBrand": ["visa"]}}], "revenueShare": 10}]
+          application/json: [{"aggreementID": "2e58b719-fcad-47dc-8484-21ac31dce8dd", "planID": "3f51f992-c3cc-4fd2-b0b7-17c682c67267", "acceptedOn": "2025-10-11T07:38:13.898Z", "status": "active", "cardAcquringModel": "flat-rate", "billableFees": [{"billableEvent": "ach-volume", "feeName": "ACH Direct Debit", "feeModel": "blended", "feeCategory": "card-pull", "feeProperties": {"fixedAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "variableRate": "0.05", "minPerTransaction": {"currency": "USD", "valueDecimal": "12.987654321"}, "maxPerTransaction": {"currency": "USD", "valueDecimal": "12.987654321"}}, "feeConditions": {"cardBrand": ["visa"]}}, {"billableEvent": "ach-volume", "feeName": "ACH Direct Debit", "feeModel": "blended", "feeCategory": "card-push", "feeProperties": {"fixedAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "variableRate": "0.05", "minPerTransaction": {"currency": "USD", "valueDecimal": "12.987654321"}, "maxPerTransaction": {"currency": "USD", "valueDecimal": "12.987654321"}}, "feeConditions": {"cardBrand": ["visa"]}}], "revenueShare": 10}]
   uploadFile:
     speakeasy-default-upload-file:
       parameters:
@@ -2310,7 +2089,7 @@ examples:
           accountID: "68f95825-1ae3-4f3f-8af2-789dd2a59d6d"
         header: {}
       requestBody:
-        multipart/form-data: {"file": {"": "0xccaF7dB59f"}, "filePurpose": "representative_verification", "metadata": "{\"requirement_id\": \"document.individual.verification\"}"}
+        multipart/form-data: {"file": {"": "0x8cc9e675ad"}, "filePurpose": "representative_verification", "metadata": "{\"requirement_id\": \"document.individual.verification\"}"}
       responses:
         "200":
           application/json: {"fileID": "7aa4098b-680e-48f0-8d39-722f62c7a1d1", "fileName": "logo.png", "accountID": "45557f0e-57f5-4c14-ac25-d7d99d511477", "filePurpose": "representative_verification", "fileStatus": "pending", "metadata": "{\"error_code\": \"document-name-mismatch\", \"requirement_id\": \"document.individual.verification\", \"representative_id\": \"c63ab175-251d-497e-a267-7346d087e180\", \"comment\": \"testing comment\"", "decisionReason": "not correct file", "fileSizeBytes": 855193, "createdOn": "2024-12-02T03:04:40.041Z", "updatedOn": "2024-11-30T23:07:01.903Z"}
@@ -2344,10 +2123,10 @@ examples:
           accountID: "831ce989-44b7-4d2f-8990-b0ab3c903956"
         header: {}
       requestBody:
-        application/json: {"partnerAccountID": "d0d0cf2f-fdd4-483d-957a-f12f86d9640f", "merchantPaymentMethodID": "0d21fbfd-baa7-4dcc-ac61-71c5130ab376", "amount": {"currency": "Iranian Rial", "value": 335397}, "display": {"title": "<value>", "description": "platypus resource lest ugh", "callToAction": "book"}, "payment": {"allowedMethods": ["ach-debit-collect", "card-payment"], "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}, "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}}, "payout": {"allowedMethods": ["push-to-card"], "recipient": {"email": "jordan.lee@classbooker.dev"}}}
+        application/json: {"partnerAccountID": "d290f1ee-6c54-4b01-90e6-d701748f0851", "merchantPaymentMethodID": "4c4e7f8e-81f4-4f3d-8f6f-6f6e7f8e4c4e", "amount": {"currency": "USD", "value": 1204}, "display": {"title": "Example Payment Link", "description": "This is an example payment link.", "callToAction": "pay"}, "customer": {"requirePhone": true}, "payment": {"allowedMethods": ["card-payment", "ach-debit-collect"], "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}, "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}}, "payout": {"allowedMethods": ["push-to-card"], "recipient": {"email": "jordan.lee@classbooker.dev"}}}
       responses:
         "200":
-          application/json: {"code": "uc7ZYKrMhi", "mode": "production", "status": "expired", "partnerAccountID": "83535bc6-bea0-421b-91a5-d8b18c17d355", "merchantAccountID": "a1e14e8b-4435-4487-9858-618d04959a1c", "merchantPaymentMethodID": "fb997017-7de4-47dc-903b-28333f88fb0f", "link": "https://interesting-status.com/", "amount": {"currency": "Lesotho Loti", "value": 603774}, "uses": 298413, "display": {"title": "<value>", "description": "whoever tame suckle drat", "callToAction": "subscribe"}, "customer": {}, "payment": {"allowedMethods": [], "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}, "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}}, "payout": {"allowedMethods": [], "recipient": {"email": "jordan.lee@classbooker.dev"}}, "createdOn": "2023-06-27T13:47:11.859Z", "updatedOn": "2024-10-22T09:30:52.729Z"}
+          application/json: {"code": "uc7ZYKrMhi", "mode": "production", "status": "active", "partnerAccountID": "d290f1ee-6c54-4b01-90e6-d701748f0851", "merchantAccountID": "34233b72-780c-4e0e-8b08-cbbe1bc878f8", "merchantPaymentMethodID": "4c4e7f8e-81f4-4f3d-8f6f-6f6e7f8e4c4e", "link": "https://moov.money/3QLHtONjd5", "amount": {"currency": "USD", "value": 1204}, "uses": 0, "display": {"title": "Example Payment Link", "description": "This is an example payment link.", "callToAction": "pay"}, "customer": {"requirePhone": true}, "payment": {"allowedMethods": ["card-payment", "ach-debit-collect"], "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}, "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}}, "payout": {"allowedMethods": [], "recipient": {"email": "jordan.lee@classbooker.dev"}}, "createdOn": "2025-01-09T17:09:13.33Z", "updatedOn": "2025-01-09T17:09:13.33Z"}
         "400":
           application/json: {"error": "<value>"}
         "422":
@@ -2360,7 +2139,7 @@ examples:
         header: {}
       responses:
         "200":
-          application/json: [{"code": "uc7ZYKrMhi", "mode": "production", "status": "disabled", "partnerAccountID": "37707c3d-133a-4a00-b641-d094b09bb31b", "merchantAccountID": "22480a61-b12d-46fa-910d-57ae2e7aaedd", "merchantPaymentMethodID": "b3a7a527-498d-4a15-a575-cee269c2f9e2", "link": "https://corny-scorn.org", "amount": {"currency": "Bermudian Dollar (customarily known as Bermuda Dollar)", "value": 845090}, "uses": 261354, "display": {"title": "<value>", "description": "huzzah sham pleasure earnest after kissingly rigidly twist", "callToAction": "confirm"}, "customer": {}, "payment": {"allowedMethods": [], "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}, "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}}, "payout": {"allowedMethods": [], "recipient": {"email": "jordan.lee@classbooker.dev"}}, "createdOn": "2024-06-07T14:04:01.869Z", "updatedOn": "2023-12-08T20:27:32.514Z"}, {"code": "uc7ZYKrMhi", "mode": "production", "status": "disabled", "partnerAccountID": "39dce065-fb4b-4ec5-92d1-a2e2fd46b0fe", "merchantAccountID": "9e6ce63e-2f16-4a64-ab60-5d5a36f59de3", "merchantPaymentMethodID": "049ac2a4-3b18-4124-9205-bc47cce054ca", "link": "https://clear-cut-guard.com", "amount": {"currency": "Rial Omani", "value": 629008}, "uses": 964729, "display": {"title": "<value>", "description": "dredger for husband obesity yum ordinary stint hateful boohoo", "callToAction": "confirm"}, "customer": {}, "payment": {"allowedMethods": [], "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}, "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}}, "payout": {"allowedMethods": ["ach-credit-same-day", "rtp-credit", "ach-credit-standard"], "recipient": {"email": "jordan.lee@classbooker.dev"}}, "createdOn": "2024-12-24T04:19:57.132Z", "updatedOn": "2024-11-16T21:32:17.640Z"}]
+          application/json: [{"code": "3QLHtONjd5", "mode": "sandbox", "status": "active", "partnerAccountID": "d290f1ee-6c54-4b01-90e6-d701748f0851", "merchantAccountID": "34233b72-780c-4e0e-8b08-cbbe1bc878f8", "merchantPaymentMethodID": "4c4e7f8e-81f4-4f3d-8f6f-6f6e7f8e4c4e", "link": "https://moov.money/3QLHtONjd5", "amount": {"currency": "USD", "value": 10000}, "uses": 0, "display": {"title": "Example Payment Link", "description": "This is an example payment link.", "callToAction": "pay"}, "customer": {"requirePhone": true}, "payment": {"allowedMethods": ["card-payment", "ach-debit-collect"]}, "createdOn": "2025-01-09T17:09:13.33Z", "updatedOn": "2025-01-09T17:09:13.33Z"}]
   getPaymentLink:
     speakeasy-default-get-payment-link:
       parameters:
@@ -2370,7 +2149,7 @@ examples:
         header: {}
       responses:
         "200":
-          application/json: {"code": "uc7ZYKrMhi", "mode": "production", "status": "disabled", "partnerAccountID": "2cb3896f-0580-41fb-a5ce-b25b5829b3c5", "merchantAccountID": "abdd1323-182d-4850-bca4-195e7bfdc343", "merchantPaymentMethodID": "ee4c839c-7f72-4df2-b0d0-db5d60a56cc5", "link": "https://essential-hello.net/", "amount": {"currency": "Swedish Krona", "value": 317030}, "uses": 668702, "display": {"title": "<value>", "description": "boo amid brr salty selfishly among where anenst without drat", "callToAction": "subscribe"}, "customer": {}, "payment": {"allowedMethods": [], "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}, "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}}, "payout": {"allowedMethods": ["rtp-credit"], "recipient": {"email": "jordan.lee@classbooker.dev"}}, "createdOn": "2025-04-27T16:49:32.762Z", "updatedOn": "2024-10-09T07:54:13.674Z"}
+          application/json: {"code": "uc7ZYKrMhi", "mode": "production", "status": "active", "partnerAccountID": "d290f1ee-6c54-4b01-90e6-d701748f0851", "merchantAccountID": "34233b72-780c-4e0e-8b08-cbbe1bc878f8", "merchantPaymentMethodID": "4c4e7f8e-81f4-4f3d-8f6f-6f6e7f8e4c4e", "link": "https://moov.money/3QLHtONjd5", "amount": {"currency": "USD", "value": 1204}, "uses": 0, "display": {"title": "Example Payment Link", "description": "This is an example payment link.", "callToAction": "pay"}, "customer": {"requirePhone": true}, "payment": {"allowedMethods": ["card-payment", "ach-debit-collect"], "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}, "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}}, "payout": {"allowedMethods": ["rtp-credit"], "recipient": {"email": "jordan.lee@classbooker.dev"}}, "createdOn": "2025-01-09T17:09:13.33Z", "updatedOn": "2025-01-09T17:09:13.33Z"}
   updatePaymentLink:
     speakeasy-default-update-payment-link:
       parameters:
@@ -2379,10 +2158,10 @@ examples:
           paymentLinkCode: "uc7ZYKrMhi"
         header: {}
       requestBody:
-        application/json: {"payment": {"cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}, "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}}, "payout": {"recipient": {"email": "jordan.lee@classbooker.dev"}}}
+        application/json: {"amount": {"currency": "USD", "value": 1204}, "customer": {"requireAddress": true, "requirePhone": true}, "payment": {"cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}, "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}}, "payout": {"recipient": {"email": "jordan.lee@classbooker.dev"}}}
       responses:
         "200":
-          application/json: {"code": "uc7ZYKrMhi", "mode": "production", "status": "active", "partnerAccountID": "30bc9b02-be58-4d8a-ab24-613d6d927192", "merchantAccountID": "afafed5e-37e0-4e7b-924a-e4475555780c", "merchantPaymentMethodID": "29b8382a-c2a9-48fb-8f10-57f2140c9e99", "link": "https://colorful-eyebrow.name/", "amount": {"currency": "Venezuelan bolívar", "value": 520513}, "uses": 906908, "display": {"title": "<value>", "description": "freckle by drat triumphantly once certainly", "callToAction": "pay"}, "customer": {}, "payment": {"allowedMethods": [], "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}, "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}}, "payout": {"allowedMethods": ["rtp-credit", "push-to-card"], "recipient": {"email": "jordan.lee@classbooker.dev"}}, "createdOn": "2025-01-06T20:41:39.164Z", "updatedOn": "2023-03-03T14:45:51.745Z"}
+          application/json: {"code": "uc7ZYKrMhi", "mode": "production", "status": "active", "partnerAccountID": "d290f1ee-6c54-4b01-90e6-d701748f0851", "merchantAccountID": "34233b72-780c-4e0e-8b08-cbbe1bc878f8", "merchantPaymentMethodID": "4c4e7f8e-81f4-4f3d-8f6f-6f6e7f8e4c4e", "link": "https://moov.money/3QLHtONjd5", "amount": {"currency": "USD", "value": 1204}, "uses": 0, "display": {"title": "Example Payment Link", "description": "This is an example payment link.", "callToAction": "pay"}, "customer": {"requirePhone": true}, "payment": {"allowedMethods": ["card-payment", "ach-debit-collect"], "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}, "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}}, "payout": {"allowedMethods": ["rtp-credit", "push-to-card"], "recipient": {"email": "jordan.lee@classbooker.dev"}}, "createdOn": "2025-01-09T17:09:13.33Z", "updatedOn": "2025-01-09T17:09:13.33Z"}
         "400":
           application/json: {"error": "<value>"}
         "422":
@@ -2490,10 +2269,10 @@ examples:
           accountID: "4ee0c8f9-d96c-44a5-924b-28f02e5d05ca"
         header: {}
       requestBody:
-        application/json: {"occurrences": [{"occurrenceID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "runOn": "2009-11-10T23:00:00Z", "runTransfer": {"amount": {"currency": "Kyat", "value": 169093}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "quarrel last chilly storyboard after which"}}, {"occurrenceID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "runOn": "2009-11-10T23:00:00Z", "runTransfer": {"amount": {"currency": "Jordanian Dinar", "value": 859489}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "huddle monthly boo curry official deadly"}}, {"occurrenceID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "runOn": "2009-11-10T23:00:00Z", "runTransfer": {"amount": {"currency": "Ouguiya", "value": 670277}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "following eek adventurously gosh alongside shakily down"}}], "recur": {"recurrenceRule": "<value>", "runTransfer": {"amount": {"currency": "Rial Omani", "value": 14774}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "astride idle until mainstream not inure"}, "start": "2009-11-10T23:00:00Z"}}
+        application/json: {"occurrences": [{"occurrenceID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "runOn": "2009-11-10T23:00:00Z", "runTransfer": {"amount": {"currency": "USD", "value": 1204}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "quarrel last chilly storyboard after which"}}, {"occurrenceID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "runOn": "2009-11-10T23:00:00Z", "runTransfer": {"amount": {"currency": "USD", "value": 1204}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "huddle monthly boo curry official deadly"}}, {"occurrenceID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "runOn": "2009-11-10T23:00:00Z", "runTransfer": {"amount": {"currency": "USD", "value": 1204}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "following eek adventurously gosh alongside shakily down"}}], "recur": {"recurrenceRule": "<value>", "runTransfer": {"amount": {"currency": "USD", "value": 1204}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "astride idle until mainstream not inure"}, "start": "2009-11-10T23:00:00Z"}}
       responses:
         "200":
-          application/json: {"destinationAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "mode": "production", "occurrences": {"mode": "production", "runOn": "2023-08-01T09:32:31.040Z", "runTransfer": {"amount": {"currency": "Colombian Peso", "value": 733556}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "including terribly worth"}}, "ownerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "recur": {"recurrenceRule": "<value>", "runTransfer": {"amount": {"currency": "Syrian Pound", "value": 222162}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "whoa ah consistency defiantly fully or near eek"}, "start": "2009-11-10T23:00:00Z"}, "scheduleID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "sourceAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "createdOn": "2025-09-13T18:57:02.578Z", "updatedOn": "2024-11-03T04:54:37.449Z"}
+          application/json: {"destinationAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "mode": "production", "occurrences": {"mode": "production", "runOn": "2023-08-01T09:32:31.040Z", "runTransfer": {"amount": {"currency": "USD", "value": 1204}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "including terribly worth"}}, "ownerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "recur": {"recurrenceRule": "<value>", "runTransfer": {"amount": {"currency": "USD", "value": 1204}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "whoa ah consistency defiantly fully or near eek"}, "start": "2009-11-10T23:00:00Z"}, "scheduleID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "sourceAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "createdOn": "2025-09-13T18:57:02.578Z", "updatedOn": "2024-11-03T04:54:37.449Z"}
         "400":
           application/json: {"error": "<value>"}
         "422":
@@ -2509,7 +2288,7 @@ examples:
         header: {}
       responses:
         "200":
-          application/json: [{"destinationAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "mode": "production", "occurrences": {"mode": "production", "runOn": "2024-07-09T18:08:15.209Z", "runTransfer": {"amount": {"currency": "Belize Dollar", "value": 16104}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "offensively ick boo intensely obnoxiously elderly arcade joyous hmph republican"}}, "ownerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "recur": {"recurrenceRule": "<value>", "runTransfer": {"amount": {"currency": "Sudanese Pound", "value": 101813}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "slowly meanwhile ape gadzooks gadzooks disrespect"}, "start": "2009-11-10T23:00:00Z"}, "scheduleID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "sourceAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "createdOn": "2025-07-25T16:29:58.348Z", "updatedOn": "2023-10-10T14:51:19.406Z"}, {"destinationAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "mode": "production", "occurrences": {"mode": "production", "runOn": "2025-02-06T08:33:52.034Z", "runTransfer": {"amount": {"currency": "Nepalese Rupee", "value": 431221}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "fuel supposing to midst"}}, "ownerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "recur": {"recurrenceRule": "<value>", "runTransfer": {"amount": {"currency": "Taka", "value": 795003}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "without pulse inside bin"}, "start": "2009-11-10T23:00:00Z"}, "scheduleID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "sourceAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "createdOn": "2024-04-02T17:01:24.175Z", "updatedOn": "2025-01-22T21:37:00.185Z"}]
+          application/json: [{"destinationAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "mode": "production", "occurrences": {"mode": "production", "runOn": "2024-07-09T18:08:15.209Z", "runTransfer": {"amount": {"currency": "USD", "value": 1204}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "offensively ick boo intensely obnoxiously elderly arcade joyous hmph republican"}}, "ownerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "recur": {"recurrenceRule": "<value>", "runTransfer": {"amount": {"currency": "USD", "value": 1204}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "slowly meanwhile ape gadzooks gadzooks disrespect"}, "start": "2009-11-10T23:00:00Z"}, "scheduleID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "sourceAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "createdOn": "2025-07-25T16:29:58.348Z", "updatedOn": "2023-10-10T14:51:19.406Z"}, {"destinationAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "mode": "production", "occurrences": {"mode": "production", "runOn": "2025-02-06T08:33:52.034Z", "runTransfer": {"amount": {"currency": "USD", "value": 1204}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "fuel supposing to midst"}}, "ownerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "recur": {"recurrenceRule": "<value>", "runTransfer": {"amount": {"currency": "USD", "value": 1204}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "without pulse inside bin"}, "start": "2009-11-10T23:00:00Z"}, "scheduleID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "sourceAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "createdOn": "2024-04-02T17:01:24.175Z", "updatedOn": "2025-01-22T21:37:00.185Z"}]
   updateSchedule:
     speakeasy-default-update-schedule:
       parameters:
@@ -2518,10 +2297,10 @@ examples:
           scheduleID: "9ab32094-a459-49c7-9ce9-437b9e400834"
         header: {}
       requestBody:
-        application/json: {"occurrences": [{"occurrenceID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "runOn": "2009-11-10T23:00:00Z", "runTransfer": {"amount": {"currency": "Ouguiya", "value": 116555}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "suckle violently comparison during rosemary unusual though meh fen inside"}}, {"occurrenceID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "runOn": "2009-11-10T23:00:00Z", "runTransfer": {"amount": {"currency": "Bahamian Dollar", "value": 78068}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "a both vice meaningfully pish"}}], "recur": {"recurrenceRule": "<value>", "runTransfer": {"amount": {"currency": "Mauritius Rupee", "value": 856383}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "arrange fooey consequently parody however"}, "start": "2009-11-10T23:00:00Z"}}
+        application/json: {"occurrences": [{"occurrenceID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "runOn": "2009-11-10T23:00:00Z", "runTransfer": {"amount": {"currency": "USD", "value": 1204}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "suckle violently comparison during rosemary unusual though meh fen inside"}}, {"occurrenceID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "runOn": "2009-11-10T23:00:00Z", "runTransfer": {"amount": {"currency": "USD", "value": 1204}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "a both vice meaningfully pish"}}], "recur": {"recurrenceRule": "<value>", "runTransfer": {"amount": {"currency": "USD", "value": 1204}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "arrange fooey consequently parody however"}, "start": "2009-11-10T23:00:00Z"}}
       responses:
         "200":
-          application/json: {"destinationAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "mode": "production", "occurrences": {"mode": "production", "runOn": "2023-04-02T23:48:56.545Z", "runTransfer": {"amount": {"currency": "Liberian Dollar", "value": 487174}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "or excepting after publicity separately including needy"}}, "ownerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "recur": {"recurrenceRule": "<value>", "runTransfer": {"amount": {"currency": "Peso Uruguayo", "value": 174454}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "scent expense concerning lamp linear under times optimistic ack"}, "start": "2009-11-10T23:00:00Z"}, "scheduleID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "sourceAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "createdOn": "2023-09-26T14:00:55.557Z", "updatedOn": "2025-03-28T09:00:32.348Z"}
+          application/json: {"destinationAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "mode": "production", "occurrences": {"mode": "production", "runOn": "2023-04-02T23:48:56.545Z", "runTransfer": {"amount": {"currency": "USD", "value": 1204}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "or excepting after publicity separately including needy"}}, "ownerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "recur": {"recurrenceRule": "<value>", "runTransfer": {"amount": {"currency": "USD", "value": 1204}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "scent expense concerning lamp linear under times optimistic ack"}, "start": "2009-11-10T23:00:00Z"}, "scheduleID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "sourceAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "createdOn": "2023-09-26T14:00:55.557Z", "updatedOn": "2025-03-28T09:00:32.348Z"}
         "400":
           application/json: {"error": "<value>"}
         "422":
@@ -2535,7 +2314,7 @@ examples:
         header: {}
       responses:
         "200":
-          application/json: {"destinationAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "mode": "production", "occurrences": {"mode": "production", "runOn": "2023-10-28T20:23:18.110Z", "runTransfer": {"amount": {"currency": "Gibraltar Pound", "value": 10024}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "extroverted clearly supposing"}}, "ownerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "recur": {"recurrenceRule": "<value>", "runTransfer": {"amount": {"currency": "Yemeni Rial", "value": 778017}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "coliseum as geez except manner worth ick eek because microchip"}, "start": "2009-11-10T23:00:00Z"}, "scheduleID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "sourceAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "createdOn": "2024-02-18T03:21:44.268Z", "updatedOn": "2023-10-23T13:40:35.603Z"}
+          application/json: {"destinationAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "mode": "production", "occurrences": {"mode": "production", "runOn": "2023-10-28T20:23:18.110Z", "runTransfer": {"amount": {"currency": "USD", "value": 1204}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "extroverted clearly supposing"}}, "ownerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "recur": {"recurrenceRule": "<value>", "runTransfer": {"amount": {"currency": "USD", "value": 1204}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "coliseum as geez except manner worth ick eek because microchip"}, "start": "2009-11-10T23:00:00Z"}, "scheduleID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "sourceAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "createdOn": "2024-02-18T03:21:44.268Z", "updatedOn": "2023-10-23T13:40:35.603Z"}
   cancelSchedule:
     speakeasy-default-cancel-schedule:
       parameters:
@@ -2556,7 +2335,7 @@ examples:
         header: {}
       responses:
         "200":
-          application/json: {"destinationAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "mode": "production", "occurrences": {"mode": "production", "runOn": "2024-10-20T06:17:50.529Z", "runTransfer": {"amount": {"currency": "Kwanza", "value": 499961}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "circa or shore within barring lest"}}, "ownerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "recur": {"recurrenceRule": "<value>", "runTransfer": {"amount": {"currency": "Quetzal", "value": 806850}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "that atop grumpy"}, "start": "2009-11-10T23:00:00Z"}, "scheduleID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "sourceAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "createdOn": "2024-06-21T02:30:00.896Z", "updatedOn": "2025-10-20T07:55:10.582Z"}
+          application/json: {"destinationAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "mode": "production", "occurrences": {"mode": "production", "runOn": "2024-10-20T06:17:50.529Z", "runTransfer": {"amount": {"currency": "USD", "value": 1204}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "circa or shore within barring lest"}}, "ownerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "recur": {"recurrenceRule": "<value>", "runTransfer": {"amount": {"currency": "USD", "value": 1204}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "that atop grumpy"}, "start": "2009-11-10T23:00:00Z"}, "scheduleID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "sourceAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "createdOn": "2024-06-21T02:30:00.896Z", "updatedOn": "2025-10-20T07:55:10.582Z"}
   createSweepConfig:
     "":
       parameters:
@@ -2631,18 +2410,18 @@ examples:
         header:
           x-idempotency-key: "f9d459c6-642b-4b0f-a642-2a074eb6b54d"
       requestBody:
-        application/json: {"source": {"cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}, "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit", "debitHoldPeriod": "2-days"}}, "destination": {"paymentMethodID": "<id>", "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}, "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}}, "amount": {"currency": "Swedish Krona", "value": 401018}, "facilitatorFee": {"totalDecimal": "12.987654321", "markupDecimal": "0.987654321"}, "description": "Pay Instructor for May 15 Class", "metadata": {"optional": "metadata"}}
+        application/json: {"source": {"paymentMethodID": "9506dbf6-4208-44c3-ad8a-e4431660e1f2", "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}, "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit", "debitHoldPeriod": "2-days"}}, "destination": {"paymentMethodID": "3f9969cf-a1f3-4d83-8ddc-229a506651cf", "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}, "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}}, "amount": {"currency": "USD", "value": 1204}, "facilitatorFee": {"totalDecimal": "12.987654321", "markupDecimal": "0.987654321"}, "description": "Pay Instructor for May 15 Class", "metadata": {"optional": "metadata"}}
       responses:
         "200":
-          application/json: {"transferID": "181d983f-5b1f-419a-9f2a-0e82065085f0", "createdOn": "2024-07-11T11:51:36.867Z", "source": {"paymentMethodID": "<id>", "paymentMethodType": "<value>", "account": {"accountID": "<id>", "email": "Anabelle.OConner12@yahoo.com", "displayName": "Jaiden.Rutherford-Brown21"}, "bankAccount": {"bankAccountID": "833fa3ef-14d3-4c97-ba45-6af66f739832", "fingerprint": "dd4cbfe5fbaf47b392770b5b595bec604fd99394749b7d017153e2b9cfbea40e", "status": "new", "holderName": "John Doe", "holderType": "individual", "bankName": "Gringotts Bank", "bankAccountType": "checking", "routingNumber": "123456780", "lastFourAccountNumber": "6789", "updatedOn": "2024-11-26T22:37:06Z", "statusReason": "bank-account-created"}, "cardDetails": {"status": "confirmed", "dynamicDescriptor": "WhlBdy *Yoga 11-12", "feeProgram": "Visa Signature and Visa Infinite (Spend not-qualified) Product 1"}, "achDetails": {"status": "corrected", "traceNumber": "124782618117", "companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit", "debitHoldPeriod": "2-days"}}, "destination": {"paymentMethodID": "<id>", "paymentMethodType": "<value>", "account": {"accountID": "<id>", "email": "Gregory.Smitham@yahoo.com", "displayName": "Lila.Crona19"}, "bankAccount": {"bankAccountID": "833fa3ef-14d3-4c97-ba45-6af66f739832", "fingerprint": "dd4cbfe5fbaf47b392770b5b595bec604fd99394749b7d017153e2b9cfbea40e", "status": "new", "holderName": "John Doe", "holderType": "individual", "bankName": "Gringotts Bank", "bankAccountType": "checking", "routingNumber": "123456780", "lastFourAccountNumber": "6789", "updatedOn": "2024-11-26T22:37:06Z", "statusReason": "bank-account-created"}, "achDetails": {"status": "returned", "traceNumber": "124782618117", "companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit", "debitHoldPeriod": "2-days"}, "cardDetails": {"status": "failed", "dynamicDescriptor": "WhlBdy *Yoga 11-12", "feeProgram": "Visa Signature and Visa Infinite (Spend not-qualified) Product 1"}}, "status": "queued", "amount": {"currency": "Cayman Islands Dollar", "value": 853228}, "description": "Pay Instructor for May 15 Class", "metadata": {"optional": "metadata"}, "facilitatorFee": {"totalDecimal": "12.987654321", "markupDecimal": "0.987654321"}}
+          application/json: {"transferID": "d835gf30-4b19-4850-a9b2-c0624c41ecb3", "createdOn": "2025-01-21T21:32:16Z", "source": {"paymentMethodID": "9506dbf6-4208-44c3-ad8a-e4431660e1f2", "paymentMethodType": "card-payment", "account": {"accountID": "7e4b26c2-b399-49ef-8390-50e1ea44d550", "email": "jules@julesjackson.com", "displayName": "Jules Jackson"}, "bankAccount": {"bankAccountID": "833fa3ef-14d3-4c97-ba45-6af66f739832", "fingerprint": "dd4cbfe5fbaf47b392770b5b595bec604fd99394749b7d017153e2b9cfbea40e", "status": "new", "holderName": "John Doe", "holderType": "individual", "bankName": "Gringotts Bank", "bankAccountType": "checking", "routingNumber": "123456780", "lastFourAccountNumber": "6789", "updatedOn": "2024-11-26T22:37:06Z", "statusReason": "bank-account-created"}, "card": {"cardID": "aefd5563-93c6-413c-875e-1bd0ebfc116d", "fingerprint": "2f5d782ceef1c3bd31ed5...", "brand": "Visa", "cardType": "credit", "lastFourCardNumber": "2000", "bin": "400020", "expiration": {"month": "01", "year": "28"}, "holderName": "Jules Jackson", "billingAddress": {"postalCode": "80301"}, "cardVerification": {"cvv": "unavailable", "addressLine1": "unavailable", "postalCode": "unavailable", "accountName": {}}, "issuer": "Moov Visa Sandbox", "issuerCountry": "US", "cardAccountUpdater": {}}, "cardDetails": {"status": "confirmed", "dynamicDescriptor": "WhlBdy *Yoga 11-12", "confirmedOn": "2025-01-21T21:32:16.799681237Z", "feeProgram": "Visa Signature and Visa Infinite (Spend not-qualified) Product 1"}, "achDetails": {"status": "corrected", "traceNumber": "124782618117", "companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit", "debitHoldPeriod": "2-days"}}, "destination": {"paymentMethodID": "3f9969cf-a1f3-4d83-8ddc-229a506651cf", "paymentMethodType": "moov-wallet", "account": {"accountID": "34233b72-780c-4a0d-8b08-cbbe23k878f8", "email": "john@wholebodyfitness.io", "displayName": "Whole Body Fitness"}, "bankAccount": {"bankAccountID": "833fa3ef-14d3-4c97-ba45-6af66f739832", "fingerprint": "dd4cbfe5fbaf47b392770b5b595bec604fd99394749b7d017153e2b9cfbea40e", "status": "new", "holderName": "John Doe", "holderType": "individual", "bankName": "Gringotts Bank", "bankAccountType": "checking", "routingNumber": "123456780", "lastFourAccountNumber": "6789", "updatedOn": "2024-11-26T22:37:06Z", "statusReason": "bank-account-created"}, "wallet": {"walletID": "744b2e78-8cc8-4a6a-af42-611e3b844503"}, "achDetails": {"status": "returned", "traceNumber": "124782618117", "companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit", "debitHoldPeriod": "2-days"}, "cardDetails": {"status": "failed", "dynamicDescriptor": "WhlBdy *Yoga 11-12", "feeProgram": "Visa Signature and Visa Infinite (Spend not-qualified) Product 1"}}, "status": "pending", "amount": {"currency": "USD", "value": 1204}, "description": "Pay Instructor for May 15 Class", "metadata": {"optional": "metadata"}, "facilitatorFee": {"totalDecimal": "12.987654321", "markupDecimal": "0.987654321"}}
         "201":
           application/json: {"transferID": "31f5367d-01e8-495f-9f30-6bdb5636b40b", "createdOn": "2024-12-13T20:08:58.547Z"}
         "202":
-          application/json: {"transferID": "d1ad7ae6-a982-44a3-b982-12a71c648ec1", "createdOn": "2023-12-13T23:27:40.600Z", "source": {"paymentMethodID": "<id>", "paymentMethodType": "<value>", "account": {"accountID": "<id>", "email": "Wilbert.Bergstrom@gmail.com", "displayName": "Neva.Murray68"}, "bankAccount": {"bankAccountID": "833fa3ef-14d3-4c97-ba45-6af66f739832", "fingerprint": "dd4cbfe5fbaf47b392770b5b595bec604fd99394749b7d017153e2b9cfbea40e", "status": "new", "holderName": "John Doe", "holderType": "individual", "bankName": "Gringotts Bank", "bankAccountType": "checking", "routingNumber": "123456780", "lastFourAccountNumber": "6789", "updatedOn": "2024-11-26T22:37:06Z", "statusReason": "bank-account-created"}, "cardDetails": {"status": "confirmed", "dynamicDescriptor": "WhlBdy *Yoga 11-12", "feeProgram": "Visa Signature and Visa Infinite (Spend not-qualified) Product 1"}, "achDetails": {"status": "corrected", "traceNumber": "124782618117", "companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit", "debitHoldPeriod": "2-days"}}, "destination": {"paymentMethodID": "<id>", "paymentMethodType": "<value>", "account": {"accountID": "<id>", "email": "Rhianna44@gmail.com", "displayName": "Mellie97"}, "bankAccount": {"bankAccountID": "833fa3ef-14d3-4c97-ba45-6af66f739832", "fingerprint": "dd4cbfe5fbaf47b392770b5b595bec604fd99394749b7d017153e2b9cfbea40e", "status": "new", "holderName": "John Doe", "holderType": "individual", "bankName": "Gringotts Bank", "bankAccountType": "checking", "routingNumber": "123456780", "lastFourAccountNumber": "6789", "updatedOn": "2024-11-26T22:37:06Z", "statusReason": "bank-account-created"}, "achDetails": {"status": "corrected", "traceNumber": "124782618117", "companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit", "debitHoldPeriod": "2-days"}, "cardDetails": {"status": "canceled", "dynamicDescriptor": "WhlBdy *Yoga 11-12", "feeProgram": "Visa Signature and Visa Infinite (Spend not-qualified) Product 1"}}, "status": "pending", "amount": {"currency": "Swiss Franc", "value": 496717}, "description": "Pay Instructor for May 15 Class", "metadata": {"optional": "metadata"}, "facilitatorFee": {"totalDecimal": "12.987654321", "markupDecimal": "0.987654321"}}
+          application/json: {"transferID": "d835gf30-4b19-4850-a9b2-c0624c41ecb3", "createdOn": "2025-01-21T21:32:16Z", "source": {"paymentMethodID": "9506dbf6-4208-44c3-ad8a-e4431660e1f2", "paymentMethodType": "card-payment", "account": {"accountID": "7e4b26c2-b399-49ef-8390-50e1ea44d550", "email": "jules@julesjackson.com", "displayName": "Jules Jackson"}, "bankAccount": {"bankAccountID": "833fa3ef-14d3-4c97-ba45-6af66f739832", "fingerprint": "dd4cbfe5fbaf47b392770b5b595bec604fd99394749b7d017153e2b9cfbea40e", "status": "new", "holderName": "John Doe", "holderType": "individual", "bankName": "Gringotts Bank", "bankAccountType": "checking", "routingNumber": "123456780", "lastFourAccountNumber": "6789", "updatedOn": "2024-11-26T22:37:06Z", "statusReason": "bank-account-created"}, "card": {"cardID": "aefd5563-93c6-413c-875e-1bd0ebfc116d", "fingerprint": "2f5d782ceef1c3bd31ed5...", "brand": "Visa", "cardType": "credit", "lastFourCardNumber": "2000", "bin": "400020", "expiration": {"month": "01", "year": "28"}, "holderName": "Jules Jackson", "billingAddress": {"postalCode": "80301"}, "cardVerification": {"cvv": "unavailable", "addressLine1": "unavailable", "postalCode": "unavailable", "accountName": {}}, "issuer": "Moov Visa Sandbox", "issuerCountry": "US", "cardAccountUpdater": {}}, "cardDetails": {"status": "confirmed", "dynamicDescriptor": "WhlBdy *Yoga 11-12", "confirmedOn": "2025-01-21T21:32:16.799681237Z", "feeProgram": "Visa Signature and Visa Infinite (Spend not-qualified) Product 1"}, "achDetails": {"status": "corrected", "traceNumber": "124782618117", "companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit", "debitHoldPeriod": "2-days"}}, "destination": {"paymentMethodID": "3f9969cf-a1f3-4d83-8ddc-229a506651cf", "paymentMethodType": "moov-wallet", "account": {"accountID": "34233b72-780c-4a0d-8b08-cbbe23k878f8", "email": "john@wholebodyfitness.io", "displayName": "Whole Body Fitness"}, "bankAccount": {"bankAccountID": "833fa3ef-14d3-4c97-ba45-6af66f739832", "fingerprint": "dd4cbfe5fbaf47b392770b5b595bec604fd99394749b7d017153e2b9cfbea40e", "status": "new", "holderName": "John Doe", "holderType": "individual", "bankName": "Gringotts Bank", "bankAccountType": "checking", "routingNumber": "123456780", "lastFourAccountNumber": "6789", "updatedOn": "2024-11-26T22:37:06Z", "statusReason": "bank-account-created"}, "wallet": {"walletID": "744b2e78-8cc8-4a6a-af42-611e3b844503"}, "achDetails": {"status": "corrected", "traceNumber": "124782618117", "companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit", "debitHoldPeriod": "2-days"}, "cardDetails": {"status": "canceled", "dynamicDescriptor": "WhlBdy *Yoga 11-12", "feeProgram": "Visa Signature and Visa Infinite (Spend not-qualified) Product 1"}}, "status": "pending", "amount": {"currency": "USD", "value": 1204}, "description": "Pay Instructor for May 15 Class", "metadata": {"optional": "metadata"}, "facilitatorFee": {"totalDecimal": "12.987654321", "markupDecimal": "0.987654321"}}
         "400":
           application/json: {"error": "<value>"}
         "409":
-          application/json: {"transferID": "288ddbc4-ae18-42dd-b204-f7ae0c1cfe0f", "createdOn": "2023-02-24T17:30:11.191Z", "source": {"paymentMethodID": "<id>", "paymentMethodType": "<value>", "account": {"accountID": "<id>", "email": "Gillian_Weissnat@hotmail.com", "displayName": "Wendell.Shanahan"}, "bankAccount": {"bankAccountID": "833fa3ef-14d3-4c97-ba45-6af66f739832", "fingerprint": "dd4cbfe5fbaf47b392770b5b595bec604fd99394749b7d017153e2b9cfbea40e", "status": "new", "holderName": "John Doe", "holderType": "individual", "bankName": "Gringotts Bank", "bankAccountType": "checking", "routingNumber": "123456780", "lastFourAccountNumber": "6789", "updatedOn": "2024-11-26T22:37:06Z", "statusReason": "bank-account-created"}, "cardDetails": {"status": "confirmed", "dynamicDescriptor": "WhlBdy *Yoga 11-12", "feeProgram": "Visa Signature and Visa Infinite (Spend not-qualified) Product 1"}, "achDetails": {"status": "corrected", "traceNumber": "124782618117", "companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit", "debitHoldPeriod": "2-days"}}, "destination": {"paymentMethodID": "<id>", "paymentMethodType": "<value>", "account": {"accountID": "<id>", "email": "Nikolas.Kuhic90@gmail.com", "displayName": "Ernestina.Hermiston"}, "bankAccount": {"bankAccountID": "833fa3ef-14d3-4c97-ba45-6af66f739832", "fingerprint": "dd4cbfe5fbaf47b392770b5b595bec604fd99394749b7d017153e2b9cfbea40e", "status": "new", "holderName": "John Doe", "holderType": "individual", "bankName": "Gringotts Bank", "bankAccountType": "checking", "routingNumber": "123456780", "lastFourAccountNumber": "6789", "updatedOn": "2024-11-26T22:37:06Z", "statusReason": "bank-account-created"}, "achDetails": {"status": "originated", "traceNumber": "124782618117", "companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit", "debitHoldPeriod": "2-days"}, "cardDetails": {"status": "canceled", "dynamicDescriptor": "WhlBdy *Yoga 11-12", "feeProgram": "Visa Signature and Visa Infinite (Spend not-qualified) Product 1"}}, "status": "queued", "amount": {"currency": "Kyat", "value": 86402}, "description": "Pay Instructor for May 15 Class", "metadata": {"optional": "metadata"}, "facilitatorFee": {"totalDecimal": "12.987654321", "markupDecimal": "0.987654321"}}
+          application/json: {"transferID": "d835gf30-4b19-4850-a9b2-c0624c41ecb3", "createdOn": "2025-01-21T21:32:16Z", "source": {"paymentMethodID": "9506dbf6-4208-44c3-ad8a-e4431660e1f2", "paymentMethodType": "card-payment", "account": {"accountID": "7e4b26c2-b399-49ef-8390-50e1ea44d550", "email": "jules@julesjackson.com", "displayName": "Jules Jackson"}, "bankAccount": {"bankAccountID": "833fa3ef-14d3-4c97-ba45-6af66f739832", "fingerprint": "dd4cbfe5fbaf47b392770b5b595bec604fd99394749b7d017153e2b9cfbea40e", "status": "new", "holderName": "John Doe", "holderType": "individual", "bankName": "Gringotts Bank", "bankAccountType": "checking", "routingNumber": "123456780", "lastFourAccountNumber": "6789", "updatedOn": "2024-11-26T22:37:06Z", "statusReason": "bank-account-created"}, "card": {"cardID": "aefd5563-93c6-413c-875e-1bd0ebfc116d", "fingerprint": "2f5d782ceef1c3bd31ed5...", "brand": "Visa", "cardType": "credit", "lastFourCardNumber": "2000", "bin": "400020", "expiration": {"month": "01", "year": "28"}, "holderName": "Jules Jackson", "billingAddress": {"postalCode": "80301"}, "cardVerification": {"cvv": "unavailable", "addressLine1": "unavailable", "postalCode": "unavailable", "accountName": {}}, "issuer": "Moov Visa Sandbox", "issuerCountry": "US", "cardAccountUpdater": {}}, "cardDetails": {"status": "confirmed", "dynamicDescriptor": "WhlBdy *Yoga 11-12", "confirmedOn": "2025-01-21T21:32:16.799681237Z", "feeProgram": "Visa Signature and Visa Infinite (Spend not-qualified) Product 1"}, "achDetails": {"status": "corrected", "traceNumber": "124782618117", "companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit", "debitHoldPeriod": "2-days"}}, "destination": {"paymentMethodID": "3f9969cf-a1f3-4d83-8ddc-229a506651cf", "paymentMethodType": "moov-wallet", "account": {"accountID": "34233b72-780c-4a0d-8b08-cbbe23k878f8", "email": "john@wholebodyfitness.io", "displayName": "Whole Body Fitness"}, "bankAccount": {"bankAccountID": "833fa3ef-14d3-4c97-ba45-6af66f739832", "fingerprint": "dd4cbfe5fbaf47b392770b5b595bec604fd99394749b7d017153e2b9cfbea40e", "status": "new", "holderName": "John Doe", "holderType": "individual", "bankName": "Gringotts Bank", "bankAccountType": "checking", "routingNumber": "123456780", "lastFourAccountNumber": "6789", "updatedOn": "2024-11-26T22:37:06Z", "statusReason": "bank-account-created"}, "wallet": {"walletID": "744b2e78-8cc8-4a6a-af42-611e3b844503"}, "achDetails": {"status": "originated", "traceNumber": "124782618117", "companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit", "debitHoldPeriod": "2-days"}, "cardDetails": {"status": "canceled", "dynamicDescriptor": "WhlBdy *Yoga 11-12", "feeProgram": "Visa Signature and Visa Infinite (Spend not-qualified) Product 1"}}, "status": "pending", "amount": {"currency": "USD", "value": 1204}, "description": "Pay Instructor for May 15 Class", "metadata": {"optional": "metadata"}, "facilitatorFee": {"totalDecimal": "12.987654321", "markupDecimal": "0.987654321"}}
         "422":
           application/json: {}
   listTransfers:
@@ -2656,7 +2435,7 @@ examples:
         header: {}
       responses:
         "200":
-          application/json: [{"transferID": "25947319-1e26-4c3f-86b5-fe201869a6c5", "createdOn": "2024-08-19T11:20:09.560Z", "source": {"paymentMethodID": "<id>", "paymentMethodType": "<value>", "account": {"accountID": "<id>", "email": "Wilfrid_Wisoky@hotmail.com", "displayName": "Ansley.Howell35"}, "bankAccount": {"bankAccountID": "833fa3ef-14d3-4c97-ba45-6af66f739832", "fingerprint": "dd4cbfe5fbaf47b392770b5b595bec604fd99394749b7d017153e2b9cfbea40e", "status": "new", "holderName": "John Doe", "holderType": "individual", "bankName": "Gringotts Bank", "bankAccountType": "checking", "routingNumber": "123456780", "lastFourAccountNumber": "6789", "updatedOn": "2024-11-26T22:37:06Z", "statusReason": "bank-account-created"}, "cardDetails": {"status": "canceled", "dynamicDescriptor": "WhlBdy *Yoga 11-12", "feeProgram": "Visa Signature and Visa Infinite (Spend not-qualified) Product 1"}, "achDetails": {"status": "returned", "traceNumber": "124782618117", "companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit", "debitHoldPeriod": "2-days"}}, "destination": {"paymentMethodID": "<id>", "paymentMethodType": "<value>", "account": {"accountID": "<id>", "email": "Lemuel37@gmail.com", "displayName": "Hunter.Hamill-White"}, "bankAccount": {"bankAccountID": "833fa3ef-14d3-4c97-ba45-6af66f739832", "fingerprint": "dd4cbfe5fbaf47b392770b5b595bec604fd99394749b7d017153e2b9cfbea40e", "status": "new", "holderName": "John Doe", "holderType": "individual", "bankName": "Gringotts Bank", "bankAccountType": "checking", "routingNumber": "123456780", "lastFourAccountNumber": "6789", "updatedOn": "2024-11-26T22:37:06Z", "statusReason": "bank-account-created"}, "achDetails": {"status": "corrected", "traceNumber": "124782618117", "companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit", "debitHoldPeriod": "2-days"}, "cardDetails": {"status": "confirmed", "dynamicDescriptor": "WhlBdy *Yoga 11-12", "feeProgram": "Visa Signature and Visa Infinite (Spend not-qualified) Product 1"}}, "status": "pending", "amount": {"currency": "Pakistan Rupee", "value": 359598}, "description": "Pay Instructor for May 15 Class", "metadata": {"optional": "metadata"}, "facilitatorFee": {"totalDecimal": "12.987654321", "markupDecimal": "0.987654321"}}, {"transferID": "45fb4c05-dbf9-4468-a27a-892e5c5b8835", "createdOn": "2024-11-25T05:45:26.412Z", "source": {"paymentMethodID": "<id>", "paymentMethodType": "<value>", "account": {"accountID": "<id>", "email": "Spencer_Lakin@yahoo.com", "displayName": "Oswaldo_Crona21"}, "bankAccount": {"bankAccountID": "833fa3ef-14d3-4c97-ba45-6af66f739832", "fingerprint": "dd4cbfe5fbaf47b392770b5b595bec604fd99394749b7d017153e2b9cfbea40e", "status": "new", "holderName": "John Doe", "holderType": "individual", "bankName": "Gringotts Bank", "bankAccountType": "checking", "routingNumber": "123456780", "lastFourAccountNumber": "6789", "updatedOn": "2024-11-26T22:37:06Z", "statusReason": "bank-account-created"}, "cardDetails": {"status": "initiated", "dynamicDescriptor": "WhlBdy *Yoga 11-12", "feeProgram": "Visa Signature and Visa Infinite (Spend not-qualified) Product 1"}, "achDetails": {"status": "returned", "traceNumber": "124782618117", "companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit", "debitHoldPeriod": "2-days"}}, "destination": {"paymentMethodID": "<id>", "paymentMethodType": "<value>", "account": {"accountID": "<id>", "email": "Camren.Roberts-Dibbert22@hotmail.com", "displayName": "Cordell_Renner"}, "bankAccount": {"bankAccountID": "833fa3ef-14d3-4c97-ba45-6af66f739832", "fingerprint": "dd4cbfe5fbaf47b392770b5b595bec604fd99394749b7d017153e2b9cfbea40e", "status": "new", "holderName": "John Doe", "holderType": "individual", "bankName": "Gringotts Bank", "bankAccountType": "checking", "routingNumber": "123456780", "lastFourAccountNumber": "6789", "updatedOn": "2024-11-26T22:37:06Z", "statusReason": "bank-account-created"}, "achDetails": {"status": "corrected", "traceNumber": "124782618117", "companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit", "debitHoldPeriod": "2-days"}, "cardDetails": {"status": "canceled", "dynamicDescriptor": "WhlBdy *Yoga 11-12", "feeProgram": "Visa Signature and Visa Infinite (Spend not-qualified) Product 1"}}, "status": "failed", "amount": {"currency": "Kwanza", "value": 438175}, "description": "Pay Instructor for May 15 Class", "metadata": {"optional": "metadata"}, "facilitatorFee": {"totalDecimal": "12.987654321", "markupDecimal": "0.987654321"}}, {"transferID": "6fc3c742-c1b1-4d33-8c04-69a12247a583", "createdOn": "2024-12-09T02:28:07.993Z", "source": {"paymentMethodID": "<id>", "paymentMethodType": "<value>", "account": {"accountID": "<id>", "email": "Ezra89@gmail.com", "displayName": "Sandrine.Hills"}, "bankAccount": {"bankAccountID": "833fa3ef-14d3-4c97-ba45-6af66f739832", "fingerprint": "dd4cbfe5fbaf47b392770b5b595bec604fd99394749b7d017153e2b9cfbea40e", "status": "new", "holderName": "John Doe", "holderType": "individual", "bankName": "Gringotts Bank", "bankAccountType": "checking", "routingNumber": "123456780", "lastFourAccountNumber": "6789", "updatedOn": "2024-11-26T22:37:06Z", "statusReason": "bank-account-created"}, "cardDetails": {"status": "canceled", "dynamicDescriptor": "WhlBdy *Yoga 11-12", "feeProgram": "Visa Signature and Visa Infinite (Spend not-qualified) Product 1"}, "achDetails": {"status": "corrected", "traceNumber": "124782618117", "companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit", "debitHoldPeriod": "2-days"}}, "destination": {"paymentMethodID": "<id>", "paymentMethodType": "<value>", "account": {"accountID": "<id>", "email": "Kelly.Sporer@gmail.com", "displayName": "Kathleen.Gutmann33"}, "bankAccount": {"bankAccountID": "833fa3ef-14d3-4c97-ba45-6af66f739832", "fingerprint": "dd4cbfe5fbaf47b392770b5b595bec604fd99394749b7d017153e2b9cfbea40e", "status": "new", "holderName": "John Doe", "holderType": "individual", "bankName": "Gringotts Bank", "bankAccountType": "checking", "routingNumber": "123456780", "lastFourAccountNumber": "6789", "updatedOn": "2024-11-26T22:37:06Z", "statusReason": "bank-account-created"}, "achDetails": {"status": "returned", "traceNumber": "124782618117", "companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit", "debitHoldPeriod": "2-days"}, "cardDetails": {"status": "failed", "dynamicDescriptor": "WhlBdy *Yoga 11-12", "feeProgram": "Visa Signature and Visa Infinite (Spend not-qualified) Product 1"}}, "status": "completed", "amount": {"currency": "Forint", "value": 565691}, "description": "Pay Instructor for May 15 Class", "metadata": {"optional": "metadata"}, "facilitatorFee": {"totalDecimal": "12.987654321", "markupDecimal": "0.987654321"}}]
+          application/json: [{"transferID": "d835gf30-4b19-4850-a9b2-c0624c41ecb3", "createdOn": "2025-01-21T21:32:16Z", "source": {"paymentMethodID": "9506dbf6-4208-44c3-ad8a-e4431660e1f2", "paymentMethodType": "card-payment", "account": {"accountID": "7e4b26c2-b399-49ef-8390-50e1ea44d550", "email": "jules@julesjackson.com", "displayName": "Jules Jackson"}, "card": {"cardID": "aefd5563-93c6-413c-875e-1bd0ebfc116d", "fingerprint": "2f5d782ceef1c3bd31ed5...", "brand": "Visa", "cardType": "credit", "lastFourCardNumber": "2000", "bin": "400020", "expiration": {"month": "01", "year": "28"}, "holderName": "Jules Jackson", "billingAddress": {"postalCode": "80301"}, "cardVerification": {"cvv": "unavailable", "addressLine1": "unavailable", "postalCode": "unavailable", "accountName": {}}, "issuer": "Moov Visa Sandbox", "issuerCountry": "US", "cardAccountUpdater": {}}, "cardDetails": {"status": "confirmed", "dynamicDescriptor": "WhlBdy *Yoga 11-12", "confirmedOn": "2025-01-21T21:32:16.799681237Z"}}, "destination": {"paymentMethodID": "3f9969cf-a1f3-4d83-8ddc-229a506651cf", "paymentMethodType": "moov-wallet", "account": {"accountID": "34233b72-780c-4a0d-8b08-cbbe23k878f8", "email": "john@wholebodyfitness.io", "displayName": "Whole Body Fitness"}, "wallet": {"walletID": "744b2e78-8cc8-4a6a-af42-611e3b844503"}}, "status": "pending", "amount": {"currency": "USD", "value": 32945}, "description": "Transfer from card to wallet"}]
   getTransfer:
     speakeasy-default-get-transfer:
       parameters:
@@ -2666,7 +2445,7 @@ examples:
         header: {}
       responses:
         "200":
-          application/json: {"transferID": "ce27d882-86cb-42e8-8b97-954a596734c8", "createdOn": "2025-07-04T07:37:05.776Z", "source": {"paymentMethodID": "<id>", "paymentMethodType": "<value>", "account": {"accountID": "<id>", "email": "Lesley77@hotmail.com", "displayName": "Megane.Weissnat9"}, "bankAccount": {"bankAccountID": "833fa3ef-14d3-4c97-ba45-6af66f739832", "fingerprint": "dd4cbfe5fbaf47b392770b5b595bec604fd99394749b7d017153e2b9cfbea40e", "status": "new", "holderName": "John Doe", "holderType": "individual", "bankName": "Gringotts Bank", "bankAccountType": "checking", "routingNumber": "123456780", "lastFourAccountNumber": "6789", "updatedOn": "2024-11-26T22:37:06Z", "statusReason": "bank-account-created"}, "cardDetails": {"status": "initiated", "dynamicDescriptor": "WhlBdy *Yoga 11-12", "feeProgram": "Visa Signature and Visa Infinite (Spend not-qualified) Product 1"}, "achDetails": {"status": "initiated", "traceNumber": "124782618117", "companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit", "debitHoldPeriod": "2-days"}}, "destination": {"paymentMethodID": "<id>", "paymentMethodType": "<value>", "account": {"accountID": "<id>", "email": "Duane.McClure80@gmail.com", "displayName": "Mariane43"}, "bankAccount": {"bankAccountID": "833fa3ef-14d3-4c97-ba45-6af66f739832", "fingerprint": "dd4cbfe5fbaf47b392770b5b595bec604fd99394749b7d017153e2b9cfbea40e", "status": "new", "holderName": "John Doe", "holderType": "individual", "bankName": "Gringotts Bank", "bankAccountType": "checking", "routingNumber": "123456780", "lastFourAccountNumber": "6789", "updatedOn": "2024-11-26T22:37:06Z", "statusReason": "bank-account-created"}, "achDetails": {"status": "corrected", "traceNumber": "124782618117", "companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit", "debitHoldPeriod": "2-days"}, "cardDetails": {"status": "canceled", "dynamicDescriptor": "WhlBdy *Yoga 11-12", "feeProgram": "Visa Signature and Visa Infinite (Spend not-qualified) Product 1"}}, "status": "pending", "amount": {"currency": "Pula", "value": 547313}, "description": "Pay Instructor for May 15 Class", "metadata": {"optional": "metadata"}, "facilitatorFee": {"totalDecimal": "12.987654321", "markupDecimal": "0.987654321"}}
+          application/json: {"transferID": "d835gf30-4b19-4850-a9b2-c0624c41ecb3", "createdOn": "2025-01-21T21:32:16Z", "source": {"paymentMethodID": "9506dbf6-4208-44c3-ad8a-e4431660e1f2", "paymentMethodType": "card-payment", "account": {"accountID": "7e4b26c2-b399-49ef-8390-50e1ea44d550", "email": "jules@julesjackson.com", "displayName": "Jules Jackson"}, "bankAccount": {"bankAccountID": "833fa3ef-14d3-4c97-ba45-6af66f739832", "fingerprint": "dd4cbfe5fbaf47b392770b5b595bec604fd99394749b7d017153e2b9cfbea40e", "status": "new", "holderName": "John Doe", "holderType": "individual", "bankName": "Gringotts Bank", "bankAccountType": "checking", "routingNumber": "123456780", "lastFourAccountNumber": "6789", "updatedOn": "2024-11-26T22:37:06Z", "statusReason": "bank-account-created"}, "card": {"cardID": "aefd5563-93c6-413c-875e-1bd0ebfc116d", "fingerprint": "2f5d782ceef1c3bd31ed5...", "brand": "Visa", "cardType": "credit", "lastFourCardNumber": "2000", "bin": "400020", "expiration": {"month": "01", "year": "28"}, "holderName": "Jules Jackson", "billingAddress": {"postalCode": "80301"}, "cardVerification": {"cvv": "unavailable", "addressLine1": "unavailable", "postalCode": "unavailable", "accountName": {}}, "issuer": "Moov Visa Sandbox", "issuerCountry": "US", "cardAccountUpdater": {}}, "cardDetails": {"status": "confirmed", "dynamicDescriptor": "WhlBdy *Yoga 11-12", "confirmedOn": "2025-01-21T21:32:16.799681237Z", "feeProgram": "Visa Signature and Visa Infinite (Spend not-qualified) Product 1"}, "achDetails": {"status": "initiated", "traceNumber": "124782618117", "companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit", "debitHoldPeriod": "2-days"}}, "destination": {"paymentMethodID": "3f9969cf-a1f3-4d83-8ddc-229a506651cf", "paymentMethodType": "moov-wallet", "account": {"accountID": "34233b72-780c-4a0d-8b08-cbbe23k878f8", "email": "john@wholebodyfitness.io", "displayName": "Whole Body Fitness"}, "bankAccount": {"bankAccountID": "833fa3ef-14d3-4c97-ba45-6af66f739832", "fingerprint": "dd4cbfe5fbaf47b392770b5b595bec604fd99394749b7d017153e2b9cfbea40e", "status": "new", "holderName": "John Doe", "holderType": "individual", "bankName": "Gringotts Bank", "bankAccountType": "checking", "routingNumber": "123456780", "lastFourAccountNumber": "6789", "updatedOn": "2024-11-26T22:37:06Z", "statusReason": "bank-account-created"}, "wallet": {"walletID": "744b2e78-8cc8-4a6a-af42-611e3b844503"}, "achDetails": {"status": "corrected", "traceNumber": "124782618117", "companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit", "debitHoldPeriod": "2-days"}, "cardDetails": {"status": "canceled", "dynamicDescriptor": "WhlBdy *Yoga 11-12", "feeProgram": "Visa Signature and Visa Infinite (Spend not-qualified) Product 1"}}, "status": "pending", "amount": {"currency": "USD", "value": 1204}, "description": "Pay Instructor for May 15 Class", "metadata": {"optional": "metadata"}, "facilitatorFee": {"totalDecimal": "12.987654321", "markupDecimal": "0.987654321"}}
   patchTransfer:
     speakeasy-default-patch-transfer:
       parameters:
@@ -3048,5 +2827,155 @@ examples:
           code: "N1IA5eWYNh"
         header: {}
   ping: {}
+  updateAccount:
+    speakeasy-default-update-account:
+      parameters:
+        path:
+          accountID: "d95fa7f0-e743-42ce-b47c-b60cc78135dd"
+        header: {}
+      requestBody:
+        application/json: {"accountType": "business", "profile": {"business": {"legalBusinessName": "Classbooker, LLC"}}}
+      responses:
+        "200":
+          application/json: {"accountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "mode": "production", "accountType": "business", "displayName": "Whole Body Fitness", "profile": {"business": {"legalBusinessName": "Classbooker, LLC", "ownersProvided": false}}, "verification": {"verificationStatus": "unverified", "status": "unverified"}, "settings": {"cardPayment": {"statementDescriptor": "Whole Body Fitness"}, "achPayment": {"companyName": "WholeBodyFitness"}}, "createdOn": "2024-05-06T12:20:38.184Z", "updatedOn": "2024-05-06T12:20:38.184Z"}
+        "400":
+          application/json: {"error": "<value>"}
+        "422":
+          application/json: {"error": {}}
+  createBrand:
+    speakeasy-default-create-brand:
+      parameters:
+        path:
+          accountID: "7a621cf0-21cd-49cf-8540-3315211a509a"
+        header: {}
+      requestBody:
+        application/json: {"colors": {"dark": {"accent": "#111111"}, "light": {"accent": "#111111"}}}
+      responses:
+        "200":
+          application/json: {"colors": {"dark": {"accent": "#111111"}, "light": {"accent": "#111111"}}}
+        "400":
+          application/json: {"error": "<value>"}
+        "422":
+          application/json: {}
+  upsertBrand:
+    speakeasy-default-upsert-brand:
+      parameters:
+        path:
+          accountID: "87673c22-1b80-4b69-b5bb-e92af8dcce02"
+        header: {}
+      requestBody:
+        application/json: {"colors": {"dark": {"accent": "#111111"}, "light": {"accent": "#111111"}}}
+      responses:
+        "200":
+          application/json: {"colors": {"dark": {"accent": "#111111"}, "light": {"accent": "#111111"}}}
+        "400":
+          application/json: {"error": "<value>"}
+        "422":
+          application/json: {}
+  requestCapabilities:
+    "":
+      parameters:
+        path:
+          accountID: "32613610-de25-446e-8662-ec2709ffea9d"
+        header: {}
+      requestBody:
+        application/json: {"capabilities": ["collect-funds"]}
+      responses:
+        "200":
+          application/json: [{"capability": "transfers", "accountID": "01234567-89ab-cdef-0123-456789abcdef", "status": "enabled", "createdOn": "2024-05-06T12:20:38.184Z", "updatedOn": "2024-05-06T12:20:38.184Z"}, {"capability": "collect-funds", "accountID": "01234567-89ab-cdef-0123-456789abcdef", "status": "in-review", "requirements": [{"currentlyDue": ["business.owners"]}], "createdOn": "2024-05-06T12:20:38.184Z", "updatedOn": "2024-05-06T12:20:38.184Z"}]
+  updateSweepConfig:
+    "":
+      parameters:
+        path:
+          accountID: "7573cb48-6325-4d3d-841d-81108fcfe6f2"
+          sweepConfigID: "49e8f3b1-259f-458e-9367-adb3b938f8c8"
+        header: {}
+      requestBody:
+        application/json: {"status": "disabled"}
+      responses:
+        "200":
+          application/json: {"sweepConfigID": "01234567-89ab-cdef-0123-456789abcdef", "walletID": "01234567-89ab-cdef-0123-456789abcdef", "status": "disabled", "pushPaymentMethod": {"paymentMethodID": "01234567-89ab-cdef-0123-456789abcdef"}, "pullPaymentMethod": {"paymentMethodID": "01234567-89ab-cdef-0123-456789abcdef"}, "minimumBalance": "0.00", "statementDescriptor": "swp_012345", "createdOn": "2024-05-06T12:20:38.184Z", "updatedOn": "2024-05-06T12:20:38.184Z", "disabledOn": "2024-05-06T12:20:38.184Z"}
+  updateTransfer:
+    speakeasy-default-update-transfer:
+      parameters:
+        path:
+          transferID: "d95fa7f0-e743-42ce-b47c-b60cc78135dd"
+          accountID: "b85898c1-25a1-4907-a1c5-562af6646dad"
+        header: {}
+      responses:
+        "200":
+          application/json: {"transferID": "d835gf30-4b19-4850-a9b2-c0624c41ecb3", "createdOn": "2025-01-21T21:32:16Z", "source": {"paymentMethodID": "9506dbf6-4208-44c3-ad8a-e4431660e1f2", "paymentMethodType": "card-payment", "account": {"accountID": "7e4b26c2-b399-49ef-8390-50e1ea44d550", "email": "jules@julesjackson.com", "displayName": "Jules Jackson"}, "card": {"cardID": "aefd5563-93c6-413c-875e-1bd0ebfc116d", "fingerprint": "2f5d782ceef1c3bd31ed5...", "brand": "Visa", "cardType": "credit", "lastFourCardNumber": "2000", "bin": "400020", "expiration": {"month": "01", "year": "28"}, "holderName": "Jules Jackson", "billingAddress": {"postalCode": "80301"}, "cardVerification": {"cvv": "unavailable", "addressLine1": "unavailable", "postalCode": "unavailable", "accountName": {}}, "issuer": "Moov Visa Sandbox", "issuerCountry": "US", "cardAccountUpdater": {}}, "cardDetails": {"status": "confirmed", "dynamicDescriptor": "WhlBdy *Yoga 11-12", "confirmedOn": "2025-01-21T21:32:16.799681237Z"}}, "destination": {"paymentMethodID": "3f9969cf-a1f3-4d83-8ddc-229a506651cf", "paymentMethodType": "moov-wallet", "account": {"accountID": "34233b72-780c-4a0d-8b08-cbbe23k878f8", "email": "john@wholebodyfitness.io", "displayName": "Whole Body Fitness"}, "wallet": {"walletID": "744b2e78-8cc8-4a6a-af42-611e3b844503"}}, "status": "pending", "amount": {"currency": "USD", "value": 1204}, "description": "Pay Instructor for May 15 Class"}
+  initiateRefund:
+    Successful async refund:
+      parameters:
+        path:
+          accountID: "9b1350b2-a5be-41e3-92be-61f5cf4372a8"
+          transferID: "7390ad29-1a0d-4a0c-8c17-da1708ee9ac2"
+        header:
+          x-idempotency-key: "bdfa6a76-31f8-4cdf-a007-3d8aac713b91"
+      requestBody:
+        application/json: {"amount": 1000}
+      responses:
+        "200":
+          application/json: {"refundID": "d4963079-5b35-4d17-981e-8f851753f786", "createdOn": "2023-09-09T14:15:22Z", "amount": {"currency": "USD", "value": 1204}}
+    Successful sync refund:
+      parameters:
+        path:
+          accountID: "ccfc533e-5996-4e24-8420-916af11978a3"
+          transferID: "2acedbbd-f150-40ee-8b4a-551b470dad35"
+        header:
+          x-idempotency-key: "c047af31-733e-4e5f-b1ef-0fb36fa1f73e"
+      requestBody:
+        application/json: {"amount": 1000}
+      responses:
+        "200":
+          application/json: {"refundID": "d4963079-5b35-4d17-981e-8f851753f786", "createdOn": "2023-09-09T14:15:22Z", "updatedOn": "2023-09-09T14:17:41Z", "status": "pending", "amount": {"currency": "USD", "value": 1204}, "cardDetails": {"status": "confirmed", "initiatedOn": "2023-09-09T14:16:22Z", "confirmedOn": "2023-09-09T14:17:41Z"}}
+  createReversal:
+    Reversed by refund:
+      parameters:
+        path:
+          accountID: "16452b89-d33c-4be9-8f92-205130a46467"
+          transferID: "c7f1b114-0545-47ba-9d79-fdba229c3df7"
+        header:
+          x-idempotency-key: "9d4b2ed0-777b-40e6-ba88-d6ca730c3503"
+      requestBody:
+        application/json: {"amount": 1000}
+      responses:
+        "200":
+          application/json: {"refund": {"refundID": "89ca7f54-13ba-4714-b9af-17163eae2057", "createdOn": "2025-01-19T03:07:26.001024809Z", "updatedOn": "2025-01-19T03:07:26.602114307Z", "status": "pending", "amount": {"currency": "USD", "value": 1938}, "cardDetails": {"status": "confirmed", "confirmedOn": "2025-01-19T03:07:26.602114307Z"}}}
+    Reversed by cancellation:
+      parameters:
+        path:
+          accountID: "76fd150d-ead7-429a-8a7b-c8ce51d8f414"
+          transferID: "2579dd72-45eb-4430-8d62-2e74e3a2c00b"
+        header:
+          x-idempotency-key: "9d2faf04-b3ed-4b23-be6f-609b94e053fd"
+      requestBody:
+        application/json: {"amount": 1000}
+      responses:
+        "200":
+          application/json: {"cancellation": {"status": "completed", "createdOn": "2025-01-19T03:02:43.255309588Z"}}
+  revokeAccessToken:
+    speakeasy-default-revoke-access-token:
+      requestBody:
+        application/json: {"token": "<value>", "client_id": "5clTR_MdVrrkgxw2", "client_secret": "dNC-hg7sVm22jc3g_Eogtyu0_1Mqh_4-"}
+        application/x-www-form-urlencoded: {"token": "<value>", "client_id": "5clTR_MdVrrkgxw2", "client_secret": "dNC-hg7sVm22jc3g_Eogtyu0_1Mqh_4-"}
+      responses:
+        "400":
+          application/json: {"error": "<value>"}
+        "422":
+          application/json: {}
+  createAccessToken:
+    speakeasy-default-create-access-token:
+      requestBody:
+        application/json: {"grant_type": "client_credentials", "client_id": "5clTR_MdVrrkgxw2", "client_secret": "dNC-hg7sVm22jc3g_Eogtyu0_1Mqh_4-", "scope": "/accounts.read /accounts.write", "refresh_token": "eyJhbGc0eSI6TQSIsImN0kpXVCIsImtp6IkpXVsImtpZC0a..."}
+        application/x-www-form-urlencoded: {"grant_type": "client_credentials", "client_id": "5clTR_MdVrrkgxw2", "client_secret": "dNC-hg7sVm22jc3g_Eogtyu0_1Mqh_4-", "scope": "/accounts.read /accounts.write", "refresh_token": "eyJhbGc0eSI6TQSIsImN0kpXVCIsImtp6IkpXVsImtpZC0a..."}
+      responses:
+        "200":
+          application/json: {"token_type": "Bearer", "access_token": "eyJhbGciOiJFZERTQSIsImN0eSI6IkpXVCIsImtpZCI6IkR...", "refresh_token": "eyJhbGc0eSI6TQSIsImN0kpXVCIsImtp6IkpXVsImtpZC0a...", "expires_in": 1736964352, "scope": "/accounts.read /accounts.write"}
+        "400":
+          application/json: {"error": "<value>"}
+        "422":
+          application/json: {}
 examplesVersion: 1.0.0
 generatedTests: {}

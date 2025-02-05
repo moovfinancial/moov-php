@@ -28,13 +28,15 @@ class Moov
 
     public Adjustments $adjustments;
 
-    public Cards $cards;
+    public ApplePay $applePay;
 
     public BankAccounts $bankAccounts;
 
     public Branding $branding;
 
     public Capabilities $capabilities;
+
+    public Cards $cards;
 
     public Disputes $disputes;
 
@@ -100,10 +102,11 @@ class Moov
     ) {
         $this->accounts = new Accounts($this->sdkConfiguration);
         $this->adjustments = new Adjustments($this->sdkConfiguration);
-        $this->cards = new Cards($this->sdkConfiguration);
+        $this->applePay = new ApplePay($this->sdkConfiguration);
         $this->bankAccounts = new BankAccounts($this->sdkConfiguration);
         $this->branding = new Branding($this->sdkConfiguration);
         $this->capabilities = new Capabilities($this->sdkConfiguration);
+        $this->cards = new Cards($this->sdkConfiguration);
         $this->disputes = new Disputes($this->sdkConfiguration);
         $this->billing = new Billing($this->sdkConfiguration);
         $this->files = new Files($this->sdkConfiguration);

@@ -38,6 +38,7 @@ class AsyncCreatedRefund
      * @param  string  $refundID
      * @param  \DateTime  $createdOn
      * @param  Amount  $amount
+     * @phpstan-pure
      */
     public function __construct(string $refundID, \DateTime $createdOn, Amount $amount)
     {

@@ -129,6 +129,7 @@ class JSONWebKey
      * @param  ?string  $y
      * @param  ?string  $n
      * @param  ?string  $e
+     * @phpstan-pure
      */
     public function __construct(string $kty, ?UseT $use = null, ?array $keyOps = null, ?string $alg = null, ?string $kid = null, ?string $crv = null, ?string $x = null, ?string $y = null, ?string $n = null, ?string $e = null)
     {

@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Moov\OpenAPI\Models\Operations;
 
-
+use Moov\OpenAPI\Models\Components;
 class ListPaymentMethodsResponse
 {
     /**
@@ -33,9 +33,16 @@ class ListPaymentMethodsResponse
     public \Psr\Http\Message\ResponseInterface $rawResponse;
 
     /**
+     * $headers
+     *
+     * @var array<string, array<string>> $headers
+     */
+    public array $headers;
+
+    /**
      * The request completed successfully.
      *
-     * @var ?array<mixed> $paymentMethods
+     * @var ?array<Components\MoovWalletPaymentMethod|Components\AchDebitFundPaymentMethod|Components\AchDebitCollectPaymentMethod|Components\AchCreditStandardPaymentMethod|Components\AchCreditSameDayPaymentMethod|Components\RtpCreditPaymentMethod|Components\CardPaymentPaymentMethod|Components\PushToCardPaymentMethod|Components\PullFromCardPaymentMethod|Components\ApplePayPaymentMethod> $paymentMethods
      */
     public ?array $paymentMethods = null;
 
@@ -43,13 +50,16 @@ class ListPaymentMethodsResponse
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
-     * @param  ?array<mixed>  $paymentMethods
+     * @param  array<string, array<string>>  $headers
+     * @param  ?array<Components\MoovWalletPaymentMethod|Components\AchDebitFundPaymentMethod|Components\AchDebitCollectPaymentMethod|Components\AchCreditStandardPaymentMethod|Components\AchCreditSameDayPaymentMethod|Components\RtpCreditPaymentMethod|Components\CardPaymentPaymentMethod|Components\PushToCardPaymentMethod|Components\PullFromCardPaymentMethod|Components\ApplePayPaymentMethod>  $paymentMethods
+     * @phpstan-pure
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?array $paymentMethods = null)
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?array $paymentMethods = null, ?array $headers = [])
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
+        $this->headers = $headers;
         $this->paymentMethods = $paymentMethods;
     }
 }

@@ -56,6 +56,7 @@ class BankAccountIntegration
      * @param  string  $accountNumber
      * @param  BankAccountType  $bankAccountType
      * @param  string  $routingNumber
+     * @phpstan-pure
      */
     public function __construct(string $holderName, BankAccountHolderType $holderType, string $accountNumber, BankAccountType $bankAccountType, string $routingNumber)
     {

@@ -28,6 +28,7 @@ class VolumeByCustomerType
     /**
      * @param  int  $businessToBusinessPercentage
      * @param  int  $consumerToBusinessPercentage
+     * @phpstan-pure
      */
     public function __construct(int $businessToBusinessPercentage, int $consumerToBusinessPercentage)
     {

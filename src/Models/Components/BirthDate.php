@@ -36,6 +36,7 @@ class BirthDate
      * @param  int  $day
      * @param  int  $month
      * @param  int  $year
+     * @phpstan-pure
      */
     public function __construct(int $day, int $month, int $year)
     {

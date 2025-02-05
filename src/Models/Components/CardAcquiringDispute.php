@@ -38,6 +38,7 @@ class CardAcquiringDispute
      * @param  string  $disputeID
      * @param  \DateTime  $createdOn
      * @param  Amount  $amount
+     * @phpstan-pure
      */
     public function __construct(string $disputeID, \DateTime $createdOn, Amount $amount)
     {

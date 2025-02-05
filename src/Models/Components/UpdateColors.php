@@ -32,6 +32,7 @@ class UpdateColors
     /**
      * @param  ?UpdateColor  $dark
      * @param  ?UpdateColor  $light
+     * @phpstan-pure
      */
     public function __construct(?UpdateColor $dark = null, ?UpdateColor $light = null)
     {

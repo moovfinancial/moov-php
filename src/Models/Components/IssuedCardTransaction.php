@@ -79,6 +79,7 @@ class IssuedCardTransaction
      * @param  IssuingMerchantData  $merchantData
      * @param  \DateTime  $createdOn
      * @param  ?string  $authorizationID
+     * @phpstan-pure
      */
     public function __construct(string $cardTransactionID, string $issuedCardID, string $fundingWalletID, string $amount, \DateTime $authorizedOn, IssuingMerchantData $merchantData, \DateTime $createdOn, ?string $authorizationID = null)
     {

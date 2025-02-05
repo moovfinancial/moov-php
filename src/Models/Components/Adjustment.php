@@ -46,6 +46,7 @@ class Adjustment
      * @param  string  $walletID
      * @param  AmountDecimal  $amount
      * @param  \DateTime  $createdOn
+     * @phpstan-pure
      */
     public function __construct(string $adjustmentID, string $walletID, AmountDecimal $amount, \DateTime $createdOn)
     {

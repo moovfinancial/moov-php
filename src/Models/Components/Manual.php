@@ -48,6 +48,7 @@ class Manual
      * @param  ?string  $acceptedDomain
      * @param  ?string  $acceptedIP
      * @param  ?string  $acceptedUserAgent
+     * @phpstan-pure
      */
     public function __construct(?string $acceptedDate = null, ?string $acceptedDomain = null, ?string $acceptedIP = null, ?string $acceptedUserAgent = null)
     {

@@ -41,6 +41,7 @@ class WalletAvailableBalance
      * @param  string  $currency
      * @param  int  $value
      * @param  string  $valueDecimal
+     * @phpstan-pure
      */
     public function __construct(string $currency, int $value, string $valueDecimal)
     {

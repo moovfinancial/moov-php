@@ -33,6 +33,7 @@ class CreateAccountResponseBody
     /**
      * @param  Components\CreateAccountError  $error
      * @param  ?\Psr\Http\Message\ResponseInterface  $rawResponse
+     * @phpstan-pure
      */
     public function __construct(Components\CreateAccountError $error, ?\Psr\Http\Message\ResponseInterface $rawResponse = null)
     {

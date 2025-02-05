@@ -161,6 +161,7 @@ class Account
      * @param  ?CustomerSupport  $customerSupport
      * @param  ?Settings  $settings
      * @param  ?\DateTime  $disconnectedOn
+     * @phpstan-pure
      */
     public function __construct(string $accountID, Mode $mode, AccountType $accountType, string $displayName, Profile $profile, Verification $verification, \DateTime $createdOn, \DateTime $updatedOn, ?array $metadata = null, ?TermsOfService $termsOfService = null, ?array $capabilities = null, ?string $foreignID = null, ?CustomerSupport $customerSupport = null, ?Settings $settings = null, ?\DateTime $disconnectedOn = null)
     {

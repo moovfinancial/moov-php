@@ -113,6 +113,7 @@ class CreatePaymentLink
      * @param  ?PaymentLinkCustomerOptions  $customer
      * @param  ?PaymentLinkPaymentDetails  $payment
      * @param  ?PaymentLinkPayoutDetails  $payout
+     * @phpstan-pure
      */
     public function __construct(string $partnerAccountID, string $merchantPaymentMethodID, Amount $amount, PaymentLinkDisplayOptions $display, ?int $maxUses = null, ?\DateTime $expiresOn = null, ?PaymentLinkCustomerOptions $customer = null, ?PaymentLinkPaymentDetails $payment = null, ?PaymentLinkPayoutDetails $payout = null)
     {

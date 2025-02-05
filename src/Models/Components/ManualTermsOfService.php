@@ -48,6 +48,7 @@ class ManualTermsOfService
      * @param  string  $acceptedIP
      * @param  string  $acceptedUserAgent
      * @param  string  $acceptedDomain
+     * @phpstan-pure
      */
     public function __construct(\DateTime $acceptedDate, string $acceptedIP, string $acceptedUserAgent, string $acceptedDomain)
     {

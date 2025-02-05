@@ -192,6 +192,7 @@ class PaymentLink
      * @param  ?PaymentLinkPaymentDetails  $payment
      * @param  ?PaymentLinkPayoutDetails  $payout
      * @param  ?\DateTime  $disabledOn
+     * @phpstan-pure
      */
     public function __construct(string $code, Mode $mode, PaymentLinkStatus $status, string $partnerAccountID, string $merchantAccountID, string $merchantPaymentMethodID, string $link, Amount $amount, int $uses, PaymentLinkDisplayOptions $display, PaymentLinkCustomerOptions $customer, \DateTime $createdOn, \DateTime $updatedOn, ?int $maxUses = null, ?\DateTime $lastUsedOn = null, ?\DateTime $expiresOn = null, ?PaymentLinkPaymentDetails $payment = null, ?PaymentLinkPayoutDetails $payout = null, ?\DateTime $disabledOn = null)
     {

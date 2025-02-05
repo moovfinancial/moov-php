@@ -71,6 +71,7 @@ class CreateIndividualProfileUpdate
      * @param  ?AddressUpdate  $address
      * @param  ?BirthDateUpdate  $birthDate
      * @param  ?GovernmentID  $governmentID
+     * @phpstan-pure
      */
     public function __construct(?IndividualNameUpdate $name = null, ?PhoneNumber $phone = null, ?string $email = null, ?AddressUpdate $address = null, ?BirthDateUpdate $birthDate = null, ?GovernmentID $governmentID = null)
     {

@@ -32,6 +32,7 @@ class CreateTransferDestinationACH
     /**
      * @param  ?string  $companyEntryDescription
      * @param  ?string  $originatingCompanyName
+     * @phpstan-pure
      */
     public function __construct(?string $companyEntryDescription = null, ?string $originatingCompanyName = null)
     {

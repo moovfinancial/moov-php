@@ -9,15 +9,8 @@ declare(strict_types=1);
 namespace Moov\OpenAPI\Models\Components;
 
 
-/**
- * Type of token returned.
- *
- *
- *   - `opaque`: A token following a proprietary format.
- *   - `jwt`: A JSON Web Token (JWT), a self-contained token that contains claims about the user and is cryptographically signed.
- */
+/** An [RFC 6750](https://www.rfc-editor.org/rfc/rfc6750#section-6.1) token type. */
 enum TokenType: string
 {
-    case Opaque = 'opaque';
-    case Jwt = 'jwt';
+    case Bearer = 'Bearer';
 }

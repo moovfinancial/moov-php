@@ -21,6 +21,7 @@ class DisputeTransferDetails
 
     /**
      * @param  string  $transferID
+     * @phpstan-pure
      */
     public function __construct(string $transferID)
     {

@@ -30,6 +30,7 @@ class Wallet
     /**
      * @param  string  $walletID
      * @param  WalletAvailableBalance  $availableBalance
+     * @phpstan-pure
      */
     public function __construct(string $walletID, WalletAvailableBalance $availableBalance)
     {

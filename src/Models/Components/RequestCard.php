@@ -71,6 +71,7 @@ class RequestCard
      * @param  ?string  $memo
      * @param  ?CardExpiration  $expiration
      * @param  ?IssuingControls  $controls
+     * @phpstan-pure
      */
     public function __construct(string $fundingWalletID, CreateAuthorizedUser $authorizedUser, IssuedCardFormFactor $formFactor, ?string $memo = null, ?CardExpiration $expiration = null, ?IssuingControls $controls = null)
     {

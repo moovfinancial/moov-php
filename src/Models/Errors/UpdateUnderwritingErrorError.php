@@ -69,6 +69,7 @@ class UpdateUnderwritingErrorError
      * @param  ?Components\VolumeByCustomerTypeError  $volumeByCustomerType
      * @param  ?Components\CardVolumeDistributionError  $cardVolumeDistribution
      * @param  ?Components\FulfillmentDetailsError  $fulfillment
+     * @phpstan-pure
      */
     public function __construct(?string $averageMonthlyTransactionVolume = null, ?string $averageTransactionSize = null, ?string $maxTransactionSize = null, ?Components\VolumeByCustomerTypeError $volumeByCustomerType = null, ?Components\CardVolumeDistributionError $cardVolumeDistribution = null, ?Components\FulfillmentDetailsError $fulfillment = null)
     {

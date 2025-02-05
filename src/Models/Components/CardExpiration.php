@@ -29,6 +29,7 @@ class CardExpiration
     /**
      * @param  string  $month
      * @param  string  $year
+     * @phpstan-pure
      */
     public function __construct(string $month, string $year)
     {

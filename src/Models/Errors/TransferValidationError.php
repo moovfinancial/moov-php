@@ -8,9 +8,7 @@ declare(strict_types=1);
 
 namespace Moov\OpenAPI\Models\Errors;
 
-
 use Moov\OpenAPI\Utils;
-
 class TransferValidationError
 {
     /**
@@ -105,6 +103,7 @@ class TransferValidationError
      * @param  ?string  $facilitatorFeeMarkupDecimal
      * @param  ?string  $metadata
      * @param  ?string  $error
+     * @phpstan-pure
      */
     public function __construct(?string $transfer = null, ?string $amount = null, ?string $source = null, ?string $sourcePaymentMethodID = null, ?string $destinationPaymentMethodID = null, ?string $description = null, ?string $facilitatorFeeTotalDecimal = null, ?string $facilitatorFeeMarkupDecimal = null, ?string $metadata = null, ?string $error = null)
     {

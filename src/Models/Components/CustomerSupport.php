@@ -55,6 +55,7 @@ class CustomerSupport
      * @param  ?string  $email
      * @param  ?Address  $address
      * @param  ?string  $website
+     * @phpstan-pure
      */
     public function __construct(?PhoneNumber $phone = null, ?string $email = null, ?Address $address = null, ?string $website = null)
     {

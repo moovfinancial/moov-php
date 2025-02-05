@@ -40,6 +40,7 @@ class AchCreditSameDayPaymentMethod
      * @param  string  $paymentMethodID
      * @param  BankAccount  $bankAccount
      * @param  AchCreditSameDayPaymentMethodPaymentMethodType  $paymentMethodType
+     * @phpstan-pure
      */
     public function __construct(string $paymentMethodID, BankAccount $bankAccount, AchCreditSameDayPaymentMethodPaymentMethodType $paymentMethodType)
     {

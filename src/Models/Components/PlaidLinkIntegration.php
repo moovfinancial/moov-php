@@ -32,6 +32,7 @@ class PlaidLinkIntegration
 
     /**
      * @param  string  $publicToken
+     * @phpstan-pure
      */
     public function __construct(string $publicToken)
     {

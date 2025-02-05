@@ -142,14 +142,6 @@ class Card
     public string $issuerPhone;
 
     /**
-     * Indicates cardholder has authorized card to be stored for future payments.
-     *
-     * @var bool $cardOnFile
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('cardOnFile')]
-    public bool $cardOnFile;
-
-    /**
      * Indicates which level of domestic push-to-card transfer is supported by the card, if any.
      *
      * @var DomesticPushToCard $domesticPushToCard
@@ -188,6 +180,15 @@ class Card
     #[\Speakeasy\Serializer\Annotation\SerializedName('regulated')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $regulated = null;
+
+    /**
+     * Indicates cardholder has authorized card to be stored for future payments.
+     *
+     * @var ?bool $cardOnFile
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('cardOnFile')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $cardOnFile = null;
 
     /**
      *
@@ -233,16 +234,17 @@ class Card
      * @param  string  $issuerCountry
      * @param  string  $issuerURL
      * @param  string  $issuerPhone
-     * @param  bool  $cardOnFile
      * @param  DomesticPushToCard  $domesticPushToCard
      * @param  DomesticPullFromCard  $domesticPullFromCard
      * @param  ?bool  $commercial
      * @param  ?bool  $regulated
+     * @param  ?bool  $cardOnFile
      * @param  ?string  $merchantAccountID
      * @param  ?CardAccountUpdater  $cardAccountUpdater
      * @param  ?array<BasicPaymentMethod>  $paymentMethods
+     * @phpstan-pure
      */
-    public function __construct(string $cardID, string $fingerprint, CardBrand $brand, CardType $cardType, string $cardCategory, string $lastFourCardNumber, string $bin, CardExpiration $expiration, string $holderName, CardAddress $billingAddress, CardVerification $cardVerification, string $issuer, string $issuerCountry, string $issuerURL, string $issuerPhone, bool $cardOnFile, DomesticPushToCard $domesticPushToCard, DomesticPullFromCard $domesticPullFromCard, ?bool $commercial = null, ?bool $regulated = null, ?string $merchantAccountID = null, ?CardAccountUpdater $cardAccountUpdater = null, ?array $paymentMethods = null)
+    public function __construct(string $cardID, string $fingerprint, CardBrand $brand, CardType $cardType, string $cardCategory, string $lastFourCardNumber, string $bin, CardExpiration $expiration, string $holderName, CardAddress $billingAddress, CardVerification $cardVerification, string $issuer, string $issuerCountry, string $issuerURL, string $issuerPhone, DomesticPushToCard $domesticPushToCard, DomesticPullFromCard $domesticPullFromCard, ?bool $commercial = null, ?bool $regulated = null, ?bool $cardOnFile = null, ?string $merchantAccountID = null, ?CardAccountUpdater $cardAccountUpdater = null, ?array $paymentMethods = null)
     {
         $this->cardID = $cardID;
         $this->fingerprint = $fingerprint;
@@ -259,11 +261,11 @@ class Card
         $this->issuerCountry = $issuerCountry;
         $this->issuerURL = $issuerURL;
         $this->issuerPhone = $issuerPhone;
-        $this->cardOnFile = $cardOnFile;
         $this->domesticPushToCard = $domesticPushToCard;
         $this->domesticPullFromCard = $domesticPullFromCard;
         $this->commercial = $commercial;
         $this->regulated = $regulated;
+        $this->cardOnFile = $cardOnFile;
         $this->merchantAccountID = $merchantAccountID;
         $this->cardAccountUpdater = $cardAccountUpdater;
         $this->paymentMethods = $paymentMethods;

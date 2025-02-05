@@ -61,6 +61,7 @@ class PatchSweepConfig
      * @param  ?string  $pullPaymentMethodID
      * @param  ?string  $statementDescriptor
      * @param  ?string  $minimumBalance
+     * @phpstan-pure
      */
     public function __construct(?SweepConfigStatus $status = null, ?string $pushPaymentMethodID = null, ?string $pullPaymentMethodID = null, ?string $statementDescriptor = null, ?string $minimumBalance = null)
     {

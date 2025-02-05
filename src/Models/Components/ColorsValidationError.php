@@ -32,6 +32,7 @@ class ColorsValidationError
     /**
      * @param  ?BrandColorValidationError  $light
      * @param  ?BrandColorValidationError  $dark
+     * @phpstan-pure
      */
     public function __construct(?BrandColorValidationError $light = null, ?BrandColorValidationError $dark = null)
     {

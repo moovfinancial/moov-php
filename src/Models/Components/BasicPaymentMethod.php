@@ -31,6 +31,7 @@ class BasicPaymentMethod
     /**
      * @param  string  $paymentMethodID
      * @param  PaymentMethodType  $paymentMethodType
+     * @phpstan-pure
      */
     public function __construct(string $paymentMethodID, PaymentMethodType $paymentMethodType)
     {

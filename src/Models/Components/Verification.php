@@ -59,6 +59,7 @@ class Verification
      * @param  ?AccountVerificationStatus  $verificationStatus
      * @param  ?VerificationStatusDetail  $details
      * @param  ?array<Document>  $documents
+     * @phpstan-pure
      */
     public function __construct(VerificationStatus $status, ?AccountVerificationStatus $verificationStatus = null, ?VerificationStatusDetail $details = null, ?array $documents = null)
     {

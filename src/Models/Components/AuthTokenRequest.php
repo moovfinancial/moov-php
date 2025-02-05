@@ -71,6 +71,7 @@ class AuthTokenRequest
      * @param  ?string  $clientSecret
      * @param  ?string  $scope
      * @param  ?string  $refreshToken
+     * @phpstan-pure
      */
     public function __construct(GrantType $grantType, ?string $clientId = null, ?string $clientSecret = null, ?string $scope = null, ?string $refreshToken = null)
     {

@@ -8,9 +8,7 @@ declare(strict_types=1);
 
 namespace Moov\OpenAPI\Models\Errors;
 
-
 use Moov\OpenAPI\Utils;
-
 class RevokeTokenRequestError
 {
     /**
@@ -32,6 +30,7 @@ class RevokeTokenRequestError
     /**
      * @param  ?string  $token
      * @param  ?string  $tokenTypeHint
+     * @phpstan-pure
      */
     public function __construct(?string $token = null, ?string $tokenTypeHint = null)
     {

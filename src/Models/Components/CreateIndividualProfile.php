@@ -70,6 +70,7 @@ class CreateIndividualProfile
      * @param  ?Address  $address
      * @param  ?BirthDate  $birthDate
      * @param  ?GovernmentID  $governmentID
+     * @phpstan-pure
      */
     public function __construct(IndividualName $name, ?PhoneNumber $phone = null, ?string $email = null, ?Address $address = null, ?BirthDate $birthDate = null, ?GovernmentID $governmentID = null)
     {

@@ -128,6 +128,7 @@ class OccurrencesResponse
      * @param  ?string  $ranTransferID
      * @param  ?string  $scheduleID
      * @param  ?OccurrenceStatus  $status
+     * @phpstan-pure
      */
     public function __construct(\DateTime $runOn, RunTransfer $runTransfer, ?\DateTime $canceledOn = null, ?Error $error = null, ?bool $generated = null, ?bool $indefinite = null, ?Mode $mode = null, ?string $occurrenceID = null, ?\DateTime $ranOn = null, ?string $ranTransferID = null, ?string $scheduleID = null, ?OccurrenceStatus $status = null)
     {

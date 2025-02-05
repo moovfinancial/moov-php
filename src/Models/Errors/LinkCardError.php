@@ -10,7 +10,6 @@ namespace Moov\OpenAPI\Models\Errors;
 
 use Moov\OpenAPI\Models\Components;
 use Moov\OpenAPI\Utils;
-
 class LinkCardError
 {
     /**
@@ -107,6 +106,7 @@ class LinkCardError
      * @param  ?string  $cardOnFile
      * @param  ?string  $merchantAccountID
      * @param  ?string  $verifyName
+     * @phpstan-pure
      */
     public function __construct(?string $error = null, ?Components\End2EndEncryptionError $e2ee = null, ?string $cardNumber = null, ?string $cardCvv = null, ?Components\CardExpirationError $expiration = null, ?string $holderName = null, ?Components\CardAddressError $billingAddress = null, ?string $cardOnFile = null, ?string $merchantAccountID = null, ?string $verifyName = null)
     {

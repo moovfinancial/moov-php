@@ -22,6 +22,7 @@ class AddCapabilities
 
     /**
      * @param  array<CapabilityID>  $capabilities
+     * @phpstan-pure
      */
     public function __construct(array $capabilities)
     {

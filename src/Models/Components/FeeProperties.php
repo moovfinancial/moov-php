@@ -9,19 +9,14 @@ declare(strict_types=1);
 namespace Moov\OpenAPI\Models\Components;
 
 
+/** FeeProperties - Defines the specific parameters used for fee calculation. */
 class FeeProperties
 {
     /**
-     * A fixed fee that is applied to the amount of each transaction in the `fixed` and `blended` fee models, expressed as a decimal.
+     * A percentage fee that is applied to the amount of each transaction in the `blended` fee model, expressed as a decimal. 
      *
-     * @var ?string $fixedAmount
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('fixedAmount')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $fixedAmount = null;
-
-    /**
-     * A percentage fee that is applied to the amount of each transaction in the `blended` fee model, expressed as a decimal.
+     *
+     * For example, 0.05% is '0.05'.
      *
      * @var ?string $variableRate
      */
@@ -30,33 +25,46 @@ class FeeProperties
     public ?string $variableRate = null;
 
     /**
+     * A fixed fee that is applied to the amount of each transaction in the `fixed` and `blended` fee models.
+     *
+     * @var ?FixedAmount $fixedAmount
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('fixedAmount')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\FixedAmount|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?FixedAmount $fixedAmount = null;
+
+    /**
      * Specifies the minimum allowable spending for a single transaction, working as a transaction floor.
      *
-     * @var ?string $minPerTransaction
+     * @var ?MinPerTransaction $minPerTransaction
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('minPerTransaction')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\MinPerTransaction|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $minPerTransaction = null;
+    public ?MinPerTransaction $minPerTransaction = null;
 
     /**
      * Specifies the maximum allowable spending for a single transaction, working as a transaction ceiling.
      *
-     * @var ?string $maxPerTransaction
+     * @var ?MaxPerTransaction $maxPerTransaction
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('maxPerTransaction')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\MaxPerTransaction|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $maxPerTransaction = null;
+    public ?MaxPerTransaction $maxPerTransaction = null;
 
     /**
-     * @param  ?string  $fixedAmount
      * @param  ?string  $variableRate
-     * @param  ?string  $minPerTransaction
-     * @param  ?string  $maxPerTransaction
+     * @param  ?FixedAmount  $fixedAmount
+     * @param  ?MinPerTransaction  $minPerTransaction
+     * @param  ?MaxPerTransaction  $maxPerTransaction
+     * @phpstan-pure
      */
-    public function __construct(?string $fixedAmount = null, ?string $variableRate = null, ?string $minPerTransaction = null, ?string $maxPerTransaction = null)
+    public function __construct(?string $variableRate = null, ?FixedAmount $fixedAmount = null, ?MinPerTransaction $minPerTransaction = null, ?MaxPerTransaction $maxPerTransaction = null)
     {
-        $this->fixedAmount = $fixedAmount;
         $this->variableRate = $variableRate;
+        $this->fixedAmount = $fixedAmount;
         $this->minPerTransaction = $minPerTransaction;
         $this->maxPerTransaction = $maxPerTransaction;
     }

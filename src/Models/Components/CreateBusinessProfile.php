@@ -121,6 +121,7 @@ class CreateBusinessProfile
      * @param  ?TaxID  $taxID
      * @param  ?IndustryCodes  $industryCodes
      * @param  ?PrimaryRegulator  $primaryRegulator
+     * @phpstan-pure
      */
     public function __construct(string $legalBusinessName, ?string $doingBusinessAs = null, ?BusinessType $businessType = null, ?Address $address = null, ?PhoneNumber $phone = null, ?string $email = null, ?string $website = null, ?string $description = null, ?TaxID $taxID = null, ?IndustryCodes $industryCodes = null, ?PrimaryRegulator $primaryRegulator = null)
     {

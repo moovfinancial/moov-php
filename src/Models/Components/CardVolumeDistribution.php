@@ -44,6 +44,7 @@ class CardVolumeDistribution
      * @param  int  $cardPresentPercentage
      * @param  int  $mailOrPhonePercentage
      * @param  int  $debtRepaymentPercentage
+     * @phpstan-pure
      */
     public function __construct(int $ecommercePercentage, int $cardPresentPercentage, int $mailOrPhonePercentage, int $debtRepaymentPercentage)
     {

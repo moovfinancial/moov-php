@@ -32,6 +32,7 @@ class UpdateRepresentativeGovernmentID
     /**
      * @param  ?UpdateRepresentativeSsn  $ssn
      * @param  ?UpdateRepresentativeItin  $itin
+     * @phpstan-pure
      */
     public function __construct(?UpdateRepresentativeSsn $ssn = null, ?UpdateRepresentativeItin $itin = null)
     {

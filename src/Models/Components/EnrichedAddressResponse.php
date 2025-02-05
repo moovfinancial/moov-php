@@ -67,6 +67,7 @@ class EnrichedAddressResponse
      * @param  ?int  $entries
      * @param  ?string  $postalCode
      * @param  ?string  $stateOrProvince
+     * @phpstan-pure
      */
     public function __construct(?string $addressLine1 = null, ?string $addressLine2 = null, ?string $city = null, ?int $entries = null, ?string $postalCode = null, ?string $stateOrProvince = null)
     {

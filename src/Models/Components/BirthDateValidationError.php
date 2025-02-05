@@ -39,6 +39,7 @@ class BirthDateValidationError
      * @param  ?string  $day
      * @param  ?string  $month
      * @param  ?string  $year
+     * @phpstan-pure
      */
     public function __construct(?string $day = null, ?string $month = null, ?string $year = null)
     {

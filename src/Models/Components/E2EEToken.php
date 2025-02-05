@@ -27,6 +27,7 @@ class E2EEToken
 
     /**
      * @param  string  $token
+     * @phpstan-pure
      */
     public function __construct(string $token)
     {

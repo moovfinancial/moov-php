@@ -140,6 +140,7 @@ class BusinessProfile
      * @param  ?array<Representative>  $representatives
      * @param  ?IndustryCodes  $industryCodes
      * @param  ?PrimaryRegulator  $primaryRegulator
+     * @phpstan-pure
      */
     public function __construct(string $legalBusinessName, bool $ownersProvided, ?string $doingBusinessAs = null, ?BusinessType $businessType = null, ?Address $address = null, ?PhoneNumber $phone = null, ?string $email = null, ?string $website = null, ?string $description = null, ?bool $taxIDProvided = null, ?array $representatives = null, ?IndustryCodes $industryCodes = null, ?PrimaryRegulator $primaryRegulator = null)
     {

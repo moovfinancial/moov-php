@@ -37,6 +37,7 @@ class CreateTransferSourceCard
     /**
      * @param  ?string  $dynamicDescriptor
      * @param  ?TransactionSource  $transactionSource
+     * @phpstan-pure
      */
     public function __construct(?string $dynamicDescriptor = null, ?TransactionSource $transactionSource = null)
     {

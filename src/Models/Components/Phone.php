@@ -30,6 +30,7 @@ class Phone
     /**
      * @param  ?string  $number
      * @param  ?string  $countryCode
+     * @phpstan-pure
      */
     public function __construct(?string $number = null, ?string $countryCode = null)
     {

@@ -29,6 +29,7 @@ class AuthorizedUser
     /**
      * @param  string  $firstName
      * @param  string  $lastName
+     * @phpstan-pure
      */
     public function __construct(string $firstName, string $lastName)
     {

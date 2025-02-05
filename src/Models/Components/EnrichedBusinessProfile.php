@@ -69,6 +69,7 @@ class EnrichedBusinessProfile
      * @param  ?string  $legalBusinessName
      * @param  ?PhoneNumber  $phone
      * @param  ?string  $website
+     * @phpstan-pure
      */
     public function __construct(?Address $address = null, ?string $email = null, ?EnrichedIndustryCodes $industryCodes = null, ?string $legalBusinessName = null, ?PhoneNumber $phone = null, ?string $website = null)
     {

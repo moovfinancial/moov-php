@@ -21,6 +21,7 @@ class AchPayment
 
     /**
      * @param  ?string  $companyName
+     * @phpstan-pure
      */
     public function __construct(?string $companyName = null)
     {

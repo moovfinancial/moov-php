@@ -22,6 +22,7 @@ class BankAccountPayload
 
     /**
      * @param  BankAccountIntegration  $account
+     * @phpstan-pure
      */
     public function __construct(BankAccountIntegration $account)
     {

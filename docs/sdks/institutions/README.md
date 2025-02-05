@@ -5,15 +5,17 @@
 
 ### Available Operations
 
-* [listInstitutions](#listinstitutions) -   Search for institutions by either their name or routing number.
-  
-  To use this endpoint from the browser, you'll need to specify the `/fed.read` scope when generating a [token](https://docs.moov.io/api/authentication/access-tokens/).
+* [search](#search) - Search for institutions by either their name or routing number.
 
-## listInstitutions
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/fed.read` scope.
 
-  Search for institutions by either their name or routing number.
-  
-  To use this endpoint from the browser, you'll need to specify the `/fed.read` scope when generating a [token](https://docs.moov.io/api/authentication/access-tokens/).
+## search
+
+Search for institutions by either their name or routing number.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/fed.read` scope.
 
 ### Example Usage
 
@@ -26,19 +28,19 @@ use Moov\OpenAPI;
 use Moov\OpenAPI\Models\Components;
 use Moov\OpenAPI\Models\Operations;
 
-$sdk = OpenAPI\Moov::builder()->build();
+$sdk = OpenAPI\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
 
 $request = new Operations\ListInstitutionsRequest();
-$requestSecurity = new Operations\ListInstitutionsSecurity(
-    basicAuth: new Components\SchemeBasicAuth(
-        username: '',
-        password: '',
-    ),
-);
 
-$response = $sdk->institutions->listInstitutions(
-    request: $request,
-    security: $requestSecurity
+$response = $sdk->institutions->search(
+    request: $request
 );
 
 if ($response->financialInstitutions !== null) {
@@ -48,10 +50,9 @@ if ($response->financialInstitutions !== null) {
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `$request`                                                                                 | [Operations\ListInstitutionsRequest](../../Models/Operations/ListInstitutionsRequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `security`                                                                                 | [Operations\ListInstitutionsSecurity](../../Models/Operations/ListInstitutionsSecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `$request`                                                                               | [Operations\ListInstitutionsRequest](../../Models/Operations/ListInstitutionsRequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
 
 ### Response
 

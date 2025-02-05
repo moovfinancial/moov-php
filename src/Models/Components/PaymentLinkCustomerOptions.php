@@ -43,6 +43,7 @@ class PaymentLinkCustomerOptions
      * @param  ?bool  $requireAddress
      * @param  ?bool  $requirePhone
      * @param  ?array<string, string>  $metadata
+     * @phpstan-pure
      */
     public function __construct(?bool $requireAddress = null, ?bool $requirePhone = null, ?array $metadata = null)
     {
