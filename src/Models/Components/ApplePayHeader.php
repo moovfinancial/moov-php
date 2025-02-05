@@ -47,6 +47,7 @@ class ApplePayHeader
      * @param  string  $publicKeyHash
      * @param  string  $transactionId
      * @param  ?string  $ephemeralPublicKey
+     * @phpstan-pure
      */
     public function __construct(string $publicKeyHash, string $transactionId, ?string $ephemeralPublicKey = null)
     {

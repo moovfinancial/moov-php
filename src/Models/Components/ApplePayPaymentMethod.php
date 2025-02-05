@@ -39,6 +39,7 @@ class ApplePayPaymentMethod
      * @param  string  $paymentMethodID
      * @param  ApplePayPaymentMethodPaymentMethodType  $paymentMethodType
      * @param  mixed  $applePay
+     * @phpstan-pure
      */
     public function __construct(string $paymentMethodID, ApplePayPaymentMethodPaymentMethodType $paymentMethodType, mixed $applePay)
     {

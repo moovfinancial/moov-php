@@ -230,6 +230,7 @@ class Transfer
      * @param  ?string  $sweepID
      * @param  ?string  $scheduleID
      * @param  ?string  $occurrenceID
+     * @phpstan-pure
      */
     public function __construct(string $transferID, \DateTime $createdOn, Components\TransferStatus $status, Components\Amount $amount, ?Components\TransferSource $source = null, ?Components\TransferDestination $destination = null, ?\DateTime $completedOn = null, ?Components\TransferFailureReason $failureReason = null, ?string $description = null, ?array $metadata = null, ?Components\FacilitatorFee $facilitatorFee = null, ?int $moovFee = null, ?int $moovFeeDecimal = null, ?Components\MoovFeeDetails $moovFeeDetails = null, ?string $groupID = null, ?Components\Amount $refundedAmount = null, ?array $refunds = null, ?Components\Amount $disputedAmount = null, ?array $disputes = null, ?string $sweepID = null, ?string $scheduleID = null, ?string $occurrenceID = null)
     {

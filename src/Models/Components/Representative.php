@@ -116,6 +116,7 @@ class Representative
      * @param  ?bool  $governmentIDProvided
      * @param  ?RepresentativeResponsibilities  $responsibilities
      * @param  ?\DateTime  $disabledOn
+     * @phpstan-pure
      */
     public function __construct(string $representativeID, IndividualName $name, \DateTime $createdOn, \DateTime $updatedOn, ?PhoneNumber $phone = null, ?string $email = null, ?Address $address = null, ?bool $birthDateProvided = null, ?bool $governmentIDProvided = null, ?RepresentativeResponsibilities $responsibilities = null, ?\DateTime $disabledOn = null)
     {

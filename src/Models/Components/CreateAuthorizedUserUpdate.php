@@ -41,6 +41,7 @@ class CreateAuthorizedUserUpdate
      * @param  ?string  $firstName
      * @param  ?string  $lastName
      * @param  ?BirthDateUpdate  $birthDate
+     * @phpstan-pure
      */
     public function __construct(?string $firstName = null, ?string $lastName = null, ?BirthDateUpdate $birthDate = null)
     {

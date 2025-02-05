@@ -121,6 +121,7 @@ class IssuedCard
      * @param  \DateTime  $createdOn
      * @param  ?string  $memo
      * @param  ?IssuingControls  $controls
+     * @phpstan-pure
      */
     public function __construct(string $issuedCardID, CardBrand $brand, string $lastFourCardNumber, CardExpiration $expiration, AuthorizedUser $authorizedUser, string $fundingWalletID, IssuedCardState $state, IssuedCardFormFactor $formFactor, \DateTime $createdOn, ?string $memo = null, ?IssuingControls $controls = null)
     {

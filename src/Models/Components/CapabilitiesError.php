@@ -23,6 +23,7 @@ class CapabilitiesError
 
     /**
      * @param  ?array<string, string>  $capabilities
+     * @phpstan-pure
      */
     public function __construct(?array $capabilities = null)
     {

@@ -41,6 +41,7 @@ class OnboardingPartnerAccount
      * @param  string  $accountID
      * @param  Mode  $accountMode
      * @param  string  $displayName
+     * @phpstan-pure
      */
     public function __construct(string $accountID, Mode $accountMode, string $displayName)
     {

@@ -117,6 +117,7 @@ class SweepConfig
      * @param  ?string  $statementDescriptor
      * @param  ?array<string>  $lockedFields
      * @param  ?\DateTime  $disabledOn
+     * @phpstan-pure
      */
     public function __construct(string $sweepConfigID, string $walletID, SweepConfigStatus $status, SweepConfigPaymentMethod $pushPaymentMethod, SweepConfigPaymentMethod $pullPaymentMethod, \DateTime $createdOn, \DateTime $updatedOn, ?string $minimumBalance = null, ?string $statementDescriptor = null, ?array $lockedFields = null, ?\DateTime $disabledOn = null)
     {

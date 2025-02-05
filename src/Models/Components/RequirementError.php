@@ -32,6 +32,7 @@ class RequirementError
     /**
      * @param  RequirementID  $requirement
      * @param  ?RequirementErrorCode  $errorCode
+     * @phpstan-pure
      */
     public function __construct(RequirementID $requirement, ?RequirementErrorCode $errorCode = null)
     {

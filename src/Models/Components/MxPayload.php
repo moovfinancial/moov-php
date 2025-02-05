@@ -38,6 +38,7 @@ class MxPayload
 
     /**
      * @param  MXAuthorizationCode  $mx
+     * @phpstan-pure
      */
     public function __construct(MXAuthorizationCode $mx)
     {

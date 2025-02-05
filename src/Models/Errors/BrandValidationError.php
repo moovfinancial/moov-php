@@ -10,7 +10,6 @@ namespace Moov\OpenAPI\Models\Errors;
 
 use Moov\OpenAPI\Models\Components;
 use Moov\OpenAPI\Utils;
-
 class BrandValidationError
 {
     /**
@@ -24,6 +23,7 @@ class BrandValidationError
 
     /**
      * @param  ?Components\ColorsValidationError  $colors
+     * @phpstan-pure
      */
     public function __construct(?Components\ColorsValidationError $colors = null)
     {

@@ -67,6 +67,7 @@ class CardAcquiringRefund
      * @param  Components\RefundStatus  $status
      * @param  Components\Amount  $amount
      * @param  ?Components\RefundCardDetails  $cardDetails
+     * @phpstan-pure
      */
     public function __construct(string $refundID, \DateTime $createdOn, \DateTime $updatedOn, Components\RefundStatus $status, Components\Amount $amount, ?Components\RefundCardDetails $cardDetails = null)
     {

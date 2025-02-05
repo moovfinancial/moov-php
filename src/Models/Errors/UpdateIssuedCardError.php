@@ -10,7 +10,6 @@ namespace Moov\OpenAPI\Models\Errors;
 
 use Moov\OpenAPI\Models\Components;
 use Moov\OpenAPI\Utils;
-
 class UpdateIssuedCardError
 {
     /**
@@ -42,6 +41,7 @@ class UpdateIssuedCardError
      * @param  ?string  $state
      * @param  ?string  $memo
      * @param  ?Components\CreateAuthorizedUserError  $authorizedUser
+     * @phpstan-pure
      */
     public function __construct(?string $state = null, ?string $memo = null, ?Components\CreateAuthorizedUserError $authorizedUser = null)
     {

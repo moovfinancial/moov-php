@@ -77,6 +77,7 @@ class OnboardingInviteRequest
      * @param  ?string  $returnURL
      * @param  ?string  $termsOfServiceURL
      * @param  ?CreateAccount  $prefill
+     * @phpstan-pure
      */
     public function __construct(array $scopes, array $capabilities, array $feePlanCodes, ?string $returnURL = null, ?string $termsOfServiceURL = null, ?CreateAccount $prefill = null)
     {

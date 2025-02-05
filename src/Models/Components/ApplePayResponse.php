@@ -87,6 +87,7 @@ class ApplePayResponse
      * @param  CardExpiration  $expiration
      * @param  string  $dynamicLastFour
      * @param  ?string  $issuerCountry
+     * @phpstan-pure
      */
     public function __construct(CardBrand $brand, CardType $cardType, string $cardDisplayName, string $fingerprint, CardExpiration $expiration, string $dynamicLastFour, ?string $issuerCountry = null)
     {

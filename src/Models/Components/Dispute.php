@@ -108,6 +108,7 @@ class Dispute
      * @param  DisputePhase  $phase
      * @param  \DateTime  $createdOn
      * @param  ?string  $networkReasonDescription
+     * @phpstan-pure
      */
     public function __construct(string $disputeID, string $merchantAccountID, Amount $amount, string $networkReasonCode, DisputeTransferDetails $transfer, \DateTime $respondBy, DisputeStatus $status, DisputePhase $phase, \DateTime $createdOn, ?string $networkReasonDescription = null)
     {

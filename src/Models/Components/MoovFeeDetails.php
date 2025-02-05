@@ -52,6 +52,7 @@ class MoovFeeDetails
      * @param  ?string  $cardScheme
      * @param  ?string  $interchange
      * @param  ?string  $discount
+     * @phpstan-pure
      */
     public function __construct(string $moovProcessing, ?string $cardScheme = null, ?string $interchange = null, ?string $discount = null)
     {

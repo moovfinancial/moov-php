@@ -61,6 +61,7 @@ class Address
      * @param  string  $postalCode
      * @param  string  $country
      * @param  ?string  $addressLine2
+     * @phpstan-pure
      */
     public function __construct(string $addressLine1, string $city, string $stateOrProvince, string $postalCode, string $country, ?string $addressLine2 = null)
     {

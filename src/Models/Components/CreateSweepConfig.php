@@ -66,6 +66,7 @@ class CreateSweepConfig
      * @param  string  $pullPaymentMethodID
      * @param  ?string  $statementDescriptor
      * @param  ?string  $minimumBalance
+     * @phpstan-pure
      */
     public function __construct(string $walletID, SweepConfigStatus $status, string $pushPaymentMethodID, string $pullPaymentMethodID, ?string $statementDescriptor = null, ?string $minimumBalance = null)
     {

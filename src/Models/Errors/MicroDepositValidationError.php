@@ -8,9 +8,7 @@ declare(strict_types=1);
 
 namespace Moov\OpenAPI\Models\Errors;
 
-
 use Moov\OpenAPI\Utils;
-
 class MicroDepositValidationError
 {
     /**
@@ -23,6 +21,7 @@ class MicroDepositValidationError
 
     /**
      * @param  ?string  $amounts
+     * @phpstan-pure
      */
     public function __construct(?string $amounts = null)
     {

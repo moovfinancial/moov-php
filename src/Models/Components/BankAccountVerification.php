@@ -41,6 +41,7 @@ class BankAccountVerification
      * @param  BankAccountVerificationMethod  $verificationMethod
      * @param  BankAccountVerificationStatus  $status
      * @param  ?BankAccountException  $exceptionDetails
+     * @phpstan-pure
      */
     public function __construct(BankAccountVerificationMethod $verificationMethod, BankAccountVerificationStatus $status, ?BankAccountException $exceptionDetails = null)
     {

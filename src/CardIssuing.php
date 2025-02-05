@@ -50,17 +50,16 @@ class CardIssuing
      *
      * Only use this endpoint if you have provided Moov with a copy of your PCI attestation of compliance.
      *
-     * To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/issued-cards.read-secure` scope when generating 
-     * a [token](https://docs.moov.io/api/authentication/access-tokens/).
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * you'll need to specify the `/accounts/{accountID}/issued-cards.read-secure` scope.
      *
-     * @param  Operations\GetFullIssuedCardSecurity  $security
      * @param  string  $accountID
      * @param  string  $issuedCardID
-     * @param  ?Components\Versions  $xMoovVersion
+     * @param  ?string  $xMoovVersion
      * @return Operations\GetFullIssuedCardResponse
      * @throws \Moov\OpenAPI\Models\Errors\APIException
      */
-    public function getFullIssuedCard(Operations\GetFullIssuedCardSecurity $security, string $accountID, string $issuedCardID, ?Components\Versions $xMoovVersion = null, ?Options $options = null): Operations\GetFullIssuedCardResponse
+    public function getFull(string $accountID, string $issuedCardID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetFullIssuedCardResponse
     {
         $request = new Operations\GetFullIssuedCardRequest(
             accountID: $accountID,
@@ -68,28 +67,22 @@ class CardIssuing
             xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/issuing/{accountID}/issued-cards/{issuedCardID}/details', Operations\GetFullIssuedCardRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/issuing/{accountID}/issued-cards/{issuedCardID}/details', Operations\GetFullIssuedCardRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
+        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
         }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
-        if ($security != null) {
-            $client = Utils\Utils::configureSecurityClient($this->sdkConfiguration->client, $security);
-        } else {
-            $client = $this->sdkConfiguration->client;
-        }
-
-        $hookContext = new HookContext('getFullIssuedCard', null, fn () => $security);
+        $hookContext = new HookContext('getFullIssuedCard', null, $this->sdkConfiguration->securitySource);
         $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
         $httpOptions = Utils\Utils::convertHeadersToOptions($httpRequest, $httpOptions);
         $httpRequest = Utils\Utils::removeHeaders($httpRequest);
         try {
-            $httpResponse = $client->send($httpRequest, $httpOptions);
+            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $httpOptions);
         } catch (\GuzzleHttp\Exception\GuzzleException $error) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
             $httpResponse = $res;
@@ -97,11 +90,11 @@ class CardIssuing
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-        if ($statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '404', '429', '4XX', '500', '504', '5XX'])) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
             $httpResponse = $res;
         }
-        if ($statusCode == 200) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['200'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -112,15 +105,20 @@ class CardIssuing
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
+                    headers: $httpResponse->getHeaders(),
                     fullIssuedCard: $obj);
 
                 return $response;
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '404', '429'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } elseif ($statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['500', '504'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['4XX'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['5XX'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
@@ -130,17 +128,16 @@ class CardIssuing
     /**
      * Retrieve a single issued card associated with a Moov account.
      *
-     * To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/issued-cards.read` scope when generating 
-     * a [token](https://docs.moov.io/api/authentication/access-tokens/).
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * you'll need to specify the `/accounts/{accountID}/issued-cards.read` scope.
      *
-     * @param  Operations\GetIssuedCardSecurity  $security
      * @param  string  $accountID
      * @param  string  $issuedCardID
-     * @param  ?Components\Versions  $xMoovVersion
+     * @param  ?string  $xMoovVersion
      * @return Operations\GetIssuedCardResponse
      * @throws \Moov\OpenAPI\Models\Errors\APIException
      */
-    public function getIssuedCard(Operations\GetIssuedCardSecurity $security, string $accountID, string $issuedCardID, ?Components\Versions $xMoovVersion = null, ?Options $options = null): Operations\GetIssuedCardResponse
+    public function get(string $accountID, string $issuedCardID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetIssuedCardResponse
     {
         $request = new Operations\GetIssuedCardRequest(
             accountID: $accountID,
@@ -148,28 +145,22 @@ class CardIssuing
             xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/issuing/{accountID}/issued-cards/{issuedCardID}', Operations\GetIssuedCardRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/issuing/{accountID}/issued-cards/{issuedCardID}', Operations\GetIssuedCardRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
+        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
         }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
-        if ($security != null) {
-            $client = Utils\Utils::configureSecurityClient($this->sdkConfiguration->client, $security);
-        } else {
-            $client = $this->sdkConfiguration->client;
-        }
-
-        $hookContext = new HookContext('getIssuedCard', null, fn () => $security);
+        $hookContext = new HookContext('getIssuedCard', null, $this->sdkConfiguration->securitySource);
         $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
         $httpOptions = Utils\Utils::convertHeadersToOptions($httpRequest, $httpOptions);
         $httpRequest = Utils\Utils::removeHeaders($httpRequest);
         try {
-            $httpResponse = $client->send($httpRequest, $httpOptions);
+            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $httpOptions);
         } catch (\GuzzleHttp\Exception\GuzzleException $error) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
             $httpResponse = $res;
@@ -177,11 +168,11 @@ class CardIssuing
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-        if ($statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '404', '429', '4XX', '500', '504', '5XX'])) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
             $httpResponse = $res;
         }
-        if ($statusCode == 200) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['200'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -192,15 +183,20 @@ class CardIssuing
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
+                    headers: $httpResponse->getHeaders(),
                     issuedCard: $obj);
 
                 return $response;
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '404', '429'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } elseif ($statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['500', '504'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['4XX'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['5XX'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
@@ -210,42 +206,35 @@ class CardIssuing
     /**
      * List Moov issued cards existing for the account.
      *
-     * To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/issued-cards.read` scope when generating 
-     * a [token](https://docs.moov.io/api/authentication/access-tokens/).
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * you'll need to specify the `/accounts/{accountID}/issued-cards.read` scope.
      *
-     * @param  Operations\ListIssuedCardsSecurity  $security
      * @param  Operations\ListIssuedCardsRequest  $request
      * @return Operations\ListIssuedCardsResponse
      * @throws \Moov\OpenAPI\Models\Errors\APIException
      */
-    public function listIssuedCards(Operations\ListIssuedCardsSecurity $security, Operations\ListIssuedCardsRequest $request, ?Options $options = null): Operations\ListIssuedCardsResponse
+    public function list(Operations\ListIssuedCardsRequest $request, ?Options $options = null): Operations\ListIssuedCardsResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/issuing/{accountID}/issued-cards', Operations\ListIssuedCardsRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/issuing/{accountID}/issued-cards', Operations\ListIssuedCardsRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
 
-        $qp = Utils\Utils::getQueryParams(Operations\ListIssuedCardsRequest::class, $request, $urlOverride);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
+        $qp = Utils\Utils::getQueryParams(Operations\ListIssuedCardsRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
+        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
         }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
-        if ($security != null) {
-            $client = Utils\Utils::configureSecurityClient($this->sdkConfiguration->client, $security);
-        } else {
-            $client = $this->sdkConfiguration->client;
-        }
-
-        $hookContext = new HookContext('listIssuedCards', null, fn () => $security);
+        $hookContext = new HookContext('listIssuedCards', null, $this->sdkConfiguration->securitySource);
         $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
         $httpOptions['query'] = Utils\QueryParameters::standardizeQueryParams($httpRequest, $qp);
         $httpOptions = Utils\Utils::convertHeadersToOptions($httpRequest, $httpOptions);
         $httpRequest = Utils\Utils::removeHeaders($httpRequest);
         try {
-            $httpResponse = $client->send($httpRequest, $httpOptions);
+            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $httpOptions);
         } catch (\GuzzleHttp\Exception\GuzzleException $error) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
             $httpResponse = $res;
@@ -253,11 +242,11 @@ class CardIssuing
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-        if ($statusCode == 401 || $statusCode == 403 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '429', '4XX', '500', '504', '5XX'])) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
             $httpResponse = $res;
         }
-        if ($statusCode == 200) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['200'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -268,15 +257,20 @@ class CardIssuing
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
+                    headers: $httpResponse->getHeaders(),
                     issuedCards: $obj);
 
                 return $response;
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode == 401 || $statusCode == 403 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '429'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } elseif ($statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['500', '504'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['4XX'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['5XX'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
@@ -286,17 +280,16 @@ class CardIssuing
     /**
      * Request a virtual card be issued.
      *
-     * To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/issued-cards.write` scope when generating 
-     * a [token](https://docs.moov.io/api/authentication/access-tokens/).
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * you'll need to specify the `/accounts/{accountID}/issued-cards.write` scope.
      *
-     * @param  Operations\RequestCardSecurity  $security
      * @param  Components\RequestCard  $requestCard
      * @param  string  $accountID
-     * @param  ?Components\Versions  $xMoovVersion
+     * @param  ?string  $xMoovVersion
      * @return Operations\RequestCardResponse
      * @throws \Moov\OpenAPI\Models\Errors\APIException
      */
-    public function requestCard(Operations\RequestCardSecurity $security, Components\RequestCard $requestCard, string $accountID, ?Components\Versions $xMoovVersion = null, ?Options $options = null): Operations\RequestCardResponse
+    public function request(Components\RequestCard $requestCard, string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\RequestCardResponse
     {
         $request = new Operations\RequestCardRequest(
             accountID: $accountID,
@@ -304,7 +297,7 @@ class CardIssuing
             xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/issuing/{accountID}/issued-cards', Operations\RequestCardRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/issuing/{accountID}/issued-cards', Operations\RequestCardRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'requestCard', 'json');
@@ -312,25 +305,19 @@ class CardIssuing
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
+        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
         }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
-        if ($security != null) {
-            $client = Utils\Utils::configureSecurityClient($this->sdkConfiguration->client, $security);
-        } else {
-            $client = $this->sdkConfiguration->client;
-        }
-
-        $hookContext = new HookContext('requestCard', null, fn () => $security);
+        $hookContext = new HookContext('requestCard', null, $this->sdkConfiguration->securitySource);
         $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
         $httpOptions = Utils\Utils::convertHeadersToOptions($httpRequest, $httpOptions);
         $httpRequest = Utils\Utils::removeHeaders($httpRequest);
         try {
-            $httpResponse = $client->send($httpRequest, $httpOptions);
+            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $httpOptions);
         } catch (\GuzzleHttp\Exception\GuzzleException $error) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
             $httpResponse = $res;
@@ -338,11 +325,11 @@ class CardIssuing
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-        if ($statusCode == 400 || $statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 422 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['400', '401', '403', '404', '422', '429', '4XX', '500', '504', '5XX'])) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
             $httpResponse = $res;
         }
-        if ($statusCode == 200) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['200'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -353,13 +340,14 @@ class CardIssuing
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
+                    headers: $httpResponse->getHeaders(),
                     issuedCard: $obj);
 
                 return $response;
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode == 400) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['400'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -370,9 +358,7 @@ class CardIssuing
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500) {
-            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } elseif ($statusCode == 422) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['422'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -383,7 +369,13 @@ class CardIssuing
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '404', '429'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['500', '504'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['4XX'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['5XX'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
@@ -393,18 +385,17 @@ class CardIssuing
     /**
      * Update a Moov issued card.
      *
-     * To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/issued-cards.write` scope when generating 
-     * a [token](https://docs.moov.io/api/authentication/access-tokens/).
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * you'll need to specify the `/accounts/{accountID}/issued-cards.write` scope.
      *
-     * @param  Operations\UpdateIssuedCardSecurity  $security
      * @param  Components\UpdateIssuedCard  $updateIssuedCard
      * @param  string  $accountID
      * @param  string  $issuedCardID
-     * @param  ?Components\Versions  $xMoovVersion
+     * @param  ?string  $xMoovVersion
      * @return Operations\UpdateIssuedCardResponse
      * @throws \Moov\OpenAPI\Models\Errors\APIException
      */
-    public function updateIssuedCard(Operations\UpdateIssuedCardSecurity $security, Components\UpdateIssuedCard $updateIssuedCard, string $accountID, string $issuedCardID, ?Components\Versions $xMoovVersion = null, ?Options $options = null): Operations\UpdateIssuedCardResponse
+    public function update(Components\UpdateIssuedCard $updateIssuedCard, string $accountID, string $issuedCardID, ?string $xMoovVersion = null, ?Options $options = null): Operations\UpdateIssuedCardResponse
     {
         $request = new Operations\UpdateIssuedCardRequest(
             accountID: $accountID,
@@ -413,7 +404,7 @@ class CardIssuing
             xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/issuing/{accountID}/issued-cards/{issuedCardID}', Operations\UpdateIssuedCardRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/issuing/{accountID}/issued-cards/{issuedCardID}', Operations\UpdateIssuedCardRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'updateIssuedCard', 'json');
@@ -421,25 +412,19 @@ class CardIssuing
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
+        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
         }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('PATCH', $url);
-        if ($security != null) {
-            $client = Utils\Utils::configureSecurityClient($this->sdkConfiguration->client, $security);
-        } else {
-            $client = $this->sdkConfiguration->client;
-        }
-
-        $hookContext = new HookContext('updateIssuedCard', null, fn () => $security);
+        $hookContext = new HookContext('updateIssuedCard', null, $this->sdkConfiguration->securitySource);
         $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
         $httpOptions = Utils\Utils::convertHeadersToOptions($httpRequest, $httpOptions);
         $httpRequest = Utils\Utils::removeHeaders($httpRequest);
         try {
-            $httpResponse = $client->send($httpRequest, $httpOptions);
+            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $httpOptions);
         } catch (\GuzzleHttp\Exception\GuzzleException $error) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
             $httpResponse = $res;
@@ -447,11 +432,11 @@ class CardIssuing
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-        if ($statusCode == 400 || $statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 409 || $statusCode == 422 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['400', '401', '403', '404', '409', '422', '429', '4XX', '500', '504', '5XX'])) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
             $httpResponse = $res;
         }
-        if ($statusCode == 204) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['204'])) {
             $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
             return new Operations\UpdateIssuedCardResponse(
@@ -459,7 +444,7 @@ class CardIssuing
                 contentType: $contentType,
                 rawResponse: $httpResponse
             );
-        } elseif (in_array($statusCode, [400, 409])) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['400', '409'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -470,9 +455,7 @@ class CardIssuing
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500) {
-            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } elseif ($statusCode == 422) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['422'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -483,7 +466,13 @@ class CardIssuing
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '404', '429'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['500', '504'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['4XX'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['5XX'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);

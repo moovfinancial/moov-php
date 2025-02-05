@@ -125,6 +125,7 @@ class Sweep
      * @param  ?string  $transferID
      * @param  ?string  $transferAmount
      * @param  ?string  $statementDescriptor
+     * @phpstan-pure
      */
     public function __construct(string $sweepID, SweepStatus $status, string $accruedAmount, string $currency, \DateTime $accrualStartedOn, ?string $residualBalance = null, ?\DateTime $accrualEndedOn = null, ?string $pushPaymentMethodID = null, ?string $pullPaymentMethodID = null, ?string $transferID = null, ?string $transferAmount = null, ?string $statementDescriptor = null)
     {

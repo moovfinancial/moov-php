@@ -33,23 +33,33 @@ class GetBrandResponse
     public \Psr\Http\Message\ResponseInterface $rawResponse;
 
     /**
+     * $headers
+     *
+     * @var array<string, array<string>> $headers
+     */
+    public array $headers;
+
+    /**
      * The request completed successfully.
      *
-     * @var ?Components\Brand $brand
+     * @var ?Components\BrandProperties $brandProperties
      */
-    public ?Components\Brand $brand = null;
+    public ?Components\BrandProperties $brandProperties = null;
 
     /**
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
-     * @param  ?Components\Brand  $brand
+     * @param  array<string, array<string>>  $headers
+     * @param  ?Components\BrandProperties  $brandProperties
+     * @phpstan-pure
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\Brand $brand = null)
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\BrandProperties $brandProperties = null, ?array $headers = [])
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
-        $this->brand = $brand;
+        $this->headers = $headers;
+        $this->brandProperties = $brandProperties;
     }
 }

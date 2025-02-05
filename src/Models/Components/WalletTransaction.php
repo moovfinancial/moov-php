@@ -183,6 +183,7 @@ class WalletTransaction
      * @param  ?int  $availableBalance
      * @param  ?string  $availableBalanceDecimal
      * @param  ?string  $sweepID
+     * @phpstan-pure
      */
     public function __construct(string $walletID, string $transactionID, WalletTransactionType $transactionType, WalletTransactionSourceType $sourceType, string $sourceID, WalletTransactionStatus $status, string $memo, \DateTime $createdOn, string $currency, int $grossAmount, string $grossAmountDecimal, int $fee, string $feeDecimal, int $netAmount, string $netAmountDecimal, ?\DateTime $completedOn = null, ?int $availableBalance = null, ?string $availableBalanceDecimal = null, ?string $sweepID = null)
     {

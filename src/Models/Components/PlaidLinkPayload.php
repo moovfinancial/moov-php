@@ -37,6 +37,7 @@ class PlaidLinkPayload
 
     /**
      * @param  PlaidLinkIntegration  $plaidLink
+     * @phpstan-pure
      */
     public function __construct(PlaidLinkIntegration $plaidLink)
     {

@@ -27,6 +27,7 @@ class PayoutRecipientUpdate
 
     /**
      * @param  ?string  $email
+     * @phpstan-pure
      */
     public function __construct(?string $email = null)
     {

@@ -32,6 +32,7 @@ class CreateProfileError
     /**
      * @param  ?CreateIndividualError  $individual
      * @param  ?CreateBusinessError  $business
+     * @phpstan-pure
      */
     public function __construct(?CreateIndividualError $individual = null, ?CreateBusinessError $business = null)
     {

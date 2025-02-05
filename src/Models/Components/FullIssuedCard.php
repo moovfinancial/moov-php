@@ -140,6 +140,7 @@ class FullIssuedCard
      * @param  string  $cvv
      * @param  ?string  $memo
      * @param  ?IssuingControls  $controls
+     * @phpstan-pure
      */
     public function __construct(string $issuedCardID, CardBrand $brand, string $lastFourCardNumber, CardExpiration $expiration, AuthorizedUser $authorizedUser, string $fundingWalletID, IssuedCardState $state, IssuedCardFormFactor $formFactor, \DateTime $createdOn, string $pan, string $cvv, ?string $memo = null, ?IssuingControls $controls = null)
     {

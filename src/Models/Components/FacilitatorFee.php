@@ -58,6 +58,7 @@ class FacilitatorFee
      * @param  ?string  $totalDecimal
      * @param  ?int  $markup
      * @param  ?string  $markupDecimal
+     * @phpstan-pure
      */
     public function __construct(?int $total = null, ?string $totalDecimal = null, ?int $markup = null, ?string $markupDecimal = null)
     {

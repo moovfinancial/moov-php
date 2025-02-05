@@ -10,7 +10,6 @@ namespace Moov\OpenAPI\Models\Errors;
 
 use Moov\OpenAPI\Models\Components;
 use Moov\OpenAPI\Utils;
-
 class UpdatePaymentLinkError
 {
     /**
@@ -63,6 +62,7 @@ class UpdatePaymentLinkError
      * @param  ?Components\DisplayOptionsError  $display
      * @param  ?Components\PaymentDetailsError  $payment
      * @param  ?Components\PayoutDetailsError  $payout
+     * @phpstan-pure
      */
     public function __construct(?Components\AmountValidationError $amount = null, ?string $expiresOn = null, ?Components\DisplayOptionsError $display = null, ?Components\PaymentDetailsError $payment = null, ?Components\PayoutDetailsError $payout = null)
     {

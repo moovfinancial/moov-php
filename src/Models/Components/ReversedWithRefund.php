@@ -22,6 +22,7 @@ class ReversedWithRefund
 
     /**
      * @param  CardAcquiringRefund  $refund
+     * @phpstan-pure
      */
     public function __construct(CardAcquiringRefund $refund)
     {

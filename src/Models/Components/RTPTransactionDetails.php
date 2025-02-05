@@ -80,6 +80,7 @@ class RTPTransactionDetails
      * @param  ?\DateTime  $completedOn
      * @param  ?\DateTime  $failedOn
      * @param  ?\DateTime  $acceptedWithoutPostingOn
+     * @phpstan-pure
      */
     public function __construct(RTPTransactionStatus $status, ?string $networkResponseCode = null, ?RTPFailureCode $failureCode = null, ?\DateTime $initiatedOn = null, ?\DateTime $completedOn = null, ?\DateTime $failedOn = null, ?\DateTime $acceptedWithoutPostingOn = null)
     {

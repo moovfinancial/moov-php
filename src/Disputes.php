@@ -46,21 +46,20 @@ class Disputes
     }
 
     /**
-     * Accepts a dispute. 
+     * Accepts liability for a dispute. 
      *
      * Read our [disputes guide](https://docs.moov.io/guides/money-movement/accept-payments/card-acceptance/disputes/) to learn more.
      *
-     * To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/transfers.write` scope when generating 
-     * a [token](https://docs.moov.io/api/authentication/access-tokens/).
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
      *
-     * @param  Operations\AcceptDisputeSecurity  $security
      * @param  string  $accountID
      * @param  string  $disputeID
-     * @param  ?Components\Versions  $xMoovVersion
+     * @param  ?string  $xMoovVersion
      * @return Operations\AcceptDisputeResponse
      * @throws \Moov\OpenAPI\Models\Errors\APIException
      */
-    public function acceptDispute(Operations\AcceptDisputeSecurity $security, string $accountID, string $disputeID, ?Components\Versions $xMoovVersion = null, ?Options $options = null): Operations\AcceptDisputeResponse
+    public function accept(string $accountID, string $disputeID, ?string $xMoovVersion = null, ?Options $options = null): Operations\AcceptDisputeResponse
     {
         $request = new Operations\AcceptDisputeRequest(
             accountID: $accountID,
@@ -68,28 +67,22 @@ class Disputes
             xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes/{disputeID}/accept', Operations\AcceptDisputeRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes/{disputeID}/accept', Operations\AcceptDisputeRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
+        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
         }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
-        if ($security != null) {
-            $client = Utils\Utils::configureSecurityClient($this->sdkConfiguration->client, $security);
-        } else {
-            $client = $this->sdkConfiguration->client;
-        }
-
-        $hookContext = new HookContext('acceptDispute', null, fn () => $security);
+        $hookContext = new HookContext('acceptDispute', null, $this->sdkConfiguration->securitySource);
         $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
         $httpOptions = Utils\Utils::convertHeadersToOptions($httpRequest, $httpOptions);
         $httpRequest = Utils\Utils::removeHeaders($httpRequest);
         try {
-            $httpResponse = $client->send($httpRequest, $httpOptions);
+            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $httpOptions);
         } catch (\GuzzleHttp\Exception\GuzzleException $error) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
             $httpResponse = $res;
@@ -97,11 +90,11 @@ class Disputes
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-        if ($statusCode == 400 || $statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 409 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['400', '401', '403', '404', '409', '429', '4XX', '500', '504', '5XX'])) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
             $httpResponse = $res;
         }
-        if ($statusCode == 200) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['200'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -112,13 +105,14 @@ class Disputes
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
+                    headers: $httpResponse->getHeaders(),
                     dispute: $obj);
 
                 return $response;
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif (in_array($statusCode, [400, 409])) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['400', '409'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -129,9 +123,13 @@ class Disputes
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '404', '429'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } elseif ($statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['500', '504'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['4XX'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['5XX'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
@@ -143,18 +141,17 @@ class Disputes
      *
      * Read our [disputes guide](https://docs.moov.io/guides/money-movement/accept-payments/card-acceptance/disputes/) to learn more.
      *
-     * To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/transfers.write` scope when generating 
-     * a [token](https://docs.moov.io/api/authentication/access-tokens/).
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
      *
-     * @param  Operations\DeleteDisputeEvidenceFileSecurity  $security
      * @param  string  $accountID
      * @param  string  $disputeID
      * @param  string  $evidenceID
-     * @param  ?Components\Versions  $xMoovVersion
+     * @param  ?string  $xMoovVersion
      * @return Operations\DeleteDisputeEvidenceFileResponse
      * @throws \Moov\OpenAPI\Models\Errors\APIException
      */
-    public function deleteDisputeEvidenceFile(Operations\DeleteDisputeEvidenceFileSecurity $security, string $accountID, string $disputeID, string $evidenceID, ?Components\Versions $xMoovVersion = null, ?Options $options = null): Operations\DeleteDisputeEvidenceFileResponse
+    public function deleteEvidence(string $accountID, string $disputeID, string $evidenceID, ?string $xMoovVersion = null, ?Options $options = null): Operations\DeleteDisputeEvidenceFileResponse
     {
         $request = new Operations\DeleteDisputeEvidenceFileRequest(
             accountID: $accountID,
@@ -163,28 +160,22 @@ class Disputes
             xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes/{disputeID}/evidence/{evidenceID}', Operations\DeleteDisputeEvidenceFileRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes/{disputeID}/evidence/{evidenceID}', Operations\DeleteDisputeEvidenceFileRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
+        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
         }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('DELETE', $url);
-        if ($security != null) {
-            $client = Utils\Utils::configureSecurityClient($this->sdkConfiguration->client, $security);
-        } else {
-            $client = $this->sdkConfiguration->client;
-        }
-
-        $hookContext = new HookContext('deleteDisputeEvidenceFile', null, fn () => $security);
+        $hookContext = new HookContext('deleteDisputeEvidenceFile', null, $this->sdkConfiguration->securitySource);
         $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
         $httpOptions = Utils\Utils::convertHeadersToOptions($httpRequest, $httpOptions);
         $httpRequest = Utils\Utils::removeHeaders($httpRequest);
         try {
-            $httpResponse = $client->send($httpRequest, $httpOptions);
+            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $httpOptions);
         } catch (\GuzzleHttp\Exception\GuzzleException $error) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
             $httpResponse = $res;
@@ -192,11 +183,11 @@ class Disputes
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-        if ($statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 409 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '404', '409', '429', '4XX', '500', '504', '5XX'])) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
             $httpResponse = $res;
         }
-        if ($statusCode == 204) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['204'])) {
             $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
             return new Operations\DeleteDisputeEvidenceFileResponse(
@@ -204,9 +195,7 @@ class Disputes
                 contentType: $contentType,
                 rawResponse: $httpResponse
             );
-        } elseif ($statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500) {
-            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } elseif ($statusCode == 409) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['409'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -217,7 +206,13 @@ class Disputes
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '404', '429'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['500', '504'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['4XX'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['5XX'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
@@ -229,17 +224,16 @@ class Disputes
      *
      * Read our [disputes guide](https://docs.moov.io/guides/money-movement/accept-payments/card-acceptance/disputes/) to learn more.
      *
-     * To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/transfers.read` scope when generating 
-     * a [token](https://docs.moov.io/api/authentication/access-tokens/).
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
      *
-     * @param  Operations\GetDisputeSecurity  $security
      * @param  string  $accountID
      * @param  string  $disputeID
-     * @param  ?Components\Versions  $xMoovVersion
+     * @param  ?string  $xMoovVersion
      * @return Operations\GetDisputeResponse
      * @throws \Moov\OpenAPI\Models\Errors\APIException
      */
-    public function getDispute(Operations\GetDisputeSecurity $security, string $accountID, string $disputeID, ?Components\Versions $xMoovVersion = null, ?Options $options = null): Operations\GetDisputeResponse
+    public function get(string $accountID, string $disputeID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetDisputeResponse
     {
         $request = new Operations\GetDisputeRequest(
             accountID: $accountID,
@@ -247,28 +241,22 @@ class Disputes
             xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes/{disputeID}', Operations\GetDisputeRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes/{disputeID}', Operations\GetDisputeRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
+        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
         }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
-        if ($security != null) {
-            $client = Utils\Utils::configureSecurityClient($this->sdkConfiguration->client, $security);
-        } else {
-            $client = $this->sdkConfiguration->client;
-        }
-
-        $hookContext = new HookContext('getDispute', null, fn () => $security);
+        $hookContext = new HookContext('getDispute', null, $this->sdkConfiguration->securitySource);
         $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
         $httpOptions = Utils\Utils::convertHeadersToOptions($httpRequest, $httpOptions);
         $httpRequest = Utils\Utils::removeHeaders($httpRequest);
         try {
-            $httpResponse = $client->send($httpRequest, $httpOptions);
+            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $httpOptions);
         } catch (\GuzzleHttp\Exception\GuzzleException $error) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
             $httpResponse = $res;
@@ -276,11 +264,11 @@ class Disputes
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-        if ($statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '404', '429', '4XX', '500', '504', '5XX'])) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
             $httpResponse = $res;
         }
-        if ($statusCode == 200) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['200'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -291,15 +279,20 @@ class Disputes
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
+                    headers: $httpResponse->getHeaders(),
                     dispute: $obj);
 
                 return $response;
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '404', '429'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } elseif ($statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['500', '504'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['4XX'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['5XX'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
@@ -311,18 +304,17 @@ class Disputes
      *
      * Read our [disputes guide](https://docs.moov.io/guides/money-movement/accept-payments/card-acceptance/disputes/) to learn more.
      *
-     * To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/transfers.read` scope when generating 
-     * a [token](https://docs.moov.io/api/authentication/access-tokens/).
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
      *
-     * @param  Operations\GetDisputeEvidenceSecurity  $security
      * @param  string  $accountID
      * @param  string  $disputeID
      * @param  string  $evidenceID
-     * @param  ?Components\Versions  $xMoovVersion
+     * @param  ?string  $xMoovVersion
      * @return Operations\GetDisputeEvidenceResponse
      * @throws \Moov\OpenAPI\Models\Errors\APIException
      */
-    public function getDisputeEvidence(Operations\GetDisputeEvidenceSecurity $security, string $accountID, string $disputeID, string $evidenceID, ?Components\Versions $xMoovVersion = null, ?Options $options = null): Operations\GetDisputeEvidenceResponse
+    public function getEvidence(string $accountID, string $disputeID, string $evidenceID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetDisputeEvidenceResponse
     {
         $request = new Operations\GetDisputeEvidenceRequest(
             accountID: $accountID,
@@ -331,28 +323,22 @@ class Disputes
             xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes/{disputeID}/evidence/{evidenceID}', Operations\GetDisputeEvidenceRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes/{disputeID}/evidence/{evidenceID}', Operations\GetDisputeEvidenceRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
+        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
         }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
-        if ($security != null) {
-            $client = Utils\Utils::configureSecurityClient($this->sdkConfiguration->client, $security);
-        } else {
-            $client = $this->sdkConfiguration->client;
-        }
-
-        $hookContext = new HookContext('getDisputeEvidence', null, fn () => $security);
+        $hookContext = new HookContext('getDisputeEvidence', null, $this->sdkConfiguration->securitySource);
         $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
         $httpOptions = Utils\Utils::convertHeadersToOptions($httpRequest, $httpOptions);
         $httpRequest = Utils\Utils::removeHeaders($httpRequest);
         try {
-            $httpResponse = $client->send($httpRequest, $httpOptions);
+            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $httpOptions);
         } catch (\GuzzleHttp\Exception\GuzzleException $error) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
             $httpResponse = $res;
@@ -360,11 +346,11 @@ class Disputes
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-        if ($statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '404', '429', '4XX', '500', '504', '5XX'])) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
             $httpResponse = $res;
         }
-        if ($statusCode == 200) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['200'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -375,15 +361,20 @@ class Disputes
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
+                    headers: $httpResponse->getHeaders(),
                     disputeEvidenceMetadata: $obj);
 
                 return $response;
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '404', '429'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } elseif ($statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['500', '504'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['4XX'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['5XX'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
@@ -395,18 +386,17 @@ class Disputes
      *
      * Read our [disputes guide](https://docs.moov.io/guides/money-movement/accept-payments/card-acceptance/disputes/) to learn more.
      *
-     * To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/transfers.read` scope when generating 
-     * a [token](https://docs.moov.io/api/authentication/access-tokens/).
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
      *
-     * @param  Operations\GetDisputeEvidenceDataSecurity  $security
      * @param  string  $accountID
      * @param  string  $disputeID
      * @param  string  $evidenceID
-     * @param  ?Components\Versions  $xMoovVersion
+     * @param  ?string  $xMoovVersion
      * @return Operations\GetDisputeEvidenceDataResponse
      * @throws \Moov\OpenAPI\Models\Errors\APIException
      */
-    public function getDisputeEvidenceData(Operations\GetDisputeEvidenceDataSecurity $security, string $accountID, string $disputeID, string $evidenceID, ?Components\Versions $xMoovVersion = null, ?Options $options = null): Operations\GetDisputeEvidenceDataResponse
+    public function getEvidenceData(string $accountID, string $disputeID, string $evidenceID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetDisputeEvidenceDataResponse
     {
         $request = new Operations\GetDisputeEvidenceDataRequest(
             accountID: $accountID,
@@ -415,28 +405,22 @@ class Disputes
             xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes/{disputeID}/evidence/{evidenceID}/data', Operations\GetDisputeEvidenceDataRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes/{disputeID}/evidence/{evidenceID}/data', Operations\GetDisputeEvidenceDataRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
+        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
         }
         $httpOptions['headers']['Accept'] = 'application/pdf;q=1, image/jpeg;q=0.7, image/tiff;q=0';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
-        if ($security != null) {
-            $client = Utils\Utils::configureSecurityClient($this->sdkConfiguration->client, $security);
-        } else {
-            $client = $this->sdkConfiguration->client;
-        }
-
-        $hookContext = new HookContext('getDisputeEvidenceData', null, fn () => $security);
+        $hookContext = new HookContext('getDisputeEvidenceData', null, $this->sdkConfiguration->securitySource);
         $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
         $httpOptions = Utils\Utils::convertHeadersToOptions($httpRequest, $httpOptions);
         $httpRequest = Utils\Utils::removeHeaders($httpRequest);
         try {
-            $httpResponse = $client->send($httpRequest, $httpOptions);
+            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $httpOptions);
         } catch (\GuzzleHttp\Exception\GuzzleException $error) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
             $httpResponse = $res;
@@ -444,11 +428,11 @@ class Disputes
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-        if ($statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '404', '429', '4XX', '500', '504', '5XX'])) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
             $httpResponse = $res;
         }
-        if ($statusCode == 200) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['200'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/pdf')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -458,6 +442,7 @@ class Disputes
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
+                    headers: $httpResponse->getHeaders(),
                     twoHundredApplicationPdfBytes: $obj);
             } elseif (Utils\Utils::matchContentType($contentType, 'image/jpeg')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
@@ -468,6 +453,7 @@ class Disputes
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
+                    headers: $httpResponse->getHeaders(),
                     twoHundredImageJpegBytes: $obj);
             } elseif (Utils\Utils::matchContentType($contentType, 'image/tiff')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
@@ -478,13 +464,18 @@ class Disputes
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
+                    headers: $httpResponse->getHeaders(),
                     twoHundredImageTiffBytes: $obj);
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '404', '429'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } elseif ($statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['500', '504'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['4XX'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['5XX'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
@@ -496,17 +487,16 @@ class Disputes
      *
      * Read our [disputes guide](https://docs.moov.io/guides/money-movement/accept-payments/card-acceptance/disputes/) to learn more.
      *
-     * To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/transfers.read` scope when generating 
-     * a [token](https://docs.moov.io/api/authentication/access-tokens/).
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
      *
-     * @param  Operations\ListDisputeEvidenceSecurity  $security
      * @param  string  $accountID
      * @param  string  $disputeID
-     * @param  ?Components\Versions  $xMoovVersion
+     * @param  ?string  $xMoovVersion
      * @return Operations\ListDisputeEvidenceResponse
      * @throws \Moov\OpenAPI\Models\Errors\APIException
      */
-    public function listDisputeEvidence(Operations\ListDisputeEvidenceSecurity $security, string $accountID, string $disputeID, ?Components\Versions $xMoovVersion = null, ?Options $options = null): Operations\ListDisputeEvidenceResponse
+    public function listEvidence(string $accountID, string $disputeID, ?string $xMoovVersion = null, ?Options $options = null): Operations\ListDisputeEvidenceResponse
     {
         $request = new Operations\ListDisputeEvidenceRequest(
             accountID: $accountID,
@@ -514,28 +504,22 @@ class Disputes
             xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes/{disputeID}/evidence', Operations\ListDisputeEvidenceRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes/{disputeID}/evidence', Operations\ListDisputeEvidenceRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
+        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
         }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
-        if ($security != null) {
-            $client = Utils\Utils::configureSecurityClient($this->sdkConfiguration->client, $security);
-        } else {
-            $client = $this->sdkConfiguration->client;
-        }
-
-        $hookContext = new HookContext('listDisputeEvidence', null, fn () => $security);
+        $hookContext = new HookContext('listDisputeEvidence', null, $this->sdkConfiguration->securitySource);
         $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
         $httpOptions = Utils\Utils::convertHeadersToOptions($httpRequest, $httpOptions);
         $httpRequest = Utils\Utils::removeHeaders($httpRequest);
         try {
-            $httpResponse = $client->send($httpRequest, $httpOptions);
+            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $httpOptions);
         } catch (\GuzzleHttp\Exception\GuzzleException $error) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
             $httpResponse = $res;
@@ -543,11 +527,11 @@ class Disputes
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-        if ($statusCode == 401 || $statusCode == 403 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '429', '4XX', '500', '504', '5XX'])) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
             $httpResponse = $res;
         }
-        if ($statusCode == 200) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['200'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -558,15 +542,20 @@ class Disputes
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
+                    headers: $httpResponse->getHeaders(),
                     disputeEvidenceMetadata: $obj);
 
                 return $response;
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode == 401 || $statusCode == 403 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '429'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } elseif ($statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['500', '504'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['4XX'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['5XX'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
@@ -578,42 +567,35 @@ class Disputes
      *
      * Read our [disputes guide](https://docs.moov.io/guides/money-movement/accept-payments/card-acceptance/disputes/) to learn more.
      *
-     * To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/transfers.read` scope when generating 
-     * a [token](https://docs.moov.io/api/authentication/access-tokens/).
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
      *
-     * @param  Operations\ListDisputesSecurity  $security
      * @param  Operations\ListDisputesRequest  $request
      * @return Operations\ListDisputesResponse
      * @throws \Moov\OpenAPI\Models\Errors\APIException
      */
-    public function listDisputes(Operations\ListDisputesSecurity $security, Operations\ListDisputesRequest $request, ?Options $options = null): Operations\ListDisputesResponse
+    public function list(Operations\ListDisputesRequest $request, ?Options $options = null): Operations\ListDisputesResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes', Operations\ListDisputesRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes', Operations\ListDisputesRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
 
-        $qp = Utils\Utils::getQueryParams(Operations\ListDisputesRequest::class, $request, $urlOverride);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
+        $qp = Utils\Utils::getQueryParams(Operations\ListDisputesRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
+        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
         }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
-        if ($security != null) {
-            $client = Utils\Utils::configureSecurityClient($this->sdkConfiguration->client, $security);
-        } else {
-            $client = $this->sdkConfiguration->client;
-        }
-
-        $hookContext = new HookContext('listDisputes', null, fn () => $security);
+        $hookContext = new HookContext('listDisputes', null, $this->sdkConfiguration->securitySource);
         $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
         $httpOptions['query'] = Utils\QueryParameters::standardizeQueryParams($httpRequest, $qp);
         $httpOptions = Utils\Utils::convertHeadersToOptions($httpRequest, $httpOptions);
         $httpRequest = Utils\Utils::removeHeaders($httpRequest);
         try {
-            $httpResponse = $client->send($httpRequest, $httpOptions);
+            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $httpOptions);
         } catch (\GuzzleHttp\Exception\GuzzleException $error) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
             $httpResponse = $res;
@@ -621,11 +603,11 @@ class Disputes
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-        if ($statusCode == 401 || $statusCode == 403 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '429', '4XX', '500', '504', '5XX'])) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
             $httpResponse = $res;
         }
-        if ($statusCode == 200) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['200'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -636,15 +618,20 @@ class Disputes
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
+                    headers: $httpResponse->getHeaders(),
                     disputes: $obj);
 
                 return $response;
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode == 401 || $statusCode == 403 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '429'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } elseif ($statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['500', '504'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['4XX'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['5XX'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
@@ -659,17 +646,16 @@ class Disputes
      *
      * Read our [disputes guide](https://docs.moov.io/guides/money-movement/accept-payments/card-acceptance/disputes/) to learn more.
      *
-     * To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/transfers.write` scope when generating 
-     * a [token](https://docs.moov.io/api/authentication/access-tokens/).
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
      *
-     * @param  Operations\SubmitDisputeEvidenceSecurity  $security
      * @param  string  $accountID
      * @param  string  $disputeID
-     * @param  ?Components\Versions  $xMoovVersion
+     * @param  ?string  $xMoovVersion
      * @return Operations\SubmitDisputeEvidenceResponse
      * @throws \Moov\OpenAPI\Models\Errors\APIException
      */
-    public function submitDisputeEvidence(Operations\SubmitDisputeEvidenceSecurity $security, string $accountID, string $disputeID, ?Components\Versions $xMoovVersion = null, ?Options $options = null): Operations\SubmitDisputeEvidenceResponse
+    public function submitEvidence(string $accountID, string $disputeID, ?string $xMoovVersion = null, ?Options $options = null): Operations\SubmitDisputeEvidenceResponse
     {
         $request = new Operations\SubmitDisputeEvidenceRequest(
             accountID: $accountID,
@@ -677,28 +663,22 @@ class Disputes
             xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes/{disputeID}/evidence/submit', Operations\SubmitDisputeEvidenceRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes/{disputeID}/evidence/submit', Operations\SubmitDisputeEvidenceRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
+        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
         }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
-        if ($security != null) {
-            $client = Utils\Utils::configureSecurityClient($this->sdkConfiguration->client, $security);
-        } else {
-            $client = $this->sdkConfiguration->client;
-        }
-
-        $hookContext = new HookContext('submitDisputeEvidence', null, fn () => $security);
+        $hookContext = new HookContext('submitDisputeEvidence', null, $this->sdkConfiguration->securitySource);
         $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
         $httpOptions = Utils\Utils::convertHeadersToOptions($httpRequest, $httpOptions);
         $httpRequest = Utils\Utils::removeHeaders($httpRequest);
         try {
-            $httpResponse = $client->send($httpRequest, $httpOptions);
+            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $httpOptions);
         } catch (\GuzzleHttp\Exception\GuzzleException $error) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
             $httpResponse = $res;
@@ -706,11 +686,11 @@ class Disputes
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-        if ($statusCode == 400 || $statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 409 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['400', '401', '403', '404', '409', '429', '4XX', '500', '504', '5XX'])) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
             $httpResponse = $res;
         }
-        if ($statusCode == 200) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['200'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -721,13 +701,14 @@ class Disputes
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
+                    headers: $httpResponse->getHeaders(),
                     dispute: $obj);
 
                 return $response;
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif (in_array($statusCode, [400, 409])) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['400', '409'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -738,9 +719,13 @@ class Disputes
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '404', '429'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } elseif ($statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['500', '504'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['4XX'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['5XX'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
@@ -752,18 +737,17 @@ class Disputes
      *
      * Read our [disputes guide](https://docs.moov.io/guides/money-movement/accept-payments/card-acceptance/disputes/) to learn more.
      *
-     * To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/transfers.write` scope when generating
-     * a [token](https://docs.moov.io/api/authentication/access-tokens/).
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
      *
-     * @param  Operations\UpdateDisputeEvidenceSecurity  $security
      * @param  Operations\UpdateDisputeEvidenceRequest  $request
      * @return Operations\UpdateDisputeEvidenceResponse
      * @throws \Moov\OpenAPI\Models\Errors\APIException
      */
-    public function updateDisputeEvidence(Operations\UpdateDisputeEvidenceSecurity $security, Operations\UpdateDisputeEvidenceRequest $request, ?Options $options = null): Operations\UpdateDisputeEvidenceResponse
+    public function updateEvidence(Operations\UpdateDisputeEvidenceRequest $request, ?Options $options = null): Operations\UpdateDisputeEvidenceResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes/{disputeID}/evidence/{evidenceID}', Operations\UpdateDisputeEvidenceRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes/{disputeID}/evidence/{evidenceID}', Operations\UpdateDisputeEvidenceRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'updateEvidence', 'json');
@@ -771,25 +755,19 @@ class Disputes
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
+        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
         }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('PATCH', $url);
-        if ($security != null) {
-            $client = Utils\Utils::configureSecurityClient($this->sdkConfiguration->client, $security);
-        } else {
-            $client = $this->sdkConfiguration->client;
-        }
-
-        $hookContext = new HookContext('updateDisputeEvidence', null, fn () => $security);
+        $hookContext = new HookContext('updateDisputeEvidence', null, $this->sdkConfiguration->securitySource);
         $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
         $httpOptions = Utils\Utils::convertHeadersToOptions($httpRequest, $httpOptions);
         $httpRequest = Utils\Utils::removeHeaders($httpRequest);
         try {
-            $httpResponse = $client->send($httpRequest, $httpOptions);
+            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $httpOptions);
         } catch (\GuzzleHttp\Exception\GuzzleException $error) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
             $httpResponse = $res;
@@ -797,11 +775,11 @@ class Disputes
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-        if ($statusCode == 400 || $statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['400', '401', '403', '404', '429', '4XX', '500', '504', '5XX'])) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
             $httpResponse = $res;
         }
-        if ($statusCode == 200) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['200'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -812,13 +790,14 @@ class Disputes
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
+                    headers: $httpResponse->getHeaders(),
                     disputeEvidenceMetadata: $obj);
 
                 return $response;
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode == 400) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['400'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -829,9 +808,13 @@ class Disputes
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '404', '429'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } elseif ($statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['500', '504'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['4XX'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['5XX'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
@@ -843,18 +826,17 @@ class Disputes
      *
      * Read our [disputes guide](https://docs.moov.io/guides/money-movement/accept-payments/card-acceptance/disputes/) to learn more.
      *
-     * To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/transfers.write` scope when generating 
-     * a [token](https://docs.moov.io/api/authentication/access-tokens/).
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
      *
-     * @param  Operations\UploadDisputeEvidenceFileSecurity  $security
      * @param  Components\CreateEvidenceFileMultiPart  $createEvidenceFileMultiPart
      * @param  string  $accountID
      * @param  string  $disputeID
-     * @param  ?Components\Versions  $xMoovVersion
+     * @param  ?string  $xMoovVersion
      * @return Operations\UploadDisputeEvidenceFileResponse
      * @throws \Moov\OpenAPI\Models\Errors\APIException
      */
-    public function uploadDisputeEvidenceFile(Operations\UploadDisputeEvidenceFileSecurity $security, Components\CreateEvidenceFileMultiPart $createEvidenceFileMultiPart, string $accountID, string $disputeID, ?Components\Versions $xMoovVersion = null, ?Options $options = null): Operations\UploadDisputeEvidenceFileResponse
+    public function uploadEvidenceFile(Components\CreateEvidenceFileMultiPart $createEvidenceFileMultiPart, string $accountID, string $disputeID, ?string $xMoovVersion = null, ?Options $options = null): Operations\UploadDisputeEvidenceFileResponse
     {
         $request = new Operations\UploadDisputeEvidenceFileRequest(
             accountID: $accountID,
@@ -863,7 +845,7 @@ class Disputes
             xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes/{disputeID}/evidence-file', Operations\UploadDisputeEvidenceFileRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes/{disputeID}/evidence-file', Operations\UploadDisputeEvidenceFileRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'createEvidenceFileMultiPart', 'multipart');
@@ -871,25 +853,19 @@ class Disputes
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
+        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
         }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
-        if ($security != null) {
-            $client = Utils\Utils::configureSecurityClient($this->sdkConfiguration->client, $security);
-        } else {
-            $client = $this->sdkConfiguration->client;
-        }
-
-        $hookContext = new HookContext('uploadDisputeEvidenceFile', null, fn () => $security);
+        $hookContext = new HookContext('uploadDisputeEvidenceFile', null, $this->sdkConfiguration->securitySource);
         $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
         $httpOptions = Utils\Utils::convertHeadersToOptions($httpRequest, $httpOptions);
         $httpRequest = Utils\Utils::removeHeaders($httpRequest);
         try {
-            $httpResponse = $client->send($httpRequest, $httpOptions);
+            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $httpOptions);
         } catch (\GuzzleHttp\Exception\GuzzleException $error) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
             $httpResponse = $res;
@@ -897,11 +873,11 @@ class Disputes
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-        if ($statusCode == 400 || $statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 409 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['400', '401', '403', '404', '409', '429', '4XX', '500', '504', '5XX'])) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
             $httpResponse = $res;
         }
-        if ($statusCode == 204) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['204'])) {
             $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
             return new Operations\UploadDisputeEvidenceFileResponse(
@@ -909,7 +885,7 @@ class Disputes
                 contentType: $contentType,
                 rawResponse: $httpResponse
             );
-        } elseif (in_array($statusCode, [400, 409])) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['400', '409'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -920,9 +896,13 @@ class Disputes
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '404', '429'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } elseif ($statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['500', '504'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['4XX'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['5XX'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
@@ -934,18 +914,17 @@ class Disputes
      *
      * Read our [disputes guide](https://docs.moov.io/guides/money-movement/accept-payments/card-acceptance/disputes/) to learn more.
      *
-     * To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/transfers.write` scope when generating 
-     * a [token](https://docs.moov.io/api/authentication/access-tokens/).
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
      *
-     * @param  Operations\UploadDisputeEvidenceTextSecurity  $security
      * @param  Components\CreateEvidenceText  $createEvidenceText
      * @param  string  $accountID
      * @param  string  $disputeID
-     * @param  ?Components\Versions  $xMoovVersion
+     * @param  ?string  $xMoovVersion
      * @return Operations\UploadDisputeEvidenceTextResponse
      * @throws \Moov\OpenAPI\Models\Errors\APIException
      */
-    public function uploadDisputeEvidenceText(Operations\UploadDisputeEvidenceTextSecurity $security, Components\CreateEvidenceText $createEvidenceText, string $accountID, string $disputeID, ?Components\Versions $xMoovVersion = null, ?Options $options = null): Operations\UploadDisputeEvidenceTextResponse
+    public function uploadEvidenceText(Components\CreateEvidenceText $createEvidenceText, string $accountID, string $disputeID, ?string $xMoovVersion = null, ?Options $options = null): Operations\UploadDisputeEvidenceTextResponse
     {
         $request = new Operations\UploadDisputeEvidenceTextRequest(
             accountID: $accountID,
@@ -954,7 +933,7 @@ class Disputes
             xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes/{disputeID}/evidence-text', Operations\UploadDisputeEvidenceTextRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes/{disputeID}/evidence-text', Operations\UploadDisputeEvidenceTextRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'createEvidenceText', 'json');
@@ -962,25 +941,19 @@ class Disputes
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
+        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
         }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
-        if ($security != null) {
-            $client = Utils\Utils::configureSecurityClient($this->sdkConfiguration->client, $security);
-        } else {
-            $client = $this->sdkConfiguration->client;
-        }
-
-        $hookContext = new HookContext('uploadDisputeEvidenceText', null, fn () => $security);
+        $hookContext = new HookContext('uploadDisputeEvidenceText', null, $this->sdkConfiguration->securitySource);
         $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
         $httpOptions = Utils\Utils::convertHeadersToOptions($httpRequest, $httpOptions);
         $httpRequest = Utils\Utils::removeHeaders($httpRequest);
         try {
-            $httpResponse = $client->send($httpRequest, $httpOptions);
+            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $httpOptions);
         } catch (\GuzzleHttp\Exception\GuzzleException $error) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
             $httpResponse = $res;
@@ -988,11 +961,11 @@ class Disputes
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-        if ($statusCode == 400 || $statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 409 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['400', '401', '403', '404', '409', '429', '4XX', '500', '504', '5XX'])) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
             $httpResponse = $res;
         }
-        if ($statusCode == 201) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['201'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -1003,13 +976,14 @@ class Disputes
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
+                    headers: $httpResponse->getHeaders(),
                     evidenceText: $obj);
 
                 return $response;
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif (in_array($statusCode, [400, 409])) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['400', '409'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -1020,9 +994,13 @@ class Disputes
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '404', '429'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } elseif ($statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['500', '504'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['4XX'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['5XX'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);

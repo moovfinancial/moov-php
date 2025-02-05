@@ -5,28 +5,28 @@
 
 ### Available Operations
 
-* [getFileDetails](#getfiledetails) - Retrieve file details associated with a specific Moov account.
+* [get](#get) - Retrieve file details associated with a specific Moov account.
 
-To access this endpoint using a [token](https://docs.moov.io/api/authentication/access-tokens/) you'll need to specify the 
-`/accounts/{accountID}/files.read` scope.
-* [listFiles](#listfiles) - List all the files associated with a particular Moov account.
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/files.read` scope.
+* [list](#list) - List all the files associated with a particular Moov account.
 
-To access this endpoint using a [token](https://docs.moov.io/api/authentication/access-tokens/) you'll need to specify the 
-`/accounts/{accountID}/files.read` scope.
-* [uploadFile](#uploadfile) - Upload a file and link it to the specified Moov account. 
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/files.read` scope.
+* [upload](#upload) - Upload a file and link it to the specified Moov account. 
 
 The maximum file size is 10MB. Each account is allowed a maximum of 50 files. Acceptable file types include csv, jpg, pdf, 
 and png. 
 
-To access this endpoint using a [token](https://docs.moov.io/api/authentication/access-tokens/) you'll need to specify the 
-`/accounts/{accountID}/files.write` scope.
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/files.write` scope.
 
-## getFileDetails
+## get
 
 Retrieve file details associated with a specific Moov account.
 
-To access this endpoint using a [token](https://docs.moov.io/api/authentication/access-tokens/) you'll need to specify the 
-`/accounts/{accountID}/files.read` scope.
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/files.read` scope.
 
 ### Example Usage
 
@@ -37,23 +37,22 @@ require 'vendor/autoload.php';
 
 use Moov\OpenAPI;
 use Moov\OpenAPI\Models\Components;
-use Moov\OpenAPI\Models\Operations;
 
-$sdk = OpenAPI\Moov::builder()->build();
+$sdk = OpenAPI\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
 
 
-$requestSecurity = new Operations\GetFileDetailsSecurity(
-    basicAuth: new Components\SchemeBasicAuth(
-        username: '',
-        password: '',
-    ),
-);
 
-$response = $sdk->files->getFileDetails(
-    security: $requestSecurity,
-    accountID: '346add0a-4dae-4729-8e74-1a50d00d677a',
-    fileID: 'bf657841-ba2d-4060-ad21-eb2b7372cf85',
-    xMoovVersion: Components\Versions::V20240000
+$response = $sdk->files->get(
+    accountID: 'b888f774-3e7c-4135-a18c-6b985523c4bc',
+    fileID: 'e50f7622-81da-484b-9c66-1c8a99c6b71b',
+    xMoovVersion: 'v2024.01'
 
 );
 
@@ -64,12 +63,11 @@ if ($response->fileDetails !== null) {
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `security`                                                                             | [Operations\GetFileDetailsSecurity](../../Models/Operations/GetFileDetailsSecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
-| `accountID`                                                                            | *string*                                                                               | :heavy_check_mark:                                                                     | N/A                                                                                    |
-| `fileID`                                                                               | *string*                                                                               | :heavy_check_mark:                                                                     | N/A                                                                                    |
-| `xMoovVersion`                                                                         | [?Components\Versions](../../Models/Components/Versions.md)                            | :heavy_minus_sign:                                                                     | Specify an API version.                                                                |
+| Parameter                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Required                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `accountID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `fileID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `xMoovVersion`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | *?string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Specify an API version.<br/><br/>API versioning follows the format `vYYYY.QQ.BB`, where <br/>  - `YYYY` is the year<br/>  - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)<br/>  - `BB` is an **optional** build number starting at `.01` for subsequent builds in the same quarter. <br/>    - If no build number is specified, the version refers to the initial release of the quarter.<br/><br/>The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release. |
 
 ### Response
 
@@ -81,12 +79,12 @@ if ($response->fileDetails !== null) {
 | ------------------- | ------------------- | ------------------- |
 | Errors\APIException | 4XX, 5XX            | \*/\*               |
 
-## listFiles
+## list
 
 List all the files associated with a particular Moov account.
 
-To access this endpoint using a [token](https://docs.moov.io/api/authentication/access-tokens/) you'll need to specify the 
-`/accounts/{accountID}/files.read` scope.
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/files.read` scope.
 
 ### Example Usage
 
@@ -97,22 +95,21 @@ require 'vendor/autoload.php';
 
 use Moov\OpenAPI;
 use Moov\OpenAPI\Models\Components;
-use Moov\OpenAPI\Models\Operations;
 
-$sdk = OpenAPI\Moov::builder()->build();
+$sdk = OpenAPI\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
 
 
-$requestSecurity = new Operations\ListFilesSecurity(
-    basicAuth: new Components\SchemeBasicAuth(
-        username: '',
-        password: '',
-    ),
-);
 
-$response = $sdk->files->listFiles(
-    security: $requestSecurity,
-    accountID: 'a3c35406-9eb6-4801-bbac-0649c31c058a',
-    xMoovVersion: Components\Versions::V20240000
+$response = $sdk->files->list(
+    accountID: 'c8a232aa-0b11-4b8a-b005-71e9e705d0e6',
+    xMoovVersion: 'v2024.01'
 
 );
 
@@ -123,11 +120,10 @@ if ($response->fileDetails !== null) {
 
 ### Parameters
 
-| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
-| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `security`                                                                   | [Operations\ListFilesSecurity](../../Models/Operations/ListFilesSecurity.md) | :heavy_check_mark:                                                           | The security requirements to use for the request.                            |
-| `accountID`                                                                  | *string*                                                                     | :heavy_check_mark:                                                           | N/A                                                                          |
-| `xMoovVersion`                                                               | [?Components\Versions](../../Models/Components/Versions.md)                  | :heavy_minus_sign:                                                           | Specify an API version.                                                      |
+| Parameter                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Required                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `accountID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `xMoovVersion`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | *?string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Specify an API version.<br/><br/>API versioning follows the format `vYYYY.QQ.BB`, where <br/>  - `YYYY` is the year<br/>  - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)<br/>  - `BB` is an **optional** build number starting at `.01` for subsequent builds in the same quarter. <br/>    - If no build number is specified, the version refers to the initial release of the quarter.<br/><br/>The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release. |
 
 ### Response
 
@@ -139,15 +135,15 @@ if ($response->fileDetails !== null) {
 | ------------------- | ------------------- | ------------------- |
 | Errors\APIException | 4XX, 5XX            | \*/\*               |
 
-## uploadFile
+## upload
 
 Upload a file and link it to the specified Moov account. 
 
 The maximum file size is 10MB. Each account is allowed a maximum of 50 files. Acceptable file types include csv, jpg, pdf, 
 and png. 
 
-To access this endpoint using a [token](https://docs.moov.io/api/authentication/access-tokens/) you'll need to specify the 
-`/accounts/{accountID}/files.write` scope.
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/files.write` scope.
 
 ### Example Usage
 
@@ -158,30 +154,29 @@ require 'vendor/autoload.php';
 
 use Moov\OpenAPI;
 use Moov\OpenAPI\Models\Components;
-use Moov\OpenAPI\Models\Operations;
 
-$sdk = OpenAPI\Moov::builder()->build();
+$sdk = OpenAPI\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
 
 $fileUploadRequestMultiPart = new Components\FileUploadRequestMultiPart(
     file: new Components\FileUploadRequestMultiPartFile(
         fileName: 'example.file',
-        content: '0xccaF7dB59f',
+        content: '0x8cc9e675ad',
     ),
     filePurpose: Components\FilePurpose::RepresentativeVerification,
     metadata: '{"requirement_id": "document.individual.verification"}',
 );
-$requestSecurity = new Operations\UploadFileSecurity(
-    basicAuth: new Components\SchemeBasicAuth(
-        username: '',
-        password: '',
-    ),
-);
 
-$response = $sdk->files->uploadFile(
-    security: $requestSecurity,
-    accountID: '68f95825-1ae3-4f3f-8af2-789dd2a59d6d',
+$response = $sdk->files->upload(
+    accountID: '10a2b98a-ab61-4ec6-a5fc-41d969747bc6',
     fileUploadRequestMultiPart: $fileUploadRequestMultiPart,
-    xMoovVersion: Components\Versions::V20240000
+    xMoovVersion: 'v2024.01'
 
 );
 
@@ -192,12 +187,11 @@ if ($response->fileDetails !== null) {
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `security`                                                                                     | [Operations\UploadFileSecurity](../../Models/Operations/UploadFileSecurity.md)                 | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
-| `accountID`                                                                                    | *string*                                                                                       | :heavy_check_mark:                                                                             | N/A                                                                                            |
-| `fileUploadRequestMultiPart`                                                                   | [Components\FileUploadRequestMultiPart](../../Models/Components/FileUploadRequestMultiPart.md) | :heavy_check_mark:                                                                             | N/A                                                                                            |
-| `xMoovVersion`                                                                                 | [?Components\Versions](../../Models/Components/Versions.md)                                    | :heavy_minus_sign:                                                                             | Specify an API version.                                                                        |
+| Parameter                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Required                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `accountID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `fileUploadRequestMultiPart`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | [Components\FileUploadRequestMultiPart](../../Models/Components/FileUploadRequestMultiPart.md)                                                                                                                                                                                                                                                                                                                                                                                                                                                         | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `xMoovVersion`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | *?string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Specify an API version.<br/><br/>API versioning follows the format `vYYYY.QQ.BB`, where <br/>  - `YYYY` is the year<br/>  - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)<br/>  - `BB` is an **optional** build number starting at `.01` for subsequent builds in the same quarter. <br/>    - If no build number is specified, the version refers to the initial release of the quarter.<br/><br/>The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release. |
 
 ### Response
 

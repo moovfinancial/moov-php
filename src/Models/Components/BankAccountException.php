@@ -73,6 +73,7 @@ class BankAccountException
      * @param  ACHReturnCode  $achReturnCode
      * @param  RTPRejectionCode  $rtpRejectionCode
      * @param  string  $description
+     * @phpstan-pure
      */
     public function __construct(ACHReturnCode $achReturnCode, RTPRejectionCode $rtpRejectionCode, string $description)
     {

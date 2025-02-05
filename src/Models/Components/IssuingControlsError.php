@@ -23,6 +23,7 @@ class IssuingControlsError
 
     /**
      * @param  ?array<string, IssuingVelocityLimitError>  $velocityLimits
+     * @phpstan-pure
      */
     public function __construct(?array $velocityLimits = null)
     {

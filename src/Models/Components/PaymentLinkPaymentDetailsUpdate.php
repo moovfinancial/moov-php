@@ -46,6 +46,7 @@ class PaymentLinkPaymentDetailsUpdate
      * @param  ?array<CollectionPaymentMethodType>  $allowedMethods
      * @param  ?CardPaymentDetails  $cardDetails
      * @param  ?ACHPaymentDetails  $achDetails
+     * @phpstan-pure
      */
     public function __construct(?array $allowedMethods = null, ?CardPaymentDetails $cardDetails = null, ?ACHPaymentDetails $achDetails = null)
     {

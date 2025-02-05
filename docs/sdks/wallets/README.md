@@ -5,18 +5,27 @@
 
 ### Available Operations
 
-* [getWallet](#getwallet) - Get information on a specific wallet (e.g., the available balance). Read our [Moov wallets guide](https://docs.moov.io/guides/sources/wallets/) to learn more.
+* [get](#get) - Get information on a specific wallet (e.g., the available balance). 
 
-To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/wallets.read` scope when generating a [token](https://docs.moov.io/api/authentication/access-tokens/).
-* [listWallets](#listwallets) - List the wallets associated with a Moov account. Read our [Moov wallets guide](https://docs.moov.io/guides/sources/wallets/) to learn more.
+Read our [Moov wallets guide](https://docs.moov.io/guides/sources/wallets/) to learn more.
 
-To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/wallets.read` scope when generating a [token](https://docs.moov.io/api/authentication/access-tokens/).
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/wallets.read` scope.
+* [list](#list) - List the wallets associated with a Moov account. 
 
-## getWallet
+Read our [Moov wallets guide](https://docs.moov.io/guides/sources/wallets/) to learn more.
 
-Get information on a specific wallet (e.g., the available balance). Read our [Moov wallets guide](https://docs.moov.io/guides/sources/wallets/) to learn more.
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/wallets.read` scope.
 
-To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/wallets.read` scope when generating a [token](https://docs.moov.io/api/authentication/access-tokens/).
+## get
+
+Get information on a specific wallet (e.g., the available balance). 
+
+Read our [Moov wallets guide](https://docs.moov.io/guides/sources/wallets/) to learn more.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/wallets.read` scope.
 
 ### Example Usage
 
@@ -27,23 +36,22 @@ require 'vendor/autoload.php';
 
 use Moov\OpenAPI;
 use Moov\OpenAPI\Models\Components;
-use Moov\OpenAPI\Models\Operations;
 
-$sdk = OpenAPI\Moov::builder()->build();
+$sdk = OpenAPI\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
 
 
-$requestSecurity = new Operations\GetWalletSecurity(
-    basicAuth: new Components\SchemeBasicAuth(
-        username: '',
-        password: '',
-    ),
-);
 
-$response = $sdk->wallets->getWallet(
-    security: $requestSecurity,
-    accountID: '499bec36-0099-43cb-884f-620887342259',
-    walletID: 'bc779af6-b7d5-464a-ad1f-f6476fa72706',
-    xMoovVersion: Components\Versions::Latest
+$response = $sdk->wallets->get(
+    accountID: 'b888f774-3e7c-4135-a18c-6b985523c4bc',
+    walletID: 'e50f7622-81da-484b-9c66-1c8a99c6b71b',
+    xMoovVersion: 'v2024.01'
 
 );
 
@@ -54,12 +62,11 @@ if ($response->wallet !== null) {
 
 ### Parameters
 
-| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
-| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `security`                                                                   | [Operations\GetWalletSecurity](../../Models/Operations/GetWalletSecurity.md) | :heavy_check_mark:                                                           | The security requirements to use for the request.                            |
-| `accountID`                                                                  | *string*                                                                     | :heavy_check_mark:                                                           | N/A                                                                          |
-| `walletID`                                                                   | *string*                                                                     | :heavy_check_mark:                                                           | N/A                                                                          |
-| `xMoovVersion`                                                               | [?Components\Versions](../../Models/Components/Versions.md)                  | :heavy_minus_sign:                                                           | Specify an API version.                                                      |
+| Parameter                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Required                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `accountID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `walletID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `xMoovVersion`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | *?string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Specify an API version.<br/><br/>API versioning follows the format `vYYYY.QQ.BB`, where <br/>  - `YYYY` is the year<br/>  - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)<br/>  - `BB` is an **optional** build number starting at `.01` for subsequent builds in the same quarter. <br/>    - If no build number is specified, the version refers to the initial release of the quarter.<br/><br/>The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release. |
 
 ### Response
 
@@ -71,11 +78,14 @@ if ($response->wallet !== null) {
 | ------------------- | ------------------- | ------------------- |
 | Errors\APIException | 4XX, 5XX            | \*/\*               |
 
-## listWallets
+## list
 
-List the wallets associated with a Moov account. Read our [Moov wallets guide](https://docs.moov.io/guides/sources/wallets/) to learn more.
+List the wallets associated with a Moov account. 
 
-To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/wallets.read` scope when generating a [token](https://docs.moov.io/api/authentication/access-tokens/).
+Read our [Moov wallets guide](https://docs.moov.io/guides/sources/wallets/) to learn more.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/wallets.read` scope.
 
 ### Example Usage
 
@@ -86,22 +96,21 @@ require 'vendor/autoload.php';
 
 use Moov\OpenAPI;
 use Moov\OpenAPI\Models\Components;
-use Moov\OpenAPI\Models\Operations;
 
-$sdk = OpenAPI\Moov::builder()->build();
+$sdk = OpenAPI\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
 
 
-$requestSecurity = new Operations\ListWalletsSecurity(
-    basicAuth: new Components\SchemeBasicAuth(
-        username: '',
-        password: '',
-    ),
-);
 
-$response = $sdk->wallets->listWallets(
-    security: $requestSecurity,
-    accountID: '60acf390-dc7f-4510-9b9b-ec968d375f0c',
-    xMoovVersion: Components\Versions::V20240000
+$response = $sdk->wallets->list(
+    accountID: 'c8a232aa-0b11-4b8a-b005-71e9e705d0e6',
+    xMoovVersion: 'v2024.01'
 
 );
 
@@ -112,11 +121,10 @@ if ($response->wallets !== null) {
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `security`                                                                       | [Operations\ListWalletsSecurity](../../Models/Operations/ListWalletsSecurity.md) | :heavy_check_mark:                                                               | The security requirements to use for the request.                                |
-| `accountID`                                                                      | *string*                                                                         | :heavy_check_mark:                                                               | N/A                                                                              |
-| `xMoovVersion`                                                                   | [?Components\Versions](../../Models/Components/Versions.md)                      | :heavy_minus_sign:                                                               | Specify an API version.                                                          |
+| Parameter                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Required                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `accountID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `xMoovVersion`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | *?string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Specify an API version.<br/><br/>API versioning follows the format `vYYYY.QQ.BB`, where <br/>  - `YYYY` is the year<br/>  - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)<br/>  - `BB` is an **optional** build number starting at `.01` for subsequent builds in the same quarter. <br/>    - If no build number is specified, the version refers to the initial release of the quarter.<br/><br/>The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release. |
 
 ### Response
 

@@ -43,6 +43,7 @@ class FileUploadRequestMultiPart
      * @param  FileUploadRequestMultiPartFile  $file
      * @param  FilePurpose  $filePurpose
      * @param  ?string  $metadata
+     * @phpstan-pure
      */
     public function __construct(FileUploadRequestMultiPartFile $file, FilePurpose $filePurpose, ?string $metadata = null)
     {

@@ -40,6 +40,7 @@ class PullFromCardPaymentMethod
      * @param  string  $paymentMethodID
      * @param  Card  $card
      * @param  PullFromCardPaymentMethodPaymentMethodType  $paymentMethodType
+     * @phpstan-pure
      */
     public function __construct(string $paymentMethodID, Card $card, PullFromCardPaymentMethodPaymentMethodType $paymentMethodType)
     {

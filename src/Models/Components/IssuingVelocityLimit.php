@@ -31,6 +31,7 @@ class IssuingVelocityLimit
     /**
      * @param  int  $amount
      * @param  IssuingIntervalLimit  $interval
+     * @phpstan-pure
      */
     public function __construct(int $amount, IssuingIntervalLimit $interval)
     {

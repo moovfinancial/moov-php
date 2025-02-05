@@ -48,14 +48,16 @@ class Sweeps
     /**
      * Create a sweep config for a wallet.
      *
-     * @param  Operations\CreateSweepConfigSecurity  $security
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * you'll need to specify the `/accounts/{accountID}/wallets.write` scope.
+     *
      * @param  Components\CreateSweepConfig  $createSweepConfig
      * @param  string  $accountID
-     * @param  ?Components\Versions  $xMoovVersion
+     * @param  ?string  $xMoovVersion
      * @return Operations\CreateSweepConfigResponse
      * @throws \Moov\OpenAPI\Models\Errors\APIException
      */
-    public function createSweepConfig(Operations\CreateSweepConfigSecurity $security, Components\CreateSweepConfig $createSweepConfig, string $accountID, ?Components\Versions $xMoovVersion = null, ?Options $options = null): Operations\CreateSweepConfigResponse
+    public function createConfig(Components\CreateSweepConfig $createSweepConfig, string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\CreateSweepConfigResponse
     {
         $request = new Operations\CreateSweepConfigRequest(
             accountID: $accountID,
@@ -63,7 +65,7 @@ class Sweeps
             xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/sweep-configs', Operations\CreateSweepConfigRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/sweep-configs', Operations\CreateSweepConfigRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'createSweepConfig', 'json');
@@ -71,25 +73,19 @@ class Sweeps
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
+        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
         }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
-        if ($security != null) {
-            $client = Utils\Utils::configureSecurityClient($this->sdkConfiguration->client, $security);
-        } else {
-            $client = $this->sdkConfiguration->client;
-        }
-
-        $hookContext = new HookContext('createSweepConfig', null, fn () => $security);
+        $hookContext = new HookContext('createSweepConfig', null, $this->sdkConfiguration->securitySource);
         $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
         $httpOptions = Utils\Utils::convertHeadersToOptions($httpRequest, $httpOptions);
         $httpRequest = Utils\Utils::removeHeaders($httpRequest);
         try {
-            $httpResponse = $client->send($httpRequest, $httpOptions);
+            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $httpOptions);
         } catch (\GuzzleHttp\Exception\GuzzleException $error) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
             $httpResponse = $res;
@@ -97,11 +93,11 @@ class Sweeps
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-        if ($statusCode == 400 || $statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 409 || $statusCode == 422 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['400', '401', '403', '404', '409', '422', '429', '4XX', '500', '504', '5XX'])) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
             $httpResponse = $res;
         }
-        if ($statusCode == 200) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['200'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -112,13 +108,14 @@ class Sweeps
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
+                    headers: $httpResponse->getHeaders(),
                     sweepConfig: $obj);
 
                 return $response;
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif (in_array($statusCode, [400, 409])) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['400', '409'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -129,9 +126,7 @@ class Sweeps
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500) {
-            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } elseif ($statusCode == 422) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['422'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -142,7 +137,13 @@ class Sweeps
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '404', '429'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['500', '504'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['4XX'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['5XX'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
@@ -152,15 +153,17 @@ class Sweeps
     /**
      * Get details on a specific sweep.
      *
-     * @param  Operations\GetSweepSecurity  $security
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * you'll need to specify the `/accounts/{accountID}/wallets.read` scope.
+     *
      * @param  string  $accountID
      * @param  string  $walletID
      * @param  string  $sweepID
-     * @param  ?Components\Versions  $xMoovVersion
+     * @param  ?string  $xMoovVersion
      * @return Operations\GetSweepResponse
      * @throws \Moov\OpenAPI\Models\Errors\APIException
      */
-    public function getSweep(Operations\GetSweepSecurity $security, string $accountID, string $walletID, string $sweepID, ?Components\Versions $xMoovVersion = null, ?Options $options = null): Operations\GetSweepResponse
+    public function get(string $accountID, string $walletID, string $sweepID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetSweepResponse
     {
         $request = new Operations\GetSweepRequest(
             accountID: $accountID,
@@ -169,28 +172,22 @@ class Sweeps
             xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/wallets/{walletID}/sweeps/{sweepID}', Operations\GetSweepRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/wallets/{walletID}/sweeps/{sweepID}', Operations\GetSweepRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
+        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
         }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
-        if ($security != null) {
-            $client = Utils\Utils::configureSecurityClient($this->sdkConfiguration->client, $security);
-        } else {
-            $client = $this->sdkConfiguration->client;
-        }
-
-        $hookContext = new HookContext('getSweep', null, fn () => $security);
+        $hookContext = new HookContext('getSweep', null, $this->sdkConfiguration->securitySource);
         $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
         $httpOptions = Utils\Utils::convertHeadersToOptions($httpRequest, $httpOptions);
         $httpRequest = Utils\Utils::removeHeaders($httpRequest);
         try {
-            $httpResponse = $client->send($httpRequest, $httpOptions);
+            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $httpOptions);
         } catch (\GuzzleHttp\Exception\GuzzleException $error) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
             $httpResponse = $res;
@@ -198,11 +195,11 @@ class Sweeps
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-        if ($statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '404', '429', '4XX', '500', '504', '5XX'])) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
             $httpResponse = $res;
         }
-        if ($statusCode == 200) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['200'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -213,15 +210,20 @@ class Sweeps
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
+                    headers: $httpResponse->getHeaders(),
                     sweep: $obj);
 
                 return $response;
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '404', '429'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } elseif ($statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['500', '504'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['4XX'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['5XX'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
@@ -231,14 +233,16 @@ class Sweeps
     /**
      * Get a sweep config associated with a wallet.
      *
-     * @param  Operations\GetSweepConfigSecurity  $security
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * you'll need to specify the `/accounts/{accountID}/wallets.read` scope.
+     *
      * @param  string  $accountID
      * @param  string  $sweepConfigID
-     * @param  ?Components\Versions  $xMoovVersion
+     * @param  ?string  $xMoovVersion
      * @return Operations\GetSweepConfigResponse
      * @throws \Moov\OpenAPI\Models\Errors\APIException
      */
-    public function getSweepConfig(Operations\GetSweepConfigSecurity $security, string $accountID, string $sweepConfigID, ?Components\Versions $xMoovVersion = null, ?Options $options = null): Operations\GetSweepConfigResponse
+    public function getConfig(string $accountID, string $sweepConfigID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetSweepConfigResponse
     {
         $request = new Operations\GetSweepConfigRequest(
             accountID: $accountID,
@@ -246,28 +250,22 @@ class Sweeps
             xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/sweep-configs/{sweepConfigID}', Operations\GetSweepConfigRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/sweep-configs/{sweepConfigID}', Operations\GetSweepConfigRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
+        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
         }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
-        if ($security != null) {
-            $client = Utils\Utils::configureSecurityClient($this->sdkConfiguration->client, $security);
-        } else {
-            $client = $this->sdkConfiguration->client;
-        }
-
-        $hookContext = new HookContext('getSweepConfig', null, fn () => $security);
+        $hookContext = new HookContext('getSweepConfig', null, $this->sdkConfiguration->securitySource);
         $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
         $httpOptions = Utils\Utils::convertHeadersToOptions($httpRequest, $httpOptions);
         $httpRequest = Utils\Utils::removeHeaders($httpRequest);
         try {
-            $httpResponse = $client->send($httpRequest, $httpOptions);
+            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $httpOptions);
         } catch (\GuzzleHttp\Exception\GuzzleException $error) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
             $httpResponse = $res;
@@ -275,11 +273,11 @@ class Sweeps
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-        if ($statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '404', '429', '4XX', '500', '504', '5XX'])) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
             $httpResponse = $res;
         }
-        if ($statusCode == 200) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['200'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -290,15 +288,20 @@ class Sweeps
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
+                    headers: $httpResponse->getHeaders(),
                     sweepConfig: $obj);
 
                 return $response;
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '404', '429'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } elseif ($statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['500', '504'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['4XX'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['5XX'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
@@ -308,41 +311,37 @@ class Sweeps
     /**
      * List sweep configs associated with an account.
      *
-     * @param  Operations\ListSweepConfigsSecurity  $security
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * you'll need to specify the `/accounts/{accountID}/wallets.read` scope.
+     *
      * @param  string  $accountID
-     * @param  ?Components\Versions  $xMoovVersion
+     * @param  ?string  $xMoovVersion
      * @return Operations\ListSweepConfigsResponse
      * @throws \Moov\OpenAPI\Models\Errors\APIException
      */
-    public function listSweepConfigs(Operations\ListSweepConfigsSecurity $security, string $accountID, ?Components\Versions $xMoovVersion = null, ?Options $options = null): Operations\ListSweepConfigsResponse
+    public function listConfigs(string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\ListSweepConfigsResponse
     {
         $request = new Operations\ListSweepConfigsRequest(
             accountID: $accountID,
             xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/sweep-configs', Operations\ListSweepConfigsRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/sweep-configs', Operations\ListSweepConfigsRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
+        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
         }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
-        if ($security != null) {
-            $client = Utils\Utils::configureSecurityClient($this->sdkConfiguration->client, $security);
-        } else {
-            $client = $this->sdkConfiguration->client;
-        }
-
-        $hookContext = new HookContext('listSweepConfigs', null, fn () => $security);
+        $hookContext = new HookContext('listSweepConfigs', null, $this->sdkConfiguration->securitySource);
         $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
         $httpOptions = Utils\Utils::convertHeadersToOptions($httpRequest, $httpOptions);
         $httpRequest = Utils\Utils::removeHeaders($httpRequest);
         try {
-            $httpResponse = $client->send($httpRequest, $httpOptions);
+            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $httpOptions);
         } catch (\GuzzleHttp\Exception\GuzzleException $error) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
             $httpResponse = $res;
@@ -350,11 +349,11 @@ class Sweeps
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-        if ($statusCode == 401 || $statusCode == 403 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '429', '4XX', '500', '504', '5XX'])) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
             $httpResponse = $res;
         }
-        if ($statusCode == 200) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['200'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -365,15 +364,20 @@ class Sweeps
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
+                    headers: $httpResponse->getHeaders(),
                     sweepConfigs: $obj);
 
                 return $response;
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode == 401 || $statusCode == 403 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '429'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } elseif ($statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['500', '504'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['4XX'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['5XX'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
@@ -383,39 +387,35 @@ class Sweeps
     /**
      * List sweeps associated with a wallet.
      *
-     * @param  Operations\ListSweepsSecurity  $security
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * you'll need to specify the `/accounts/{accountID}/wallets.read` scope.
+     *
      * @param  Operations\ListSweepsRequest  $request
      * @return Operations\ListSweepsResponse
      * @throws \Moov\OpenAPI\Models\Errors\APIException
      */
-    public function listSweeps(Operations\ListSweepsSecurity $security, Operations\ListSweepsRequest $request, ?Options $options = null): Operations\ListSweepsResponse
+    public function list(Operations\ListSweepsRequest $request, ?Options $options = null): Operations\ListSweepsResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/wallets/{walletID}/sweeps', Operations\ListSweepsRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/wallets/{walletID}/sweeps', Operations\ListSweepsRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
 
-        $qp = Utils\Utils::getQueryParams(Operations\ListSweepsRequest::class, $request, $urlOverride);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
+        $qp = Utils\Utils::getQueryParams(Operations\ListSweepsRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
+        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
         }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
-        if ($security != null) {
-            $client = Utils\Utils::configureSecurityClient($this->sdkConfiguration->client, $security);
-        } else {
-            $client = $this->sdkConfiguration->client;
-        }
-
-        $hookContext = new HookContext('listSweeps', null, fn () => $security);
+        $hookContext = new HookContext('listSweeps', null, $this->sdkConfiguration->securitySource);
         $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
         $httpOptions['query'] = Utils\QueryParameters::standardizeQueryParams($httpRequest, $qp);
         $httpOptions = Utils\Utils::convertHeadersToOptions($httpRequest, $httpOptions);
         $httpRequest = Utils\Utils::removeHeaders($httpRequest);
         try {
-            $httpResponse = $client->send($httpRequest, $httpOptions);
+            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $httpOptions);
         } catch (\GuzzleHttp\Exception\GuzzleException $error) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
             $httpResponse = $res;
@@ -423,11 +423,11 @@ class Sweeps
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-        if ($statusCode == 401 || $statusCode == 403 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '429', '4XX', '500', '504', '5XX'])) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
             $httpResponse = $res;
         }
-        if ($statusCode == 200) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['200'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -438,15 +438,20 @@ class Sweeps
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
+                    headers: $httpResponse->getHeaders(),
                     sweeps: $obj);
 
                 return $response;
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode == 401 || $statusCode == 403 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '429'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } elseif ($statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['500', '504'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['4XX'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['5XX'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
@@ -456,24 +461,26 @@ class Sweeps
     /**
      * Update settings on a sweep config.
      *
-     * @param  Operations\PatchSweepConfigSecurity  $security
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * you'll need to specify the `/accounts/{accountID}/wallets.write` scope.
+     *
      * @param  Components\PatchSweepConfig  $patchSweepConfig
      * @param  string  $accountID
      * @param  string  $sweepConfigID
-     * @param  ?Components\Versions  $xMoovVersion
-     * @return Operations\PatchSweepConfigResponse
+     * @param  ?string  $xMoovVersion
+     * @return Operations\UpdateSweepConfigResponse
      * @throws \Moov\OpenAPI\Models\Errors\APIException
      */
-    public function patchSweepConfig(Operations\PatchSweepConfigSecurity $security, Components\PatchSweepConfig $patchSweepConfig, string $accountID, string $sweepConfigID, ?Components\Versions $xMoovVersion = null, ?Options $options = null): Operations\PatchSweepConfigResponse
+    public function updateConfig(Components\PatchSweepConfig $patchSweepConfig, string $accountID, string $sweepConfigID, ?string $xMoovVersion = null, ?Options $options = null): Operations\UpdateSweepConfigResponse
     {
-        $request = new Operations\PatchSweepConfigRequest(
+        $request = new Operations\UpdateSweepConfigRequest(
             accountID: $accountID,
             sweepConfigID: $sweepConfigID,
             patchSweepConfig: $patchSweepConfig,
             xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/sweep-configs/{sweepConfigID}', Operations\PatchSweepConfigRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/sweep-configs/{sweepConfigID}', Operations\UpdateSweepConfigRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'patchSweepConfig', 'json');
@@ -481,25 +488,19 @@ class Sweeps
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
+        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
         }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('PATCH', $url);
-        if ($security != null) {
-            $client = Utils\Utils::configureSecurityClient($this->sdkConfiguration->client, $security);
-        } else {
-            $client = $this->sdkConfiguration->client;
-        }
-
-        $hookContext = new HookContext('patchSweepConfig', null, fn () => $security);
+        $hookContext = new HookContext('updateSweepConfig', null, $this->sdkConfiguration->securitySource);
         $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
         $httpOptions = Utils\Utils::convertHeadersToOptions($httpRequest, $httpOptions);
         $httpRequest = Utils\Utils::removeHeaders($httpRequest);
         try {
-            $httpResponse = $client->send($httpRequest, $httpOptions);
+            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $httpOptions);
         } catch (\GuzzleHttp\Exception\GuzzleException $error) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
             $httpResponse = $res;
@@ -507,28 +508,29 @@ class Sweeps
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-        if ($statusCode == 400 || $statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 409 || $statusCode == 422 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['400', '401', '403', '404', '409', '422', '429', '4XX', '500', '504', '5XX'])) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
             $httpResponse = $res;
         }
-        if ($statusCode == 200) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['200'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
                 $serializer = Utils\JSON::createSerializer();
                 $responseData = (string) $httpResponse->getBody();
                 $obj = $serializer->deserialize($responseData, '\Moov\OpenAPI\Models\Components\SweepConfig', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
-                $response = new Operations\PatchSweepConfigResponse(
+                $response = new Operations\UpdateSweepConfigResponse(
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
+                    headers: $httpResponse->getHeaders(),
                     sweepConfig: $obj);
 
                 return $response;
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif (in_array($statusCode, [400, 409])) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['400', '409'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -539,9 +541,7 @@ class Sweeps
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500) {
-            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } elseif ($statusCode == 422) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['422'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -552,7 +552,13 @@ class Sweeps
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '404', '429'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['500', '504'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['4XX'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['5XX'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);

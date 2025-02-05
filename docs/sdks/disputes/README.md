@@ -5,84 +5,84 @@
 
 ### Available Operations
 
-* [acceptDispute](#acceptdispute) - Accepts a dispute. 
+* [accept](#accept) - Accepts liability for a dispute. 
 
 Read our [disputes guide](https://docs.moov.io/guides/money-movement/accept-payments/card-acceptance/disputes/) to learn more.
 
-To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/transfers.write` scope when generating 
-a [token](https://docs.moov.io/api/authentication/access-tokens/).
-* [deleteDisputeEvidenceFile](#deletedisputeevidencefile) - Deletes dispute evidence by ID. 
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
+* [deleteEvidence](#deleteevidence) - Deletes dispute evidence by ID. 
 
 Read our [disputes guide](https://docs.moov.io/guides/money-movement/accept-payments/card-acceptance/disputes/) to learn more.
 
-To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/transfers.write` scope when generating 
-a [token](https://docs.moov.io/api/authentication/access-tokens/).
-* [getDispute](#getdispute) - Get a dispute by ID. 
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
+* [get](#get) - Get a dispute by ID. 
 
 Read our [disputes guide](https://docs.moov.io/guides/money-movement/accept-payments/card-acceptance/disputes/) to learn more.
 
-To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/transfers.read` scope when generating 
-a [token](https://docs.moov.io/api/authentication/access-tokens/).
-* [getDisputeEvidence](#getdisputeevidence) - Get dispute evidence by ID.
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
+* [getEvidence](#getevidence) - Get dispute evidence by ID.
 
 Read our [disputes guide](https://docs.moov.io/guides/money-movement/accept-payments/card-acceptance/disputes/) to learn more.
 
-To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/transfers.read` scope when generating 
-a [token](https://docs.moov.io/api/authentication/access-tokens/).
-* [getDisputeEvidenceData](#getdisputeevidencedata) - Downloads dispute evidence data by ID.
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
+* [getEvidenceData](#getevidencedata) - Downloads dispute evidence data by ID.
 
 Read our [disputes guide](https://docs.moov.io/guides/money-movement/accept-payments/card-acceptance/disputes/) to learn more.
 
-To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/transfers.read` scope when generating 
-a [token](https://docs.moov.io/api/authentication/access-tokens/).
-* [listDisputeEvidence](#listdisputeevidence) - Returns a dispute's public evidence by its ID. 
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
+* [listEvidence](#listevidence) - Returns a dispute's public evidence by its ID. 
 
 Read our [disputes guide](https://docs.moov.io/guides/money-movement/accept-payments/card-acceptance/disputes/) to learn more.
 
-To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/transfers.read` scope when generating 
-a [token](https://docs.moov.io/api/authentication/access-tokens/).
-* [listDisputes](#listdisputes) - Returns the list of disputes. 
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
+* [list](#list) - Returns the list of disputes. 
 
 Read our [disputes guide](https://docs.moov.io/guides/money-movement/accept-payments/card-acceptance/disputes/) to learn more.
 
-To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/transfers.read` scope when generating 
-a [token](https://docs.moov.io/api/authentication/access-tokens/).
-* [submitDisputeEvidence](#submitdisputeevidence) - Submit the evidence associated with a dispute.
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
+* [submitEvidence](#submitevidence) - Submit the evidence associated with a dispute.
 
 Evidence items must be uploaded using the appropriate endpoint(s) prior to calling this endpoint to submit it. **Evidence can only
 be submitted once per dispute.**
 
 Read our [disputes guide](https://docs.moov.io/guides/money-movement/accept-payments/card-acceptance/disputes/) to learn more.
 
-To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/transfers.write` scope when generating 
-a [token](https://docs.moov.io/api/authentication/access-tokens/).
-* [updateDisputeEvidence](#updatedisputeevidence) - Updates dispute evidence by ID.
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
+* [updateEvidence](#updateevidence) - Updates dispute evidence by ID.
 
 Read our [disputes guide](https://docs.moov.io/guides/money-movement/accept-payments/card-acceptance/disputes/) to learn more.
 
-To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/transfers.write` scope when generating
-a [token](https://docs.moov.io/api/authentication/access-tokens/).
-* [uploadDisputeEvidenceFile](#uploaddisputeevidencefile) - Uploads a file as evidence for a dispute. 
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
+* [uploadEvidenceFile](#uploadevidencefile) - Uploads a file as evidence for a dispute. 
 
 Read our [disputes guide](https://docs.moov.io/guides/money-movement/accept-payments/card-acceptance/disputes/) to learn more.
 
-To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/transfers.write` scope when generating 
-a [token](https://docs.moov.io/api/authentication/access-tokens/).
-* [uploadDisputeEvidenceText](#uploaddisputeevidencetext) - Uploads text as evidence for a dispute.
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
+* [uploadEvidenceText](#uploadevidencetext) - Uploads text as evidence for a dispute.
 
 Read our [disputes guide](https://docs.moov.io/guides/money-movement/accept-payments/card-acceptance/disputes/) to learn more.
 
-To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/transfers.write` scope when generating 
-a [token](https://docs.moov.io/api/authentication/access-tokens/).
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
 
-## acceptDispute
+## accept
 
-Accepts a dispute. 
+Accepts liability for a dispute. 
 
 Read our [disputes guide](https://docs.moov.io/guides/money-movement/accept-payments/card-acceptance/disputes/) to learn more.
 
-To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/transfers.write` scope when generating 
-a [token](https://docs.moov.io/api/authentication/access-tokens/).
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
 
 ### Example Usage
 
@@ -93,23 +93,22 @@ require 'vendor/autoload.php';
 
 use Moov\OpenAPI;
 use Moov\OpenAPI\Models\Components;
-use Moov\OpenAPI\Models\Operations;
 
-$sdk = OpenAPI\Moov::builder()->build();
+$sdk = OpenAPI\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
 
 
-$requestSecurity = new Operations\AcceptDisputeSecurity(
-    basicAuth: new Components\SchemeBasicAuth(
-        username: '',
-        password: '',
-    ),
-);
 
-$response = $sdk->disputes->acceptDispute(
-    security: $requestSecurity,
-    accountID: 'bfefe6f4-2658-4d3d-9be8-73ff29049dbe',
-    disputeID: '692e1a18-8314-4a5d-bcfd-0d5ada162cf8',
-    xMoovVersion: Components\Versions::V20240000
+$response = $sdk->disputes->accept(
+    accountID: 'a155a634-52c8-4ade-b619-6958b5f88a84',
+    disputeID: 'e67dcdcf-56b8-44e6-b2b0-a9297f858656',
+    xMoovVersion: 'v2024.01'
 
 );
 
@@ -120,12 +119,11 @@ if ($response->dispute !== null) {
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `security`                                                                           | [Operations\AcceptDisputeSecurity](../../Models/Operations/AcceptDisputeSecurity.md) | :heavy_check_mark:                                                                   | The security requirements to use for the request.                                    |
-| `accountID`                                                                          | *string*                                                                             | :heavy_check_mark:                                                                   | N/A                                                                                  |
-| `disputeID`                                                                          | *string*                                                                             | :heavy_check_mark:                                                                   | N/A                                                                                  |
-| `xMoovVersion`                                                                       | [?Components\Versions](../../Models/Components/Versions.md)                          | :heavy_minus_sign:                                                                   | Specify an API version.                                                              |
+| Parameter                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Required                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `accountID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `disputeID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `xMoovVersion`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | *?string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Specify an API version.<br/><br/>API versioning follows the format `vYYYY.QQ.BB`, where <br/>  - `YYYY` is the year<br/>  - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)<br/>  - `BB` is an **optional** build number starting at `.01` for subsequent builds in the same quarter. <br/>    - If no build number is specified, the version refers to the initial release of the quarter.<br/><br/>The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release. |
 
 ### Response
 
@@ -138,14 +136,14 @@ if ($response->dispute !== null) {
 | Errors\GenericError | 400, 409            | application/json    |
 | Errors\APIException | 4XX, 5XX            | \*/\*               |
 
-## deleteDisputeEvidenceFile
+## deleteEvidence
 
 Deletes dispute evidence by ID. 
 
 Read our [disputes guide](https://docs.moov.io/guides/money-movement/accept-payments/card-acceptance/disputes/) to learn more.
 
-To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/transfers.write` scope when generating 
-a [token](https://docs.moov.io/api/authentication/access-tokens/).
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
 
 ### Example Usage
 
@@ -156,24 +154,23 @@ require 'vendor/autoload.php';
 
 use Moov\OpenAPI;
 use Moov\OpenAPI\Models\Components;
-use Moov\OpenAPI\Models\Operations;
 
-$sdk = OpenAPI\Moov::builder()->build();
+$sdk = OpenAPI\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
 
 
-$requestSecurity = new Operations\DeleteDisputeEvidenceFileSecurity(
-    basicAuth: new Components\SchemeBasicAuth(
-        username: '',
-        password: '',
-    ),
-);
 
-$response = $sdk->disputes->deleteDisputeEvidenceFile(
-    security: $requestSecurity,
-    accountID: '927e189d-273f-40ab-814f-1fa3ab1aa7dd',
-    disputeID: '94451c2e-a568-4800-a669-7f6190da461d',
-    evidenceID: '1bfaf385-47fb-4da3-8072-d54e354a9910',
-    xMoovVersion: Components\Versions::V20240000
+$response = $sdk->disputes->deleteEvidence(
+    accountID: '21999434-0e9c-4cd1-890a-4af813ad91ae',
+    disputeID: '41954292-f363-4ea3-9b4b-bc417e55f6be',
+    evidenceID: 'ac7b6eef-7513-4ff4-996b-a85b1f62d499',
+    xMoovVersion: 'v2024.01'
 
 );
 
@@ -184,13 +181,12 @@ if ($response->statusCode === 200) {
 
 ### Parameters
 
-| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| `security`                                                                                                   | [Operations\DeleteDisputeEvidenceFileSecurity](../../Models/Operations/DeleteDisputeEvidenceFileSecurity.md) | :heavy_check_mark:                                                                                           | The security requirements to use for the request.                                                            |
-| `accountID`                                                                                                  | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
-| `disputeID`                                                                                                  | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
-| `evidenceID`                                                                                                 | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
-| `xMoovVersion`                                                                                               | [?Components\Versions](../../Models/Components/Versions.md)                                                  | :heavy_minus_sign:                                                                                           | Specify an API version.                                                                                      |
+| Parameter                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Required                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `accountID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `disputeID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `evidenceID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `xMoovVersion`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | *?string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Specify an API version.<br/><br/>API versioning follows the format `vYYYY.QQ.BB`, where <br/>  - `YYYY` is the year<br/>  - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)<br/>  - `BB` is an **optional** build number starting at `.01` for subsequent builds in the same quarter. <br/>    - If no build number is specified, the version refers to the initial release of the quarter.<br/><br/>The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release. |
 
 ### Response
 
@@ -203,14 +199,14 @@ if ($response->statusCode === 200) {
 | Errors\GenericError | 409                 | application/json    |
 | Errors\APIException | 4XX, 5XX            | \*/\*               |
 
-## getDispute
+## get
 
 Get a dispute by ID. 
 
 Read our [disputes guide](https://docs.moov.io/guides/money-movement/accept-payments/card-acceptance/disputes/) to learn more.
 
-To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/transfers.read` scope when generating 
-a [token](https://docs.moov.io/api/authentication/access-tokens/).
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
 
 ### Example Usage
 
@@ -221,23 +217,22 @@ require 'vendor/autoload.php';
 
 use Moov\OpenAPI;
 use Moov\OpenAPI\Models\Components;
-use Moov\OpenAPI\Models\Operations;
 
-$sdk = OpenAPI\Moov::builder()->build();
+$sdk = OpenAPI\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
 
 
-$requestSecurity = new Operations\GetDisputeSecurity(
-    basicAuth: new Components\SchemeBasicAuth(
-        username: '',
-        password: '',
-    ),
-);
 
-$response = $sdk->disputes->getDispute(
-    security: $requestSecurity,
-    accountID: '102df293-b524-4bb7-9b68-5610432a0b8d',
-    disputeID: '2efe55e9-61a0-4b3d-aab6-423bb7f8140b',
-    xMoovVersion: Components\Versions::V20240000
+$response = $sdk->disputes->get(
+    accountID: 'b888f774-3e7c-4135-a18c-6b985523c4bc',
+    disputeID: 'e50f7622-81da-484b-9c66-1c8a99c6b71b',
+    xMoovVersion: 'v2024.01'
 
 );
 
@@ -248,12 +243,11 @@ if ($response->dispute !== null) {
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `security`                                                                     | [Operations\GetDisputeSecurity](../../Models/Operations/GetDisputeSecurity.md) | :heavy_check_mark:                                                             | The security requirements to use for the request.                              |
-| `accountID`                                                                    | *string*                                                                       | :heavy_check_mark:                                                             | N/A                                                                            |
-| `disputeID`                                                                    | *string*                                                                       | :heavy_check_mark:                                                             | N/A                                                                            |
-| `xMoovVersion`                                                                 | [?Components\Versions](../../Models/Components/Versions.md)                    | :heavy_minus_sign:                                                             | Specify an API version.                                                        |
+| Parameter                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Required                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `accountID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `disputeID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `xMoovVersion`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | *?string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Specify an API version.<br/><br/>API versioning follows the format `vYYYY.QQ.BB`, where <br/>  - `YYYY` is the year<br/>  - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)<br/>  - `BB` is an **optional** build number starting at `.01` for subsequent builds in the same quarter. <br/>    - If no build number is specified, the version refers to the initial release of the quarter.<br/><br/>The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release. |
 
 ### Response
 
@@ -265,14 +259,14 @@ if ($response->dispute !== null) {
 | ------------------- | ------------------- | ------------------- |
 | Errors\APIException | 4XX, 5XX            | \*/\*               |
 
-## getDisputeEvidence
+## getEvidence
 
 Get dispute evidence by ID.
 
 Read our [disputes guide](https://docs.moov.io/guides/money-movement/accept-payments/card-acceptance/disputes/) to learn more.
 
-To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/transfers.read` scope when generating 
-a [token](https://docs.moov.io/api/authentication/access-tokens/).
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
 
 ### Example Usage
 
@@ -283,24 +277,23 @@ require 'vendor/autoload.php';
 
 use Moov\OpenAPI;
 use Moov\OpenAPI\Models\Components;
-use Moov\OpenAPI\Models\Operations;
 
-$sdk = OpenAPI\Moov::builder()->build();
+$sdk = OpenAPI\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
 
 
-$requestSecurity = new Operations\GetDisputeEvidenceSecurity(
-    basicAuth: new Components\SchemeBasicAuth(
-        username: '',
-        password: '',
-    ),
-);
 
-$response = $sdk->disputes->getDisputeEvidence(
-    security: $requestSecurity,
-    accountID: '8abb6e62-d012-4f06-8c83-d993dd3155f2',
-    disputeID: 'ebf0479f-774e-4881-9e0b-2c791e0601fc',
-    evidenceID: '37534a23-990f-4bdd-b2c7-1653336983f0',
-    xMoovVersion: Components\Versions::Latest
+$response = $sdk->disputes->getEvidence(
+    accountID: '3a49ec36-8a92-4fae-81e6-868bfc90b4c9',
+    disputeID: '7128e90f-9089-47d5-92b9-87bbfe6bd9b3',
+    evidenceID: '614a5588-4d0f-4d00-b8d9-2ae60f6124bf',
+    xMoovVersion: 'v2024.01'
 
 );
 
@@ -311,13 +304,12 @@ if ($response->disputeEvidenceMetadata !== null) {
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `security`                                                                                     | [Operations\GetDisputeEvidenceSecurity](../../Models/Operations/GetDisputeEvidenceSecurity.md) | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
-| `accountID`                                                                                    | *string*                                                                                       | :heavy_check_mark:                                                                             | N/A                                                                                            |
-| `disputeID`                                                                                    | *string*                                                                                       | :heavy_check_mark:                                                                             | N/A                                                                                            |
-| `evidenceID`                                                                                   | *string*                                                                                       | :heavy_check_mark:                                                                             | N/A                                                                                            |
-| `xMoovVersion`                                                                                 | [?Components\Versions](../../Models/Components/Versions.md)                                    | :heavy_minus_sign:                                                                             | Specify an API version.                                                                        |
+| Parameter                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Required                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `accountID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `disputeID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `evidenceID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `xMoovVersion`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | *?string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Specify an API version.<br/><br/>API versioning follows the format `vYYYY.QQ.BB`, where <br/>  - `YYYY` is the year<br/>  - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)<br/>  - `BB` is an **optional** build number starting at `.01` for subsequent builds in the same quarter. <br/>    - If no build number is specified, the version refers to the initial release of the quarter.<br/><br/>The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release. |
 
 ### Response
 
@@ -329,14 +321,14 @@ if ($response->disputeEvidenceMetadata !== null) {
 | ------------------- | ------------------- | ------------------- |
 | Errors\APIException | 4XX, 5XX            | \*/\*               |
 
-## getDisputeEvidenceData
+## getEvidenceData
 
 Downloads dispute evidence data by ID.
 
 Read our [disputes guide](https://docs.moov.io/guides/money-movement/accept-payments/card-acceptance/disputes/) to learn more.
 
-To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/transfers.read` scope when generating 
-a [token](https://docs.moov.io/api/authentication/access-tokens/).
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
 
 ### Example Usage
 
@@ -347,24 +339,23 @@ require 'vendor/autoload.php';
 
 use Moov\OpenAPI;
 use Moov\OpenAPI\Models\Components;
-use Moov\OpenAPI\Models\Operations;
 
-$sdk = OpenAPI\Moov::builder()->build();
+$sdk = OpenAPI\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
 
 
-$requestSecurity = new Operations\GetDisputeEvidenceDataSecurity(
-    basicAuth: new Components\SchemeBasicAuth(
-        username: '',
-        password: '',
-    ),
-);
 
-$response = $sdk->disputes->getDisputeEvidenceData(
-    security: $requestSecurity,
-    accountID: '38299899-8c4f-4a43-b73a-3cef9ba87c62',
-    disputeID: '22c477d1-525c-4c1b-b8a3-7dcec5c4da28',
-    evidenceID: 'fb1c15fd-675b-4f82-861e-f3092ed39462',
-    xMoovVersion: Components\Versions::Latest
+$response = $sdk->disputes->getEvidenceData(
+    accountID: '4ebc37c5-a566-452b-8b54-ef280fcb888b',
+    disputeID: '4bd05222-78bc-49a7-92a8-f1e5ee0edd6b',
+    evidenceID: '01098426-242d-4693-8716-ec08cd8da86e',
+    xMoovVersion: 'v2024.01'
 
 );
 
@@ -375,13 +366,12 @@ if ($response->twoHundredApplicationPdfBytes !== null) {
 
 ### Parameters
 
-| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `security`                                                                                             | [Operations\GetDisputeEvidenceDataSecurity](../../Models/Operations/GetDisputeEvidenceDataSecurity.md) | :heavy_check_mark:                                                                                     | The security requirements to use for the request.                                                      |
-| `accountID`                                                                                            | *string*                                                                                               | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
-| `disputeID`                                                                                            | *string*                                                                                               | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
-| `evidenceID`                                                                                           | *string*                                                                                               | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
-| `xMoovVersion`                                                                                         | [?Components\Versions](../../Models/Components/Versions.md)                                            | :heavy_minus_sign:                                                                                     | Specify an API version.                                                                                |
+| Parameter                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Required                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `accountID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `disputeID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `evidenceID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `xMoovVersion`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | *?string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Specify an API version.<br/><br/>API versioning follows the format `vYYYY.QQ.BB`, where <br/>  - `YYYY` is the year<br/>  - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)<br/>  - `BB` is an **optional** build number starting at `.01` for subsequent builds in the same quarter. <br/>    - If no build number is specified, the version refers to the initial release of the quarter.<br/><br/>The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release. |
 
 ### Response
 
@@ -393,14 +383,14 @@ if ($response->twoHundredApplicationPdfBytes !== null) {
 | ------------------- | ------------------- | ------------------- |
 | Errors\APIException | 4XX, 5XX            | \*/\*               |
 
-## listDisputeEvidence
+## listEvidence
 
 Returns a dispute's public evidence by its ID. 
 
 Read our [disputes guide](https://docs.moov.io/guides/money-movement/accept-payments/card-acceptance/disputes/) to learn more.
 
-To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/transfers.read` scope when generating 
-a [token](https://docs.moov.io/api/authentication/access-tokens/).
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
 
 ### Example Usage
 
@@ -411,23 +401,22 @@ require 'vendor/autoload.php';
 
 use Moov\OpenAPI;
 use Moov\OpenAPI\Models\Components;
-use Moov\OpenAPI\Models\Operations;
 
-$sdk = OpenAPI\Moov::builder()->build();
+$sdk = OpenAPI\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
 
 
-$requestSecurity = new Operations\ListDisputeEvidenceSecurity(
-    basicAuth: new Components\SchemeBasicAuth(
-        username: '',
-        password: '',
-    ),
-);
 
-$response = $sdk->disputes->listDisputeEvidence(
-    security: $requestSecurity,
-    accountID: 'dcaaa24e-96d2-4b5b-997d-aa20f46c812a',
-    disputeID: 'e0434916-3828-49bb-bfa4-30f3c039d5f0',
-    xMoovVersion: Components\Versions::V20240000
+$response = $sdk->disputes->listEvidence(
+    accountID: '613e59d0-0cb8-462c-be9c-7f2b955ec234',
+    disputeID: '1bb71474-4bf0-40b8-899f-01914b8ad7e5',
+    xMoovVersion: 'v2024.01'
 
 );
 
@@ -438,12 +427,11 @@ if ($response->disputeEvidenceMetadata !== null) {
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `security`                                                                                       | [Operations\ListDisputeEvidenceSecurity](../../Models/Operations/ListDisputeEvidenceSecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
-| `accountID`                                                                                      | *string*                                                                                         | :heavy_check_mark:                                                                               | N/A                                                                                              |
-| `disputeID`                                                                                      | *string*                                                                                         | :heavy_check_mark:                                                                               | N/A                                                                                              |
-| `xMoovVersion`                                                                                   | [?Components\Versions](../../Models/Components/Versions.md)                                      | :heavy_minus_sign:                                                                               | Specify an API version.                                                                          |
+| Parameter                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Required                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `accountID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `disputeID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `xMoovVersion`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | *?string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Specify an API version.<br/><br/>API versioning follows the format `vYYYY.QQ.BB`, where <br/>  - `YYYY` is the year<br/>  - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)<br/>  - `BB` is an **optional** build number starting at `.01` for subsequent builds in the same quarter. <br/>    - If no build number is specified, the version refers to the initial release of the quarter.<br/><br/>The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release. |
 
 ### Response
 
@@ -455,14 +443,14 @@ if ($response->disputeEvidenceMetadata !== null) {
 | ------------------- | ------------------- | ------------------- |
 | Errors\APIException | 4XX, 5XX            | \*/\*               |
 
-## listDisputes
+## list
 
 Returns the list of disputes. 
 
 Read our [disputes guide](https://docs.moov.io/guides/money-movement/accept-payments/card-acceptance/disputes/) to learn more.
 
-To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/transfers.read` scope when generating 
-a [token](https://docs.moov.io/api/authentication/access-tokens/).
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
 
 ### Example Usage
 
@@ -475,23 +463,23 @@ use Moov\OpenAPI;
 use Moov\OpenAPI\Models\Components;
 use Moov\OpenAPI\Models\Operations;
 
-$sdk = OpenAPI\Moov::builder()->build();
+$sdk = OpenAPI\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
 
 $request = new Operations\ListDisputesRequest(
-    accountID: '2cb8fed5-9089-45a7-88aa-5468adeaaddb',
+    accountID: 'c8a232aa-0b11-4b8a-b005-71e9e705d0e6',
     skip: 60,
     count: 20,
 );
-$requestSecurity = new Operations\ListDisputesSecurity(
-    basicAuth: new Components\SchemeBasicAuth(
-        username: '',
-        password: '',
-    ),
-);
 
-$response = $sdk->disputes->listDisputes(
-    request: $request,
-    security: $requestSecurity
+$response = $sdk->disputes->list(
+    request: $request
 );
 
 if ($response->disputes !== null) {
@@ -501,10 +489,9 @@ if ($response->disputes !== null) {
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `$request`                                                                         | [Operations\ListDisputesRequest](../../Models/Operations/ListDisputesRequest.md)   | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `security`                                                                         | [Operations\ListDisputesSecurity](../../Models/Operations/ListDisputesSecurity.md) | :heavy_check_mark:                                                                 | The security requirements to use for the request.                                  |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `$request`                                                                       | [Operations\ListDisputesRequest](../../Models/Operations/ListDisputesRequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
 
 ### Response
 
@@ -516,7 +503,7 @@ if ($response->disputes !== null) {
 | ------------------- | ------------------- | ------------------- |
 | Errors\APIException | 4XX, 5XX            | \*/\*               |
 
-## submitDisputeEvidence
+## submitEvidence
 
 Submit the evidence associated with a dispute.
 
@@ -525,8 +512,8 @@ be submitted once per dispute.**
 
 Read our [disputes guide](https://docs.moov.io/guides/money-movement/accept-payments/card-acceptance/disputes/) to learn more.
 
-To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/transfers.write` scope when generating 
-a [token](https://docs.moov.io/api/authentication/access-tokens/).
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
 
 ### Example Usage
 
@@ -537,23 +524,22 @@ require 'vendor/autoload.php';
 
 use Moov\OpenAPI;
 use Moov\OpenAPI\Models\Components;
-use Moov\OpenAPI\Models\Operations;
 
-$sdk = OpenAPI\Moov::builder()->build();
+$sdk = OpenAPI\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
 
 
-$requestSecurity = new Operations\SubmitDisputeEvidenceSecurity(
-    basicAuth: new Components\SchemeBasicAuth(
-        username: '',
-        password: '',
-    ),
-);
 
-$response = $sdk->disputes->submitDisputeEvidence(
-    security: $requestSecurity,
-    accountID: 'aff4d2bf-fd2c-471e-a697-b2cc2c9f297e',
-    disputeID: '491e05b8-7adc-440b-af36-4d2229edd4f0',
-    xMoovVersion: Components\Versions::V20240000
+$response = $sdk->disputes->submitEvidence(
+    accountID: '7cf55b42-45bd-49ff-883c-0017334607a6',
+    disputeID: 'f6e86188-8533-46e8-a184-ec17f223c86b',
+    xMoovVersion: 'v2024.01'
 
 );
 
@@ -564,12 +550,11 @@ if ($response->dispute !== null) {
 
 ### Parameters
 
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `security`                                                                                           | [Operations\SubmitDisputeEvidenceSecurity](../../Models/Operations/SubmitDisputeEvidenceSecurity.md) | :heavy_check_mark:                                                                                   | The security requirements to use for the request.                                                    |
-| `accountID`                                                                                          | *string*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
-| `disputeID`                                                                                          | *string*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
-| `xMoovVersion`                                                                                       | [?Components\Versions](../../Models/Components/Versions.md)                                          | :heavy_minus_sign:                                                                                   | Specify an API version.                                                                              |
+| Parameter                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Required                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `accountID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `disputeID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `xMoovVersion`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | *?string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Specify an API version.<br/><br/>API versioning follows the format `vYYYY.QQ.BB`, where <br/>  - `YYYY` is the year<br/>  - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)<br/>  - `BB` is an **optional** build number starting at `.01` for subsequent builds in the same quarter. <br/>    - If no build number is specified, the version refers to the initial release of the quarter.<br/><br/>The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release. |
 
 ### Response
 
@@ -582,14 +567,14 @@ if ($response->dispute !== null) {
 | Errors\GenericError | 400, 409            | application/json    |
 | Errors\APIException | 4XX, 5XX            | \*/\*               |
 
-## updateDisputeEvidence
+## updateEvidence
 
 Updates dispute evidence by ID.
 
 Read our [disputes guide](https://docs.moov.io/guides/money-movement/accept-payments/card-acceptance/disputes/) to learn more.
 
-To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/transfers.write` scope when generating
-a [token](https://docs.moov.io/api/authentication/access-tokens/).
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
 
 ### Example Usage
 
@@ -602,24 +587,24 @@ use Moov\OpenAPI;
 use Moov\OpenAPI\Models\Components;
 use Moov\OpenAPI\Models\Operations;
 
-$sdk = OpenAPI\Moov::builder()->build();
+$sdk = OpenAPI\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
 
 $request = new Operations\UpdateDisputeEvidenceRequest(
-    accountID: '51c8da31-2c44-4bdf-a86e-26169242ffe0',
-    disputeID: '584a4c46-9412-4622-8ac9-001d7ececcd4',
-    evidenceID: '743d351d-f194-45e4-8628-700f3b327c51',
+    accountID: 'f19d220a-55c9-476d-9cfa-d9a536b8065f',
+    disputeID: 'da248348-9f0d-4df8-a9c6-66cc2492e87a',
+    evidenceID: 'a204faa9-3cce-4628-b833-5b0694ac47bb',
     updateEvidence: new Components\UpdateEvidence(),
 );
-$requestSecurity = new Operations\UpdateDisputeEvidenceSecurity(
-    basicAuth: new Components\SchemeBasicAuth(
-        username: '',
-        password: '',
-    ),
-);
 
-$response = $sdk->disputes->updateDisputeEvidence(
-    request: $request,
-    security: $requestSecurity
+$response = $sdk->disputes->updateEvidence(
+    request: $request
 );
 
 if ($response->disputeEvidenceMetadata !== null) {
@@ -629,10 +614,9 @@ if ($response->disputeEvidenceMetadata !== null) {
 
 ### Parameters
 
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                           | [Operations\UpdateDisputeEvidenceRequest](../../Models/Operations/UpdateDisputeEvidenceRequest.md)   | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
-| `security`                                                                                           | [Operations\UpdateDisputeEvidenceSecurity](../../Models/Operations/UpdateDisputeEvidenceSecurity.md) | :heavy_check_mark:                                                                                   | The security requirements to use for the request.                                                    |
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                         | [Operations\UpdateDisputeEvidenceRequest](../../Models/Operations/UpdateDisputeEvidenceRequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
 
 ### Response
 
@@ -645,14 +629,14 @@ if ($response->disputeEvidenceMetadata !== null) {
 | Errors\GenericError | 400                 | application/json    |
 | Errors\APIException | 4XX, 5XX            | \*/\*               |
 
-## uploadDisputeEvidenceFile
+## uploadEvidenceFile
 
 Uploads a file as evidence for a dispute. 
 
 Read our [disputes guide](https://docs.moov.io/guides/money-movement/accept-payments/card-acceptance/disputes/) to learn more.
 
-To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/transfers.write` scope when generating 
-a [token](https://docs.moov.io/api/authentication/access-tokens/).
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
 
 ### Example Usage
 
@@ -663,30 +647,29 @@ require 'vendor/autoload.php';
 
 use Moov\OpenAPI;
 use Moov\OpenAPI\Models\Components;
-use Moov\OpenAPI\Models\Operations;
 
-$sdk = OpenAPI\Moov::builder()->build();
+$sdk = OpenAPI\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
 
 $createEvidenceFileMultiPart = new Components\CreateEvidenceFileMultiPart(
     file: new Components\File(
         fileName: 'example.file',
-        content: '0xcfAb2d31B5',
+        content: '0xd1d0C399fD',
     ),
-    evidenceType: Components\EvidenceType::CoverLetter,
-);
-$requestSecurity = new Operations\UploadDisputeEvidenceFileSecurity(
-    basicAuth: new Components\SchemeBasicAuth(
-        username: '',
-        password: '',
-    ),
+    evidenceType: Components\EvidenceType::GenericEvidence,
 );
 
-$response = $sdk->disputes->uploadDisputeEvidenceFile(
-    security: $requestSecurity,
-    accountID: '1ae7aa8f-dfc0-4d00-927a-c5349c04fa3f',
-    disputeID: 'c3dddece-4b5f-4b6e-b8a0-719d5e192fc7',
+$response = $sdk->disputes->uploadEvidenceFile(
+    accountID: '77231939-ba89-4cb7-adf8-2b494aabddcd',
+    disputeID: '550e6b0a-1e54-47e0-9dcc-9daa38417ce5',
     createEvidenceFileMultiPart: $createEvidenceFileMultiPart,
-    xMoovVersion: Components\Versions::V20240000
+    xMoovVersion: 'v2024.01'
 
 );
 
@@ -697,13 +680,12 @@ if ($response->statusCode === 200) {
 
 ### Parameters
 
-| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| `security`                                                                                                   | [Operations\UploadDisputeEvidenceFileSecurity](../../Models/Operations/UploadDisputeEvidenceFileSecurity.md) | :heavy_check_mark:                                                                                           | The security requirements to use for the request.                                                            |
-| `accountID`                                                                                                  | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
-| `disputeID`                                                                                                  | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
-| `createEvidenceFileMultiPart`                                                                                | [Components\CreateEvidenceFileMultiPart](../../Models/Components/CreateEvidenceFileMultiPart.md)             | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
-| `xMoovVersion`                                                                                               | [?Components\Versions](../../Models/Components/Versions.md)                                                  | :heavy_minus_sign:                                                                                           | Specify an API version.                                                                                      |
+| Parameter                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Required                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `accountID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `disputeID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `createEvidenceFileMultiPart`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | [Components\CreateEvidenceFileMultiPart](../../Models/Components/CreateEvidenceFileMultiPart.md)                                                                                                                                                                                                                                                                                                                                                                                                                                                       | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `xMoovVersion`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | *?string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Specify an API version.<br/><br/>API versioning follows the format `vYYYY.QQ.BB`, where <br/>  - `YYYY` is the year<br/>  - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)<br/>  - `BB` is an **optional** build number starting at `.01` for subsequent builds in the same quarter. <br/>    - If no build number is specified, the version refers to the initial release of the quarter.<br/><br/>The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release. |
 
 ### Response
 
@@ -716,14 +698,14 @@ if ($response->statusCode === 200) {
 | Errors\GenericError | 400, 409            | application/json    |
 | Errors\APIException | 4XX, 5XX            | \*/\*               |
 
-## uploadDisputeEvidenceText
+## uploadEvidenceText
 
 Uploads text as evidence for a dispute.
 
 Read our [disputes guide](https://docs.moov.io/guides/money-movement/accept-payments/card-acceptance/disputes/) to learn more.
 
-To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/transfers.write` scope when generating 
-a [token](https://docs.moov.io/api/authentication/access-tokens/).
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
 
 ### Example Usage
 
@@ -734,27 +716,26 @@ require 'vendor/autoload.php';
 
 use Moov\OpenAPI;
 use Moov\OpenAPI\Models\Components;
-use Moov\OpenAPI\Models\Operations;
 
-$sdk = OpenAPI\Moov::builder()->build();
+$sdk = OpenAPI\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
 
 $createEvidenceText = new Components\CreateEvidenceText(
     text: '<value>',
-    evidenceType: Components\EvidenceType::CoverLetter,
-);
-$requestSecurity = new Operations\UploadDisputeEvidenceTextSecurity(
-    basicAuth: new Components\SchemeBasicAuth(
-        username: '',
-        password: '',
-    ),
+    evidenceType: Components\EvidenceType::CustomerCommunication,
 );
 
-$response = $sdk->disputes->uploadDisputeEvidenceText(
-    security: $requestSecurity,
-    accountID: 'd542736f-c9c3-491c-86c3-7303a97965ea',
-    disputeID: '9487cd25-501d-4a76-8c24-54328af8a4b6',
+$response = $sdk->disputes->uploadEvidenceText(
+    accountID: 'a4f06189-7f74-4b7e-b76a-f3c7af17b8d9',
+    disputeID: 'fb79f20c-b948-445c-a145-3e20ce4f769c',
     createEvidenceText: $createEvidenceText,
-    xMoovVersion: Components\Versions::Latest
+    xMoovVersion: 'v2024.01'
 
 );
 
@@ -765,13 +746,12 @@ if ($response->evidenceText !== null) {
 
 ### Parameters
 
-| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| `security`                                                                                                   | [Operations\UploadDisputeEvidenceTextSecurity](../../Models/Operations/UploadDisputeEvidenceTextSecurity.md) | :heavy_check_mark:                                                                                           | The security requirements to use for the request.                                                            |
-| `accountID`                                                                                                  | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
-| `disputeID`                                                                                                  | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
-| `createEvidenceText`                                                                                         | [Components\CreateEvidenceText](../../Models/Components/CreateEvidenceText.md)                               | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
-| `xMoovVersion`                                                                                               | [?Components\Versions](../../Models/Components/Versions.md)                                                  | :heavy_minus_sign:                                                                                           | Specify an API version.                                                                                      |
+| Parameter                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Required                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `accountID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `disputeID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `createEvidenceText`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | [Components\CreateEvidenceText](../../Models/Components/CreateEvidenceText.md)                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `xMoovVersion`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | *?string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Specify an API version.<br/><br/>API versioning follows the format `vYYYY.QQ.BB`, where <br/>  - `YYYY` is the year<br/>  - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)<br/>  - `BB` is an **optional** build number starting at `.01` for subsequent builds in the same quarter. <br/>    - If no build number is specified, the version refers to the initial release of the quarter.<br/><br/>The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release. |
 
 ### Response
 

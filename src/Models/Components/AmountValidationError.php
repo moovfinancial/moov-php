@@ -30,6 +30,7 @@ class AmountValidationError
     /**
      * @param  ?string  $currency
      * @param  ?string  $value
+     * @phpstan-pure
      */
     public function __construct(?string $currency = null, ?string $value = null)
     {

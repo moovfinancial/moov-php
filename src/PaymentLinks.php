@@ -48,17 +48,16 @@ class PaymentLinks
     /**
      * Create a payment link that allows an end user to make a payment on Moov's hosted payment link page.
      *
-     * To access this endpoint using a [token](https://docs.moov.io/api/authentication/access-tokens/) you'll need 
-     * to specify the `/accounts/{accountID}/transfers.write` scope.
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
      *
-     * @param  Operations\CreatePaymentLinkSecurity  $security
      * @param  Components\CreatePaymentLink  $createPaymentLink
      * @param  string  $accountID
-     * @param  ?Components\Versions  $xMoovVersion
+     * @param  ?string  $xMoovVersion
      * @return Operations\CreatePaymentLinkResponse
      * @throws \Moov\OpenAPI\Models\Errors\APIException
      */
-    public function createPaymentLink(Operations\CreatePaymentLinkSecurity $security, Components\CreatePaymentLink $createPaymentLink, string $accountID, ?Components\Versions $xMoovVersion = null, ?Options $options = null): Operations\CreatePaymentLinkResponse
+    public function create(Components\CreatePaymentLink $createPaymentLink, string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\CreatePaymentLinkResponse
     {
         $request = new Operations\CreatePaymentLinkRequest(
             accountID: $accountID,
@@ -66,7 +65,7 @@ class PaymentLinks
             xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/payment-links', Operations\CreatePaymentLinkRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/payment-links', Operations\CreatePaymentLinkRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'createPaymentLink', 'json');
@@ -74,25 +73,19 @@ class PaymentLinks
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
+        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
         }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
-        if ($security != null) {
-            $client = Utils\Utils::configureSecurityClient($this->sdkConfiguration->client, $security);
-        } else {
-            $client = $this->sdkConfiguration->client;
-        }
-
-        $hookContext = new HookContext('createPaymentLink', null, fn () => $security);
+        $hookContext = new HookContext('createPaymentLink', null, $this->sdkConfiguration->securitySource);
         $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
         $httpOptions = Utils\Utils::convertHeadersToOptions($httpRequest, $httpOptions);
         $httpRequest = Utils\Utils::removeHeaders($httpRequest);
         try {
-            $httpResponse = $client->send($httpRequest, $httpOptions);
+            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $httpOptions);
         } catch (\GuzzleHttp\Exception\GuzzleException $error) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
             $httpResponse = $res;
@@ -100,11 +93,11 @@ class PaymentLinks
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-        if ($statusCode == 400 || $statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 409 || $statusCode == 422 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['400', '401', '403', '404', '409', '422', '429', '4XX', '500', '504', '5XX'])) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
             $httpResponse = $res;
         }
-        if ($statusCode == 200) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['200'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -115,13 +108,14 @@ class PaymentLinks
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
+                    headers: $httpResponse->getHeaders(),
                     paymentLink: $obj);
 
                 return $response;
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif (in_array($statusCode, [400, 409])) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['400', '409'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -132,9 +126,7 @@ class PaymentLinks
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500) {
-            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } elseif ($statusCode == 422) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['422'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -145,7 +137,13 @@ class PaymentLinks
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '404', '429'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['500', '504'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['4XX'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['5XX'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
@@ -155,17 +153,16 @@ class PaymentLinks
     /**
      * Disable a payment link.
      *
-     * To access this endpoint using a [token](https://docs.moov.io/api/authentication/access-tokens/) you'll need 
-     * to specify the `/accounts/{accountID}/transfers.write` scope.
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
      *
-     * @param  Operations\DisablePaymentLinkSecurity  $security
      * @param  string  $accountID
      * @param  string  $paymentLinkCode
-     * @param  ?Components\Versions  $xMoovVersion
+     * @param  ?string  $xMoovVersion
      * @return Operations\DisablePaymentLinkResponse
      * @throws \Moov\OpenAPI\Models\Errors\APIException
      */
-    public function disablePaymentLink(Operations\DisablePaymentLinkSecurity $security, string $accountID, string $paymentLinkCode, ?Components\Versions $xMoovVersion = null, ?Options $options = null): Operations\DisablePaymentLinkResponse
+    public function disable(string $accountID, string $paymentLinkCode, ?string $xMoovVersion = null, ?Options $options = null): Operations\DisablePaymentLinkResponse
     {
         $request = new Operations\DisablePaymentLinkRequest(
             accountID: $accountID,
@@ -173,28 +170,22 @@ class PaymentLinks
             xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/payment-links/{paymentLinkCode}', Operations\DisablePaymentLinkRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/payment-links/{paymentLinkCode}', Operations\DisablePaymentLinkRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
+        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
         }
         $httpOptions['headers']['Accept'] = '*/*';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('DELETE', $url);
-        if ($security != null) {
-            $client = Utils\Utils::configureSecurityClient($this->sdkConfiguration->client, $security);
-        } else {
-            $client = $this->sdkConfiguration->client;
-        }
-
-        $hookContext = new HookContext('disablePaymentLink', null, fn () => $security);
+        $hookContext = new HookContext('disablePaymentLink', null, $this->sdkConfiguration->securitySource);
         $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
         $httpOptions = Utils\Utils::convertHeadersToOptions($httpRequest, $httpOptions);
         $httpRequest = Utils\Utils::removeHeaders($httpRequest);
         try {
-            $httpResponse = $client->send($httpRequest, $httpOptions);
+            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $httpOptions);
         } catch (\GuzzleHttp\Exception\GuzzleException $error) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
             $httpResponse = $res;
@@ -202,11 +193,11 @@ class PaymentLinks
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-        if ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['4XX', '5XX'])) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
             $httpResponse = $res;
         }
-        if ($statusCode == 204) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['204'])) {
             $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
             return new Operations\DisablePaymentLinkResponse(
@@ -214,9 +205,9 @@ class PaymentLinks
                 contentType: $contentType,
                 rawResponse: $httpResponse
             );
-        } elseif ($statusCode >= 400 && $statusCode < 500) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['4XX'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } elseif ($statusCode >= 500 && $statusCode < 600) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['5XX'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
@@ -226,17 +217,16 @@ class PaymentLinks
     /**
      * Retrieve a payment link by code.
      *
-     * To access this endpoint using a [token](https://docs.moov.io/api/authentication/access-tokens/) you'll need 
-     * to specify the `/accounts/{accountID}/transfers.read` scope.
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
      *
-     * @param  Operations\GetPaymentLinkSecurity  $security
      * @param  string  $accountID
      * @param  string  $paymentLinkCode
-     * @param  ?Components\Versions  $xMoovVersion
+     * @param  ?string  $xMoovVersion
      * @return Operations\GetPaymentLinkResponse
      * @throws \Moov\OpenAPI\Models\Errors\APIException
      */
-    public function getPaymentLink(Operations\GetPaymentLinkSecurity $security, string $accountID, string $paymentLinkCode, ?Components\Versions $xMoovVersion = null, ?Options $options = null): Operations\GetPaymentLinkResponse
+    public function get(string $accountID, string $paymentLinkCode, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetPaymentLinkResponse
     {
         $request = new Operations\GetPaymentLinkRequest(
             accountID: $accountID,
@@ -244,28 +234,22 @@ class PaymentLinks
             xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/payment-links/{paymentLinkCode}', Operations\GetPaymentLinkRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/payment-links/{paymentLinkCode}', Operations\GetPaymentLinkRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
+        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
         }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
-        if ($security != null) {
-            $client = Utils\Utils::configureSecurityClient($this->sdkConfiguration->client, $security);
-        } else {
-            $client = $this->sdkConfiguration->client;
-        }
-
-        $hookContext = new HookContext('getPaymentLink', null, fn () => $security);
+        $hookContext = new HookContext('getPaymentLink', null, $this->sdkConfiguration->securitySource);
         $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
         $httpOptions = Utils\Utils::convertHeadersToOptions($httpRequest, $httpOptions);
         $httpRequest = Utils\Utils::removeHeaders($httpRequest);
         try {
-            $httpResponse = $client->send($httpRequest, $httpOptions);
+            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $httpOptions);
         } catch (\GuzzleHttp\Exception\GuzzleException $error) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
             $httpResponse = $res;
@@ -273,11 +257,11 @@ class PaymentLinks
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-        if ($statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '404', '429', '4XX', '500', '504', '5XX'])) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
             $httpResponse = $res;
         }
-        if ($statusCode == 200) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['200'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -288,15 +272,20 @@ class PaymentLinks
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
+                    headers: $httpResponse->getHeaders(),
                     paymentLink: $obj);
 
                 return $response;
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '404', '429'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } elseif ($statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['500', '504'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['4XX'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['5XX'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
@@ -308,17 +297,16 @@ class PaymentLinks
      *
      * Use the `Accept` header to specify the format of the response. Supported formats are `application/json` and `image/png`.
      *
-     * To access this endpoint using a [token](https://docs.moov.io/api/authentication/access-tokens/) you'll need 
-     * to specify the `/accounts/{accountID}/transfers.write` scope.
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
      *
-     * @param  Operations\GetPaymentLinkQRCodeSecurity  $security
      * @param  string  $accountID
      * @param  string  $paymentLinkCode
-     * @param  ?Components\Versions  $xMoovVersion
+     * @param  ?string  $xMoovVersion
      * @return Operations\GetPaymentLinkQRCodeResponse
      * @throws \Moov\OpenAPI\Models\Errors\APIException
      */
-    public function getPaymentLinkQRCode(Operations\GetPaymentLinkQRCodeSecurity $security, string $accountID, string $paymentLinkCode, ?Components\Versions $xMoovVersion = null, ?Options $options = null): Operations\GetPaymentLinkQRCodeResponse
+    public function getQRCode(string $accountID, string $paymentLinkCode, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetPaymentLinkQRCodeResponse
     {
         $request = new Operations\GetPaymentLinkQRCodeRequest(
             accountID: $accountID,
@@ -326,28 +314,22 @@ class PaymentLinks
             xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/payment-links/{paymentLinkCode}/qrcode', Operations\GetPaymentLinkQRCodeRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/payment-links/{paymentLinkCode}/qrcode', Operations\GetPaymentLinkQRCodeRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
+        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
         }
         $httpOptions['headers']['Accept'] = 'application/json;q=1, image/png;q=0';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
-        if ($security != null) {
-            $client = Utils\Utils::configureSecurityClient($this->sdkConfiguration->client, $security);
-        } else {
-            $client = $this->sdkConfiguration->client;
-        }
-
-        $hookContext = new HookContext('getPaymentLinkQRCode', null, fn () => $security);
+        $hookContext = new HookContext('getPaymentLinkQRCode', null, $this->sdkConfiguration->securitySource);
         $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
         $httpOptions = Utils\Utils::convertHeadersToOptions($httpRequest, $httpOptions);
         $httpRequest = Utils\Utils::removeHeaders($httpRequest);
         try {
-            $httpResponse = $client->send($httpRequest, $httpOptions);
+            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $httpOptions);
         } catch (\GuzzleHttp\Exception\GuzzleException $error) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
             $httpResponse = $res;
@@ -355,11 +337,11 @@ class PaymentLinks
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-        if ($statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '404', '429', '4XX', '500', '504', '5XX'])) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
             $httpResponse = $res;
         }
-        if ($statusCode == 200) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['200'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -370,6 +352,7 @@ class PaymentLinks
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
+                    headers: $httpResponse->getHeaders(),
                     qrCode: $obj);
 
                 return $response;
@@ -382,13 +365,18 @@ class PaymentLinks
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
+                    headers: $httpResponse->getHeaders(),
                     bytes: $obj);
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '404', '429'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } elseif ($statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['500', '504'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['4XX'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['5XX'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
@@ -398,44 +386,37 @@ class PaymentLinks
     /**
      * List all the payment links created under a Moov account.
      *
-     * To access this endpoint using a [token](https://docs.moov.io/api/authentication/access-tokens/) you'll need 
-     * to specify the `/accounts/{accountID}/transfers.read` scope.
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
      *
-     * @param  Operations\ListPaymentLinksSecurity  $security
      * @param  string  $accountID
-     * @param  ?Components\Versions  $xMoovVersion
+     * @param  ?string  $xMoovVersion
      * @return Operations\ListPaymentLinksResponse
      * @throws \Moov\OpenAPI\Models\Errors\APIException
      */
-    public function listPaymentLinks(Operations\ListPaymentLinksSecurity $security, string $accountID, ?Components\Versions $xMoovVersion = null, ?Options $options = null): Operations\ListPaymentLinksResponse
+    public function list(string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\ListPaymentLinksResponse
     {
         $request = new Operations\ListPaymentLinksRequest(
             accountID: $accountID,
             xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/payment-links', Operations\ListPaymentLinksRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/payment-links', Operations\ListPaymentLinksRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
+        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
         }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
-        if ($security != null) {
-            $client = Utils\Utils::configureSecurityClient($this->sdkConfiguration->client, $security);
-        } else {
-            $client = $this->sdkConfiguration->client;
-        }
-
-        $hookContext = new HookContext('listPaymentLinks', null, fn () => $security);
+        $hookContext = new HookContext('listPaymentLinks', null, $this->sdkConfiguration->securitySource);
         $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
         $httpOptions = Utils\Utils::convertHeadersToOptions($httpRequest, $httpOptions);
         $httpRequest = Utils\Utils::removeHeaders($httpRequest);
         try {
-            $httpResponse = $client->send($httpRequest, $httpOptions);
+            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $httpOptions);
         } catch (\GuzzleHttp\Exception\GuzzleException $error) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
             $httpResponse = $res;
@@ -443,11 +424,11 @@ class PaymentLinks
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-        if ($statusCode == 401 || $statusCode == 403 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '429', '4XX', '500', '504', '5XX'])) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
             $httpResponse = $res;
         }
-        if ($statusCode == 200) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['200'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -458,15 +439,20 @@ class PaymentLinks
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
+                    headers: $httpResponse->getHeaders(),
                     paymentLinks: $obj);
 
                 return $response;
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode == 401 || $statusCode == 403 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '429'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } elseif ($statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['500', '504'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['4XX'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['5XX'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
@@ -476,18 +462,17 @@ class PaymentLinks
     /**
      * Update a payment link.
      *
-     * To access this endpoint using a [token](https://docs.moov.io/api/authentication/access-tokens/) you'll need 
-     * to specify the `/accounts/{accountID}/transfers.write` scope.
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
      *
-     * @param  Operations\UpdatePaymentLinkSecurity  $security
      * @param  Components\UpdatePaymentLink  $updatePaymentLink
      * @param  string  $accountID
      * @param  string  $paymentLinkCode
-     * @param  ?Components\Versions  $xMoovVersion
+     * @param  ?string  $xMoovVersion
      * @return Operations\UpdatePaymentLinkResponse
      * @throws \Moov\OpenAPI\Models\Errors\APIException
      */
-    public function updatePaymentLink(Operations\UpdatePaymentLinkSecurity $security, Components\UpdatePaymentLink $updatePaymentLink, string $accountID, string $paymentLinkCode, ?Components\Versions $xMoovVersion = null, ?Options $options = null): Operations\UpdatePaymentLinkResponse
+    public function update(Components\UpdatePaymentLink $updatePaymentLink, string $accountID, string $paymentLinkCode, ?string $xMoovVersion = null, ?Options $options = null): Operations\UpdatePaymentLinkResponse
     {
         $request = new Operations\UpdatePaymentLinkRequest(
             accountID: $accountID,
@@ -496,7 +481,7 @@ class PaymentLinks
             xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/payment-links/{paymentLinkCode}', Operations\UpdatePaymentLinkRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/payment-links/{paymentLinkCode}', Operations\UpdatePaymentLinkRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'updatePaymentLink', 'json');
@@ -504,25 +489,19 @@ class PaymentLinks
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
+        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
         }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('PATCH', $url);
-        if ($security != null) {
-            $client = Utils\Utils::configureSecurityClient($this->sdkConfiguration->client, $security);
-        } else {
-            $client = $this->sdkConfiguration->client;
-        }
-
-        $hookContext = new HookContext('updatePaymentLink', null, fn () => $security);
+        $hookContext = new HookContext('updatePaymentLink', null, $this->sdkConfiguration->securitySource);
         $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
         $httpOptions = Utils\Utils::convertHeadersToOptions($httpRequest, $httpOptions);
         $httpRequest = Utils\Utils::removeHeaders($httpRequest);
         try {
-            $httpResponse = $client->send($httpRequest, $httpOptions);
+            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $httpOptions);
         } catch (\GuzzleHttp\Exception\GuzzleException $error) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
             $httpResponse = $res;
@@ -530,11 +509,11 @@ class PaymentLinks
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-        if ($statusCode == 400 || $statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 409 || $statusCode == 422 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['400', '401', '403', '404', '409', '422', '429', '4XX', '500', '504', '5XX'])) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
             $httpResponse = $res;
         }
-        if ($statusCode == 200) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['200'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -545,13 +524,14 @@ class PaymentLinks
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
+                    headers: $httpResponse->getHeaders(),
                     paymentLink: $obj);
 
                 return $response;
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif (in_array($statusCode, [400, 409])) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['400', '409'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -562,9 +542,7 @@ class PaymentLinks
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500) {
-            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } elseif ($statusCode == 422) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['422'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -575,7 +553,13 @@ class PaymentLinks
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '404', '429'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['500', '504'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['4XX'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['5XX'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);

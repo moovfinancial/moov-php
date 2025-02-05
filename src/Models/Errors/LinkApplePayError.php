@@ -8,9 +8,7 @@ declare(strict_types=1);
 
 namespace Moov\OpenAPI\Models\Errors;
 
-
 use Moov\OpenAPI\Utils;
-
 class LinkApplePayError
 {
     /**
@@ -54,6 +52,7 @@ class LinkApplePayError
      * @param  ?string  $paymentData
      * @param  ?string  $paymentMethod
      * @param  ?string  $transactionIdentifier
+     * @phpstan-pure
      */
     public function __construct(?string $error = null, ?string $paymentData = null, ?string $paymentMethod = null, ?string $transactionIdentifier = null)
     {

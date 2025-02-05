@@ -33,6 +33,7 @@ class Amount
     /**
      * @param  string  $currency
      * @param  int  $value
+     * @phpstan-pure
      */
     public function __construct(string $currency, int $value)
     {

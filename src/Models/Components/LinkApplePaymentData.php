@@ -60,6 +60,7 @@ class LinkApplePaymentData
      * @param  string  $data
      * @param  string  $signature
      * @param  ApplePayHeader  $header
+     * @phpstan-pure
      */
     public function __construct(string $version, string $data, string $signature, ApplePayHeader $header)
     {

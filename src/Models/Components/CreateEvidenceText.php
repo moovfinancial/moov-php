@@ -30,6 +30,7 @@ class CreateEvidenceText
     /**
      * @param  string  $text
      * @param  EvidenceType  $evidenceType
+     * @phpstan-pure
      */
     public function __construct(string $text, EvidenceType $evidenceType)
     {

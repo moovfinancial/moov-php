@@ -49,6 +49,7 @@ class UpdateIssuedCard
      * @param  ?IssuedCardState  $state
      * @param  ?string  $memo
      * @param  ?CreateAuthorizedUserUpdate  $authorizedUser
+     * @phpstan-pure
      */
     public function __construct(?IssuedCardState $state = null, ?string $memo = null, ?CreateAuthorizedUserUpdate $authorizedUser = null)
     {

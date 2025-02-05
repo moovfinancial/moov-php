@@ -8,9 +8,7 @@ declare(strict_types=1);
 
 namespace Moov\OpenAPI\Models\Errors;
 
-
 use Moov\OpenAPI\Utils;
-
 class TransferOptionsValidationError
 {
     /**
@@ -41,6 +39,7 @@ class TransferOptionsValidationError
      * @param  ?string  $amount
      * @param  ?string  $source
      * @param  ?string  $destination
+     * @phpstan-pure
      */
     public function __construct(?string $amount = null, ?string $source = null, ?string $destination = null)
     {

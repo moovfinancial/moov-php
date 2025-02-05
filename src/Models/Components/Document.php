@@ -58,6 +58,7 @@ class Document
      * @param  string  $contentType
      * @param  \DateTime  $uploadedAt
      * @param  ?array<string>  $parseErrors
+     * @phpstan-pure
      */
     public function __construct(string $documentID, DocumentType $type, string $contentType, \DateTime $uploadedAt, ?array $parseErrors = null)
     {

@@ -14,26 +14,27 @@ class TransferOptions
     /**
      * $sourceOptions
      *
-     * @var ?array<mixed> $sourceOptions
+     * @var ?array<MoovWalletPaymentMethod|AchDebitFundPaymentMethod|AchDebitCollectPaymentMethod|AchCreditStandardPaymentMethod|AchCreditSameDayPaymentMethod|RtpCreditPaymentMethod|CardPaymentPaymentMethod|PushToCardPaymentMethod|PullFromCardPaymentMethod|ApplePayPaymentMethod> $sourceOptions
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('sourceOptions')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<mixed>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\OpenAPI\Models\Components\MoovWalletPaymentMethod|\Moov\OpenAPI\Models\Components\AchDebitFundPaymentMethod|\Moov\OpenAPI\Models\Components\AchDebitCollectPaymentMethod|\Moov\OpenAPI\Models\Components\AchCreditStandardPaymentMethod|\Moov\OpenAPI\Models\Components\AchCreditSameDayPaymentMethod|\Moov\OpenAPI\Models\Components\RtpCreditPaymentMethod|\Moov\OpenAPI\Models\Components\CardPaymentPaymentMethod|\Moov\OpenAPI\Models\Components\PushToCardPaymentMethod|\Moov\OpenAPI\Models\Components\PullFromCardPaymentMethod|\Moov\OpenAPI\Models\Components\ApplePayPaymentMethod>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $sourceOptions = null;
 
     /**
      * $destinationOptions
      *
-     * @var ?array<mixed> $destinationOptions
+     * @var ?array<MoovWalletPaymentMethod|AchDebitFundPaymentMethod|AchDebitCollectPaymentMethod|AchCreditStandardPaymentMethod|AchCreditSameDayPaymentMethod|RtpCreditPaymentMethod|CardPaymentPaymentMethod|PushToCardPaymentMethod|PullFromCardPaymentMethod|ApplePayPaymentMethod> $destinationOptions
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('destinationOptions')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<mixed>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\OpenAPI\Models\Components\MoovWalletPaymentMethod|\Moov\OpenAPI\Models\Components\AchDebitFundPaymentMethod|\Moov\OpenAPI\Models\Components\AchDebitCollectPaymentMethod|\Moov\OpenAPI\Models\Components\AchCreditStandardPaymentMethod|\Moov\OpenAPI\Models\Components\AchCreditSameDayPaymentMethod|\Moov\OpenAPI\Models\Components\RtpCreditPaymentMethod|\Moov\OpenAPI\Models\Components\CardPaymentPaymentMethod|\Moov\OpenAPI\Models\Components\PushToCardPaymentMethod|\Moov\OpenAPI\Models\Components\PullFromCardPaymentMethod|\Moov\OpenAPI\Models\Components\ApplePayPaymentMethod>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $destinationOptions = null;
 
     /**
-     * @param  ?array<mixed>  $sourceOptions
-     * @param  ?array<mixed>  $destinationOptions
+     * @param  ?array<MoovWalletPaymentMethod|AchDebitFundPaymentMethod|AchDebitCollectPaymentMethod|AchCreditStandardPaymentMethod|AchCreditSameDayPaymentMethod|RtpCreditPaymentMethod|CardPaymentPaymentMethod|PushToCardPaymentMethod|PullFromCardPaymentMethod|ApplePayPaymentMethod>  $sourceOptions
+     * @param  ?array<MoovWalletPaymentMethod|AchDebitFundPaymentMethod|AchDebitCollectPaymentMethod|AchCreditStandardPaymentMethod|AchCreditSameDayPaymentMethod|RtpCreditPaymentMethod|CardPaymentPaymentMethod|PushToCardPaymentMethod|PullFromCardPaymentMethod|ApplePayPaymentMethod>  $destinationOptions
+     * @phpstan-pure
      */
     public function __construct(?array $sourceOptions = null, ?array $destinationOptions = null)
     {

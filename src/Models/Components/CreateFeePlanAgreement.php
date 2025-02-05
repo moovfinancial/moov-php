@@ -20,6 +20,7 @@ class CreateFeePlanAgreement
 
     /**
      * @param  string  $planID
+     * @phpstan-pure
      */
     public function __construct(string $planID)
     {

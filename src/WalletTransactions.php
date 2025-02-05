@@ -9,7 +9,6 @@ declare(strict_types=1);
 namespace Moov\OpenAPI;
 
 use Moov\OpenAPI\Hooks\HookContext;
-use Moov\OpenAPI\Models\Components;
 use Moov\OpenAPI\Models\Operations;
 use Moov\OpenAPI\Utils\Options;
 use Speakeasy\Serializer\DeserializationContext;
@@ -46,19 +45,21 @@ class WalletTransactions
     }
 
     /**
-     * Get details on a specific wallet transaction. Read our [wallet transactions guide](https://docs.moov.io/guides/sources/wallets/transactions/) to learn more.
+     * Get details on a specific wallet transaction. 
      *
-     * To use this endpoint from a browser, you'll need to specify the `/accounts/{accountID}/wallets.read` scope when generating a [token](https://docs.moov.io/api/authentication/access-tokens/).
+     * Read our [wallet transactions guide](https://docs.moov.io/guides/sources/wallets/transactions/) to learn more.
      *
-     * @param  Operations\GetWalletTransactionSecurity  $security
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * you'll need to specify the `/accounts/{accountID}/wallets.read` scope.
+     *
      * @param  string  $accountID
      * @param  string  $walletID
      * @param  string  $transactionID
-     * @param  ?Components\Versions  $xMoovVersion
+     * @param  ?string  $xMoovVersion
      * @return Operations\GetWalletTransactionResponse
      * @throws \Moov\OpenAPI\Models\Errors\APIException
      */
-    public function getWalletTransaction(Operations\GetWalletTransactionSecurity $security, string $accountID, string $walletID, string $transactionID, ?Components\Versions $xMoovVersion = null, ?Options $options = null): Operations\GetWalletTransactionResponse
+    public function get(string $accountID, string $walletID, string $transactionID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetWalletTransactionResponse
     {
         $request = new Operations\GetWalletTransactionRequest(
             accountID: $accountID,
@@ -67,28 +68,22 @@ class WalletTransactions
             xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/wallets/{walletID}/transactions/{transactionID}', Operations\GetWalletTransactionRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/wallets/{walletID}/transactions/{transactionID}', Operations\GetWalletTransactionRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
+        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
         }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
-        if ($security != null) {
-            $client = Utils\Utils::configureSecurityClient($this->sdkConfiguration->client, $security);
-        } else {
-            $client = $this->sdkConfiguration->client;
-        }
-
-        $hookContext = new HookContext('getWalletTransaction', null, fn () => $security);
+        $hookContext = new HookContext('getWalletTransaction', null, $this->sdkConfiguration->securitySource);
         $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
         $httpOptions = Utils\Utils::convertHeadersToOptions($httpRequest, $httpOptions);
         $httpRequest = Utils\Utils::removeHeaders($httpRequest);
         try {
-            $httpResponse = $client->send($httpRequest, $httpOptions);
+            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $httpOptions);
         } catch (\GuzzleHttp\Exception\GuzzleException $error) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
             $httpResponse = $res;
@@ -96,11 +91,11 @@ class WalletTransactions
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-        if ($statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '404', '429', '4XX', '500', '504', '5XX'])) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
             $httpResponse = $res;
         }
-        if ($statusCode == 200) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['200'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -111,15 +106,20 @@ class WalletTransactions
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
+                    headers: $httpResponse->getHeaders(),
                     walletTransaction: $obj);
 
                 return $response;
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode == 401 || $statusCode == 403 || $statusCode == 404 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '404', '429'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } elseif ($statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['500', '504'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['4XX'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['5XX'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
@@ -127,43 +127,39 @@ class WalletTransactions
     }
 
     /**
-     * List all the transactions associated with a particular Moov wallet. Read our [wallet transactions guide](https://docs.moov.io/guides/sources/wallets/transactions/) to learn more.
+     * List all the transactions associated with a particular Moov wallet. 
      *
-     * To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/wallets.read` scope when generating a [token](https://docs.moov.io/api/authentication/access-tokens/).
+     * Read our [wallet transactions guide](https://docs.moov.io/guides/sources/wallets/transactions/) to learn more.
      *
-     * @param  Operations\ListWalletTransactionsSecurity  $security
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * you'll need to specify the `/accounts/{accountID}/wallets.read` scope.
+     *
      * @param  Operations\ListWalletTransactionsRequest  $request
      * @return Operations\ListWalletTransactionsResponse
      * @throws \Moov\OpenAPI\Models\Errors\APIException
      */
-    public function listWalletTransactions(Operations\ListWalletTransactionsSecurity $security, Operations\ListWalletTransactionsRequest $request, ?Options $options = null): Operations\ListWalletTransactionsResponse
+    public function list(Operations\ListWalletTransactionsRequest $request, ?Options $options = null): Operations\ListWalletTransactionsResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/wallets/{walletID}/transactions', Operations\ListWalletTransactionsRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/wallets/{walletID}/transactions', Operations\ListWalletTransactionsRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
 
-        $qp = Utils\Utils::getQueryParams(Operations\ListWalletTransactionsRequest::class, $request, $urlOverride);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
+        $qp = Utils\Utils::getQueryParams(Operations\ListWalletTransactionsRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
+        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
         }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
-        if ($security != null) {
-            $client = Utils\Utils::configureSecurityClient($this->sdkConfiguration->client, $security);
-        } else {
-            $client = $this->sdkConfiguration->client;
-        }
-
-        $hookContext = new HookContext('listWalletTransactions', null, fn () => $security);
+        $hookContext = new HookContext('listWalletTransactions', null, $this->sdkConfiguration->securitySource);
         $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
         $httpOptions['query'] = Utils\QueryParameters::standardizeQueryParams($httpRequest, $qp);
         $httpOptions = Utils\Utils::convertHeadersToOptions($httpRequest, $httpOptions);
         $httpRequest = Utils\Utils::removeHeaders($httpRequest);
         try {
-            $httpResponse = $client->send($httpRequest, $httpOptions);
+            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $httpOptions);
         } catch (\GuzzleHttp\Exception\GuzzleException $error) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
             $httpResponse = $res;
@@ -171,11 +167,11 @@ class WalletTransactions
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-        if ($statusCode == 401 || $statusCode == 403 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '429', '4XX', '500', '504', '5XX'])) {
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
             $httpResponse = $res;
         }
-        if ($statusCode == 200) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['200'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -186,15 +182,20 @@ class WalletTransactions
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
+                    headers: $httpResponse->getHeaders(),
                     walletTransactions: $obj);
 
                 return $response;
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode == 401 || $statusCode == 403 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '429'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } elseif ($statusCode == 500 || $statusCode == 504 || $statusCode >= 500 && $statusCode < 600) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['500', '504'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['4XX'])) {
+            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['5XX'])) {
             throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);

@@ -29,6 +29,7 @@ class AccountCapability
     /**
      * @param  string  $capability
      * @param  string  $status
+     * @phpstan-pure
      */
     public function __construct(string $capability, string $status)
     {

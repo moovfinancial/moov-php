@@ -5,15 +5,17 @@
 
 ### Available Operations
 
-* [getEnrichmentAddress](#getenrichmentaddress) -   Fetch enriched address suggestions. Requires a partial address. 
+* [get](#get) - Fetch enriched address suggestions. Requires a partial address. 
   
-  To use this endpoint from the browser, you'll need to specify the `/profile-enrichment.read` scope when generating a [token](https://docs.moov.io/api/authentication/access-tokens/).
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/profile-enrichment.read` scope.
 
-## getEnrichmentAddress
+## get
 
-  Fetch enriched address suggestions. Requires a partial address. 
+Fetch enriched address suggestions. Requires a partial address. 
   
-  To use this endpoint from the browser, you'll need to specify the `/profile-enrichment.read` scope when generating a [token](https://docs.moov.io/api/authentication/access-tokens/).
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/profile-enrichment.read` scope.
 
 ### Example Usage
 
@@ -26,21 +28,21 @@ use Moov\OpenAPI;
 use Moov\OpenAPI\Models\Components;
 use Moov\OpenAPI\Models\Operations;
 
-$sdk = OpenAPI\Moov::builder()->build();
+$sdk = OpenAPI\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
 
 $request = new Operations\GetEnrichmentAddressRequest(
     search: '<value>',
 );
-$requestSecurity = new Operations\GetEnrichmentAddressSecurity(
-    basicAuth: new Components\SchemeBasicAuth(
-        username: '',
-        password: '',
-    ),
-);
 
-$response = $sdk->enrichedAddress->getEnrichmentAddress(
-    request: $request,
-    security: $requestSecurity
+$response = $sdk->enrichedAddress->get(
+    request: $request
 );
 
 if ($response->enrichedAddressResponse !== null) {
@@ -50,10 +52,9 @@ if ($response->enrichedAddressResponse !== null) {
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                         | [Operations\GetEnrichmentAddressRequest](../../Models/Operations/GetEnrichmentAddressRequest.md)   | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
-| `security`                                                                                         | [Operations\GetEnrichmentAddressSecurity](../../Models/Operations/GetEnrichmentAddressSecurity.md) | :heavy_check_mark:                                                                                 | The security requirements to use for the request.                                                  |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `$request`                                                                                       | [Operations\GetEnrichmentAddressRequest](../../Models/Operations/GetEnrichmentAddressRequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
 
 ### Response
 

@@ -48,6 +48,7 @@ class LinkApplePay
     /**
      * @param  LinkApplePayToken  $token
      * @param  ?AppleBillingContact  $billingContact
+     * @phpstan-pure
      */
     public function __construct(LinkApplePayToken $token, ?AppleBillingContact $billingContact = null)
     {

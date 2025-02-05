@@ -52,6 +52,7 @@ class AchLocation
      * @param  string  $postalCode
      * @param  string  $postalCodeExtension
      * @param  string  $state
+     * @phpstan-pure
      */
     public function __construct(string $address, string $city, string $postalCode, string $postalCodeExtension, string $state)
     {

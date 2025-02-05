@@ -35,6 +35,7 @@ class CreateEvidenceFileMultiPart
     /**
      * @param  File  $file
      * @param  EvidenceType  $evidenceType
+     * @phpstan-pure
      */
     public function __construct(File $file, EvidenceType $evidenceType)
     {

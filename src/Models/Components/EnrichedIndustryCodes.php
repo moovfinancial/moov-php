@@ -30,6 +30,7 @@ class EnrichedIndustryCodes
     /**
      * @param  ?string  $naics
      * @param  ?string  $sic
+     * @phpstan-pure
      */
     public function __construct(?string $naics = null, ?string $sic = null)
     {

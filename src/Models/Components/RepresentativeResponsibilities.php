@@ -54,6 +54,7 @@ class RepresentativeResponsibilities
      * @param  ?bool  $isOwner
      * @param  ?int  $ownershipPercentage
      * @param  ?string  $jobTitle
+     * @phpstan-pure
      */
     public function __construct(?bool $isController = null, ?bool $isOwner = null, ?int $ownershipPercentage = null, ?string $jobTitle = null)
     {

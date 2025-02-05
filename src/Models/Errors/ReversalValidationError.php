@@ -8,9 +8,7 @@ declare(strict_types=1);
 
 namespace Moov\OpenAPI\Models\Errors;
 
-
 use Moov\OpenAPI\Utils;
-
 class ReversalValidationError
 {
     /**
@@ -23,6 +21,7 @@ class ReversalValidationError
 
     /**
      * @param  ?string  $amount
+     * @phpstan-pure
      */
     public function __construct(?string $amount = null)
     {

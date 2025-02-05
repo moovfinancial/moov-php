@@ -21,6 +21,7 @@ class CreateBusinessErrorEin
 
     /**
      * @param  ?string  $number
+     * @phpstan-pure
      */
     public function __construct(?string $number = null)
     {

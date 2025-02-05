@@ -49,6 +49,7 @@ class AccountNameVerification
      * @param  CardVerificationResult  $lastName
      * @param  CardVerificationResult  $middleName
      * @param  CardVerificationResult  $fullName
+     * @phpstan-pure
      */
     public function __construct(CardVerificationResult $firstName, CardVerificationResult $lastName, CardVerificationResult $middleName, CardVerificationResult $fullName)
     {

@@ -20,7 +20,10 @@ class AmountDecimal
     public string $currency;
 
     /**
-     * A decimal-formatted numerical string that represents up to 9 decimal place precision.
+     * A decimal-formatted numerical string that represents up to 9 decimal place precision. 
+     *
+     *
+     * For example, $12.987654321 is '12.987654321'.
      *
      * @var string $valueDecimal
      */
@@ -30,6 +33,7 @@ class AmountDecimal
     /**
      * @param  string  $currency
      * @param  string  $valueDecimal
+     * @phpstan-pure
      */
     public function __construct(string $currency, string $valueDecimal)
     {

@@ -21,6 +21,7 @@ class CompletedMicroDeposits
 
     /**
      * @param  MicroDepositStatus  $status
+     * @phpstan-pure
      */
     public function __construct(MicroDepositStatus $status)
     {

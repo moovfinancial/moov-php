@@ -52,6 +52,7 @@ class IndividualNameUpdate
      * @param  ?string  $middleName
      * @param  ?string  $lastName
      * @param  ?string  $suffix
+     * @phpstan-pure
      */
     public function __construct(?string $firstName = null, ?string $middleName = null, ?string $lastName = null, ?string $suffix = null)
     {

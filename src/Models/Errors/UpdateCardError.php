@@ -10,7 +10,6 @@ namespace Moov\OpenAPI\Models\Errors;
 
 use Moov\OpenAPI\Models\Components;
 use Moov\OpenAPI\Utils;
-
 class UpdateCardError
 {
     /**
@@ -89,6 +88,7 @@ class UpdateCardError
      * @param  ?string  $merchantAccountID
      * @param  ?string  $verifyName
      * @param  ?string  $holderName
+     * @phpstan-pure
      */
     public function __construct(?Components\End2EndEncryptionError $e2ee = null, ?Components\CardAddressError $billingAddress = null, ?Components\CardExpirationError $expiration = null, ?string $cardCvv = null, ?string $cardOnFile = null, ?string $merchantAccountID = null, ?string $verifyName = null, ?string $holderName = null)
     {

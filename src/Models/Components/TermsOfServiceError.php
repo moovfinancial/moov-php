@@ -31,6 +31,7 @@ class TermsOfServiceError
     /**
      * @param  ?string  $token
      * @param  ?Manual  $manual
+     * @phpstan-pure
      */
     public function __construct(?string $token = null, ?Manual $manual = null)
     {

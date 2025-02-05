@@ -28,6 +28,7 @@ class E2EETokenUpdate
 
     /**
      * @param  ?string  $token
+     * @phpstan-pure
      */
     public function __construct(?string $token = null)
     {

@@ -55,6 +55,7 @@ class ApplePayMerchantDomains
      * @param  array<string>  $domains
      * @param  \DateTime  $createdOn
      * @param  \DateTime  $updatedOn
+     * @phpstan-pure
      */
     public function __construct(string $accountID, string $displayName, array $domains, \DateTime $createdOn, \DateTime $updatedOn)
     {

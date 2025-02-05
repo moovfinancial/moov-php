@@ -56,6 +56,7 @@ class RevokeTokenRequest
      * @param  ?TokenTypeHint  $tokenTypeHint
      * @param  ?string  $clientId
      * @param  ?string  $clientSecret
+     * @phpstan-pure
      */
     public function __construct(string $token, ?TokenTypeHint $tokenTypeHint = null, ?string $clientId = null, ?string $clientSecret = null)
     {

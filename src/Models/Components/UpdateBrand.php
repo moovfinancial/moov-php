@@ -22,6 +22,7 @@ class UpdateBrand
 
     /**
      * @param  ?UpdateColors  $colors
+     * @phpstan-pure
      */
     public function __construct(?UpdateColors $colors = null)
     {

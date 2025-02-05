@@ -36,6 +36,7 @@ class IndustryCodes
      * @param  string  $naics
      * @param  string  $sic
      * @param  string  $mcc
+     * @phpstan-pure
      */
     public function __construct(string $naics, string $sic, string $mcc)
     {

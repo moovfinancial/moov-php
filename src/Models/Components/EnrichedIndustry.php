@@ -48,6 +48,7 @@ class EnrichedIndustry
      * @param  string  $naics
      * @param  string  $sic
      * @param  string  $mcc
+     * @phpstan-pure
      */
     public function __construct(string $title, string $naics, string $sic, string $mcc)
     {

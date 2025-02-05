@@ -20,14 +20,6 @@ class ListTransfersRequest
     public string $accountID;
 
     /**
-     * Specify an API version.
-     *
-     * @var ?Components\Versions $xMoovVersion
-     */
-    #[SpeakeasyMetadata('header:style=simple,explode=false,name=x-moov-version')]
-    public ?Components\Versions $xMoovVersion = null;
-
-    /**
      * Optional, comma-separated account IDs by which the response is filtered based on whether the account ID is the source or destination.
      *
      * @var ?array<string> $accountIDs
@@ -98,8 +90,25 @@ class ListTransfersRequest
     public ?int $count = null;
 
     /**
+     * Specify an API version.
+     *
+     *
+     * API versioning follows the format `vYYYY.QQ.BB`, where 
+     *   - `YYYY` is the year
+     *   - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)
+     *   - `BB` is an **optional** build number starting at `.01` for subsequent builds in the same quarter. 
+     *     - If no build number is specified, the version refers to the initial release of the quarter.
+     *
+     * The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release.
+     *
+     * @var ?string $xMoovVersion
+     */
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=x-moov-version')]
+    public ?string $xMoovVersion = null;
+
+    /**
      * @param  string  $accountID
-     * @param  ?Components\Versions  $xMoovVersion
+     * @param  ?string  $xMoovVersion
      * @param  ?array<string>  $accountIDs
      * @param  ?Components\TransferStatus  $status
      * @param  ?\DateTime  $startDateTime
@@ -109,11 +118,11 @@ class ListTransfersRequest
      * @param  ?bool  $disputed
      * @param  ?int  $skip
      * @param  ?int  $count
+     * @phpstan-pure
      */
-    public function __construct(string $accountID, ?Components\Versions $xMoovVersion = null, ?array $accountIDs = null, ?Components\TransferStatus $status = null, ?\DateTime $startDateTime = null, ?\DateTime $endDateTime = null, ?string $groupID = null, ?bool $refunded = null, ?bool $disputed = null, ?int $skip = null, ?int $count = null)
+    public function __construct(string $accountID, ?array $accountIDs = null, ?Components\TransferStatus $status = null, ?\DateTime $startDateTime = null, ?\DateTime $endDateTime = null, ?string $groupID = null, ?bool $refunded = null, ?bool $disputed = null, ?int $skip = null, ?int $count = null, ?string $xMoovVersion = 'v2024.01')
     {
         $this->accountID = $accountID;
-        $this->xMoovVersion = $xMoovVersion;
         $this->accountIDs = $accountIDs;
         $this->status = $status;
         $this->startDateTime = $startDateTime;
@@ -123,5 +132,6 @@ class ListTransfersRequest
         $this->disputed = $disputed;
         $this->skip = $skip;
         $this->count = $count;
+        $this->xMoovVersion = $xMoovVersion;
     }
 }

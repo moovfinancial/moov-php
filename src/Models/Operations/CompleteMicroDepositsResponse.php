@@ -33,6 +33,13 @@ class CompleteMicroDepositsResponse
     public \Psr\Http\Message\ResponseInterface $rawResponse;
 
     /**
+     * $headers
+     *
+     * @var array<string, array<string>> $headers
+     */
+    public array $headers;
+
+    /**
      * The request completed successfully.
      *
      * @var ?Components\CompletedMicroDeposits $completedMicroDeposits
@@ -43,13 +50,16 @@ class CompleteMicroDepositsResponse
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
+     * @param  array<string, array<string>>  $headers
      * @param  ?Components\CompletedMicroDeposits  $completedMicroDeposits
+     * @phpstan-pure
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\CompletedMicroDeposits $completedMicroDeposits = null)
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\CompletedMicroDeposits $completedMicroDeposits = null, ?array $headers = [])
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
+        $this->headers = $headers;
         $this->completedMicroDeposits = $completedMicroDeposits;
     }
 }

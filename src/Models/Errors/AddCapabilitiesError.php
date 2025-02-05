@@ -10,7 +10,6 @@ namespace Moov\OpenAPI\Models\Errors;
 
 use Moov\OpenAPI\Models\Components;
 use Moov\OpenAPI\Utils;
-
 class AddCapabilitiesError
 {
     /**
@@ -24,6 +23,7 @@ class AddCapabilitiesError
 
     /**
      * @param  ?Components\CapabilitiesError  $error
+     * @phpstan-pure
      */
     public function __construct(?Components\CapabilitiesError $error = null)
     {

@@ -52,6 +52,7 @@ class ManualTermsOfServiceUpdate
      * @param  ?string  $acceptedIP
      * @param  ?string  $acceptedUserAgent
      * @param  ?string  $acceptedDomain
+     * @phpstan-pure
      */
     public function __construct(?\DateTime $acceptedDate = null, ?string $acceptedIP = null, ?string $acceptedUserAgent = null, ?string $acceptedDomain = null)
     {

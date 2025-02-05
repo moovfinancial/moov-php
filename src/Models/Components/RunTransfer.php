@@ -57,6 +57,7 @@ class RunTransfer
      * @param  string  $partnerAccountID
      * @param  SchedulePaymentMethod  $source
      * @param  string  $description
+     * @phpstan-pure
      */
     public function __construct(Amount $amount, SchedulePaymentMethod $destination, string $partnerAccountID, SchedulePaymentMethod $source, string $description)
     {

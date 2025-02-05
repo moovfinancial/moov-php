@@ -133,6 +133,7 @@ class CardTransactionDetails
      * @param  ?\DateTime  $completedOn
      * @param  ?string  $interchangeQualification
      * @param  ?string  $feeProgram
+     * @phpstan-pure
      */
     public function __construct(CardTransactionStatus $status, ?CardTransactionFailureCode $failureCode = null, ?string $dynamicDescriptor = null, ?TransactionSource $transactionSource = null, ?\DateTime $initiatedOn = null, ?\DateTime $confirmedOn = null, ?\DateTime $settledOn = null, ?\DateTime $failedOn = null, ?\DateTime $canceledOn = null, ?\DateTime $completedOn = null, ?string $interchangeQualification = null, ?string $feeProgram = null)
     {

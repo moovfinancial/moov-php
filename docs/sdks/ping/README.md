@@ -7,15 +7,15 @@
 
 * [ping](#ping) - A simple endpoint to check auth.
 
-To access this endpoint using a [token](https://docs.moov.io/api/authentication/access-tokens/) you'll need 
-to specify the `/ping.read` scope.
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/ping.read` scope.
 
 ## ping
 
 A simple endpoint to check auth.
 
-To access this endpoint using a [token](https://docs.moov.io/api/authentication/access-tokens/) you'll need 
-to specify the `/ping.read` scope.
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/ping.read` scope.
 
 ### Example Usage
 
@@ -26,22 +26,20 @@ require 'vendor/autoload.php';
 
 use Moov\OpenAPI;
 use Moov\OpenAPI\Models\Components;
-use Moov\OpenAPI\Models\Operations;
 
-$sdk = OpenAPI\Moov::builder()->build();
+$sdk = OpenAPI\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
 
 
-$requestSecurity = new Operations\PingSecurity(
-    basicAuth: new Components\SchemeBasicAuth(
-        username: '',
-        password: '',
-    ),
-);
 
 $response = $sdk->ping->ping(
-    security: $requestSecurity,
-    xMoovVersion: Components\Versions::Latest
-
+    xMoovVersion: 'v2024.01'
 );
 
 if ($response->statusCode === 200) {
@@ -51,10 +49,9 @@ if ($response->statusCode === 200) {
 
 ### Parameters
 
-| Parameter                                                          | Type                                                               | Required                                                           | Description                                                        |
-| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
-| `security`                                                         | [Operations\PingSecurity](../../Models/Operations/PingSecurity.md) | :heavy_check_mark:                                                 | The security requirements to use for the request.                  |
-| `xMoovVersion`                                                     | [?Components\Versions](../../Models/Components/Versions.md)        | :heavy_minus_sign:                                                 | Specify an API version.                                            |
+| Parameter                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Required                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `xMoovVersion`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | *?string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Specify an API version.<br/><br/>API versioning follows the format `vYYYY.QQ.BB`, where <br/>  - `YYYY` is the year<br/>  - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)<br/>  - `BB` is an **optional** build number starting at `.01` for subsequent builds in the same quarter. <br/>    - If no build number is specified, the version refers to the initial release of the quarter.<br/><br/>The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release. |
 
 ### Response
 

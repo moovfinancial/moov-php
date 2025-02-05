@@ -90,6 +90,7 @@ class CreateAccountError
      * @param  ?CustomerSupportError  $customerSupport
      * @param  ?CreateAccountSettings  $settings
      * @param  ?array<string, string>  $capabilities
+     * @phpstan-pure
      */
     public function __construct(?string $accountType = null, ?CreateProfileError $profile = null, ?string $metadata = null, ?TermsOfServiceError $termsOfService = null, ?string $foreignID = null, ?CustomerSupportError $customerSupport = null, ?CreateAccountSettings $settings = null, ?array $capabilities = null)
     {

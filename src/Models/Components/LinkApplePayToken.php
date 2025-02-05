@@ -56,6 +56,7 @@ class LinkApplePayToken
      * @param  LinkApplePaymentData  $paymentData
      * @param  LinkApplePaymentMethod  $paymentMethod
      * @param  string  $transactionIdentifier
+     * @phpstan-pure
      */
     public function __construct(LinkApplePaymentData $paymentData, LinkApplePaymentMethod $paymentMethod, string $transactionIdentifier)
     {

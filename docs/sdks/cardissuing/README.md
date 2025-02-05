@@ -5,37 +5,37 @@
 
 ### Available Operations
 
-* [getFullIssuedCard](#getfullissuedcard) - Get issued card with PAN, CVV, and expiration. 
+* [getFull](#getfull) - Get issued card with PAN, CVV, and expiration. 
 
 Only use this endpoint if you have provided Moov with a copy of your PCI attestation of compliance.
 
-To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/issued-cards.read-secure` scope when generating 
-a [token](https://docs.moov.io/api/authentication/access-tokens/).
-* [getIssuedCard](#getissuedcard) - Retrieve a single issued card associated with a Moov account.
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/issued-cards.read-secure` scope.
+* [get](#get) - Retrieve a single issued card associated with a Moov account.
 
-To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/issued-cards.read` scope when generating 
-a [token](https://docs.moov.io/api/authentication/access-tokens/).
-* [listIssuedCards](#listissuedcards) - List Moov issued cards existing for the account.
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/issued-cards.read` scope.
+* [list](#list) - List Moov issued cards existing for the account.
 
-To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/issued-cards.read` scope when generating 
-a [token](https://docs.moov.io/api/authentication/access-tokens/).
-* [requestCard](#requestcard) - Request a virtual card be issued.
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/issued-cards.read` scope.
+* [request](#request) - Request a virtual card be issued.
 
-To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/issued-cards.write` scope when generating 
-a [token](https://docs.moov.io/api/authentication/access-tokens/).
-* [updateIssuedCard](#updateissuedcard) - Update a Moov issued card.
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/issued-cards.write` scope.
+* [update](#update) - Update a Moov issued card.
 
-To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/issued-cards.write` scope when generating 
-a [token](https://docs.moov.io/api/authentication/access-tokens/).
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/issued-cards.write` scope.
 
-## getFullIssuedCard
+## getFull
 
 Get issued card with PAN, CVV, and expiration. 
 
 Only use this endpoint if you have provided Moov with a copy of your PCI attestation of compliance.
 
-To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/issued-cards.read-secure` scope when generating 
-a [token](https://docs.moov.io/api/authentication/access-tokens/).
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/issued-cards.read-secure` scope.
 
 ### Example Usage
 
@@ -46,23 +46,22 @@ require 'vendor/autoload.php';
 
 use Moov\OpenAPI;
 use Moov\OpenAPI\Models\Components;
-use Moov\OpenAPI\Models\Operations;
 
-$sdk = OpenAPI\Moov::builder()->build();
+$sdk = OpenAPI\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
 
 
-$requestSecurity = new Operations\GetFullIssuedCardSecurity(
-    basicAuth: new Components\SchemeBasicAuth(
-        username: '',
-        password: '',
-    ),
-);
 
-$response = $sdk->cardIssuing->getFullIssuedCard(
-    security: $requestSecurity,
-    accountID: 'f03c4c3e-2685-44e6-8d4b-0d5bd082a301',
-    issuedCardID: '1da6b593-679e-44ab-a9e4-6db6db4b8f46',
-    xMoovVersion: Components\Versions::V20240000
+$response = $sdk->cardIssuing->getFull(
+    accountID: '04e9a1b9-0751-4f2d-b0d4-51e47b62623c',
+    issuedCardID: '13ddb970-c10a-44bb-a2e6-73beac428022',
+    xMoovVersion: 'v2024.01'
 
 );
 
@@ -73,12 +72,11 @@ if ($response->fullIssuedCard !== null) {
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `security`                                                                                   | [Operations\GetFullIssuedCardSecurity](../../Models/Operations/GetFullIssuedCardSecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
-| `accountID`                                                                                  | *string*                                                                                     | :heavy_check_mark:                                                                           | The Moov business account for which the card was issued.                                     |
-| `issuedCardID`                                                                               | *string*                                                                                     | :heavy_check_mark:                                                                           | N/A                                                                                          |
-| `xMoovVersion`                                                                               | [?Components\Versions](../../Models/Components/Versions.md)                                  | :heavy_minus_sign:                                                                           | Specify an API version.                                                                      |
+| Parameter                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Required                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `accountID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | The Moov business account for which the card was issued.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `issuedCardID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `xMoovVersion`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | *?string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Specify an API version.<br/><br/>API versioning follows the format `vYYYY.QQ.BB`, where <br/>  - `YYYY` is the year<br/>  - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)<br/>  - `BB` is an **optional** build number starting at `.01` for subsequent builds in the same quarter. <br/>    - If no build number is specified, the version refers to the initial release of the quarter.<br/><br/>The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release. |
 
 ### Response
 
@@ -90,12 +88,12 @@ if ($response->fullIssuedCard !== null) {
 | ------------------- | ------------------- | ------------------- |
 | Errors\APIException | 4XX, 5XX            | \*/\*               |
 
-## getIssuedCard
+## get
 
 Retrieve a single issued card associated with a Moov account.
 
-To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/issued-cards.read` scope when generating 
-a [token](https://docs.moov.io/api/authentication/access-tokens/).
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/issued-cards.read` scope.
 
 ### Example Usage
 
@@ -106,23 +104,22 @@ require 'vendor/autoload.php';
 
 use Moov\OpenAPI;
 use Moov\OpenAPI\Models\Components;
-use Moov\OpenAPI\Models\Operations;
 
-$sdk = OpenAPI\Moov::builder()->build();
+$sdk = OpenAPI\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
 
 
-$requestSecurity = new Operations\GetIssuedCardSecurity(
-    basicAuth: new Components\SchemeBasicAuth(
-        username: '',
-        password: '',
-    ),
-);
 
-$response = $sdk->cardIssuing->getIssuedCard(
-    security: $requestSecurity,
-    accountID: 'c63d9bae-2097-4bfa-8ac7-e9e8dff6e9ae',
-    issuedCardID: 'aa0c86df-7f7d-4200-9ee4-24ba8870a7d4',
-    xMoovVersion: Components\Versions::V20240000
+$response = $sdk->cardIssuing->get(
+    accountID: 'b888f774-3e7c-4135-a18c-6b985523c4bc',
+    issuedCardID: 'e50f7622-81da-484b-9c66-1c8a99c6b71b',
+    xMoovVersion: 'v2024.01'
 
 );
 
@@ -133,12 +130,11 @@ if ($response->issuedCard !== null) {
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `security`                                                                           | [Operations\GetIssuedCardSecurity](../../Models/Operations/GetIssuedCardSecurity.md) | :heavy_check_mark:                                                                   | The security requirements to use for the request.                                    |
-| `accountID`                                                                          | *string*                                                                             | :heavy_check_mark:                                                                   | The Moov business account for which the card was issued.                             |
-| `issuedCardID`                                                                       | *string*                                                                             | :heavy_check_mark:                                                                   | N/A                                                                                  |
-| `xMoovVersion`                                                                       | [?Components\Versions](../../Models/Components/Versions.md)                          | :heavy_minus_sign:                                                                   | Specify an API version.                                                              |
+| Parameter                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Required                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `accountID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | The Moov business account for which the card was issued.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `issuedCardID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `xMoovVersion`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | *?string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Specify an API version.<br/><br/>API versioning follows the format `vYYYY.QQ.BB`, where <br/>  - `YYYY` is the year<br/>  - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)<br/>  - `BB` is an **optional** build number starting at `.01` for subsequent builds in the same quarter. <br/>    - If no build number is specified, the version refers to the initial release of the quarter.<br/><br/>The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release. |
 
 ### Response
 
@@ -150,12 +146,12 @@ if ($response->issuedCard !== null) {
 | ------------------- | ------------------- | ------------------- |
 | Errors\APIException | 4XX, 5XX            | \*/\*               |
 
-## listIssuedCards
+## list
 
 List Moov issued cards existing for the account.
 
-To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/issued-cards.read` scope when generating 
-a [token](https://docs.moov.io/api/authentication/access-tokens/).
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/issued-cards.read` scope.
 
 ### Example Usage
 
@@ -168,23 +164,23 @@ use Moov\OpenAPI;
 use Moov\OpenAPI\Models\Components;
 use Moov\OpenAPI\Models\Operations;
 
-$sdk = OpenAPI\Moov::builder()->build();
+$sdk = OpenAPI\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
 
 $request = new Operations\ListIssuedCardsRequest(
-    accountID: '33bbd03b-931d-4e6d-b831-8698f4aee791',
+    accountID: 'c8a232aa-0b11-4b8a-b005-71e9e705d0e6',
     skip: 60,
     count: 20,
 );
-$requestSecurity = new Operations\ListIssuedCardsSecurity(
-    basicAuth: new Components\SchemeBasicAuth(
-        username: '',
-        password: '',
-    ),
-);
 
-$response = $sdk->cardIssuing->listIssuedCards(
-    request: $request,
-    security: $requestSecurity
+$response = $sdk->cardIssuing->list(
+    request: $request
 );
 
 if ($response->issuedCards !== null) {
@@ -194,10 +190,9 @@ if ($response->issuedCards !== null) {
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `$request`                                                                               | [Operations\ListIssuedCardsRequest](../../Models/Operations/ListIssuedCardsRequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [Operations\ListIssuedCardsSecurity](../../Models/Operations/ListIssuedCardsSecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `$request`                                                                             | [Operations\ListIssuedCardsRequest](../../Models/Operations/ListIssuedCardsRequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
 
 ### Response
 
@@ -209,12 +204,12 @@ if ($response->issuedCards !== null) {
 | ------------------- | ------------------- | ------------------- |
 | Errors\APIException | 4XX, 5XX            | \*/\*               |
 
-## requestCard
+## request
 
 Request a virtual card be issued.
 
-To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/issued-cards.write` scope when generating 
-a [token](https://docs.moov.io/api/authentication/access-tokens/).
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/issued-cards.write` scope.
 
 ### Example Usage
 
@@ -225,15 +220,21 @@ require 'vendor/autoload.php';
 
 use Moov\OpenAPI;
 use Moov\OpenAPI\Models\Components;
-use Moov\OpenAPI\Models\Operations;
 
-$sdk = OpenAPI\Moov::builder()->build();
+$sdk = OpenAPI\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
 
 $requestCard = new Components\RequestCard(
-    fundingWalletID: 'df7610a6-b14e-4eee-9a55-1890b6b3207c',
+    fundingWalletID: '32613610-de25-446e-8662-ec2709ffea9d',
     authorizedUser: new Components\CreateAuthorizedUser(
-        firstName: 'Tanya',
-        lastName: 'Flatley',
+        firstName: 'Leta',
+        lastName: 'Satterfield',
         birthDate: new Components\BirthDate(
             day: 9,
             month: 11,
@@ -254,18 +255,11 @@ $requestCard = new Components\RequestCard(
         ],
     ),
 );
-$requestSecurity = new Operations\RequestCardSecurity(
-    basicAuth: new Components\SchemeBasicAuth(
-        username: '',
-        password: '',
-    ),
-);
 
-$response = $sdk->cardIssuing->requestCard(
-    security: $requestSecurity,
-    accountID: 'a9c0ff49-b9aa-4f81-b54a-43e412558f6b',
+$response = $sdk->cardIssuing->request(
+    accountID: 'fbd26796-ddd5-4201-8c68-6e370e79ebc5',
     requestCard: $requestCard,
-    xMoovVersion: Components\Versions::Latest
+    xMoovVersion: 'v2024.01'
 
 );
 
@@ -276,12 +270,11 @@ if ($response->issuedCard !== null) {
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `security`                                                                       | [Operations\RequestCardSecurity](../../Models/Operations/RequestCardSecurity.md) | :heavy_check_mark:                                                               | The security requirements to use for the request.                                |
-| `accountID`                                                                      | *string*                                                                         | :heavy_check_mark:                                                               | The Moov business account for which the card is to be issued.                    |
-| `requestCard`                                                                    | [Components\RequestCard](../../Models/Components/RequestCard.md)                 | :heavy_check_mark:                                                               | N/A                                                                              |
-| `xMoovVersion`                                                                   | [?Components\Versions](../../Models/Components/Versions.md)                      | :heavy_minus_sign:                                                               | Specify an API version.                                                          |
+| Parameter                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Required                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `accountID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | The Moov business account for which the card is to be issued.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| `requestCard`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | [Components\RequestCard](../../Models/Components/RequestCard.md)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `xMoovVersion`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | *?string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Specify an API version.<br/><br/>API versioning follows the format `vYYYY.QQ.BB`, where <br/>  - `YYYY` is the year<br/>  - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)<br/>  - `BB` is an **optional** build number starting at `.01` for subsequent builds in the same quarter. <br/>    - If no build number is specified, the version refers to the initial release of the quarter.<br/><br/>The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release. |
 
 ### Response
 
@@ -295,12 +288,12 @@ if ($response->issuedCard !== null) {
 | Errors\RequestCardError | 422                     | application/json        |
 | Errors\APIException     | 4XX, 5XX                | \*/\*                   |
 
-## updateIssuedCard
+## update
 
 Update a Moov issued card.
 
-To use this endpoint from the browser, you'll need to specify the `/accounts/{accountID}/issued-cards.write` scope when generating 
-a [token](https://docs.moov.io/api/authentication/access-tokens/).
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/issued-cards.write` scope.
 
 ### Example Usage
 
@@ -311,9 +304,15 @@ require 'vendor/autoload.php';
 
 use Moov\OpenAPI;
 use Moov\OpenAPI\Models\Components;
-use Moov\OpenAPI\Models\Operations;
 
-$sdk = OpenAPI\Moov::builder()->build();
+$sdk = OpenAPI\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
 
 $updateIssuedCard = new Components\UpdateIssuedCard(
     authorizedUser: new Components\CreateAuthorizedUserUpdate(
@@ -324,19 +323,12 @@ $updateIssuedCard = new Components\UpdateIssuedCard(
         ),
     ),
 );
-$requestSecurity = new Operations\UpdateIssuedCardSecurity(
-    basicAuth: new Components\SchemeBasicAuth(
-        username: '',
-        password: '',
-    ),
-);
 
-$response = $sdk->cardIssuing->updateIssuedCard(
-    security: $requestSecurity,
-    accountID: 'fc445a8c-5b64-4ab9-ba30-5bdb0ffc02b0',
-    issuedCardID: '064f9e03-fc5f-4a7d-83d2-2ec946f77ff2',
+$response = $sdk->cardIssuing->update(
+    accountID: 'd95fa7f0-e743-42ce-b47c-b60cc78135dd',
+    issuedCardID: 'b85898c1-25a1-4907-a1c5-562af6646dad',
     updateIssuedCard: $updateIssuedCard,
-    xMoovVersion: Components\Versions::Latest
+    xMoovVersion: 'v2024.01'
 
 );
 
@@ -347,13 +339,12 @@ if ($response->statusCode === 200) {
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `security`                                                                                 | [Operations\UpdateIssuedCardSecurity](../../Models/Operations/UpdateIssuedCardSecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
-| `accountID`                                                                                | *string*                                                                                   | :heavy_check_mark:                                                                         | The Moov business account for which the card was issued.                                   |
-| `issuedCardID`                                                                             | *string*                                                                                   | :heavy_check_mark:                                                                         | N/A                                                                                        |
-| `updateIssuedCard`                                                                         | [Components\UpdateIssuedCard](../../Models/Components/UpdateIssuedCard.md)                 | :heavy_check_mark:                                                                         | N/A                                                                                        |
-| `xMoovVersion`                                                                             | [?Components\Versions](../../Models/Components/Versions.md)                                | :heavy_minus_sign:                                                                         | Specify an API version.                                                                    |
+| Parameter                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Required                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `accountID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | The Moov business account for which the card was issued.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `issuedCardID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `updateIssuedCard`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | [Components\UpdateIssuedCard](../../Models/Components/UpdateIssuedCard.md)                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `xMoovVersion`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | *?string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Specify an API version.<br/><br/>API versioning follows the format `vYYYY.QQ.BB`, where <br/>  - `YYYY` is the year<br/>  - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)<br/>  - `BB` is an **optional** build number starting at `.01` for subsequent builds in the same quarter. <br/>    - If no build number is specified, the version refers to the initial release of the quarter.<br/><br/>The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release. |
 
 ### Response
 

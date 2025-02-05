@@ -22,6 +22,7 @@ class CreateTransferDestinationCard
 
     /**
      * @param  ?string  $dynamicDescriptor
+     * @phpstan-pure
      */
     public function __construct(?string $dynamicDescriptor = null)
     {

@@ -27,6 +27,7 @@ class MXAuthorizationCode
 
     /**
      * @param  string  $authorizationCode
+     * @phpstan-pure
      */
     public function __construct(string $authorizationCode)
     {

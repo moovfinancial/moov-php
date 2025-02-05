@@ -12,11 +12,7 @@ namespace Moov\OpenAPI\Models\Components;
 class AuthToken
 {
     /**
-     * Type of token returned.
-     *
-     *
-     *   - `opaque`: A token following a proprietary format.
-     *   - `jwt`: A JSON Web Token (JWT), a self-contained token that contains claims about the user and is cryptographically signed.
+     * An [RFC 6750](https://www.rfc-editor.org/rfc/rfc6750#section-6.1) token type.
      *
      * @var TokenType $tokenType
      */
@@ -62,6 +58,7 @@ class AuthToken
      * @param  string  $refreshToken
      * @param  int  $expiresIn
      * @param  string  $scope
+     * @phpstan-pure
      */
     public function __construct(TokenType $tokenType, string $accessToken, string $refreshToken, int $expiresIn, string $scope)
     {

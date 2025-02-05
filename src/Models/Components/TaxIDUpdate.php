@@ -23,6 +23,7 @@ class TaxIDUpdate
 
     /**
      * @param  ?TaxIDUpdateEin  $ein
+     * @phpstan-pure
      */
     public function __construct(?TaxIDUpdateEin $ein = null)
     {

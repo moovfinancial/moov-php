@@ -67,6 +67,7 @@ class FeePlan
      * @param  array<BillableFee>  $billableFees
      * @param  \DateTime  $createdAt
      * @param  ?string  $description
+     * @phpstan-pure
      */
     public function __construct(string $planID, string $name, CardAcquringModel $cardAcquringModel, array $billableFees, \DateTime $createdAt, ?string $description = null)
     {

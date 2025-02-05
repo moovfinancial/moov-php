@@ -41,6 +41,7 @@ class PaymentDetailsError
      * @param  ?string  $allowedMethods
      * @param  ?CardPaymentDetailsError  $cardDetails
      * @param  ?ACHPaymentDetailsError  $achDetails
+     * @phpstan-pure
      */
     public function __construct(?string $allowedMethods = null, ?CardPaymentDetailsError $cardDetails = null, ?ACHPaymentDetailsError $achDetails = null)
     {

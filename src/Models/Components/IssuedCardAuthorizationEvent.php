@@ -58,6 +58,7 @@ class IssuedCardAuthorizationEvent
      * @param  string  $amount
      * @param  IssuedCardAuthorizationEventResult  $result
      * @param  \DateTime  $createdOn
+     * @phpstan-pure
      */
     public function __construct(string $eventID, IssuedCardEventType $eventType, string $amount, IssuedCardAuthorizationEventResult $result, \DateTime $createdOn)
     {

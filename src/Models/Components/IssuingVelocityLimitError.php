@@ -30,6 +30,7 @@ class IssuingVelocityLimitError
     /**
      * @param  ?string  $amount
      * @param  ?string  $interval
+     * @phpstan-pure
      */
     public function __construct(?string $amount = null, ?string $interval = null)
     {

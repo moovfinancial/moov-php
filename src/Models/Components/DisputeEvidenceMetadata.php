@@ -86,6 +86,7 @@ class DisputeEvidenceMetadata
      * @param  string  $text
      * @param  \DateTime  $createdOn
      * @param  \DateTime  $updatedOn
+     * @phpstan-pure
      */
     public function __construct(string $evidenceID, string $disputeID, string $mimeType, string $filename, int $size, EvidenceType $evidenceType, string $text, \DateTime $createdOn, \DateTime $updatedOn)
     {

@@ -66,6 +66,7 @@ class UpdateRepresentativeAddress
      * @param  ?string  $stateOrProvince
      * @param  ?string  $postalCode
      * @param  ?string  $country
+     * @phpstan-pure
      */
     public function __construct(?string $addressLine1 = null, ?string $addressLine2 = null, ?string $city = null, ?string $stateOrProvince = null, ?string $postalCode = null, ?string $country = null)
     {

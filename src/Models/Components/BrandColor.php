@@ -21,6 +21,7 @@ class BrandColor
 
     /**
      * @param  string  $accent
+     * @phpstan-pure
      */
     public function __construct(string $accent)
     {

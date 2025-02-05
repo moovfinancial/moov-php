@@ -39,6 +39,7 @@ class MoovWalletPaymentMethod
      * @param  string  $paymentMethodID
      * @param  MoovWalletPaymentMethodPaymentMethodType  $paymentMethodType
      * @param  mixed  $wallet
+     * @phpstan-pure
      */
     public function __construct(string $paymentMethodID, MoovWalletPaymentMethodPaymentMethodType $paymentMethodType, mixed $wallet)
     {

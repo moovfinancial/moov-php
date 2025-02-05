@@ -21,6 +21,7 @@ class QRCode
 
     /**
      * @param  string  $qrCode
+     * @phpstan-pure
      */
     public function __construct(string $qrCode)
     {

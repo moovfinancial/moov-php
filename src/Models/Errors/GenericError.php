@@ -8,9 +8,7 @@ declare(strict_types=1);
 
 namespace Moov\OpenAPI\Models\Errors;
 
-
 use Moov\OpenAPI\Utils;
-
 class GenericError
 {
     /**
@@ -22,6 +20,7 @@ class GenericError
 
     /**
      * @param  string  $error
+     * @phpstan-pure
      */
     public function __construct(string $error)
     {

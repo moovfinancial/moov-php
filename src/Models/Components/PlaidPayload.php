@@ -34,6 +34,7 @@ class PlaidPayload
 
     /**
      * @param  PlaidIntegration  $plaid
+     * @phpstan-pure
      */
     public function __construct(PlaidIntegration $plaid)
     {

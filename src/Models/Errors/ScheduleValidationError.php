@@ -8,9 +8,7 @@ declare(strict_types=1);
 
 namespace Moov\OpenAPI\Models\Errors;
 
-
 use Moov\OpenAPI\Utils;
-
 class ScheduleValidationError
 {
     /**
@@ -41,6 +39,7 @@ class ScheduleValidationError
      * @param  ?string  $occurrences
      * @param  ?string  $recur
      * @param  ?string  $description
+     * @phpstan-pure
      */
     public function __construct(?string $occurrences = null, ?string $recur = null, ?string $description = null)
     {

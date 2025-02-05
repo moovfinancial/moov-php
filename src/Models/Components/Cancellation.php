@@ -29,6 +29,7 @@ class Cancellation
     /**
      * @param  CancellationStatus  $status
      * @param  \DateTime  $createdOn
+     * @phpstan-pure
      */
     public function __construct(CancellationStatus $status, \DateTime $createdOn)
     {

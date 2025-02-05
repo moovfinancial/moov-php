@@ -27,14 +27,6 @@ class LinkCardRequest
     public Components\LinkCard $linkCard;
 
     /**
-     * Specify an API version.
-     *
-     * @var ?Components\Versions $xMoovVersion
-     */
-    #[SpeakeasyMetadata('header:style=simple,explode=false,name=x-moov-version')]
-    public ?Components\Versions $xMoovVersion = null;
-
-    /**
      * Optional header to wait for certain events, such as the creation of a payment method, to occur before returning a response.
      *
      *
@@ -47,16 +39,34 @@ class LinkCardRequest
     public ?Components\LinkCardWaitFor $xWaitFor = null;
 
     /**
+     * Specify an API version.
+     *
+     *
+     * API versioning follows the format `vYYYY.QQ.BB`, where 
+     *   - `YYYY` is the year
+     *   - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)
+     *   - `BB` is an **optional** build number starting at `.01` for subsequent builds in the same quarter. 
+     *     - If no build number is specified, the version refers to the initial release of the quarter.
+     *
+     * The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release.
+     *
+     * @var ?string $xMoovVersion
+     */
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=x-moov-version')]
+    public ?string $xMoovVersion = null;
+
+    /**
      * @param  string  $accountID
      * @param  Components\LinkCard  $linkCard
-     * @param  ?Components\Versions  $xMoovVersion
+     * @param  ?string  $xMoovVersion
      * @param  ?Components\LinkCardWaitFor  $xWaitFor
+     * @phpstan-pure
      */
-    public function __construct(string $accountID, Components\LinkCard $linkCard, ?Components\Versions $xMoovVersion = null, ?Components\LinkCardWaitFor $xWaitFor = null)
+    public function __construct(string $accountID, Components\LinkCard $linkCard, ?Components\LinkCardWaitFor $xWaitFor = null, ?string $xMoovVersion = 'v2024.01')
     {
         $this->accountID = $accountID;
         $this->linkCard = $linkCard;
-        $this->xMoovVersion = $xMoovVersion;
         $this->xWaitFor = $xWaitFor;
+        $this->xMoovVersion = $xMoovVersion;
     }
 }

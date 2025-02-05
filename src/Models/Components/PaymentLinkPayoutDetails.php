@@ -35,6 +35,7 @@ class PaymentLinkPayoutDetails
     /**
      * @param  array<DisbursementPaymentMethodType>  $allowedMethods
      * @param  PayoutRecipient  $recipient
+     * @phpstan-pure
      */
     public function __construct(array $allowedMethods, PayoutRecipient $recipient)
     {

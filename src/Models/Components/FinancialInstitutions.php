@@ -22,6 +22,7 @@ class FinancialInstitutions
 
     /**
      * @param  array<AchParticipant>  $achParticipants
+     * @phpstan-pure
      */
     public function __construct(array $achParticipants)
     {

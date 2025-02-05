@@ -8,9 +8,7 @@ declare(strict_types=1);
 
 namespace Moov\OpenAPI\Models\Errors;
 
-
 use Moov\OpenAPI\Utils;
-
 class PatchSweepConfigError
 {
     /**
@@ -59,6 +57,7 @@ class PatchSweepConfigError
      * @param  ?string  $pullPaymentMethodID
      * @param  ?string  $statementDescriptor
      * @param  ?string  $minimumBalance
+     * @phpstan-pure
      */
     public function __construct(?string $status = null, ?string $pushPaymentMethodID = null, ?string $pullPaymentMethodID = null, ?string $statementDescriptor = null, ?string $minimumBalance = null)
     {

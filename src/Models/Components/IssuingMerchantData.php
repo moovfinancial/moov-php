@@ -82,6 +82,7 @@ class IssuingMerchantData
      * @param  ?string  $postalCode
      * @param  ?string  $state
      * @param  ?string  $mcc
+     * @phpstan-pure
      */
     public function __construct(?string $networkID = null, ?string $name = null, ?string $city = null, ?string $country = null, ?string $postalCode = null, ?string $state = null, ?string $mcc = null)
     {

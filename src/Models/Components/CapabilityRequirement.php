@@ -34,6 +34,7 @@ class CapabilityRequirement
     /**
      * @param  array<RequirementID>  $currentlyDue
      * @param  ?array<RequirementError>  $errors
+     * @phpstan-pure
      */
     public function __construct(array $currentlyDue, ?array $errors = null)
     {

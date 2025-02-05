@@ -40,6 +40,7 @@ class RtpCreditPaymentMethod
      * @param  string  $paymentMethodID
      * @param  BankAccount  $bankAccount
      * @param  RtpCreditPaymentMethodPaymentMethodType  $paymentMethodType
+     * @phpstan-pure
      */
     public function __construct(string $paymentMethodID, BankAccount $bankAccount, RtpCreditPaymentMethodPaymentMethodType $paymentMethodType)
     {

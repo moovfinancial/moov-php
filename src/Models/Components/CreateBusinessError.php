@@ -115,6 +115,7 @@ class CreateBusinessError
      * @param  ?CreateBusinessErrorTaxID  $taxID
      * @param  ?CreateBusinessErrorIndustryCodes  $industryCodes
      * @param  ?string  $primaryRegulator
+     * @phpstan-pure
      */
     public function __construct(?string $legalBusinessName = null, ?string $doingBusinessAs = null, ?string $businessType = null, ?AddressError $address = null, ?PhoneNumberError $phone = null, ?string $email = null, ?string $website = null, ?string $description = null, ?CreateBusinessErrorTaxID $taxID = null, ?CreateBusinessErrorIndustryCodes $industryCodes = null, ?string $primaryRegulator = null)
     {

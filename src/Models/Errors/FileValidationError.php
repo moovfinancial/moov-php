@@ -8,9 +8,7 @@ declare(strict_types=1);
 
 namespace Moov\OpenAPI\Models\Errors;
 
-
 use Moov\OpenAPI\Utils;
-
 class FileValidationError
 {
     /**
@@ -50,6 +48,7 @@ class FileValidationError
      * @param  ?string  $file
      * @param  ?string  $filePurpose
      * @param  ?string  $metadata
+     * @phpstan-pure
      */
     public function __construct(?string $error = null, ?string $file = null, ?string $filePurpose = null, ?string $metadata = null)
     {

@@ -8,9 +8,7 @@ declare(strict_types=1);
 
 namespace Moov\OpenAPI\Models\Errors;
 
-
 use Moov\OpenAPI\Utils;
-
 class BankAccountValidationError
 {
     /**
@@ -59,6 +57,7 @@ class BankAccountValidationError
      * @param  ?string  $plaidLink
      * @param  ?string  $mx
      * @param  ?string  $error
+     * @phpstan-pure
      */
     public function __construct(?string $account = null, ?string $plaid = null, ?string $plaidLink = null, ?string $mx = null, ?string $error = null)
     {

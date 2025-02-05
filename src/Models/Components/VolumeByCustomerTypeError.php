@@ -30,6 +30,7 @@ class VolumeByCustomerTypeError
     /**
      * @param  ?string  $businessToBusinessPercentage
      * @param  ?string  $consumerToBusinessPercentage
+     * @phpstan-pure
      */
     public function __construct(?string $businessToBusinessPercentage = null, ?string $consumerToBusinessPercentage = null)
     {

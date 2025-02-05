@@ -118,6 +118,7 @@ class AchParticipant
      * @param  string  $viewCode
      * @param  string  $cleanName
      * @param  ?Logo  $logo
+     * @phpstan-pure
      */
     public function __construct(AchLocation $achLocation, string $customerName, string $newRoutingNumber, string $officeCode, string $phoneNumber, string $recordTypeCode, string $revised, string $routingNumber, string $servicingFRBNumber, string $statusCode, string $viewCode, string $cleanName, ?Logo $logo = null)
     {

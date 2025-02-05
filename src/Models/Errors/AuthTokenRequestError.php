@@ -8,9 +8,7 @@ declare(strict_types=1);
 
 namespace Moov\OpenAPI\Models\Errors;
 
-
 use Moov\OpenAPI\Utils;
-
 class AuthTokenRequestError
 {
     /**
@@ -32,6 +30,7 @@ class AuthTokenRequestError
     /**
      * @param  ?string  $scope
      * @param  ?string  $refreshToken
+     * @phpstan-pure
      */
     public function __construct(?string $scope = null, ?string $refreshToken = null)
     {

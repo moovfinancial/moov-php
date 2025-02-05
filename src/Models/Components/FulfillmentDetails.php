@@ -45,6 +45,7 @@ class FulfillmentDetails
      * @param  bool  $isShippingProduct
      * @param  int  $shipmentDurationDays
      * @param  ReturnPolicyType  $returnPolicy
+     * @phpstan-pure
      */
     public function __construct(bool $hasPhysicalGoods, bool $isShippingProduct, int $shipmentDurationDays, ReturnPolicyType $returnPolicy)
     {

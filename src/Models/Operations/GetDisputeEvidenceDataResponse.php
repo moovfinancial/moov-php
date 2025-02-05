@@ -33,6 +33,13 @@ class GetDisputeEvidenceDataResponse
     public \Psr\Http\Message\ResponseInterface $rawResponse;
 
     /**
+     * $headers
+     *
+     * @var array<string, array<string>> $headers
+     */
+    public array $headers;
+
+    /**
      * The request has succeeded.
      *
      * @var ?string $twoHundredApplicationPdfBytes
@@ -57,15 +64,18 @@ class GetDisputeEvidenceDataResponse
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
+     * @param  array<string, array<string>>  $headers
      * @param  ?string  $twoHundredApplicationPdfBytes
      * @param  ?string  $twoHundredImageJpegBytes
      * @param  ?string  $twoHundredImageTiffBytes
+     * @phpstan-pure
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?string $twoHundredApplicationPdfBytes = null, ?string $twoHundredImageJpegBytes = null, ?string $twoHundredImageTiffBytes = null)
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?string $twoHundredApplicationPdfBytes = null, ?string $twoHundredImageJpegBytes = null, ?string $twoHundredImageTiffBytes = null, ?array $headers = [])
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
+        $this->headers = $headers;
         $this->twoHundredApplicationPdfBytes = $twoHundredApplicationPdfBytes;
         $this->twoHundredImageJpegBytes = $twoHundredImageJpegBytes;
         $this->twoHundredImageTiffBytes = $twoHundredImageTiffBytes;

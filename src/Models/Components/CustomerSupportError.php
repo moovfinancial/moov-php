@@ -50,6 +50,7 @@ class CustomerSupportError
      * @param  ?string  $email
      * @param  ?AddressError  $address
      * @param  ?string  $website
+     * @phpstan-pure
      */
     public function __construct(?PhoneNumberError $phone = null, ?string $email = null, ?AddressError $address = null, ?string $website = null)
     {

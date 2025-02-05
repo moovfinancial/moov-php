@@ -118,6 +118,7 @@ class ScheduleResponse
      * @param  ?OccurrencesResponse  $occurrences
      * @param  ?Recur  $recur
      * @param  ?\DateTime  $disabledOn
+     * @phpstan-pure
      */
     public function __construct(string $destinationAccountID, Mode $mode, string $ownerAccountID, string $partnerAccountID, string $scheduleID, string $sourceAccountID, \DateTime $createdOn, \DateTime $updatedOn, ?string $description = null, ?OccurrencesResponse $occurrences = null, ?Recur $recur = null, ?\DateTime $disabledOn = null)
     {

@@ -33,6 +33,7 @@ class CardAccountUpdater
     /**
      * @param  ?\DateTime  $updatedOn
      * @param  ?CardUpdateReason  $updateType
+     * @phpstan-pure
      */
     public function __construct(?\DateTime $updatedOn = null, ?CardUpdateReason $updateType = null)
     {

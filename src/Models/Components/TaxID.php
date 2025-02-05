@@ -22,6 +22,7 @@ class TaxID
 
     /**
      * @param  Ein  $ein
+     * @phpstan-pure
      */
     public function __construct(Ein $ein)
     {

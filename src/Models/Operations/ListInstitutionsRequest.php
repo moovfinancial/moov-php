@@ -8,18 +8,9 @@ declare(strict_types=1);
 
 namespace Moov\OpenAPI\Models\Operations;
 
-use Moov\OpenAPI\Models\Components;
 use Moov\OpenAPI\Utils\SpeakeasyMetadata;
 class ListInstitutionsRequest
 {
-    /**
-     * Specify an API version.
-     *
-     * @var ?Components\Versions $xMoovVersion
-     */
-    #[SpeakeasyMetadata('header:style=simple,explode=false,name=x-moov-version')]
-    public ?Components\Versions $xMoovVersion = null;
-
     /**
      * Name of the financial institution. Either `name` or `routingNumber` is required.
      *
@@ -53,18 +44,36 @@ class ListInstitutionsRequest
     public ?int $limit = null;
 
     /**
-     * @param  ?Components\Versions  $xMoovVersion
+     * Specify an API version.
+     *
+     *
+     * API versioning follows the format `vYYYY.QQ.BB`, where 
+     *   - `YYYY` is the year
+     *   - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)
+     *   - `BB` is an **optional** build number starting at `.01` for subsequent builds in the same quarter. 
+     *     - If no build number is specified, the version refers to the initial release of the quarter.
+     *
+     * The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release.
+     *
+     * @var ?string $xMoovVersion
+     */
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=x-moov-version')]
+    public ?string $xMoovVersion = null;
+
+    /**
+     * @param  ?string  $xMoovVersion
      * @param  ?string  $name
      * @param  ?string  $routingNumber
      * @param  ?string  $state
      * @param  ?int  $limit
+     * @phpstan-pure
      */
-    public function __construct(?Components\Versions $xMoovVersion = null, ?string $name = null, ?string $routingNumber = null, ?string $state = null, ?int $limit = null)
+    public function __construct(?string $name = null, ?string $routingNumber = null, ?string $state = null, ?int $limit = null, ?string $xMoovVersion = 'v2024.01')
     {
-        $this->xMoovVersion = $xMoovVersion;
         $this->name = $name;
         $this->routingNumber = $routingNumber;
         $this->state = $state;
         $this->limit = $limit;
+        $this->xMoovVersion = $xMoovVersion;
     }
 }

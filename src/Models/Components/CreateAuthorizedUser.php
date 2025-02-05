@@ -39,6 +39,7 @@ class CreateAuthorizedUser
      * @param  string  $firstName
      * @param  string  $lastName
      * @param  ?BirthDate  $birthDate
+     * @phpstan-pure
      */
     public function __construct(string $firstName, string $lastName, ?BirthDate $birthDate = null)
     {

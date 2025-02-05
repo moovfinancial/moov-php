@@ -32,6 +32,7 @@ class CreateAccountSettings
     /**
      * @param  ?CardPayment  $cardPayment
      * @param  ?AchPayment  $achPayment
+     * @phpstan-pure
      */
     public function __construct(?CardPayment $cardPayment = null, ?AchPayment $achPayment = null)
     {

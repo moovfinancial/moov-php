@@ -28,6 +28,7 @@ class AsyncTransfer
     /**
      * @param  string  $transferID
      * @param  \DateTime  $createdOn
+     * @phpstan-pure
      */
     public function __construct(string $transferID, \DateTime $createdOn)
     {

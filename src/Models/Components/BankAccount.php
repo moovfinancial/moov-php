@@ -138,6 +138,7 @@ class BankAccount
      * @param  BankAccountStatusReason  $statusReason
      * @param  ?BankAccountException  $exceptionDetails
      * @param  ?array<BasicPaymentMethod>  $paymentMethods
+     * @phpstan-pure
      */
     public function __construct(string $bankAccountID, string $fingerprint, BankAccountStatus $status, string $holderName, BankAccountHolderType $holderType, string $bankName, BankAccountType $bankAccountType, string $routingNumber, string $lastFourAccountNumber, \DateTime $updatedOn, BankAccountStatusReason $statusReason, ?BankAccountException $exceptionDetails = null, ?array $paymentMethods = null)
     {
