@@ -28,21 +28,21 @@ class PullFromCardPaymentMethod
     public PullFromCardPaymentMethodPaymentMethodType $paymentMethodType;
 
     /**
-     * Describes a card on a Moov account.
+     * A card as contained within a payment method.
      *
-     * @var Card $card
+     * @var PaymentMethodsCard $card
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('card')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\Card')]
-    public Card $card;
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PaymentMethodsCard')]
+    public PaymentMethodsCard $card;
 
     /**
      * @param  string  $paymentMethodID
      * @param  PullFromCardPaymentMethodPaymentMethodType  $paymentMethodType
-     * @param  Card  $card
+     * @param  PaymentMethodsCard  $card
      * @phpstan-pure
      */
-    public function __construct(string $paymentMethodID, PullFromCardPaymentMethodPaymentMethodType $paymentMethodType, Card $card)
+    public function __construct(string $paymentMethodID, PullFromCardPaymentMethodPaymentMethodType $paymentMethodType, PaymentMethodsCard $card)
     {
         $this->paymentMethodID = $paymentMethodID;
         $this->paymentMethodType = $paymentMethodType;
