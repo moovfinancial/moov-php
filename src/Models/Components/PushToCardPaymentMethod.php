@@ -20,6 +20,14 @@ class PushToCardPaymentMethod
     public string $paymentMethodID;
 
     /**
+     *
+     * @var PushToCardPaymentMethodPaymentMethodType $paymentMethodType
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('paymentMethodType')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PushToCardPaymentMethodPaymentMethodType')]
+    public PushToCardPaymentMethodPaymentMethodType $paymentMethodType;
+
+    /**
      * Describes a card on a Moov account.
      *
      * @var Card $card
@@ -29,23 +37,15 @@ class PushToCardPaymentMethod
     public Card $card;
 
     /**
-     *
-     * @var PushToCardPaymentMethodPaymentMethodType $paymentMethodType
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('paymentMethodType')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PushToCardPaymentMethodPaymentMethodType')]
-    public PushToCardPaymentMethodPaymentMethodType $paymentMethodType;
-
-    /**
      * @param  string  $paymentMethodID
-     * @param  Card  $card
      * @param  PushToCardPaymentMethodPaymentMethodType  $paymentMethodType
+     * @param  Card  $card
      * @phpstan-pure
      */
-    public function __construct(string $paymentMethodID, Card $card, PushToCardPaymentMethodPaymentMethodType $paymentMethodType)
+    public function __construct(string $paymentMethodID, PushToCardPaymentMethodPaymentMethodType $paymentMethodType, Card $card)
     {
         $this->paymentMethodID = $paymentMethodID;
-        $this->card = $card;
         $this->paymentMethodType = $paymentMethodType;
+        $this->card = $card;
     }
 }

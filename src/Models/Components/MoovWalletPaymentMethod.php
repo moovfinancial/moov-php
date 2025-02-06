@@ -29,19 +29,19 @@ class MoovWalletPaymentMethod
 
     /**
      *
-     * @var mixed $wallet
+     * @var PaymentMethodsWallet $wallet
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('wallet')]
-    #[\Speakeasy\Serializer\Annotation\Type('mixed')]
-    public mixed $wallet;
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PaymentMethodsWallet')]
+    public PaymentMethodsWallet $wallet;
 
     /**
      * @param  string  $paymentMethodID
      * @param  MoovWalletPaymentMethodPaymentMethodType  $paymentMethodType
-     * @param  mixed  $wallet
+     * @param  PaymentMethodsWallet  $wallet
      * @phpstan-pure
      */
-    public function __construct(string $paymentMethodID, MoovWalletPaymentMethodPaymentMethodType $paymentMethodType, mixed $wallet)
+    public function __construct(string $paymentMethodID, MoovWalletPaymentMethodPaymentMethodType $paymentMethodType, PaymentMethodsWallet $wallet)
     {
         $this->paymentMethodID = $paymentMethodID;
         $this->paymentMethodType = $paymentMethodType;

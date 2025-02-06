@@ -20,15 +20,6 @@ class AchDebitCollectPaymentMethod
     public string $paymentMethodID;
 
     /**
-     * Describes a bank account linked to a Moov account.
-     *
-     * @var BankAccount $bankAccount
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('bankAccount')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\BankAccount')]
-    public BankAccount $bankAccount;
-
-    /**
      *
      * @var AchDebitCollectPaymentMethodPaymentMethodType $paymentMethodType
      */
@@ -37,15 +28,24 @@ class AchDebitCollectPaymentMethod
     public AchDebitCollectPaymentMethodPaymentMethodType $paymentMethodType;
 
     /**
+     * A bank account as contained within a payment method.
+     *
+     * @var PaymentMethodsBankAccount $bankAccount
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('bankAccount')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PaymentMethodsBankAccount')]
+    public PaymentMethodsBankAccount $bankAccount;
+
+    /**
      * @param  string  $paymentMethodID
-     * @param  BankAccount  $bankAccount
      * @param  AchDebitCollectPaymentMethodPaymentMethodType  $paymentMethodType
+     * @param  PaymentMethodsBankAccount  $bankAccount
      * @phpstan-pure
      */
-    public function __construct(string $paymentMethodID, BankAccount $bankAccount, AchDebitCollectPaymentMethodPaymentMethodType $paymentMethodType)
+    public function __construct(string $paymentMethodID, AchDebitCollectPaymentMethodPaymentMethodType $paymentMethodType, PaymentMethodsBankAccount $bankAccount)
     {
         $this->paymentMethodID = $paymentMethodID;
-        $this->bankAccount = $bankAccount;
         $this->paymentMethodType = $paymentMethodType;
+        $this->bankAccount = $bankAccount;
     }
 }
