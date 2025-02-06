@@ -28,20 +28,21 @@ class ApplePayPaymentMethod
     public ApplePayPaymentMethodPaymentMethodType $paymentMethodType;
 
     /**
+     * Describes an Apple Pay token on a Moov account.
      *
-     * @var mixed $applePay
+     * @var ApplePayResponse $applePay
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('applePay')]
-    #[\Speakeasy\Serializer\Annotation\Type('mixed')]
-    public mixed $applePay;
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\ApplePayResponse')]
+    public ApplePayResponse $applePay;
 
     /**
      * @param  string  $paymentMethodID
      * @param  ApplePayPaymentMethodPaymentMethodType  $paymentMethodType
-     * @param  mixed  $applePay
+     * @param  ApplePayResponse  $applePay
      * @phpstan-pure
      */
-    public function __construct(string $paymentMethodID, ApplePayPaymentMethodPaymentMethodType $paymentMethodType, mixed $applePay)
+    public function __construct(string $paymentMethodID, ApplePayPaymentMethodPaymentMethodType $paymentMethodType, ApplePayResponse $applePay)
     {
         $this->paymentMethodID = $paymentMethodID;
         $this->paymentMethodType = $paymentMethodType;

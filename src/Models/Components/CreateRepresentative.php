@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Moov\OpenAPI\Models\Components;
 
 
-/** CreateRepresentative - The template for omitting properties. */
+/** CreateRepresentative - Describes a business representative to create. */
 class CreateRepresentative
 {
     /**

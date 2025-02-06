@@ -1,6 +1,6 @@
 # CreateRepresentative
 
-The template for omitting properties.
+Describes a business representative to create.
 
 
 ## Fields
