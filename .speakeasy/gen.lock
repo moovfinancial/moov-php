@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 471d21f198bac3a3555224cea51546bd
+  docChecksum: 5eabb480b77000a8259ac6a43ae5a751
   docVersion: latest
-  speakeasyVersion: 1.486.0
-  generationVersion: 2.505.0
-  releaseVersion: 0.1.2
-  configChecksum: 42d8fe8ab013f31936f68611d2103890
+  speakeasyVersion: 1.487.0
+  generationVersion: 2.506.0
+  releaseVersion: 0.1.3
+  configChecksum: b99b30254c96367400843ce9b30c69d9
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
@@ -1871,7 +1871,7 @@ examples:
         header: {}
       responses:
         "200":
-          application/json: [{"capability": "transfers", "accountID": "01234567-89ab-cdef-0123-456789abcdef", "status": "enabled", "createdOn": "2024-05-06T12:20:38.184Z", "updatedOn": "2024-05-06T12:20:38.184Z"}, {"capability": "collect-funds", "accountID": "01234567-89ab-cdef-0123-456789abcdef", "status": "in-review", "requirements": [{"currentlyDue": ["business.owners"]}], "createdOn": "2024-05-06T12:20:38.184Z", "updatedOn": "2024-05-06T12:20:38.184Z"}]
+          application/json: [{"capability": "transfers", "accountID": "01234567-89ab-cdef-0123-456789abcdef", "status": "enabled", "createdOn": "2024-05-06T12:20:38.184Z", "updatedOn": "2024-05-06T12:20:38.184Z"}, {"capability": "collect-funds", "accountID": "01234567-89ab-cdef-0123-456789abcdef", "status": "in-review", "requirements": {"currentlyDue": ["business.owners"]}, "createdOn": "2024-05-06T12:20:38.184Z", "updatedOn": "2024-05-06T12:20:38.184Z"}]
   addCapabilities:
     "":
       parameters:
@@ -2888,7 +2888,7 @@ examples:
         application/json: {"capabilities": ["collect-funds"]}
       responses:
         "200":
-          application/json: [{"capability": "transfers", "accountID": "01234567-89ab-cdef-0123-456789abcdef", "status": "enabled", "createdOn": "2024-05-06T12:20:38.184Z", "updatedOn": "2024-05-06T12:20:38.184Z"}, {"capability": "collect-funds", "accountID": "01234567-89ab-cdef-0123-456789abcdef", "status": "in-review", "requirements": [{"currentlyDue": ["business.owners"]}], "createdOn": "2024-05-06T12:20:38.184Z", "updatedOn": "2024-05-06T12:20:38.184Z"}]
+          application/json: [{"capability": "transfers", "accountID": "01234567-89ab-cdef-0123-456789abcdef", "status": "enabled", "createdOn": "2024-05-06T12:20:38.184Z", "updatedOn": "2024-05-06T12:20:38.184Z"}, {"capability": "collect-funds", "accountID": "01234567-89ab-cdef-0123-456789abcdef", "status": "in-review", "requirements": {"currentlyDue": ["business.owners"]}, "createdOn": "2024-05-06T12:20:38.184Z", "updatedOn": "2024-05-06T12:20:38.184Z"}]
   updateSweepConfig:
     "":
       parameters:
