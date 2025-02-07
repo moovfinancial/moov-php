@@ -51,14 +51,14 @@ class Capability
     public \DateTime $updatedOn;
 
     /**
-     * $requirements
+     * Represents individual and business data necessary to facilitate the enabling of a capability for an account.
      *
-     * @var ?array<CapabilityRequirement> $requirements
+     * @var ?CapabilityRequirement $requirements
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('requirements')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\OpenAPI\Models\Components\CapabilityRequirement>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CapabilityRequirement|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?array $requirements = null;
+    public ?CapabilityRequirement $requirements = null;
 
     /**
      *
@@ -82,12 +82,12 @@ class Capability
      * @param  CapabilityStatus  $status
      * @param  \DateTime  $createdOn
      * @param  \DateTime  $updatedOn
-     * @param  ?array<CapabilityRequirement>  $requirements
+     * @param  ?CapabilityRequirement  $requirements
      * @param  ?string  $disabledReason
      * @param  ?\DateTime  $disabledOn
      * @phpstan-pure
      */
-    public function __construct(CapabilityID $capability, string $accountID, CapabilityStatus $status, \DateTime $createdOn, \DateTime $updatedOn, ?array $requirements = null, ?string $disabledReason = null, ?\DateTime $disabledOn = null)
+    public function __construct(CapabilityID $capability, string $accountID, CapabilityStatus $status, \DateTime $createdOn, \DateTime $updatedOn, ?CapabilityRequirement $requirements = null, ?string $disabledReason = null, ?\DateTime $disabledOn = null)
     {
         $this->capability = $capability;
         $this->accountID = $accountID;
