@@ -93,7 +93,7 @@ class Industries
 
                 $serializer = Utils\JSON::createSerializer();
                 $responseData = (string) $httpResponse->getBody();
-                $obj = $serializer->deserialize($responseData, 'array<\Moov\OpenAPI\Models\Components\EnrichedIndustry>', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj = $serializer->deserialize($responseData, '\Moov\OpenAPI\Models\Components\EnrichedIndustries', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
                 $response = new Operations\ListIndustriesResponse(
                     statusCode: $statusCode,
                     contentType: $contentType,

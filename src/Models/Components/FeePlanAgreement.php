@@ -26,6 +26,14 @@ class FeePlanAgreement
     public string $planID;
 
     /**
+     * The name of the agreement.
+     *
+     * @var string $name
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('name')]
+    public string $name;
+
+    /**
      *
      * @var \DateTime $acceptedOn
      */
@@ -67,23 +75,36 @@ class FeePlanAgreement
     public ?string $accountID = null;
 
     /**
+     * The description of the agreement.
+     *
+     * @var ?string $description
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('description')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $description = null;
+
+    /**
      * @param  string  $aggreementID
      * @param  string  $planID
+     * @param  string  $name
      * @param  \DateTime  $acceptedOn
      * @param  FeePlanAgreementStatus  $status
      * @param  CardAcquringModel  $cardAcquringModel
      * @param  array<BillableFee>  $billableFees
      * @param  ?string  $accountID
+     * @param  ?string  $description
      * @phpstan-pure
      */
-    public function __construct(string $aggreementID, string $planID, \DateTime $acceptedOn, FeePlanAgreementStatus $status, CardAcquringModel $cardAcquringModel, array $billableFees, ?string $accountID = null)
+    public function __construct(string $aggreementID, string $planID, string $name, \DateTime $acceptedOn, FeePlanAgreementStatus $status, CardAcquringModel $cardAcquringModel, array $billableFees, ?string $accountID = null, ?string $description = null)
     {
         $this->aggreementID = $aggreementID;
         $this->planID = $planID;
+        $this->name = $name;
         $this->acceptedOn = $acceptedOn;
         $this->status = $status;
         $this->cardAcquringModel = $cardAcquringModel;
         $this->billableFees = $billableFees;
         $this->accountID = $accountID;
+        $this->description = $description;
     }
 }

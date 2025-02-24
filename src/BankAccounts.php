@@ -522,20 +522,20 @@ class BankAccounts
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/bank-accounts.write` scope.
      *
-     * @param  Components\BankAccountWaitFor  $xWaitFor
      * @param  string  $accountID
      * @param  string  $bankAccountID
      * @param  ?string  $xMoovVersion
+     * @param  ?Components\BankAccountWaitFor  $xWaitFor
      * @return Operations\InitiateBankAccountVerificationResponse
      * @throws \Moov\OpenAPI\Models\Errors\APIException
      */
-    public function initiateVerification(Components\BankAccountWaitFor $xWaitFor, string $accountID, string $bankAccountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\InitiateBankAccountVerificationResponse
+    public function initiateVerification(string $accountID, string $bankAccountID, ?string $xMoovVersion = null, ?Components\BankAccountWaitFor $xWaitFor = null, ?Options $options = null): Operations\InitiateBankAccountVerificationResponse
     {
         $request = new Operations\InitiateBankAccountVerificationRequest(
-            xWaitFor: $xWaitFor,
             accountID: $accountID,
             bankAccountID: $bankAccountID,
             xMoovVersion: $xMoovVersion,
+            xWaitFor: $xWaitFor,
         );
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/bank-accounts/{bankAccountID}/verify', Operations\InitiateBankAccountVerificationRequest::class, $request, $this->sdkConfiguration->globals);

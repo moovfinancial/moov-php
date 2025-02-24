@@ -22,6 +22,9 @@ class GetCapabilityRequest
     /**
      * Moov account capabilities.
      *
+     *
+     * The `production-app` capability might appear in your list. This is a read-only capability that Moov requests and uses for account verification purposes. The capability remains active with your account and requires no additional action.
+     *
      * @var Components\CapabilityID $capabilityID
      */
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=capabilityID')]
@@ -34,8 +37,8 @@ class GetCapabilityRequest
      * API versioning follows the format `vYYYY.QQ.BB`, where 
      *   - `YYYY` is the year
      *   - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)
-     *   - `BB` is an **optional** build number starting at `.01` for subsequent builds in the same quarter. 
-     *     - If no build number is specified, the version refers to the initial release of the quarter.
+     *   - `BB` is the build number, starting at `.01`, for subsequent builds in the same quarter. 
+     *     - For example, `v2024.01.00` is the initial release of the first quarter of 2024.
      *
      * The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release.
      *
@@ -50,7 +53,7 @@ class GetCapabilityRequest
      * @param  ?string  $xMoovVersion
      * @phpstan-pure
      */
-    public function __construct(string $accountID, Components\CapabilityID $capabilityID, ?string $xMoovVersion = 'v2024.01')
+    public function __construct(string $accountID, Components\CapabilityID $capabilityID, ?string $xMoovVersion = 'v2024.01.00')
     {
         $this->accountID = $accountID;
         $this->capabilityID = $capabilityID;

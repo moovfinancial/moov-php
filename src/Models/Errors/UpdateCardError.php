@@ -23,21 +23,19 @@ class UpdateCardError
 
     /**
      *
-     * @var ?Components\CardAddressError $billingAddress
+     * @var ?string $billingAddress
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('billingAddress')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CardAddressError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?Components\CardAddressError $billingAddress = null;
+    public ?string $billingAddress = null;
 
     /**
      *
-     * @var ?Components\CardExpirationError $expiration
+     * @var ?string $expiration
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('expiration')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CardExpirationError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?Components\CardExpirationError $expiration = null;
+    public ?string $expiration = null;
 
     /**
      *
@@ -81,8 +79,8 @@ class UpdateCardError
 
     /**
      * @param  ?Components\End2EndEncryptionError  $e2ee
-     * @param  ?Components\CardAddressError  $billingAddress
-     * @param  ?Components\CardExpirationError  $expiration
+     * @param  ?string  $billingAddress
+     * @param  ?string  $expiration
      * @param  ?string  $cardCvv
      * @param  ?string  $cardOnFile
      * @param  ?string  $merchantAccountID
@@ -90,7 +88,7 @@ class UpdateCardError
      * @param  ?string  $holderName
      * @phpstan-pure
      */
-    public function __construct(?Components\End2EndEncryptionError $e2ee = null, ?Components\CardAddressError $billingAddress = null, ?Components\CardExpirationError $expiration = null, ?string $cardCvv = null, ?string $cardOnFile = null, ?string $merchantAccountID = null, ?string $verifyName = null, ?string $holderName = null)
+    public function __construct(?Components\End2EndEncryptionError $e2ee = null, ?string $billingAddress = null, ?string $expiration = null, ?string $cardCvv = null, ?string $cardOnFile = null, ?string $merchantAccountID = null, ?string $verifyName = null, ?string $holderName = null)
     {
         $this->e2ee = $e2ee;
         $this->billingAddress = $billingAddress;

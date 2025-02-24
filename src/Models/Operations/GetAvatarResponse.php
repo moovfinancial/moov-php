@@ -42,33 +42,24 @@ class GetAvatarResponse
     /**
      * The request has succeeded.
      *
-     * @var ?string $twoHundredImagePngBytes
+     * @var ?string $bytes
      */
-    public ?string $twoHundredImagePngBytes = null;
-
-    /**
-     * The request has succeeded.
-     *
-     * @var ?string $twoHundredImageJpegBytes
-     */
-    public ?string $twoHundredImageJpegBytes = null;
+    public ?string $bytes = null;
 
     /**
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?string  $twoHundredImagePngBytes
-     * @param  ?string  $twoHundredImageJpegBytes
+     * @param  ?string  $bytes
      * @phpstan-pure
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?string $twoHundredImagePngBytes = null, ?string $twoHundredImageJpegBytes = null, ?array $headers = [])
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?string $bytes = null, ?array $headers = [])
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
         $this->headers = $headers;
-        $this->twoHundredImagePngBytes = $twoHundredImagePngBytes;
-        $this->twoHundredImageJpegBytes = $twoHundredImageJpegBytes;
+        $this->bytes = $bytes;
     }
 }

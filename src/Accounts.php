@@ -742,24 +742,24 @@ class Accounts
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) you'll need 
      * to specify the `/accounts/{accountID}/profile.write` scope.
      *
-     * @param  Components\CreateAccountUpdate  $createAccountUpdate
+     * @param  Components\PatchAccount  $patchAccount
      * @param  string  $accountID
      * @param  ?string  $xMoovVersion
      * @return Operations\UpdateAccountResponse
      * @throws \Moov\OpenAPI\Models\Errors\APIException
      */
-    public function update(Components\CreateAccountUpdate $createAccountUpdate, string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\UpdateAccountResponse
+    public function update(Components\PatchAccount $patchAccount, string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\UpdateAccountResponse
     {
         $request = new Operations\UpdateAccountRequest(
             accountID: $accountID,
-            createAccountUpdate: $createAccountUpdate,
+            patchAccount: $patchAccount,
             xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}', Operations\UpdateAccountRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request, 'createAccountUpdate', 'json');
+        $body = Utils\Utils::serializeRequestBody($request, 'patchAccount', 'json');
         if ($body === null) {
             throw new \Exception('Request body is required');
         }

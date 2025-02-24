@@ -42,24 +42,24 @@ class GetDisputeEvidenceResponse
     /**
      * The request completed successfully.
      *
-     * @var ?Components\DisputeEvidenceMetadata $disputeEvidenceMetadata
+     * @var ?Components\DisputeEvidenceResponse $disputeEvidenceResponse
      */
-    public ?Components\DisputeEvidenceMetadata $disputeEvidenceMetadata = null;
+    public ?Components\DisputeEvidenceResponse $disputeEvidenceResponse = null;
 
     /**
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\DisputeEvidenceMetadata  $disputeEvidenceMetadata
+     * @param  ?Components\DisputeEvidenceResponse  $disputeEvidenceResponse
      * @phpstan-pure
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\DisputeEvidenceMetadata $disputeEvidenceMetadata = null, ?array $headers = [])
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\DisputeEvidenceResponse $disputeEvidenceResponse = null, ?array $headers = [])
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
         $this->headers = $headers;
-        $this->disputeEvidenceMetadata = $disputeEvidenceMetadata;
+        $this->disputeEvidenceResponse = $disputeEvidenceResponse;
     }
 }

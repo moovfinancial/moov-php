@@ -42,24 +42,24 @@ class GetScheduledOccurrenceResponse
     /**
      * The request completed successfully.
      *
-     * @var ?Components\ScheduleResponse $scheduleResponse
+     * @var ?Components\OccurrencesResponse $occurrencesResponse
      */
-    public ?Components\ScheduleResponse $scheduleResponse = null;
+    public ?Components\OccurrencesResponse $occurrencesResponse = null;
 
     /**
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\ScheduleResponse  $scheduleResponse
+     * @param  ?Components\OccurrencesResponse  $occurrencesResponse
      * @phpstan-pure
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\ScheduleResponse $scheduleResponse = null, ?array $headers = [])
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\OccurrencesResponse $occurrencesResponse = null, ?array $headers = [])
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
         $this->headers = $headers;
-        $this->scheduleResponse = $scheduleResponse;
+        $this->occurrencesResponse = $occurrencesResponse;
     }
 }

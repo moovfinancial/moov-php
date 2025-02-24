@@ -42,24 +42,24 @@ class UploadDisputeEvidenceTextResponse
     /**
      * The resource was successfully created.
      *
-     * @var ?Components\EvidenceText $evidenceText
+     * @var ?Components\EvidenceTextResponse $evidenceTextResponse
      */
-    public ?Components\EvidenceText $evidenceText = null;
+    public ?Components\EvidenceTextResponse $evidenceTextResponse = null;
 
     /**
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\EvidenceText  $evidenceText
+     * @param  ?Components\EvidenceTextResponse  $evidenceTextResponse
      * @phpstan-pure
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\EvidenceText $evidenceText = null, ?array $headers = [])
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\EvidenceTextResponse $evidenceTextResponse = null, ?array $headers = [])
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
         $this->headers = $headers;
-        $this->evidenceText = $evidenceText;
+        $this->evidenceTextResponse = $evidenceTextResponse;
     }
 }

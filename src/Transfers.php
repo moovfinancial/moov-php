@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Moov\OpenAPI;
 
 use Moov\OpenAPI\Hooks\HookContext;
+use Moov\OpenAPI\Models\Components;
 use Moov\OpenAPI\Models\Operations;
 use Moov\OpenAPI\Utils\Options;
 use Speakeasy\Serializer\DeserializationContext;
@@ -299,19 +300,26 @@ class Transfers
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
      *
+     * @param  Components\CreateTransferOptions  $createTransferOptions
      * @param  ?string  $xMoovVersion
      * @return Operations\CreateTransferOptionsResponse
      * @throws \Moov\OpenAPI\Models\Errors\APIException
      */
-    public function generateOptions(?string $xMoovVersion = null, ?Options $options = null): Operations\CreateTransferOptionsResponse
+    public function generateOptions(Components\CreateTransferOptions $createTransferOptions, ?string $xMoovVersion = null, ?Options $options = null): Operations\CreateTransferOptionsResponse
     {
         $request = new Operations\CreateTransferOptionsRequest(
+            createTransferOptions: $createTransferOptions,
             xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/transfer-options');
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
+        $body = Utils\Utils::serializeRequestBody($request, 'createTransferOptions', 'json');
+        if ($body === null) {
+            throw new \Exception('Request body is required');
+        }
+        $httpOptions = array_merge_recursive($httpOptions, $body);
         $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
@@ -763,7 +771,7 @@ class Transfers
      * Read our [transfers overview guide](https://docs.moov.io/guides/money-movement/overview/) to learn more. 
      *
      * When you run this request, you retrieve 200 transfers at a time. You can advance past a results set of 200 transfers by using the `skip` parameter (for example, 
-     * if you set `skip`= 10, you will see a results set of 200 transfers after the first 2000). If you are searching a high volume of transfers, the request will likely 
+     * if you set `skip`= 10, you will see a results set of 200 transfers after the first 10). If you are searching a high volume of transfers, the request will likely 
      * process very slowly. To achieve faster performance, restrict the data as much as you can by using the `StartDateTime` and `EndDateTime` parameters for a limited 
      * period of time. You can run multiple requests in smaller time window increments until you've retrieved all the transfers you need.
      *
@@ -846,23 +854,30 @@ class Transfers
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
      *
+     * @param  Components\PatchTransfer  $patchTransfer
      * @param  string  $transferID
      * @param  string  $accountID
      * @param  ?string  $xMoovVersion
      * @return Operations\UpdateTransferResponse
      * @throws \Moov\OpenAPI\Models\Errors\APIException
      */
-    public function update(string $transferID, string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\UpdateTransferResponse
+    public function update(Components\PatchTransfer $patchTransfer, string $transferID, string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\UpdateTransferResponse
     {
         $request = new Operations\UpdateTransferRequest(
             transferID: $transferID,
             accountID: $accountID,
+            patchTransfer: $patchTransfer,
             xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/transfers/{transferID}', Operations\UpdateTransferRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
+        $body = Utils\Utils::serializeRequestBody($request, 'patchTransfer', 'json');
+        if ($body === null) {
+            throw new \Exception('Request body is required');
+        }
+        $httpOptions = array_merge_recursive($httpOptions, $body);
         $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];

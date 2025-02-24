@@ -13,32 +13,35 @@ class IndustryCodes
 {
     /**
      *
-     * @var string $naics
+     * @var ?string $naics
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('naics')]
-    public string $naics;
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $naics = null;
 
     /**
      *
-     * @var string $sic
+     * @var ?string $sic
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('sic')]
-    public string $sic;
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $sic = null;
 
     /**
      *
-     * @var string $mcc
+     * @var ?string $mcc
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('mcc')]
-    public string $mcc;
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $mcc = null;
 
     /**
-     * @param  string  $naics
-     * @param  string  $sic
-     * @param  string  $mcc
+     * @param  ?string  $naics
+     * @param  ?string  $sic
+     * @param  ?string  $mcc
      * @phpstan-pure
      */
-    public function __construct(string $naics, string $sic, string $mcc)
+    public function __construct(?string $naics = null, ?string $sic = null, ?string $mcc = null)
     {
         $this->naics = $naics;
         $this->sic = $sic;

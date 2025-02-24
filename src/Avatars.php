@@ -68,7 +68,7 @@ class Avatars
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
         }
-        $httpOptions['headers']['Accept'] = 'image/jpeg;q=1, image/png;q=0';
+        $httpOptions['headers']['Accept'] = 'image/*';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
         $hookContext = new HookContext('getAvatar', null, $this->sdkConfiguration->securitySource);
@@ -89,7 +89,7 @@ class Avatars
             $httpResponse = $res;
         }
         if (Utils\Utils::matchStatusCodes($statusCode, ['200'])) {
-            if (Utils\Utils::matchContentType($contentType, 'image/png')) {
+            if (Utils\Utils::matchContentType($contentType, 'image/*')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
                 $obj = $httpResponse->getBody()->getContents();
@@ -99,18 +99,7 @@ class Avatars
                     contentType: $contentType,
                     rawResponse: $httpResponse,
                     headers: $httpResponse->getHeaders(),
-                    twoHundredImagePngBytes: $obj);
-            } elseif (Utils\Utils::matchContentType($contentType, 'image/jpeg')) {
-                $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
-
-                $obj = $httpResponse->getBody()->getContents();
-
-                return new Operations\GetAvatarResponse(
-                    statusCode: $statusCode,
-                    contentType: $contentType,
-                    rawResponse: $httpResponse,
-                    headers: $httpResponse->getHeaders(),
-                    twoHundredImageJpegBytes: $obj);
+                    bytes: $obj);
             } else {
                 throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }

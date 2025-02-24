@@ -42,19 +42,19 @@ class ListInstitutionsResponse
     /**
      * The request completed successfully.
      *
-     * @var ?array<Components\FinancialInstitutions> $financialInstitutions
+     * @var ?Components\FinancialInstitutions $financialInstitutions
      */
-    public ?array $financialInstitutions = null;
+    public ?Components\FinancialInstitutions $financialInstitutions = null;
 
     /**
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?array<Components\FinancialInstitutions>  $financialInstitutions
+     * @param  ?Components\FinancialInstitutions  $financialInstitutions
      * @phpstan-pure
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?array $financialInstitutions = null, ?array $headers = [])
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\FinancialInstitutions $financialInstitutions = null, ?array $headers = [])
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;

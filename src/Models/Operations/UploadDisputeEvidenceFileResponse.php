@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Moov\OpenAPI\Models\Operations;
 
-
+use Moov\OpenAPI\Models\Components;
 class UploadDisputeEvidenceFileResponse
 {
     /**
@@ -40,17 +40,26 @@ class UploadDisputeEvidenceFileResponse
     public array $headers;
 
     /**
+     * The resource was successfully created.
+     *
+     * @var ?Components\EvidenceUploadResponse $evidenceUploadResponse
+     */
+    public ?Components\EvidenceUploadResponse $evidenceUploadResponse = null;
+
+    /**
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
+     * @param  ?Components\EvidenceUploadResponse  $evidenceUploadResponse
      * @phpstan-pure
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?array $headers = [])
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\EvidenceUploadResponse $evidenceUploadResponse = null, ?array $headers = [])
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
         $this->headers = $headers;
+        $this->evidenceUploadResponse = $evidenceUploadResponse;
     }
 }

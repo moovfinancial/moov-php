@@ -125,8 +125,8 @@ class GetEnrichmentAddressRequest
      * API versioning follows the format `vYYYY.QQ.BB`, where 
      *   - `YYYY` is the year
      *   - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)
-     *   - `BB` is an **optional** build number starting at `.01` for subsequent builds in the same quarter. 
-     *     - If no build number is specified, the version refers to the initial release of the quarter.
+     *   - `BB` is the build number, starting at `.01`, for subsequent builds in the same quarter. 
+     *     - For example, `v2024.01.00` is the initial release of the first quarter of 2024.
      *
      * The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release.
      *
@@ -152,7 +152,7 @@ class GetEnrichmentAddressRequest
      * @param  ?string  $source
      * @phpstan-pure
      */
-    public function __construct(string $search, ?int $maxResults = null, ?string $includeCities = null, ?string $includeStates = null, ?string $includeZipcodes = null, ?string $excludeStates = null, ?string $preferCities = null, ?string $preferStates = null, ?string $preferZipcodes = null, ?int $preferRatio = null, ?string $preferGeolocation = null, ?string $selected = null, ?string $source = null, ?string $xMoovVersion = 'v2024.01')
+    public function __construct(string $search, ?int $maxResults = null, ?string $includeCities = null, ?string $includeStates = null, ?string $includeZipcodes = null, ?string $excludeStates = null, ?string $preferCities = null, ?string $preferStates = null, ?string $preferZipcodes = null, ?int $preferRatio = null, ?string $preferGeolocation = null, ?string $selected = null, ?string $source = null, ?string $xMoovVersion = 'v2024.01.00')
     {
         $this->search = $search;
         $this->maxResults = $maxResults;
