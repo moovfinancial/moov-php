@@ -42,19 +42,19 @@ class ListIndustriesResponse
     /**
      * The request completed successfully.
      *
-     * @var ?array<Components\EnrichedIndustry> $enrichedIndustries
+     * @var ?Components\EnrichedIndustries $enrichedIndustries
      */
-    public ?array $enrichedIndustries = null;
+    public ?Components\EnrichedIndustries $enrichedIndustries = null;
 
     /**
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?array<Components\EnrichedIndustry>  $enrichedIndustries
+     * @param  ?Components\EnrichedIndustries  $enrichedIndustries
      * @phpstan-pure
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?array $enrichedIndustries = null, ?array $headers = [])
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\EnrichedIndustries $enrichedIndustries = null, ?array $headers = [])
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;

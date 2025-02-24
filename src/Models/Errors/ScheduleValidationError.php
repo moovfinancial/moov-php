@@ -12,12 +12,14 @@ use Moov\OpenAPI\Utils;
 class ScheduleValidationError
 {
     /**
+     * $occurrences
      *
-     * @var ?string $occurrences
+     * @var ?array<string, string> $occurrences
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('occurrences')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string, string>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $occurrences = null;
+    public ?array $occurrences = null;
 
     /**
      *
@@ -36,12 +38,12 @@ class ScheduleValidationError
     public ?string $description = null;
 
     /**
-     * @param  ?string  $occurrences
+     * @param  ?array<string, string>  $occurrences
      * @param  ?string  $recur
      * @param  ?string  $description
      * @phpstan-pure
      */
-    public function __construct(?string $occurrences = null, ?string $recur = null, ?string $description = null)
+    public function __construct(?array $occurrences = null, ?string $recur = null, ?string $description = null)
     {
         $this->occurrences = $occurrences;
         $this->recur = $recur;

@@ -230,7 +230,7 @@ class Scheduling
     }
 
     /**
-     * Defines an occurrence for when to run a transfer.
+     * Gets a specific occurrence.
      *
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
@@ -284,13 +284,13 @@ class Scheduling
 
                 $serializer = Utils\JSON::createSerializer();
                 $responseData = (string) $httpResponse->getBody();
-                $obj = $serializer->deserialize($responseData, '\Moov\OpenAPI\Models\Components\ScheduleResponse', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj = $serializer->deserialize($responseData, '\Moov\OpenAPI\Models\Components\OccurrencesResponse', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
                 $response = new Operations\GetScheduledOccurrenceResponse(
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
                     headers: $httpResponse->getHeaders(),
-                    scheduleResponse: $obj);
+                    occurrencesResponse: $obj);
 
                 return $response;
             } else {

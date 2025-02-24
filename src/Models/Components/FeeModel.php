@@ -14,4 +14,5 @@ enum FeeModel: string
 {
     case Fixed = 'fixed';
     case Blended = 'blended';
+    case Variable = 'variable';
 }

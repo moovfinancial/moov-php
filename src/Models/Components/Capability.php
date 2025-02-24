@@ -14,6 +14,9 @@ class Capability
     /**
      * Moov account capabilities.
      *
+     *
+     * The `production-app` capability might appear in your list. This is a read-only capability that Moov requests and uses for account verification purposes. The capability remains active with your account and requires no additional action.
+     *
      * @var CapabilityID $capability
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('capability')]

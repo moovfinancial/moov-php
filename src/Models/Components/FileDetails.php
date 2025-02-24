@@ -60,13 +60,6 @@ class FileDetails
 
     /**
      *
-     * @var string $decisionReason
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('decisionReason')]
-    public string $decisionReason;
-
-    /**
-     *
      * @var int $fileSizeBytes
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('fileSizeBytes')]
@@ -87,19 +80,27 @@ class FileDetails
     public \DateTime $updatedOn;
 
     /**
+     *
+     * @var ?string $decisionReason
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('decisionReason')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $decisionReason = null;
+
+    /**
      * @param  string  $fileID
      * @param  string  $fileName
      * @param  string  $accountID
      * @param  FilePurpose  $filePurpose
      * @param  FileStatus  $fileStatus
      * @param  string  $metadata
-     * @param  string  $decisionReason
      * @param  int  $fileSizeBytes
      * @param  \DateTime  $createdOn
      * @param  \DateTime  $updatedOn
+     * @param  ?string  $decisionReason
      * @phpstan-pure
      */
-    public function __construct(string $fileID, string $fileName, string $accountID, FilePurpose $filePurpose, FileStatus $fileStatus, string $metadata, string $decisionReason, int $fileSizeBytes, \DateTime $createdOn, \DateTime $updatedOn)
+    public function __construct(string $fileID, string $fileName, string $accountID, FilePurpose $filePurpose, FileStatus $fileStatus, string $metadata, int $fileSizeBytes, \DateTime $createdOn, \DateTime $updatedOn, ?string $decisionReason = null)
     {
         $this->fileID = $fileID;
         $this->fileName = $fileName;
@@ -107,9 +108,9 @@ class FileDetails
         $this->filePurpose = $filePurpose;
         $this->fileStatus = $fileStatus;
         $this->metadata = $metadata;
-        $this->decisionReason = $decisionReason;
         $this->fileSizeBytes = $fileSizeBytes;
         $this->createdOn = $createdOn;
         $this->updatedOn = $updatedOn;
+        $this->decisionReason = $decisionReason;
     }
 }

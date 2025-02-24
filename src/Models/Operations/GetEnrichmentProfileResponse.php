@@ -42,24 +42,24 @@ class GetEnrichmentProfileResponse
     /**
      * The request completed successfully.
      *
-     * @var ?Components\EnrichedBusinessProfile $enrichedBusinessProfile
+     * @var ?Components\EnrichedBusinessResponse $enrichedBusinessResponse
      */
-    public ?Components\EnrichedBusinessProfile $enrichedBusinessProfile = null;
+    public ?Components\EnrichedBusinessResponse $enrichedBusinessResponse = null;
 
     /**
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\EnrichedBusinessProfile  $enrichedBusinessProfile
+     * @param  ?Components\EnrichedBusinessResponse  $enrichedBusinessResponse
      * @phpstan-pure
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\EnrichedBusinessProfile $enrichedBusinessProfile = null, ?array $headers = [])
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\EnrichedBusinessResponse $enrichedBusinessResponse = null, ?array $headers = [])
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
         $this->headers = $headers;
-        $this->enrichedBusinessProfile = $enrichedBusinessProfile;
+        $this->enrichedBusinessResponse = $enrichedBusinessResponse;
     }
 }

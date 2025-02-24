@@ -12,70 +12,20 @@ namespace Moov\OpenAPI\Models\Components;
 class EnrichedAddressResponse
 {
     /**
+     * $suggestions
      *
-     * @var ?string $addressLine1
+     * @var array<AddressSuggestion> $suggestions
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('addressLine1')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $addressLine1 = null;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('suggestions')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\OpenAPI\Models\Components\AddressSuggestion>')]
+    public array $suggestions;
 
     /**
-     *
-     * @var ?string $addressLine2
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('addressLine2')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $addressLine2 = null;
-
-    /**
-     *
-     * @var ?string $city
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('city')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $city = null;
-
-    /**
-     * The number of units at an address. For example the number of apartments or businesses in a building.
-     *
-     * @var ?int $entries
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('entries')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?int $entries = null;
-
-    /**
-     *
-     * @var ?string $postalCode
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('postalCode')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $postalCode = null;
-
-    /**
-     *
-     * @var ?string $stateOrProvince
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('stateOrProvince')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $stateOrProvince = null;
-
-    /**
-     * @param  ?string  $addressLine1
-     * @param  ?string  $addressLine2
-     * @param  ?string  $city
-     * @param  ?int  $entries
-     * @param  ?string  $postalCode
-     * @param  ?string  $stateOrProvince
+     * @param  array<AddressSuggestion>  $suggestions
      * @phpstan-pure
      */
-    public function __construct(?string $addressLine1 = null, ?string $addressLine2 = null, ?string $city = null, ?int $entries = null, ?string $postalCode = null, ?string $stateOrProvince = null)
+    public function __construct(array $suggestions)
     {
-        $this->addressLine1 = $addressLine1;
-        $this->addressLine2 = $addressLine2;
-        $this->city = $city;
-        $this->entries = $entries;
-        $this->postalCode = $postalCode;
-        $this->stateOrProvince = $stateOrProvince;
+        $this->suggestions = $suggestions;
     }
 }

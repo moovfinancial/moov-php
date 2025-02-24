@@ -98,13 +98,13 @@ class EnrichedProfile
 
                 $serializer = Utils\JSON::createSerializer();
                 $responseData = (string) $httpResponse->getBody();
-                $obj = $serializer->deserialize($responseData, '\Moov\OpenAPI\Models\Components\EnrichedBusinessProfile', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj = $serializer->deserialize($responseData, '\Moov\OpenAPI\Models\Components\EnrichedBusinessResponse', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
                 $response = new Operations\GetEnrichmentProfileResponse(
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
                     headers: $httpResponse->getHeaders(),
-                    enrichedBusinessProfile: $obj);
+                    enrichedBusinessResponse: $obj);
 
                 return $response;
             } else {

@@ -1,9 +1,0 @@
-# CreateProfileUpdate
-
-
-## Fields
-
-| Field                                                                                                 | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
-| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `individual`                                                                                          | [?Components\CreateIndividualProfileUpdate](../../Models/Components/CreateIndividualProfileUpdate.md) | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |
-| `business`                                                                                            | [?Components\CreateBusinessProfileUpdate](../../Models/Components/CreateBusinessProfileUpdate.md)     | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |

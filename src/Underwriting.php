@@ -124,7 +124,7 @@ class Underwriting
     }
 
     /**
-     * Update the account's underwriting by passing new values for one or more of the fields. 
+     * Create or update the account's underwriting.
      *
      * Read our [underwriting guide](https://docs.moov.io/guides/accounts/requirements/underwriting/) to learn more.
      *
@@ -134,18 +134,18 @@ class Underwriting
      * @param  Components\UpdateUnderwriting  $updateUnderwriting
      * @param  string  $accountID
      * @param  ?string  $xMoovVersion
-     * @return Operations\UpdateUnderwritingResponse
+     * @return Operations\UpsertUnderwritingResponse
      * @throws \Moov\OpenAPI\Models\Errors\APIException
      */
-    public function update(Components\UpdateUnderwriting $updateUnderwriting, string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\UpdateUnderwritingResponse
+    public function upsert(Components\UpdateUnderwriting $updateUnderwriting, string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\UpsertUnderwritingResponse
     {
-        $request = new Operations\UpdateUnderwritingRequest(
+        $request = new Operations\UpsertUnderwritingRequest(
             accountID: $accountID,
             updateUnderwriting: $updateUnderwriting,
             xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/underwriting', Operations\UpdateUnderwritingRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/underwriting', Operations\UpsertUnderwritingRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'updateUnderwriting', 'json');
@@ -160,7 +160,7 @@ class Underwriting
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('PUT', $url);
-        $hookContext = new HookContext('updateUnderwriting', null, $this->sdkConfiguration->securitySource);
+        $hookContext = new HookContext('upsertUnderwriting', null, $this->sdkConfiguration->securitySource);
         $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
         $httpOptions = Utils\Utils::convertHeadersToOptions($httpRequest, $httpOptions);
         $httpRequest = Utils\Utils::removeHeaders($httpRequest);
@@ -184,7 +184,7 @@ class Underwriting
                 $serializer = Utils\JSON::createSerializer();
                 $responseData = (string) $httpResponse->getBody();
                 $obj = $serializer->deserialize($responseData, '\Moov\OpenAPI\Models\Components\Underwriting', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
-                $response = new Operations\UpdateUnderwritingResponse(
+                $response = new Operations\UpsertUnderwritingResponse(
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,

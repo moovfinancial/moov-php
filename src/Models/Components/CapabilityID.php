@@ -9,7 +9,12 @@ declare(strict_types=1);
 namespace Moov\OpenAPI\Models\Components;
 
 
-/** Moov account capabilities. */
+/**
+ * Moov account capabilities.
+ *
+ *
+ * The `production-app` capability might appear in your list. This is a read-only capability that Moov requests and uses for account verification purposes. The capability remains active with your account and requires no additional action.
+ */
 enum CapabilityID: string
 {
     case Transfers = 'transfers';
@@ -17,4 +22,5 @@ enum CapabilityID: string
     case CollectFunds = 'collect-funds';
     case Wallet = 'wallet';
     case CardIssuing = 'card-issuing';
+    case ProductionApp = 'production-app';
 }

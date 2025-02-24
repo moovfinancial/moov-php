@@ -94,11 +94,12 @@ class BankAccount
     /**
      * The reason the bank account status changed to the current value.
      *
-     * @var BankAccountStatusReason $statusReason
+     * @var ?BankAccountStatusReason $statusReason
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('statusReason')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\BankAccountStatusReason')]
-    public BankAccountStatusReason $statusReason;
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\BankAccountStatusReason|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?BankAccountStatusReason $statusReason = null;
 
     /**
      * Reason for, and details related to, an `errored` or `verificationFailed` bank account status.
@@ -135,12 +136,12 @@ class BankAccount
      * @param  string  $routingNumber
      * @param  string  $lastFourAccountNumber
      * @param  \DateTime  $updatedOn
-     * @param  BankAccountStatusReason  $statusReason
+     * @param  ?BankAccountStatusReason  $statusReason
      * @param  ?BankAccountException  $exceptionDetails
      * @param  ?array<BasicPaymentMethod>  $paymentMethods
      * @phpstan-pure
      */
-    public function __construct(string $bankAccountID, string $fingerprint, BankAccountStatus $status, string $holderName, BankAccountHolderType $holderType, string $bankName, BankAccountType $bankAccountType, string $routingNumber, string $lastFourAccountNumber, \DateTime $updatedOn, BankAccountStatusReason $statusReason, ?BankAccountException $exceptionDetails = null, ?array $paymentMethods = null)
+    public function __construct(string $bankAccountID, string $fingerprint, BankAccountStatus $status, string $holderName, BankAccountHolderType $holderType, string $bankName, BankAccountType $bankAccountType, string $routingNumber, string $lastFourAccountNumber, \DateTime $updatedOn, ?BankAccountStatusReason $statusReason = null, ?BankAccountException $exceptionDetails = null, ?array $paymentMethods = null)
     {
         $this->bankAccountID = $bankAccountID;
         $this->fingerprint = $fingerprint;

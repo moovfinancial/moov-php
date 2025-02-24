@@ -93,7 +93,7 @@ class Institutions
 
                 $serializer = Utils\JSON::createSerializer();
                 $responseData = (string) $httpResponse->getBody();
-                $obj = $serializer->deserialize($responseData, 'array<\Moov\OpenAPI\Models\Components\FinancialInstitutions>', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj = $serializer->deserialize($responseData, '\Moov\OpenAPI\Models\Components\FinancialInstitutions', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
                 $response = new Operations\ListInstitutionsResponse(
                     statusCode: $statusCode,
                     contentType: $contentType,

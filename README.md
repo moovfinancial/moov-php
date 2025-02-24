@@ -83,7 +83,7 @@ $createAccount = new Components\CreateAccount(
 
 $response = $sdk->accounts->create(
     createAccount: $createAccount,
-    xMoovVersion: 'v2024.01'
+    xMoovVersion: 'v2024.01.00'
 
 );
 
@@ -131,7 +131,7 @@ $accountCountries = new Components\AccountCountries(
 $response = $sdk->accounts->assignCountries(
     accountID: 'aa2dc19b-77dd-481f-a0a8-c76f2cfc1372',
     accountCountries: $accountCountries,
-    xMoovVersion: 'v2024.01'
+    xMoovVersion: 'v2024.01.00'
 
 );
 
@@ -366,30 +366,6 @@ Read our [bank accounts guide](https://docs.moov.io/guides/sources/bank-accounts
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/bank-accounts.read` scope.
 
-### [billing](docs/sdks/billing/README.md)
-
-* [createFeePlanAgreements](docs/sdks/billing/README.md#createfeeplanagreements) - Creates the subscription of a fee plan to a merchant account. Merchants are required to accept the fee plan terms prior to activation.
-
-To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
-you'll need to specify the `/accounts/{accountID}/profile.write` scope.
-* [listFeePlanAgreements](docs/sdks/billing/README.md#listfeeplanagreements) - List all fee plan agreements associated with an account.
-
-To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
-you'll need to specify the `/accounts/{accountID}/profile.read` scope.
-* [listFeePlans](docs/sdks/billing/README.md#listfeeplans) - List all fee plans available for use by an account. This is intended to be used by an account when 
-selecting a fee plan to apply to a connected account.
-
-To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
-you'll need to specify the `/accounts/{accountID}/profile.read` scope.
-* [listPartnerPricing](docs/sdks/billing/README.md#listpartnerpricing) - List all partner pricing plans available for use by an account.
-
-To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
-you'll need to specify the `/accounts/{accountID}/profile.read` scope.
-* [listPartnerPricingAgreements](docs/sdks/billing/README.md#listpartnerpricingagreements) - List all partner pricing agreements associated with an account.
-
-To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
-you'll need to specify the `/accounts/{accountID}/profile.read` scope.
-
 ### [branding](docs/sdks/branding/README.md)
 
 * [create](docs/sdks/branding/README.md#create) - Create brand properties for the specified account.
@@ -599,6 +575,38 @@ you'll need to specify the `/profile-enrichment.read` scope.
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/profile-enrichment.read` scope.
 
+### [feePlans](docs/sdks/feeplans/README.md)
+
+* [createFeePlanAgreements](docs/sdks/feeplans/README.md#createfeeplanagreements) - Creates the subscription of a fee plan to a merchant account. Merchants are required to accept the fee plan terms prior to activation.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/profile.write` scope.
+* [listFeePlanAgreements](docs/sdks/feeplans/README.md#listfeeplanagreements) - List all fee plan agreements associated with an account.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/profile.read` scope.
+* [listFeePlans](docs/sdks/feeplans/README.md#listfeeplans) - List all fee plans available for use by an account. This is intended to be used by an account when 
+selecting a fee plan to apply to a connected account.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/profile.read` scope.
+* [listFeesFetch](docs/sdks/feeplans/README.md#listfeesfetch) - List fees associated with an account.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
+* [listPartnerPricing](docs/sdks/feeplans/README.md#listpartnerpricing) - List all partner pricing plans available for use by an account.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/profile.read` scope.
+* [listPartnerPricingAgreements](docs/sdks/feeplans/README.md#listpartnerpricingagreements) - List all partner pricing agreements associated with an account.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/profile.read` scope.
+* [retrieveFees](docs/sdks/feeplans/README.md#retrievefees) - Retrieve fees associated with an account.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
+
 ### [files](docs/sdks/files/README.md)
 
 * [get](docs/sdks/files/README.md#get) - Retrieve file details associated with a specific Moov account.
@@ -773,7 +781,7 @@ you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
-* [getOccurrance](docs/sdks/scheduling/README.md#getoccurrance) - Defines an occurrence for when to run a transfer.
+* [getOccurrance](docs/sdks/scheduling/README.md#getoccurrance) - Gets a specific occurrence.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
@@ -816,6 +824,25 @@ you'll need to specify the `/accounts/{accountID}/wallets.read` scope.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/wallets.write` scope.
+
+### [terminalApplications](docs/sdks/terminalapplications/README.md)
+
+* [create](docs/sdks/terminalapplications/README.md#create) - Create a new terminal application.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/terminalApplications.write` scope.
+* [delete](docs/sdks/terminalapplications/README.md#delete) - Delete a specific terminal application.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/terminalApplications.write` scope.
+* [get](docs/sdks/terminalapplications/README.md#get) - Fetch a specific terminal application.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/terminalApplications.read` scope.
+* [list](docs/sdks/terminalapplications/README.md#list) - List all the terminal applications for a Moov Account.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/terminalApplications.read` scope.
 
 ### [transfers](docs/sdks/transfers/README.md)
 
@@ -865,7 +892,7 @@ you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
 Read our [transfers overview guide](https://docs.moov.io/guides/money-movement/overview/) to learn more. 
 
 When you run this request, you retrieve 200 transfers at a time. You can advance past a results set of 200 transfers by using the `skip` parameter (for example, 
-if you set `skip`= 10, you will see a results set of 200 transfers after the first 2000). If you are searching a high volume of transfers, the request will likely 
+if you set `skip`= 10, you will see a results set of 200 transfers after the first 10). If you are searching a high volume of transfers, the request will likely 
 process very slowly. To achieve faster performance, restrict the data as much as you can by using the `StartDateTime` and `EndDateTime` parameters for a limited 
 period of time. You can run multiple requests in smaller time window increments until you've retrieved all the transfers you need.
 
@@ -886,7 +913,7 @@ Read our [underwriting guide](https://docs.moov.io/guides/accounts/requirements/
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/profile.read` scope.
-* [update](docs/sdks/underwriting/README.md#update) - Update the account's underwriting by passing new values for one or more of the fields. 
+* [upsert](docs/sdks/underwriting/README.md#upsert) - Create or update the account's underwriting.
 
 Read our [underwriting guide](https://docs.moov.io/guides/accounts/requirements/underwriting/) to learn more.
 
@@ -957,6 +984,7 @@ require 'vendor/autoload.php';
 
 use Moov\OpenAPI;
 use Moov\OpenAPI\Models\Components;
+use Moov\OpenAPI\Models\Errors;
 
 $sdk = OpenAPI\Moov::builder()
     ->setSecurity(
@@ -977,7 +1005,7 @@ try {
     $response = $sdk->accounts->assignCountries(
         accountID: 'aa2dc19b-77dd-481f-a0a8-c76f2cfc1372',
         accountCountries: $accountCountries,
-        xMoovVersion: 'v2024.01'
+        xMoovVersion: 'v2024.01.00'
 
     );
 
@@ -1002,7 +1030,7 @@ try {
 
 ### Override Server URL Per-Client
 
-The default server can also be overridden globally using the `setServerUrl(string $serverUrl)` builder method when initializing the SDK client instance. For example:
+The default server can be overridden globally using the `setServerUrl(string $serverUrl)` builder method when initializing the SDK client instance. For example:
 ```php
 declare(strict_types=1);
 
@@ -1030,7 +1058,7 @@ $accountCountries = new Components\AccountCountries(
 $response = $sdk->accounts->assignCountries(
     accountID: 'aa2dc19b-77dd-481f-a0a8-c76f2cfc1372',
     accountCountries: $accountCountries,
-    xMoovVersion: 'v2024.01'
+    xMoovVersion: 'v2024.01.00'
 
 );
 

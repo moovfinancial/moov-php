@@ -40,7 +40,7 @@ class Moov
 
     public Disputes $disputes;
 
-    public Billing $billing;
+    public FeePlans $feePlans;
 
     public Files $files;
 
@@ -84,6 +84,8 @@ class Moov
 
     public Ping $ping;
 
+    public TerminalApplications $terminalApplications;
+
     /**
      * Returns a new instance of the SDK builder used to configure and create the SDK instance.
      *
@@ -108,7 +110,7 @@ class Moov
         $this->capabilities = new Capabilities($this->sdkConfiguration);
         $this->cards = new Cards($this->sdkConfiguration);
         $this->disputes = new Disputes($this->sdkConfiguration);
-        $this->billing = new Billing($this->sdkConfiguration);
+        $this->feePlans = new FeePlans($this->sdkConfiguration);
         $this->files = new Files($this->sdkConfiguration);
         $this->paymentLinks = new PaymentLinks($this->sdkConfiguration);
         $this->paymentMethods = new PaymentMethods($this->sdkConfiguration);
@@ -130,6 +132,7 @@ class Moov
         $this->authentication = new Authentication($this->sdkConfiguration);
         $this->onboarding = new Onboarding($this->sdkConfiguration);
         $this->ping = new Ping($this->sdkConfiguration);
+        $this->terminalApplications = new TerminalApplications($this->sdkConfiguration);
         $this->sdkConfiguration->client = $this->sdkConfiguration->initHooks($this->sdkConfiguration->client);
 
     }

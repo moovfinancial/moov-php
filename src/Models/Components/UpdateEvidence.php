@@ -9,18 +9,8 @@ declare(strict_types=1);
 namespace Moov\OpenAPI\Models\Components;
 
 
-/** UpdateEvidence - The template for adding optional properties. */
 class UpdateEvidence
 {
-    /**
-     * The text to associate with the dispute as evidence.
-     *
-     * @var ?string $text
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('text')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $text = null;
-
     /**
      *
      * @var ?EvidenceType $evidenceType
@@ -31,13 +21,22 @@ class UpdateEvidence
     public ?EvidenceType $evidenceType = null;
 
     /**
-     * @param  ?string  $text
+     * If updating text evidence, the new text to associate with the dispute.
+     *
+     * @var ?string $text
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('text')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $text = null;
+
+    /**
      * @param  ?EvidenceType  $evidenceType
+     * @param  ?string  $text
      * @phpstan-pure
      */
-    public function __construct(?string $text = null, ?EvidenceType $evidenceType = null)
+    public function __construct(?EvidenceType $evidenceType = null, ?string $text = null)
     {
-        $this->text = $text;
         $this->evidenceType = $evidenceType;
+        $this->text = $text;
     }
 }
