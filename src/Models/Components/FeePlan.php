@@ -29,11 +29,11 @@ class FeePlan
     /**
      * Specifies the card processing pricing model
      *
-     * @var CardAcquringModel $cardAcquringModel
+     * @var CardAcquiringModel $cardAcquiringModel
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('cardAcquringModel')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CardAcquringModel')]
-    public CardAcquringModel $cardAcquringModel;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('cardAcquiringModel')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CardAcquiringModel')]
+    public CardAcquiringModel $cardAcquiringModel;
 
     /**
      * Additional usage-based fees for this plan.
@@ -63,17 +63,17 @@ class FeePlan
     /**
      * @param  string  $planID
      * @param  string  $name
-     * @param  CardAcquringModel  $cardAcquringModel
+     * @param  CardAcquiringModel  $cardAcquiringModel
      * @param  array<BillableFee>  $billableFees
      * @param  \DateTime  $createdAt
      * @param  ?string  $description
      * @phpstan-pure
      */
-    public function __construct(string $planID, string $name, CardAcquringModel $cardAcquringModel, array $billableFees, \DateTime $createdAt, ?string $description = null)
+    public function __construct(string $planID, string $name, CardAcquiringModel $cardAcquiringModel, array $billableFees, \DateTime $createdAt, ?string $description = null)
     {
         $this->planID = $planID;
         $this->name = $name;
-        $this->cardAcquringModel = $cardAcquringModel;
+        $this->cardAcquiringModel = $cardAcquiringModel;
         $this->billableFees = $billableFees;
         $this->createdAt = $createdAt;
         $this->description = $description;

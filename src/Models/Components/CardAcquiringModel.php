@@ -10,7 +10,7 @@ namespace Moov\OpenAPI\Models\Components;
 
 
 /** Specifies the card processing pricing model */
-enum CardAcquringModel: string
+enum CardAcquiringModel: string
 {
     case CostPlus = 'cost-plus';
     case FlatRate = 'flat-rate';

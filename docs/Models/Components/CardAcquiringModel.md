@@ -1,4 +1,4 @@
-# CardAcquringModel
+# CardAcquiringModel
 
 Specifies the card processing pricing model
 

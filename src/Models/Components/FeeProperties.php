@@ -13,6 +13,16 @@ namespace Moov\OpenAPI\Models\Components;
 class FeeProperties
 {
     /**
+     * A fixed fee that is applied to the amount of each transaction in the `fixed` and `blended` fee models.
+     *
+     * @var ?AmountDecimal $fixedAmount
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('fixedAmount')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\AmountDecimal|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?AmountDecimal $fixedAmount = null;
+
+    /**
      * A percentage fee that is applied to the amount of each transaction in the `blended` fee model, expressed as a decimal. 
      *
      *
@@ -25,46 +35,36 @@ class FeeProperties
     public ?string $variableRate = null;
 
     /**
-     * A fixed fee that is applied to the amount of each transaction in the `fixed` and `blended` fee models.
-     *
-     * @var ?FixedAmount $fixedAmount
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('fixedAmount')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\FixedAmount|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?FixedAmount $fixedAmount = null;
-
-    /**
      * Specifies the minimum allowable spending for a single transaction, working as a transaction floor.
      *
-     * @var ?MinPerTransaction $minPerTransaction
+     * @var ?AmountDecimal $minPerTransaction
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('minPerTransaction')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\MinPerTransaction|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\AmountDecimal|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?MinPerTransaction $minPerTransaction = null;
+    public ?AmountDecimal $minPerTransaction = null;
 
     /**
      * Specifies the maximum allowable spending for a single transaction, working as a transaction ceiling.
      *
-     * @var ?MaxPerTransaction $maxPerTransaction
+     * @var ?AmountDecimal $maxPerTransaction
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('maxPerTransaction')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\MaxPerTransaction|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\AmountDecimal|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?MaxPerTransaction $maxPerTransaction = null;
+    public ?AmountDecimal $maxPerTransaction = null;
 
     /**
+     * @param  ?AmountDecimal  $fixedAmount
      * @param  ?string  $variableRate
-     * @param  ?FixedAmount  $fixedAmount
-     * @param  ?MinPerTransaction  $minPerTransaction
-     * @param  ?MaxPerTransaction  $maxPerTransaction
+     * @param  ?AmountDecimal  $minPerTransaction
+     * @param  ?AmountDecimal  $maxPerTransaction
      * @phpstan-pure
      */
-    public function __construct(?string $variableRate = null, ?FixedAmount $fixedAmount = null, ?MinPerTransaction $minPerTransaction = null, ?MaxPerTransaction $maxPerTransaction = null)
+    public function __construct(?AmountDecimal $fixedAmount = null, ?string $variableRate = null, ?AmountDecimal $minPerTransaction = null, ?AmountDecimal $maxPerTransaction = null)
     {
-        $this->variableRate = $variableRate;
         $this->fixedAmount = $fixedAmount;
+        $this->variableRate = $variableRate;
         $this->minPerTransaction = $minPerTransaction;
         $this->maxPerTransaction = $maxPerTransaction;
     }

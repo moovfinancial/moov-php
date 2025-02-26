@@ -13,6 +13,13 @@ class Cancellation
 {
     /**
      *
+     * @var string $cancellationID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('cancellationID')]
+    public string $cancellationID;
+
+    /**
+     *
      * @var CancellationStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
@@ -27,12 +34,14 @@ class Cancellation
     public \DateTime $createdOn;
 
     /**
+     * @param  string  $cancellationID
      * @param  CancellationStatus  $status
      * @param  \DateTime  $createdOn
      * @phpstan-pure
      */
-    public function __construct(CancellationStatus $status, \DateTime $createdOn)
+    public function __construct(string $cancellationID, CancellationStatus $status, \DateTime $createdOn)
     {
+        $this->cancellationID = $cancellationID;
         $this->status = $status;
         $this->createdOn = $createdOn;
     }

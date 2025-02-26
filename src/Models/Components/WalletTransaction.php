@@ -138,6 +138,16 @@ class WalletTransaction
     public ?\DateTime $completedOn = null;
 
     /**
+     * The IDs of the fees paid for the transaction.
+     *
+     * @var ?array<string> $feeIDs
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('feeIDs')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $feeIDs = null;
+
+    /**
      * The wallet's total available balance after recording a completed transaction. The value is in the smallest unit of the specified currency. In USD this is cents, for example, $12.04 is 1204 and $0.99 is 99.
      *
      * @var ?int $availableBalance
@@ -180,12 +190,13 @@ class WalletTransaction
      * @param  int  $netAmount
      * @param  string  $netAmountDecimal
      * @param  ?\DateTime  $completedOn
+     * @param  ?array<string>  $feeIDs
      * @param  ?int  $availableBalance
      * @param  ?string  $availableBalanceDecimal
      * @param  ?string  $sweepID
      * @phpstan-pure
      */
-    public function __construct(string $walletID, string $transactionID, WalletTransactionType $transactionType, WalletTransactionSourceType $sourceType, string $sourceID, WalletTransactionStatus $status, string $memo, \DateTime $createdOn, string $currency, int $grossAmount, string $grossAmountDecimal, int $fee, string $feeDecimal, int $netAmount, string $netAmountDecimal, ?\DateTime $completedOn = null, ?int $availableBalance = null, ?string $availableBalanceDecimal = null, ?string $sweepID = null)
+    public function __construct(string $walletID, string $transactionID, WalletTransactionType $transactionType, WalletTransactionSourceType $sourceType, string $sourceID, WalletTransactionStatus $status, string $memo, \DateTime $createdOn, string $currency, int $grossAmount, string $grossAmountDecimal, int $fee, string $feeDecimal, int $netAmount, string $netAmountDecimal, ?\DateTime $completedOn = null, ?array $feeIDs = null, ?int $availableBalance = null, ?string $availableBalanceDecimal = null, ?string $sweepID = null)
     {
         $this->walletID = $walletID;
         $this->transactionID = $transactionID;
@@ -203,6 +214,7 @@ class WalletTransaction
         $this->netAmount = $netAmount;
         $this->netAmountDecimal = $netAmountDecimal;
         $this->completedOn = $completedOn;
+        $this->feeIDs = $feeIDs;
         $this->availableBalance = $availableBalance;
         $this->availableBalanceDecimal = $availableBalanceDecimal;
         $this->sweepID = $sweepID;

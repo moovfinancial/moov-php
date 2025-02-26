@@ -34,32 +34,33 @@ class TransferDestination
     public TransferAccount $account;
 
     /**
-     * Describes a bank account linked to a Moov account.
+     * A bank account as contained within a payment method.
      *
-     * @var ?BankAccount $bankAccount
+     * @var ?PaymentMethodsBankAccount $bankAccount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('bankAccount')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\BankAccount|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PaymentMethodsBankAccount|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?BankAccount $bankAccount = null;
+    public ?PaymentMethodsBankAccount $bankAccount = null;
 
     /**
      *
-     * @var mixed $wallet
+     * @var ?PaymentMethodsWallet $wallet
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('wallet')]
-    #[\Speakeasy\Serializer\Annotation\Type('mixed')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PaymentMethodsWallet|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public mixed $wallet = null;
+    public ?PaymentMethodsWallet $wallet = null;
 
     /**
+     * A card as contained within a payment method.
      *
-     * @var mixed $card
+     * @var ?PaymentMethodsCard $card
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('card')]
-    #[\Speakeasy\Serializer\Annotation\Type('mixed')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PaymentMethodsCard|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public mixed $card = null;
+    public ?PaymentMethodsCard $card = null;
 
     /**
      * ACH specific details about the transaction.
@@ -72,13 +73,14 @@ class TransferDestination
     public ?ACHTransactionDetails $achDetails = null;
 
     /**
+     * Describes an Apple Pay token on a Moov account.
      *
-     * @var mixed $applePay
+     * @var ?ApplePayResponse $applePay
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('applePay')]
-    #[\Speakeasy\Serializer\Annotation\Type('mixed')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\ApplePayResponse|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public mixed $applePay = null;
+    public ?ApplePayResponse $applePay = null;
 
     /**
      * Card-specific details about the transaction.
@@ -104,16 +106,16 @@ class TransferDestination
      * @param  string  $paymentMethodID
      * @param  string  $paymentMethodType
      * @param  TransferAccount  $account
-     * @param  ?BankAccount  $bankAccount
-     * @param  mixed  $wallet
-     * @param  mixed  $card
+     * @param  ?PaymentMethodsBankAccount  $bankAccount
+     * @param  ?PaymentMethodsWallet  $wallet
+     * @param  ?PaymentMethodsCard  $card
      * @param  ?ACHTransactionDetails  $achDetails
-     * @param  mixed  $applePay
+     * @param  ?ApplePayResponse  $applePay
      * @param  ?CardTransactionDetails  $cardDetails
      * @param  ?RTPTransactionDetails  $rtpDetails
      * @phpstan-pure
      */
-    public function __construct(string $paymentMethodID, string $paymentMethodType, TransferAccount $account, ?BankAccount $bankAccount = null, mixed $wallet = null, mixed $card = null, ?ACHTransactionDetails $achDetails = null, mixed $applePay = null, ?CardTransactionDetails $cardDetails = null, ?RTPTransactionDetails $rtpDetails = null)
+    public function __construct(string $paymentMethodID, string $paymentMethodType, TransferAccount $account, ?PaymentMethodsBankAccount $bankAccount = null, ?PaymentMethodsWallet $wallet = null, ?PaymentMethodsCard $card = null, ?ACHTransactionDetails $achDetails = null, ?ApplePayResponse $applePay = null, ?CardTransactionDetails $cardDetails = null, ?RTPTransactionDetails $rtpDetails = null)
     {
         $this->paymentMethodID = $paymentMethodID;
         $this->paymentMethodType = $paymentMethodType;
