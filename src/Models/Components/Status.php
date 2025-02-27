@@ -9,9 +9,8 @@ declare(strict_types=1);
 namespace Moov\OpenAPI\Models\Components;
 
 
-enum CancellationStatus: string
+enum Status: string
 {
-    case Pending = 'pending';
-    case Completed = 'completed';
-    case Failed = 'failed';
+    case Enabled = 'enabled';
+    case Disabled = 'disabled';
 }

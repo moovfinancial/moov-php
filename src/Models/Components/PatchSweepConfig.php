@@ -13,42 +13,6 @@ class PatchSweepConfig
 {
     /**
      *
-     * @var ?SweepConfigStatus $status
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\SweepConfigStatus|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?SweepConfigStatus $status = null;
-
-    /**
-     * ID of the payment method.
-     *
-     * @var ?string $pushPaymentMethodID
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('pushPaymentMethodID')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $pushPaymentMethodID = null;
-
-    /**
-     * ID of the payment method.
-     *
-     * @var ?string $pullPaymentMethodID
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('pullPaymentMethodID')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $pullPaymentMethodID = null;
-
-    /**
-     * The text that appears on the banking statement. The default descriptor is a 10 character ID if an override is not set in the sweep configs statementDescriptor.
-     *
-     * @var ?string $statementDescriptor
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('statementDescriptor')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $statementDescriptor = null;
-
-    /**
-     *
      * @var ?string $minimumBalance
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('minimumBalance')]
@@ -56,19 +20,55 @@ class PatchSweepConfig
     public ?string $minimumBalance = null;
 
     /**
-     * @param  ?SweepConfigStatus  $status
-     * @param  ?string  $pushPaymentMethodID
-     * @param  ?string  $pullPaymentMethodID
-     * @param  ?string  $statementDescriptor
+     *
+     * @var ?Status $status
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\Status|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?Status $status = null;
+
+    /**
+     *
+     * @var string|PushPaymentMethodID2|null $pushPaymentMethodID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('pushPaymentMethodID')]
+    #[\Speakeasy\Serializer\Annotation\Type('string|\Moov\OpenAPI\Models\Components\PushPaymentMethodID2|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public string|PushPaymentMethodID2|null $pushPaymentMethodID = null;
+
+    /**
+     *
+     * @var string|PullPaymentMethodID2|null $pullPaymentMethodID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('pullPaymentMethodID')]
+    #[\Speakeasy\Serializer\Annotation\Type('string|\Moov\OpenAPI\Models\Components\PullPaymentMethodID2|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public string|PullPaymentMethodID2|null $pullPaymentMethodID = null;
+
+    /**
+     *
+     * @var string|StatementDescriptor2|null $statementDescriptor
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('statementDescriptor')]
+    #[\Speakeasy\Serializer\Annotation\Type('string|\Moov\OpenAPI\Models\Components\StatementDescriptor2|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public string|StatementDescriptor2|null $statementDescriptor = null;
+
+    /**
      * @param  ?string  $minimumBalance
+     * @param  ?Status  $status
+     * @param  string|PushPaymentMethodID2|null  $pushPaymentMethodID
+     * @param  string|PullPaymentMethodID2|null  $pullPaymentMethodID
+     * @param  string|StatementDescriptor2|null  $statementDescriptor
      * @phpstan-pure
      */
-    public function __construct(?SweepConfigStatus $status = null, ?string $pushPaymentMethodID = null, ?string $pullPaymentMethodID = null, ?string $statementDescriptor = null, ?string $minimumBalance = null)
+    public function __construct(?string $minimumBalance = null, ?Status $status = null, string|PushPaymentMethodID2|null $pushPaymentMethodID = null, string|PullPaymentMethodID2|null $pullPaymentMethodID = null, string|StatementDescriptor2|null $statementDescriptor = null)
     {
+        $this->minimumBalance = $minimumBalance;
         $this->status = $status;
         $this->pushPaymentMethodID = $pushPaymentMethodID;
         $this->pullPaymentMethodID = $pullPaymentMethodID;
         $this->statementDescriptor = $statementDescriptor;
-        $this->minimumBalance = $minimumBalance;
     }
 }

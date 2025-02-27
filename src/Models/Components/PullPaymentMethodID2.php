@@ -9,9 +9,10 @@ declare(strict_types=1);
 namespace Moov\OpenAPI\Models\Components;
 
 
-enum CancellationStatus: string
+class PullPaymentMethodID2
 {
-    case Pending = 'pending';
-    case Completed = 'completed';
-    case Failed = 'failed';
+
+    public function __construct()
+    {
+    }
 }

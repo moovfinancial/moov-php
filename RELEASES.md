@@ -59,3 +59,13 @@ Based on:
 - [php v0.1.5] .
 ### Releases
 - [Composer v0.1.5] https://packagist.org/packages/moov/openapi#v0.1.5 - .
+
+## 2025-02-27 00:16:50
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.505.1 (2.531.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [php v0.1.6] .
+### Releases
+- [Composer v0.1.6] https://packagist.org/packages/moov/openapi#v0.1.6 - .
