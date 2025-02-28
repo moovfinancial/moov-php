@@ -1,9 +1,9 @@
 {
-  "name": "moov/openapi",
+  "name": "moov/moov-php",
   "type": "library",
   "autoload": {
     "psr-4": {
-      "Moov\\OpenAPI\\": "src/"
+      "Moov\\MoovPhp\\": "src/"
     }
   },
   "license": "MIT",
