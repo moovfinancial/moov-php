@@ -38,6 +38,6 @@ php:
     svcName: openapi
   maxMethodParams: 4
   methodArguments: infer-optional-args
-  namespace: Moov\OpenAPI
+  namespace: Moov\MoovPhp
   outputModelSuffix: output
-  packageName: moov/openapi
+  packageName: moov/moov-php
