@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** CreateTransferSource - Where funds for a transfer originate. For the source, you must include either a `paymentMethodID` or a `transferID`. */
@@ -36,7 +36,7 @@ class CreateTransferSource
      * @var ?CreateTransferSourceCard $cardDetails
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardDetails')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CreateTransferSourceCard|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateTransferSourceCard|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?CreateTransferSourceCard $cardDetails = null;
 
@@ -45,7 +45,7 @@ class CreateTransferSource
      * @var ?CreateTransferSourceACH $achDetails
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('achDetails')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CreateTransferSourceACH|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateTransferSourceACH|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?CreateTransferSourceACH $achDetails = null;
 

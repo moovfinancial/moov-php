@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class Account
@@ -25,7 +25,7 @@ class Account
      * @var Mode $mode
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('mode')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\Mode')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Mode')]
     public Mode $mode;
 
     /**
@@ -34,7 +34,7 @@ class Account
      * @var AccountType $accountType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('accountType')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\AccountType')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AccountType')]
     public AccountType $accountType;
 
     /**
@@ -50,7 +50,7 @@ class Account
      * @var Profile $profile
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('profile')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\Profile')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Profile')]
     public Profile $profile;
 
     /**
@@ -59,7 +59,7 @@ class Account
      * @var Verification $verification
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('verification')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\Verification')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Verification')]
     public Verification $verification;
 
     /**
@@ -92,7 +92,7 @@ class Account
      * @var ?TermsOfService $termsOfService
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('termsOfService')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\TermsOfService|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TermsOfService|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?TermsOfService $termsOfService = null;
 
@@ -102,7 +102,7 @@ class Account
      * @var ?array<AccountCapability> $capabilities
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('capabilities')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\OpenAPI\Models\Components\AccountCapability>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\AccountCapability>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $capabilities = null;
 
@@ -123,7 +123,7 @@ class Account
      * @var ?CustomerSupport $customerSupport
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('customerSupport')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CustomerSupport|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CustomerSupport|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?CustomerSupport $customerSupport = null;
 
@@ -133,7 +133,7 @@ class Account
      * @var ?Settings $settings
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('settings')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\Settings|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Settings|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Settings $settings = null;
 

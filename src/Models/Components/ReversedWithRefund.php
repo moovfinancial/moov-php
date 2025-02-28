@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class ReversedWithRefund
@@ -17,7 +17,7 @@ class ReversedWithRefund
      * @var CardAcquiringRefund $refund
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('refund')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CardAcquiringRefund')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardAcquiringRefund')]
     public CardAcquiringRefund $refund;
 
     /**

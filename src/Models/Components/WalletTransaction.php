@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** WalletTransaction - A transaction that funds or deducts from the wallet. */
@@ -31,7 +31,7 @@ class WalletTransaction
      * @var WalletTransactionType $transactionType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('transactionType')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\WalletTransactionType')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\WalletTransactionType')]
     public WalletTransactionType $transactionType;
 
     /**
@@ -39,7 +39,7 @@ class WalletTransaction
      * @var WalletTransactionSourceType $sourceType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('sourceType')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\WalletTransactionSourceType')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\WalletTransactionSourceType')]
     public WalletTransactionSourceType $sourceType;
 
     /**
@@ -55,7 +55,7 @@ class WalletTransaction
      * @var WalletTransactionStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\WalletTransactionStatus')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\WalletTransactionStatus')]
     public WalletTransactionStatus $status;
 
     /**

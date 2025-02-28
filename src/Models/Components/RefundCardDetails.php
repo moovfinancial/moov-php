@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class RefundCardDetails
@@ -16,7 +16,7 @@ class RefundCardDetails
      * @var RefundCardStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\RefundCardStatus')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RefundCardStatus')]
     public RefundCardStatus $status;
 
     /**
@@ -24,7 +24,7 @@ class RefundCardDetails
      * @var ?CardTransactionFailureCode $failureCode
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('failureCode')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CardTransactionFailureCode|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardTransactionFailureCode|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?CardTransactionFailureCode $failureCode = null;
 

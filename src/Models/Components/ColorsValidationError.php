@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class ColorsValidationError
@@ -16,7 +16,7 @@ class ColorsValidationError
      * @var ?BrandColorValidationError $light
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('light')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\BrandColorValidationError|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BrandColorValidationError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?BrandColorValidationError $light = null;
 
@@ -25,7 +25,7 @@ class ColorsValidationError
      * @var ?BrandColorValidationError $dark
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('dark')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\BrandColorValidationError|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BrandColorValidationError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?BrandColorValidationError $dark = null;
 

@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Operations;
+namespace Moov\MoovPhp\Models\Operations;
 
 
 class DisableCapabilityResponse

@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** CardAcquiringRefund - Details of a card refund. */
@@ -39,7 +39,7 @@ class CardAcquiringRefund
      * @var RefundStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\RefundStatus')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RefundStatus')]
     public RefundStatus $status;
 
     /**
@@ -47,7 +47,7 @@ class CardAcquiringRefund
      * @var Amount $amount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\Amount')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Amount')]
     public Amount $amount;
 
     /**
@@ -55,7 +55,7 @@ class CardAcquiringRefund
      * @var ?RefundCardDetails $cardDetails
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardDetails')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\RefundCardDetails|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RefundCardDetails|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?RefundCardDetails $cardDetails = null;
 

@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** CreateTerminalApplication - Describes a create terminal application request. */
@@ -18,7 +18,7 @@ class CreateTerminalApplication
      * @var TerminalApplicationPlatform $platform
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('platform')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\TerminalApplicationPlatform')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TerminalApplicationPlatform')]
     public TerminalApplicationPlatform $platform;
 
     /**

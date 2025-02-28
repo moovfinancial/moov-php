@@ -5,12 +5,12 @@
 
 ### Available Operations
 
-* [ping](#ping) - A simple endpoint to check auth.
+* [get](#get) - A simple endpoint to check auth.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/ping.read` scope.
 
-## ping
+## get
 
 A simple endpoint to check auth.
 
@@ -24,10 +24,10 @@ declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use Moov\OpenAPI;
-use Moov\OpenAPI\Models\Components;
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
 
-$sdk = OpenAPI\Moov::builder()
+$sdk = MoovPhp\Moov::builder()
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -38,7 +38,7 @@ $sdk = OpenAPI\Moov::builder()
 
 
 
-$response = $sdk->ping->ping(
+$response = $sdk->ping->get(
     xMoovVersion: 'v2024.01.00'
 );
 

@@ -6,10 +6,10 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Errors;
+namespace Moov\MoovPhp\Models\Errors;
 
-use Moov\OpenAPI\Models\Components;
-use Moov\OpenAPI\Utils;
+use Moov\MoovPhp\Models\Components;
+use Moov\MoovPhp\Utils;
 class CreatePaymentLinkError
 {
     /**
@@ -33,7 +33,7 @@ class CreatePaymentLinkError
      * @var ?Components\AmountValidationError $amount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\AmountValidationError|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountValidationError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Components\AmountValidationError $amount = null;
 
@@ -58,7 +58,7 @@ class CreatePaymentLinkError
      * @var ?Components\DisplayOptionsError $display
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('display')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\DisplayOptionsError|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\DisplayOptionsError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Components\DisplayOptionsError $display = null;
 
@@ -67,7 +67,7 @@ class CreatePaymentLinkError
      * @var ?Components\PaymentDetailsError $payment
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('payment')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PaymentDetailsError|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentDetailsError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Components\PaymentDetailsError $payment = null;
 
@@ -76,7 +76,7 @@ class CreatePaymentLinkError
      * @var ?Components\PayoutDetailsError $payout
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('payout')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PayoutDetailsError|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PayoutDetailsError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Components\PayoutDetailsError $payout = null;
 

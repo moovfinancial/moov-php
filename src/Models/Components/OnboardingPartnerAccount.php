@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** OnboardingPartnerAccount - The account that created the onboarding invite. */
@@ -26,7 +26,7 @@ class OnboardingPartnerAccount
      * @var Mode $accountMode
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('accountMode')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\Mode')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Mode')]
     public Mode $accountMode;
 
     /**

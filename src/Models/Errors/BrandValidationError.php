@@ -6,10 +6,10 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Errors;
+namespace Moov\MoovPhp\Models\Errors;
 
-use Moov\OpenAPI\Models\Components;
-use Moov\OpenAPI\Utils;
+use Moov\MoovPhp\Models\Components;
+use Moov\MoovPhp\Utils;
 class BrandValidationError
 {
     /**
@@ -17,7 +17,7 @@ class BrandValidationError
      * @var ?Components\ColorsValidationError $colors
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('colors')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\ColorsValidationError|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ColorsValidationError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Components\ColorsValidationError $colors = null;
 

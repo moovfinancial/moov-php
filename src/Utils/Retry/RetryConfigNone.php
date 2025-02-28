@@ -7,7 +7,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Utils\Retry;
+namespace Moov\MoovPhp\Utils\Retry;
 
 class RetryConfigNone extends RetryConfig
 {

@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class CreateIndividualProfile
@@ -16,7 +16,7 @@ class CreateIndividualProfile
      * @var IndividualName $name
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('name')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\IndividualName')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IndividualName')]
     public IndividualName $name;
 
     /**
@@ -24,7 +24,7 @@ class CreateIndividualProfile
      * @var ?PhoneNumber $phone
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('phone')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PhoneNumber|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PhoneNumber|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?PhoneNumber $phone = null;
 
@@ -41,7 +41,7 @@ class CreateIndividualProfile
      * @var ?Address $address
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('address')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\Address|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Address|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Address $address = null;
 
@@ -50,7 +50,7 @@ class CreateIndividualProfile
      * @var ?BirthDate $birthDate
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('birthDate')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\BirthDate|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BirthDate|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?BirthDate $birthDate = null;
 
@@ -59,7 +59,7 @@ class CreateIndividualProfile
      * @var ?GovernmentID $governmentID
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('governmentID')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\GovernmentID|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\GovernmentID|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?GovernmentID $governmentID = null;
 

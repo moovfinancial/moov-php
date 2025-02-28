@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** BankAccount - Describes a bank account linked to a Moov account. */
@@ -35,7 +35,7 @@ class BankAccount
      * @var BankAccountStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\BankAccountStatus')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BankAccountStatus')]
     public BankAccountStatus $status;
 
     /**
@@ -51,7 +51,7 @@ class BankAccount
      * @var BankAccountHolderType $holderType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('holderType')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\BankAccountHolderType')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BankAccountHolderType')]
     public BankAccountHolderType $holderType;
 
     /**
@@ -67,7 +67,7 @@ class BankAccount
      * @var BankAccountType $bankAccountType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('bankAccountType')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\BankAccountType')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BankAccountType')]
     public BankAccountType $bankAccountType;
 
     /**
@@ -97,7 +97,7 @@ class BankAccount
      * @var ?BankAccountStatusReason $statusReason
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('statusReason')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\BankAccountStatusReason|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BankAccountStatusReason|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?BankAccountStatusReason $statusReason = null;
 
@@ -107,7 +107,7 @@ class BankAccount
      * @var ?BankAccountException $exceptionDetails
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('exceptionDetails')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\BankAccountException|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BankAccountException|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?BankAccountException $exceptionDetails = null;
 
@@ -121,7 +121,7 @@ class BankAccount
      * @var ?array<BasicPaymentMethod> $paymentMethods
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('paymentMethods')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\OpenAPI\Models\Components\BasicPaymentMethod>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\BasicPaymentMethod>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $paymentMethods = null;
 

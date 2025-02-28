@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** CardAccountUpdater - The results of the most recent card update request. */
@@ -26,7 +26,7 @@ class CardAccountUpdater
      * @var ?CardUpdateReason $updateType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('updateType')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CardUpdateReason|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardUpdateReason|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?CardUpdateReason $updateType = null;
 

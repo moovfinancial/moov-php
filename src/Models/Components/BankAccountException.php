@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** BankAccountException - Reason for, and details related to, an `errored` or `verificationFailed` bank account status. */
@@ -40,7 +40,7 @@ class BankAccountException
      * @var ACHReturnCode $achReturnCode
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('achReturnCode')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\ACHReturnCode')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ACHReturnCode')]
     public ACHReturnCode $achReturnCode;
 
     /**
@@ -58,7 +58,7 @@ class BankAccountException
      * @var RTPRejectionCode $rtpRejectionCode
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('rtpRejectionCode')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\RTPRejectionCode')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RTPRejectionCode')]
     public RTPRejectionCode $rtpRejectionCode;
 
     /**

@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** TaxIDUpdate - An EIN (employer identification number) for the business. For sole proprietors, an SSN can be used as the EIN. */
@@ -14,18 +14,18 @@ class TaxIDUpdate
 {
     /**
      *
-     * @var ?TaxIDUpdateEin $ein
+     * @var ?Ein $ein
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('ein')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\TaxIDUpdateEin|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Ein|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?TaxIDUpdateEin $ein = null;
+    public ?Ein $ein = null;
 
     /**
-     * @param  ?TaxIDUpdateEin  $ein
+     * @param  ?Ein  $ein
      * @phpstan-pure
      */
-    public function __construct(?TaxIDUpdateEin $ein = null)
+    public function __construct(?Ein $ein = null)
     {
         $this->ein = $ein;
     }

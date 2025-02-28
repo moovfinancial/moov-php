@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class IssuedCardAuthorizationEvent
@@ -25,7 +25,7 @@ class IssuedCardAuthorizationEvent
      * @var IssuedCardEventType $eventType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('eventType')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\IssuedCardEventType')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IssuedCardEventType')]
     public IssuedCardEventType $eventType;
 
     /**
@@ -42,7 +42,7 @@ class IssuedCardAuthorizationEvent
      * @var IssuedCardAuthorizationEventResult $result
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('result')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\IssuedCardAuthorizationEventResult')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IssuedCardAuthorizationEventResult')]
     public IssuedCardAuthorizationEventResult $result;
 
     /**

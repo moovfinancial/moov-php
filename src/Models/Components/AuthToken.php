@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class AuthToken
@@ -17,7 +17,7 @@ class AuthToken
      * @var TokenType $tokenType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('token_type')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\TokenType')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TokenType')]
     public TokenType $tokenType;
 
     /**

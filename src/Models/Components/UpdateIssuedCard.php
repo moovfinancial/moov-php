@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class UpdateIssuedCard
@@ -23,7 +23,7 @@ class UpdateIssuedCard
      * @var ?IssuedCardState $state
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('state')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\IssuedCardState|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IssuedCardState|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?IssuedCardState $state = null;
 
@@ -41,7 +41,7 @@ class UpdateIssuedCard
      * @var ?CreateAuthorizedUserUpdate $authorizedUser
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('authorizedUser')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CreateAuthorizedUserUpdate|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateAuthorizedUserUpdate|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?CreateAuthorizedUserUpdate $authorizedUser = null;
 

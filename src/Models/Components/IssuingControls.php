@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class IssuingControls
@@ -26,7 +26,7 @@ class IssuingControls
      * @var ?array<IssuingVelocityLimit> $velocityLimits
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('velocityLimits')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\OpenAPI\Models\Components\IssuingVelocityLimit>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\IssuingVelocityLimit>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $velocityLimits = null;
 

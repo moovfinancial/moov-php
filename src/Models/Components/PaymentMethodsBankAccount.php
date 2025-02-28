@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** PaymentMethodsBankAccount - A bank account as contained within a payment method. */
@@ -35,7 +35,7 @@ class PaymentMethodsBankAccount
      * @var BankAccountStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\BankAccountStatus')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BankAccountStatus')]
     public BankAccountStatus $status;
 
     /**
@@ -51,7 +51,7 @@ class PaymentMethodsBankAccount
      * @var BankAccountHolderType $holderType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('holderType')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\BankAccountHolderType')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BankAccountHolderType')]
     public BankAccountHolderType $holderType;
 
     /**
@@ -67,7 +67,7 @@ class PaymentMethodsBankAccount
      * @var BankAccountType $bankAccountType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('bankAccountType')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\BankAccountType')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BankAccountType')]
     public BankAccountType $bankAccountType;
 
     /**

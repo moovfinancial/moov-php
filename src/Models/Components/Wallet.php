@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** Wallet - A Moov wallet to store funds for transfers. */
@@ -24,7 +24,7 @@ class Wallet
      * @var WalletAvailableBalance $availableBalance
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('availableBalance')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\WalletAvailableBalance')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\WalletAvailableBalance')]
     public WalletAvailableBalance $availableBalance;
 
     /**

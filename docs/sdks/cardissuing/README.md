@@ -11,11 +11,7 @@ Only use this endpoint if you have provided Moov with a copy of your PCI attesta
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/issued-cards.read-secure` scope.
-* [get](#get) - Retrieve a single issued card associated with a Moov account.
-
-To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
-you'll need to specify the `/accounts/{accountID}/issued-cards.read` scope.
-* [list](#list) - List Moov issued cards existing for the account.
+* [getIssuedCard](#getissuedcard) - Retrieve a single issued card associated with a Moov account.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/issued-cards.read` scope.
@@ -44,10 +40,10 @@ declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use Moov\OpenAPI;
-use Moov\OpenAPI\Models\Components;
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
 
-$sdk = OpenAPI\Moov::builder()
+$sdk = MoovPhp\Moov::builder()
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -88,7 +84,7 @@ if ($response->fullIssuedCard !== null) {
 | ------------------- | ------------------- | ------------------- |
 | Errors\APIException | 4XX, 5XX            | \*/\*               |
 
-## get
+## getIssuedCard
 
 Retrieve a single issued card associated with a Moov account.
 
@@ -102,10 +98,10 @@ declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use Moov\OpenAPI;
-use Moov\OpenAPI\Models\Components;
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
 
-$sdk = OpenAPI\Moov::builder()
+$sdk = MoovPhp\Moov::builder()
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -116,9 +112,9 @@ $sdk = OpenAPI\Moov::builder()
 
 
 
-$response = $sdk->cardIssuing->get(
-    accountID: 'b888f774-3e7c-4135-a18c-6b985523c4bc',
-    issuedCardID: 'e50f7622-81da-484b-9c66-1c8a99c6b71b',
+$response = $sdk->cardIssuing->getIssuedCard(
+    accountID: 'c63d9bae-2097-4bfa-8ac7-e9e8dff6e9ae',
+    issuedCardID: 'aa0c86df-7f7d-4200-9ee4-24ba8870a7d4',
     xMoovVersion: 'v2024.01.00'
 
 );
@@ -146,64 +142,6 @@ if ($response->issuedCard !== null) {
 | ------------------- | ------------------- | ------------------- |
 | Errors\APIException | 4XX, 5XX            | \*/\*               |
 
-## list
-
-List Moov issued cards existing for the account.
-
-To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
-you'll need to specify the `/accounts/{accountID}/issued-cards.read` scope.
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use Moov\OpenAPI;
-use Moov\OpenAPI\Models\Components;
-use Moov\OpenAPI\Models\Operations;
-
-$sdk = OpenAPI\Moov::builder()
-    ->setSecurity(
-        new Components\Security(
-            username: '',
-            password: '',
-        )
-    )
-    ->build();
-
-$request = new Operations\ListIssuedCardsRequest(
-    accountID: 'c8a232aa-0b11-4b8a-b005-71e9e705d0e6',
-    skip: 60,
-    count: 20,
-);
-
-$response = $sdk->cardIssuing->list(
-    request: $request
-);
-
-if ($response->issuedCards !== null) {
-    // handle response
-}
-```
-
-### Parameters
-
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `$request`                                                                             | [Operations\ListIssuedCardsRequest](../../Models/Operations/ListIssuedCardsRequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-
-### Response
-
-**[?Operations\ListIssuedCardsResponse](../../Models/Operations/ListIssuedCardsResponse.md)**
-
-### Errors
-
-| Error Type          | Status Code         | Content Type        |
-| ------------------- | ------------------- | ------------------- |
-| Errors\APIException | 4XX, 5XX            | \*/\*               |
-
 ## request
 
 Request a virtual card be issued.
@@ -218,10 +156,10 @@ declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use Moov\OpenAPI;
-use Moov\OpenAPI\Models\Components;
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
 
-$sdk = OpenAPI\Moov::builder()
+$sdk = MoovPhp\Moov::builder()
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -302,10 +240,10 @@ declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use Moov\OpenAPI;
-use Moov\OpenAPI\Models\Components;
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
 
-$sdk = OpenAPI\Moov::builder()
+$sdk = MoovPhp\Moov::builder()
     ->setSecurity(
         new Components\Security(
             username: '',

@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** IncurredFee - A fee incurred by a user. */
@@ -57,7 +57,7 @@ class IncurredFee
      * @var ?AmountDecimal $amount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\AmountDecimal|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?AmountDecimal $amount = null;
 
@@ -67,7 +67,7 @@ class IncurredFee
      * @var GeneratedByTransferID|GeneratedByCardID|GeneratedByDisputeID|GeneratedByAccountID|GeneratedByBankAccountID|null $generatedBy
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('generatedBy')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\GeneratedByTransferID|\Moov\OpenAPI\Models\Components\GeneratedByCardID|\Moov\OpenAPI\Models\Components\GeneratedByDisputeID|\Moov\OpenAPI\Models\Components\GeneratedByAccountID|\Moov\OpenAPI\Models\Components\GeneratedByBankAccountID|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\GeneratedByTransferID|\Moov\MoovPhp\Models\Components\GeneratedByCardID|\Moov\MoovPhp\Models\Components\GeneratedByDisputeID|\Moov\MoovPhp\Models\Components\GeneratedByAccountID|\Moov\MoovPhp\Models\Components\GeneratedByBankAccountID|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public GeneratedByTransferID|GeneratedByCardID|GeneratedByDisputeID|GeneratedByAccountID|GeneratedByBankAccountID|null $generatedBy = null;
 

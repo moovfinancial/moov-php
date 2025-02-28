@@ -6,8 +6,8 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI;
-use Moov\OpenAPI\Utils\Retry\RetryConfig;
+namespace Moov\MoovPhp;
+use Moov\MoovPhp\Utils\Retry\RetryConfig;
 
 class SDKConfiguration
 {
@@ -24,11 +24,11 @@ class SDKConfiguration
 
     public string $openapiDocVersion = 'latest';
 
-    public string $sdkVersion = '0.1.7';
+    public string $sdkVersion = '0.2.1';
 
-    public string $genVersion = '2.533.0';
+    public string $genVersion = '2.536.0';
 
-    public string $userAgent = 'speakeasy-sdk/php 0.1.7 2.533.0 latest moov/openapi';
+    public string $userAgent = 'speakeasy-sdk/php 0.2.1 2.536.0 latest moov/moov-php';
     /** @var array<string, array<string, array<string, mixed>>> */
     public ?array $globals = [
         'parameters' => [],

@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI;
+namespace Moov\MoovPhp;
 
 
 
@@ -52,6 +52,8 @@ class Moov
 
     public Scheduling $scheduling;
 
+    public Schedules $schedules;
+
     public Sweeps $sweeps;
 
     public Transfers $transfers;
@@ -66,7 +68,7 @@ class Moov
 
     public EndToEndEncryption $endToEndEncryption;
 
-    public EnrichedAddress $enrichedAddress;
+    public Enrichment $enrichment;
 
     public EnrichedProfile $enrichedProfile;
 
@@ -76,9 +78,15 @@ class Moov
 
     public IssuingTransactions $issuingTransactions;
 
+    public Transactions $transactions;
+
     public CardIssuing $cardIssuing;
 
+    public IssuedCards $issuedCards;
+
     public Authentication $authentication;
+
+    public OnboardingInvites $onboardingInvites;
 
     public Onboarding $onboarding;
 
@@ -116,6 +124,7 @@ class Moov
         $this->paymentMethods = new PaymentMethods($this->sdkConfiguration);
         $this->representatives = new Representatives($this->sdkConfiguration);
         $this->scheduling = new Scheduling($this->sdkConfiguration);
+        $this->schedules = new Schedules($this->sdkConfiguration);
         $this->sweeps = new Sweeps($this->sdkConfiguration);
         $this->transfers = new Transfers($this->sdkConfiguration);
         $this->underwriting = new Underwriting($this->sdkConfiguration);
@@ -123,13 +132,16 @@ class Moov
         $this->walletTransactions = new WalletTransactions($this->sdkConfiguration);
         $this->avatars = new Avatars($this->sdkConfiguration);
         $this->endToEndEncryption = new EndToEndEncryption($this->sdkConfiguration);
-        $this->enrichedAddress = new EnrichedAddress($this->sdkConfiguration);
+        $this->enrichment = new Enrichment($this->sdkConfiguration);
         $this->enrichedProfile = new EnrichedProfile($this->sdkConfiguration);
         $this->industries = new Industries($this->sdkConfiguration);
         $this->institutions = new Institutions($this->sdkConfiguration);
         $this->issuingTransactions = new IssuingTransactions($this->sdkConfiguration);
+        $this->transactions = new Transactions($this->sdkConfiguration);
         $this->cardIssuing = new CardIssuing($this->sdkConfiguration);
+        $this->issuedCards = new IssuedCards($this->sdkConfiguration);
         $this->authentication = new Authentication($this->sdkConfiguration);
+        $this->onboardingInvites = new OnboardingInvites($this->sdkConfiguration);
         $this->onboarding = new Onboarding($this->sdkConfiguration);
         $this->ping = new Ping($this->sdkConfiguration);
         $this->terminalApplications = new TerminalApplications($this->sdkConfiguration);

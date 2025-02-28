@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** Underwriting - Describes underwriting values (in USD) used for card payment acceptance. */
@@ -39,7 +39,7 @@ class Underwriting
      * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\UnderwritingStatus')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\UnderwritingStatus')]
     public UnderwritingStatus $status;
 
     /**
@@ -47,7 +47,7 @@ class Underwriting
      * @var VolumeByCustomerType $volumeByCustomerType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('volumeByCustomerType')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\VolumeByCustomerType')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\VolumeByCustomerType')]
     public VolumeByCustomerType $volumeByCustomerType;
 
     /**
@@ -55,7 +55,7 @@ class Underwriting
      * @var CardVolumeDistribution $cardVolumeDistribution
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardVolumeDistribution')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CardVolumeDistribution')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardVolumeDistribution')]
     public CardVolumeDistribution $cardVolumeDistribution;
 
     /**
@@ -63,7 +63,7 @@ class Underwriting
      * @var FulfillmentDetails $fulfillment
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('fulfillment')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\FulfillmentDetails')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\FulfillmentDetails')]
     public FulfillmentDetails $fulfillment;
 
     /**

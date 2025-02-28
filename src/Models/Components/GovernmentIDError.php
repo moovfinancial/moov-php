@@ -6,35 +6,35 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class GovernmentIDError
 {
     /**
      *
-     * @var ?GovernmentIDErrorSsn $ssn
+     * @var ?Ssn $ssn
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('ssn')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\GovernmentIDErrorSsn|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Ssn|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?GovernmentIDErrorSsn $ssn = null;
+    public ?Ssn $ssn = null;
 
     /**
      *
-     * @var ?GovernmentIDErrorItin $itin
+     * @var ?Itin $itin
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('itin')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\GovernmentIDErrorItin|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Itin|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?GovernmentIDErrorItin $itin = null;
+    public ?Itin $itin = null;
 
     /**
-     * @param  ?GovernmentIDErrorSsn  $ssn
-     * @param  ?GovernmentIDErrorItin  $itin
+     * @param  ?Ssn  $ssn
+     * @param  ?Itin  $itin
      * @phpstan-pure
      */
-    public function __construct(?GovernmentIDErrorSsn $ssn = null, ?GovernmentIDErrorItin $itin = null)
+    public function __construct(?Ssn $ssn = null, ?Itin $itin = null)
     {
         $this->ssn = $ssn;
         $this->itin = $itin;

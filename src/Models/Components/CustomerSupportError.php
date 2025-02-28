@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class CustomerSupportError
@@ -16,7 +16,7 @@ class CustomerSupportError
      * @var ?PhoneNumberError $phone
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('phone')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PhoneNumberError|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PhoneNumberError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?PhoneNumberError $phone = null;
 
@@ -33,7 +33,7 @@ class CustomerSupportError
      * @var ?AddressError $address
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('address')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\AddressError|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AddressError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?AddressError $address = null;
 

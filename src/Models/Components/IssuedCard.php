@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class IssuedCard
@@ -24,7 +24,7 @@ class IssuedCard
      * @var CardBrand $brand
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('brand')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CardBrand')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardBrand')]
     public CardBrand $brand;
 
     /**
@@ -40,7 +40,7 @@ class IssuedCard
      * @var CardExpiration $expiration
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('expiration')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CardExpiration')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardExpiration')]
     public CardExpiration $expiration;
 
     /**
@@ -49,7 +49,7 @@ class IssuedCard
      * @var AuthorizedUser $authorizedUser
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('authorizedUser')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\AuthorizedUser')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AuthorizedUser')]
     public AuthorizedUser $authorizedUser;
 
     /**
@@ -72,7 +72,7 @@ class IssuedCard
      * @var IssuedCardState $state
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('state')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\IssuedCardState')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IssuedCardState')]
     public IssuedCardState $state;
 
     /**
@@ -81,7 +81,7 @@ class IssuedCard
      * @var IssuedCardFormFactor $formFactor
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('formFactor')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\IssuedCardFormFactor')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IssuedCardFormFactor')]
     public IssuedCardFormFactor $formFactor;
 
     /**
@@ -105,7 +105,7 @@ class IssuedCard
      * @var ?IssuingControls $controls
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('controls')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\IssuingControls|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IssuingControls|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?IssuingControls $controls = null;
 

@@ -6,10 +6,10 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Errors;
+namespace Moov\MoovPhp\Models\Errors;
 
-use Moov\OpenAPI\Models\Components;
-use Moov\OpenAPI\Utils;
+use Moov\MoovPhp\Models\Components;
+use Moov\MoovPhp\Utils;
 class RequestCardError
 {
     /**
@@ -33,7 +33,7 @@ class RequestCardError
      * @var ?Components\CreateAuthorizedUserError $authorizedUser
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('authorizedUser')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CreateAuthorizedUserError|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateAuthorizedUserError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Components\CreateAuthorizedUserError $authorizedUser = null;
 
@@ -50,7 +50,7 @@ class RequestCardError
      * @var ?Components\CardExpirationError $expiration
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('expiration')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CardExpirationError|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardExpirationError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Components\CardExpirationError $expiration = null;
 
@@ -59,7 +59,7 @@ class RequestCardError
      * @var ?Components\IssuingControlsError $controls
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('controls')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\IssuingControlsError|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IssuingControlsError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Components\IssuingControlsError $controls = null;
 

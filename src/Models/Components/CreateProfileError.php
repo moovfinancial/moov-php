@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class CreateProfileError
@@ -16,7 +16,7 @@ class CreateProfileError
      * @var ?CreateIndividualError $individual
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('individual')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CreateIndividualError|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateIndividualError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?CreateIndividualError $individual = null;
 
@@ -25,7 +25,7 @@ class CreateProfileError
      * @var ?CreateBusinessError $business
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('business')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CreateBusinessError|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateBusinessError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?CreateBusinessError $business = null;
 

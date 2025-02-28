@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class PaymentLinkPayoutDetails
@@ -17,7 +17,7 @@ class PaymentLinkPayoutDetails
      * @var array<DisbursementPaymentMethodType> $allowedMethods
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('allowedMethods')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\OpenAPI\Models\Components\DisbursementPaymentMethodType>')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\DisbursementPaymentMethodType>')]
     public array $allowedMethods;
 
     /**
@@ -29,7 +29,7 @@ class PaymentLinkPayoutDetails
      * @var PayoutRecipient $recipient
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('recipient')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PayoutRecipient')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PayoutRecipient')]
     public PayoutRecipient $recipient;
 
     /**

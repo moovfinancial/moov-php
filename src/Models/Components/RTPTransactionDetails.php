@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** RTPTransactionDetails - RTP specific details about the transaction. */
@@ -18,7 +18,7 @@ class RTPTransactionDetails
      * @var RTPTransactionStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\RTPTransactionStatus')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RTPTransactionStatus')]
     public RTPTransactionStatus $status;
 
     /**
@@ -36,7 +36,7 @@ class RTPTransactionDetails
      * @var ?RTPFailureCode $failureCode
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('failureCode')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\RTPFailureCode|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RTPFailureCode|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?RTPFailureCode $failureCode = null;
 

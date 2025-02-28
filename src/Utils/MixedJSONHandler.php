@@ -7,7 +7,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Utils;
+namespace Moov\MoovPhp\Utils;
 
 use Speakeasy\Serializer\Context;
 use Speakeasy\Serializer\GraphNavigator;

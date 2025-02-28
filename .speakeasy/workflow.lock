@@ -1,18 +1,18 @@
-speakeasyVersion: 1.507.0
+speakeasyVersion: 1.508.0
 sources:
     latest:
-        sourceNamespace: api-latest
-        sourceRevisionDigest: sha256:321c8bdb547e9b6df97901fe689268eef7d9c18976c89f5482516860aa1a6188
-        sourceBlobDigest: sha256:e384bcafbfbdb1489314ce05c3cda57aa5e554fa711189f4d85ec8c17f1a98ae
+        sourceNamespace: latest
+        sourceRevisionDigest: sha256:021b14f28ff03576d4ce6c62acaa4687eeda94ffc3b5cd1bfa9bba1875ffee2e
+        sourceBlobDigest: sha256:a8eac8f2f01367366005af1a4fbac744173b1bbe10ff9345b3ceab61a7b74820
         tags:
             - latest
-            - speakeasy-sdk-regen-1740701810
+            - latest
 targets:
     latest:
         source: latest
-        sourceNamespace: api-latest
-        sourceRevisionDigest: sha256:321c8bdb547e9b6df97901fe689268eef7d9c18976c89f5482516860aa1a6188
-        sourceBlobDigest: sha256:e384bcafbfbdb1489314ce05c3cda57aa5e554fa711189f4d85ec8c17f1a98ae
+        sourceNamespace: latest
+        sourceRevisionDigest: sha256:021b14f28ff03576d4ce6c62acaa4687eeda94ffc3b5cd1bfa9bba1875ffee2e
+        sourceBlobDigest: sha256:a8eac8f2f01367366005af1a4fbac744173b1bbe10ff9345b3ceab61a7b74820
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -20,6 +20,10 @@ workflow:
         latest:
             inputs:
                 - location: registry.speakeasyapi.dev/moov/moov/api-latest
+            overlays:
+                - location: .speakeasy/speakeasy-modifications-overlay.yaml
+            registry:
+                location: registry.speakeasyapi.dev/moov/moov/latest
     targets:
         latest:
             target: php

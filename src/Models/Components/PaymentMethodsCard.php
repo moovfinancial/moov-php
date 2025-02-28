@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** PaymentMethodsCard - A card as contained within a payment method. */
@@ -37,7 +37,7 @@ class PaymentMethodsCard
      * @var CardBrand $brand
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('brand')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CardBrand')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardBrand')]
     public CardBrand $brand;
 
     /**
@@ -46,7 +46,7 @@ class PaymentMethodsCard
      * @var CardType $cardType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardType')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CardType')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardType')]
     public CardType $cardType;
 
     /**
@@ -71,7 +71,7 @@ class PaymentMethodsCard
      * @var CardExpiration $expiration
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('expiration')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CardExpiration')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardExpiration')]
     public CardExpiration $expiration;
 
     /**
@@ -79,7 +79,7 @@ class PaymentMethodsCard
      * @var CardAddress $billingAddress
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('billingAddress')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CardAddress')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardAddress')]
     public CardAddress $billingAddress;
 
     /**
@@ -88,7 +88,7 @@ class PaymentMethodsCard
      * @var CardVerification $cardVerification
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardVerification')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CardVerification')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardVerification')]
     public CardVerification $cardVerification;
 
     /**
@@ -113,7 +113,7 @@ class PaymentMethodsCard
      * @var DomesticPushToCard $domesticPushToCard
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('domesticPushToCard')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\DomesticPushToCard')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\DomesticPushToCard')]
     public DomesticPushToCard $domesticPushToCard;
 
     /**
@@ -122,7 +122,7 @@ class PaymentMethodsCard
      * @var DomesticPullFromCard $domesticPullFromCard
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('domesticPullFromCard')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\DomesticPullFromCard')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\DomesticPullFromCard')]
     public DomesticPullFromCard $domesticPullFromCard;
 
     /**
@@ -157,7 +157,7 @@ class PaymentMethodsCard
      * @var ?CardAccountUpdater $cardAccountUpdater
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardAccountUpdater')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CardAccountUpdater|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardAccountUpdater|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?CardAccountUpdater $cardAccountUpdater = null;
 

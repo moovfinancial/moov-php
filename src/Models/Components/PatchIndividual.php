@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** PatchIndividual - Describes the fields available when patching an individual. */
@@ -17,7 +17,7 @@ class PatchIndividual
      * @var ?IndividualNameUpdate $name
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('name')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\IndividualNameUpdate|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IndividualNameUpdate|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?IndividualNameUpdate $name = null;
 
@@ -26,7 +26,7 @@ class PatchIndividual
      * @var ?PhoneNumber $phone
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('phone')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PhoneNumber|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PhoneNumber|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?PhoneNumber $phone = null;
 
@@ -43,7 +43,7 @@ class PatchIndividual
      * @var ?AddressUpdate $address
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('address')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\AddressUpdate|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AddressUpdate|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?AddressUpdate $address = null;
 
@@ -52,7 +52,7 @@ class PatchIndividual
      * @var ?BirthDateUpdate $birthDate
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('birthDate')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\BirthDateUpdate|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BirthDateUpdate|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?BirthDateUpdate $birthDate = null;
 
@@ -61,7 +61,7 @@ class PatchIndividual
      * @var ?GovernmentID $governmentID
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('governmentID')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\GovernmentID|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\GovernmentID|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?GovernmentID $governmentID = null;
 

@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** Occurrence - Occurrences to either create or modify. */
@@ -47,7 +47,7 @@ class Occurrence
      * @var ?RunTransfer $runTransfer
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('runTransfer')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\RunTransfer|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RunTransfer|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?RunTransfer $runTransfer = null;
 

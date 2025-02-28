@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /**
@@ -32,7 +32,7 @@ class PlaidLinkPayload
      * @var PlaidLinkIntegration $plaidLink
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('plaidLink')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PlaidLinkIntegration')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PlaidLinkIntegration')]
     public PlaidLinkIntegration $plaidLink;
 
     /**

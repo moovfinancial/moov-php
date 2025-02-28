@@ -4,6 +4,10 @@ sources:
     latest:
         inputs:
             - location: registry.speakeasyapi.dev/moov/moov/api-latest
+        overlays:
+            - location: .speakeasy/speakeasy-modifications-overlay.yaml
+        registry:
+            location: registry.speakeasyapi.dev/moov/moov/latest
 targets:
     latest:
         target: php

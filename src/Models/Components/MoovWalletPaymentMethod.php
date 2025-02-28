@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class MoovWalletPaymentMethod
@@ -24,7 +24,7 @@ class MoovWalletPaymentMethod
      * @var MoovWalletPaymentMethodPaymentMethodType $paymentMethodType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('paymentMethodType')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\MoovWalletPaymentMethodPaymentMethodType')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\MoovWalletPaymentMethodPaymentMethodType')]
     public MoovWalletPaymentMethodPaymentMethodType $paymentMethodType;
 
     /**
@@ -32,7 +32,7 @@ class MoovWalletPaymentMethod
      * @var PaymentMethodsWallet $wallet
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('wallet')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PaymentMethodsWallet')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentMethodsWallet')]
     public PaymentMethodsWallet $wallet;
 
     /**

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: a7e28ac7ea2dc59298d66942cca5bcc5
+  docChecksum: 9a419fcdbce136502424c899e67b24e4
   docVersion: latest
-  speakeasyVersion: 1.507.0
-  generationVersion: 2.533.0
-  releaseVersion: 0.1.7
-  configChecksum: 5c2dbaa37dd91ed3450c2ad00c10008e
+  speakeasyVersion: 1.508.0
+  generationVersion: 2.536.0
+  releaseVersion: 0.2.1
+  configChecksum: b6bc93ce160c4c882e9f19bca33e558f
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
@@ -19,6 +19,7 @@ features:
     globalSecurity: 2.81.8
     globalServerURLs: 2.82.1
     globals: 2.82.2
+    groups: 2.81.2
     methodArguments: 0.1.0
     nameOverrides: 2.81.2
     nullables: 1.0.1
@@ -232,8 +233,8 @@ generatedFiles:
   - docs/Models/Components/GeneratedByTransferID.md
   - docs/Models/Components/GovernmentID.md
   - docs/Models/Components/GovernmentIDError.md
-  - docs/Models/Components/GovernmentIDErrorItin.md
-  - docs/Models/Components/GovernmentIDErrorSsn.md
+  - docs/Models/Components/GovernmentIDItin.md
+  - docs/Models/Components/GovernmentIDSsn.md
   - docs/Models/Components/GrantType.md
   - docs/Models/Components/IncurredFee.md
   - docs/Models/Components/IndividualName.md
@@ -373,8 +374,8 @@ generatedFiles:
   - docs/Models/Components/SweepConfigStatus.md
   - docs/Models/Components/SweepStatus.md
   - docs/Models/Components/TaxID.md
+  - docs/Models/Components/TaxIDEin.md
   - docs/Models/Components/TaxIDUpdate.md
-  - docs/Models/Components/TaxIDUpdateEin.md
   - docs/Models/Components/TerminalApplication.md
   - docs/Models/Components/TerminalApplicationPlatform.md
   - docs/Models/Components/TerminalApplicationStatus.md
@@ -718,6 +719,7 @@ generatedFiles:
   - docs/Models/Operations/UpsertUnderwritingRequest.md
   - docs/Models/Operations/UpsertUnderwritingResponse.md
   - docs/sdks/accounts/README.md
+  - docs/sdks/address/README.md
   - docs/sdks/adjustments/README.md
   - docs/sdks/applepay/README.md
   - docs/sdks/authentication/README.md
@@ -729,22 +731,26 @@ generatedFiles:
   - docs/sdks/cards/README.md
   - docs/sdks/disputes/README.md
   - docs/sdks/endtoendencryption/README.md
-  - docs/sdks/enrichedaddress/README.md
   - docs/sdks/enrichedprofile/README.md
+  - docs/sdks/enrichment/README.md
   - docs/sdks/feeplans/README.md
   - docs/sdks/files/README.md
   - docs/sdks/industries/README.md
   - docs/sdks/institutions/README.md
+  - docs/sdks/issuedcards/README.md
   - docs/sdks/issuingtransactions/README.md
   - docs/sdks/moov/README.md
   - docs/sdks/onboarding/README.md
+  - docs/sdks/onboardinginvites/README.md
   - docs/sdks/paymentlinks/README.md
   - docs/sdks/paymentmethods/README.md
   - docs/sdks/ping/README.md
   - docs/sdks/representatives/README.md
+  - docs/sdks/schedules/README.md
   - docs/sdks/scheduling/README.md
   - docs/sdks/sweeps/README.md
   - docs/sdks/terminalapplications/README.md
+  - docs/sdks/transactions/README.md
   - docs/sdks/transfers/README.md
   - docs/sdks/underwriting/README.md
   - docs/sdks/wallets/README.md
@@ -754,6 +760,7 @@ generatedFiles:
   - pint.json
   - rector.php
   - src/Accounts.php
+  - src/Address.php
   - src/Adjustments.php
   - src/ApplePay.php
   - src/Authentication.php
@@ -765,8 +772,8 @@ generatedFiles:
   - src/Cards.php
   - src/Disputes.php
   - src/EndToEndEncryption.php
-  - src/EnrichedAddress.php
   - src/EnrichedProfile.php
+  - src/Enrichment.php
   - src/FeePlans.php
   - src/Files.php
   - src/Hooks/AfterErrorContext.php
@@ -787,6 +794,7 @@ generatedFiles:
   - src/Hooks/TokenResponse.php
   - src/Industries.php
   - src/Institutions.php
+  - src/IssuedCards.php
   - src/IssuingTransactions.php
   - src/Models/Components/ACHException.php
   - src/Models/Components/ACHPaymentDetails.php
@@ -988,8 +996,8 @@ generatedFiles:
   - src/Models/Components/GeneratedByTransferID.php
   - src/Models/Components/GovernmentID.php
   - src/Models/Components/GovernmentIDError.php
-  - src/Models/Components/GovernmentIDErrorItin.php
-  - src/Models/Components/GovernmentIDErrorSsn.php
+  - src/Models/Components/GovernmentIDItin.php
+  - src/Models/Components/GovernmentIDSsn.php
   - src/Models/Components/GrantType.php
   - src/Models/Components/IncurredFee.php
   - src/Models/Components/IndividualName.php
@@ -1122,8 +1130,8 @@ generatedFiles:
   - src/Models/Components/SweepConfigStatus.php
   - src/Models/Components/SweepStatus.php
   - src/Models/Components/TaxID.php
+  - src/Models/Components/TaxIDEin.php
   - src/Models/Components/TaxIDUpdate.php
-  - src/Models/Components/TaxIDUpdateEin.php
   - src/Models/Components/TerminalApplication.php
   - src/Models/Components/TerminalApplicationPlatform.php
   - src/Models/Components/TerminalApplicationStatus.php
@@ -1502,14 +1510,17 @@ generatedFiles:
   - src/Moov.php
   - src/MoovBuilder.php
   - src/Onboarding.php
+  - src/OnboardingInvites.php
   - src/PaymentLinks.php
   - src/PaymentMethods.php
   - src/Ping.php
   - src/Representatives.php
   - src/SDKConfiguration.php
+  - src/Schedules.php
   - src/Scheduling.php
   - src/Sweeps.php
   - src/TerminalApplications.php
+  - src/Transactions.php
   - src/Transfers.php
   - src/Underwriting.php
   - src/Utils/BigDecimalHandler.php

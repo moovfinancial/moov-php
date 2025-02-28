@@ -6,9 +6,9 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI;
+namespace Moov\MoovPhp;
 
-use Moov\OpenAPI\Utils\Retry;
+use Moov\MoovPhp\Utils\Retry;
 
 /**
  * MoovBuilder is used to configure and build an instance of the SDK.

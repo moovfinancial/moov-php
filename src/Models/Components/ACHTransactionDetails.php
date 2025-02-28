@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** ACHTransactionDetails - ACH specific details about the transaction. */
@@ -18,7 +18,7 @@ class ACHTransactionDetails
      * @var ACHTransactionStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\ACHTransactionStatus')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ACHTransactionStatus')]
     public ACHTransactionStatus $status;
 
     /**
@@ -33,7 +33,7 @@ class ACHTransactionDetails
      * @var ?ACHException $return
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('return')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\ACHException|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ACHException|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?ACHException $return = null;
 
@@ -42,7 +42,7 @@ class ACHTransactionDetails
      * @var ?ACHException $correction
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('correction')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\ACHException|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ACHException|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?ACHException $correction = null;
 
@@ -70,7 +70,7 @@ class ACHTransactionDetails
      * @var ?SECCode $secCode
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('secCode')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\SECCode|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\SECCode|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?SECCode $secCode = null;
 
@@ -128,7 +128,7 @@ class ACHTransactionDetails
      * @var ?DebitHoldPeriod $debitHoldPeriod
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('debitHoldPeriod')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\DebitHoldPeriod|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\DebitHoldPeriod|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?DebitHoldPeriod $debitHoldPeriod = null;
 

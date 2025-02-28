@@ -11,12 +11,6 @@ Read our [wallet transactions guide](https://docs.moov.io/guides/sources/wallets
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/wallets.read` scope.
-* [list](#list) - List all the transactions associated with a particular Moov wallet. 
-
-Read our [wallet transactions guide](https://docs.moov.io/guides/sources/wallets/transactions/) to learn more.
-
-To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
-you'll need to specify the `/accounts/{accountID}/wallets.read` scope.
 
 ## get
 
@@ -34,10 +28,10 @@ declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use Moov\OpenAPI;
-use Moov\OpenAPI\Models\Components;
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
 
-$sdk = OpenAPI\Moov::builder()
+$sdk = MoovPhp\Moov::builder()
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -73,67 +67,6 @@ if ($response->walletTransaction !== null) {
 ### Response
 
 **[?Operations\GetWalletTransactionResponse](../../Models/Operations/GetWalletTransactionResponse.md)**
-
-### Errors
-
-| Error Type          | Status Code         | Content Type        |
-| ------------------- | ------------------- | ------------------- |
-| Errors\APIException | 4XX, 5XX            | \*/\*               |
-
-## list
-
-List all the transactions associated with a particular Moov wallet. 
-
-Read our [wallet transactions guide](https://docs.moov.io/guides/sources/wallets/transactions/) to learn more.
-
-To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
-you'll need to specify the `/accounts/{accountID}/wallets.read` scope.
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use Moov\OpenAPI;
-use Moov\OpenAPI\Models\Components;
-use Moov\OpenAPI\Models\Operations;
-
-$sdk = OpenAPI\Moov::builder()
-    ->setSecurity(
-        new Components\Security(
-            username: '',
-            password: '',
-        )
-    )
-    ->build();
-
-$request = new Operations\ListWalletTransactionsRequest(
-    accountID: 'c8a232aa-0b11-4b8a-b005-71e9e705d0e6',
-    walletID: '21e27667-18d6-4d46-812e-0aee1b9ddf12',
-    skip: 60,
-    count: 20,
-);
-
-$response = $sdk->walletTransactions->list(
-    request: $request
-);
-
-if ($response->walletTransactions !== null) {
-    // handle response
-}
-```
-
-### Parameters
-
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                           | [Operations\ListWalletTransactionsRequest](../../Models/Operations/ListWalletTransactionsRequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
-
-### Response
-
-**[?Operations\ListWalletTransactionsResponse](../../Models/Operations/ListWalletTransactionsResponse.md)**
 
 ### Errors
 

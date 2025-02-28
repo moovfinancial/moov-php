@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** BankAccountPayload - Describes the bank account to link to the Moov account. */
@@ -17,7 +17,7 @@ class BankAccountPayload
      * @var BankAccountIntegration $account
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('account')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\BankAccountIntegration')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BankAccountIntegration')]
     public BankAccountIntegration $account;
 
     /**

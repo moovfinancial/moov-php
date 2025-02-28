@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Errors;
+namespace Moov\MoovPhp\Models\Errors;
 
 class PatchSweepConfigErrorThrowable extends \RuntimeException
 {

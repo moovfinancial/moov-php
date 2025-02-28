@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** Representative - Describes a business representative. */
@@ -25,7 +25,7 @@ class Representative
      * @var IndividualName $name
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('name')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\IndividualName')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IndividualName')]
     public IndividualName $name;
 
     /**
@@ -47,7 +47,7 @@ class Representative
      * @var ?PhoneNumber $phone
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('phone')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PhoneNumber|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PhoneNumber|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?PhoneNumber $phone = null;
 
@@ -64,7 +64,7 @@ class Representative
      * @var ?Address $address
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('address')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\Address|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Address|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Address $address = null;
 
@@ -92,7 +92,7 @@ class Representative
      * @var ?RepresentativeResponsibilities $responsibilities
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('responsibilities')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\RepresentativeResponsibilities|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RepresentativeResponsibilities|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?RepresentativeResponsibilities $responsibilities = null;
 

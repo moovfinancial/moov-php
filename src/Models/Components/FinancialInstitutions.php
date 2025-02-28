@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class FinancialInstitutions
@@ -17,7 +17,7 @@ class FinancialInstitutions
      * @var array<AchParticipant> $achParticipants
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('achParticipants')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\OpenAPI\Models\Components\AchParticipant>')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\AchParticipant>')]
     public array $achParticipants;
 
     /**

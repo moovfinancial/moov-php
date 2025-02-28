@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class CreateTransferSourceCard
@@ -30,7 +30,7 @@ class CreateTransferSourceCard
      * @var ?TransactionSource $transactionSource
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('transactionSource')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\TransactionSource|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransactionSource|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?TransactionSource $transactionSource = null;
 

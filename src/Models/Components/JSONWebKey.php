@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** JSONWebKey - Describes an [RFC7517](https://datatracker.ietf.org/doc/html/rfc7517) web key. */
@@ -26,7 +26,7 @@ class JSONWebKey
      * @var ?UseT $use
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('use')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\UseT|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\UseT|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?UseT $use = null;
 

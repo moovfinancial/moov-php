@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class IssuingVelocityLimit
@@ -25,7 +25,7 @@ class IssuingVelocityLimit
      * @var IssuingIntervalLimit $interval
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('interval')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\IssuingIntervalLimit')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IssuingIntervalLimit')]
     public IssuingIntervalLimit $interval;
 
     /**

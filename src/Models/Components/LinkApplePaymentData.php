@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /**
@@ -52,7 +52,7 @@ class LinkApplePaymentData
      * @var ApplePayHeader $header
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('header')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\ApplePayHeader')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ApplePayHeader')]
     public ApplePayHeader $header;
 
     /**

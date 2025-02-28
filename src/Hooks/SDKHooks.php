@@ -7,7 +7,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Hooks;
+namespace Moov\MoovPhp\Hooks;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 

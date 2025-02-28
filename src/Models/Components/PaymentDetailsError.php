@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class PaymentDetailsError
@@ -24,7 +24,7 @@ class PaymentDetailsError
      * @var ?CardPaymentDetailsError $cardDetails
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardDetails')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CardPaymentDetailsError|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardPaymentDetailsError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?CardPaymentDetailsError $cardDetails = null;
 
@@ -33,7 +33,7 @@ class PaymentDetailsError
      * @var ?ACHPaymentDetailsError $achDetails
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('achDetails')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\ACHPaymentDetailsError|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ACHPaymentDetailsError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?ACHPaymentDetailsError $achDetails = null;
 

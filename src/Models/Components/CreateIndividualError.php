@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class CreateIndividualError
@@ -16,7 +16,7 @@ class CreateIndividualError
      * @var ?IndividualNameError $name
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('name')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\IndividualNameError|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IndividualNameError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?IndividualNameError $name = null;
 
@@ -25,7 +25,7 @@ class CreateIndividualError
      * @var ?PhoneNumberError $phone
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('phone')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PhoneNumberError|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PhoneNumberError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?PhoneNumberError $phone = null;
 
@@ -42,7 +42,7 @@ class CreateIndividualError
      * @var ?AddressError $address
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('address')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\AddressError|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AddressError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?AddressError $address = null;
 
@@ -51,7 +51,7 @@ class CreateIndividualError
      * @var ?BirthDateError $birthDate
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('birthDate')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\BirthDateError|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BirthDateError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?BirthDateError $birthDate = null;
 
@@ -60,7 +60,7 @@ class CreateIndividualError
      * @var ?CreateIndividualErrorGovernmentID $governmentID
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('governmentID')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CreateIndividualErrorGovernmentID|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateIndividualErrorGovernmentID|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?CreateIndividualErrorGovernmentID $governmentID = null;
 

@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** PatchAccount - Describes the fields available when patching a Moov account. */
@@ -20,7 +20,7 @@ class PatchAccount
      * @var ?PatchProfile $profile
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('profile')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PatchProfile|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PatchProfile|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?PatchProfile $profile = null;
 
@@ -29,7 +29,7 @@ class PatchAccount
      * @var TermsOfServiceTokenUpdate|ManualTermsOfServiceUpdate|null $termsOfService
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('termsOfService')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\TermsOfServiceTokenUpdate|\Moov\OpenAPI\Models\Components\ManualTermsOfServiceUpdate|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TermsOfServiceTokenUpdate|\Moov\MoovPhp\Models\Components\ManualTermsOfServiceUpdate|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public TermsOfServiceTokenUpdate|ManualTermsOfServiceUpdate|null $termsOfService = null;
 
@@ -46,7 +46,7 @@ class PatchAccount
      * @var ?CreateAccountSettings $settings
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('settings')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CreateAccountSettings|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateAccountSettings|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?CreateAccountSettings $settings = null;
 
@@ -65,7 +65,7 @@ class PatchAccount
      * @var ?PatchAccountCustomerSupport $customerSupport
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('customerSupport')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PatchAccountCustomerSupport|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PatchAccountCustomerSupport|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?PatchAccountCustomerSupport $customerSupport = null;
 

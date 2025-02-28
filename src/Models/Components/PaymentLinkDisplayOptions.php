@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** PaymentLinkDisplayOptions - Customizable display options for a payment link. */
@@ -38,7 +38,7 @@ class PaymentLinkDisplayOptions
      * @var CallToAction $callToAction
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('callToAction')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CallToAction')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CallToAction')]
     public CallToAction $callToAction;
 
     /**

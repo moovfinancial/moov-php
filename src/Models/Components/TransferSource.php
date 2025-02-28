@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class TransferSource
@@ -24,7 +24,7 @@ class TransferSource
      * @var PaymentMethodType $paymentMethodType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('paymentMethodType')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PaymentMethodType')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentMethodType')]
     public PaymentMethodType $paymentMethodType;
 
     /**
@@ -32,7 +32,7 @@ class TransferSource
      * @var TransferAccount $account
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('account')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\TransferAccount')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferAccount')]
     public TransferAccount $account;
 
     /**
@@ -50,7 +50,7 @@ class TransferSource
      * @var ?PaymentMethodsBankAccount $bankAccount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('bankAccount')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PaymentMethodsBankAccount|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentMethodsBankAccount|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?PaymentMethodsBankAccount $bankAccount = null;
 
@@ -59,7 +59,7 @@ class TransferSource
      * @var ?PaymentMethodsWallet $wallet
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('wallet')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PaymentMethodsWallet|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentMethodsWallet|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?PaymentMethodsWallet $wallet = null;
 
@@ -69,7 +69,7 @@ class TransferSource
      * @var ?PaymentMethodsCard $card
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('card')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PaymentMethodsCard|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentMethodsCard|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?PaymentMethodsCard $card = null;
 
@@ -79,7 +79,7 @@ class TransferSource
      * @var ?ApplePayResponse $applePay
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('applePay')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\ApplePayResponse|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ApplePayResponse|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?ApplePayResponse $applePay = null;
 
@@ -89,7 +89,7 @@ class TransferSource
      * @var ?CardTransactionDetails $cardDetails
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardDetails')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CardTransactionDetails|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardTransactionDetails|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?CardTransactionDetails $cardDetails = null;
 
@@ -99,7 +99,7 @@ class TransferSource
      * @var ?ACHTransactionDetails $achDetails
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('achDetails')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\ACHTransactionDetails|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ACHTransactionDetails|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?ACHTransactionDetails $achDetails = null;
 

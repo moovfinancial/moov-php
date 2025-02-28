@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class UpdateRepresentative
@@ -16,7 +16,7 @@ class UpdateRepresentative
      * @var ?IndividualNameUpdate $name
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('name')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\IndividualNameUpdate|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IndividualNameUpdate|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?IndividualNameUpdate $name = null;
 
@@ -25,7 +25,7 @@ class UpdateRepresentative
      * @var ?Phone $phone
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('phone')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\Phone|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Phone|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Phone $phone = null;
 
@@ -34,7 +34,7 @@ class UpdateRepresentative
      * @var string|Two|null $email
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('email')]
-    #[\Speakeasy\Serializer\Annotation\Type('string|\Moov\OpenAPI\Models\Components\Two|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('string|\Moov\MoovPhp\Models\Components\Two|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public string|Two|null $email = null;
 
@@ -43,7 +43,7 @@ class UpdateRepresentative
      * @var ?UpdateRepresentativeAddress $address
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('address')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\UpdateRepresentativeAddress|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\UpdateRepresentativeAddress|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?UpdateRepresentativeAddress $address = null;
 
@@ -52,7 +52,7 @@ class UpdateRepresentative
      * @var ?UpdateRepresentativeBirthDate $birthDate
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('birthDate')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\UpdateRepresentativeBirthDate|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\UpdateRepresentativeBirthDate|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?UpdateRepresentativeBirthDate $birthDate = null;
 
@@ -61,7 +61,7 @@ class UpdateRepresentative
      * @var ?UpdateRepresentativeGovernmentID $governmentID
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('governmentID')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\UpdateRepresentativeGovernmentID|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\UpdateRepresentativeGovernmentID|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?UpdateRepresentativeGovernmentID $governmentID = null;
 
@@ -70,7 +70,7 @@ class UpdateRepresentative
      * @var ?Responsibilities $responsibilities
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('responsibilities')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\Responsibilities|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Responsibilities|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Responsibilities $responsibilities = null;
 

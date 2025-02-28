@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class CreateAuthorizedUserError
@@ -32,7 +32,7 @@ class CreateAuthorizedUserError
      * @var ?BirthDateError $birthDate
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('birthDate')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\BirthDateError|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BirthDateError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?BirthDateError $birthDate = null;
 

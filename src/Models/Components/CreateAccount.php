@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class CreateAccount
@@ -17,7 +17,7 @@ class CreateAccount
      * @var AccountType $accountType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('accountType')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\AccountType')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AccountType')]
     public AccountType $accountType;
 
     /**
@@ -25,7 +25,7 @@ class CreateAccount
      * @var CreateProfile $profile
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('profile')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CreateProfile')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateProfile')]
     public CreateProfile $profile;
 
     /**
@@ -43,7 +43,7 @@ class CreateAccount
      * @var TermsOfServiceToken|ManualTermsOfService|null $termsOfService
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('termsOfService')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\TermsOfServiceToken|\Moov\OpenAPI\Models\Components\ManualTermsOfService|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TermsOfServiceToken|\Moov\MoovPhp\Models\Components\ManualTermsOfService|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public TermsOfServiceToken|ManualTermsOfService|null $termsOfService = null;
 
@@ -64,7 +64,7 @@ class CreateAccount
      * @var ?CustomerSupport $customerSupport
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('customerSupport')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CustomerSupport|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CustomerSupport|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?CustomerSupport $customerSupport = null;
 
@@ -74,7 +74,7 @@ class CreateAccount
      * @var ?Settings $settings
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('settings')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\Settings|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Settings|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Settings $settings = null;
 
@@ -84,7 +84,7 @@ class CreateAccount
      * @var ?array<CapabilityID> $capabilities
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('capabilities')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\OpenAPI\Models\Components\CapabilityID>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\CapabilityID>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $capabilities = null;
 

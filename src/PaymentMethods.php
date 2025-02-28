@@ -6,12 +6,12 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI;
+namespace Moov\MoovPhp;
 
-use Moov\OpenAPI\Hooks\HookContext;
-use Moov\OpenAPI\Models\Components;
-use Moov\OpenAPI\Models\Operations;
-use Moov\OpenAPI\Utils\Options;
+use Moov\MoovPhp\Hooks\HookContext;
+use Moov\MoovPhp\Models\Components;
+use Moov\MoovPhp\Models\Operations;
+use Moov\MoovPhp\Utils\Options;
 use Speakeasy\Serializer\DeserializationContext;
 
 class PaymentMethods
@@ -55,7 +55,7 @@ class PaymentMethods
      * @param  string  $paymentMethodID
      * @param  ?string  $xMoovVersion
      * @return Operations\GetPaymentMethodResponse
-     * @throws \Moov\OpenAPI\Models\Errors\APIException
+     * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function get(string $accountID, string $paymentMethodID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetPaymentMethodResponse
     {
@@ -98,7 +98,7 @@ class PaymentMethods
 
                 $serializer = Utils\JSON::createSerializer();
                 $responseData = (string) $httpResponse->getBody();
-                $obj = $serializer->deserialize($responseData, '\Moov\OpenAPI\Models\Components\MoovWalletPaymentMethod|\Moov\OpenAPI\Models\Components\AchDebitFundPaymentMethod|\Moov\OpenAPI\Models\Components\AchDebitCollectPaymentMethod|\Moov\OpenAPI\Models\Components\AchCreditStandardPaymentMethod|\Moov\OpenAPI\Models\Components\AchCreditSameDayPaymentMethod|\Moov\OpenAPI\Models\Components\RtpCreditPaymentMethod|\Moov\OpenAPI\Models\Components\CardPaymentPaymentMethod|\Moov\OpenAPI\Models\Components\PushToCardPaymentMethod|\Moov\OpenAPI\Models\Components\PullFromCardPaymentMethod|\Moov\OpenAPI\Models\Components\ApplePayPaymentMethod', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj = $serializer->deserialize($responseData, '\Moov\MoovPhp\Models\Components\MoovWalletPaymentMethod|\Moov\MoovPhp\Models\Components\AchDebitFundPaymentMethod|\Moov\MoovPhp\Models\Components\AchDebitCollectPaymentMethod|\Moov\MoovPhp\Models\Components\AchCreditStandardPaymentMethod|\Moov\MoovPhp\Models\Components\AchCreditSameDayPaymentMethod|\Moov\MoovPhp\Models\Components\RtpCreditPaymentMethod|\Moov\MoovPhp\Models\Components\CardPaymentPaymentMethod|\Moov\MoovPhp\Models\Components\PushToCardPaymentMethod|\Moov\MoovPhp\Models\Components\PullFromCardPaymentMethod|\Moov\MoovPhp\Models\Components\ApplePayPaymentMethod', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
                 $response = new Operations\GetPaymentMethodResponse(
                     statusCode: $statusCode,
                     contentType: $contentType,
@@ -108,18 +108,18 @@ class PaymentMethods
 
                 return $response;
             } else {
-                throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+                throw new \Moov\MoovPhp\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
         } elseif (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '404', '429'])) {
-            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            throw new \Moov\MoovPhp\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } elseif (Utils\Utils::matchStatusCodes($statusCode, ['500', '504'])) {
-            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            throw new \Moov\MoovPhp\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } elseif (Utils\Utils::matchStatusCodes($statusCode, ['4XX'])) {
-            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            throw new \Moov\MoovPhp\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } elseif (Utils\Utils::matchStatusCodes($statusCode, ['5XX'])) {
-            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            throw new \Moov\MoovPhp\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
-            throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            throw new \Moov\MoovPhp\Models\Errors\APIException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         }
     }
 
@@ -135,7 +135,7 @@ class PaymentMethods
      * @param  ?string  $sourceID
      * @param  ?Components\PaymentMethodType  $paymentMethodType
      * @return Operations\ListPaymentMethodsResponse
-     * @throws \Moov\OpenAPI\Models\Errors\APIException
+     * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function list(string $accountID, ?string $xMoovVersion = null, ?string $sourceID = null, ?Components\PaymentMethodType $paymentMethodType = null, ?Options $options = null): Operations\ListPaymentMethodsResponse
     {
@@ -182,7 +182,7 @@ class PaymentMethods
 
                 $serializer = Utils\JSON::createSerializer();
                 $responseData = (string) $httpResponse->getBody();
-                $obj = $serializer->deserialize($responseData, 'array<\Moov\OpenAPI\Models\Components\MoovWalletPaymentMethod|\Moov\OpenAPI\Models\Components\AchDebitFundPaymentMethod|\Moov\OpenAPI\Models\Components\AchDebitCollectPaymentMethod|\Moov\OpenAPI\Models\Components\AchCreditStandardPaymentMethod|\Moov\OpenAPI\Models\Components\AchCreditSameDayPaymentMethod|\Moov\OpenAPI\Models\Components\RtpCreditPaymentMethod|\Moov\OpenAPI\Models\Components\CardPaymentPaymentMethod|\Moov\OpenAPI\Models\Components\PushToCardPaymentMethod|\Moov\OpenAPI\Models\Components\PullFromCardPaymentMethod|\Moov\OpenAPI\Models\Components\ApplePayPaymentMethod>', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj = $serializer->deserialize($responseData, 'array<\Moov\MoovPhp\Models\Components\MoovWalletPaymentMethod|\Moov\MoovPhp\Models\Components\AchDebitFundPaymentMethod|\Moov\MoovPhp\Models\Components\AchDebitCollectPaymentMethod|\Moov\MoovPhp\Models\Components\AchCreditStandardPaymentMethod|\Moov\MoovPhp\Models\Components\AchCreditSameDayPaymentMethod|\Moov\MoovPhp\Models\Components\RtpCreditPaymentMethod|\Moov\MoovPhp\Models\Components\CardPaymentPaymentMethod|\Moov\MoovPhp\Models\Components\PushToCardPaymentMethod|\Moov\MoovPhp\Models\Components\PullFromCardPaymentMethod|\Moov\MoovPhp\Models\Components\ApplePayPaymentMethod>', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
                 $response = new Operations\ListPaymentMethodsResponse(
                     statusCode: $statusCode,
                     contentType: $contentType,
@@ -192,18 +192,18 @@ class PaymentMethods
 
                 return $response;
             } else {
-                throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+                throw new \Moov\MoovPhp\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
         } elseif (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '429'])) {
-            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            throw new \Moov\MoovPhp\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } elseif (Utils\Utils::matchStatusCodes($statusCode, ['500', '504'])) {
-            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            throw new \Moov\MoovPhp\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } elseif (Utils\Utils::matchStatusCodes($statusCode, ['4XX'])) {
-            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            throw new \Moov\MoovPhp\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } elseif (Utils\Utils::matchStatusCodes($statusCode, ['5XX'])) {
-            throw new \Moov\OpenAPI\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            throw new \Moov\MoovPhp\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
-            throw new \Moov\OpenAPI\Models\Errors\APIException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            throw new \Moov\MoovPhp\Models\Errors\APIException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         }
     }
 

@@ -6,10 +6,10 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Errors;
+namespace Moov\MoovPhp\Models\Errors;
 
-use Moov\OpenAPI\Models\Components;
-use Moov\OpenAPI\Utils;
+use Moov\MoovPhp\Models\Components;
+use Moov\MoovPhp\Utils;
 class AddCapabilitiesError
 {
     /**
@@ -17,7 +17,7 @@ class AddCapabilitiesError
      * @var ?Components\CapabilitiesError $error
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('error')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CapabilitiesError|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CapabilitiesError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Components\CapabilitiesError $error = null;
 

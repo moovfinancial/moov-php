@@ -60,10 +60,10 @@ declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use Moov\OpenAPI;
-use Moov\OpenAPI\Models\Components;
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
 
-$sdk = OpenAPI\Moov::builder()
+$sdk = MoovPhp\Moov::builder()
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -149,10 +149,10 @@ declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use Moov\OpenAPI;
-use Moov\OpenAPI\Models\Components;
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
 
-$sdk = OpenAPI\Moov::builder()
+$sdk = MoovPhp\Moov::builder()
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -208,10 +208,10 @@ declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use Moov\OpenAPI;
-use Moov\OpenAPI\Models\Components;
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
 
-$sdk = OpenAPI\Moov::builder()
+$sdk = MoovPhp\Moov::builder()
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -269,10 +269,10 @@ declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use Moov\OpenAPI;
-use Moov\OpenAPI\Models\Components;
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
 
-$sdk = OpenAPI\Moov::builder()
+$sdk = MoovPhp\Moov::builder()
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -338,10 +338,10 @@ declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use Moov\OpenAPI;
-use Moov\OpenAPI\Models\Components;
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
 
-$sdk = OpenAPI\Moov::builder()
+$sdk = MoovPhp\Moov::builder()
     ->setSecurity(
         new Components\Security(
             username: '',

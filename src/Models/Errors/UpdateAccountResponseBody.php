@@ -6,10 +6,10 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Errors;
+namespace Moov\MoovPhp\Models\Errors;
 
-use Moov\OpenAPI\Models\Components;
-use Moov\OpenAPI\Utils;
+use Moov\MoovPhp\Models\Components;
+use Moov\MoovPhp\Utils;
 /** UpdateAccountResponseBody - The request was well-formed, but the contents failed validation. Check the request for missing or invalid fields. */
 class UpdateAccountResponseBody
 {
@@ -18,7 +18,7 @@ class UpdateAccountResponseBody
      * @var Components\PatchAccountError $error
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('error')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PatchAccountError')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PatchAccountError')]
     public Components\PatchAccountError $error;
 
     /**

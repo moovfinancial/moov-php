@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** AccountNameVerification - The results of submitting cardholder name to a card network for verification. */
@@ -17,7 +17,7 @@ class AccountNameVerification
      * @var CardVerificationResult $firstName
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('firstName')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CardVerificationResult')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardVerificationResult')]
     public CardVerificationResult $firstName;
 
     /**
@@ -25,7 +25,7 @@ class AccountNameVerification
      * @var CardVerificationResult $lastName
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('lastName')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CardVerificationResult')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardVerificationResult')]
     public CardVerificationResult $lastName;
 
     /**
@@ -33,7 +33,7 @@ class AccountNameVerification
      * @var CardVerificationResult $middleName
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('middleName')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CardVerificationResult')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardVerificationResult')]
     public CardVerificationResult $middleName;
 
     /**
@@ -41,7 +41,7 @@ class AccountNameVerification
      * @var CardVerificationResult $fullName
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('fullName')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CardVerificationResult')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardVerificationResult')]
     public CardVerificationResult $fullName;
 
     /**

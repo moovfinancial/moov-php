@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class CreateTransfer
@@ -17,7 +17,7 @@ class CreateTransfer
      * @var CreateTransferSource $source
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('source')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CreateTransferSource')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateTransferSource')]
     public CreateTransferSource $source;
 
     /**
@@ -26,7 +26,7 @@ class CreateTransfer
      * @var CreateTransferDestination $destination
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('destination')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CreateTransferDestination')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateTransferDestination')]
     public CreateTransferDestination $destination;
 
     /**
@@ -34,7 +34,7 @@ class CreateTransfer
      * @var Amount $amount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\Amount')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Amount')]
     public Amount $amount;
 
     /**
@@ -43,7 +43,7 @@ class CreateTransfer
      * @var ?FacilitatorFee $facilitatorFee
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('facilitatorFee')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\FacilitatorFee|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\FacilitatorFee|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?FacilitatorFee $facilitatorFee = null;
 

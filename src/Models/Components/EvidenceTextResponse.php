@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class EvidenceTextResponse
@@ -30,7 +30,7 @@ class EvidenceTextResponse
      * @var EvidenceType $evidenceType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('evidenceType')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\EvidenceType')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\EvidenceType')]
     public EvidenceType $evidenceType;
 
     /**

@@ -6,9 +6,9 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Errors;
+namespace Moov\MoovPhp\Models\Errors;
 
-use Moov\OpenAPI\Models\Components;
+use Moov\MoovPhp\Models\Components;
 class UpdateUnderwritingErrorError
 {
     /**
@@ -40,7 +40,7 @@ class UpdateUnderwritingErrorError
      * @var ?Components\VolumeByCustomerTypeError $volumeByCustomerType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('volumeByCustomerType')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\VolumeByCustomerTypeError|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\VolumeByCustomerTypeError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Components\VolumeByCustomerTypeError $volumeByCustomerType = null;
 
@@ -49,7 +49,7 @@ class UpdateUnderwritingErrorError
      * @var ?Components\CardVolumeDistributionError $cardVolumeDistribution
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardVolumeDistribution')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CardVolumeDistributionError|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardVolumeDistributionError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Components\CardVolumeDistributionError $cardVolumeDistribution = null;
 
@@ -58,7 +58,7 @@ class UpdateUnderwritingErrorError
      * @var ?Components\FulfillmentDetailsError $fulfillment
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('fulfillment')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\FulfillmentDetailsError|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\FulfillmentDetailsError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Components\FulfillmentDetailsError $fulfillment = null;
 

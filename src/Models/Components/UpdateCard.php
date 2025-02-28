@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class UpdateCard
@@ -20,7 +20,7 @@ class UpdateCard
      * @var ?E2EETokenUpdate $e2ee
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('e2ee')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\E2EETokenUpdate|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\E2EETokenUpdate|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?E2EETokenUpdate $e2ee = null;
 
@@ -29,7 +29,7 @@ class UpdateCard
      * @var ?UpdateCardAddress $billingAddress
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('billingAddress')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\UpdateCardAddress|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\UpdateCardAddress|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?UpdateCardAddress $billingAddress = null;
 
@@ -38,7 +38,7 @@ class UpdateCard
      * @var ?UpdateCardExpiration $expiration
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('expiration')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\UpdateCardExpiration|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\UpdateCardExpiration|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?UpdateCardExpiration $expiration = null;
 

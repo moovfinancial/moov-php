@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class CreateBusinessProfile
@@ -34,7 +34,7 @@ class CreateBusinessProfile
      * @var ?BusinessType $businessType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('businessType')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\BusinessType|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BusinessType|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?BusinessType $businessType = null;
 
@@ -43,7 +43,7 @@ class CreateBusinessProfile
      * @var ?Address $address
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('address')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\Address|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Address|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Address $address = null;
 
@@ -52,7 +52,7 @@ class CreateBusinessProfile
      * @var ?PhoneNumber $phone
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('phone')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PhoneNumber|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PhoneNumber|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?PhoneNumber $phone = null;
 
@@ -86,7 +86,7 @@ class CreateBusinessProfile
      * @var ?TaxID $taxID
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('taxID')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\TaxID|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TaxID|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?TaxID $taxID = null;
 
@@ -95,7 +95,7 @@ class CreateBusinessProfile
      * @var ?IndustryCodes $industryCodes
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('industryCodes')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\IndustryCodes|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IndustryCodes|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?IndustryCodes $industryCodes = null;
 
@@ -105,7 +105,7 @@ class CreateBusinessProfile
      * @var ?PrimaryRegulator $primaryRegulator
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('primaryRegulator')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PrimaryRegulator|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PrimaryRegulator|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?PrimaryRegulator $primaryRegulator = null;
 

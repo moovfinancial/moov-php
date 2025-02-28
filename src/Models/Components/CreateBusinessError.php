@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class CreateBusinessError
@@ -40,7 +40,7 @@ class CreateBusinessError
      * @var ?AddressError $address
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('address')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\AddressError|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AddressError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?AddressError $address = null;
 
@@ -49,7 +49,7 @@ class CreateBusinessError
      * @var ?PhoneNumberError $phone
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('phone')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PhoneNumberError|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PhoneNumberError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?PhoneNumberError $phone = null;
 
@@ -82,7 +82,7 @@ class CreateBusinessError
      * @var ?CreateBusinessErrorTaxID $taxID
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('taxID')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CreateBusinessErrorTaxID|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateBusinessErrorTaxID|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?CreateBusinessErrorTaxID $taxID = null;
 
@@ -91,7 +91,7 @@ class CreateBusinessError
      * @var ?CreateBusinessErrorIndustryCodes $industryCodes
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('industryCodes')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CreateBusinessErrorIndustryCodes|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateBusinessErrorIndustryCodes|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?CreateBusinessErrorIndustryCodes $industryCodes = null;
 

@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class FeePlan
@@ -32,7 +32,7 @@ class FeePlan
      * @var CardAcquiringModel $cardAcquiringModel
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardAcquiringModel')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CardAcquiringModel')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardAcquiringModel')]
     public CardAcquiringModel $cardAcquiringModel;
 
     /**
@@ -41,7 +41,7 @@ class FeePlan
      * @var array<BillableFee> $billableFees
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('billableFees')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\OpenAPI\Models\Components\BillableFee>')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\BillableFee>')]
     public array $billableFees;
 
     /**

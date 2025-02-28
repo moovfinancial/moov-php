@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class EnrichedBusinessProfile
@@ -16,7 +16,7 @@ class EnrichedBusinessProfile
      * @var ?Address $address
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('address')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\Address|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Address|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Address $address = null;
 
@@ -33,7 +33,7 @@ class EnrichedBusinessProfile
      * @var ?EnrichedIndustryCodes $industryCodes
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('industryCodes')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\EnrichedIndustryCodes|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\EnrichedIndustryCodes|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?EnrichedIndustryCodes $industryCodes = null;
 
@@ -50,7 +50,7 @@ class EnrichedBusinessProfile
      * @var ?PhoneNumber $phone
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('phone')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PhoneNumber|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PhoneNumber|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?PhoneNumber $phone = null;
 

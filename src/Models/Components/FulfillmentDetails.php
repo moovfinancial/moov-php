@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class FulfillmentDetails
@@ -37,7 +37,7 @@ class FulfillmentDetails
      * @var ReturnPolicyType $returnPolicy
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('returnPolicy')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\ReturnPolicyType')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ReturnPolicyType')]
     public ReturnPolicyType $returnPolicy;
 
     /**

@@ -17,7 +17,7 @@ you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
-* [getQRCode](#getqrcode) - Retrieve the payment link encoded in a QR code. 
+* [getQrCode](#getqrcode) - Retrieve the payment link encoded in a QR code. 
 
 Use the `Accept` header to specify the format of the response. Supported formats are `application/json` and `image/png`.
 
@@ -46,10 +46,10 @@ declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use Moov\OpenAPI;
-use Moov\OpenAPI\Models\Components;
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
 
-$sdk = OpenAPI\Moov::builder()
+$sdk = MoovPhp\Moov::builder()
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -127,10 +127,10 @@ declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use Moov\OpenAPI;
-use Moov\OpenAPI\Models\Components;
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
 
-$sdk = OpenAPI\Moov::builder()
+$sdk = MoovPhp\Moov::builder()
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -185,10 +185,10 @@ declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use Moov\OpenAPI;
-use Moov\OpenAPI\Models\Components;
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
 
-$sdk = OpenAPI\Moov::builder()
+$sdk = MoovPhp\Moov::builder()
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -229,7 +229,7 @@ if ($response->paymentLink !== null) {
 | ------------------- | ------------------- | ------------------- |
 | Errors\APIException | 4XX, 5XX            | \*/\*               |
 
-## getQRCode
+## getQrCode
 
 Retrieve the payment link encoded in a QR code. 
 
@@ -245,10 +245,10 @@ declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use Moov\OpenAPI;
-use Moov\OpenAPI\Models\Components;
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
 
-$sdk = OpenAPI\Moov::builder()
+$sdk = MoovPhp\Moov::builder()
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -259,8 +259,8 @@ $sdk = OpenAPI\Moov::builder()
 
 
 
-$response = $sdk->paymentLinks->getQRCode(
-    accountID: '2014a1ff-9924-40b3-ac01-f4ed64dac1b8',
+$response = $sdk->paymentLinks->getQrCode(
+    accountID: '81ff0cd8-0d23-46b4-871b-9cb5d26e826a',
     paymentLinkCode: 'uc7ZYKrMhi',
     xMoovVersion: 'v2024.01.00'
 
@@ -303,10 +303,10 @@ declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use Moov\OpenAPI;
-use Moov\OpenAPI\Models\Components;
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
 
-$sdk = OpenAPI\Moov::builder()
+$sdk = MoovPhp\Moov::builder()
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -359,10 +359,10 @@ declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use Moov\OpenAPI;
-use Moov\OpenAPI\Models\Components;
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
 
-$sdk = OpenAPI\Moov::builder()
+$sdk = MoovPhp\Moov::builder()
     ->setSecurity(
         new Components\Security(
             username: '',

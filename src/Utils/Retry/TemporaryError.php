@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Utils\Retry;
+namespace Moov\MoovPhp\Utils\Retry;
 use Psr\Http\Message\ResponseInterface;
 
 class TemporaryError extends \Exception

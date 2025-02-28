@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** Recur - Defines configuration for recurring transfers. */
@@ -28,7 +28,7 @@ class Recur
      * @var RunTransfer $runTransfer
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('runTransfer')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\RunTransfer')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RunTransfer')]
     public RunTransfer $runTransfer;
 
     /**

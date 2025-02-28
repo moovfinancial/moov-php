@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class OccurrencesResponse
@@ -24,7 +24,7 @@ class OccurrencesResponse
      * @var RunTransfer $runTransfer
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('runTransfer')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\RunTransfer')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RunTransfer')]
     public RunTransfer $runTransfer;
 
     /**
@@ -49,7 +49,7 @@ class OccurrencesResponse
      * @var ?Mode $mode
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('mode')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\Mode|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Mode|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Mode $mode = null;
 
@@ -101,7 +101,7 @@ class OccurrencesResponse
      * @var ?OccurrenceStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\OccurrenceStatus|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\OccurrenceStatus|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?OccurrenceStatus $status = null;
 
@@ -111,7 +111,7 @@ class OccurrencesResponse
      * @var ?Error $error
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('error')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\Error|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Error|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Error $error = null;
 

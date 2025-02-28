@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** Settings - User provided settings to manage an account. */
@@ -18,7 +18,7 @@ class Settings
      * @var ?CardPaymentSettings $cardPayment
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardPayment')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CardPaymentSettings|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardPaymentSettings|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?CardPaymentSettings $cardPayment = null;
 
@@ -27,7 +27,7 @@ class Settings
      * @var ?ACHPaymentSettings $achPayment
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('achPayment')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\ACHPaymentSettings|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ACHPaymentSettings|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?ACHPaymentSettings $achPayment = null;
 

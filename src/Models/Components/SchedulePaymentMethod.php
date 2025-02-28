@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class SchedulePaymentMethod
@@ -23,7 +23,7 @@ class SchedulePaymentMethod
      * @var ?AchDetails $achDetails
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('achDetails')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\AchDetails|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AchDetails|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?AchDetails $achDetails = null;
 
@@ -32,7 +32,7 @@ class SchedulePaymentMethod
      * @var ?CardDetails $cardDetails
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardDetails')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CardDetails|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardDetails|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?CardDetails $cardDetails = null;
 

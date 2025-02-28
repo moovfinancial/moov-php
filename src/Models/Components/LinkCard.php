@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class LinkCard
@@ -31,7 +31,7 @@ class LinkCard
      * @var CardExpiration $expiration
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('expiration')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CardExpiration')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardExpiration')]
     public CardExpiration $expiration;
 
     /**
@@ -39,7 +39,7 @@ class LinkCard
      * @var CardAddress $billingAddress
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('billingAddress')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CardAddress')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardAddress')]
     public CardAddress $billingAddress;
 
     /**
@@ -51,7 +51,7 @@ class LinkCard
      * @var ?E2EEToken $e2ee
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('e2ee')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\E2EEToken|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\E2EEToken|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?E2EEToken $e2ee = null;
 

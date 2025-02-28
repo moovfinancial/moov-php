@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /**
@@ -42,7 +42,7 @@ class CreatePaymentLink
      * @var Amount $amount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\Amount')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Amount')]
     public Amount $amount;
 
     /**
@@ -51,7 +51,7 @@ class CreatePaymentLink
      * @var PaymentLinkDisplayOptions $display
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('display')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PaymentLinkDisplayOptions')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentLinkDisplayOptions')]
     public PaymentLinkDisplayOptions $display;
 
     /**
@@ -80,7 +80,7 @@ class CreatePaymentLink
      * @var ?PaymentLinkCustomerOptions $customer
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('customer')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PaymentLinkCustomerOptions|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentLinkCustomerOptions|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?PaymentLinkCustomerOptions $customer = null;
 
@@ -90,7 +90,7 @@ class CreatePaymentLink
      * @var ?PaymentLinkPaymentDetails $payment
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('payment')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PaymentLinkPaymentDetails|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentLinkPaymentDetails|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?PaymentLinkPaymentDetails $payment = null;
 
@@ -99,7 +99,7 @@ class CreatePaymentLink
      * @var ?PaymentLinkPayoutDetails $payout
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('payout')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PaymentLinkPayoutDetails|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentLinkPayoutDetails|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?PaymentLinkPayoutDetails $payout = null;
 

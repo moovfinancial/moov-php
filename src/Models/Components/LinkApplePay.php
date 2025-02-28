@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /**
@@ -28,7 +28,7 @@ class LinkApplePay
      * @var LinkApplePayToken $token
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('token')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\LinkApplePayToken')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\LinkApplePayToken')]
     public LinkApplePayToken $token;
 
     /**
@@ -41,7 +41,7 @@ class LinkApplePay
      * @var ?AppleBillingContact $billingContact
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('billingContact')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\AppleBillingContact|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AppleBillingContact|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?AppleBillingContact $billingContact = null;
 

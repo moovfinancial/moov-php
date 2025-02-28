@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /**
@@ -22,7 +22,7 @@ class PatchProfile
      * @var ?PatchIndividual $individual
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('individual')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PatchIndividual|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PatchIndividual|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?PatchIndividual $individual = null;
 
@@ -31,7 +31,7 @@ class PatchProfile
      * @var ?PatchBusiness $business
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('business')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PatchBusiness|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PatchBusiness|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?PatchBusiness $business = null;
 

@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** Dispute - Details of a card transaction dispute. */
@@ -31,7 +31,7 @@ class Dispute
      * @var Amount $amount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\Amount')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Amount')]
     public Amount $amount;
 
     /**
@@ -50,7 +50,7 @@ class Dispute
      * @var DisputeTransferDetails $transfer
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('transfer')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\DisputeTransferDetails')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\DisputeTransferDetails')]
     public DisputeTransferDetails $transfer;
 
     /**
@@ -69,7 +69,7 @@ class Dispute
      * @var DisputeStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\DisputeStatus')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\DisputeStatus')]
     public DisputeStatus $status;
 
     /**
@@ -78,7 +78,7 @@ class Dispute
      * @var DisputePhase $phase
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('phase')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\DisputePhase')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\DisputePhase')]
     public DisputePhase $phase;
 
     /**

@@ -6,9 +6,9 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Errors;
+namespace Moov\MoovPhp\Models\Errors;
 
-use Moov\OpenAPI\Utils;
+use Moov\MoovPhp\Utils;
 class RepresentativeValidationError
 {
     /**
@@ -16,7 +16,7 @@ class RepresentativeValidationError
      * @var Error $error
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('error')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Errors\Error')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Errors\Error')]
     public Error $error;
 
     /**

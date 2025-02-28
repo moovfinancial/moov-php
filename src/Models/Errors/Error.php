@@ -6,9 +6,9 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Errors;
+namespace Moov\MoovPhp\Models\Errors;
 
-use Moov\OpenAPI\Models\Components;
+use Moov\MoovPhp\Models\Components;
 class Error
 {
     /**
@@ -16,7 +16,7 @@ class Error
      * @var ?Components\IndividualNameError $name
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('name')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\IndividualNameError|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IndividualNameError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Components\IndividualNameError $name = null;
 
@@ -25,7 +25,7 @@ class Error
      * @var ?Components\PhoneNumberError $phone
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('phone')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PhoneNumberError|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PhoneNumberError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Components\PhoneNumberError $phone = null;
 
@@ -42,7 +42,7 @@ class Error
      * @var ?Components\AddressError $address
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('address')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\AddressError|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AddressError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Components\AddressError $address = null;
 
@@ -51,7 +51,7 @@ class Error
      * @var ?Components\BirthDateValidationError $birthDate
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('birthDate')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\BirthDateValidationError|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BirthDateValidationError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Components\BirthDateValidationError $birthDate = null;
 
@@ -60,7 +60,7 @@ class Error
      * @var ?Components\GovernmentIDError $governmentID
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('governmentID')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\GovernmentIDError|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\GovernmentIDError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Components\GovernmentIDError $governmentID = null;
 
@@ -69,7 +69,7 @@ class Error
      * @var ?Components\RepresentativeResponsibilitiesError $responsibilities
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('responsibilities')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\RepresentativeResponsibilitiesError|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RepresentativeResponsibilitiesError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Components\RepresentativeResponsibilitiesError $responsibilities = null;
 

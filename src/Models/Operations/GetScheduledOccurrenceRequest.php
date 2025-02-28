@@ -6,9 +6,9 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Operations;
+namespace Moov\MoovPhp\Models\Operations;
 
-use Moov\OpenAPI\Utils\SpeakeasyMetadata;
+use Moov\MoovPhp\Utils\SpeakeasyMetadata;
 class GetScheduledOccurrenceRequest
 {
     /**

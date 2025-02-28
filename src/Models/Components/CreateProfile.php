@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class CreateProfile
@@ -16,7 +16,7 @@ class CreateProfile
      * @var ?CreateIndividualProfile $individual
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('individual')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CreateIndividualProfile|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateIndividualProfile|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?CreateIndividualProfile $individual = null;
 
@@ -25,7 +25,7 @@ class CreateProfile
      * @var ?CreateBusinessProfile $business
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('business')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CreateBusinessProfile|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateBusinessProfile|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?CreateBusinessProfile $business = null;
 

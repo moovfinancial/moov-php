@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class ScheduleResponse
@@ -24,7 +24,7 @@ class ScheduleResponse
      * @var Mode $mode
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('mode')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\Mode')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Mode')]
     public Mode $mode;
 
     /**
@@ -83,7 +83,7 @@ class ScheduleResponse
      * @var ?OccurrencesResponse $occurrences
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('occurrences')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\OccurrencesResponse|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\OccurrencesResponse|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?OccurrencesResponse $occurrences = null;
 
@@ -93,7 +93,7 @@ class ScheduleResponse
      * @var ?Recur $recur
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('recur')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\Recur|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Recur|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Recur $recur = null;
 

@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class CreateBusinessErrorTaxID
@@ -16,7 +16,7 @@ class CreateBusinessErrorTaxID
      * @var ?CreateBusinessErrorEin $ein
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('ein')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CreateBusinessErrorEin|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateBusinessErrorEin|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?CreateBusinessErrorEin $ein = null;
 

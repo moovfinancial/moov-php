@@ -5,12 +5,12 @@
 
 ### Available Operations
 
-* [createAccessToken](#createaccesstoken) - Create or refresh an access token.
-* [revokeAccessToken](#revokeaccesstoken) - Revoke an auth token.
+* [createToken](#createtoken) - Create or refresh an access token.
+* [revokeToken](#revoketoken) - Revoke an auth token.
 
 Allows clients to notify the authorization server that a previously obtained refresh or access token is no longer needed.
 
-## createAccessToken
+## createToken
 
 Create or refresh an access token.
 
@@ -21,10 +21,10 @@ declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use Moov\OpenAPI;
-use Moov\OpenAPI\Models\Components;
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
 
-$sdk = OpenAPI\Moov::builder()
+$sdk = MoovPhp\Moov::builder()
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -41,7 +41,7 @@ $authTokenRequest = new Components\AuthTokenRequest(
     refreshToken: 'eyJhbGc0eSI6TQSIsImN0kpXVCIsImtp6IkpXVsImtpZC0a...',
 );
 
-$response = $sdk->authentication->createAccessToken(
+$response = $sdk->authentication->createToken(
     authTokenRequest: $authTokenRequest,
     xMoovVersion: 'v2024.01.00'
 
@@ -71,7 +71,7 @@ if ($response->authToken !== null) {
 | Errors\AuthTokenRequestError | 422                          | application/json             |
 | Errors\APIException          | 4XX, 5XX                     | \*/\*                        |
 
-## revokeAccessToken
+## revokeToken
 
 Revoke an auth token.
 
@@ -84,10 +84,10 @@ declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use Moov\OpenAPI;
-use Moov\OpenAPI\Models\Components;
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
 
-$sdk = OpenAPI\Moov::builder()
+$sdk = MoovPhp\Moov::builder()
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -102,7 +102,7 @@ $revokeTokenRequest = new Components\RevokeTokenRequest(
     clientSecret: 'dNC-hg7sVm22jc3g_Eogtyu0_1Mqh_4-',
 );
 
-$response = $sdk->authentication->revokeAccessToken(
+$response = $sdk->authentication->revokeToken(
     revokeTokenRequest: $revokeTokenRequest,
     xMoovVersion: 'v2024.01.00'
 

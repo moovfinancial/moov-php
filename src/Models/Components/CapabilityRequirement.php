@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** CapabilityRequirement - Represents individual and business data necessary to facilitate the enabling of a capability for an account. */
@@ -18,7 +18,7 @@ class CapabilityRequirement
      * @var ?array<RequirementID> $currentlyDue
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('currentlyDue')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\OpenAPI\Models\Components\RequirementID>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\RequirementID>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $currentlyDue = null;
 
@@ -28,7 +28,7 @@ class CapabilityRequirement
      * @var ?array<RequirementError> $errors
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('errors')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\OpenAPI\Models\Components\RequirementError>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\RequirementError>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $errors = null;
 

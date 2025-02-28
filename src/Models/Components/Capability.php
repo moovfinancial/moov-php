@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class Capability
@@ -20,7 +20,7 @@ class Capability
      * @var CapabilityID $capability
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('capability')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CapabilityID')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CapabilityID')]
     public CapabilityID $capability;
 
     /**
@@ -36,7 +36,7 @@ class Capability
      * @var CapabilityStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CapabilityStatus')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CapabilityStatus')]
     public CapabilityStatus $status;
 
     /**
@@ -59,7 +59,7 @@ class Capability
      * @var ?CapabilityRequirement $requirements
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('requirements')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CapabilityRequirement|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CapabilityRequirement|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?CapabilityRequirement $requirements = null;
 

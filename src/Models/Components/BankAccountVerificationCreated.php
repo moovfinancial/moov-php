@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class BankAccountVerificationCreated
@@ -16,7 +16,7 @@ class BankAccountVerificationCreated
      * @var BankAccountVerificationMethod $verificationMethod
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('verificationMethod')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\BankAccountVerificationMethod')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BankAccountVerificationMethod')]
     public BankAccountVerificationMethod $verificationMethod;
 
     /**
@@ -24,7 +24,7 @@ class BankAccountVerificationCreated
      * @var BankAccountVerificationStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\BankAccountVerificationStatus')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BankAccountVerificationStatus')]
     public BankAccountVerificationStatus $status;
 
     /**

@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class UpsertSchedule
@@ -26,7 +26,7 @@ class UpsertSchedule
      * @var ?array<Occurrence> $occurrences
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('occurrences')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\OpenAPI\Models\Components\Occurrence>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\Occurrence>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $occurrences = null;
 
@@ -36,7 +36,7 @@ class UpsertSchedule
      * @var ?Recur $recur
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('recur')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\Recur|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Recur|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Recur $recur = null;
 

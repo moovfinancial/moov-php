@@ -6,9 +6,9 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Errors;
+namespace Moov\MoovPhp\Models\Errors;
 
-use Moov\OpenAPI\Utils;
+use Moov\MoovPhp\Utils;
 class ScheduleValidationError
 {
     /**

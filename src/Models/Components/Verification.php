@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** Verification - Describes identity verification status and relevant identity verification documents. */
@@ -19,7 +19,7 @@ class Verification
      * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\VerificationStatus')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\VerificationStatus')]
     public VerificationStatus $status;
 
     /**
@@ -29,7 +29,7 @@ class Verification
      * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('verificationStatus')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\AccountVerificationStatus|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AccountVerificationStatus|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?AccountVerificationStatus $verificationStatus = null;
 
@@ -40,7 +40,7 @@ class Verification
      * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('details')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\VerificationStatusDetail|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\VerificationStatusDetail|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?VerificationStatusDetail $details = null;
 
@@ -50,7 +50,7 @@ class Verification
      * @var ?array<Document> $documents
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('documents')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\OpenAPI\Models\Components\Document>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\Document>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $documents = null;
 

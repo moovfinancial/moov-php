@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** PlaidPayload - Describes the account to link to the Moov account using a Plaid processor token. */
@@ -29,7 +29,7 @@ class PlaidPayload
      * @var PlaidIntegration $plaid
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('plaid')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PlaidIntegration')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PlaidIntegration')]
     public PlaidIntegration $plaid;
 
     /**

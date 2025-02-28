@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class AchParticipant
@@ -16,7 +16,7 @@ class AchParticipant
      * @var AchLocation $achLocation
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('achLocation')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\AchLocation')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AchLocation')]
     public AchLocation $achLocation;
 
     /**
@@ -101,7 +101,7 @@ class AchParticipant
      * @var ?Logo $logo
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('logo')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\Logo|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Logo|null')]
     public ?Logo $logo;
 
     /**

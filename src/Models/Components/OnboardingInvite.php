@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class OnboardingInvite
@@ -35,7 +35,7 @@ class OnboardingInvite
      * @var array<ApplicationScope> $scopes
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('scopes')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\OpenAPI\Models\Components\ApplicationScope>')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\ApplicationScope>')]
     public array $scopes;
 
     /**
@@ -46,7 +46,7 @@ class OnboardingInvite
      * @var array<CapabilityID> $capabilities
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('capabilities')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\OpenAPI\Models\Components\CapabilityID>')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\CapabilityID>')]
     public array $capabilities;
 
     /**
@@ -88,7 +88,7 @@ class OnboardingInvite
      * @var ?CreateAccount $prefill
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('prefill')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CreateAccount|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateAccount|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?CreateAccount $prefill = null;
 
@@ -98,7 +98,7 @@ class OnboardingInvite
      * @var ?OnboardingPartnerAccount $partner
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('partner')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\OnboardingPartnerAccount|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\OnboardingPartnerAccount|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?OnboardingPartnerAccount $partner = null;
 

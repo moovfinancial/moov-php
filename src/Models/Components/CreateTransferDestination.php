@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** CreateTransferDestination - The final stage of a transfer and the ultimate recipient of the funds. */
@@ -24,7 +24,7 @@ class CreateTransferDestination
      * @var ?CreateTransferDestinationCard $cardDetails
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardDetails')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CreateTransferDestinationCard|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateTransferDestinationCard|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?CreateTransferDestinationCard $cardDetails = null;
 
@@ -33,7 +33,7 @@ class CreateTransferDestination
      * @var ?CreateTransferDestinationACH $achDetails
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('achDetails')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CreateTransferDestinationACH|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateTransferDestinationACH|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?CreateTransferDestinationACH $achDetails = null;
 

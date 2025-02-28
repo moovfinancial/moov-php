@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class BrandProperties
@@ -17,7 +17,7 @@ class BrandProperties
      * @var BrandColors $colors
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('colors')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\BrandColors')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BrandColors')]
     public BrandColors $colors;
 
     /**

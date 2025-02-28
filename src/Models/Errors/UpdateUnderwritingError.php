@@ -6,9 +6,9 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Errors;
+namespace Moov\MoovPhp\Models\Errors;
 
-use Moov\OpenAPI\Utils;
+use Moov\MoovPhp\Utils;
 class UpdateUnderwritingError
 {
     /**
@@ -16,7 +16,7 @@ class UpdateUnderwritingError
      * @var UpdateUnderwritingErrorError $error
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('error')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Errors\UpdateUnderwritingErrorError')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Errors\UpdateUnderwritingErrorError')]
     public UpdateUnderwritingErrorError $error;
 
     /**

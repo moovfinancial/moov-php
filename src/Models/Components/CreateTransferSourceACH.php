@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class CreateTransferSourceACH
@@ -35,7 +35,7 @@ class CreateTransferSourceACH
      * @var ?DebitHoldPeriod $debitHoldPeriod
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('debitHoldPeriod')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\DebitHoldPeriod|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\DebitHoldPeriod|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?DebitHoldPeriod $debitHoldPeriod = null;
 
@@ -45,7 +45,7 @@ class CreateTransferSourceACH
      * @var ?SECCode $secCode
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('secCode')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\SECCode|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\SECCode|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?SECCode $secCode = null;
 

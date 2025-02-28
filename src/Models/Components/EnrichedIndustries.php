@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class EnrichedIndustries
@@ -17,7 +17,7 @@ class EnrichedIndustries
      * @var array<EnrichedIndustry> $industries
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('industries')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\OpenAPI\Models\Components\EnrichedIndustry>')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\EnrichedIndustry>')]
     public array $industries;
 
     /**

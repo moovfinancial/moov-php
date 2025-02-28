@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** An optional override of your default ACH hold period in banking days. The hold period must be longer than or equal to your default setting. */

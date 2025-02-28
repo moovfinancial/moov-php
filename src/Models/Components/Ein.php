@@ -6,23 +6,24 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class Ein
 {
     /**
      *
-     * @var string $number
+     * @var ?string $number
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('number')]
-    public string $number;
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $number = null;
 
     /**
-     * @param  string  $number
+     * @param  ?string  $number
      * @phpstan-pure
      */
-    public function __construct(string $number)
+    public function __construct(?string $number = null)
     {
         $this->number = $number;
     }

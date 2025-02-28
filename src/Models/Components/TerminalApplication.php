@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** TerminalApplication - Describes a terminal application. */
@@ -26,7 +26,7 @@ class TerminalApplication
      * @var TerminalApplicationStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\TerminalApplicationStatus')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TerminalApplicationStatus')]
     public TerminalApplicationStatus $status;
 
     /**
@@ -35,7 +35,7 @@ class TerminalApplication
      * @var TerminalApplicationPlatform $platform
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('platform')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\TerminalApplicationPlatform')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TerminalApplicationPlatform')]
     public TerminalApplicationPlatform $platform;
 
     /**

@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** CreateAuthorizedUserUpdate - Fields for identifying an authorized individual. */
@@ -33,7 +33,7 @@ class CreateAuthorizedUserUpdate
      * @var ?BirthDateUpdate $birthDate
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('birthDate')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\BirthDateUpdate|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BirthDateUpdate|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?BirthDateUpdate $birthDate = null;
 

@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** ManualTermsOfServiceUpdate - Describes the acceptance of the Terms of Service. All data is required, and must be from the user. */

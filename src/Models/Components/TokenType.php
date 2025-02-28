@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** An [RFC 6750](https://www.rfc-editor.org/rfc/rfc6750#section-6.1) token type. */

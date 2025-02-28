@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** CardTransactionDetails - Card-specific details about the transaction. */
@@ -18,7 +18,7 @@ class CardTransactionDetails
      * @var CardTransactionStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CardTransactionStatus')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardTransactionStatus')]
     public CardTransactionStatus $status;
 
     /**
@@ -26,7 +26,7 @@ class CardTransactionDetails
      * @var ?CardTransactionFailureCode $failureCode
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('failureCode')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CardTransactionFailureCode|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardTransactionFailureCode|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?CardTransactionFailureCode $failureCode = null;
 
@@ -49,7 +49,7 @@ class CardTransactionDetails
      * @var ?TransactionSource $transactionSource
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('transactionSource')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\TransactionSource|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransactionSource|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?TransactionSource $transactionSource = null;
 

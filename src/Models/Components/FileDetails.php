@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** FileDetails - Describes a file linked to a Moov account. */
@@ -39,7 +39,7 @@ class FileDetails
      * @var FilePurpose $filePurpose
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('filePurpose')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\FilePurpose')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\FilePurpose')]
     public FilePurpose $filePurpose;
 
     /**
@@ -48,7 +48,7 @@ class FileDetails
      * @var FileStatus $fileStatus
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('fileStatus')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\FileStatus')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\FileStatus')]
     public FileStatus $fileStatus;
 
     /**

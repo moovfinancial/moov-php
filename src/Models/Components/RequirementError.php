@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class RequirementError
@@ -17,7 +17,7 @@ class RequirementError
      * @var RequirementID $requirement
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('requirement')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\RequirementID')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RequirementID')]
     public RequirementID $requirement;
 
     /**
@@ -25,7 +25,7 @@ class RequirementError
      * @var ?RequirementErrorCode $errorCode
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('errorCode')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\RequirementErrorCode|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RequirementErrorCode|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?RequirementErrorCode $errorCode = null;
 

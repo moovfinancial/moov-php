@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class ReversedWithCancellation
@@ -16,7 +16,7 @@ class ReversedWithCancellation
      * @var Cancellation $cancellation
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cancellation')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\Cancellation')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Cancellation')]
     public Cancellation $cancellation;
 
     /**

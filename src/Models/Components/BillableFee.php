@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class BillableFee
@@ -17,7 +17,7 @@ class BillableFee
      * @var FeeModel $feeModel
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('feeModel')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\FeeModel')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\FeeModel')]
     public FeeModel $feeModel;
 
     /**
@@ -25,7 +25,7 @@ class BillableFee
      * @var FeeCategory $feeCategory
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('feeCategory')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\FeeCategory')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\FeeCategory')]
     public FeeCategory $feeCategory;
 
     /**
@@ -60,7 +60,7 @@ class BillableFee
      * @var ?FeeProperties $feeProperties
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('feeProperties')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\FeeProperties|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\FeeProperties|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?FeeProperties $feeProperties = null;
 

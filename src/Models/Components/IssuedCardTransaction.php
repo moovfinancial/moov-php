@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class IssuedCardTransaction
@@ -52,7 +52,7 @@ class IssuedCardTransaction
      * @var IssuingMerchantData $merchantData
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('merchantData')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\IssuingMerchantData')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IssuingMerchantData')]
     public IssuingMerchantData $merchantData;
 
     /**

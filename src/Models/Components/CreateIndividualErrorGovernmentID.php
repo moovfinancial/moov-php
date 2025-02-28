@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class CreateIndividualErrorGovernmentID
@@ -16,7 +16,7 @@ class CreateIndividualErrorGovernmentID
      * @var ?CreateIndividualErrorSsn $ssn
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('ssn')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CreateIndividualErrorSsn|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateIndividualErrorSsn|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?CreateIndividualErrorSsn $ssn = null;
 
@@ -25,7 +25,7 @@ class CreateIndividualErrorGovernmentID
      * @var ?CreateIndividualErrorItin $itin
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('itin')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CreateIndividualErrorItin|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateIndividualErrorItin|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?CreateIndividualErrorItin $itin = null;
 

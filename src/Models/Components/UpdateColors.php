@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class UpdateColors
@@ -16,7 +16,7 @@ class UpdateColors
      * @var ?UpdateColor $dark
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('dark')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\UpdateColor|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\UpdateColor|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?UpdateColor $dark = null;
 
@@ -25,7 +25,7 @@ class UpdateColors
      * @var ?UpdateColor $light
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('light')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\UpdateColor|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\UpdateColor|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?UpdateColor $light = null;
 

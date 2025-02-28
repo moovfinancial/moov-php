@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class CreateAccountSettings
@@ -16,7 +16,7 @@ class CreateAccountSettings
      * @var ?CardPayment $cardPayment
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardPayment')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CardPayment|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardPayment|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?CardPayment $cardPayment = null;
 
@@ -25,7 +25,7 @@ class CreateAccountSettings
      * @var ?AchPayment $achPayment
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('achPayment')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\AchPayment|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AchPayment|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?AchPayment $achPayment = null;
 

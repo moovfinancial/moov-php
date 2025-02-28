@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class IssuedCardAuthorization
@@ -38,7 +38,7 @@ class IssuedCardAuthorization
      * @var CardIssuingNetwork $network
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('network')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CardIssuingNetwork')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardIssuingNetwork')]
     public CardIssuingNetwork $network;
 
     /**
@@ -55,7 +55,7 @@ class IssuedCardAuthorization
      * @var IssuingAuthorizationStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\IssuingAuthorizationStatus')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IssuingAuthorizationStatus')]
     public IssuingAuthorizationStatus $status;
 
     /**
@@ -63,7 +63,7 @@ class IssuedCardAuthorization
      * @var IssuingMerchantData $merchantData
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('merchantData')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\IssuingMerchantData')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IssuingMerchantData')]
     public IssuingMerchantData $merchantData;
 
     /**

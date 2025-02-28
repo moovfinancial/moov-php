@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class UpdateBrand
@@ -16,7 +16,7 @@ class UpdateBrand
      * @var ?UpdateColors $colors
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('colors')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\UpdateColors|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\UpdateColors|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?UpdateColors $colors = null;
 

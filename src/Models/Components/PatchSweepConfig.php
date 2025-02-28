@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class PatchSweepConfig
@@ -16,7 +16,7 @@ class PatchSweepConfig
      * @var ?Status $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\Status|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Status|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Status $status = null;
 
@@ -25,7 +25,7 @@ class PatchSweepConfig
      * @var string|PushPaymentMethodID2|null $pushPaymentMethodID
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('pushPaymentMethodID')]
-    #[\Speakeasy\Serializer\Annotation\Type('string|\Moov\OpenAPI\Models\Components\PushPaymentMethodID2|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('string|\Moov\MoovPhp\Models\Components\PushPaymentMethodID2|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public string|PushPaymentMethodID2|null $pushPaymentMethodID = null;
 
@@ -34,7 +34,7 @@ class PatchSweepConfig
      * @var string|PullPaymentMethodID2|null $pullPaymentMethodID
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('pullPaymentMethodID')]
-    #[\Speakeasy\Serializer\Annotation\Type('string|\Moov\OpenAPI\Models\Components\PullPaymentMethodID2|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('string|\Moov\MoovPhp\Models\Components\PullPaymentMethodID2|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public string|PullPaymentMethodID2|null $pullPaymentMethodID = null;
 
@@ -43,7 +43,7 @@ class PatchSweepConfig
      * @var string|StatementDescriptor2|null $statementDescriptor
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('statementDescriptor')]
-    #[\Speakeasy\Serializer\Annotation\Type('string|\Moov\OpenAPI\Models\Components\StatementDescriptor2|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('string|\Moov\MoovPhp\Models\Components\StatementDescriptor2|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public string|StatementDescriptor2|null $statementDescriptor = null;
 

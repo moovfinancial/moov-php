@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class TermsOfServiceError
@@ -24,7 +24,7 @@ class TermsOfServiceError
      * @var ?Manual $manual
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('manual')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\Manual|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Manual|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Manual $manual = null;
 

@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class IssuingControlsError
@@ -17,7 +17,7 @@ class IssuingControlsError
      * @var ?array<string, IssuingVelocityLimitError> $velocityLimits
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('velocityLimits')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<string, \Moov\OpenAPI\Models\Components\IssuingVelocityLimitError>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string, \Moov\MoovPhp\Models\Components\IssuingVelocityLimitError>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $velocityLimits = null;
 

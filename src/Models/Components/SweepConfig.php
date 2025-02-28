@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class SweepConfig
@@ -30,7 +30,7 @@ class SweepConfig
      * @var SweepConfigStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\SweepConfigStatus')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\SweepConfigStatus')]
     public SweepConfigStatus $status;
 
     /**
@@ -41,7 +41,7 @@ class SweepConfig
      * @var SweepConfigPaymentMethod $pushPaymentMethod
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('pushPaymentMethod')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\SweepConfigPaymentMethod')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\SweepConfigPaymentMethod')]
     public SweepConfigPaymentMethod $pushPaymentMethod;
 
     /**
@@ -52,7 +52,7 @@ class SweepConfig
      * @var SweepConfigPaymentMethod $pullPaymentMethod
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('pullPaymentMethod')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\SweepConfigPaymentMethod')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\SweepConfigPaymentMethod')]
     public SweepConfigPaymentMethod $pullPaymentMethod;
 
     /**

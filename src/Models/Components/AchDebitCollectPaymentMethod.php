@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class AchDebitCollectPaymentMethod
@@ -24,7 +24,7 @@ class AchDebitCollectPaymentMethod
      * @var AchDebitCollectPaymentMethodPaymentMethodType $paymentMethodType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('paymentMethodType')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\AchDebitCollectPaymentMethodPaymentMethodType')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AchDebitCollectPaymentMethodPaymentMethodType')]
     public AchDebitCollectPaymentMethodPaymentMethodType $paymentMethodType;
 
     /**
@@ -33,7 +33,7 @@ class AchDebitCollectPaymentMethod
      * @var PaymentMethodsBankAccount $bankAccount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('bankAccount')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PaymentMethodsBankAccount')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentMethodsBankAccount')]
     public PaymentMethodsBankAccount $bankAccount;
 
     /**

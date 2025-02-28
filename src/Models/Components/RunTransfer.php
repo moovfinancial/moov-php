@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** RunTransfer - Defines the attributes of a transfer. */
@@ -17,7 +17,7 @@ class RunTransfer
      * @var Amount $amount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\Amount')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Amount')]
     public Amount $amount;
 
     /**
@@ -25,7 +25,7 @@ class RunTransfer
      * @var SchedulePaymentMethod $destination
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('destination')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\SchedulePaymentMethod')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\SchedulePaymentMethod')]
     public SchedulePaymentMethod $destination;
 
     /**
@@ -40,7 +40,7 @@ class RunTransfer
      * @var SchedulePaymentMethod $source
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('source')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\SchedulePaymentMethod')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\SchedulePaymentMethod')]
     public SchedulePaymentMethod $source;
 
     /**

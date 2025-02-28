@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class EnrichedBusinessResponse
@@ -16,7 +16,7 @@ class EnrichedBusinessResponse
      * @var ?EnrichedBusinessProfile $business
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('business')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\EnrichedBusinessProfile|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\EnrichedBusinessProfile|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?EnrichedBusinessProfile $business = null;
 

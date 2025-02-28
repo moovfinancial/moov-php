@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** Specifies the type of spend card to be issued. Presently supports virtual only, providing a digital number without a physical card. */

@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class PayoutDetailsError
@@ -24,7 +24,7 @@ class PayoutDetailsError
      * @var ?PayoutRecipientError $recipient
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('recipient')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PayoutRecipientError|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PayoutRecipientError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?PayoutRecipientError $recipient = null;
 

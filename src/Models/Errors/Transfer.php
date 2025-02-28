@@ -6,10 +6,10 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Errors;
+namespace Moov\MoovPhp\Models\Errors;
 
-use Moov\OpenAPI\Models\Components;
-use Moov\OpenAPI\Utils;
+use Moov\MoovPhp\Models\Components;
+use Moov\MoovPhp\Utils;
 /** Transfer - Details of a Transfer. */
 class Transfer
 {
@@ -32,7 +32,7 @@ class Transfer
      * @var Components\TransferSource $source
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('source')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\TransferSource')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferSource')]
     public Components\TransferSource $source;
 
     /**
@@ -40,7 +40,7 @@ class Transfer
      * @var Components\TransferDestination $destination
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('destination')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\TransferDestination')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferDestination')]
     public Components\TransferDestination $destination;
 
     /**
@@ -49,7 +49,7 @@ class Transfer
      * @var Components\TransferStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\TransferStatus')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferStatus')]
     public Components\TransferStatus $status;
 
     /**
@@ -57,7 +57,7 @@ class Transfer
      * @var Components\Amount $amount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\Amount')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Amount')]
     public Components\Amount $amount;
 
     /**
@@ -74,7 +74,7 @@ class Transfer
      * @var ?Components\TransferFailureReason $failureReason
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('failureReason')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\TransferFailureReason|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferFailureReason|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Components\TransferFailureReason $failureReason = null;
 
@@ -103,7 +103,7 @@ class Transfer
      * @var ?Components\FacilitatorFee $facilitatorFee
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('facilitatorFee')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\FacilitatorFee|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\FacilitatorFee|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Components\FacilitatorFee $facilitatorFee = null;
 
@@ -131,7 +131,7 @@ class Transfer
      * @var ?Components\MoovFeeDetails $moovFeeDetails
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('moovFeeDetails')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\MoovFeeDetails|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\MoovFeeDetails|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Components\MoovFeeDetails $moovFeeDetails = null;
 
@@ -148,7 +148,7 @@ class Transfer
      * @var ?Components\Amount $refundedAmount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('refundedAmount')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\Amount|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Amount|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Components\Amount $refundedAmount = null;
 
@@ -158,7 +158,7 @@ class Transfer
      * @var ?array<Components\CardAcquiringRefund> $refunds
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('refunds')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\OpenAPI\Models\Components\CardAcquiringRefund>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\CardAcquiringRefund>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $refunds = null;
 
@@ -167,7 +167,7 @@ class Transfer
      * @var ?Components\Amount $disputedAmount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('disputedAmount')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\Amount|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Amount|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Components\Amount $disputedAmount = null;
 
@@ -177,7 +177,7 @@ class Transfer
      * @var ?array<Components\CardAcquiringDispute> $disputes
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('disputes')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\OpenAPI\Models\Components\CardAcquiringDispute>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\CardAcquiringDispute>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $disputes = null;
 

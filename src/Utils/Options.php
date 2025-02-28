@@ -6,9 +6,9 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Utils;
+namespace Moov\MoovPhp\Utils;
 
-use Moov\OpenAPI\Utils\Retry\RetryConfig;
+use Moov\MoovPhp\Utils\Retry\RetryConfig;
 
 class Options
 {

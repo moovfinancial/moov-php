@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** BrandColors - Brand colors for light and dark modes. */
@@ -17,7 +17,7 @@ class BrandColors
      * @var BrandColor $dark
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('dark')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\BrandColor')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BrandColor')]
     public BrandColor $dark;
 
     /**
@@ -25,7 +25,7 @@ class BrandColors
      * @var BrandColor $light
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('light')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\BrandColor')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BrandColor')]
     public BrandColor $light;
 
     /**

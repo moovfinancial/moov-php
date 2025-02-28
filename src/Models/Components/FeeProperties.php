@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** FeeProperties - Defines the specific parameters used for fee calculation. */
@@ -18,7 +18,7 @@ class FeeProperties
      * @var ?AmountDecimal $fixedAmount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('fixedAmount')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\AmountDecimal|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?AmountDecimal $fixedAmount = null;
 
@@ -40,7 +40,7 @@ class FeeProperties
      * @var ?AmountDecimal $minPerTransaction
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('minPerTransaction')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\AmountDecimal|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?AmountDecimal $minPerTransaction = null;
 
@@ -50,7 +50,7 @@ class FeeProperties
      * @var ?AmountDecimal $maxPerTransaction
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('maxPerTransaction')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\AmountDecimal|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?AmountDecimal $maxPerTransaction = null;
 

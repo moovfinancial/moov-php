@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class BankAccountVerification
@@ -16,7 +16,7 @@ class BankAccountVerification
      * @var BankAccountVerificationMethod $verificationMethod
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('verificationMethod')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\BankAccountVerificationMethod')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BankAccountVerificationMethod')]
     public BankAccountVerificationMethod $verificationMethod;
 
     /**
@@ -24,7 +24,7 @@ class BankAccountVerification
      * @var BankAccountVerificationStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\BankAccountVerificationStatus')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BankAccountVerificationStatus')]
     public BankAccountVerificationStatus $status;
 
     /**
@@ -33,7 +33,7 @@ class BankAccountVerification
      * @var ?BankAccountException $exceptionDetails
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('exceptionDetails')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\BankAccountException|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BankAccountException|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?BankAccountException $exceptionDetails = null;
 

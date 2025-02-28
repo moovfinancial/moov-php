@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class CreateAccountError
@@ -24,7 +24,7 @@ class CreateAccountError
      * @var ?CreateProfileError $profile
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('profile')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CreateProfileError|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateProfileError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?CreateProfileError $profile = null;
 
@@ -41,7 +41,7 @@ class CreateAccountError
      * @var ?TermsOfServiceError $termsOfService
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('termsOfService')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\TermsOfServiceError|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TermsOfServiceError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?TermsOfServiceError $termsOfService = null;
 
@@ -58,7 +58,7 @@ class CreateAccountError
      * @var ?CustomerSupportError $customerSupport
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('customerSupport')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CustomerSupportError|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CustomerSupportError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?CustomerSupportError $customerSupport = null;
 
@@ -67,7 +67,7 @@ class CreateAccountError
      * @var ?CreateAccountSettings $settings
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('settings')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CreateAccountSettings|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateAccountSettings|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?CreateAccountSettings $settings = null;
 

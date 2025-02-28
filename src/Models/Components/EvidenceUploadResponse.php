@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** EvidenceUploadResponse - Details of a successfully uploaded evidence file. */
@@ -57,7 +57,7 @@ class EvidenceUploadResponse
      * @var EvidenceType $evidenceType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('evidenceType')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\EvidenceType')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\EvidenceType')]
     public EvidenceType $evidenceType;
 
     /**

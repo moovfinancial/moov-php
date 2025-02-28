@@ -6,9 +6,9 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
-use Moov\OpenAPI\Utils\SpeakeasyMetadata;
+use Moov\MoovPhp\Utils\SpeakeasyMetadata;
 class AuthTokenRequest
 {
     /**
@@ -21,7 +21,7 @@ class AuthTokenRequest
      * @var GrantType $grantType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('grant_type')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\GrantType')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\GrantType')]
     #[SpeakeasyMetadata('form:name=grant_type')]
     public GrantType $grantType;
 

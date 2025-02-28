@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** PaymentLinkPaymentDetails - Options for payment links used to collect payment. */
@@ -18,7 +18,7 @@ class PaymentLinkPaymentDetails
      * @var array<CollectionPaymentMethodType> $allowedMethods
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('allowedMethods')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\OpenAPI\Models\Components\CollectionPaymentMethodType>')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\CollectionPaymentMethodType>')]
     public array $allowedMethods;
 
     /**
@@ -27,7 +27,7 @@ class PaymentLinkPaymentDetails
      * @var ?CardPaymentDetails $cardDetails
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardDetails')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\CardPaymentDetails|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardPaymentDetails|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?CardPaymentDetails $cardDetails = null;
 
@@ -37,7 +37,7 @@ class PaymentLinkPaymentDetails
      * @var ?ACHPaymentDetails $achDetails
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('achDetails')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\ACHPaymentDetails|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ACHPaymentDetails|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?ACHPaymentDetails $achDetails = null;
 

@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /**
@@ -33,7 +33,7 @@ class MxPayload
      * @var MXAuthorizationCode $mx
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('mx')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\MXAuthorizationCode')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\MXAuthorizationCode')]
     public MXAuthorizationCode $mx;
 
     /**

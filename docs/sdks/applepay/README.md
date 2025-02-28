@@ -12,7 +12,7 @@ A successful response from this endpoint should be passed through to Apple Pay u
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/apple-pay.write` scope.
-* [getMerchantDomains](#getmerchantdomains) - Get domains registered with Apple Pay. 
+* [getDomains](#getdomains) - Get domains registered with Apple Pay. 
 
 Read our [Apple Pay tutorial](https://docs.moov.io/guides/sources/cards/apple-pay/#register-your-domains) to learn more. 
 
@@ -25,14 +25,14 @@ The `token` data is defined by Apple Pay and should be passed through from Apple
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/cards.write` scope.
-* [registerMerchantDomains](#registermerchantdomains) - Add domains to be registered with Apple Pay.
+* [registerDomains](#registerdomains) - Add domains to be registered with Apple Pay.
 
 Any domains that will be used to accept payments must first be [verified](https://docs.moov.io/guides/sources/cards/apple-pay/#register-your-domains) 
 with Apple.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/apple-pay.write` scope.
-* [updateMerchantDomains](#updatemerchantdomains) - Add or remove domains to be registered with Apple Pay. 
+* [updateDomains](#updatedomains) - Add or remove domains to be registered with Apple Pay. 
 
 Any domains that will be used to accept payments must first be [verified](https://docs.moov.io/guides/sources/cards/apple-pay/#register-your-domains) 
 with Apple.
@@ -57,10 +57,10 @@ declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use Moov\OpenAPI;
-use Moov\OpenAPI\Models\Components;
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
 
-$sdk = OpenAPI\Moov::builder()
+$sdk = MoovPhp\Moov::builder()
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -105,7 +105,7 @@ if ($response->applePaySession !== null) {
 | Errors\GenericError | 400, 409, 422       | application/json    |
 | Errors\APIException | 4XX, 5XX            | \*/\*               |
 
-## getMerchantDomains
+## getDomains
 
 Get domains registered with Apple Pay. 
 
@@ -121,10 +121,10 @@ declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use Moov\OpenAPI;
-use Moov\OpenAPI\Models\Components;
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
 
-$sdk = OpenAPI\Moov::builder()
+$sdk = MoovPhp\Moov::builder()
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -135,8 +135,8 @@ $sdk = OpenAPI\Moov::builder()
 
 
 
-$response = $sdk->applePay->getMerchantDomains(
-    accountID: '5f873241-11ec-45e4-929d-00a704a9b582',
+$response = $sdk->applePay->getDomains(
+    accountID: '486e0cf0-bf76-4dfc-a770-a81e03b0e07d',
     xMoovVersion: 'v2024.01.00'
 
 );
@@ -180,10 +180,10 @@ declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use Moov\OpenAPI;
-use Moov\OpenAPI\Models\Components;
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
 
-$sdk = OpenAPI\Moov::builder()
+$sdk = MoovPhp\Moov::builder()
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -254,7 +254,7 @@ if ($response->linkedApplePayPaymentMethod !== null) {
 | Errors\LinkApplePayError | 422                      | application/json         |
 | Errors\APIException      | 4XX, 5XX                 | \*/\*                    |
 
-## registerMerchantDomains
+## registerDomains
 
 Add domains to be registered with Apple Pay.
 
@@ -271,10 +271,10 @@ declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use Moov\OpenAPI;
-use Moov\OpenAPI\Models\Components;
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
 
-$sdk = OpenAPI\Moov::builder()
+$sdk = MoovPhp\Moov::builder()
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -289,8 +289,8 @@ $registerApplePayMerchantDomains = new Components\RegisterApplePayMerchantDomain
     ],
 );
 
-$response = $sdk->applePay->registerMerchantDomains(
-    accountID: 'c62b8770-bdbc-406f-8160-fddb553f5b33',
+$response = $sdk->applePay->registerDomains(
+    accountID: '5b4d5840-3ab6-4fa6-abfe-78b73509622c',
     registerApplePayMerchantDomains: $registerApplePayMerchantDomains,
     xMoovVersion: 'v2024.01.00'
 
@@ -320,7 +320,7 @@ if ($response->applePayMerchantDomains !== null) {
 | Errors\GenericError | 400                 | application/json    |
 | Errors\APIException | 4XX, 5XX            | \*/\*               |
 
-## updateMerchantDomains
+## updateDomains
 
 Add or remove domains to be registered with Apple Pay. 
 
@@ -337,10 +337,10 @@ declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use Moov\OpenAPI;
-use Moov\OpenAPI\Models\Components;
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
 
-$sdk = OpenAPI\Moov::builder()
+$sdk = MoovPhp\Moov::builder()
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -358,8 +358,8 @@ $updateApplePayMerchantDomains = new Components\UpdateApplePayMerchantDomains(
     ],
 );
 
-$response = $sdk->applePay->updateMerchantDomains(
-    accountID: '4dfea880-7ff8-42f8-bc8d-392cba179113',
+$response = $sdk->applePay->updateDomains(
+    accountID: 'fe4e9441-9183-485f-8a28-9a504a3532f3',
     updateApplePayMerchantDomains: $updateApplePayMerchantDomains,
     xMoovVersion: 'v2024.01.00'
 

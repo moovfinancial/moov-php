@@ -6,9 +6,9 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
-use Moov\OpenAPI\Utils\SpeakeasyMetadata;
+use Moov\MoovPhp\Utils\SpeakeasyMetadata;
 class RevokeTokenRequest
 {
     /**
@@ -26,7 +26,7 @@ class RevokeTokenRequest
      * @var ?TokenTypeHint $tokenTypeHint
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('token_type_hint')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\TokenTypeHint|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TokenTypeHint|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     #[SpeakeasyMetadata('form:name=token_type_hint')]
     public ?TokenTypeHint $tokenTypeHint = null;

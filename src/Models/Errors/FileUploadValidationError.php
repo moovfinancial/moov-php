@@ -6,9 +6,9 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Errors;
+namespace Moov\MoovPhp\Models\Errors;
 
-use Moov\OpenAPI\Utils;
+use Moov\MoovPhp\Utils;
 class FileUploadValidationError
 {
     /**
@@ -24,7 +24,7 @@ class FileUploadValidationError
      * @var ?File $file
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('file')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Errors\File|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Errors\File|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?File $file = null;
 

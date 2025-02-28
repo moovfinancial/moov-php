@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 /** Profile - Describes a Moov account profile. A profile will have a business or an individual, depending on the account's type. */
@@ -18,7 +18,7 @@ class Profile
      * @var ?IndividualProfile $individual
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('individual')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\IndividualProfile|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IndividualProfile|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?IndividualProfile $individual = null;
 
@@ -28,7 +28,7 @@ class Profile
      * @var ?BusinessProfile $business
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('business')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\BusinessProfile|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BusinessProfile|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?BusinessProfile $business = null;
 

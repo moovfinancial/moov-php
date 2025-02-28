@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class UpdateRepresentativeGovernmentID
@@ -16,7 +16,7 @@ class UpdateRepresentativeGovernmentID
      * @var ?UpdateRepresentativeSsn $ssn
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('ssn')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\UpdateRepresentativeSsn|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\UpdateRepresentativeSsn|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?UpdateRepresentativeSsn $ssn = null;
 
@@ -25,7 +25,7 @@ class UpdateRepresentativeGovernmentID
      * @var ?UpdateRepresentativeItin $itin
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('itin')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\UpdateRepresentativeItin|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\UpdateRepresentativeItin|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?UpdateRepresentativeItin $itin = null;
 

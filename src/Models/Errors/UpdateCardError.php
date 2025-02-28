@@ -6,10 +6,10 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Errors;
+namespace Moov\MoovPhp\Models\Errors;
 
-use Moov\OpenAPI\Models\Components;
-use Moov\OpenAPI\Utils;
+use Moov\MoovPhp\Models\Components;
+use Moov\MoovPhp\Utils;
 class UpdateCardError
 {
     /**
@@ -17,7 +17,7 @@ class UpdateCardError
      * @var ?Components\End2EndEncryptionError $e2ee
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('e2ee')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\End2EndEncryptionError|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\End2EndEncryptionError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Components\End2EndEncryptionError $e2ee = null;
 

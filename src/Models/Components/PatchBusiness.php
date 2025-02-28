@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class PatchBusiness
@@ -33,7 +33,7 @@ class PatchBusiness
      * @var ?BusinessType $businessType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('businessType')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\BusinessType|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BusinessType|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?BusinessType $businessType = null;
 
@@ -42,7 +42,7 @@ class PatchBusiness
      * @var ?AddressUpdate $address
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('address')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\AddressUpdate|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AddressUpdate|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?AddressUpdate $address = null;
 
@@ -51,7 +51,7 @@ class PatchBusiness
      * @var ?PhoneNumber $phone
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('phone')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PhoneNumber|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PhoneNumber|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?PhoneNumber $phone = null;
 
@@ -85,7 +85,7 @@ class PatchBusiness
      * @var ?TaxIDUpdate $taxID
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('taxID')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\TaxIDUpdate|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TaxIDUpdate|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?TaxIDUpdate $taxID = null;
 
@@ -102,7 +102,7 @@ class PatchBusiness
      * @var ?IndustryCodes $industryCodes
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('industryCodes')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\IndustryCodes|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IndustryCodes|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?IndustryCodes $industryCodes = null;
 
@@ -112,7 +112,7 @@ class PatchBusiness
      * @var ?PrimaryRegulator $primaryRegulator
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('primaryRegulator')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PrimaryRegulator|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PrimaryRegulator|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?PrimaryRegulator $primaryRegulator = null;
 

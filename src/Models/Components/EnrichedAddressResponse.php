@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Models\Components;
+namespace Moov\MoovPhp\Models\Components;
 
 
 class EnrichedAddressResponse
@@ -17,7 +17,7 @@ class EnrichedAddressResponse
      * @var array<AddressSuggestion> $suggestions
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('suggestions')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\OpenAPI\Models\Components\AddressSuggestion>')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\AddressSuggestion>')]
     public array $suggestions;
 
     /**

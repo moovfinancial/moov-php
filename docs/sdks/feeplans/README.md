@@ -5,20 +5,20 @@
 
 ### Available Operations
 
-* [createFeePlanAgreements](#createfeeplanagreements) - Creates the subscription of a fee plan to a merchant account. Merchants are required to accept the fee plan terms prior to activation.
+* [createAgreements](#createagreements) - Creates the subscription of a fee plan to a merchant account. Merchants are required to accept the fee plan terms prior to activation.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/profile.write` scope.
-* [listFeePlanAgreements](#listfeeplanagreements) - List all fee plan agreements associated with an account.
+* [list](#list) - List all fee plan agreements associated with an account.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/profile.read` scope.
-* [listFeePlans](#listfeeplans) - List all fee plans available for use by an account. This is intended to be used by an account when 
+* [listByAccount](#listbyaccount) - List all fee plans available for use by an account. This is intended to be used by an account when 
 selecting a fee plan to apply to a connected account.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/profile.read` scope.
-* [listFeesFetch](#listfeesfetch) - List fees associated with an account.
+* [fetchFees](#fetchfees) - List fees associated with an account.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
@@ -30,12 +30,8 @@ you'll need to specify the `/accounts/{accountID}/profile.read` scope.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/profile.read` scope.
-* [retrieveFees](#retrievefees) - Retrieve fees associated with an account.
 
-To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
-you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
-
-## createFeePlanAgreements
+## createAgreements
 
 Creates the subscription of a fee plan to a merchant account. Merchants are required to accept the fee plan terms prior to activation.
 
@@ -49,10 +45,10 @@ declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use Moov\OpenAPI;
-use Moov\OpenAPI\Models\Components;
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
 
-$sdk = OpenAPI\Moov::builder()
+$sdk = MoovPhp\Moov::builder()
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -62,11 +58,11 @@ $sdk = OpenAPI\Moov::builder()
     ->build();
 
 $createFeePlanAgreement = new Components\CreateFeePlanAgreement(
-    planID: 'b97c2d59-80c5-49ac-b1fc-40e3a81d8daf',
+    planID: 'b700714f-83b3-45f6-91b3-1f9081d9e23c',
 );
 
-$response = $sdk->feePlans->createFeePlanAgreements(
-    accountID: '19962eb8-00cd-44e5-8a66-a1ebaf88c2fe',
+$response = $sdk->feePlans->createAgreements(
+    accountID: 'a39319c8-13f2-4af4-9f8c-e0ce6779fd54',
     createFeePlanAgreement: $createFeePlanAgreement,
     xMoovVersion: 'v2024.01.00'
 
@@ -97,7 +93,7 @@ if ($response->feePlanAgreement !== null) {
 | Errors\FeePlanAgreementError | 422                          | application/json             |
 | Errors\APIException          | 4XX, 5XX                     | \*/\*                        |
 
-## listFeePlanAgreements
+## list
 
 List all fee plan agreements associated with an account.
 
@@ -111,10 +107,10 @@ declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use Moov\OpenAPI;
-use Moov\OpenAPI\Models\Components;
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
 
-$sdk = OpenAPI\Moov::builder()
+$sdk = MoovPhp\Moov::builder()
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -125,14 +121,14 @@ $sdk = OpenAPI\Moov::builder()
 
 
 
-$response = $sdk->feePlans->listFeePlanAgreements(
-    accountID: '4c49ae91-2b32-4a4d-91bf-f062f3c2f38d',
+$response = $sdk->feePlans->list(
+    accountID: 'c8a232aa-0b11-4b8a-b005-71e9e705d0e6',
     xMoovVersion: 'v2024.01.00',
     agreementID: [
         '<id>',
     ],
     status: [
-        Components\FeePlanAgreementStatus::Terminated,
+        Components\FeePlanAgreementStatus::Active,
     ]
 
 );
@@ -161,7 +157,7 @@ if ($response->feePlanAgreements !== null) {
 | ------------------- | ------------------- | ------------------- |
 | Errors\APIException | 4XX, 5XX            | \*/\*               |
 
-## listFeePlans
+## listByAccount
 
 List all fee plans available for use by an account. This is intended to be used by an account when 
 selecting a fee plan to apply to a connected account.
@@ -176,10 +172,10 @@ declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use Moov\OpenAPI;
-use Moov\OpenAPI\Models\Components;
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
 
-$sdk = OpenAPI\Moov::builder()
+$sdk = MoovPhp\Moov::builder()
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -190,11 +186,11 @@ $sdk = OpenAPI\Moov::builder()
 
 
 
-$response = $sdk->feePlans->listFeePlans(
-    accountID: 'ac8fa716-4b75-4902-b296-d734524ca45c',
+$response = $sdk->feePlans->listByAccount(
+    accountID: 'cf8ce25e-dc08-408d-aec3-84d726ece8b0',
     xMoovVersion: 'v2024.01.00',
     planIDs: [
-        'ef1a4db2-c348-4257-8382-1edd05204e30',
+        'b8982d80-a6fc-45af-b31d-a145a6d82699',
     ]
 
 );
@@ -222,7 +218,7 @@ if ($response->feePlans !== null) {
 | ------------------- | ------------------- | ------------------- |
 | Errors\APIException | 4XX, 5XX            | \*/\*               |
 
-## listFeesFetch
+## fetchFees
 
 List fees associated with an account.
 
@@ -236,10 +232,10 @@ declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use Moov\OpenAPI;
-use Moov\OpenAPI\Models\Components;
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
 
-$sdk = OpenAPI\Moov::builder()
+$sdk = MoovPhp\Moov::builder()
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -250,8 +246,8 @@ $sdk = OpenAPI\Moov::builder()
 
 $listFeesFetchRequest = new Components\ListFeesFetchRequest();
 
-$response = $sdk->feePlans->listFeesFetch(
-    accountID: '7b85e951-a6d9-4e67-a155-4d18e9d1ac58',
+$response = $sdk->feePlans->fetchFees(
+    accountID: 'abb6dc0f-1b14-4754-8489-20b0216c093f',
     xMoovVersion: 'v2024.01.00',
     listFeesFetchRequest: $listFeesFetchRequest
 
@@ -294,10 +290,10 @@ declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use Moov\OpenAPI;
-use Moov\OpenAPI\Models\Components;
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
 
-$sdk = OpenAPI\Moov::builder()
+$sdk = MoovPhp\Moov::builder()
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -354,10 +350,10 @@ declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use Moov\OpenAPI;
-use Moov\OpenAPI\Models\Components;
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
 
-$sdk = OpenAPI\Moov::builder()
+$sdk = MoovPhp\Moov::builder()
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -397,64 +393,6 @@ if ($response->partnerPricingAgreements !== null) {
 ### Response
 
 **[?Operations\ListPartnerPricingAgreementsResponse](../../Models/Operations/ListPartnerPricingAgreementsResponse.md)**
-
-### Errors
-
-| Error Type          | Status Code         | Content Type        |
-| ------------------- | ------------------- | ------------------- |
-| Errors\APIException | 4XX, 5XX            | \*/\*               |
-
-## retrieveFees
-
-Retrieve fees associated with an account.
-
-To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
-you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use Moov\OpenAPI;
-use Moov\OpenAPI\Models\Components;
-use Moov\OpenAPI\Models\Operations;
-
-$sdk = OpenAPI\Moov::builder()
-    ->setSecurity(
-        new Components\Security(
-            username: '',
-            password: '',
-        )
-    )
-    ->build();
-
-$request = new Operations\RetrieveFeesRequest(
-    accountID: '45954656-ded3-4bbc-9ef3-d42c2b99db12',
-    skip: 60,
-    count: 20,
-);
-
-$response = $sdk->feePlans->retrieveFees(
-    request: $request
-);
-
-if ($response->incurredFees !== null) {
-    // handle response
-}
-```
-
-### Parameters
-
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `$request`                                                                       | [Operations\RetrieveFeesRequest](../../Models/Operations/RetrieveFeesRequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
-
-### Response
-
-**[?Operations\RetrieveFeesResponse](../../Models/Operations/RetrieveFeesResponse.md)**
 
 ### Errors
 

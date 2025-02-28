@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Utils;
+namespace Moov\MoovPhp\Utils;
 
 use Psr\Http\Message\MessageInterface;
 use Psr\Http\Message\RequestInterface;
