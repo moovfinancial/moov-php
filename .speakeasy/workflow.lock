@@ -2,8 +2,8 @@ speakeasyVersion: 1.508.0
 sources:
     latest:
         sourceNamespace: latest
-        sourceRevisionDigest: sha256:021b14f28ff03576d4ce6c62acaa4687eeda94ffc3b5cd1bfa9bba1875ffee2e
-        sourceBlobDigest: sha256:a8eac8f2f01367366005af1a4fbac744173b1bbe10ff9345b3ceab61a7b74820
+        sourceRevisionDigest: sha256:6f2f26d08f13477e30c8e90f05b616316d4cf5bf318364cc40d6958f97e601ef
+        sourceBlobDigest: sha256:7718546fd43e7943caae80d222223ce3bb037289594648cd3be3e41d0f49458c
         tags:
             - latest
             - latest
@@ -11,8 +11,10 @@ targets:
     latest:
         source: latest
         sourceNamespace: latest
-        sourceRevisionDigest: sha256:021b14f28ff03576d4ce6c62acaa4687eeda94ffc3b5cd1bfa9bba1875ffee2e
-        sourceBlobDigest: sha256:a8eac8f2f01367366005af1a4fbac744173b1bbe10ff9345b3ceab61a7b74820
+        sourceRevisionDigest: sha256:6f2f26d08f13477e30c8e90f05b616316d4cf5bf318364cc40d6958f97e601ef
+        sourceBlobDigest: sha256:7718546fd43e7943caae80d222223ce3bb037289594648cd3be3e41d0f49458c
+        codeSamplesNamespace: latest-php-code-samples
+        codeSamplesRevisionDigest: sha256:4bf1979e92a028ee97c647d7bdf91af8d9fb0b5697c80839bd92937f60304756
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -32,3 +34,9 @@ workflow:
                 packagist:
                     username: moov
                     token: $packagist_token
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/moov/moov/latest-php-code-samples
+                labelOverride:
+                    fixedValue: Php (SDK)
+                blocking: false

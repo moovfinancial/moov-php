@@ -11,12 +11,13 @@ namespace Moov\MoovPhp\Models\Components;
 
 enum FeeCategory: string
 {
-    case CardAcquiring = 'card-acquiring';
-    case CardPush = 'card-push';
-    case CardPull = 'card-pull';
     case Ach = 'ach';
-    case Rtp = 'rtp';
+    case CardAcquiring = 'card-acquiring';
     case CardOther = 'card-other';
+    case CardPull = 'card-pull';
+    case CardPush = 'card-push';
+    case MonthlyPlatform = 'monthly-platform';
     case NetworkPassthrough = 'network-passthrough';
     case Other = 'other';
+    case Rtp = 'rtp';
 }

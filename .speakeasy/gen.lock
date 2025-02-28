@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 9a419fcdbce136502424c899e67b24e4
+  docChecksum: 421994a58c0f3761a41eac5dbdffa292
   docVersion: latest
   speakeasyVersion: 1.508.0
   generationVersion: 2.536.0
-  releaseVersion: 0.2.1
-  configChecksum: b6bc93ce160c4c882e9f19bca33e558f
+  releaseVersion: 0.2.2
+  configChecksum: 4125a62d84366e75f79260c43f5714e8
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
@@ -2121,7 +2121,9 @@ examples:
       parameters:
         path:
           accountID: "4c49ae91-2b32-4a4d-91bf-f062f3c2f38d"
-        query: {}
+        query:
+          skip: 60
+          count: 20
         header: {}
       responses:
         "200":
@@ -2166,7 +2168,9 @@ examples:
       parameters:
         path:
           accountID: "9366921a-25de-4c52-8ec6-4cd4ef557223"
-        query: {}
+        query:
+          skip: 60
+          count: 20
         header: {}
       responses:
         "200":

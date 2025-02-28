@@ -16,3 +16,9 @@ targets:
             packagist:
                 username: moov
                 token: $packagist_token
+        codeSamples:
+            registry:
+                location: registry.speakeasyapi.dev/moov/moov/latest-php-code-samples
+            labelOverride:
+                fixedValue: Php (SDK)
+            blocking: false

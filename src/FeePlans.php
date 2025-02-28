@@ -156,21 +156,12 @@ class FeePlans
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/profile.read` scope.
      *
-     * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
-     * @param  ?array<string>  $agreementID
-     * @param  ?array<Components\FeePlanAgreementStatus>  $status
+     * @param  Operations\ListFeePlanAgreementsRequest  $request
      * @return Operations\ListFeePlanAgreementsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function list(string $accountID, ?string $xMoovVersion = null, ?array $agreementID = null, ?array $status = null, ?Options $options = null): Operations\ListFeePlanAgreementsResponse
+    public function list(Operations\ListFeePlanAgreementsRequest $request, ?Options $options = null): Operations\ListFeePlanAgreementsResponse
     {
-        $request = new Operations\ListFeePlanAgreementsRequest(
-            accountID: $accountID,
-            xMoovVersion: $xMoovVersion,
-            agreementID: $agreementID,
-            status: $status,
-        );
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/fee-plan-agreements', Operations\ListFeePlanAgreementsRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
@@ -484,21 +475,12 @@ class FeePlans
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/profile.read` scope.
      *
-     * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
-     * @param  ?array<string>  $agreementID
-     * @param  ?array<Components\FeePlanAgreementStatus>  $status
+     * @param  Operations\ListPartnerPricingAgreementsRequest  $request
      * @return Operations\ListPartnerPricingAgreementsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function listPartnerPricingAgreements(string $accountID, ?string $xMoovVersion = null, ?array $agreementID = null, ?array $status = null, ?Options $options = null): Operations\ListPartnerPricingAgreementsResponse
+    public function listPartnerPricingAgreements(Operations\ListPartnerPricingAgreementsRequest $request, ?Options $options = null): Operations\ListPartnerPricingAgreementsResponse
     {
-        $request = new Operations\ListPartnerPricingAgreementsRequest(
-            accountID: $accountID,
-            xMoovVersion: $xMoovVersion,
-            agreementID: $agreementID,
-            status: $status,
-        );
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/partner-pricing-agreements', Operations\ListPartnerPricingAgreementsRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;

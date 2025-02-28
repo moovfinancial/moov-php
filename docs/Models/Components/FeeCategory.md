@@ -5,11 +5,12 @@
 
 | Name                 | Value                |
 | -------------------- | -------------------- |
-| `CardAcquiring`      | card-acquiring       |
-| `CardPush`           | card-push            |
-| `CardPull`           | card-pull            |
 | `Ach`                | ach                  |
-| `Rtp`                | rtp                  |
+| `CardAcquiring`      | card-acquiring       |
 | `CardOther`          | card-other           |
+| `CardPull`           | card-pull            |
+| `CardPush`           | card-push            |
+| `MonthlyPlatform`    | monthly-platform     |
 | `NetworkPassthrough` | network-passthrough  |
 | `Other`              | other                |
+| `Rtp`                | rtp                  |

@@ -20,6 +20,20 @@ class ListPartnerPricingAgreementsRequest
     public string $accountID;
 
     /**
+     *
+     * @var ?int $skip
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=skip')]
+    public ?int $skip = null;
+
+    /**
+     *
+     * @var ?int $count
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=count')]
+    public ?int $count = null;
+
+    /**
      * A comma-separated list of agreement IDs to filter the results by.
      *
      * @var ?array<string> $agreementID
@@ -55,13 +69,17 @@ class ListPartnerPricingAgreementsRequest
     /**
      * @param  string  $accountID
      * @param  ?string  $xMoovVersion
+     * @param  ?int  $skip
+     * @param  ?int  $count
      * @param  ?array<string>  $agreementID
      * @param  ?array<Components\FeePlanAgreementStatus>  $status
      * @phpstan-pure
      */
-    public function __construct(string $accountID, ?array $agreementID = null, ?array $status = null, ?string $xMoovVersion = 'v2024.01.00')
+    public function __construct(string $accountID, ?int $skip = null, ?int $count = null, ?array $agreementID = null, ?array $status = null, ?string $xMoovVersion = 'v2024.01.00')
     {
         $this->accountID = $accountID;
+        $this->skip = $skip;
+        $this->count = $count;
         $this->agreementID = $agreementID;
         $this->status = $status;
         $this->xMoovVersion = $xMoovVersion;
