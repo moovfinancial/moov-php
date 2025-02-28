@@ -1,6 +1,6 @@
 # moov/openapi
 
-Developer-friendly & type-safe Php SDK specifically catered to leverage *moov/openapi* API.
+Developer-friendly & type-safe Php SDK specifically catered to leverage *moov/moov-php* API.
 
 <div align="left">
     <a href="https://www.speakeasy.com/?utm_source=moov/openapi&utm_campaign=php"><img src="https://custom-icon-badges.demolab.com/badge/-Built%20By%20Speakeasy-212015?style=for-the-badge&logoColor=FBE331&logo=speakeasy&labelColor=545454" /></a>
