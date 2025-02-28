@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Moov\OpenAPI\Hooks;
+namespace Moov\MoovPhp\Hooks;
 
 /*
  * This file is only ever generated once on the first generation and then is free to be modified.

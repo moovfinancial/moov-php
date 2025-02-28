@@ -79,9 +79,18 @@ class OnboardingInvite
      *
      * @var ?string $termsOfServiceURL
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('TermsOfServiceURL')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('termsOfServiceURL')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $termsOfServiceURL = null;
+
+    /**
+     * The account ID of the account that redeemed the invite.
+     *
+     * @var ?string $redeemedAccountID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('redeemedAccountID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $redeemedAccountID = null;
 
     /**
      *
@@ -127,13 +136,14 @@ class OnboardingInvite
      * @param  \DateTime  $createdOn
      * @param  ?string  $returnURL
      * @param  ?string  $termsOfServiceURL
+     * @param  ?string  $redeemedAccountID
      * @param  ?CreateAccount  $prefill
      * @param  ?OnboardingPartnerAccount  $partner
      * @param  ?\DateTime  $revokedOn
      * @param  ?\DateTime  $redeemedOn
      * @phpstan-pure
      */
-    public function __construct(string $code, string $link, array $scopes, array $capabilities, array $feePlanCodes, \DateTime $createdOn, ?string $returnURL = null, ?string $termsOfServiceURL = null, ?CreateAccount $prefill = null, ?OnboardingPartnerAccount $partner = null, ?\DateTime $revokedOn = null, ?\DateTime $redeemedOn = null)
+    public function __construct(string $code, string $link, array $scopes, array $capabilities, array $feePlanCodes, \DateTime $createdOn, ?string $returnURL = null, ?string $termsOfServiceURL = null, ?string $redeemedAccountID = null, ?CreateAccount $prefill = null, ?OnboardingPartnerAccount $partner = null, ?\DateTime $revokedOn = null, ?\DateTime $redeemedOn = null)
     {
         $this->code = $code;
         $this->link = $link;
@@ -143,6 +153,7 @@ class OnboardingInvite
         $this->createdOn = $createdOn;
         $this->returnURL = $returnURL;
         $this->termsOfServiceURL = $termsOfServiceURL;
+        $this->redeemedAccountID = $redeemedAccountID;
         $this->prefill = $prefill;
         $this->partner = $partner;
         $this->revokedOn = $revokedOn;
