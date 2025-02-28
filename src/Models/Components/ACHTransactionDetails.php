@@ -108,6 +108,14 @@ class ACHTransactionDetails
 
     /**
      *
+     * @var ?\DateTime $failedOn
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('failedOn')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?\DateTime $failedOn = null;
+
+    /**
+     *
      * @var ?\DateTime $completedOn
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('completedOn')]
@@ -136,11 +144,12 @@ class ACHTransactionDetails
      * @param  ?\DateTime  $originatedOn
      * @param  ?\DateTime  $correctedOn
      * @param  ?\DateTime  $returnedOn
+     * @param  ?\DateTime  $failedOn
      * @param  ?\DateTime  $completedOn
      * @param  ?DebitHoldPeriod  $debitHoldPeriod
      * @phpstan-pure
      */
-    public function __construct(ACHTransactionStatus $status, string $traceNumber, ?ACHException $return = null, ?ACHException $correction = null, ?string $companyEntryDescription = null, ?string $originatingCompanyName = null, ?SECCode $secCode = null, ?\DateTime $initiatedOn = null, ?\DateTime $originatedOn = null, ?\DateTime $correctedOn = null, ?\DateTime $returnedOn = null, ?\DateTime $completedOn = null, ?DebitHoldPeriod $debitHoldPeriod = null)
+    public function __construct(ACHTransactionStatus $status, string $traceNumber, ?ACHException $return = null, ?ACHException $correction = null, ?string $companyEntryDescription = null, ?string $originatingCompanyName = null, ?SECCode $secCode = null, ?\DateTime $initiatedOn = null, ?\DateTime $originatedOn = null, ?\DateTime $correctedOn = null, ?\DateTime $returnedOn = null, ?\DateTime $failedOn = null, ?\DateTime $completedOn = null, ?DebitHoldPeriod $debitHoldPeriod = null)
     {
         $this->status = $status;
         $this->traceNumber = $traceNumber;
@@ -153,6 +162,7 @@ class ACHTransactionDetails
         $this->originatedOn = $originatedOn;
         $this->correctedOn = $correctedOn;
         $this->returnedOn = $returnedOn;
+        $this->failedOn = $failedOn;
         $this->completedOn = $completedOn;
         $this->debitHoldPeriod = $debitHoldPeriod;
     }

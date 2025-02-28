@@ -19,11 +19,13 @@ class TransferSource
     public string $paymentMethodID;
 
     /**
+     * The payment method type that represents a payment rail and directionality
      *
-     * @var string $paymentMethodType
+     * @var PaymentMethodType $paymentMethodType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('paymentMethodType')]
-    public string $paymentMethodType;
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PaymentMethodType')]
+    public PaymentMethodType $paymentMethodType;
 
     /**
      *
@@ -32,6 +34,15 @@ class TransferSource
     #[\Speakeasy\Serializer\Annotation\SerializedName('account')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\TransferAccount')]
     public TransferAccount $account;
+
+    /**
+     * UUID present only if the transfer is part of a transfer group.
+     *
+     * @var ?string $transferID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('transferID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $transferID = null;
 
     /**
      * A bank account as contained within a payment method.
@@ -94,8 +105,9 @@ class TransferSource
 
     /**
      * @param  string  $paymentMethodID
-     * @param  string  $paymentMethodType
+     * @param  PaymentMethodType  $paymentMethodType
      * @param  TransferAccount  $account
+     * @param  ?string  $transferID
      * @param  ?PaymentMethodsBankAccount  $bankAccount
      * @param  ?PaymentMethodsWallet  $wallet
      * @param  ?PaymentMethodsCard  $card
@@ -104,11 +116,12 @@ class TransferSource
      * @param  ?ACHTransactionDetails  $achDetails
      * @phpstan-pure
      */
-    public function __construct(string $paymentMethodID, string $paymentMethodType, TransferAccount $account, ?PaymentMethodsBankAccount $bankAccount = null, ?PaymentMethodsWallet $wallet = null, ?PaymentMethodsCard $card = null, ?ApplePayResponse $applePay = null, ?CardTransactionDetails $cardDetails = null, ?ACHTransactionDetails $achDetails = null)
+    public function __construct(string $paymentMethodID, PaymentMethodType $paymentMethodType, TransferAccount $account, ?string $transferID = null, ?PaymentMethodsBankAccount $bankAccount = null, ?PaymentMethodsWallet $wallet = null, ?PaymentMethodsCard $card = null, ?ApplePayResponse $applePay = null, ?CardTransactionDetails $cardDetails = null, ?ACHTransactionDetails $achDetails = null)
     {
         $this->paymentMethodID = $paymentMethodID;
         $this->paymentMethodType = $paymentMethodType;
         $this->account = $account;
+        $this->transferID = $transferID;
         $this->bankAccount = $bankAccount;
         $this->wallet = $wallet;
         $this->card = $card;

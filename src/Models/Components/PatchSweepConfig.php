@@ -13,14 +13,6 @@ class PatchSweepConfig
 {
     /**
      *
-     * @var ?string $minimumBalance
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('minimumBalance')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $minimumBalance = null;
-
-    /**
-     *
      * @var ?Status $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
@@ -56,19 +48,27 @@ class PatchSweepConfig
     public string|StatementDescriptor2|null $statementDescriptor = null;
 
     /**
-     * @param  ?string  $minimumBalance
+     *
+     * @var ?string $minimumBalance
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('minimumBalance')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $minimumBalance = null;
+
+    /**
      * @param  ?Status  $status
      * @param  string|PushPaymentMethodID2|null  $pushPaymentMethodID
      * @param  string|PullPaymentMethodID2|null  $pullPaymentMethodID
      * @param  string|StatementDescriptor2|null  $statementDescriptor
+     * @param  ?string  $minimumBalance
      * @phpstan-pure
      */
-    public function __construct(?string $minimumBalance = null, ?Status $status = null, string|PushPaymentMethodID2|null $pushPaymentMethodID = null, string|PullPaymentMethodID2|null $pullPaymentMethodID = null, string|StatementDescriptor2|null $statementDescriptor = null)
+    public function __construct(?Status $status = null, string|PushPaymentMethodID2|null $pushPaymentMethodID = null, string|PullPaymentMethodID2|null $pullPaymentMethodID = null, string|StatementDescriptor2|null $statementDescriptor = null, ?string $minimumBalance = null)
     {
-        $this->minimumBalance = $minimumBalance;
         $this->status = $status;
         $this->pushPaymentMethodID = $pushPaymentMethodID;
         $this->pullPaymentMethodID = $pullPaymentMethodID;
         $this->statementDescriptor = $statementDescriptor;
+        $this->minimumBalance = $minimumBalance;
     }
 }

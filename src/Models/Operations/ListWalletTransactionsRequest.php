@@ -49,6 +49,14 @@ class ListWalletTransactionsRequest
     public ?Components\WalletTransactionType $transactionType = null;
 
     /**
+     * Optional, comma-separated parameter to filter by transaction types.
+     *
+     * @var ?array<Components\WalletTransactionType> $transactionTypes
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=transactionTypes')]
+    public ?array $transactionTypes = null;
+
+    /**
      * Optional parameter to filter by source type (i.e. transfer, dispute, issuing-transaction).
      *
      * @var ?Components\WalletTransactionSourceType $sourceType
@@ -73,7 +81,7 @@ class ListWalletTransactionsRequest
     public ?Components\WalletTransactionStatus $status = null;
 
     /**
-     * Optional date-time which inclusively filters all transactions created after this date-time.  
+     * Optional date-time which inclusively filters all transactions created after this date-time.
      *
      * @var ?\DateTime $createdStartDateTime
      */
@@ -136,6 +144,7 @@ class ListWalletTransactionsRequest
      * @param  ?int  $skip
      * @param  ?int  $count
      * @param  ?Components\WalletTransactionType  $transactionType
+     * @param  ?array<Components\WalletTransactionType>  $transactionTypes
      * @param  ?Components\WalletTransactionSourceType  $sourceType
      * @param  ?string  $sourceID
      * @param  ?Components\WalletTransactionStatus  $status
@@ -146,13 +155,14 @@ class ListWalletTransactionsRequest
      * @param  ?string  $sweepID
      * @phpstan-pure
      */
-    public function __construct(string $accountID, string $walletID, ?int $skip = null, ?int $count = null, ?Components\WalletTransactionType $transactionType = null, ?Components\WalletTransactionSourceType $sourceType = null, ?string $sourceID = null, ?Components\WalletTransactionStatus $status = null, ?\DateTime $createdStartDateTime = null, ?\DateTime $createdEndDateTime = null, ?\DateTime $completedStartDateTime = null, ?\DateTime $completedEndDateTime = null, ?string $sweepID = null, ?string $xMoovVersion = 'v2024.01.00')
+    public function __construct(string $accountID, string $walletID, ?int $skip = null, ?int $count = null, ?Components\WalletTransactionType $transactionType = null, ?array $transactionTypes = null, ?Components\WalletTransactionSourceType $sourceType = null, ?string $sourceID = null, ?Components\WalletTransactionStatus $status = null, ?\DateTime $createdStartDateTime = null, ?\DateTime $createdEndDateTime = null, ?\DateTime $completedStartDateTime = null, ?\DateTime $completedEndDateTime = null, ?string $sweepID = null, ?string $xMoovVersion = 'v2024.01.00')
     {
         $this->accountID = $accountID;
         $this->walletID = $walletID;
         $this->skip = $skip;
         $this->count = $count;
         $this->transactionType = $transactionType;
+        $this->transactionTypes = $transactionTypes;
         $this->sourceType = $sourceType;
         $this->sourceID = $sourceID;
         $this->status = $status;

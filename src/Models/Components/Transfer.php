@@ -27,6 +27,22 @@ class Transfer
     public \DateTime $createdOn;
 
     /**
+     *
+     * @var TransferSource $source
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('source')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\TransferSource')]
+    public TransferSource $source;
+
+    /**
+     *
+     * @var TransferDestination $destination
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('destination')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\TransferDestination')]
+    public TransferDestination $destination;
+
+    /**
      * Status of a transfer.
      *
      * @var TransferStatus $status
@@ -42,24 +58,6 @@ class Transfer
     #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\Amount')]
     public Amount $amount;
-
-    /**
-     *
-     * @var ?TransferSource $source
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('source')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\TransferSource|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?TransferSource $source = null;
-
-    /**
-     *
-     * @var ?TransferDestination $destination
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('destination')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\TransferDestination|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?TransferDestination $destination = null;
 
     /**
      *
@@ -209,10 +207,10 @@ class Transfer
     /**
      * @param  string  $transferID
      * @param  \DateTime  $createdOn
+     * @param  TransferSource  $source
+     * @param  TransferDestination  $destination
      * @param  TransferStatus  $status
      * @param  Amount  $amount
-     * @param  ?TransferSource  $source
-     * @param  ?TransferDestination  $destination
      * @param  ?\DateTime  $completedOn
      * @param  ?TransferFailureReason  $failureReason
      * @param  ?string  $description
@@ -231,14 +229,14 @@ class Transfer
      * @param  ?string  $occurrenceID
      * @phpstan-pure
      */
-    public function __construct(string $transferID, \DateTime $createdOn, TransferStatus $status, Amount $amount, ?TransferSource $source = null, ?TransferDestination $destination = null, ?\DateTime $completedOn = null, ?TransferFailureReason $failureReason = null, ?string $description = null, ?array $metadata = null, ?FacilitatorFee $facilitatorFee = null, ?int $moovFee = null, ?string $moovFeeDecimal = null, ?MoovFeeDetails $moovFeeDetails = null, ?string $groupID = null, ?Amount $refundedAmount = null, ?array $refunds = null, ?Amount $disputedAmount = null, ?array $disputes = null, ?string $sweepID = null, ?string $scheduleID = null, ?string $occurrenceID = null)
+    public function __construct(string $transferID, \DateTime $createdOn, TransferSource $source, TransferDestination $destination, TransferStatus $status, Amount $amount, ?\DateTime $completedOn = null, ?TransferFailureReason $failureReason = null, ?string $description = null, ?array $metadata = null, ?FacilitatorFee $facilitatorFee = null, ?int $moovFee = null, ?string $moovFeeDecimal = null, ?MoovFeeDetails $moovFeeDetails = null, ?string $groupID = null, ?Amount $refundedAmount = null, ?array $refunds = null, ?Amount $disputedAmount = null, ?array $disputes = null, ?string $sweepID = null, ?string $scheduleID = null, ?string $occurrenceID = null)
     {
         $this->transferID = $transferID;
         $this->createdOn = $createdOn;
-        $this->status = $status;
-        $this->amount = $amount;
         $this->source = $source;
         $this->destination = $destination;
+        $this->status = $status;
+        $this->amount = $amount;
         $this->completedOn = $completedOn;
         $this->failureReason = $failureReason;
         $this->description = $description;

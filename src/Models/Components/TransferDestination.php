@@ -19,11 +19,13 @@ class TransferDestination
     public string $paymentMethodID;
 
     /**
+     * The payment method type that represents a payment rail and directionality
      *
-     * @var string $paymentMethodType
+     * @var PaymentMethodType $paymentMethodType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('paymentMethodType')]
-    public string $paymentMethodType;
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\OpenAPI\Models\Components\PaymentMethodType')]
+    public PaymentMethodType $paymentMethodType;
 
     /**
      *
@@ -104,7 +106,7 @@ class TransferDestination
 
     /**
      * @param  string  $paymentMethodID
-     * @param  string  $paymentMethodType
+     * @param  PaymentMethodType  $paymentMethodType
      * @param  TransferAccount  $account
      * @param  ?PaymentMethodsBankAccount  $bankAccount
      * @param  ?PaymentMethodsWallet  $wallet
@@ -115,7 +117,7 @@ class TransferDestination
      * @param  ?RTPTransactionDetails  $rtpDetails
      * @phpstan-pure
      */
-    public function __construct(string $paymentMethodID, string $paymentMethodType, TransferAccount $account, ?PaymentMethodsBankAccount $bankAccount = null, ?PaymentMethodsWallet $wallet = null, ?PaymentMethodsCard $card = null, ?ACHTransactionDetails $achDetails = null, ?ApplePayResponse $applePay = null, ?CardTransactionDetails $cardDetails = null, ?RTPTransactionDetails $rtpDetails = null)
+    public function __construct(string $paymentMethodID, PaymentMethodType $paymentMethodType, TransferAccount $account, ?PaymentMethodsBankAccount $bankAccount = null, ?PaymentMethodsWallet $wallet = null, ?PaymentMethodsCard $card = null, ?ACHTransactionDetails $achDetails = null, ?ApplePayResponse $applePay = null, ?CardTransactionDetails $cardDetails = null, ?RTPTransactionDetails $rtpDetails = null)
     {
         $this->paymentMethodID = $paymentMethodID;
         $this->paymentMethodType = $paymentMethodType;
