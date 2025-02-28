@@ -1,0 +1,488 @@
+overlay: 1.0.0
+x-speakeasy-jsonpath: rfc9535
+info:
+  title: Speakeasy Modifications
+  version: 0.0.1
+  x-speakeasy-metadata:
+    type: speakeasy-modifications
+    before: ""
+    after: ""
+actions:
+  - target: $["paths"]["/accounts/{accountID}/fee-plan-agreements"]["post"]
+    update:
+      x-speakeasy-group: feePlans
+      x-speakeasy-name-override: createAgreements
+    x-speakeasy-metadata:
+      after: sdk.feePlans.createAgreements()
+      before: sdk.Fee plans.createFeePlanAgreements()
+      created_at: 1740761106360
+      type: method-name
+  - target: $["paths"]["/issuing/{accountID}/card-transactions/{cardTransactionID}"]["get"]
+    update:
+      x-speakeasy-group: transactions
+    x-speakeasy-metadata:
+      after: sdk.transactions.get()
+      before: sdk.Issuing transactions.get()
+      created_at: 1740761106360
+      type: method-name
+  - target: $["paths"]["/accounts/{accountID}/payment-links/{paymentLinkCode}"]["patch"]
+    update:
+      x-speakeasy-group: paymentLinks
+    x-speakeasy-metadata:
+      after: sdk.paymentLinks.update()
+      before: sdk.Payment links.update()
+      created_at: 1740761106360
+      type: method-name
+  - target: $["paths"]["/oauth2/token"]["post"]
+    update:
+      x-speakeasy-name-override: createToken
+    x-speakeasy-metadata:
+      after: sdk.authentication.createToken()
+      before: sdk.Authentication.createAccessToken()
+      created_at: 1740761106360
+      type: method-name
+  - target: $["paths"]["/accounts/{accountID}/payment-methods/{paymentMethodID}"]["get"]
+    update:
+      x-speakeasy-group: paymentMethods
+    x-speakeasy-metadata:
+      after: sdk.paymentMethods.get()
+      before: sdk.Payment methods.get()
+      created_at: 1740761106360
+      type: method-name
+  - target: $["paths"]["/accounts/{accountID}/files/{fileID}"]["get"]
+    update:
+      x-speakeasy-group: accounts
+      x-speakeasy-name-override: getFile
+    x-speakeasy-metadata:
+      after: sdk.accounts.getFile()
+      before: sdk.Files.get()
+      created_at: 1740761106360
+      type: method-name
+  - target: $["paths"]["/accounts/{accountID}/bank-accounts/{bankAccountID}/micro-deposits"]["put"]
+    update:
+      x-speakeasy-group: bankAccounts
+    x-speakeasy-metadata:
+      after: sdk.bankAccounts.completeMicroDeposits()
+      before: sdk.Bank accounts.completeMicroDeposits()
+      created_at: 1740761106360
+      type: method-name
+  - target: $["paths"]["/accounts/{accountID}/bank-accounts/{bankAccountID}/verify"]["put"]
+    update:
+      x-speakeasy-group: bankAccounts
+    x-speakeasy-metadata:
+      after: sdk.bankAccounts.completeVerification()
+      before: sdk.Bank accounts.completeVerification()
+      created_at: 1740761106360
+      type: method-name
+  - target: $["paths"]["/terminal-applications/{terminalApplicationID}"]["delete"]
+    update:
+      x-speakeasy-group: terminalApplications
+    x-speakeasy-metadata:
+      after: sdk.terminalApplications.delete()
+      before: sdk.Terminal Applications.delete()
+      created_at: 1740761106360
+      type: method-name
+  - target: $["paths"]["/terminal-applications"]["get"]
+    update:
+      x-speakeasy-group: terminalApplications
+    x-speakeasy-metadata:
+      after: sdk.terminalApplications.list()
+      before: sdk.Terminal Applications.list()
+      created_at: 1740761106360
+      type: method-name
+  - target: $["paths"]["/accounts/{accountID}/payment-links"]["post"]
+    update:
+      x-speakeasy-group: paymentLinks
+    x-speakeasy-metadata:
+      after: sdk.paymentLinks.create()
+      before: sdk.Payment links.create()
+      created_at: 1740761106360
+      type: method-name
+  - target: $["paths"]["/accounts/{accountID}/partner-pricing-agreements"]["get"]
+    update:
+      x-speakeasy-group: feePlans
+    x-speakeasy-metadata:
+      after: sdk.feePlans.listPartnerPricingAgreements()
+      before: sdk.Fee plans.listPartnerPricingAgreements()
+      created_at: 1740761106360
+      type: method-name
+  - target: $["paths"]["/enrichment/address"]["get"]
+    update:
+      x-speakeasy-group: enrichment.address
+    x-speakeasy-metadata:
+      after: sdk.enrichment.address.get()
+      before: sdk.Enriched address.get()
+      created_at: 1740761106360
+      type: method-name
+  - target: $["paths"]["/accounts/{accountID}/partner-pricing"]["get"]
+    update:
+      x-speakeasy-group: feePlans
+    x-speakeasy-metadata:
+      after: sdk.feePlans.listPartnerPricing()
+      before: sdk.Fee plans.listPartnerPricing()
+      created_at: 1740761106360
+      type: method-name
+  - target: $["paths"]["/issuing/{accountID}/authorizations"]["get"]
+    update:
+      x-speakeasy-group: issuingTransactions
+    x-speakeasy-metadata:
+      after: sdk.issuingTransactions.listAuthorizations()
+      before: sdk.Issuing transactions.listAuthorizations()
+      created_at: 1740761106360
+      type: method-name
+  - target: $["paths"]["/debug/end-to-end-token"]["post"]
+    update:
+      x-speakeasy-group: endToEndEncryption
+      x-speakeasy-name-override: testToken
+    x-speakeasy-metadata:
+      after: sdk.endToEndEncryption.testToken()
+      before: sdk.End to End Encryption.testEncryptedToken()
+      created_at: 1740761106360
+      type: method-name
+  - target: $["paths"]["/accounts/{accountID}/apple-pay/domains"]["get"]
+    update:
+      x-speakeasy-group: applePay
+      x-speakeasy-name-override: getDomains
+    x-speakeasy-metadata:
+      after: sdk.applePay.getDomains()
+      before: sdk.Apple pay.getMerchantDomains()
+      created_at: 1740761106360
+      type: method-name
+  - target: $["paths"]["/accounts/{accountID}/payment-methods"]["get"]
+    update:
+      x-speakeasy-group: paymentMethods
+    x-speakeasy-metadata:
+      after: sdk.paymentMethods.list()
+      before: sdk.Payment methods.list()
+      created_at: 1740761106360
+      type: method-name
+  - target: $["paths"]["/terminal-applications"]["post"]
+    update:
+      x-speakeasy-group: terminalApplications
+    x-speakeasy-metadata:
+      after: sdk.terminalApplications.create()
+      before: sdk.Terminal Applications.create()
+      created_at: 1740761106360
+      type: method-name
+  - target: $["paths"]["/accounts/{accountID}/apple-pay/domains"]["patch"]
+    update:
+      x-speakeasy-group: applePay
+      x-speakeasy-name-override: updateDomains
+    x-speakeasy-metadata:
+      after: sdk.applePay.updateDomains()
+      before: sdk.Apple pay.updateMerchantDomains()
+      created_at: 1740761106360
+      type: method-name
+  - target: $["paths"]["/accounts/{accountID}/wallets/{walletID}/transactions"]["get"]
+    update:
+      x-speakeasy-group: wallets
+      x-speakeasy-name-override: listTransactions
+    x-speakeasy-metadata:
+      after: sdk.wallets.listTransactions()
+      before: sdk.Wallet transactions.list()
+      created_at: 1740761106360
+      type: method-name
+  - target: $["paths"]["/accounts/{accountID}/fees/.fetch"]["post"]
+    update:
+      x-speakeasy-group: feePlans
+      x-speakeasy-name-override: fetchFees
+    x-speakeasy-metadata:
+      after: sdk.feePlans.fetchFees()
+      before: sdk.Fee plans.listFeesFetch()
+      created_at: 1740761106360
+      type: method-name
+  - target: $["paths"]["/terminal-applications/{terminalApplicationID}"]["get"]
+    update:
+      x-speakeasy-group: terminalApplications
+    x-speakeasy-metadata:
+      after: sdk.terminalApplications.get()
+      before: sdk.Terminal Applications.get()
+      created_at: 1740761106360
+      type: method-name
+  - target: $["paths"]["/accounts/{accountID}/fees"]["get"]
+    update:
+      x-speakeasy-group: accounts
+      x-speakeasy-name-override: getFees
+    x-speakeasy-metadata:
+      after: sdk.accounts.getFees()
+      before: sdk.Fee plans.retrieveFees()
+      created_at: 1740761106360
+      type: method-name
+  - target: $["paths"]["/accounts/{accountID}/fee-plan-agreements"]["get"]
+    update:
+      x-speakeasy-group: feePlans
+      x-speakeasy-name-override: list
+    x-speakeasy-metadata:
+      after: sdk.feePlans.list()
+      before: sdk.Fee plans.listFeePlanAgreements()
+      created_at: 1740761106360
+      type: method-name
+  - target: $["paths"]["/accounts/{accountID}/merchant-agreement"]["get"]
+    update:
+      x-speakeasy-name-override: getMerchantAgreement
+    x-speakeasy-metadata:
+      after: sdk.accounts.getMerchantAgreement()
+      before: sdk.Accounts.getMerchantProcessingAgreement()
+      created_at: 1740761106360
+      type: method-name
+  - target: $["paths"]["/accounts/{accountID}/payment-links/{paymentLinkCode}"]["get"]
+    update:
+      x-speakeasy-group: paymentLinks
+    x-speakeasy-metadata:
+      after: sdk.paymentLinks.get()
+      before: sdk.Payment links.get()
+      created_at: 1740761106360
+      type: method-name
+  - target: $["paths"]["/issuing/{accountID}/issued-cards/{issuedCardID}"]["get"]
+    update:
+      x-speakeasy-group: cardIssuing
+      x-speakeasy-name-override: getIssuedCard
+    x-speakeasy-metadata:
+      after: sdk.cardIssuing.getIssuedCard()
+      before: sdk.Card issuing.get()
+      created_at: 1740761106360
+      type: method-name
+  - target: $["paths"]["/accounts/{accountID}/bank-accounts/{bankAccountID}/micro-deposits"]["post"]
+    update:
+      x-speakeasy-group: bankAccounts
+    x-speakeasy-metadata:
+      after: sdk.bankAccounts.initiateMicroDeposits()
+      before: sdk.Bank accounts.initiateMicroDeposits()
+      created_at: 1740761106360
+      type: method-name
+  - target: $["paths"]["/accounts/{accountID}/bank-accounts/{bankAccountID}"]["delete"]
+    update:
+      x-speakeasy-group: bankAccounts
+    x-speakeasy-metadata:
+      after: sdk.bankAccounts.disable()
+      before: sdk.Bank accounts.disable()
+      created_at: 1740761106360
+      type: method-name
+  - target: $["paths"]["/accounts/{accountID}/bank-accounts/{bankAccountID}"]["get"]
+    update:
+      x-speakeasy-group: bankAccounts
+    x-speakeasy-metadata:
+      after: sdk.bankAccounts.get()
+      before: sdk.Bank accounts.get()
+      created_at: 1740761106360
+      type: method-name
+  - target: $["paths"]["/accounts/{accountID}/schedules/{scheduleID}"]["delete"]
+    update:
+      x-speakeasy-group: schedules
+    x-speakeasy-metadata:
+      after: sdk.schedules.cancel()
+      before: sdk.Scheduling.cancel()
+      created_at: 1740761106360
+      type: method-name
+  - target: $["paths"]["/issuing/{accountID}/issued-cards"]["post"]
+    update:
+      x-speakeasy-group: cardIssuing
+    x-speakeasy-metadata:
+      after: sdk.cardIssuing.request()
+      before: sdk.Card issuing.request()
+      created_at: 1740761106360
+      type: method-name
+  - target: $["paths"]["/accounts/{accountID}/apple-pay/sessions"]["post"]
+    update:
+      x-speakeasy-group: applePay
+    x-speakeasy-metadata:
+      after: sdk.applePay.createSession()
+      before: sdk.Apple pay.createSession()
+      created_at: 1740761106360
+      type: method-name
+  - target: $["paths"]["/accounts/{accountID}"]["patch"]
+    update:
+      x-speakeasy-name-override: updateProfile
+    x-speakeasy-metadata:
+      after: sdk.accounts.updateProfile()
+      before: sdk.Accounts.update()
+      created_at: 1740761106360
+      type: method-name
+  - target: $["paths"]["/accounts/{accountID}/bank-accounts/{bankAccountID}/verify"]["get"]
+    update:
+      x-speakeasy-group: bankAccounts
+    x-speakeasy-metadata:
+      after: sdk.bankAccounts.getVerification()
+      before: sdk.Bank accounts.getVerification()
+      created_at: 1740761106360
+      type: method-name
+  - target: $["paths"]["/end-to-end-keys"]["post"]
+    update:
+      x-speakeasy-group: endToEndEncryption
+    x-speakeasy-metadata:
+      after: sdk.endToEndEncryption.generateKey()
+      before: sdk.End to End Encryption.generateKey()
+      created_at: 1740761106360
+      type: method-name
+  - target: $["paths"]["/accounts/{accountID}/apple-pay/domains"]["post"]
+    update:
+      x-speakeasy-group: applePay
+      x-speakeasy-name-override: registerDomains
+    x-speakeasy-metadata:
+      after: sdk.applePay.registerDomains()
+      before: sdk.Apple pay.registerMerchantDomains()
+      created_at: 1740761106360
+      type: method-name
+  - target: $["paths"]["/accounts/{accountID}/schedules/{scheduleID}/occurrences/{occurrenceFilter}"]["get"]
+    update:
+      x-speakeasy-name-override: getOccurrence
+    x-speakeasy-metadata:
+      after: sdk.scheduling.getOccurrence()
+      before: sdk.Scheduling.getOccurrance()
+      created_at: 1740761106360
+      type: method-name
+  - target: $["paths"]["/issuing/{accountID}/issued-cards/{issuedCardID}"]["patch"]
+    update:
+      x-speakeasy-group: cardIssuing
+    x-speakeasy-metadata:
+      after: sdk.cardIssuing.update()
+      before: sdk.Card issuing.update()
+      created_at: 1740761106360
+      type: method-name
+  - target: $["paths"]["/issuing/{accountID}/issued-cards"]["get"]
+    update:
+      x-speakeasy-group: issuedCards
+    x-speakeasy-metadata:
+      after: sdk.issuedCards.list()
+      before: sdk.Card issuing.list()
+      created_at: 1740761106360
+      type: method-name
+  - target: $["paths"]["/accounts/{accountID}/apple-pay/tokens"]["post"]
+    update:
+      x-speakeasy-group: applePay
+    x-speakeasy-metadata:
+      after: sdk.applePay.linkToken()
+      before: sdk.Apple pay.linkToken()
+      created_at: 1740761106360
+      type: method-name
+  - target: $["paths"]["/issuing/{accountID}/card-transactions"]["get"]
+    update:
+      x-speakeasy-group: issuingTransactions
+    x-speakeasy-metadata:
+      after: sdk.issuingTransactions.list()
+      before: sdk.Issuing transactions.list()
+      created_at: 1740761106361
+      type: method-name
+  - target: $["paths"]["/onboarding-invites"]["post"]
+    update:
+      x-speakeasy-group: onboardingInvites
+      x-speakeasy-name-override: create
+    x-speakeasy-metadata:
+      after: sdk.onboardingInvites.create()
+      before: sdk.Onboarding.createInvite()
+      created_at: 1740761106361
+      type: method-name
+  - target: $["paths"]["/issuing/{accountID}/authorizations/{authorizationID}"]["get"]
+    update:
+      x-speakeasy-group: issuingTransactions
+    x-speakeasy-metadata:
+      after: sdk.issuingTransactions.getAuthorization()
+      before: sdk.Issuing transactions.getAuthorization()
+      created_at: 1740761106361
+      type: method-name
+  - target: $["paths"]["/accounts/{accountID}/wallets/{walletID}/transactions/{transactionID}"]["get"]
+    update:
+      x-speakeasy-group: walletTransactions
+    x-speakeasy-metadata:
+      after: sdk.walletTransactions.get()
+      before: sdk.Wallet transactions.get()
+      created_at: 1740761106361
+      type: method-name
+  - target: $["paths"]["/accounts/{accountID}/payment-links"]["get"]
+    update:
+      x-speakeasy-group: paymentLinks
+    x-speakeasy-metadata:
+      after: sdk.paymentLinks.list()
+      before: sdk.Payment links.list()
+      created_at: 1740761106361
+      type: method-name
+  - target: $["paths"]["/oauth2/revoke"]["post"]
+    update:
+      x-speakeasy-name-override: revokeToken
+    x-speakeasy-metadata:
+      after: sdk.authentication.revokeToken()
+      before: sdk.Authentication.revokeAccessToken()
+      created_at: 1740761106361
+      type: method-name
+  - target: $["paths"]["/accounts/{accountID}/bank-accounts"]["get"]
+    update:
+      x-speakeasy-group: bankAccounts
+    x-speakeasy-metadata:
+      after: sdk.bankAccounts.list()
+      before: sdk.Bank accounts.list()
+      created_at: 1740761106361
+      type: method-name
+  - target: $["paths"]["/issuing/{accountID}/authorizations/{authorizationID}/events"]["get"]
+    update:
+      x-speakeasy-group: issuingTransactions
+    x-speakeasy-metadata:
+      after: sdk.issuingTransactions.listAuthorizationEvents()
+      before: sdk.Issuing transactions.listAuthorizationEvents()
+      created_at: 1740761106361
+      type: method-name
+  - target: $["paths"]["/accounts/{accountID}/bank-accounts"]["post"]
+    update:
+      x-speakeasy-group: bankAccounts
+    x-speakeasy-metadata:
+      after: sdk.bankAccounts.link()
+      before: sdk.Bank accounts.link()
+      created_at: 1740761106361
+      type: method-name
+  - target: $["paths"]["/accounts/{accountID}/payment-links/{paymentLinkCode}/qrcode"]["get"]
+    update:
+      x-speakeasy-group: paymentLinks
+      x-speakeasy-name-override: getQrCode
+    x-speakeasy-metadata:
+      after: sdk.paymentLinks.getQrCode()
+      before: sdk.Payment links.getQRCode()
+      created_at: 1740761106362
+      type: method-name
+  - target: $["paths"]["/accounts/{accountID}/fee-plans"]["get"]
+    update:
+      x-speakeasy-group: feePlans
+      x-speakeasy-name-override: listByAccount
+    x-speakeasy-metadata:
+      after: sdk.feePlans.listByAccount()
+      before: sdk.Fee plans.listFeePlans()
+      created_at: 1740761106362
+      type: method-name
+  - target: $["paths"]["/ping"]["get"]
+    update:
+      x-speakeasy-name-override: get
+    x-speakeasy-metadata:
+      after: sdk.ping.get()
+      before: sdk.Ping.ping()
+      created_at: 1740761106362
+      type: method-name
+  - target: $["paths"]["/accounts/{accountID}/bank-accounts/{bankAccountID}/verify"]["post"]
+    update:
+      x-speakeasy-group: bankAccounts
+    x-speakeasy-metadata:
+      after: sdk.bankAccounts.initiateVerification()
+      before: sdk.Bank accounts.initiateVerification()
+      created_at: 1740761106362
+      type: method-name
+  - target: $["paths"]["/enrichment/profile"]["get"]
+    update:
+      x-speakeasy-group: enrichedProfile
+    x-speakeasy-metadata:
+      after: sdk.enrichedProfile.get()
+      before: sdk.Enriched profile.get()
+      created_at: 1740761106362
+      type: method-name
+  - target: $["paths"]["/issuing/{accountID}/issued-cards/{issuedCardID}/details"]["get"]
+    update:
+      x-speakeasy-group: cardIssuing
+    x-speakeasy-metadata:
+      after: sdk.cardIssuing.getFull()
+      before: sdk.Card issuing.getFull()
+      created_at: 1740761106362
+      type: method-name
+  - target: $["paths"]["/accounts/{accountID}/payment-links/{paymentLinkCode}"]["delete"]
+    update:
+      x-speakeasy-group: paymentLinks
+    x-speakeasy-metadata:
+      after: sdk.paymentLinks.disable()
+      before: sdk.Payment links.disable()
+      created_at: 1740761106362
+      type: method-name
