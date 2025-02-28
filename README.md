@@ -1,4 +1,4 @@
-# moov/openapi
+# moov/moovphp
 
 Developer-friendly & type-safe Php SDK specifically catered to leverage *moov/moov-php* API.
 
@@ -22,7 +22,7 @@ works at a high level, read our [concepts](https://docs.moov.io/guides/get-start
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
 <!-- $toc-max-depth=2 -->
-* [moov/openapi](#moovopenapi)
+* [moov/moov-php](#moovphp)
   * [SDK Installation](#sdk-installation)
   * [SDK Example Usage](#sdk-example-usage)
   * [Authentication](#authentication)
