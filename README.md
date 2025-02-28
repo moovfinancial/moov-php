@@ -10,8 +10,6 @@ Developer-friendly & type-safe Php SDK specifically catered to leverage *moov/op
 </div>
 
 
-<br /><br />
-
 <!-- Start Summary [summary] -->
 ## Summary
 
