@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: d32240f1eaf86bdea63ade5985be99d1
+  docChecksum: b876a42ed11dc41b9f02b31416241735
   docVersion: latest
-  speakeasyVersion: 1.508.0
-  generationVersion: 2.536.0
-  releaseVersion: 0.2.4
-  configChecksum: f76d1ed1af6c72809de5fa9e41c8311f
+  speakeasyVersion: 1.509.0
+  generationVersion: 2.539.0
+  releaseVersion: 0.2.5
+  configChecksum: b67b6f28b2d3eb2777cee8aa88598724
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
@@ -2491,6 +2491,26 @@ examples:
           accountID: "adb697e6-2888-48b9-b2c5-f2c3d487add5"
           walletID: "9f00e2b3-9dfb-48a3-9a25-a08e80f9cf36"
           sweepID: "a5324f55-fbec-4323-94e4-c512608bb175"
+        header: {}
+      responses:
+        "200":
+          application/json: {"sweepID": "01234567-89ab-cdef-0123-456789abcdef", "status": "accruing", "accruedAmount": "100.00", "currency": "USD", "accrualStartedOn": "2024-05-06T12:20:38.184Z"}
+    Paid sweep:
+      parameters:
+        path:
+          accountID: "b888f774-3e7c-4135-a18c-6b985523c4bc"
+          walletID: "e50f7622-81da-484b-9c66-1c8a99c6b71b"
+          sweepID: "ecd62b8f-7112-4aaf-90ab-4e43b4cca371"
+        header: {}
+      responses:
+        "200":
+          application/json: {"sweepID": "01234567-89ab-cdef-0123-456789abcdef", "status": "paid", "accruedAmount": "100.00", "residualBalance": "0.00", "currency": "USD", "accrualStartedOn": "2024-05-06T12:20:38.184Z", "accrualEndedOn": "2024-05-06T12:20:38.184Z", "pushPaymentMethodID": "01234567-89ab-cdef-0123-456789abcdef", "transferID": "01234567-89ab-cdef-0123-456789abcdef", "transferAmount": "12.98", "statementDescriptor": "swp_012345"}
+    Accrued sweep:
+      parameters:
+        path:
+          accountID: "f620807a-a1f8-4cf0-95d8-9d58ee381f6b"
+          walletID: "b885c09d-541c-4293-b683-64a15f8d7e75"
+          sweepID: "5179e263-c2e4-4e0c-b0c6-8754518a3a85"
         header: {}
       responses:
         "200":
