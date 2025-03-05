@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: b876a42ed11dc41b9f02b31416241735
+  docChecksum: 78dd3d380f9789431af168ae163225a1
   docVersion: latest
-  speakeasyVersion: 1.509.0
-  generationVersion: 2.539.0
-  releaseVersion: 0.2.5
-  configChecksum: b67b6f28b2d3eb2777cee8aa88598724
+  speakeasyVersion: 1.509.1
+  generationVersion: 2.539.1
+  releaseVersion: 0.2.6
+  configChecksum: 1718bc584b9334d8076151b94591798e
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
@@ -482,6 +482,8 @@ generatedFiles:
   - docs/Models/Operations/CreateApplePaySessionResponse.md
   - docs/Models/Operations/CreateBrandRequest.md
   - docs/Models/Operations/CreateBrandResponse.md
+  - docs/Models/Operations/CreateCancellationRequest.md
+  - docs/Models/Operations/CreateCancellationResponse.md
   - docs/Models/Operations/CreateFeePlanAgreementsRequest.md
   - docs/Models/Operations/CreateFeePlanAgreementsResponse.md
   - docs/Models/Operations/CreateOnboardingInviteRequest.md
@@ -536,6 +538,8 @@ generatedFiles:
   - docs/Models/Operations/GetBankAccountVerificationResponse.md
   - docs/Models/Operations/GetBrandRequest.md
   - docs/Models/Operations/GetBrandResponse.md
+  - docs/Models/Operations/GetCancellationRequest.md
+  - docs/Models/Operations/GetCancellationResponse.md
   - docs/Models/Operations/GetCapabilityRequest.md
   - docs/Models/Operations/GetCapabilityResponse.md
   - docs/Models/Operations/GetCardRequest.md
@@ -1271,6 +1275,8 @@ generatedFiles:
   - src/Models/Operations/CreateApplePaySessionResponse.php
   - src/Models/Operations/CreateBrandRequest.php
   - src/Models/Operations/CreateBrandResponse.php
+  - src/Models/Operations/CreateCancellationRequest.php
+  - src/Models/Operations/CreateCancellationResponse.php
   - src/Models/Operations/CreateFeePlanAgreementsRequest.php
   - src/Models/Operations/CreateFeePlanAgreementsResponse.php
   - src/Models/Operations/CreateOnboardingInviteRequest.php
@@ -1325,6 +1331,8 @@ generatedFiles:
   - src/Models/Operations/GetBankAccountVerificationResponse.php
   - src/Models/Operations/GetBrandRequest.php
   - src/Models/Operations/GetBrandResponse.php
+  - src/Models/Operations/GetCancellationRequest.php
+  - src/Models/Operations/GetCancellationResponse.php
   - src/Models/Operations/GetCapabilityRequest.php
   - src/Models/Operations/GetCapabilityResponse.php
   - src/Models/Operations/GetCardRequest.php
@@ -3165,5 +3173,26 @@ examples:
       responses:
         "400":
           application/json: {"error": "<value>"}
+  createCancellation:
+    Created cancellation:
+      parameters:
+        path:
+          accountID: "12dbe811-b86d-497b-ae0f-fb7cfda35251"
+          transferID: "6bb9450c-10a9-4c8d-a8d2-d3fa18648706"
+        header: {}
+      responses:
+        "200":
+          application/json: {"cancellationID": "89ca7f54-13ba-4714-b9af-17163eae2057", "status": "completed", "createdOn": "2025-01-19T03:02:43.255309588Z"}
+  getCancellation:
+    Got cancellation:
+      parameters:
+        path:
+          accountID: "fe098575-0376-4404-9a9c-6fe55e3766af"
+          transferID: "b3b49c6a-9b74-4a85-9d49-864ada05cbf2"
+          cancellationID: "5848c1db-18ac-41eb-b107-b6499987902c"
+        header: {}
+      responses:
+        "200":
+          application/json: {"cancellationID": "89ca7f54-13ba-4714-b9af-17163eae2057", "status": "completed", "createdOn": "2025-01-19T03:02:43.255309588Z"}
 examplesVersion: 1.0.0
 generatedTests: {}

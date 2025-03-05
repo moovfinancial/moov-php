@@ -143,6 +143,16 @@ class Transfer
     public ?string $groupID = null;
 
     /**
+     * $cancellations
+     *
+     * @var ?array<Cancellation> $cancellations
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('cancellations')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\Cancellation>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $cancellations = null;
+
+    /**
      *
      * @var ?Amount $refundedAmount
      */
@@ -220,6 +230,7 @@ class Transfer
      * @param  ?string  $moovFeeDecimal
      * @param  ?MoovFeeDetails  $moovFeeDetails
      * @param  ?string  $groupID
+     * @param  ?array<Cancellation>  $cancellations
      * @param  ?Amount  $refundedAmount
      * @param  ?array<CardAcquiringRefund>  $refunds
      * @param  ?Amount  $disputedAmount
@@ -229,7 +240,7 @@ class Transfer
      * @param  ?string  $occurrenceID
      * @phpstan-pure
      */
-    public function __construct(string $transferID, \DateTime $createdOn, TransferSource $source, TransferDestination $destination, TransferStatus $status, Amount $amount, ?\DateTime $completedOn = null, ?TransferFailureReason $failureReason = null, ?string $description = null, ?array $metadata = null, ?FacilitatorFee $facilitatorFee = null, ?int $moovFee = null, ?string $moovFeeDecimal = null, ?MoovFeeDetails $moovFeeDetails = null, ?string $groupID = null, ?Amount $refundedAmount = null, ?array $refunds = null, ?Amount $disputedAmount = null, ?array $disputes = null, ?string $sweepID = null, ?string $scheduleID = null, ?string $occurrenceID = null)
+    public function __construct(string $transferID, \DateTime $createdOn, TransferSource $source, TransferDestination $destination, TransferStatus $status, Amount $amount, ?\DateTime $completedOn = null, ?TransferFailureReason $failureReason = null, ?string $description = null, ?array $metadata = null, ?FacilitatorFee $facilitatorFee = null, ?int $moovFee = null, ?string $moovFeeDecimal = null, ?MoovFeeDetails $moovFeeDetails = null, ?string $groupID = null, ?array $cancellations = null, ?Amount $refundedAmount = null, ?array $refunds = null, ?Amount $disputedAmount = null, ?array $disputes = null, ?string $sweepID = null, ?string $scheduleID = null, ?string $occurrenceID = null)
     {
         $this->transferID = $transferID;
         $this->createdOn = $createdOn;
@@ -246,6 +257,7 @@ class Transfer
         $this->moovFeeDecimal = $moovFeeDecimal;
         $this->moovFeeDetails = $moovFeeDetails;
         $this->groupID = $groupID;
+        $this->cancellations = $cancellations;
         $this->refundedAmount = $refundedAmount;
         $this->refunds = $refunds;
         $this->disputedAmount = $disputedAmount;
