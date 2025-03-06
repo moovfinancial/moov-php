@@ -92,6 +92,8 @@ class Moov
 
     public Ping $ping;
 
+    public Receipts $receipts;
+
     public TerminalApplications $terminalApplications;
 
     /**
@@ -144,6 +146,7 @@ class Moov
         $this->onboardingInvites = new OnboardingInvites($this->sdkConfiguration);
         $this->onboarding = new Onboarding($this->sdkConfiguration);
         $this->ping = new Ping($this->sdkConfiguration);
+        $this->receipts = new Receipts($this->sdkConfiguration);
         $this->terminalApplications = new TerminalApplications($this->sdkConfiguration);
         $this->sdkConfiguration->client = $this->sdkConfiguration->initHooks($this->sdkConfiguration->client);
 

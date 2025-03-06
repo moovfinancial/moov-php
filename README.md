@@ -731,6 +731,17 @@ you'll need to specify the `/accounts/{accountID}/payment-methods.read` scope.
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/ping.read` scope.
 
+### [receipts](docs/sdks/receipts/README.md)
+
+* [create](docs/sdks/receipts/README.md#create) -  Create receipts for transfers and scheduled transfers.
+
+ To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+ you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
+* [list](docs/sdks/receipts/README.md#list) - List receipts by trasnferID, scheduleID, or occurrenceID.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
+
 ### [representatives](docs/sdks/representatives/README.md)
 
 * [create](docs/sdks/representatives/README.md#create) - Moov accounts associated with businesses require information regarding individuals who represent the business. 

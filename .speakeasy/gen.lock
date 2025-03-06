@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 78dd3d380f9789431af168ae163225a1
+  docChecksum: e7e0352fd11a804a411e0e031375c9a9
   docVersion: latest
-  speakeasyVersion: 1.509.1
-  generationVersion: 2.539.1
-  releaseVersion: 0.2.6
-  configChecksum: 1718bc584b9334d8076151b94591798e
+  speakeasyVersion: 1.510.0
+  generationVersion: 2.541.0
+  releaseVersion: 0.3.0
+  configChecksum: 1ba3cd62dd5c5a84e96dfe87b58087b9
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
 features:
   php:
     constsAndDefaults: 0.2.0
-    core: 3.7.9
+    core: 3.8.0
     deprecations: 2.81.1
     flattening: 2.81.1
     globalSecurity: 2.81.8
@@ -337,6 +337,9 @@ generatedFiles:
   - docs/Models/Components/RTPRejectionCode.md
   - docs/Models/Components/RTPTransactionDetails.md
   - docs/Models/Components/RTPTransactionStatus.md
+  - docs/Models/Components/ReceiptKind.md
+  - docs/Models/Components/ReceiptRequest.md
+  - docs/Models/Components/ReceiptResponse.md
   - docs/Models/Components/Recur.md
   - docs/Models/Components/RefundCardDetails.md
   - docs/Models/Components/RefundCardStatus.md
@@ -362,6 +365,7 @@ generatedFiles:
   - docs/Models/Components/SchedulePaymentMethod.md
   - docs/Models/Components/ScheduleResponse.md
   - docs/Models/Components/Security.md
+  - docs/Models/Components/SentReceipt.md
   - docs/Models/Components/Settings.md
   - docs/Models/Components/SourceDestinationOptions.md
   - docs/Models/Components/Ssn.md
@@ -448,6 +452,7 @@ generatedFiles:
   - docs/Models/Errors/MicroDepositValidationError.md
   - docs/Models/Errors/OnboardingInviteError.md
   - docs/Models/Errors/PatchSweepConfigError.md
+  - docs/Models/Errors/ReceiptValidationError.md
   - docs/Models/Errors/RefundValidationError.md
   - docs/Models/Errors/RepresentativeValidationError.md
   - docs/Models/Errors/RequestCardError.md
@@ -490,6 +495,8 @@ generatedFiles:
   - docs/Models/Operations/CreateOnboardingInviteResponse.md
   - docs/Models/Operations/CreatePaymentLinkRequest.md
   - docs/Models/Operations/CreatePaymentLinkResponse.md
+  - docs/Models/Operations/CreateReceiptsRequest.md
+  - docs/Models/Operations/CreateReceiptsResponse.md
   - docs/Models/Operations/CreateRepresentativeRequest.md
   - docs/Models/Operations/CreateRepresentativeResponse.md
   - docs/Models/Operations/CreateReversalRequest.md
@@ -654,6 +661,8 @@ generatedFiles:
   - docs/Models/Operations/ListPaymentLinksResponse.md
   - docs/Models/Operations/ListPaymentMethodsRequest.md
   - docs/Models/Operations/ListPaymentMethodsResponse.md
+  - docs/Models/Operations/ListReceiptsRequest.md
+  - docs/Models/Operations/ListReceiptsResponse.md
   - docs/Models/Operations/ListRefundsRequest.md
   - docs/Models/Operations/ListRefundsResponse.md
   - docs/Models/Operations/ListRepresentativesRequest.md
@@ -749,6 +758,7 @@ generatedFiles:
   - docs/sdks/paymentlinks/README.md
   - docs/sdks/paymentmethods/README.md
   - docs/sdks/ping/README.md
+  - docs/sdks/receipts/README.md
   - docs/sdks/representatives/README.md
   - docs/sdks/schedules/README.md
   - docs/sdks/scheduling/README.md
@@ -1099,6 +1109,9 @@ generatedFiles:
   - src/Models/Components/RTPRejectionCode.php
   - src/Models/Components/RTPTransactionDetails.php
   - src/Models/Components/RTPTransactionStatus.php
+  - src/Models/Components/ReceiptKind.php
+  - src/Models/Components/ReceiptRequest.php
+  - src/Models/Components/ReceiptResponse.php
   - src/Models/Components/Recur.php
   - src/Models/Components/RefundCardDetails.php
   - src/Models/Components/RefundCardStatus.php
@@ -1123,6 +1136,7 @@ generatedFiles:
   - src/Models/Components/SchedulePaymentMethod.php
   - src/Models/Components/ScheduleResponse.php
   - src/Models/Components/Security.php
+  - src/Models/Components/SentReceipt.php
   - src/Models/Components/Settings.php
   - src/Models/Components/SourceDestinationOptions.php
   - src/Models/Components/Ssn.php
@@ -1226,6 +1240,8 @@ generatedFiles:
   - src/Models/Errors/OnboardingInviteErrorThrowable.php
   - src/Models/Errors/PatchSweepConfigError.php
   - src/Models/Errors/PatchSweepConfigErrorThrowable.php
+  - src/Models/Errors/ReceiptValidationError.php
+  - src/Models/Errors/ReceiptValidationErrorThrowable.php
   - src/Models/Errors/RefundValidationError.php
   - src/Models/Errors/RefundValidationErrorThrowable.php
   - src/Models/Errors/RepresentativeValidationError.php
@@ -1283,6 +1299,8 @@ generatedFiles:
   - src/Models/Operations/CreateOnboardingInviteResponse.php
   - src/Models/Operations/CreatePaymentLinkRequest.php
   - src/Models/Operations/CreatePaymentLinkResponse.php
+  - src/Models/Operations/CreateReceiptsRequest.php
+  - src/Models/Operations/CreateReceiptsResponse.php
   - src/Models/Operations/CreateRepresentativeRequest.php
   - src/Models/Operations/CreateRepresentativeResponse.php
   - src/Models/Operations/CreateReversalRequest.php
@@ -1447,6 +1465,8 @@ generatedFiles:
   - src/Models/Operations/ListPaymentLinksResponse.php
   - src/Models/Operations/ListPaymentMethodsRequest.php
   - src/Models/Operations/ListPaymentMethodsResponse.php
+  - src/Models/Operations/ListReceiptsRequest.php
+  - src/Models/Operations/ListReceiptsResponse.php
   - src/Models/Operations/ListRefundsRequest.php
   - src/Models/Operations/ListRefundsResponse.php
   - src/Models/Operations/ListRepresentativesRequest.php
@@ -1522,6 +1542,7 @@ generatedFiles:
   - src/PaymentLinks.php
   - src/PaymentMethods.php
   - src/Ping.php
+  - src/Receipts.php
   - src/Representatives.php
   - src/SDKConfiguration.php
   - src/Schedules.php
@@ -3194,5 +3215,21 @@ examples:
       responses:
         "200":
           application/json: {"cancellationID": "89ca7f54-13ba-4714-b9af-17163eae2057", "status": "completed", "createdOn": "2025-01-19T03:02:43.255309588Z"}
+  createReceipts:
+    speakeasy-default-create-receipts:
+      requestBody:
+        application/json: [{"kind": "sale.customer.v1", "email": "jordan.lee@classbooker.dev"}]
+      responses:
+        "200":
+          application/json: {"receiptID": "a621cf02-1cd9-4cf5-8403-315211a509a3", "createdBy": "80a8e774-c2be-4cc3-8769-1775e0249856", "disabledOn": "2009-11-10T23:00:00Z", "kind": "sale.customer.v1", "email": "jordan.lee@classbooker.dev", "sentFor": []}
+        "400":
+          application/json: {"error": "<value>"}
+        "422":
+          application/json: {}
+  listReceipts:
+    speakeasy-default-list-receipts:
+      responses:
+        "200":
+          application/json: [{"receiptID": "8a232aa0-b11b-48a0-8057-1e9e705d0e6e", "createdBy": "1e276671-8d6d-4461-b2e0-aee1b9ddf121", "disabledOn": "2009-11-10T23:00:00Z", "kind": "sale.customer.v1", "email": "jordan.lee@classbooker.dev", "sentFor": [{"receiptID": "2a4c8104-fb45-41a7-a0cf-c8fe07fbc60a", "idempotencyKey": "960d5611-ff65-473e-90a6-2331ad7c07cc", "sentOn": "2009-11-10T23:00:00Z"}, {"receiptID": "81991696-ebd8-434b-b7d8-c2236e085944", "idempotencyKey": "bceb27bd-4753-4d0a-917c-478e329a9ec9", "sentOn": "2009-11-10T23:00:00Z"}, {"receiptID": "938e1a63-0f5f-4e36-a808-2fa02e0874e7", "idempotencyKey": "307648ec-2ed7-4f30-939d-ec6f45d97b2c", "sentOn": "2009-11-10T23:00:00Z"}]}, {"receiptID": "d7f7bcfa-269a-4f21-b94d-5861b3fe5754", "createdBy": "0c551a92-c743-41dd-8f19-3e2177ab4c4d", "disabledOn": "2009-11-10T23:00:00Z", "kind": "sale.customer.v1", "email": "jordan.lee@classbooker.dev", "sentFor": []}, {"receiptID": "cedb55c7-155b-40db-ba7a-30fd263f0cce", "createdBy": "19e17aef-2e28-4695-bca4-33b1104d1efa", "disabledOn": "2009-11-10T23:00:00Z", "kind": "sale.customer.v1", "email": "jordan.lee@classbooker.dev", "sentFor": [{"receiptID": "ad1494b3-d276-4b63-9f80-6d94b843a1ce", "idempotencyKey": "23bc77dd-5bb4-42fc-8fa6-f3f7b3d58ee6", "sentOn": "2009-11-10T23:00:00Z"}, {"receiptID": "458f7304-a0a3-4715-ae54-f642e86b7c60", "idempotencyKey": "73f56981-2ed5-452f-9f7f-fa2f9aacddda", "sentOn": "2009-11-10T23:00:00Z"}]}]
 examplesVersion: 1.0.0
 generatedTests: {}
