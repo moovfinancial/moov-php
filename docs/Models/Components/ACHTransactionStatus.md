@@ -12,3 +12,4 @@ Status of a transaction within the ACH lifecycle.
 | `Corrected`  | corrected    |
 | `Returned`   | returned     |
 | `Completed`  | completed    |
+| `Canceled`   | canceled     |

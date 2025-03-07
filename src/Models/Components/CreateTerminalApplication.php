@@ -22,7 +22,7 @@ class CreateTerminalApplication
     public TerminalApplicationPlatform $platform;
 
     /**
-     * The app bundle identifier of the terminal application. Required if platform is ios.
+     * The app bundle identifier of the terminal application. Required if platform is `ios`.
      *
      * @var ?string $appBundleID
      */
@@ -31,7 +31,7 @@ class CreateTerminalApplication
     public ?string $appBundleID = null;
 
     /**
-     * The app package name of the terminal application. Required if platform is android.
+     * The app package name of the terminal application. Required if platform is `android`.
      *
      * @var ?string $packageName
      */
@@ -40,7 +40,7 @@ class CreateTerminalApplication
     public ?string $packageName = null;
 
     /**
-     * The app version of the terminal application. Required if paltform is android.
+     * The app version of the terminal application. Required if paltform is `android`.
      *
      * @var ?string $sha256Digest
      */
@@ -49,7 +49,7 @@ class CreateTerminalApplication
     public ?string $sha256Digest = null;
 
     /**
-     * The app version of the terminal application. Required if platform is android.
+     * The app version of the terminal application. Required if platform is `android`.
      *
      * @var ?string $versionCode
      */

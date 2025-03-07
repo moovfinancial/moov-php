@@ -39,7 +39,7 @@ class TerminalApplication
     public TerminalApplicationPlatform $platform;
 
     /**
-     * The app bundle identifier of the terminal application. Will be returned if platform is ios.
+     * The app bundle identifier of the terminal application. Will be returned if platform is `ios`.
      *
      * @var ?string $appBundleID
      */
@@ -48,7 +48,7 @@ class TerminalApplication
     public ?string $appBundleID = null;
 
     /**
-     * The app package name of the terminal application. Will be returned if platform is android.
+     * The app package name of the terminal application. Will be returned if platform is `android`.
      *
      * @var ?string $packageName
      */
@@ -57,7 +57,7 @@ class TerminalApplication
     public ?string $packageName = null;
 
     /**
-     * The app version of the terminal application Will be returned if platform is android.
+     * The app version of the terminal application Will be returned if platform is `android`.
      *
      * @var ?string $sha256Digest
      */
@@ -66,7 +66,7 @@ class TerminalApplication
     public ?string $sha256Digest = null;
 
     /**
-     * The app version of the terminal application Will be returned if platform is android.
+     * The app version of the terminal application Will be returned if platform is `android`.
      *
      * @var ?string $versionCode
      */

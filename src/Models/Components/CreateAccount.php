@@ -89,6 +89,16 @@ class CreateAccount
     public ?array $capabilities = null;
 
     /**
+     * The operating mode for an account.
+     *
+     * @var ?Mode $mode
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('mode')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Mode|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?Mode $mode = null;
+
+    /**
      * @param  AccountType  $accountType
      * @param  CreateProfile  $profile
      * @param  ?array<string, string>  $metadata
@@ -97,9 +107,10 @@ class CreateAccount
      * @param  ?CustomerSupport  $customerSupport
      * @param  ?Settings  $settings
      * @param  ?array<CapabilityID>  $capabilities
+     * @param  ?Mode  $mode
      * @phpstan-pure
      */
-    public function __construct(AccountType $accountType, CreateProfile $profile, ?array $metadata = null, TermsOfServiceToken|ManualTermsOfService|null $termsOfService = null, ?string $foreignID = null, ?CustomerSupport $customerSupport = null, ?Settings $settings = null, ?array $capabilities = null)
+    public function __construct(AccountType $accountType, CreateProfile $profile, ?array $metadata = null, TermsOfServiceToken|ManualTermsOfService|null $termsOfService = null, ?string $foreignID = null, ?CustomerSupport $customerSupport = null, ?Settings $settings = null, ?array $capabilities = null, ?Mode $mode = null)
     {
         $this->accountType = $accountType;
         $this->profile = $profile;
@@ -109,5 +120,6 @@ class CreateAccount
         $this->customerSupport = $customerSupport;
         $this->settings = $settings;
         $this->capabilities = $capabilities;
+        $this->mode = $mode;
     }
 }

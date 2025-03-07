@@ -76,6 +76,14 @@ class ACHTransactionDetails
 
     /**
      *
+     * @var ?\DateTime $canceledOn
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('canceledOn')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?\DateTime $canceledOn = null;
+
+    /**
+     *
      * @var ?\DateTime $initiatedOn
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('initiatedOn')]
@@ -140,6 +148,7 @@ class ACHTransactionDetails
      * @param  ?string  $companyEntryDescription
      * @param  ?string  $originatingCompanyName
      * @param  ?SECCode  $secCode
+     * @param  ?\DateTime  $canceledOn
      * @param  ?\DateTime  $initiatedOn
      * @param  ?\DateTime  $originatedOn
      * @param  ?\DateTime  $correctedOn
@@ -149,7 +158,7 @@ class ACHTransactionDetails
      * @param  ?DebitHoldPeriod  $debitHoldPeriod
      * @phpstan-pure
      */
-    public function __construct(ACHTransactionStatus $status, string $traceNumber, ?ACHException $return = null, ?ACHException $correction = null, ?string $companyEntryDescription = null, ?string $originatingCompanyName = null, ?SECCode $secCode = null, ?\DateTime $initiatedOn = null, ?\DateTime $originatedOn = null, ?\DateTime $correctedOn = null, ?\DateTime $returnedOn = null, ?\DateTime $failedOn = null, ?\DateTime $completedOn = null, ?DebitHoldPeriod $debitHoldPeriod = null)
+    public function __construct(ACHTransactionStatus $status, string $traceNumber, ?ACHException $return = null, ?ACHException $correction = null, ?string $companyEntryDescription = null, ?string $originatingCompanyName = null, ?SECCode $secCode = null, ?\DateTime $canceledOn = null, ?\DateTime $initiatedOn = null, ?\DateTime $originatedOn = null, ?\DateTime $correctedOn = null, ?\DateTime $returnedOn = null, ?\DateTime $failedOn = null, ?\DateTime $completedOn = null, ?DebitHoldPeriod $debitHoldPeriod = null)
     {
         $this->status = $status;
         $this->traceNumber = $traceNumber;
@@ -158,6 +167,7 @@ class ACHTransactionDetails
         $this->companyEntryDescription = $companyEntryDescription;
         $this->originatingCompanyName = $originatingCompanyName;
         $this->secCode = $secCode;
+        $this->canceledOn = $canceledOn;
         $this->initiatedOn = $initiatedOn;
         $this->originatedOn = $originatedOn;
         $this->correctedOn = $correctedOn;

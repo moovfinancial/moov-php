@@ -17,4 +17,5 @@ enum ACHTransactionStatus: string
     case Corrected = 'corrected';
     case Returned = 'returned';
     case Completed = 'completed';
+    case Canceled = 'canceled';
 }
