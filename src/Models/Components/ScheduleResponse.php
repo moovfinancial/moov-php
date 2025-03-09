@@ -79,13 +79,14 @@ class ScheduleResponse
     public ?string $description = null;
 
     /**
+     * $occurrences
      *
-     * @var ?OccurrencesResponse $occurrences
+     * @var ?array<OccurrencesResponse> $occurrences
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('occurrences')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\OccurrencesResponse|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\OccurrencesResponse>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?OccurrencesResponse $occurrences = null;
+    public ?array $occurrences = null;
 
     /**
      * Defines configuration for recurring transfers.
@@ -115,12 +116,12 @@ class ScheduleResponse
      * @param  \DateTime  $createdOn
      * @param  \DateTime  $updatedOn
      * @param  ?string  $description
-     * @param  ?OccurrencesResponse  $occurrences
+     * @param  ?array<OccurrencesResponse>  $occurrences
      * @param  ?Recur  $recur
      * @param  ?\DateTime  $disabledOn
      * @phpstan-pure
      */
-    public function __construct(string $destinationAccountID, Mode $mode, string $ownerAccountID, string $partnerAccountID, string $scheduleID, string $sourceAccountID, \DateTime $createdOn, \DateTime $updatedOn, ?string $description = null, ?OccurrencesResponse $occurrences = null, ?Recur $recur = null, ?\DateTime $disabledOn = null)
+    public function __construct(string $destinationAccountID, Mode $mode, string $ownerAccountID, string $partnerAccountID, string $scheduleID, string $sourceAccountID, \DateTime $createdOn, \DateTime $updatedOn, ?string $description = null, ?array $occurrences = null, ?Recur $recur = null, ?\DateTime $disabledOn = null)
     {
         $this->destinationAccountID = $destinationAccountID;
         $this->mode = $mode;
