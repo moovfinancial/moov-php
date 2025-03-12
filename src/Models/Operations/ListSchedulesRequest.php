@@ -33,6 +33,13 @@ class ListSchedulesRequest
     public ?int $count = null;
 
     /**
+     *
+     * @var ?Hydrate $hydrate
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=hydrate')]
+    public ?Hydrate $hydrate = null;
+
+    /**
      * Specify an API version.
      *
      *
@@ -54,13 +61,15 @@ class ListSchedulesRequest
      * @param  ?string  $xMoovVersion
      * @param  ?int  $skip
      * @param  ?int  $count
+     * @param  ?Hydrate  $hydrate
      * @phpstan-pure
      */
-    public function __construct(string $accountID, ?int $skip = null, ?int $count = null, ?string $xMoovVersion = 'v2024.01.00')
+    public function __construct(string $accountID, ?int $skip = null, ?int $count = null, ?Hydrate $hydrate = null, ?string $xMoovVersion = 'v2024.01.00')
     {
         $this->accountID = $accountID;
         $this->skip = $skip;
         $this->count = $count;
+        $this->hydrate = $hydrate;
         $this->xMoovVersion = $xMoovVersion;
     }
 }

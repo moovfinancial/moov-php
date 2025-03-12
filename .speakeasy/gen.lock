@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 7f25ad7ae3f0e65bcbe81b9113b1340a
+  docChecksum: 7ec1fe60913461e3478e1d0c60f28f1f
   docVersion: latest
-  speakeasyVersion: 1.513.4
-  generationVersion: 2.545.4
-  releaseVersion: 0.3.2
-  configChecksum: 6b3f250018172196c67413791f9fdef6
+  speakeasyVersion: 1.517.0
+  generationVersion: 2.548.1
+  releaseVersion: 0.3.3
+  configChecksum: 2d5633a20737bd516d8a9274040c0d71
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
@@ -285,6 +285,7 @@ generatedFiles:
   - docs/Models/Components/OnboardingInvite.md
   - docs/Models/Components/OnboardingInviteRequest.md
   - docs/Models/Components/OnboardingPartnerAccount.md
+  - docs/Models/Components/PartialScheduleAccount.md
   - docs/Models/Components/PartnerPricing.md
   - docs/Models/Components/PartnerPricingAgreement.md
   - docs/Models/Components/PatchAccount.md
@@ -362,6 +363,7 @@ generatedFiles:
   - docs/Models/Components/RtpCreditPaymentMethodPaymentMethodType.md
   - docs/Models/Components/RunTransfer.md
   - docs/Models/Components/SECCode.md
+  - docs/Models/Components/ScheduleListResponse.md
   - docs/Models/Components/SchedulePaymentMethod.md
   - docs/Models/Components/ScheduleResponse.md
   - docs/Models/Components/Security.md
@@ -605,6 +607,7 @@ generatedFiles:
   - docs/Models/Operations/GetWalletResponse.md
   - docs/Models/Operations/GetWalletTransactionRequest.md
   - docs/Models/Operations/GetWalletTransactionResponse.md
+  - docs/Models/Operations/Hydrate.md
   - docs/Models/Operations/InitiateBankAccountVerificationRequest.md
   - docs/Models/Operations/InitiateBankAccountVerificationResponse.md
   - docs/Models/Operations/InitiateMicroDepositsRequest.md
@@ -1061,6 +1064,7 @@ generatedFiles:
   - src/Models/Components/OnboardingInvite.php
   - src/Models/Components/OnboardingInviteRequest.php
   - src/Models/Components/OnboardingPartnerAccount.php
+  - src/Models/Components/PartialScheduleAccount.php
   - src/Models/Components/PartnerPricing.php
   - src/Models/Components/PartnerPricingAgreement.php
   - src/Models/Components/PatchAccount.php
@@ -1133,6 +1137,7 @@ generatedFiles:
   - src/Models/Components/RtpCreditPaymentMethodPaymentMethodType.php
   - src/Models/Components/RunTransfer.php
   - src/Models/Components/SECCode.php
+  - src/Models/Components/ScheduleListResponse.php
   - src/Models/Components/SchedulePaymentMethod.php
   - src/Models/Components/ScheduleResponse.php
   - src/Models/Components/Security.php
@@ -1409,6 +1414,7 @@ generatedFiles:
   - src/Models/Operations/GetWalletResponse.php
   - src/Models/Operations/GetWalletTransactionRequest.php
   - src/Models/Operations/GetWalletTransactionResponse.php
+  - src/Models/Operations/Hydrate.php
   - src/Models/Operations/InitiateBankAccountVerificationRequest.php
   - src/Models/Operations/InitiateBankAccountVerificationResponse.php
   - src/Models/Operations/InitiateMicroDepositsRequest.php

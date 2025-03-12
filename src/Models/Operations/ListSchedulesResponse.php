@@ -42,24 +42,24 @@ class ListSchedulesResponse
     /**
      * The request completed successfully.
      *
-     * @var ?array<Components\ScheduleResponse> $scheduleResponses
+     * @var ?array<Components\ScheduleListResponse> $scheduleListResponses
      */
-    public ?array $scheduleResponses = null;
+    public ?array $scheduleListResponses = null;
 
     /**
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?array<Components\ScheduleResponse>  $scheduleResponses
+     * @param  ?array<Components\ScheduleListResponse>  $scheduleListResponses
      * @phpstan-pure
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?array $scheduleResponses = null, ?array $headers = [])
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?array $scheduleListResponses = null, ?array $headers = [])
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
         $this->headers = $headers;
-        $this->scheduleResponses = $scheduleResponses;
+        $this->scheduleListResponses = $scheduleListResponses;
     }
 }

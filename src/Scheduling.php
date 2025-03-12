@@ -309,26 +309,17 @@ class Scheduling
     }
 
     /**
-     * Describes a list of schedules associated with an account. Requires at least 1 occurrence or recurTransfer to be specified.
+     * Describes a list of schedules associated with an account. Append the `hydrate=accounts` query parameter to include partial account details in the response.
      *
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
      *
-     * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
-     * @param  ?int  $skip
-     * @param  ?int  $count
+     * @param  Operations\ListSchedulesRequest  $request
      * @return Operations\ListSchedulesResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function list(string $accountID, ?string $xMoovVersion = null, ?int $skip = null, ?int $count = null, ?Options $options = null): Operations\ListSchedulesResponse
+    public function list(Operations\ListSchedulesRequest $request, ?Options $options = null): Operations\ListSchedulesResponse
     {
-        $request = new Operations\ListSchedulesRequest(
-            accountID: $accountID,
-            xMoovVersion: $xMoovVersion,
-            skip: $skip,
-            count: $count,
-        );
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/schedules', Operations\ListSchedulesRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
@@ -366,13 +357,13 @@ class Scheduling
 
                 $serializer = Utils\JSON::createSerializer();
                 $responseData = (string) $httpResponse->getBody();
-                $obj = $serializer->deserialize($responseData, 'array<\Moov\MoovPhp\Models\Components\ScheduleResponse>', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj = $serializer->deserialize($responseData, 'array<\Moov\MoovPhp\Models\Components\ScheduleListResponse>', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
                 $response = new Operations\ListSchedulesResponse(
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
                     headers: $httpResponse->getHeaders(),
-                    scheduleResponses: $obj);
+                    scheduleListResponses: $obj);
 
                 return $response;
             } else {

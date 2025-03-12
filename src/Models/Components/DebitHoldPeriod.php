@@ -13,6 +13,6 @@ namespace Moov\MoovPhp\Models\Components;
 enum DebitHoldPeriod: string
 {
     case NoHold = 'no-hold';
-    case OneDay = '1-day';
-    case TwoDays = '2-days';
+    case OneMinusDay = '1-day';
+    case TwoMinusDays = '2-days';
 }
