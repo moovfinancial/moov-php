@@ -5,4 +5,4 @@
 
 | Field              | Type               | Required           | Description        | Example            |
 | ------------------ | ------------------ | ------------------ | ------------------ | ------------------ |
-| `number`           | *?string*          | :heavy_minus_sign: | N/A                | 12-3456789         |
+| `number`           | *string*           | :heavy_check_mark: | N/A                | 12-3456789         |

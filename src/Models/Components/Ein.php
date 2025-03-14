@@ -13,17 +13,16 @@ class Ein
 {
     /**
      *
-     * @var ?string $number
+     * @var string $number
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('number')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $number = null;
+    public string $number;
 
     /**
-     * @param  ?string  $number
+     * @param  string  $number
      * @phpstan-pure
      */
-    public function __construct(?string $number = null)
+    public function __construct(string $number)
     {
         $this->number = $number;
     }

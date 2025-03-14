@@ -95,3 +95,12 @@ Components\PullFromCardPaymentMethod $value = /* values here */
 Components\ApplePayPaymentMethod $value = /* values here */
 ```
 
+### `Components\CardPresentPaymentPaymentMethod`
+
+```php
+/**
+* @var Components\CardPresentPaymentPaymentMethod
+*/
+Components\CardPresentPaymentPaymentMethod $value = /* values here */
+```
+

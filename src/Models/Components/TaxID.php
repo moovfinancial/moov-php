@@ -14,17 +14,17 @@ class TaxID
 {
     /**
      *
-     * @var TaxIDEin $ein
+     * @var Ein $ein
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('ein')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TaxIDEin')]
-    public TaxIDEin $ein;
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Ein')]
+    public Ein $ein;
 
     /**
-     * @param  TaxIDEin  $ein
+     * @param  Ein  $ein
      * @phpstan-pure
      */
-    public function __construct(TaxIDEin $ein)
+    public function __construct(Ein $ein)
     {
         $this->ein = $ein;
     }

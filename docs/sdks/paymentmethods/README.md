@@ -106,7 +106,7 @@ $response = $sdk->paymentMethods->list(
     accountID: 'c8a232aa-0b11-4b8a-b005-71e9e705d0e6',
     xMoovVersion: 'v2024.01.00',
     sourceID: '21e27667-18d6-4d46-812e-0aee1b9ddf12',
-    paymentMethodType: Components\PaymentMethodType::PullFromCard
+    paymentMethodType: Components\PaymentMethodType::ApplePay
 
 );
 

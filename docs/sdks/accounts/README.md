@@ -762,7 +762,7 @@ $patchAccount = new Components\PatchAccount(
             ),
             email: 'jordan.lee@classbooker.dev',
             taxID: new Components\TaxIDUpdate(
-                ein: new Components\Ein(
+                ein: new Components\TaxIDUpdateEin(
                     number: '12-3456789',
                 ),
             ),

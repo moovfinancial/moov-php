@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-class GovernmentIDItin
+class GovernmentIDErrorItin
 {
     /**
      *

@@ -13,28 +13,28 @@ class GovernmentIDError
 {
     /**
      *
-     * @var ?Ssn $ssn
+     * @var ?GovernmentIDErrorSsn $ssn
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('ssn')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Ssn|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\GovernmentIDErrorSsn|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?Ssn $ssn = null;
+    public ?GovernmentIDErrorSsn $ssn = null;
 
     /**
      *
-     * @var ?Itin $itin
+     * @var ?GovernmentIDErrorItin $itin
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('itin')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Itin|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\GovernmentIDErrorItin|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?Itin $itin = null;
+    public ?GovernmentIDErrorItin $itin = null;
 
     /**
-     * @param  ?Ssn  $ssn
-     * @param  ?Itin  $itin
+     * @param  ?GovernmentIDErrorSsn  $ssn
+     * @param  ?GovernmentIDErrorItin  $itin
      * @phpstan-pure
      */
-    public function __construct(?Ssn $ssn = null, ?Itin $itin = null)
+    public function __construct(?GovernmentIDErrorSsn $ssn = null, ?GovernmentIDErrorItin $itin = null)
     {
         $this->ssn = $ssn;
         $this->itin = $itin;

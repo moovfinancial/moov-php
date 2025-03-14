@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 7ec1fe60913461e3478e1d0c60f28f1f
+  docChecksum: 058704fc40e351199c029914895c268c
   docVersion: latest
-  speakeasyVersion: 1.517.0
-  generationVersion: 2.548.1
-  releaseVersion: 0.3.3
-  configChecksum: 2d5633a20737bd516d8a9274040c0d71
+  speakeasyVersion: 1.517.3
+  generationVersion: 2.548.6
+  releaseVersion: 0.3.4
+  configChecksum: 70309864a12e464dd6f3aec005bc11cd
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
@@ -126,6 +126,8 @@ generatedFiles:
   - docs/Models/Components/CardPaymentPaymentMethod.md
   - docs/Models/Components/CardPaymentPaymentMethodPaymentMethodType.md
   - docs/Models/Components/CardPaymentSettings.md
+  - docs/Models/Components/CardPresentPaymentPaymentMethod.md
+  - docs/Models/Components/CardPresentPaymentPaymentMethodPaymentMethodType.md
   - docs/Models/Components/CardTransactionDetails.md
   - docs/Models/Components/CardTransactionFailureCode.md
   - docs/Models/Components/CardTransactionStatus.md
@@ -204,6 +206,7 @@ generatedFiles:
   - docs/Models/Components/EnrichedIndustries.md
   - docs/Models/Components/EnrichedIndustry.md
   - docs/Models/Components/EnrichedIndustryCodes.md
+  - docs/Models/Components/EntryMode.md
   - docs/Models/Components/Error.md
   - docs/Models/Components/EvidenceTextResponse.md
   - docs/Models/Components/EvidenceType.md
@@ -233,8 +236,8 @@ generatedFiles:
   - docs/Models/Components/GeneratedByTransferID.md
   - docs/Models/Components/GovernmentID.md
   - docs/Models/Components/GovernmentIDError.md
-  - docs/Models/Components/GovernmentIDItin.md
-  - docs/Models/Components/GovernmentIDSsn.md
+  - docs/Models/Components/GovernmentIDErrorItin.md
+  - docs/Models/Components/GovernmentIDErrorSsn.md
   - docs/Models/Components/GrantType.md
   - docs/Models/Components/IncurredFee.md
   - docs/Models/Components/IndividualName.md
@@ -380,11 +383,12 @@ generatedFiles:
   - docs/Models/Components/SweepConfigStatus.md
   - docs/Models/Components/SweepStatus.md
   - docs/Models/Components/TaxID.md
-  - docs/Models/Components/TaxIDEin.md
   - docs/Models/Components/TaxIDUpdate.md
+  - docs/Models/Components/TaxIDUpdateEin.md
   - docs/Models/Components/TerminalApplication.md
   - docs/Models/Components/TerminalApplicationPlatform.md
   - docs/Models/Components/TerminalApplicationStatus.md
+  - docs/Models/Components/TerminalCard.md
   - docs/Models/Components/TermsOfService.md
   - docs/Models/Components/TermsOfServiceError.md
   - docs/Models/Components/TermsOfServiceToken.md
@@ -910,6 +914,8 @@ generatedFiles:
   - src/Models/Components/CardPaymentPaymentMethod.php
   - src/Models/Components/CardPaymentPaymentMethodPaymentMethodType.php
   - src/Models/Components/CardPaymentSettings.php
+  - src/Models/Components/CardPresentPaymentPaymentMethod.php
+  - src/Models/Components/CardPresentPaymentPaymentMethodPaymentMethodType.php
   - src/Models/Components/CardTransactionDetails.php
   - src/Models/Components/CardTransactionFailureCode.php
   - src/Models/Components/CardTransactionStatus.php
@@ -985,6 +991,7 @@ generatedFiles:
   - src/Models/Components/EnrichedIndustries.php
   - src/Models/Components/EnrichedIndustry.php
   - src/Models/Components/EnrichedIndustryCodes.php
+  - src/Models/Components/EntryMode.php
   - src/Models/Components/Error.php
   - src/Models/Components/EvidenceTextResponse.php
   - src/Models/Components/EvidenceType.php
@@ -1013,8 +1020,8 @@ generatedFiles:
   - src/Models/Components/GeneratedByTransferID.php
   - src/Models/Components/GovernmentID.php
   - src/Models/Components/GovernmentIDError.php
-  - src/Models/Components/GovernmentIDItin.php
-  - src/Models/Components/GovernmentIDSsn.php
+  - src/Models/Components/GovernmentIDErrorItin.php
+  - src/Models/Components/GovernmentIDErrorSsn.php
   - src/Models/Components/GrantType.php
   - src/Models/Components/IncurredFee.php
   - src/Models/Components/IndividualName.php
@@ -1153,11 +1160,12 @@ generatedFiles:
   - src/Models/Components/SweepConfigStatus.php
   - src/Models/Components/SweepStatus.php
   - src/Models/Components/TaxID.php
-  - src/Models/Components/TaxIDEin.php
   - src/Models/Components/TaxIDUpdate.php
+  - src/Models/Components/TaxIDUpdateEin.php
   - src/Models/Components/TerminalApplication.php
   - src/Models/Components/TerminalApplicationPlatform.php
   - src/Models/Components/TerminalApplicationStatus.php
+  - src/Models/Components/TerminalCard.php
   - src/Models/Components/TermsOfService.php
   - src/Models/Components/TermsOfServiceError.php
   - src/Models/Components/TermsOfServiceToken.php
