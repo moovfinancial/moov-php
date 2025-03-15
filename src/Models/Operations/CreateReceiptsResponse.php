@@ -40,7 +40,7 @@ class CreateReceiptsResponse
     public array $headers;
 
     /**
-     * The request completed successfully.
+     * The resource was successfully created.
      *
      * @var ?Components\ReceiptResponse $receiptResponse
      */

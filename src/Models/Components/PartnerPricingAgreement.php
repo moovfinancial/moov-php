@@ -67,6 +67,15 @@ class PartnerPricingAgreement
     public array $billableFees;
 
     /**
+     * The minimum spending amount that must be met in the billing period. If actual usage is below the minimum amount, account is charged the difference.
+     *
+     * @var MinimumCommitment $minimumCommitment
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('minimumCommitment')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\MinimumCommitment')]
+    public MinimumCommitment $minimumCommitment;
+
+    /**
      * The integer percentage value of the revenue split for partner.
      *
      * @var int $revenueShare
@@ -99,12 +108,13 @@ class PartnerPricingAgreement
      * @param  FeePlanAgreementStatus  $status
      * @param  CardAcquiringModel  $cardAcquiringModel
      * @param  array<BillableFee>  $billableFees
+     * @param  MinimumCommitment  $minimumCommitment
      * @param  int  $revenueShare
      * @param  ?string  $accountID
      * @param  ?string  $description
      * @phpstan-pure
      */
-    public function __construct(string $agreementID, string $planID, string $name, \DateTime $acceptedOn, FeePlanAgreementStatus $status, CardAcquiringModel $cardAcquiringModel, array $billableFees, int $revenueShare, ?string $accountID = null, ?string $description = null)
+    public function __construct(string $agreementID, string $planID, string $name, \DateTime $acceptedOn, FeePlanAgreementStatus $status, CardAcquiringModel $cardAcquiringModel, array $billableFees, MinimumCommitment $minimumCommitment, int $revenueShare, ?string $accountID = null, ?string $description = null)
     {
         $this->agreementID = $agreementID;
         $this->planID = $planID;
@@ -113,6 +123,7 @@ class PartnerPricingAgreement
         $this->status = $status;
         $this->cardAcquiringModel = $cardAcquiringModel;
         $this->billableFees = $billableFees;
+        $this->minimumCommitment = $minimumCommitment;
         $this->revenueShare = $revenueShare;
         $this->accountID = $accountID;
         $this->description = $description;

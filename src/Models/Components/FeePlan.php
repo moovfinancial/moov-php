@@ -45,6 +45,15 @@ class FeePlan
     public array $billableFees;
 
     /**
+     * The minimum spending amount that must be met in the billing period. If actual usage is below the minimum amount, account is charged the difference.
+     *
+     * @var MinimumCommitment $minimumCommitment
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('minimumCommitment')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\MinimumCommitment')]
+    public MinimumCommitment $minimumCommitment;
+
+    /**
      *
      * @var \DateTime $createdAt
      */
@@ -65,16 +74,18 @@ class FeePlan
      * @param  string  $name
      * @param  CardAcquiringModel  $cardAcquiringModel
      * @param  array<BillableFee>  $billableFees
+     * @param  MinimumCommitment  $minimumCommitment
      * @param  \DateTime  $createdAt
      * @param  ?string  $description
      * @phpstan-pure
      */
-    public function __construct(string $planID, string $name, CardAcquiringModel $cardAcquiringModel, array $billableFees, \DateTime $createdAt, ?string $description = null)
+    public function __construct(string $planID, string $name, CardAcquiringModel $cardAcquiringModel, array $billableFees, MinimumCommitment $minimumCommitment, \DateTime $createdAt, ?string $description = null)
     {
         $this->planID = $planID;
         $this->name = $name;
         $this->cardAcquiringModel = $cardAcquiringModel;
         $this->billableFees = $billableFees;
+        $this->minimumCommitment = $minimumCommitment;
         $this->createdAt = $createdAt;
         $this->description = $description;
     }
