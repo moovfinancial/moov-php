@@ -33,6 +33,14 @@ class CreateTransferSource
 
     /**
      *
+     * @var ?string $paymentToken
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('paymentToken')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $paymentToken = null;
+
+    /**
+     *
      * @var ?CreateTransferSourceCard $cardDetails
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardDetails')]
@@ -52,14 +60,16 @@ class CreateTransferSource
     /**
      * @param  ?string  $transferID
      * @param  ?string  $paymentMethodID
+     * @param  ?string  $paymentToken
      * @param  ?CreateTransferSourceCard  $cardDetails
      * @param  ?CreateTransferSourceACH  $achDetails
      * @phpstan-pure
      */
-    public function __construct(?string $transferID = null, ?string $paymentMethodID = null, ?CreateTransferSourceCard $cardDetails = null, ?CreateTransferSourceACH $achDetails = null)
+    public function __construct(?string $transferID = null, ?string $paymentMethodID = null, ?string $paymentToken = null, ?CreateTransferSourceCard $cardDetails = null, ?CreateTransferSourceACH $achDetails = null)
     {
         $this->transferID = $transferID;
         $this->paymentMethodID = $paymentMethodID;
+        $this->paymentToken = $paymentToken;
         $this->cardDetails = $cardDetails;
         $this->achDetails = $achDetails;
     }

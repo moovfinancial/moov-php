@@ -17,4 +17,5 @@ enum WalletTransactionSourceType: string
     case IssuingAuthorization = 'issuing-authorization';
     case Sweep = 'sweep';
     case Adjustment = 'adjustment';
+    case Fee = 'fee';
 }

@@ -84,6 +84,16 @@ class TransferSource
     public ?ApplePayResponse $applePay = null;
 
     /**
+     * Describes payment card details captured with tap or in-person payment.
+     *
+     * @var ?TerminalCard $terminalCard
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('terminalCard')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TerminalCard|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?TerminalCard $terminalCard = null;
+
+    /**
      * Card-specific details about the transaction.
      *
      * @var ?CardTransactionDetails $cardDetails
@@ -112,11 +122,12 @@ class TransferSource
      * @param  ?PaymentMethodsWallet  $wallet
      * @param  ?PaymentMethodsCard  $card
      * @param  ?ApplePayResponse  $applePay
+     * @param  ?TerminalCard  $terminalCard
      * @param  ?CardTransactionDetails  $cardDetails
      * @param  ?ACHTransactionDetails  $achDetails
      * @phpstan-pure
      */
-    public function __construct(string $paymentMethodID, PaymentMethodType $paymentMethodType, TransferAccount $account, ?string $transferID = null, ?PaymentMethodsBankAccount $bankAccount = null, ?PaymentMethodsWallet $wallet = null, ?PaymentMethodsCard $card = null, ?ApplePayResponse $applePay = null, ?CardTransactionDetails $cardDetails = null, ?ACHTransactionDetails $achDetails = null)
+    public function __construct(string $paymentMethodID, PaymentMethodType $paymentMethodType, TransferAccount $account, ?string $transferID = null, ?PaymentMethodsBankAccount $bankAccount = null, ?PaymentMethodsWallet $wallet = null, ?PaymentMethodsCard $card = null, ?ApplePayResponse $applePay = null, ?TerminalCard $terminalCard = null, ?CardTransactionDetails $cardDetails = null, ?ACHTransactionDetails $achDetails = null)
     {
         $this->paymentMethodID = $paymentMethodID;
         $this->paymentMethodType = $paymentMethodType;
@@ -126,6 +137,7 @@ class TransferSource
         $this->wallet = $wallet;
         $this->card = $card;
         $this->applePay = $applePay;
+        $this->terminalCard = $terminalCard;
         $this->cardDetails = $cardDetails;
         $this->achDetails = $achDetails;
     }
