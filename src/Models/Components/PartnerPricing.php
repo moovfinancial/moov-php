@@ -62,6 +62,15 @@ class PartnerPricing
     public MinimumCommitment $minimumCommitment;
 
     /**
+     * Fixed recurring amount paid in the billing period regardless of usage.
+     *
+     * @var MonthlyPlatformFee $monthlyPlatformFee
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('monthlyPlatformFee')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\MonthlyPlatformFee')]
+    public MonthlyPlatformFee $monthlyPlatformFee;
+
+    /**
      *
      * @var \DateTime $createdAt
      */
@@ -84,11 +93,12 @@ class PartnerPricing
      * @param  CardAcquiringModel  $cardAcquiringModel
      * @param  array<BillableFee>  $billableFees
      * @param  MinimumCommitment  $minimumCommitment
+     * @param  MonthlyPlatformFee  $monthlyPlatformFee
      * @param  \DateTime  $createdAt
      * @param  ?string  $description
      * @phpstan-pure
      */
-    public function __construct(string $planID, string $name, int $revenueShare, CardAcquiringModel $cardAcquiringModel, array $billableFees, MinimumCommitment $minimumCommitment, \DateTime $createdAt, ?string $description = null)
+    public function __construct(string $planID, string $name, int $revenueShare, CardAcquiringModel $cardAcquiringModel, array $billableFees, MinimumCommitment $minimumCommitment, MonthlyPlatformFee $monthlyPlatformFee, \DateTime $createdAt, ?string $description = null)
     {
         $this->planID = $planID;
         $this->name = $name;
@@ -96,6 +106,7 @@ class PartnerPricing
         $this->cardAcquiringModel = $cardAcquiringModel;
         $this->billableFees = $billableFees;
         $this->minimumCommitment = $minimumCommitment;
+        $this->monthlyPlatformFee = $monthlyPlatformFee;
         $this->createdAt = $createdAt;
         $this->description = $description;
     }

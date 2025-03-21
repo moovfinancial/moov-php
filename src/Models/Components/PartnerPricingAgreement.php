@@ -76,6 +76,15 @@ class PartnerPricingAgreement
     public MinimumCommitment $minimumCommitment;
 
     /**
+     * Fixed recurring amount paid in the billing period regardless of usage.
+     *
+     * @var MonthlyPlatformFee $monthlyPlatformFee
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('monthlyPlatformFee')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\MonthlyPlatformFee')]
+    public MonthlyPlatformFee $monthlyPlatformFee;
+
+    /**
      * The integer percentage value of the revenue split for partner.
      *
      * @var int $revenueShare
@@ -109,12 +118,13 @@ class PartnerPricingAgreement
      * @param  CardAcquiringModel  $cardAcquiringModel
      * @param  array<BillableFee>  $billableFees
      * @param  MinimumCommitment  $minimumCommitment
+     * @param  MonthlyPlatformFee  $monthlyPlatformFee
      * @param  int  $revenueShare
      * @param  ?string  $accountID
      * @param  ?string  $description
      * @phpstan-pure
      */
-    public function __construct(string $agreementID, string $planID, string $name, \DateTime $acceptedOn, FeePlanAgreementStatus $status, CardAcquiringModel $cardAcquiringModel, array $billableFees, MinimumCommitment $minimumCommitment, int $revenueShare, ?string $accountID = null, ?string $description = null)
+    public function __construct(string $agreementID, string $planID, string $name, \DateTime $acceptedOn, FeePlanAgreementStatus $status, CardAcquiringModel $cardAcquiringModel, array $billableFees, MinimumCommitment $minimumCommitment, MonthlyPlatformFee $monthlyPlatformFee, int $revenueShare, ?string $accountID = null, ?string $description = null)
     {
         $this->agreementID = $agreementID;
         $this->planID = $planID;
@@ -124,6 +134,7 @@ class PartnerPricingAgreement
         $this->cardAcquiringModel = $cardAcquiringModel;
         $this->billableFees = $billableFees;
         $this->minimumCommitment = $minimumCommitment;
+        $this->monthlyPlatformFee = $monthlyPlatformFee;
         $this->revenueShare = $revenueShare;
         $this->accountID = $accountID;
         $this->description = $description;
