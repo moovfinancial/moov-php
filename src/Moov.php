@@ -56,6 +56,8 @@ class Moov
 
     public Sweeps $sweeps;
 
+    public TerminalConfigurations $terminalConfigurations;
+
     public Transfers $transfers;
 
     public Underwriting $underwriting;
@@ -128,6 +130,7 @@ class Moov
         $this->scheduling = new Scheduling($this->sdkConfiguration);
         $this->schedules = new Schedules($this->sdkConfiguration);
         $this->sweeps = new Sweeps($this->sdkConfiguration);
+        $this->terminalConfigurations = new TerminalConfigurations($this->sdkConfiguration);
         $this->transfers = new Transfers($this->sdkConfiguration);
         $this->underwriting = new Underwriting($this->sdkConfiguration);
         $this->wallets = new Wallets($this->sdkConfiguration);

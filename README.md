@@ -859,6 +859,13 @@ you'll need to specify the `/terminalApplications.read` scope.
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/terminalApplications.read` scope.
 
+### [terminalConfigurations](docs/sdks/terminalconfigurations/README.md)
+
+* [get](docs/sdks/terminalconfigurations/README.md#get) - Fetch the configuration for a given Terminal Application
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/terminal-configuration.read` scope.
+
 ### [transactions](docs/sdks/transactions/README.md)
 
 * [get](docs/sdks/transactions/README.md#get) - Retrieves details of an issued card transaction associated with a specific Moov account.

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: ba92634b261c3ff12f7250dcbb73a47f
+  docChecksum: abc608e993096aff2bfd3e90dc3d5086
   docVersion: latest
-  speakeasyVersion: 1.521.1
-  generationVersion: 2.558.5
-  releaseVersion: 0.3.7
-  configChecksum: 84a834b5fb1ece2d90b420e8c1549303
+  speakeasyVersion: 1.522.0
+  generationVersion: 2.559.0
+  releaseVersion: 0.3.8
+  configChecksum: a01b678feab890b6924a22d9e3605f2b
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
@@ -391,6 +391,7 @@ generatedFiles:
   - docs/Models/Components/TerminalApplicationPlatform.md
   - docs/Models/Components/TerminalApplicationStatus.md
   - docs/Models/Components/TerminalCard.md
+  - docs/Models/Components/TerminalConfiguration.md
   - docs/Models/Components/TermsOfService.md
   - docs/Models/Components/TermsOfServiceError.md
   - docs/Models/Components/TermsOfServiceToken.md
@@ -603,6 +604,8 @@ generatedFiles:
   - docs/Models/Operations/GetSweepResponse.md
   - docs/Models/Operations/GetTerminalApplicationRequest.md
   - docs/Models/Operations/GetTerminalApplicationResponse.md
+  - docs/Models/Operations/GetTerminalConfigurationRequest.md
+  - docs/Models/Operations/GetTerminalConfigurationResponse.md
   - docs/Models/Operations/GetTermsOfServiceTokenRequest.md
   - docs/Models/Operations/GetTermsOfServiceTokenResponse.md
   - docs/Models/Operations/GetTransferRequest.md
@@ -773,6 +776,7 @@ generatedFiles:
   - docs/sdks/scheduling/README.md
   - docs/sdks/sweeps/README.md
   - docs/sdks/terminalapplications/README.md
+  - docs/sdks/terminalconfigurations/README.md
   - docs/sdks/transactions/README.md
   - docs/sdks/transfers/README.md
   - docs/sdks/underwriting/README.md
@@ -1170,6 +1174,7 @@ generatedFiles:
   - src/Models/Components/TerminalApplicationPlatform.php
   - src/Models/Components/TerminalApplicationStatus.php
   - src/Models/Components/TerminalCard.php
+  - src/Models/Components/TerminalConfiguration.php
   - src/Models/Components/TermsOfService.php
   - src/Models/Components/TermsOfServiceError.php
   - src/Models/Components/TermsOfServiceToken.php
@@ -1416,6 +1421,8 @@ generatedFiles:
   - src/Models/Operations/GetSweepResponse.php
   - src/Models/Operations/GetTerminalApplicationRequest.php
   - src/Models/Operations/GetTerminalApplicationResponse.php
+  - src/Models/Operations/GetTerminalConfigurationRequest.php
+  - src/Models/Operations/GetTerminalConfigurationResponse.php
   - src/Models/Operations/GetTermsOfServiceTokenRequest.php
   - src/Models/Operations/GetTermsOfServiceTokenResponse.php
   - src/Models/Operations/GetTransferRequest.php
@@ -1567,6 +1574,7 @@ generatedFiles:
   - src/Scheduling.php
   - src/Sweeps.php
   - src/TerminalApplications.php
+  - src/TerminalConfigurations.php
   - src/Transactions.php
   - src/Transfers.php
   - src/Underwriting.php
@@ -3251,5 +3259,15 @@ examples:
       responses:
         "200":
           application/json: [{"receiptID": "8a232aa0-b11b-48a0-8057-1e9e705d0e6e", "createdBy": "1e276671-8d6d-4461-b2e0-aee1b9ddf121", "disabledOn": "2009-11-10T23:00:00Z", "kind": "sale.customer.v1", "email": "jordan.lee@classbooker.dev", "sentFor": [{"receiptID": "2a4c8104-fb45-41a7-a0cf-c8fe07fbc60a", "idempotencyKey": "960d5611-ff65-473e-90a6-2331ad7c07cc", "sentOn": "2009-11-10T23:00:00Z"}, {"receiptID": "81991696-ebd8-434b-b7d8-c2236e085944", "idempotencyKey": "bceb27bd-4753-4d0a-917c-478e329a9ec9", "sentOn": "2009-11-10T23:00:00Z"}, {"receiptID": "938e1a63-0f5f-4e36-a808-2fa02e0874e7", "idempotencyKey": "307648ec-2ed7-4f30-939d-ec6f45d97b2c", "sentOn": "2009-11-10T23:00:00Z"}]}, {"receiptID": "d7f7bcfa-269a-4f21-b94d-5861b3fe5754", "createdBy": "0c551a92-c743-41dd-8f19-3e2177ab4c4d", "disabledOn": "2009-11-10T23:00:00Z", "kind": "sale.customer.v1", "email": "jordan.lee@classbooker.dev", "sentFor": []}, {"receiptID": "cedb55c7-155b-40db-ba7a-30fd263f0cce", "createdBy": "19e17aef-2e28-4695-bca4-33b1104d1efa", "disabledOn": "2009-11-10T23:00:00Z", "kind": "sale.customer.v1", "email": "jordan.lee@classbooker.dev", "sentFor": [{"receiptID": "ad1494b3-d276-4b63-9f80-6d94b843a1ce", "idempotencyKey": "23bc77dd-5bb4-42fc-8fa6-f3f7b3d58ee6", "sentOn": "2009-11-10T23:00:00Z"}, {"receiptID": "458f7304-a0a3-4715-ae54-f642e86b7c60", "idempotencyKey": "73f56981-2ed5-452f-9f7f-fa2f9aacddda", "sentOn": "2009-11-10T23:00:00Z"}]}]
+  getTerminalConfiguration:
+    speakeasy-default-get-terminal-configuration:
+      parameters:
+        path:
+          accountID: "b888f774-3e7c-4135-a18c-6b985523c4bc"
+          terminalApplicationID: "01234567-89ab-cdef-0123-456789abcdef"
+        header: {}
+      responses:
+        "200":
+          application/json: {"configuration": "Zm9vYmFyCg=="}
 examplesVersion: 1.0.0
 generatedTests: {}
