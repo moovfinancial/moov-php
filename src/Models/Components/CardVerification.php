@@ -39,20 +39,21 @@ class CardVerification
     /**
      * The results of submitting cardholder name to a card network for verification.
      *
-     * @var AccountNameVerification $accountName
+     * @var ?AccountNameVerification $accountName
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('accountName')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AccountNameVerification')]
-    public AccountNameVerification $accountName;
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AccountNameVerification|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?AccountNameVerification $accountName = null;
 
     /**
      * @param  CardVerificationResult  $cvv
      * @param  CardVerificationResult  $addressLine1
      * @param  CardVerificationResult  $postalCode
-     * @param  AccountNameVerification  $accountName
+     * @param  ?AccountNameVerification  $accountName
      * @phpstan-pure
      */
-    public function __construct(CardVerificationResult $cvv, CardVerificationResult $addressLine1, CardVerificationResult $postalCode, AccountNameVerification $accountName)
+    public function __construct(CardVerificationResult $cvv, CardVerificationResult $addressLine1, CardVerificationResult $postalCode, ?AccountNameVerification $accountName = null)
     {
         $this->cvv = $cvv;
         $this->addressLine1 = $addressLine1;
