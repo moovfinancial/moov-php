@@ -92,56 +92,6 @@ class Card
     public CardVerification $cardVerification;
 
     /**
-     * Financial institution that issued the card.
-     *
-     * @var string $issuer
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('issuer')]
-    public string $issuer;
-
-    /**
-     * Country where the card was issued.
-     *
-     * @var string $issuerCountry
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('issuerCountry')]
-    public string $issuerCountry;
-
-    /**
-     * URL of the issuer.
-     *
-     * @var string $issuerURL
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('issuerURL')]
-    public string $issuerURL;
-
-    /**
-     * Phone number of the issuer.
-     *
-     * @var string $issuerPhone
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('issuerPhone')]
-    public string $issuerPhone;
-
-    /**
-     * Indicates which level of domestic push-to-card transfer is supported by the card, if any.
-     *
-     * @var DomesticPushToCard $domesticPushToCard
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('domesticPushToCard')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\DomesticPushToCard')]
-    public DomesticPushToCard $domesticPushToCard;
-
-    /**
-     * Indicates if the card supports domestic pull-from-card transfer.
-     *
-     * @var DomesticPullFromCard $domesticPullFromCard
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('domesticPullFromCard')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\DomesticPullFromCard')]
-    public DomesticPullFromCard $domesticPullFromCard;
-
-    /**
      * The category or level of the card defined by the issuer.
      *
      * Examples include, but not limited to, "REWARDS", "TRADITIONAL REWARDS", "CLASSIC", and "CORPORATE PURCHASING".
@@ -160,6 +110,42 @@ class Card
     #[\Speakeasy\Serializer\Annotation\SerializedName('holderName')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $holderName = null;
+
+    /**
+     * Financial institution that issued the card.
+     *
+     * @var ?string $issuer
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('issuer')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $issuer = null;
+
+    /**
+     * Country where the card was issued.
+     *
+     * @var ?string $issuerCountry
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('issuerCountry')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $issuerCountry = null;
+
+    /**
+     * URL of the issuer.
+     *
+     * @var ?string $issuerURL
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('issuerURL')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $issuerURL = null;
+
+    /**
+     * Phone number of the issuer.
+     *
+     * @var ?string $issuerPhone
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('issuerPhone')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $issuerPhone = null;
 
     /**
      * If true, the card is for commercial use, or associated with a business.
@@ -211,6 +197,26 @@ class Card
     public ?CardAccountUpdater $cardAccountUpdater = null;
 
     /**
+     * Indicates which level of domestic push-to-card transfer is supported by the card, if any.
+     *
+     * @var ?DomesticPushToCard $domesticPushToCard
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('domesticPushToCard')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\DomesticPushToCard|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?DomesticPushToCard $domesticPushToCard = null;
+
+    /**
+     * Indicates if the card supports domestic pull-from-card transfer.
+     *
+     * @var ?DomesticPullFromCard $domesticPullFromCard
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('domesticPullFromCard')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\DomesticPullFromCard|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?DomesticPullFromCard $domesticPullFromCard = null;
+
+    /**
      * $paymentMethods
      *
      * @var ?array<BasicPaymentMethod> $paymentMethods
@@ -230,23 +236,23 @@ class Card
      * @param  CardExpiration  $expiration
      * @param  CardAddress  $billingAddress
      * @param  CardVerification  $cardVerification
-     * @param  string  $issuer
-     * @param  string  $issuerCountry
-     * @param  string  $issuerURL
-     * @param  string  $issuerPhone
-     * @param  DomesticPushToCard  $domesticPushToCard
-     * @param  DomesticPullFromCard  $domesticPullFromCard
      * @param  ?string  $cardCategory
      * @param  ?string  $holderName
+     * @param  ?string  $issuer
+     * @param  ?string  $issuerCountry
+     * @param  ?string  $issuerURL
+     * @param  ?string  $issuerPhone
      * @param  ?bool  $commercial
      * @param  ?bool  $regulated
      * @param  ?bool  $cardOnFile
      * @param  ?string  $merchantAccountID
      * @param  ?CardAccountUpdater  $cardAccountUpdater
+     * @param  ?DomesticPushToCard  $domesticPushToCard
+     * @param  ?DomesticPullFromCard  $domesticPullFromCard
      * @param  ?array<BasicPaymentMethod>  $paymentMethods
      * @phpstan-pure
      */
-    public function __construct(string $cardID, string $fingerprint, CardBrand $brand, CardType $cardType, string $lastFourCardNumber, string $bin, CardExpiration $expiration, CardAddress $billingAddress, CardVerification $cardVerification, string $issuer, string $issuerCountry, string $issuerURL, string $issuerPhone, DomesticPushToCard $domesticPushToCard, DomesticPullFromCard $domesticPullFromCard, ?string $cardCategory = null, ?string $holderName = null, ?bool $commercial = null, ?bool $regulated = null, ?bool $cardOnFile = null, ?string $merchantAccountID = null, ?CardAccountUpdater $cardAccountUpdater = null, ?array $paymentMethods = null)
+    public function __construct(string $cardID, string $fingerprint, CardBrand $brand, CardType $cardType, string $lastFourCardNumber, string $bin, CardExpiration $expiration, CardAddress $billingAddress, CardVerification $cardVerification, ?string $cardCategory = null, ?string $holderName = null, ?string $issuer = null, ?string $issuerCountry = null, ?string $issuerURL = null, ?string $issuerPhone = null, ?bool $commercial = null, ?bool $regulated = null, ?bool $cardOnFile = null, ?string $merchantAccountID = null, ?CardAccountUpdater $cardAccountUpdater = null, ?DomesticPushToCard $domesticPushToCard = null, ?DomesticPullFromCard $domesticPullFromCard = null, ?array $paymentMethods = null)
     {
         $this->cardID = $cardID;
         $this->fingerprint = $fingerprint;
@@ -257,19 +263,19 @@ class Card
         $this->expiration = $expiration;
         $this->billingAddress = $billingAddress;
         $this->cardVerification = $cardVerification;
+        $this->cardCategory = $cardCategory;
+        $this->holderName = $holderName;
         $this->issuer = $issuer;
         $this->issuerCountry = $issuerCountry;
         $this->issuerURL = $issuerURL;
         $this->issuerPhone = $issuerPhone;
-        $this->domesticPushToCard = $domesticPushToCard;
-        $this->domesticPullFromCard = $domesticPullFromCard;
-        $this->cardCategory = $cardCategory;
-        $this->holderName = $holderName;
         $this->commercial = $commercial;
         $this->regulated = $regulated;
         $this->cardOnFile = $cardOnFile;
         $this->merchantAccountID = $merchantAccountID;
         $this->cardAccountUpdater = $cardAccountUpdater;
+        $this->domesticPushToCard = $domesticPushToCard;
+        $this->domesticPullFromCard = $domesticPullFromCard;
         $this->paymentMethods = $paymentMethods;
     }
 }
