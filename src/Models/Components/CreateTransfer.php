@@ -67,15 +67,26 @@ class CreateTransfer
     public ?array $metadata = null;
 
     /**
+     * Optional sales tax amount. `transfer.amount.value` should be inclusive of any sales tax and represents the total amount charged.
+     *
+     * @var ?Amount $salesTaxAmount
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('salesTaxAmount')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Amount|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?Amount $salesTaxAmount = null;
+
+    /**
      * @param  CreateTransferSource  $source
      * @param  CreateTransferDestination  $destination
      * @param  Amount  $amount
      * @param  ?FacilitatorFee  $facilitatorFee
      * @param  ?string  $description
      * @param  ?array<string, string>  $metadata
+     * @param  ?Amount  $salesTaxAmount
      * @phpstan-pure
      */
-    public function __construct(CreateTransferSource $source, CreateTransferDestination $destination, Amount $amount, ?FacilitatorFee $facilitatorFee = null, ?string $description = null, ?array $metadata = null)
+    public function __construct(CreateTransferSource $source, CreateTransferDestination $destination, Amount $amount, ?FacilitatorFee $facilitatorFee = null, ?string $description = null, ?array $metadata = null, ?Amount $salesTaxAmount = null)
     {
         $this->source = $source;
         $this->destination = $destination;
@@ -83,5 +94,6 @@ class CreateTransfer
         $this->facilitatorFee = $facilitatorFee;
         $this->description = $description;
         $this->metadata = $metadata;
+        $this->salesTaxAmount = $salesTaxAmount;
     }
 }
