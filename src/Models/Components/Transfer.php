@@ -78,7 +78,7 @@ class Transfer
     public ?TransferFailureReason $failureReason = null;
 
     /**
-     * An optional description of the transfer for your own internal use.
+     * An optional description of the transfer that is used on receipts and for your own internal use.
      *
      * @var ?string $description
      */
