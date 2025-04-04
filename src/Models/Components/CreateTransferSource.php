@@ -13,7 +13,7 @@ namespace Moov\MoovPhp\Models\Components;
 class CreateTransferSource
 {
     /**
-     * A `transferID` is used to create a [transfer group](https://docs.moov.io/guides/money-movement/transfer-groups/), 
+     * A `transferID` is used to create a [transfer group](https://docs.moov.io/guides/money-movement/transfer-groups/),
      *
      * associating the new transfer with a parent transfer.
      *
