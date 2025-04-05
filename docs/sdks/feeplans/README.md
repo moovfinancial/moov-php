@@ -5,14 +5,14 @@
 
 ### Available Operations
 
-* [createAgreements](#createagreements) - Creates the subscription of a fee plan to a merchant account. Merchants are required to accept the fee plan terms prior to activation.
-
-To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
-you'll need to specify the `/accounts/{accountID}/profile.write` scope.
 * [list](#list) - List all fee plan agreements associated with an account.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/profile.read` scope.
+* [createAgreements](#createagreements) - Creates the subscription of a fee plan to a merchant account. Merchants are required to accept the fee plan terms prior to activation.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/profile.write` scope.
 * [listByAccount](#listbyaccount) - List all fee plans available for use by an account. This is intended to be used by an account when 
 selecting a fee plan to apply to a connected account.
 
@@ -30,6 +30,64 @@ you'll need to specify the `/accounts/{accountID}/profile.read` scope.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/profile.read` scope.
+
+## list
+
+List all fee plan agreements associated with an account.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/profile.read` scope.
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
+use Moov\MoovPhp\Models\Operations;
+
+$sdk = MoovPhp\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
+
+$request = new Operations\ListFeePlanAgreementsRequest(
+    skip: 60,
+    count: 20,
+    accountID: 'c8a232aa-0b11-4b8a-b005-71e9e705d0e6',
+);
+
+$response = $sdk->feePlans->list(
+    request: $request
+);
+
+if ($response->feePlanAgreements !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                         | [Operations\ListFeePlanAgreementsRequest](../../Models/Operations/ListFeePlanAgreementsRequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
+
+### Response
+
+**[?Operations\ListFeePlanAgreementsResponse](../../Models/Operations/ListFeePlanAgreementsResponse.md)**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| Errors\APIException | 4XX, 5XX            | \*/\*               |
 
 ## createAgreements
 
@@ -92,64 +150,6 @@ if ($response->feePlanAgreement !== null) {
 | Errors\GenericError          | 400, 409                     | application/json             |
 | Errors\FeePlanAgreementError | 422                          | application/json             |
 | Errors\APIException          | 4XX, 5XX                     | \*/\*                        |
-
-## list
-
-List all fee plan agreements associated with an account.
-
-To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
-you'll need to specify the `/accounts/{accountID}/profile.read` scope.
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use Moov\MoovPhp;
-use Moov\MoovPhp\Models\Components;
-use Moov\MoovPhp\Models\Operations;
-
-$sdk = MoovPhp\Moov::builder()
-    ->setSecurity(
-        new Components\Security(
-            username: '',
-            password: '',
-        )
-    )
-    ->build();
-
-$request = new Operations\ListFeePlanAgreementsRequest(
-    accountID: 'c8a232aa-0b11-4b8a-b005-71e9e705d0e6',
-    skip: 60,
-    count: 20,
-);
-
-$response = $sdk->feePlans->list(
-    request: $request
-);
-
-if ($response->feePlanAgreements !== null) {
-    // handle response
-}
-```
-
-### Parameters
-
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                         | [Operations\ListFeePlanAgreementsRequest](../../Models/Operations/ListFeePlanAgreementsRequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
-
-### Response
-
-**[?Operations\ListFeePlanAgreementsResponse](../../Models/Operations/ListFeePlanAgreementsResponse.md)**
-
-### Errors
-
-| Error Type          | Status Code         | Content Type        |
-| ------------------- | ------------------- | ------------------- |
-| Errors\APIException | 4XX, 5XX            | \*/\*               |
 
 ## listByAccount
 
@@ -358,9 +358,9 @@ $sdk = MoovPhp\Moov::builder()
     ->build();
 
 $request = new Operations\ListPartnerPricingAgreementsRequest(
-    accountID: '9366921a-25de-4c52-8ec6-4cd4ef557223',
     skip: 60,
     count: 20,
+    accountID: '9366921a-25de-4c52-8ec6-4cd4ef557223',
 );
 
 $response = $sdk->feePlans->listPartnerPricingAgreements(

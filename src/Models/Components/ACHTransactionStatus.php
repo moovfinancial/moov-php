@@ -12,6 +12,7 @@ namespace Moov\MoovPhp\Models\Components;
 /** Status of a transaction within the ACH lifecycle. */
 enum ACHTransactionStatus: string
 {
+    case Unknown = '';
     case Initiated = 'initiated';
     case Originated = 'originated';
     case Corrected = 'corrected';

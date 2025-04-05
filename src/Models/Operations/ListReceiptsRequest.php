@@ -12,12 +12,12 @@ use Moov\MoovPhp\Utils\SpeakeasyMetadata;
 class ListReceiptsRequest
 {
     /**
-     * The unique identifier to filter receipts by.
+     * The transfer, schedule, or transfer occurrence ID to filter receipts by.
      *
-     * @var ?string $id
+     * @var string $id
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=id')]
-    public ?string $id = null;
+    public string $id;
 
     /**
      * Specify an API version.
@@ -37,11 +37,11 @@ class ListReceiptsRequest
     public ?string $xMoovVersion = null;
 
     /**
+     * @param  string  $id
      * @param  ?string  $xMoovVersion
-     * @param  ?string  $id
      * @phpstan-pure
      */
-    public function __construct(?string $id = null, ?string $xMoovVersion = 'v2024.01.00')
+    public function __construct(string $id, ?string $xMoovVersion = 'v2024.01.00')
     {
         $this->id = $id;
         $this->xMoovVersion = $xMoovVersion;

@@ -101,13 +101,13 @@ class Receipts
 
                 $serializer = Utils\JSON::createSerializer();
                 $responseData = (string) $httpResponse->getBody();
-                $obj = $serializer->deserialize($responseData, '\Moov\MoovPhp\Models\Components\ReceiptResponse', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj = $serializer->deserialize($responseData, 'array<\Moov\MoovPhp\Models\Components\ReceiptResponse>', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
                 $response = new Operations\CreateReceiptsResponse(
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
                     headers: $httpResponse->getHeaders(),
-                    receiptResponse: $obj);
+                    receiptResponses: $obj);
 
                 return $response;
             } else {
@@ -124,18 +124,7 @@ class Receipts
             } else {
                 throw new \Moov\MoovPhp\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['422'])) {
-            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
-                $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
-
-                $serializer = Utils\JSON::createSerializer();
-                $responseData = (string) $httpResponse->getBody();
-                $obj = $serializer->deserialize($responseData, '\Moov\MoovPhp\Models\Errors\ReceiptValidationError', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
-                throw $obj->toException();
-            } else {
-                throw new \Moov\MoovPhp\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-            }
-        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '404', '429'])) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '404', '422', '429'])) {
             throw new \Moov\MoovPhp\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } elseif (Utils\Utils::matchStatusCodes($statusCode, ['500', '504'])) {
             throw new \Moov\MoovPhp\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
@@ -149,21 +138,21 @@ class Receipts
     }
 
     /**
-     * List receipts by trasnferID, scheduleID, or occurrenceID.
+     * List receipts by transferID, scheduleID, or occurrenceID.
      *
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
      *
+     * @param  string  $id
      * @param  ?string  $xMoovVersion
-     * @param  ?string  $id
      * @return Operations\ListReceiptsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function list(?string $xMoovVersion = null, ?string $id = null, ?Options $options = null): Operations\ListReceiptsResponse
+    public function list(string $id, ?string $xMoovVersion = null, ?Options $options = null): Operations\ListReceiptsResponse
     {
         $request = new Operations\ListReceiptsRequest(
-            xMoovVersion: $xMoovVersion,
             id: $id,
+            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/receipts');

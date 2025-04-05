@@ -42,24 +42,24 @@ class CreateReceiptsResponse
     /**
      * The resource was successfully created.
      *
-     * @var ?Components\ReceiptResponse $receiptResponse
+     * @var ?array<Components\ReceiptResponse> $receiptResponses
      */
-    public ?Components\ReceiptResponse $receiptResponse = null;
+    public ?array $receiptResponses = null;
 
     /**
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\ReceiptResponse  $receiptResponse
+     * @param  ?array<Components\ReceiptResponse>  $receiptResponses
      * @phpstan-pure
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\ReceiptResponse $receiptResponse = null, ?array $headers = [])
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?array $receiptResponses = null, ?array $headers = [])
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
         $this->headers = $headers;
-        $this->receiptResponse = $receiptResponse;
+        $this->receiptResponses = $receiptResponses;
     }
 }

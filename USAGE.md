@@ -16,20 +16,22 @@ $sdk = MoovPhp\Moov::builder()
     )
     ->build();
 
-$accountCountries = new Components\AccountCountries(
-    countries: [
-        'United States',
-    ],
+$createAccount = new Components\CreateAccount(
+    accountType: Components\AccountType::Business,
+    profile: new Components\CreateProfile(
+        business: new Components\CreateBusinessProfile(
+            legalBusinessName: 'Whole Body Fitness LLC',
+        ),
+    ),
 );
 
-$response = $sdk->accounts->assignCountries(
-    accountID: 'aa2dc19b-77dd-481f-a0a8-c76f2cfc1372',
-    accountCountries: $accountCountries,
+$response = $sdk->accounts->create(
+    createAccount: $createAccount,
     xMoovVersion: 'v2024.01.00'
 
 );
 
-if ($response->accountCountries !== null) {
+if ($response->account !== null) {
     // handle response
 }
 ```

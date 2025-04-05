@@ -44,6 +44,14 @@ class Transfer
     public Components\TransferDestination $destination;
 
     /**
+     *
+     * @var ?\DateTime $completedOn
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('completedOn')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?\DateTime $completedOn = null;
+
+    /**
      * Status of a transfer.
      *
      * @var Components\TransferStatus $status
@@ -51,22 +59,6 @@ class Transfer
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferStatus')]
     public Components\TransferStatus $status;
-
-    /**
-     *
-     * @var Components\Amount $amount
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Amount')]
-    public Components\Amount $amount;
-
-    /**
-     *
-     * @var ?\DateTime $completedOn
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('completedOn')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?\DateTime $completedOn = null;
 
     /**
      * Reason for a transfer's failure.
@@ -77,6 +69,14 @@ class Transfer
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferFailureReason|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Components\TransferFailureReason $failureReason = null;
+
+    /**
+     *
+     * @var Components\Amount $amount
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Amount')]
+    public Components\Amount $amount;
 
     /**
      * An optional description of the transfer that is used on receipts and for your own internal use.
@@ -258,10 +258,10 @@ class Transfer
         $this->createdOn = $createdOn;
         $this->source = $source;
         $this->destination = $destination;
-        $this->status = $status;
-        $this->amount = $amount;
         $this->completedOn = $completedOn;
+        $this->status = $status;
         $this->failureReason = $failureReason;
+        $this->amount = $amount;
         $this->description = $description;
         $this->metadata = $metadata;
         $this->facilitatorFee = $facilitatorFee;

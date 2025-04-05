@@ -7,6 +7,7 @@ Status of a transaction within the ACH lifecycle.
 
 | Name         | Value        |
 | ------------ | ------------ |
+| `Unknown`    |              |
 | `Initiated`  | initiated    |
 | `Originated` | originated   |
 | `Corrected`  | corrected    |
