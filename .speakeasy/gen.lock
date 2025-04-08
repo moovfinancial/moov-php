@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 2dbdeeb0d8fac224b353d922f825060b
+  docChecksum: 7e94be62322b26b6884dc6d62bbea5c4
   docVersion: latest
-  speakeasyVersion: 1.529.1
-  generationVersion: 2.566.5
-  releaseVersion: 0.3.14
-  configChecksum: 9873de6b42e2d5f04bba466d6140235c
+  speakeasyVersion: 1.531.0
+  generationVersion: 2.568.2
+  releaseVersion: 0.3.15
+  configChecksum: 4cf3ba77996aedf9a040439cae71f971
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
@@ -181,6 +181,7 @@ generatedFiles:
   - docs/Models/Components/CreateTransferSource.md
   - docs/Models/Components/CreateTransferSourceACH.md
   - docs/Models/Components/CreateTransferSourceCard.md
+  - docs/Models/Components/CreatedTransfer.md
   - docs/Models/Components/CustomerSupport.md
   - docs/Models/Components/CustomerSupportError.md
   - docs/Models/Components/DebitHoldPeriod.md
@@ -404,7 +405,6 @@ generatedFiles:
   - docs/Models/Components/TransferDestination.md
   - docs/Models/Components/TransferFailureReason.md
   - docs/Models/Components/TransferOptions.md
-  - docs/Models/Components/TransferResponse.md
   - docs/Models/Components/TransferSource.md
   - docs/Models/Components/TransferStatus.md
   - docs/Models/Components/TransferWaitFor.md
@@ -972,6 +972,7 @@ generatedFiles:
   - src/Models/Components/CreateTransferSource.php
   - src/Models/Components/CreateTransferSourceACH.php
   - src/Models/Components/CreateTransferSourceCard.php
+  - src/Models/Components/CreatedTransfer.php
   - src/Models/Components/CustomerSupport.php
   - src/Models/Components/CustomerSupportError.php
   - src/Models/Components/DebitHoldPeriod.php
@@ -2624,6 +2625,28 @@ examples:
           application/json: {"transferID": "d835gf30-4b19-4850-a9b2-c0624c41ecb3", "createdOn": "2025-01-21T21:32:16Z", "source": {"paymentMethodID": "9506dbf6-4208-44c3-ad8a-e4431660e1f2", "paymentMethodType": "card-payment", "account": {"accountID": "7e4b26c2-b399-49ef-8390-50e1ea44d550", "email": "jules@julesjackson.com", "displayName": "Jules Jackson"}, "card": {"cardID": "01234567-89ab-cdef-0123-456789abcdef", "fingerprint": "9948962d92a1ce40c9f918cd9ece3a22bde62fb325a2f1fe2e833969de672ba3", "brand": "Visa", "cardType": "credit", "lastFourCardNumber": "2000", "bin": "400020", "expiration": {"month": "01", "year": "21"}, "holderName": "Jules Jackson", "billingAddress": {"addressLine1": "123 Main Street", "addressLine2": "Apt 302", "city": "Boulder", "stateOrProvince": "CO", "postalCode": "80301", "country": "US"}, "cardVerification": {"cvv": "match", "addressLine1": "match", "postalCode": "match", "accountName": {"firstName": "match", "lastName": "match", "middleName": "match", "fullName": "match"}}, "issuer": "Moov Visa Sandbox", "issuerCountry": "US", "cardAccountUpdater": {"updatedOn": "2024-05-06T12:20:38.184Z", "updateType": "number-update"}, "domesticPushToCard": "standard", "domesticPullFromCard": "supported"}, "applePay": {"brand": "Visa", "cardType": "credit", "cardDisplayName": "Visa 1256", "fingerprint": "9948962d92a1ce40c9f918cd9ece3a22bde62fb325a2f1fe2e833969de672ba3", "expiration": {"month": "01", "year": "21"}, "dynamicLastFour": "<value>", "issuerCountry": "US"}, "terminalCard": {"entryMode": "contactless", "brand": "Visa", "bin": "123456", "cardType": "credit", "expiration": {"month": "01", "year": "21"}, "fingerprint": "9948962d92a1ce40c9f918cd9ece3a22bde62fb325a2f1fe2e833969de672ba3", "holderName": "Jules Jackson", "issuer": "GRINGOTTS BANK", "issuerCountry": "US", "lastFourCardNumber": "1234"}, "cardDetails": {"status": "confirmed", "dynamicDescriptor": "WhlBdy *Yoga 11-12", "confirmedOn": "2025-01-21T21:32:16.799681237Z", "feeProgram": "Visa Signature and Visa Infinite (Spend not-qualified) Product 1"}, "achDetails": {"status": "canceled", "traceNumber": "124782618117", "companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit", "debitHoldPeriod": "2-days"}}, "destination": {"paymentMethodID": "3f9969cf-a1f3-4d83-8ddc-229a506651cf", "paymentMethodType": "moov-wallet", "account": {"accountID": "34233b72-780c-4a0d-8b08-cbbe23k878f8", "email": "john@wholebodyfitness.io", "displayName": "Whole Body Fitness"}, "wallet": {"walletID": "744b2e78-8cc8-4a6a-af42-611e3b844503"}, "card": {"cardID": "01234567-89ab-cdef-0123-456789abcdef", "fingerprint": "9948962d92a1ce40c9f918cd9ece3a22bde62fb325a2f1fe2e833969de672ba3", "brand": "Visa", "cardType": "credit", "lastFourCardNumber": "<value>", "bin": "<value>", "expiration": {"month": "01", "year": "21"}, "billingAddress": {"addressLine1": "123 Main Street", "addressLine2": "Apt 302", "city": "Boulder", "stateOrProvince": "CO", "postalCode": "80301", "country": "US"}, "cardVerification": {"cvv": "match", "addressLine1": "match", "postalCode": "match", "accountName": {"firstName": "match", "lastName": "match", "middleName": "match", "fullName": "match"}}, "cardAccountUpdater": {"updatedOn": "2024-05-06T12:20:38.184Z", "updateType": "number-update"}, "domesticPushToCard": "standard", "domesticPullFromCard": "supported"}, "achDetails": {"status": "completed", "traceNumber": "124782618117", "companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit", "debitHoldPeriod": "2-days"}, "applePay": {"brand": "Visa", "cardType": "credit", "cardDisplayName": "Visa 1256", "fingerprint": "9948962d92a1ce40c9f918cd9ece3a22bde62fb325a2f1fe2e833969de672ba3", "expiration": {"month": "01", "year": "21"}, "dynamicLastFour": "<value>", "issuerCountry": "US"}, "cardDetails": {"status": "settled", "dynamicDescriptor": "WhlBdy *Yoga 11-12", "feeProgram": "Visa Signature and Visa Infinite (Spend not-qualified) Product 1"}}, "status": "pending", "amount": {"currency": "USD", "value": 1204}, "description": "Pay Instructor for May 15 Class", "metadata": {"optional": "metadata"}, "facilitatorFee": {"totalDecimal": "12.987654321", "markupDecimal": "0.987654321"}, "refundedAmount": {"currency": "USD", "value": 1204}, "refunds": [{"refundID": "fe37ee9b-c06e-4925-8a78-de7574d54a9b", "createdOn": "2024-04-05T16:12:51.193Z", "updatedOn": "2023-08-27T06:04:15.569Z", "status": "completed", "amount": {"currency": "USD", "value": 1204}}, {"refundID": "aba6d645-dff4-4048-96e1-2d0748e16758", "createdOn": "2024-03-29T07:57:57.195Z", "updatedOn": "2023-12-16T04:14:55.039Z", "status": "created", "amount": {"currency": "USD", "value": 1204}}], "disputedAmount": {"currency": "USD", "value": 1204}, "disputes": [{"disputeID": "95fa2802-e314-4a7d-9e3c-a8c2886ae0cc", "createdOn": "2025-05-18T16:44:35.653Z", "amount": {"currency": "USD", "value": 1204}}], "salesTaxAmount": {"currency": "USD", "value": 1204}}
         "422":
           application/json: {}
+    Created synchronous transfer:
+      parameters:
+        path:
+          accountID: "7a621cf0-21cd-49cf-8540-3315211a509a"
+        header:
+          x-idempotency-key: "080a8e77-4c2b-4ecc-9376-91775e024985"
+      requestBody:
+        application/json: {"source": {"paymentMethodID": "9506dbf6-4208-44c3-ad8a-e4431660e1f2"}, "destination": {"paymentMethodID": "3f9969cf-a1f3-4d83-8ddc-229a506651cf"}, "amount": {"currency": "USD", "value": 32945}, "description": "Transfer from card to wallet", "metadata": {"optional": "metadata"}}
+      responses:
+        "200":
+          application/json: {"transferID": "d835gf30-4b19-4850-a9b2-c0624c41ecb3", "createdOn": "2025-01-21T21:32:16Z", "source": {"paymentMethodID": "9506dbf6-4208-44c3-ad8a-e4431660e1f2", "paymentMethodType": "card-payment", "account": {"accountID": "7e4b26c2-b399-49ef-8390-50e1ea44d550", "email": "jules@julesjackson.com", "displayName": "Jules Jackson"}, "card": {"cardID": "aefd5563-93c6-413c-875e-1bd0ebfc116d", "fingerprint": "2f5d782ceef1c3bd31ed5...", "brand": "Visa", "cardType": "credit", "lastFourCardNumber": "2000", "bin": "400020", "expiration": {"month": "01", "year": "28"}, "holderName": "Jules Jackson", "billingAddress": {"postalCode": "80301"}, "cardVerification": {"cvv": "unavailable", "addressLine1": "unavailable", "postalCode": "unavailable", "accountName": {"firstName": "unavailable", "lastName": "unavailable", "middleName": "unavailable", "fullName": "unavailable"}}, "issuer": "Moov Visa Sandbox", "issuerCountry": "US", "cardAccountUpdater": {}, "domesticPushToCard": "standard", "domesticPullFromCard": "supported"}, "cardDetails": {"status": "confirmed", "dynamicDescriptor": "WhlBdy *Yoga 11-12", "confirmedOn": "2025-01-21T21:32:16.799681237Z"}}, "destination": {"paymentMethodID": "3f9969cf-a1f3-4d83-8ddc-229a506651cf", "paymentMethodType": "moov-wallet", "account": {"accountID": "34233b72-780c-4a0d-8b08-cbbe23k878f8", "email": "john@wholebodyfitness.io", "displayName": "Whole Body Fitness"}, "wallet": {"walletID": "744b2e78-8cc8-4a6a-af42-611e3b844503"}}, "status": "pending", "amount": {"currency": "USD", "value": 32945}, "description": "Transfer from card to wallet"}
+    Created async transfer:
+      parameters:
+        path:
+          accountID: "13de0ee8-03d5-46a1-adf9-436bfd394947"
+        header:
+          x-idempotency-key: "8bc19d4c-51e9-49df-9f42-acbeff61bc52"
+      requestBody:
+        application/json: {"source": {"paymentMethodID": "9506dbf6-4208-44c3-ad8a-e4431660e1f2"}, "destination": {"paymentMethodID": "3f9969cf-a1f3-4d83-8ddc-229a506651cf"}, "amount": {"currency": "USD", "value": 32945}, "description": "Transfer from card to wallet", "metadata": {"optional": "metadata"}}
+      responses:
+        "200":
+          application/json: {"transferID": "d835gf30-4b19-4850-a9b2-c0624c41ecb3", "createdOn": "2025-01-21T21:32:16Z"}
   listTransfers:
     speakeasy-default-list-transfers:
       parameters:

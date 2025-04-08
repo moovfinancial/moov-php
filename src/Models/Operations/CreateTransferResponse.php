@@ -42,9 +42,9 @@ class CreateTransferResponse
     /**
      * The request completed successfully.
      *
-     * @var Components\Transfer|Components\AsyncTransfer|null $transferResponse
+     * @var ?Components\CreatedTransfer $createdTransfer
      */
-    public Components\Transfer|Components\AsyncTransfer|null $transferResponse = null;
+    public ?Components\CreatedTransfer $createdTransfer = null;
 
     /**
      * A transfer was successfully created but an error occurred while generating the synchronous response. The asynchronous response object will be returned.
@@ -65,18 +65,18 @@ class CreateTransferResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  Components\Transfer|Components\AsyncTransfer|null  $transferResponse
+     * @param  ?Components\CreatedTransfer  $createdTransfer
      * @param  ?Components\AsyncTransfer  $asyncTransfer
      * @param  ?Components\Transfer  $transfer
      * @phpstan-pure
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, Components\Transfer|Components\AsyncTransfer|null $transferResponse = null, ?Components\AsyncTransfer $asyncTransfer = null, ?Components\Transfer $transfer = null, ?array $headers = [])
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\CreatedTransfer $createdTransfer = null, ?Components\AsyncTransfer $asyncTransfer = null, ?Components\Transfer $transfer = null, ?array $headers = [])
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
         $this->headers = $headers;
-        $this->transferResponse = $transferResponse;
+        $this->createdTransfer = $createdTransfer;
         $this->asyncTransfer = $asyncTransfer;
         $this->transfer = $transfer;
     }

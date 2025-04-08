@@ -126,7 +126,7 @@ $response = $sdk->transfers->create(
     request: $request
 );
 
-if ($response->transferResponse !== null) {
+if ($response->createdTransfer !== null) {
     // handle response
 }
 ```
