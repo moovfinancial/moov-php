@@ -37,15 +37,6 @@ class ReceiptResponse
     public ReceiptKind $kind;
 
     /**
-     * The list of receipts that have been sent.
-     *
-     * @var array<SentReceipt> $sentFor
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('sentFor')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\SentReceipt>')]
-    public array $sentFor;
-
-    /**
      * The date and time the receipt was disabled.
      *
      * @var ?\DateTime $disabledOn
@@ -110,29 +101,39 @@ class ReceiptResponse
     public ?string $forOccurrenceID = null;
 
     /**
+     * The list of receipts that have been sent.
+     *
+     * @var ?array<SentReceipt> $sentFor
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('sentFor')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\SentReceipt>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $sentFor = null;
+
+    /**
      * @param  string  $receiptID
      * @param  string  $createdBy
      * @param  ReceiptKind  $kind
-     * @param  array<SentReceipt>  $sentFor
      * @param  ?\DateTime  $disabledOn
      * @param  ?string  $email
      * @param  ?string  $emailAccountID
      * @param  ?string  $forTransferID
      * @param  ?string  $forScheduleID
      * @param  ?string  $forOccurrenceID
+     * @param  ?array<SentReceipt>  $sentFor
      * @phpstan-pure
      */
-    public function __construct(string $receiptID, string $createdBy, ReceiptKind $kind, array $sentFor, ?\DateTime $disabledOn = null, ?string $email = null, ?string $emailAccountID = null, ?string $forTransferID = null, ?string $forScheduleID = null, ?string $forOccurrenceID = null)
+    public function __construct(string $receiptID, string $createdBy, ReceiptKind $kind, ?\DateTime $disabledOn = null, ?string $email = null, ?string $emailAccountID = null, ?string $forTransferID = null, ?string $forScheduleID = null, ?string $forOccurrenceID = null, ?array $sentFor = null)
     {
         $this->receiptID = $receiptID;
         $this->createdBy = $createdBy;
         $this->kind = $kind;
-        $this->sentFor = $sentFor;
         $this->disabledOn = $disabledOn;
         $this->email = $email;
         $this->emailAccountID = $emailAccountID;
         $this->forTransferID = $forTransferID;
         $this->forScheduleID = $forScheduleID;
         $this->forOccurrenceID = $forOccurrenceID;
+        $this->sentFor = $sentFor;
     }
 }
