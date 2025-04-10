@@ -98,14 +98,6 @@ class SweepConfig
     public ?array $lockedFields = null;
 
     /**
-     *
-     * @var ?\DateTime $disabledOn
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('disabledOn')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?\DateTime $disabledOn = null;
-
-    /**
      * @param  string  $sweepConfigID
      * @param  string  $walletID
      * @param  SweepConfigStatus  $status
@@ -116,10 +108,9 @@ class SweepConfig
      * @param  ?string  $minimumBalance
      * @param  ?string  $statementDescriptor
      * @param  ?array<string>  $lockedFields
-     * @param  ?\DateTime  $disabledOn
      * @phpstan-pure
      */
-    public function __construct(string $sweepConfigID, string $walletID, SweepConfigStatus $status, SweepConfigPaymentMethod $pushPaymentMethod, SweepConfigPaymentMethod $pullPaymentMethod, \DateTime $createdOn, \DateTime $updatedOn, ?string $minimumBalance = null, ?string $statementDescriptor = null, ?array $lockedFields = null, ?\DateTime $disabledOn = null)
+    public function __construct(string $sweepConfigID, string $walletID, SweepConfigStatus $status, SweepConfigPaymentMethod $pushPaymentMethod, SweepConfigPaymentMethod $pullPaymentMethod, \DateTime $createdOn, \DateTime $updatedOn, ?string $minimumBalance = null, ?string $statementDescriptor = null, ?array $lockedFields = null)
     {
         $this->sweepConfigID = $sweepConfigID;
         $this->walletID = $walletID;
@@ -131,6 +122,5 @@ class SweepConfig
         $this->minimumBalance = $minimumBalance;
         $this->statementDescriptor = $statementDescriptor;
         $this->lockedFields = $lockedFields;
-        $this->disabledOn = $disabledOn;
     }
 }
