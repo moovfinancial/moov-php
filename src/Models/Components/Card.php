@@ -217,7 +217,10 @@ class Card
     public ?DomesticPullFromCard $domesticPullFromCard = null;
 
     /**
-     * $paymentMethods
+     *   Includes any payment methods created as a result of linking a card with the `x-wait-for` header set to `payment-method`.
+     *
+     *
+     *   Only returned by the link card endpoint; not included when getting or listing cards.
      *
      * @var ?array<BasicPaymentMethod> $paymentMethods
      */
