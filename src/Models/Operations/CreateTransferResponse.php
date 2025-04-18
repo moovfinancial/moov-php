@@ -54,7 +54,7 @@ class CreateTransferResponse
     public ?Components\AsyncTransfer $asyncTransfer = null;
 
     /**
-     * A transfer was successfully created but a timeout occurred while waiting for a synchronous response. Rail-specific details may be missing from the response object.
+     * The transfer was created, but rail-specific details may not be available within the 15 second timeout window.
      *
      * @var ?Components\Transfer $transfer
      */

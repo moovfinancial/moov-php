@@ -39,7 +39,7 @@ class InitiateRefundRequest
     /**
      * Optional header that indicates whether to return a synchronous response that includes full transfer and rail-specific details or an 
      *
-     * asynchronous response indicating the transfer was created (this is the default response if the header is omitted).
+     * asynchronous response indicating the transfer was created (this is the default response if the header is omitted). A timeout will occur after 15 seconds.
      *
      * @var ?Components\TransferWaitFor $xWaitFor
      */
