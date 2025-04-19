@@ -1,4 +1,4 @@
-# GetTerminalApplicationResponse
+# LinkAccountTerminalApplicationResponse
 
 
 ## Fields
