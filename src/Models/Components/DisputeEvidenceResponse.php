@@ -84,6 +84,15 @@ class DisputeEvidenceResponse
     public ?int $size = null;
 
     /**
+     * When the evidence was submitted for review.
+     *
+     * @var ?\DateTime $submittedOn
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('submittedOn')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?\DateTime $submittedOn = null;
+
+    /**
      * @param  string  $evidenceID
      * @param  string  $disputeID
      * @param  EvidenceType  $evidenceType
@@ -93,9 +102,10 @@ class DisputeEvidenceResponse
      * @param  ?string  $mimeType
      * @param  ?string  $filename
      * @param  ?int  $size
+     * @param  ?\DateTime  $submittedOn
      * @phpstan-pure
      */
-    public function __construct(string $evidenceID, string $disputeID, EvidenceType $evidenceType, \DateTime $createdOn, \DateTime $updatedOn, ?string $text = null, ?string $mimeType = null, ?string $filename = null, ?int $size = null)
+    public function __construct(string $evidenceID, string $disputeID, EvidenceType $evidenceType, \DateTime $createdOn, \DateTime $updatedOn, ?string $text = null, ?string $mimeType = null, ?string $filename = null, ?int $size = null, ?\DateTime $submittedOn = null)
     {
         $this->evidenceID = $evidenceID;
         $this->disputeID = $disputeID;
@@ -106,5 +116,6 @@ class DisputeEvidenceResponse
         $this->mimeType = $mimeType;
         $this->filename = $filename;
         $this->size = $size;
+        $this->submittedOn = $submittedOn;
     }
 }
