@@ -98,6 +98,14 @@ class Dispute
     public ?string $networkReasonDescription = null;
 
     /**
+     *
+     * @var ?\DateTime $submittedOn
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('submittedOn')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?\DateTime $submittedOn = null;
+
+    /**
      * @param  string  $disputeID
      * @param  string  $merchantAccountID
      * @param  Amount  $amount
@@ -108,9 +116,10 @@ class Dispute
      * @param  DisputePhase  $phase
      * @param  \DateTime  $createdOn
      * @param  ?string  $networkReasonDescription
+     * @param  ?\DateTime  $submittedOn
      * @phpstan-pure
      */
-    public function __construct(string $disputeID, string $merchantAccountID, Amount $amount, string $networkReasonCode, DisputeTransferDetails $transfer, \DateTime $respondBy, DisputeStatus $status, DisputePhase $phase, \DateTime $createdOn, ?string $networkReasonDescription = null)
+    public function __construct(string $disputeID, string $merchantAccountID, Amount $amount, string $networkReasonCode, DisputeTransferDetails $transfer, \DateTime $respondBy, DisputeStatus $status, DisputePhase $phase, \DateTime $createdOn, ?string $networkReasonDescription = null, ?\DateTime $submittedOn = null)
     {
         $this->disputeID = $disputeID;
         $this->merchantAccountID = $merchantAccountID;
@@ -122,5 +131,6 @@ class Dispute
         $this->phase = $phase;
         $this->createdOn = $createdOn;
         $this->networkReasonDescription = $networkReasonDescription;
+        $this->submittedOn = $submittedOn;
     }
 }
