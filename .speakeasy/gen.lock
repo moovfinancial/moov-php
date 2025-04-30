@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 72996ee523a24ebedf5ff3681ef4f282
+  docChecksum: 3f3dee9a0c259c0128e97d35660b8a32
   docVersion: latest
-  speakeasyVersion: 1.539.2
-  generationVersion: 2.591.1
-  releaseVersion: 0.3.22
-  configChecksum: 4e33f4d68b64b8cee114e843775e97bc
+  speakeasyVersion: 1.540.1
+  generationVersion: 2.593.4
+  releaseVersion: 0.4.0
+  configChecksum: 0f689a1e69e35d139e4f61f195c3ef8f
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
@@ -20,6 +20,7 @@ features:
     globalServerURLs: 2.82.1
     globals: 2.82.2
     groups: 2.81.2
+    includes: 2.81.1
     methodArguments: 0.1.0
     nameOverrides: 2.81.2
     nullables: 1.0.1
@@ -444,6 +445,40 @@ generatedFiles:
   - docs/Models/Components/WalletTransactionSourceType.md
   - docs/Models/Components/WalletTransactionStatus.md
   - docs/Models/Components/WalletTransactionType.md
+  - docs/Models/Components/WebhookData.md
+  - docs/Models/Components/WebhookDataAccountCreated.md
+  - docs/Models/Components/WebhookDataAccountDeleted.md
+  - docs/Models/Components/WebhookDataAccountUpdated.md
+  - docs/Models/Components/WebhookDataBalanceUpdated.md
+  - docs/Models/Components/WebhookDataBankAccountCreated.md
+  - docs/Models/Components/WebhookDataBankAccountDeleted.md
+  - docs/Models/Components/WebhookDataBankAccountUpdated.md
+  - docs/Models/Components/WebhookDataCancellationCreated.md
+  - docs/Models/Components/WebhookDataCancellationUpdated.md
+  - docs/Models/Components/WebhookDataCapabilityRequested.md
+  - docs/Models/Components/WebhookDataCapabilityUpdated.md
+  - docs/Models/Components/WebhookDataCardAutoUpdated.md
+  - docs/Models/Components/WebhookDataDisputeCreated.md
+  - docs/Models/Components/WebhookDataDisputeUpdated.md
+  - docs/Models/Components/WebhookDataNetworkIDUpdated.md
+  - docs/Models/Components/WebhookDataPaymentMethodDisabled.md
+  - docs/Models/Components/WebhookDataPaymentMethodEnabled.md
+  - docs/Models/Components/WebhookDataRefundCreated.md
+  - docs/Models/Components/WebhookDataRefundUpdated.md
+  - docs/Models/Components/WebhookDataRepresentativeCreated.md
+  - docs/Models/Components/WebhookDataRepresentativeDisabled.md
+  - docs/Models/Components/WebhookDataRepresentativeUpdated.md
+  - docs/Models/Components/WebhookDataSweepCreated.md
+  - docs/Models/Components/WebhookDataSweepUpdated.md
+  - docs/Models/Components/WebhookDataTerminalApplicationCreated.md
+  - docs/Models/Components/WebhookDataTerminalApplicationUpdated.md
+  - docs/Models/Components/WebhookDataTransferCreated.md
+  - docs/Models/Components/WebhookDataTransferUpdated.md
+  - docs/Models/Components/WebhookDataWalletTransactionUpdated.md
+  - docs/Models/Components/WebhookEvent.md
+  - docs/Models/Components/WebhookEventType.md
+  - docs/Models/Components/WebhookTransferPaymentMethodDetails.md
+  - docs/Models/Components/WebhookWalletAvailableBalance.md
   - docs/Models/Errors/AccountTerminalApplicationError.md
   - docs/Models/Errors/AddCapabilitiesError.md
   - docs/Models/Errors/AssignCountriesError.md
@@ -1237,6 +1272,39 @@ generatedFiles:
   - src/Models/Components/WalletTransactionSourceType.php
   - src/Models/Components/WalletTransactionStatus.php
   - src/Models/Components/WalletTransactionType.php
+  - src/Models/Components/WebhookDataAccountCreated.php
+  - src/Models/Components/WebhookDataAccountDeleted.php
+  - src/Models/Components/WebhookDataAccountUpdated.php
+  - src/Models/Components/WebhookDataBalanceUpdated.php
+  - src/Models/Components/WebhookDataBankAccountCreated.php
+  - src/Models/Components/WebhookDataBankAccountDeleted.php
+  - src/Models/Components/WebhookDataBankAccountUpdated.php
+  - src/Models/Components/WebhookDataCancellationCreated.php
+  - src/Models/Components/WebhookDataCancellationUpdated.php
+  - src/Models/Components/WebhookDataCapabilityRequested.php
+  - src/Models/Components/WebhookDataCapabilityUpdated.php
+  - src/Models/Components/WebhookDataCardAutoUpdated.php
+  - src/Models/Components/WebhookDataDisputeCreated.php
+  - src/Models/Components/WebhookDataDisputeUpdated.php
+  - src/Models/Components/WebhookDataNetworkIDUpdated.php
+  - src/Models/Components/WebhookDataPaymentMethodDisabled.php
+  - src/Models/Components/WebhookDataPaymentMethodEnabled.php
+  - src/Models/Components/WebhookDataRefundCreated.php
+  - src/Models/Components/WebhookDataRefundUpdated.php
+  - src/Models/Components/WebhookDataRepresentativeCreated.php
+  - src/Models/Components/WebhookDataRepresentativeDisabled.php
+  - src/Models/Components/WebhookDataRepresentativeUpdated.php
+  - src/Models/Components/WebhookDataSweepCreated.php
+  - src/Models/Components/WebhookDataSweepUpdated.php
+  - src/Models/Components/WebhookDataTerminalApplicationCreated.php
+  - src/Models/Components/WebhookDataTerminalApplicationUpdated.php
+  - src/Models/Components/WebhookDataTransferCreated.php
+  - src/Models/Components/WebhookDataTransferUpdated.php
+  - src/Models/Components/WebhookDataWalletTransactionUpdated.php
+  - src/Models/Components/WebhookEvent.php
+  - src/Models/Components/WebhookEventType.php
+  - src/Models/Components/WebhookTransferPaymentMethodDetails.php
+  - src/Models/Components/WebhookWalletAvailableBalance.php
   - src/Models/Errors/APIException.php
   - src/Models/Errors/AccountTerminalApplicationError.php
   - src/Models/Errors/AccountTerminalApplicationErrorThrowable.php
