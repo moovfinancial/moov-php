@@ -9,7 +9,6 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-/** Indicates whether an account was the source or destination of a transfer. */
 enum TransferParty: string
 {
     case Source = 'source';

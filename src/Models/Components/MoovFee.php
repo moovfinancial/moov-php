@@ -21,7 +21,7 @@ class MoovFee
     public string $accountID;
 
     /**
-     * Indicates whether the account charged is the source, destination, or partner account.
+     * Indicates whether the account charged was the partner, source, or destination of the transfer.
      *
      * @var TransferParty $transferParty
      */
