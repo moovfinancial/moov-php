@@ -9,10 +9,8 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-/** The type of holder on a funding source. */
-enum BankAccountHolderType: string
+enum CreateAccountType: string
 {
     case Individual = 'individual';
     case Business = 'business';
-    case Guest = 'guest';
 }
