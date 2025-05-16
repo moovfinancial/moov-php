@@ -21,7 +21,7 @@ class CreateTransferRequest
     public string $xIdempotencyKey;
 
     /**
-     * The merchant's Moov account ID.
+     * Your Moov account ID.
      *
      * @var string $accountID
      */

@@ -136,7 +136,7 @@ if ($response->card !== null) {
 
 | Error Type           | Status Code          | Content Type         |
 | -------------------- | -------------------- | -------------------- |
-| Errors\GenericError  | 400, 409             | application/json     |
+| Errors\GenericError  | 400                  | application/json     |
 | Errors\LinkCardError | 422                  | application/json     |
 | Errors\APIException  | 4XX, 5XX             | \*/\*                |
 
