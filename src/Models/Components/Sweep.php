@@ -113,6 +113,16 @@ class Sweep
     public ?string $statementDescriptor = null;
 
     /**
+     * The subtotal of each transaction type contributing to the sweep's accrued amount.
+     *
+     * @var ?array<SweepSubtotal> $subtotals
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('subtotals')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\SweepSubtotal>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $subtotals = null;
+
+    /**
      * @param  string  $sweepID
      * @param  SweepStatus  $status
      * @param  string  $accruedAmount
@@ -125,9 +135,10 @@ class Sweep
      * @param  ?string  $transferID
      * @param  ?string  $transferAmount
      * @param  ?string  $statementDescriptor
+     * @param  ?array<SweepSubtotal>  $subtotals
      * @phpstan-pure
      */
-    public function __construct(string $sweepID, SweepStatus $status, string $accruedAmount, string $currency, \DateTime $accrualStartedOn, ?string $residualBalance = null, ?\DateTime $accrualEndedOn = null, ?string $pushPaymentMethodID = null, ?string $pullPaymentMethodID = null, ?string $transferID = null, ?string $transferAmount = null, ?string $statementDescriptor = null)
+    public function __construct(string $sweepID, SweepStatus $status, string $accruedAmount, string $currency, \DateTime $accrualStartedOn, ?string $residualBalance = null, ?\DateTime $accrualEndedOn = null, ?string $pushPaymentMethodID = null, ?string $pullPaymentMethodID = null, ?string $transferID = null, ?string $transferAmount = null, ?string $statementDescriptor = null, ?array $subtotals = null)
     {
         $this->sweepID = $sweepID;
         $this->status = $status;
@@ -141,5 +152,6 @@ class Sweep
         $this->transferID = $transferID;
         $this->transferAmount = $transferAmount;
         $this->statementDescriptor = $statementDescriptor;
+        $this->subtotals = $subtotals;
     }
 }

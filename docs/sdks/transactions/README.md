@@ -39,8 +39,8 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->transactions->get(
-    accountID: 'b888f774-3e7c-4135-a18c-6b985523c4bc',
-    cardTransactionID: 'e50f7622-81da-484b-9c66-1c8a99c6b71b',
+    accountID: 'b2b6e23c-a5aa-46a9-adb7-d12876e47288',
+    cardTransactionID: 'd5a1aab9-eb96-409a-ab95-88ac99cf00a5',
     xMoovVersion: 'v2024.01.00'
 
 );

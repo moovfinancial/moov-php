@@ -57,14 +57,14 @@ $sdk = MoovPhp\Moov::builder()
     ->build();
 
 $createSweepConfig = new Components\CreateSweepConfig(
-    walletID: '2c0dfb65-d7ef-4c8e-8c74-e6c7773550bc',
+    walletID: 'cd0ec32e-bd84-418c-90d3-fffbc5465f8b',
     status: Components\SweepConfigStatus::Enabled,
-    pushPaymentMethodID: '1daea588-a258-49ed-8d0e-0a7cfe2f2692',
-    pullPaymentMethodID: '457166fb-9f82-40e8-962a-493528799e6d',
+    pushPaymentMethodID: 'c7a72abe-280e-467d-b136-223df09ed56f',
+    pullPaymentMethodID: '6b1feb79-7c08-4d6a-ac73-99aeb4735e7c',
 );
 
 $response = $sdk->sweeps->createConfig(
-    accountID: '97eddcac-62ec-41c7-bbda-82c16438000c',
+    accountID: '02c3d1d1-d847-4eb3-bef3-8caa32a5610b',
     createSweepConfig: $createSweepConfig,
     xMoovVersion: 'v2024.01.00'
 
@@ -124,7 +124,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->sweeps->listConfigs(
-    accountID: '5d9d568d-fb5d-478b-a301-d495422f1c35',
+    accountID: 'ed67e4c8-03d3-4d88-ba38-fcd87de45a92',
     xMoovVersion: 'v2024.01.00'
 
 );
@@ -180,8 +180,8 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->sweeps->getConfig(
-    accountID: '12f68c4e-1e8d-483b-9f62-b5d6458d538c',
-    sweepConfigID: 'ce92235d-dd84-4e14-9895-3b98a0003522',
+    accountID: 'ae1c2e76-3195-4fc8-b922-b7af6dcf1aad',
+    sweepConfigID: 'bfddff28-5291-4d9b-a0f8-22a0895e8486',
     xMoovVersion: 'v2024.01.00'
 
 );
@@ -238,8 +238,8 @@ $sdk = MoovPhp\Moov::builder()
 $patchSweepConfig = new Components\PatchSweepConfig();
 
 $response = $sdk->sweeps->updateConfig(
-    accountID: '7573cb48-6325-4d3d-841d-81108fcfe6f2',
-    sweepConfigID: '49e8f3b1-259f-458e-9367-adb3b938f8c8',
+    accountID: 'c16d0264-3e93-4d13-b8d8-6e8e98122631',
+    sweepConfigID: 'f7943244-882b-4a3a-837a-a58418358399',
     patchSweepConfig: $patchSweepConfig,
     xMoovVersion: 'v2024.01.00'
 
@@ -299,8 +299,8 @@ $sdk = MoovPhp\Moov::builder()
     ->build();
 
 $request = new Operations\ListSweepsRequest(
-    accountID: 'c8a232aa-0b11-4b8a-b005-71e9e705d0e6',
-    walletID: '21e27667-18d6-4d46-812e-0aee1b9ddf12',
+    accountID: 'a227b50c-035d-4b7f-932c-a4b7e02aaf5c',
+    walletID: 'd01e5b34-b207-4a5c-b249-6e049be6a841',
     skip: 60,
     count: 20,
 );
@@ -359,9 +359,9 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->sweeps->get(
-    accountID: 'b888f774-3e7c-4135-a18c-6b985523c4bc',
-    walletID: 'e50f7622-81da-484b-9c66-1c8a99c6b71b',
-    sweepID: 'ecd62b8f-7112-4aaf-90ab-4e43b4cca371',
+    accountID: '481bc941-34a2-4c2a-a4f8-feaa9a25d630',
+    walletID: 'e63a4638-ad67-44fb-9b59-ed7311023602',
+    sweepID: 'c88c9731-06c2-4b4a-a7d2-34c8b936d9ae',
     xMoovVersion: 'v2024.01.00'
 
 );

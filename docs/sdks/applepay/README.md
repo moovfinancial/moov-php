@@ -76,7 +76,7 @@ $registerApplePayMerchantDomains = new Components\RegisterApplePayMerchantDomain
 );
 
 $response = $sdk->applePay->registerDomains(
-    accountID: '5b4d5840-3ab6-4fa6-abfe-78b73509622c',
+    accountID: '60825531-8c7e-421c-8014-019c6603250c',
     registerApplePayMerchantDomains: $registerApplePayMerchantDomains,
     xMoovVersion: 'v2024.01.00'
 
@@ -145,7 +145,7 @@ $updateApplePayMerchantDomains = new Components\UpdateApplePayMerchantDomains(
 );
 
 $response = $sdk->applePay->updateDomains(
-    accountID: 'fe4e9441-9183-485f-8a28-9a504a3532f3',
+    accountID: '34b1c132-91d4-4676-9864-87e1d961d56d',
     updateApplePayMerchantDomains: $updateApplePayMerchantDomains,
     xMoovVersion: 'v2024.01.00'
 
@@ -206,7 +206,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->applePay->getDomains(
-    accountID: '486e0cf0-bf76-4dfc-a770-a81e03b0e07d',
+    accountID: '28704d00-d07b-47db-9e54-016a9713d697',
     xMoovVersion: 'v2024.01.00'
 
 );
@@ -264,11 +264,11 @@ $sdk = MoovPhp\Moov::builder()
 
 $createApplePaySession = new Components\CreateApplePaySession(
     domain: 'checkout.classbooker.dev',
-    displayName: 'Kaylee40',
+    displayName: 'Fay11',
 );
 
 $response = $sdk->applePay->createSession(
-    accountID: '7f4bef45-927c-48cf-9312-d337467ac9fb',
+    accountID: '32ab62ca-7afd-4f49-89cb-0bb237258f23',
     createApplePaySession: $createApplePaySession,
     xMoovVersion: 'v2024.01.00'
 
@@ -358,7 +358,7 @@ $linkApplePay = new Components\LinkApplePay(
 );
 
 $response = $sdk->applePay->linkToken(
-    accountID: '3f415d64-c57f-409e-80d0-cb8bd8246ace',
+    accountID: 'bf498c07-3852-4060-b561-bf992e26a851',
     linkApplePay: $linkApplePay,
     xMoovVersion: 'v2024.01.00'
 

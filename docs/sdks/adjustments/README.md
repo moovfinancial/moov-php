@@ -43,9 +43,9 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->adjustments->list(
-    accountID: 'c8a232aa-0b11-4b8a-b005-71e9e705d0e6',
+    accountID: 'c054f3a6-d542-4310-a955-830739f800f0',
     xMoovVersion: 'v2024.01.00',
-    walletID: '21e27667-18d6-4d46-812e-0aee1b9ddf12'
+    walletID: '4bad9b7a-5d6b-4b7b-8e46-a85eb49fe3be'
 
 );
 
@@ -101,8 +101,8 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->adjustments->get(
-    accountID: 'b888f774-3e7c-4135-a18c-6b985523c4bc',
-    adjustmentID: 'e50f7622-81da-484b-9c66-1c8a99c6b71b',
+    accountID: '3ef4e658-8aaa-449f-a7a4-95a6839172a1',
+    adjustmentID: 'cbe4a8e7-605f-4667-a308-1afde85cd7a5',
     xMoovVersion: 'v2024.01.00'
 
 );

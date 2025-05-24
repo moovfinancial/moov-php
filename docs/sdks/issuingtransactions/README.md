@@ -50,7 +50,7 @@ $sdk = MoovPhp\Moov::builder()
     ->build();
 
 $request = new Operations\ListIssuedCardAuthorizationsRequest(
-    accountID: 'c2c85e2d-634b-4cc0-8c5b-763c22a727b6',
+    accountID: '6465d95a-e945-4a49-8983-d74faa135bb4',
     skip: 60,
     count: 20,
 );
@@ -109,8 +109,8 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->issuingTransactions->getAuthorization(
-    accountID: '7fe28e4d-1e30-4ebb-8d22-aae768170b82',
-    authorizationID: '8db4b0c4-d99d-4878-bcde-c2700f82e331',
+    accountID: '0ccac2cc-6692-44a9-b0d1-35a1892c2db2',
+    authorizationID: 'd9ee8dde-b1eb-492f-bea1-d8e09bccbc52',
     xMoovVersion: 'v2024.01.00'
 
 );
@@ -166,8 +166,8 @@ $sdk = MoovPhp\Moov::builder()
     ->build();
 
 $request = new Operations\ListIssuedCardAuthorizationEventsRequest(
-    accountID: 'e52b1b82-54cb-42aa-911b-6359b8490650',
-    authorizationID: 'f1a90d72-3787-49c4-a11d-9e7efe0b3763',
+    accountID: 'f30f8cb3-64d8-4a5f-a427-965317fa559a',
+    authorizationID: 'e6a0946d-f3d8-451e-9b1c-5bc346a95dd6',
     skip: 60,
     count: 20,
 );
@@ -225,7 +225,7 @@ $sdk = MoovPhp\Moov::builder()
     ->build();
 
 $request = new Operations\ListIssuedCardTransactionsRequest(
-    accountID: 'c8a232aa-0b11-4b8a-b005-71e9e705d0e6',
+    accountID: '4efcb497-f915-4b6e-b973-e5e5bcc1fd34',
     skip: 60,
     count: 20,
 );

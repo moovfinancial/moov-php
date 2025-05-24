@@ -49,7 +49,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->underwriting->get(
-    accountID: 'b888f774-3e7c-4135-a18c-6b985523c4bc',
+    accountID: 'efe07546-f697-4da5-bf73-d9987efd4cdd',
     xMoovVersion: 'v2024.01.00'
 
 );
@@ -105,29 +105,29 @@ $sdk = MoovPhp\Moov::builder()
     ->build();
 
 $updateUnderwriting = new Components\UpdateUnderwriting(
-    averageTransactionSize: 543422,
-    maxTransactionSize: 470183,
-    averageMonthlyTransactionVolume: 390496,
+    averageTransactionSize: 622191,
+    maxTransactionSize: 123692,
+    averageMonthlyTransactionVolume: 438164,
     volumeByCustomerType: new Components\VolumeByCustomerType(
-        businessToBusinessPercentage: 478438,
-        consumerToBusinessPercentage: 232067,
+        businessToBusinessPercentage: 671399,
+        consumerToBusinessPercentage: 482010,
     ),
     cardVolumeDistribution: new Components\CardVolumeDistribution(
-        ecommercePercentage: 766938,
-        cardPresentPercentage: 138671,
-        mailOrPhonePercentage: 146928,
-        debtRepaymentPercentage: 114639,
+        ecommercePercentage: 47450,
+        cardPresentPercentage: 146275,
+        mailOrPhonePercentage: 309315,
+        debtRepaymentPercentage: 990303,
     ),
     fulfillment: new Components\FulfillmentDetails(
         hasPhysicalGoods: false,
         isShippingProduct: false,
-        shipmentDurationDays: 696861,
-        returnPolicy: Components\ReturnPolicyType::WithinThirtyDays,
+        shipmentDurationDays: 245577,
+        returnPolicy: Components\ReturnPolicyType::ExchangeOnly,
     ),
 );
 
 $response = $sdk->underwriting->upsert(
-    accountID: '0b695bbe-92af-48dc-9ce0-2fca87183090',
+    accountID: '6c371bf3-9445-4dfb-9a86-15ad5483b1f9',
     updateUnderwriting: $updateUnderwriting,
     xMoovVersion: 'v2024.01.00'
 

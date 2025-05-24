@@ -45,10 +45,10 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->paymentMethods->list(
-    accountID: 'c8a232aa-0b11-4b8a-b005-71e9e705d0e6',
+    accountID: 'f5503781-dfe4-4bcd-9487-5b5fe2b4d53b',
     xMoovVersion: 'v2024.01.00',
-    sourceID: '21e27667-18d6-4d46-812e-0aee1b9ddf12',
-    paymentMethodType: Components\PaymentMethodType::ApplePay
+    sourceID: '2e00e975-911c-442a-b6db-76ad7459d7b1',
+    paymentMethodType: Components\PaymentMethodType::CardPresentPayment
 
 );
 
@@ -105,8 +105,8 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->paymentMethods->get(
-    accountID: 'b888f774-3e7c-4135-a18c-6b985523c4bc',
-    paymentMethodID: 'e50f7622-81da-484b-9c66-1c8a99c6b71b',
+    accountID: '56878537-30b0-48ee-9c54-07ab3a8b243d',
+    paymentMethodID: 'aa740bf3-4c5f-459b-9370-4f7d4bea382b',
     xMoovVersion: 'v2024.01.00'
 
 );

@@ -60,7 +60,7 @@ $brandProperties = new Components\BrandProperties(
 );
 
 $response = $sdk->branding->create(
-    accountID: '7a621cf0-21cd-49cf-8540-3315211a509a',
+    accountID: '0a6ae927-b52b-4ef4-86d0-288f27479817',
     brandProperties: $brandProperties,
     xMoovVersion: 'v2024.01.00'
 
@@ -129,7 +129,7 @@ $brandProperties = new Components\BrandProperties(
 );
 
 $response = $sdk->branding->upsert(
-    accountID: '87673c22-1b80-4b69-b5bb-e92af8dcce02',
+    accountID: '0cd408b1-a57d-477b-825b-12331c2ed00a',
     brandProperties: $brandProperties,
     xMoovVersion: 'v2024.01.00'
 
@@ -189,7 +189,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->branding->get(
-    accountID: 'b888f774-3e7c-4135-a18c-6b985523c4bc',
+    accountID: '8a4ec43e-d45f-481d-a291-683cb221e3cc',
     xMoovVersion: 'v2024.01.00'
 
 );
@@ -245,7 +245,7 @@ $sdk = MoovPhp\Moov::builder()
 $updateBrand = new Components\UpdateBrand();
 
 $response = $sdk->branding->update(
-    accountID: 'd95fa7f0-e743-42ce-b47c-b60cc78135dd',
+    accountID: '0c0dc4a5-ecd9-4223-810a-a71632980156',
     updateBrand: $updateBrand,
     xMoovVersion: 'v2024.01.00'
 

@@ -61,7 +61,7 @@ $sdk = MoovPhp\Moov::builder()
 $request = new Operations\ListFeePlanAgreementsRequest(
     skip: 60,
     count: 20,
-    accountID: 'c8a232aa-0b11-4b8a-b005-71e9e705d0e6',
+    accountID: '93c43634-5477-42a7-972d-01fa76a09e17',
 );
 
 $response = $sdk->feePlans->list(
@@ -116,11 +116,11 @@ $sdk = MoovPhp\Moov::builder()
     ->build();
 
 $createFeePlanAgreement = new Components\CreateFeePlanAgreement(
-    planID: 'b700714f-83b3-45f6-91b3-1f9081d9e23c',
+    planID: '19801f96-ea27-4610-b4d1-8c6b46f37928',
 );
 
 $response = $sdk->feePlans->createAgreements(
-    accountID: 'a39319c8-13f2-4af4-9f8c-e0ce6779fd54',
+    accountID: '409c6b4b-e622-40c2-9dc4-fb494e555723',
     createFeePlanAgreement: $createFeePlanAgreement,
     xMoovVersion: 'v2024.01.00'
 
@@ -181,10 +181,10 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->feePlans->listByAccount(
-    accountID: 'cf8ce25e-dc08-408d-aec3-84d726ece8b0',
+    accountID: 'b3d59179-f74e-4ee8-b123-33220b3c7d4b',
     xMoovVersion: 'v2024.01.00',
     planIDs: [
-        'b8982d80-a6fc-45af-b31d-a145a6d82699',
+        'ffa23421-a92b-4f06-ac02-da8a985f1ce1',
     ]
 
 );
@@ -241,7 +241,7 @@ $sdk = MoovPhp\Moov::builder()
 $listFeesFetchRequest = new Components\ListFeesFetchRequest();
 
 $response = $sdk->feePlans->fetchFees(
-    accountID: 'abb6dc0f-1b14-4754-8489-20b0216c093f',
+    accountID: '55c34e26-269d-4872-8e42-0fa83e3f4b10',
     xMoovVersion: 'v2024.01.00',
     listFeesFetchRequest: $listFeesFetchRequest
 
@@ -299,7 +299,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->feePlans->listPartnerPricing(
-    accountID: '85f15b07-5c44-4302-ab6f-d22f8d45b7f4',
+    accountID: '600637f9-c38a-473f-b909-0d5ac537b8a5',
     xMoovVersion: 'v2024.01.00',
     planIDs: [
         '<value>',
@@ -360,7 +360,7 @@ $sdk = MoovPhp\Moov::builder()
 $request = new Operations\ListPartnerPricingAgreementsRequest(
     skip: 60,
     count: 20,
-    accountID: '9366921a-25de-4c52-8ec6-4cd4ef557223',
+    accountID: '123bfe5e-2288-4146-9d8a-4c07264c3758',
 );
 
 $response = $sdk->feePlans->listPartnerPricingAgreements(

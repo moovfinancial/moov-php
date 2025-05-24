@@ -39,8 +39,8 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->schedules->cancel(
-    accountID: '0f713502-9233-41c6-9ebd-c570b7edb496',
-    scheduleID: 'd50fbe4e-3e32-4613-8574-4d82f3fd6b3c',
+    accountID: 'e89edcfc-19ca-40eb-802b-a35100dea24d',
+    scheduleID: '5ca67de0-63f6-4cb7-b94a-6c84616ffe03',
     xMoovVersion: 'v2024.01.00'
 
 );

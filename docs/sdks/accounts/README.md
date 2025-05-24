@@ -245,7 +245,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->accounts->get(
-    accountID: 'b888f774-3e7c-4135-a18c-6b985523c4bc',
+    accountID: '2f93a6cf-3b3b-4c17-8d3b-110dfadccea4',
     xMoovVersion: 'v2024.01.00'
 
 );
@@ -385,7 +385,7 @@ $patchAccount = new Components\PatchAccount(
 );
 
 $response = $sdk->accounts->updateProfile(
-    accountID: '771225fd-e1c9-4f0c-8923-ea7469eccb9c',
+    accountID: '6433cb9d-1594-43fd-951b-42aef5b30e2e',
     patchAccount: $patchAccount,
     xMoovVersion: 'v2024.01.00'
 
@@ -447,7 +447,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->accounts->disconnect(
-    accountID: 'ac3cbe09-fcd4-4c5e-ada2-89eaaa9c149e',
+    accountID: 'cfdfea7d-f185-4de5-ba90-b09f14fe6683',
     xMoovVersion: 'v2024.01.00'
 
 );
@@ -504,7 +504,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->accounts->getCountries(
-    accountID: 'b49c57bf-7b36-4308-8206-c1f5ce8067ac',
+    accountID: 'a2026036-cc26-42c1-beef-950662d13b5d',
     xMoovVersion: 'v2024.01.00'
 
 );
@@ -566,7 +566,7 @@ $accountCountries = new Components\AccountCountries(
 );
 
 $response = $sdk->accounts->assignCountries(
-    accountID: 'aa2dc19b-77dd-481f-a0a8-c76f2cfc1372',
+    accountID: '46736fa8-4bf7-4144-8e0e-dbea1eb0805b',
     accountCountries: $accountCountries,
     xMoovVersion: 'v2024.01.00'
 
@@ -626,7 +626,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->accounts->getMerchantAgreement(
-    accountID: '48c68ab0-911b-4dc0-ad0f-e0334e432d1e',
+    accountID: '6180d9b9-2377-4190-8530-70a99d31a578',
     xMoovVersion: 'v2024.01.00'
 
 );
@@ -685,7 +685,7 @@ $sdk = MoovPhp\Moov::builder()
 $response = $sdk->accounts->getTermsOfServiceToken(
     xMoovVersion: 'v2024.01.00',
     origin: '<value>',
-    referer: 'productive-order.info'
+    referer: 'major-order.info'
 
 );
 
@@ -740,7 +740,7 @@ $sdk = MoovPhp\Moov::builder()
     ->build();
 
 $request = new Operations\RetrieveFeesRequest(
-    accountID: '0decaabd-10f1-4195-aa4d-077c6cd938c7',
+    accountID: '89daf02d-b6b3-4fbf-b20d-5bf967324682',
     skip: 60,
     count: 20,
 );
@@ -799,8 +799,8 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->accounts->getFile(
-    accountID: 'de0cfdf8-f2d9-4823-8be3-9bfe69951a5e',
-    fileID: '583f23ee-4011-416a-ac8d-e1fa535076a2',
+    accountID: '7f888113-d35a-4536-b9bc-c55076736ab6',
+    fileID: 'af170db9-0d17-4a9f-ade6-5dd2f1b3412d',
     xMoovVersion: 'v2024.01.00'
 
 );

@@ -55,7 +55,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->capabilities->list(
-    accountID: 'c8a232aa-0b11-4b8a-b005-71e9e705d0e6',
+    accountID: '1a50ab1c-1714-49e7-a016-cea17b33511a',
     xMoovVersion: 'v2024.01.00'
 
 );
@@ -110,12 +110,12 @@ $sdk = MoovPhp\Moov::builder()
 
 $addCapabilities = new Components\AddCapabilities(
     capabilities: [
-        Components\CapabilityID::SendFunds,
+        Components\CapabilityID::Transfers,
     ],
 );
 
 $response = $sdk->capabilities->request(
-    accountID: '2613610d-e254-46e6-a62e-c2709ffea9d2',
+    accountID: 'de140d5c-c78e-4ebb-a001-f51aaf6c814a',
     addCapabilities: $addCapabilities,
     xMoovVersion: 'v2024.01.00'
 
@@ -175,8 +175,8 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->capabilities->get(
-    accountID: 'b888f774-3e7c-4135-a18c-6b985523c4bc',
-    capabilityID: Components\CapabilityID::ProductionApp,
+    accountID: 'c1697ea6-c984-4ba1-9b81-93e5e18660af',
+    capabilityID: Components\CapabilityID::SendFunds,
     xMoovVersion: 'v2024.01.00'
 
 );
@@ -233,7 +233,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->capabilities->disable(
-    accountID: 'cd7cd1ce-90cc-444b-ac3e-badb79be277f',
+    accountID: '2be80c4e-d409-49ea-8a8a-76dfa4006d69',
     capabilityID: Components\CapabilityID::Transfers,
     xMoovVersion: 'v2024.01.00'
 

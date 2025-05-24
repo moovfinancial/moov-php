@@ -55,7 +55,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->wallets->list(
-    accountID: 'c8a232aa-0b11-4b8a-b005-71e9e705d0e6',
+    accountID: '25221c3c-8e3f-40db-8570-66d17b51014d',
     xMoovVersion: 'v2024.01.00'
 
 );
@@ -113,8 +113,8 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->wallets->get(
-    accountID: 'b888f774-3e7c-4135-a18c-6b985523c4bc',
-    walletID: 'e50f7622-81da-484b-9c66-1c8a99c6b71b',
+    accountID: 'd04dfd44-8194-422f-a666-08d30c183f9a',
+    walletID: '10a6bc37-8eeb-41c8-bf5f-77b40955542a',
     xMoovVersion: 'v2024.01.00'
 
 );
@@ -172,10 +172,10 @@ $sdk = MoovPhp\Moov::builder()
     ->build();
 
 $request = new Operations\ListWalletTransactionsRequest(
-    accountID: '8a18fbbe-f364-4121-88a1-c7f66f235146',
+    accountID: '69e4529b-baf0-4f00-877b-123cfd9d6116',
     skip: 60,
     count: 20,
-    walletID: '5908defd-b99b-4e06-98b5-5e9cc7fd00e6',
+    walletID: '4f971587-62fe-42c9-bc61-7409d9c8660c',
 );
 
 $response = $sdk->wallets->listTransactions(

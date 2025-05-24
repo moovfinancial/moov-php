@@ -43,9 +43,9 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->walletTransactions->get(
-    accountID: 'b888f774-3e7c-4135-a18c-6b985523c4bc',
-    walletID: 'e50f7622-81da-484b-9c66-1c8a99c6b71b',
-    transactionID: 'ecd62b8f-7112-4aaf-90ab-4e43b4cca371',
+    accountID: 'f0b02d73-10dc-42e6-8030-fd78fcbc114f',
+    walletID: '03db97f6-c308-4595-8f43-fd247f1bd3f2',
+    transactionID: 'e0a32cf5-5758-49ba-83da-75bf02c9c6d7',
     xMoovVersion: 'v2024.01.00'
 
 );

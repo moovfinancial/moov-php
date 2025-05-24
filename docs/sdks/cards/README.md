@@ -107,7 +107,7 @@ $linkCard = new Components\LinkCard(
 );
 
 $response = $sdk->cards->link(
-    accountID: '60ffc839-a919-48ea-a18a-26cccee05743',
+    accountID: '5593e46f-7936-474b-a52b-96f1da46867b',
     linkCard: $linkCard,
     xMoovVersion: 'v2024.01.00',
     xWaitFor: Components\LinkCardWaitFor::PaymentMethod
@@ -171,7 +171,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->cards->list(
-    accountID: 'c8a232aa-0b11-4b8a-b005-71e9e705d0e6',
+    accountID: 'b902712f-8ab9-47ba-b39f-5ccfbcac528c',
     xMoovVersion: 'v2024.01.00'
 
 );
@@ -229,7 +229,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->cards->get(
-    accountID: 'b888f774-3e7c-4135-a18c-6b985523c4bc',
+    accountID: '1f590cf9-4db9-4241-8818-30f9c26362e8',
     cardID: '01234567-89ab-cdef-0123-456789abcdef',
     xMoovVersion: 'v2024.01.00'
 
@@ -298,7 +298,7 @@ $updateCard = new Components\UpdateCard(
 );
 
 $response = $sdk->cards->update(
-    accountID: 'd95fa7f0-e743-42ce-b47c-b60cc78135dd',
+    accountID: '7104688e-8434-482e-9556-4784be3ad3fe',
     cardID: '01234567-89ab-cdef-0123-456789abcdef',
     updateCard: $updateCard,
     xMoovVersion: 'v2024.01.00'
@@ -360,7 +360,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->cards->disable(
-    accountID: 'cd7cd1ce-90cc-444b-ac3e-badb79be277f',
+    accountID: 'bbd12cb2-58f4-46e5-861d-1e6c4617c0c2',
     cardID: '01234567-89ab-cdef-0123-456789abcdef',
     xMoovVersion: 'v2024.01.00'
 
