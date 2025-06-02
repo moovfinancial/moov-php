@@ -24,11 +24,11 @@ class SDKConfiguration
 
     public string $openapiDocVersion = 'latest';
 
-    public string $sdkVersion = '0.4.6';
+    public string $sdkVersion = '0.4.7';
 
-    public string $genVersion = '2.610.0';
+    public string $genVersion = '2.618.0';
 
-    public string $userAgent = 'speakeasy-sdk/php 0.4.6 2.610.0 latest moov/moov-php';
+    public string $userAgent = 'speakeasy-sdk/php 0.4.7 2.618.0 latest moov/moov-php';
     /** @var array<string, array<string, array<string, mixed>>> */
     public ?array $globals = [
         'parameters' => [],
@@ -87,16 +87,5 @@ class SDKConfiguration
         }
 
         return Utils\Utils::templateUrl($this->getServerUrl(), []);
-    }
-
-    public function initHooks(\GuzzleHttp\ClientInterface $client): \GuzzleHttp\ClientInterface
-    {
-        $preHooksUrl = $this->getTemplatedServerUrl();
-        $ret = $this->hooks->sdkInit($preHooksUrl, $client);
-        if ($preHooksUrl != $ret->url) {
-            $this->serverUrl = $ret->url;
-        }
-
-        return $ret->client;
     }
 }
