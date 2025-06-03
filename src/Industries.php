@@ -45,9 +45,9 @@ class Industries
     }
 
     /**
-     * Returns a list of all industry titles and their corresponding MCC/SIC/NAICS codes. Results are ordered by title.    
+     * Returns a list of industries relevant to merchant profile enrichment.  Results are ordered by industry name.
      *
-     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/),
      * you'll need to specify the `/profile-enrichment.read` scope.
      *
      * @param  ?string  $xMoovVersion

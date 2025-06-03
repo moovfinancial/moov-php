@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: e0ebfbeed6313896378151ea974cd445
+  docChecksum: 3c14c8728076031749a7d52409ff353b
   docVersion: latest
   speakeasyVersion: 1.555.0
   generationVersion: 2.618.0
-  releaseVersion: 0.4.7
-  configChecksum: e54e0de89dfc51608e1015a373d1f2c4
+  releaseVersion: 0.4.8
+  configChecksum: c2a3732cad2390ebd323d26fe25dd281
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
@@ -207,7 +207,6 @@ generatedFiles:
   - docs/Models/Components/EnrichedBusinessProfile.md
   - docs/Models/Components/EnrichedBusinessResponse.md
   - docs/Models/Components/EnrichedIndustries.md
-  - docs/Models/Components/EnrichedIndustry.md
   - docs/Models/Components/EnrichedIndustryCodes.md
   - docs/Models/Components/EntryMode.md
   - docs/Models/Components/Error.md
@@ -249,6 +248,7 @@ generatedFiles:
   - docs/Models/Components/IndividualNameUpdate.md
   - docs/Models/Components/IndividualProfile.md
   - docs/Models/Components/IndustryCodes.md
+  - docs/Models/Components/IndustryTaxonomy.md
   - docs/Models/Components/IssuedCard.md
   - docs/Models/Components/IssuedCardAuthorization.md
   - docs/Models/Components/IssuedCardAuthorizationEvent.md
@@ -1045,7 +1045,6 @@ generatedFiles:
   - src/Models/Components/EnrichedBusinessProfile.php
   - src/Models/Components/EnrichedBusinessResponse.php
   - src/Models/Components/EnrichedIndustries.php
-  - src/Models/Components/EnrichedIndustry.php
   - src/Models/Components/EnrichedIndustryCodes.php
   - src/Models/Components/EntryMode.php
   - src/Models/Components/Error.php
@@ -1086,6 +1085,7 @@ generatedFiles:
   - src/Models/Components/IndividualNameUpdate.php
   - src/Models/Components/IndividualProfile.php
   - src/Models/Components/IndustryCodes.php
+  - src/Models/Components/IndustryTaxonomy.php
   - src/Models/Components/IssuedCard.php
   - src/Models/Components/IssuedCardAuthorization.php
   - src/Models/Components/IssuedCardAuthorizationEvent.php
