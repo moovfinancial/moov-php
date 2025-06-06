@@ -41,6 +41,7 @@ use Moov\MoovPhp\Models\Components;
 use Moov\MoovPhp\Models\Operations;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -98,6 +99,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -110,8 +112,7 @@ $sdk = MoovPhp\Moov::builder()
 
 $response = $sdk->issuingTransactions->getAuthorization(
     accountID: '0ccac2cc-6692-44a9-b0d1-35a1892c2db2',
-    authorizationID: 'd9ee8dde-b1eb-492f-bea1-d8e09bccbc52',
-    xMoovVersion: 'v2024.01.00'
+    authorizationID: 'd9ee8dde-b1eb-492f-bea1-d8e09bccbc52'
 
 );
 
@@ -157,6 +158,7 @@ use Moov\MoovPhp\Models\Components;
 use Moov\MoovPhp\Models\Operations;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -216,6 +218,7 @@ use Moov\MoovPhp\Models\Components;
 use Moov\MoovPhp\Models\Operations;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',

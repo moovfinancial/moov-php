@@ -28,6 +28,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -57,9 +58,7 @@ $onboardingInviteRequest = new Components\OnboardingInviteRequest(
 );
 
 $response = $sdk->onboardingInvites->create(
-    onboardingInviteRequest: $onboardingInviteRequest,
-    xMoovVersion: 'v2024.01.00'
-
+    onboardingInviteRequest: $onboardingInviteRequest
 );
 
 if ($response->onboardingInvite !== null) {

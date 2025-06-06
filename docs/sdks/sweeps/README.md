@@ -48,6 +48,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -57,16 +58,15 @@ $sdk = MoovPhp\Moov::builder()
     ->build();
 
 $createSweepConfig = new Components\CreateSweepConfig(
-    walletID: 'cd0ec32e-bd84-418c-90d3-fffbc5465f8b',
+    walletID: '01234567-89ab-cdef-0123-456789abcdef',
     status: Components\SweepConfigStatus::Enabled,
-    pushPaymentMethodID: 'c7a72abe-280e-467d-b136-223df09ed56f',
-    pullPaymentMethodID: '6b1feb79-7c08-4d6a-ac73-99aeb4735e7c',
+    pushPaymentMethodID: '01234567-89ab-cdef-0123-456789abcdef',
+    pullPaymentMethodID: '01234567-89ab-cdef-0123-456789abcdef',
 );
 
 $response = $sdk->sweeps->createConfig(
-    accountID: '02c3d1d1-d847-4eb3-bef3-8caa32a5610b',
-    createSweepConfig: $createSweepConfig,
-    xMoovVersion: 'v2024.01.00'
+    accountID: 'cd0ec32e-bd84-418c-90d3-fffbc5465f8b',
+    createSweepConfig: $createSweepConfig
 
 );
 
@@ -113,6 +113,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -124,9 +125,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->sweeps->listConfigs(
-    accountID: 'ed67e4c8-03d3-4d88-ba38-fcd87de45a92',
-    xMoovVersion: 'v2024.01.00'
-
+    accountID: 'ed67e4c8-03d3-4d88-ba38-fcd87de45a92'
 );
 
 if ($response->sweepConfigs !== null) {
@@ -169,6 +168,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -181,8 +181,7 @@ $sdk = MoovPhp\Moov::builder()
 
 $response = $sdk->sweeps->getConfig(
     accountID: 'ae1c2e76-3195-4fc8-b922-b7af6dcf1aad',
-    sweepConfigID: 'bfddff28-5291-4d9b-a0f8-22a0895e8486',
-    xMoovVersion: 'v2024.01.00'
+    sweepConfigID: 'bfddff28-5291-4d9b-a0f8-22a0895e8486'
 
 );
 
@@ -227,6 +226,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -235,13 +235,14 @@ $sdk = MoovPhp\Moov::builder()
     )
     ->build();
 
-$patchSweepConfig = new Components\PatchSweepConfig();
+$patchSweepConfig = new Components\PatchSweepConfig(
+    status: Components\Status::Disabled,
+);
 
 $response = $sdk->sweeps->updateConfig(
     accountID: 'c16d0264-3e93-4d13-b8d8-6e8e98122631',
     sweepConfigID: 'f7943244-882b-4a3a-837a-a58418358399',
-    patchSweepConfig: $patchSweepConfig,
-    xMoovVersion: 'v2024.01.00'
+    patchSweepConfig: $patchSweepConfig
 
 );
 
@@ -290,6 +291,7 @@ use Moov\MoovPhp\Models\Components;
 use Moov\MoovPhp\Models\Operations;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -348,6 +350,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -361,8 +364,7 @@ $sdk = MoovPhp\Moov::builder()
 $response = $sdk->sweeps->get(
     accountID: '481bc941-34a2-4c2a-a4f8-feaa9a25d630',
     walletID: 'e63a4638-ad67-44fb-9b59-ed7311023602',
-    sweepID: 'c88c9731-06c2-4b4a-a7d2-34c8b936d9ae',
-    xMoovVersion: 'v2024.01.00'
+    sweepID: 'c88c9731-06c2-4b4a-a7d2-34c8b936d9ae'
 
 );
 

@@ -44,6 +44,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -55,9 +56,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->wallets->list(
-    accountID: '25221c3c-8e3f-40db-8570-66d17b51014d',
-    xMoovVersion: 'v2024.01.00'
-
+    accountID: '25221c3c-8e3f-40db-8570-66d17b51014d'
 );
 
 if ($response->wallets !== null) {
@@ -102,6 +101,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -114,8 +114,7 @@ $sdk = MoovPhp\Moov::builder()
 
 $response = $sdk->wallets->get(
     accountID: 'd04dfd44-8194-422f-a666-08d30c183f9a',
-    walletID: '10a6bc37-8eeb-41c8-bf5f-77b40955542a',
-    xMoovVersion: 'v2024.01.00'
+    walletID: '10a6bc37-8eeb-41c8-bf5f-77b40955542a'
 
 );
 
@@ -163,6 +162,7 @@ use Moov\MoovPhp\Models\Components;
 use Moov\MoovPhp\Models\Operations;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',

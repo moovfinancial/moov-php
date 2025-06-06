@@ -28,6 +28,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -40,8 +41,7 @@ $sdk = MoovPhp\Moov::builder()
 
 $response = $sdk->schedules->cancel(
     accountID: 'e89edcfc-19ca-40eb-802b-a35100dea24d',
-    scheduleID: '5ca67de0-63f6-4cb7-b94a-6c84616ffe03',
-    xMoovVersion: 'v2024.01.00'
+    scheduleID: '5ca67de0-63f6-4cb7-b94a-6c84616ffe03'
 
 );
 

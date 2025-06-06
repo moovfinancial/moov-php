@@ -32,6 +32,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -43,10 +44,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->adjustments->list(
-    accountID: 'c054f3a6-d542-4310-a955-830739f800f0',
-    xMoovVersion: 'v2024.01.00',
-    walletID: '4bad9b7a-5d6b-4b7b-8e46-a85eb49fe3be'
-
+    accountID: 'c054f3a6-d542-4310-a955-830739f800f0'
 );
 
 if ($response->adjustments !== null) {
@@ -90,6 +88,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -102,8 +101,7 @@ $sdk = MoovPhp\Moov::builder()
 
 $response = $sdk->adjustments->get(
     accountID: '3ef4e658-8aaa-449f-a7a4-95a6839172a1',
-    adjustmentID: 'cbe4a8e7-605f-4667-a308-1afde85cd7a5',
-    xMoovVersion: 'v2024.01.00'
+    adjustmentID: 'cbe4a8e7-605f-4667-a308-1afde85cd7a5'
 
 );
 

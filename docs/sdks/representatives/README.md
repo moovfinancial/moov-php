@@ -64,6 +64,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -105,8 +106,7 @@ $createRepresentative = new Components\CreateRepresentative(
 
 $response = $sdk->representatives->create(
     accountID: '5abfe3a5-7cd3-4f92-a8bd-19b64e3ccc10',
-    createRepresentative: $createRepresentative,
-    xMoovVersion: 'v2024.01.00'
+    createRepresentative: $createRepresentative
 
 );
 
@@ -156,6 +156,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -167,9 +168,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->representatives->list(
-    accountID: 'aa071158-7ed6-4c18-af34-4fa37b755e53',
-    xMoovVersion: 'v2024.01.00'
-
+    accountID: 'aa071158-7ed6-4c18-af34-4fa37b755e53'
 );
 
 if ($response->representatives !== null) {
@@ -212,6 +211,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -224,8 +224,7 @@ $sdk = MoovPhp\Moov::builder()
 
 $response = $sdk->representatives->delete(
     accountID: '23b950c7-3ccf-4edc-9566-07f765d57c73',
-    representativeID: '74d0f56b-b81b-467a-bc86-47a55fe5e503',
-    xMoovVersion: 'v2024.01.00'
+    representativeID: '74d0f56b-b81b-467a-bc86-47a55fe5e503'
 
 );
 
@@ -271,6 +270,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -283,8 +283,7 @@ $sdk = MoovPhp\Moov::builder()
 
 $response = $sdk->representatives->get(
     accountID: '071b8a57-e691-4e4b-9143-75f1a828ce9b',
-    representativeID: '00d87070-b167-48e6-be2f-198b5e1556c4',
-    xMoovVersion: 'v2024.01.00'
+    representativeID: '00d87070-b167-48e6-be2f-198b5e1556c4'
 
 );
 
@@ -342,6 +341,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -369,11 +369,7 @@ $updateRepresentative = new Components\UpdateRepresentative(
         postalCode: '80301',
         country: 'US',
     ),
-    birthDate: new Components\UpdateRepresentativeBirthDate(
-        day: 9,
-        month: 11,
-        year: 1989,
-    ),
+    birthDate: null,
     responsibilities: new Components\Responsibilities(
         ownershipPercentage: 38,
         jobTitle: 'CEO',
@@ -381,10 +377,9 @@ $updateRepresentative = new Components\UpdateRepresentative(
 );
 
 $response = $sdk->representatives->update(
-    accountID: 'e61b7664-7e2b-497e-8a55-12757153219f',
-    representativeID: '3171e89d-3d0d-4fbe-83df-6b18d7cbcb76',
-    updateRepresentative: $updateRepresentative,
-    xMoovVersion: 'v2024.01.00'
+    accountID: '76647e2b-97ea-4551-8275-7153219f3317',
+    representativeID: 'e89d3d0d-fbe3-4df6-8b18-d7cbcb761161',
+    updateRepresentative: $updateRepresentative
 
 );
 

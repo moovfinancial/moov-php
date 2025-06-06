@@ -93,6 +93,7 @@ use Moov\MoovPhp\Models\Components;
 use Moov\MoovPhp\Models\Operations;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -102,8 +103,8 @@ $sdk = MoovPhp\Moov::builder()
     ->build();
 
 $request = new Operations\CreateTransferRequest(
-    xIdempotencyKey: 'ea9f2225-403b-4e2c-93b0-0eda090ffa65',
-    accountID: 'd6903402-776f-48d6-8fba-0358959d34e5',
+    xIdempotencyKey: 'd6903402-776f-48d6-8fba-0358959d34e5',
+    accountID: 'ea9f2225-403b-4e2c-93b0-0eda090ffa65',
     createTransfer: new Components\CreateTransfer(
         source: new Components\CreateTransferSource(
             paymentMethodID: '9506dbf6-4208-44c3-ad8a-e4431660e1f2',
@@ -176,6 +177,7 @@ use Moov\MoovPhp\Models\Components;
 use Moov\MoovPhp\Models\Operations;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -236,6 +238,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -248,8 +251,7 @@ $sdk = MoovPhp\Moov::builder()
 
 $response = $sdk->transfers->get(
     transferID: '960cf5a2-50a3-4914-ad86-d54c022bf5df',
-    accountID: '31113f7b-9f68-44e9-9338-6d8e655c7c96',
-    xMoovVersion: 'v2024.01.00'
+    accountID: '31113f7b-9f68-44e9-9338-6d8e655c7c96'
 
 );
 
@@ -296,6 +298,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -313,8 +316,7 @@ $patchTransfer = new Components\PatchTransfer(
 $response = $sdk->transfers->update(
     transferID: 'de30c075-4245-4d62-bfb3-f76d4d7d3b9c',
     accountID: '18a7907d-2f89-493a-b15a-3aad91c24496',
-    patchTransfer: $patchTransfer,
-    xMoovVersion: 'v2024.01.00'
+    patchTransfer: $patchTransfer
 
 );
 
@@ -360,6 +362,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -372,8 +375,7 @@ $sdk = MoovPhp\Moov::builder()
 
 $response = $sdk->transfers->createCancellation(
     accountID: '10ae862c-6658-4f87-967d-46e995737204',
-    transferID: '36c80a6c-ceb2-4e5d-a437-8a39afdfdc58',
-    xMoovVersion: 'v2024.01.00'
+    transferID: '36c80a6c-ceb2-4e5d-a437-8a39afdfdc58'
 
 );
 
@@ -419,6 +421,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -432,8 +435,7 @@ $sdk = MoovPhp\Moov::builder()
 $response = $sdk->transfers->getCancellation(
     accountID: '55cb62c2-22e4-4a36-bd53-3b9adc77ee81',
     transferID: 'bc13b680-bac3-432e-bf44-e9aa6426cbb2',
-    cancellationID: '770cb4b5-d5b0-4e8b-995b-86b790296ba5',
-    xMoovVersion: 'v2024.01.00'
+    cancellationID: '770cb4b5-d5b0-4e8b-995b-86b790296ba5'
 
 );
 
@@ -483,6 +485,7 @@ use Moov\MoovPhp\Models\Components;
 use Moov\MoovPhp\Models\Operations;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -492,9 +495,9 @@ $sdk = MoovPhp\Moov::builder()
     ->build();
 
 $request = new Operations\InitiateRefundRequest(
-    xIdempotencyKey: 'cb6ae9f9-afab-4f06-9eb0-8abf54a3ada2',
-    accountID: '04022119-95be-4ef4-9dd4-b3782f6aa7b9',
-    transferID: '8d9af6b8-67e1-4efa-8188-68039f34097d',
+    xIdempotencyKey: '8d9af6b8-67e1-4efa-8188-68039f34097d',
+    accountID: 'cb6ae9f9-afab-4f06-9eb0-8abf54a3ada2',
+    transferID: '04022119-95be-4ef4-9dd4-b3782f6aa7b9',
     createRefund: new Components\CreateRefund(
         amount: 1000,
     ),
@@ -546,6 +549,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -558,8 +562,7 @@ $sdk = MoovPhp\Moov::builder()
 
 $response = $sdk->transfers->listRefunds(
     accountID: '03f5baaa-f5d8-44bd-90db-868745fe66e8',
-    transferID: '6b1aa1a1-bff1-43b9-9126-2806fdc9c732',
-    xMoovVersion: 'v2024.01.00'
+    transferID: '6b1aa1a1-bff1-43b9-9126-2806fdc9c732'
 
 );
 
@@ -604,6 +607,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -617,8 +621,7 @@ $sdk = MoovPhp\Moov::builder()
 $response = $sdk->transfers->getRefund(
     transferID: 'e90d3386-c5b2-4e2b-b841-efc590eba6c0',
     accountID: 'bbb69538-edaa-4a0b-b107-f46f2da89864',
-    refundID: '8e12687e-a4e8-46c9-9e11-a57bbd781e44',
-    xMoovVersion: 'v2024.01.00'
+    refundID: '8e12687e-a4e8-46c9-9e11-a57bbd781e44'
 
 );
 
@@ -667,6 +670,7 @@ use Moov\MoovPhp\Models\Components;
 use Moov\MoovPhp\Models\Operations;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -676,9 +680,9 @@ $sdk = MoovPhp\Moov::builder()
     ->build();
 
 $request = new Operations\CreateReversalRequest(
-    xIdempotencyKey: 'f225b49d-911b-440b-baed-6065968b69cb',
-    accountID: 'a17b29e2-4af6-4c9d-ad3a-dd0ded2966ad',
-    transferID: 'b91d00b2-4ecb-4eb4-a67f-d6f76c0b7ad8',
+    xIdempotencyKey: 'b91d00b2-4ecb-4eb4-a67f-d6f76c0b7ad8',
+    accountID: 'f225b49d-911b-440b-baed-6065968b69cb',
+    transferID: 'a17b29e2-4af6-4c9d-ad3a-dd0ded2966ad',
     createReversal: new Components\CreateReversal(
         amount: 1000,
     ),
@@ -732,6 +736,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -750,9 +755,7 @@ $createTransferOptions = new Components\CreateTransferOptions(
 );
 
 $response = $sdk->transfers->generateOptions(
-    createTransferOptions: $createTransferOptions,
-    xMoovVersion: 'v2024.01.00'
-
+    createTransferOptions: $createTransferOptions
 );
 
 if ($response->transferOptions !== null) {

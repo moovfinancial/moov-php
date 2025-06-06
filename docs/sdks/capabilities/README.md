@@ -44,6 +44,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -55,9 +56,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->capabilities->list(
-    accountID: '1a50ab1c-1714-49e7-a016-cea17b33511a',
-    xMoovVersion: 'v2024.01.00'
-
+    accountID: '1a50ab1c-1714-49e7-a016-cea17b33511a'
 );
 
 if ($response->capabilities !== null) {
@@ -100,6 +99,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -110,14 +110,13 @@ $sdk = MoovPhp\Moov::builder()
 
 $addCapabilities = new Components\AddCapabilities(
     capabilities: [
-        Components\CapabilityID::Transfers,
+        Components\CapabilityID::CollectFunds,
     ],
 );
 
 $response = $sdk->capabilities->request(
-    accountID: 'de140d5c-c78e-4ebb-a001-f51aaf6c814a',
-    addCapabilities: $addCapabilities,
-    xMoovVersion: 'v2024.01.00'
+    accountID: '0de140d5-cc78-4eeb-ab00-1f51aaf6c814',
+    addCapabilities: $addCapabilities
 
 );
 
@@ -164,6 +163,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -176,8 +176,7 @@ $sdk = MoovPhp\Moov::builder()
 
 $response = $sdk->capabilities->get(
     accountID: 'c1697ea6-c984-4ba1-9b81-93e5e18660af',
-    capabilityID: Components\CapabilityID::SendFunds,
-    xMoovVersion: 'v2024.01.00'
+    capabilityID: Components\CapabilityID::SendFunds
 
 );
 
@@ -222,6 +221,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -234,8 +234,7 @@ $sdk = MoovPhp\Moov::builder()
 
 $response = $sdk->capabilities->disable(
     accountID: '2be80c4e-d409-49ea-8a8a-76dfa4006d69',
-    capabilityID: Components\CapabilityID::Transfers,
-    xMoovVersion: 'v2024.01.00'
+    capabilityID: Components\CapabilityID::Transfers
 
 );
 

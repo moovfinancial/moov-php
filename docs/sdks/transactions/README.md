@@ -28,6 +28,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -40,8 +41,7 @@ $sdk = MoovPhp\Moov::builder()
 
 $response = $sdk->transactions->get(
     accountID: 'b2b6e23c-a5aa-46a9-adb7-d12876e47288',
-    cardTransactionID: 'd5a1aab9-eb96-409a-ab95-88ac99cf00a5',
-    xMoovVersion: 'v2024.01.00'
+    cardTransactionID: 'd5a1aab9-eb96-409a-ab95-88ac99cf00a5'
 
 );
 

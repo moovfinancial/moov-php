@@ -60,6 +60,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -78,9 +79,7 @@ $createAccount = new Components\CreateAccount(
 );
 
 $response = $sdk->accounts->create(
-    createAccount: $createAccount,
-    xMoovVersion: 'v2024.01.00'
-
+    createAccount: $createAccount
 );
 
 if ($response->account !== null) {
@@ -116,6 +115,7 @@ $sdk = MoovPhp\Moov::builder()
             password: '',
         )
     )
+    ->setXMoovVersion('v2024.01.00')
     ->build();
 
 $createAccount = new Components\CreateAccount(
@@ -128,9 +128,7 @@ $createAccount = new Components\CreateAccount(
 );
 
 $response = $sdk->accounts->create(
-    createAccount: $createAccount,
-    xMoovVersion: 'v2024.01.00'
-
+    createAccount: $createAccount
 );
 
 if ($response->account !== null) {
@@ -650,6 +648,14 @@ you'll need to specify the `/profile-enrichment.read` scope.
 
 ### [institutions](docs/sdks/institutions/README.md)
 
+* [searchInstitutions](docs/sdks/institutions/README.md#searchinstitutions) - Search for financial institutions by name or routing number.
+
+This endpoint returns metadata about each matched institution, including basic identifying details (such as name, routing number, and address) and information about which payment services they support (e.g., ACH, RTP, and Wire).
+
+This can be used to validate a financial institution before initiating payment activity, or to check which payment rails are available for a given routing number.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
+you'll need to specify the `/institutions.read` scope.
 * [search](docs/sdks/institutions/README.md#search) - Search for institutions by either their name or routing number.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
@@ -1038,6 +1044,7 @@ use Moov\MoovPhp\Models\Components;
 use Moov\MoovPhp\Models\Errors;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -1057,9 +1064,7 @@ try {
     );
 
     $response = $sdk->accounts->create(
-        createAccount: $createAccount,
-        xMoovVersion: 'v2024.01.00'
-
+        createAccount: $createAccount
     );
 
     if ($response->account !== null) {
@@ -1094,6 +1099,7 @@ use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
     ->setServerURL('https://api.moov.io')
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -1112,9 +1118,7 @@ $createAccount = new Components\CreateAccount(
 );
 
 $response = $sdk->accounts->create(
-    createAccount: $createAccount,
-    xMoovVersion: 'v2024.01.00'
-
+    createAccount: $createAccount
 );
 
 if ($response->account !== null) {

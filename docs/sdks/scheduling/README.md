@@ -45,6 +45,7 @@ use Moov\MoovPhp\Models\Components;
 use Moov\MoovPhp\Utils;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -84,7 +85,39 @@ $upsertSchedule = new Components\UpsertSchedule(
                         dynamicDescriptor: 'WhlBdy *Yoga 11-12',
                     ),
                 ),
-                description: 'er mob marathon lest optimistically responsible',
+                description: 'sediment yahoo a rudely mmm massive helpful brr',
+            ),
+        ),
+        new Components\Occurrence(
+            occurrenceID: 'c520f1b9-0ba7-42f5-b977-248cdbe41c69',
+            runOn: Utils\Utils::parseDateTime('2009-11-10T23:00:00Z'),
+            runTransfer: new Components\RunTransfer(
+                amount: new Components\Amount(
+                    currency: 'USD',
+                    value: 1204,
+                ),
+                destination: new Components\SchedulePaymentMethod(
+                    paymentMethodID: 'c520f1b9-0ba7-42f5-b977-248cdbe41c69',
+                    achDetails: new Components\AchDetails(
+                        companyEntryDescription: 'Gym dues',
+                        originatingCompanyName: 'Whole Body Fit',
+                    ),
+                    cardDetails: new Components\CardDetails(
+                        dynamicDescriptor: 'WhlBdy *Yoga 11-12',
+                    ),
+                ),
+                partnerAccountID: 'c520f1b9-0ba7-42f5-b977-248cdbe41c69',
+                source: new Components\SchedulePaymentMethod(
+                    paymentMethodID: 'c520f1b9-0ba7-42f5-b977-248cdbe41c69',
+                    achDetails: new Components\AchDetails(
+                        companyEntryDescription: 'Gym dues',
+                        originatingCompanyName: 'Whole Body Fit',
+                    ),
+                    cardDetails: new Components\CardDetails(
+                        dynamicDescriptor: 'WhlBdy *Yoga 11-12',
+                    ),
+                ),
+                description: 'sediment yahoo a rudely mmm massive helpful brr',
             ),
         ),
     ],
@@ -116,16 +149,15 @@ $upsertSchedule = new Components\UpsertSchedule(
                     dynamicDescriptor: 'WhlBdy *Yoga 11-12',
                 ),
             ),
-            description: 'helpful brr twin drat embossing navigate brr',
+            description: 'sediment yahoo a rudely mmm massive helpful brr',
         ),
         start: Utils\Utils::parseDateTime('2009-11-10T23:00:00Z'),
     ),
 );
 
 $response = $sdk->scheduling->create(
-    accountID: '39d99b58-f2bc-4da3-81db-e4905816da97',
-    upsertSchedule: $upsertSchedule,
-    xMoovVersion: 'v2024.01.00'
+    accountID: '38fd6ae1-0e70-4162-9359-d64482d61854',
+    upsertSchedule: $upsertSchedule
 
 );
 
@@ -173,6 +205,7 @@ use Moov\MoovPhp\Models\Components;
 use Moov\MoovPhp\Models\Operations;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -231,6 +264,7 @@ use Moov\MoovPhp\Models\Components;
 use Moov\MoovPhp\Utils;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -270,7 +304,71 @@ $upsertSchedule = new Components\UpsertSchedule(
                         dynamicDescriptor: 'WhlBdy *Yoga 11-12',
                     ),
                 ),
-                description: 'yum who queasily bemuse ick dull almighty incidentally er despite',
+                description: 'er reasoning following veto oof fervently ha how till now',
+            ),
+        ),
+        new Components\Occurrence(
+            occurrenceID: 'c520f1b9-0ba7-42f5-b977-248cdbe41c69',
+            runOn: Utils\Utils::parseDateTime('2009-11-10T23:00:00Z'),
+            runTransfer: new Components\RunTransfer(
+                amount: new Components\Amount(
+                    currency: 'USD',
+                    value: 1204,
+                ),
+                destination: new Components\SchedulePaymentMethod(
+                    paymentMethodID: 'c520f1b9-0ba7-42f5-b977-248cdbe41c69',
+                    achDetails: new Components\AchDetails(
+                        companyEntryDescription: 'Gym dues',
+                        originatingCompanyName: 'Whole Body Fit',
+                    ),
+                    cardDetails: new Components\CardDetails(
+                        dynamicDescriptor: 'WhlBdy *Yoga 11-12',
+                    ),
+                ),
+                partnerAccountID: 'c520f1b9-0ba7-42f5-b977-248cdbe41c69',
+                source: new Components\SchedulePaymentMethod(
+                    paymentMethodID: 'c520f1b9-0ba7-42f5-b977-248cdbe41c69',
+                    achDetails: new Components\AchDetails(
+                        companyEntryDescription: 'Gym dues',
+                        originatingCompanyName: 'Whole Body Fit',
+                    ),
+                    cardDetails: new Components\CardDetails(
+                        dynamicDescriptor: 'WhlBdy *Yoga 11-12',
+                    ),
+                ),
+                description: 'er reasoning following veto oof fervently ha how till now',
+            ),
+        ),
+        new Components\Occurrence(
+            occurrenceID: 'c520f1b9-0ba7-42f5-b977-248cdbe41c69',
+            runOn: Utils\Utils::parseDateTime('2009-11-10T23:00:00Z'),
+            runTransfer: new Components\RunTransfer(
+                amount: new Components\Amount(
+                    currency: 'USD',
+                    value: 1204,
+                ),
+                destination: new Components\SchedulePaymentMethod(
+                    paymentMethodID: 'c520f1b9-0ba7-42f5-b977-248cdbe41c69',
+                    achDetails: new Components\AchDetails(
+                        companyEntryDescription: 'Gym dues',
+                        originatingCompanyName: 'Whole Body Fit',
+                    ),
+                    cardDetails: new Components\CardDetails(
+                        dynamicDescriptor: 'WhlBdy *Yoga 11-12',
+                    ),
+                ),
+                partnerAccountID: 'c520f1b9-0ba7-42f5-b977-248cdbe41c69',
+                source: new Components\SchedulePaymentMethod(
+                    paymentMethodID: 'c520f1b9-0ba7-42f5-b977-248cdbe41c69',
+                    achDetails: new Components\AchDetails(
+                        companyEntryDescription: 'Gym dues',
+                        originatingCompanyName: 'Whole Body Fit',
+                    ),
+                    cardDetails: new Components\CardDetails(
+                        dynamicDescriptor: 'WhlBdy *Yoga 11-12',
+                    ),
+                ),
+                description: 'er reasoning following veto oof fervently ha how till now',
             ),
         ),
     ],
@@ -302,17 +400,16 @@ $upsertSchedule = new Components\UpsertSchedule(
                     dynamicDescriptor: 'WhlBdy *Yoga 11-12',
                 ),
             ),
-            description: 'nervously um instructor late modulo whoever',
+            description: 'er reasoning following veto oof fervently ha how till now',
         ),
         start: Utils\Utils::parseDateTime('2009-11-10T23:00:00Z'),
     ),
 );
 
 $response = $sdk->scheduling->update(
-    accountID: 'ec900e7f-da62-4cd2-9415-4713daf5c70d',
-    scheduleID: '063e961d-cb6a-4351-8ac5-59757967966b',
-    upsertSchedule: $upsertSchedule,
-    xMoovVersion: 'v2024.01.00'
+    accountID: 'becca38e-c01f-4cfc-8f7c-187c7cf6a7a3',
+    scheduleID: '1b29a8ad-60ee-4c90-90e7-fda62cd24154',
+    upsertSchedule: $upsertSchedule
 
 );
 
@@ -360,6 +457,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -372,8 +470,7 @@ $sdk = MoovPhp\Moov::builder()
 
 $response = $sdk->scheduling->get(
     accountID: '31afd98b-eb55-41b3-8a4f-0ee8ea69e4e0',
-    scheduleID: '55487e07-f3b7-44e8-b6f3-64fc85701c34',
-    xMoovVersion: 'v2024.01.00'
+    scheduleID: '55487e07-f3b7-44e8-b6f3-64fc85701c34'
 
 );
 
@@ -418,6 +515,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -431,8 +529,7 @@ $sdk = MoovPhp\Moov::builder()
 $response = $sdk->scheduling->getOccurrence(
     accountID: 'ea12b5d5-6249-4af2-ae48-6141a5251090',
     scheduleID: '289e94cd-66f1-4df5-999f-46d0f40b4ce9',
-    occurrenceFilter: '<value>',
-    xMoovVersion: 'v2024.01.00'
+    occurrenceFilter: '<value>'
 
 );
 

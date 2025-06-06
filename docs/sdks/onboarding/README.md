@@ -36,6 +36,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -47,7 +48,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->onboarding->listInvites(
-    xMoovVersion: 'v2024.01.00'
+
 );
 
 if ($response->onboardingInvites !== null) {
@@ -89,6 +90,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -100,9 +102,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->onboarding->getInvite(
-    code: 'N1IA5eWYNh',
-    xMoovVersion: 'v2024.01.00'
-
+    code: 'N1IA5eWYNh'
 );
 
 if ($response->onboardingInvite !== null) {
@@ -145,6 +145,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -156,9 +157,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->onboarding->revokeInvite(
-    code: 'N1IA5eWYNh',
-    xMoovVersion: 'v2024.01.00'
-
+    code: 'N1IA5eWYNh'
 );
 
 if ($response->statusCode === 200) {

@@ -50,6 +50,7 @@ use Moov\MoovPhp\Models\Components;
 use Moov\MoovPhp\Models\Operations;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -107,6 +108,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -121,8 +123,7 @@ $createFeePlanAgreement = new Components\CreateFeePlanAgreement(
 
 $response = $sdk->feePlans->createAgreements(
     accountID: '409c6b4b-e622-40c2-9dc4-fb494e555723',
-    createFeePlanAgreement: $createFeePlanAgreement,
-    xMoovVersion: 'v2024.01.00'
+    createFeePlanAgreement: $createFeePlanAgreement
 
 );
 
@@ -170,6 +171,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -181,12 +183,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->feePlans->listByAccount(
-    accountID: 'b3d59179-f74e-4ee8-b123-33220b3c7d4b',
-    xMoovVersion: 'v2024.01.00',
-    planIDs: [
-        'ffa23421-a92b-4f06-ac02-da8a985f1ce1',
-    ]
-
+    accountID: 'b3d59179-f74e-4ee8-b123-33220b3c7d4b'
 );
 
 if ($response->feePlans !== null) {
@@ -230,6 +227,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -238,11 +236,10 @@ $sdk = MoovPhp\Moov::builder()
     )
     ->build();
 
-$listFeesFetchRequest = new Components\ListFeesFetchRequest();
+
 
 $response = $sdk->feePlans->fetchFees(
     accountID: '55c34e26-269d-4872-8e42-0fa83e3f4b10',
-    xMoovVersion: 'v2024.01.00',
     listFeesFetchRequest: $listFeesFetchRequest
 
 );
@@ -288,6 +285,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -299,12 +297,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->feePlans->listPartnerPricing(
-    accountID: '600637f9-c38a-473f-b909-0d5ac537b8a5',
-    xMoovVersion: 'v2024.01.00',
-    planIDs: [
-        '<value>',
-    ]
-
+    accountID: '600637f9-c38a-473f-b909-0d5ac537b8a5'
 );
 
 if ($response->partnerPricings !== null) {
@@ -349,6 +342,7 @@ use Moov\MoovPhp\Models\Components;
 use Moov\MoovPhp\Models\Operations;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',

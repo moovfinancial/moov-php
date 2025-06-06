@@ -17,7 +17,7 @@ generation:
     oAuth2ClientCredentialsEnabled: true
     oAuth2PasswordEnabled: true
 php:
-  version: 0.4.8
+  version: 0.4.9
   additionalDependencies:
     autoload: {}
     autoload-dev: {}

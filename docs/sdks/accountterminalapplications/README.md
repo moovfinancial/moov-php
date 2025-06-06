@@ -40,6 +40,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -54,8 +55,7 @@ $linkAccountTerminalApplication = new Components\LinkAccountTerminalApplication(
 
 $response = $sdk->accountTerminalApplications->link(
     accountID: '76d4c8a0-1f2b-4e3b-8f5c-7a9e1b2c3d4e',
-    linkAccountTerminalApplication: $linkAccountTerminalApplication,
-    xMoovVersion: 'v2024.01.00'
+    linkAccountTerminalApplication: $linkAccountTerminalApplication
 
 );
 
@@ -102,6 +102,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -113,9 +114,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->accountTerminalApplications->list(
-    accountID: '76d4c8a0-1f2b-4e3b-8f5c-7a9e1b2c3d4e',
-    xMoovVersion: 'v2024.01.00'
-
+    accountID: '76d4c8a0-1f2b-4e3b-8f5c-7a9e1b2c3d4e'
 );
 
 if ($response->terminalApplications !== null) {
@@ -158,6 +157,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -170,8 +170,7 @@ $sdk = MoovPhp\Moov::builder()
 
 $response = $sdk->accountTerminalApplications->get(
     accountID: '76d4c8a0-1f2b-4e3b-8f5c-7a9e1b2c3d4e',
-    terminalApplicationID: '12345678-1234-1234-1234-123456789012',
-    xMoovVersion: 'v2024.01.00'
+    terminalApplicationID: '12345678-1234-1234-1234-123456789012'
 
 );
 
@@ -216,6 +215,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -228,8 +228,7 @@ $sdk = MoovPhp\Moov::builder()
 
 $response = $sdk->accountTerminalApplications->getConfiguration(
     accountID: '76d4c8a0-1f2b-4e3b-8f5c-7a9e1b2c3d4e',
-    terminalApplicationID: '12345678-1234-1234-1234-123456789012',
-    xMoovVersion: 'v2024.01.00'
+    terminalApplicationID: '12345678-1234-1234-1234-123456789012'
 
 );
 

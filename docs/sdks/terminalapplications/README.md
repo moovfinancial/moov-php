@@ -40,6 +40,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -57,9 +58,7 @@ $createTerminalApplication = new Components\CreateTerminalApplication(
 );
 
 $response = $sdk->terminalApplications->create(
-    createTerminalApplication: $createTerminalApplication,
-    xMoovVersion: 'v2024.01.00'
-
+    createTerminalApplication: $createTerminalApplication
 );
 
 if ($response->terminalApplication !== null) {
@@ -104,6 +103,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -115,7 +115,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->terminalApplications->list(
-    xMoovVersion: 'v2024.01.00'
+
 );
 
 if ($response->terminalApplications !== null) {
@@ -157,6 +157,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -168,9 +169,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->terminalApplications->get(
-    terminalApplicationID: '12345678-1234-1234-1234-123456789012',
-    xMoovVersion: 'v2024.01.00'
-
+    terminalApplicationID: '12345678-1234-1234-1234-123456789012'
 );
 
 if ($response->terminalApplication !== null) {
@@ -213,6 +212,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -224,9 +224,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->terminalApplications->delete(
-    terminalApplicationID: '12345678-1234-1234-1234-123456789012',
-    xMoovVersion: 'v2024.01.00'
-
+    terminalApplicationID: '12345678-1234-1234-1234-123456789012'
 );
 
 if ($response->statusCode === 200) {

@@ -28,6 +28,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -39,7 +40,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->industries->list(
-    xMoovVersion: 'v2024.01.00'
+
 );
 
 if ($response->enrichedIndustries !== null) {

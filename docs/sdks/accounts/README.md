@@ -107,6 +107,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -125,9 +126,7 @@ $createAccount = new Components\CreateAccount(
 );
 
 $response = $sdk->accounts->create(
-    createAccount: $createAccount,
-    xMoovVersion: 'v2024.01.00'
-
+    createAccount: $createAccount
 );
 
 if ($response->account !== null) {
@@ -177,6 +176,7 @@ use Moov\MoovPhp\Models\Components;
 use Moov\MoovPhp\Models\Operations;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -234,6 +234,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -245,9 +246,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->accounts->get(
-    accountID: '2f93a6cf-3b3b-4c17-8d3b-110dfadccea4',
-    xMoovVersion: 'v2024.01.00'
-
+    accountID: '2f93a6cf-3b3b-4c17-8d3b-110dfadccea4'
 );
 
 if ($response->account !== null) {
@@ -298,6 +297,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -385,9 +385,8 @@ $patchAccount = new Components\PatchAccount(
 );
 
 $response = $sdk->accounts->updateProfile(
-    accountID: '6433cb9d-1594-43fd-951b-42aef5b30e2e',
-    patchAccount: $patchAccount,
-    xMoovVersion: 'v2024.01.00'
+    accountID: '433cb9d1-5943-4fd5-91b4-2aef5b30e2e7',
+    patchAccount: $patchAccount
 
 );
 
@@ -436,6 +435,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -447,9 +447,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->accounts->disconnect(
-    accountID: 'cfdfea7d-f185-4de5-ba90-b09f14fe6683',
-    xMoovVersion: 'v2024.01.00'
-
+    accountID: 'cfdfea7d-f185-4de5-ba90-b09f14fe6683'
 );
 
 if ($response->statusCode === 200) {
@@ -493,6 +491,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -504,9 +503,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->accounts->getCountries(
-    accountID: 'a2026036-cc26-42c1-beef-950662d13b5d',
-    xMoovVersion: 'v2024.01.00'
-
+    accountID: 'a2026036-cc26-42c1-beef-950662d13b5d'
 );
 
 if ($response->accountCountries !== null) {
@@ -551,6 +548,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -567,8 +565,7 @@ $accountCountries = new Components\AccountCountries(
 
 $response = $sdk->accounts->assignCountries(
     accountID: '46736fa8-4bf7-4144-8e0e-dbea1eb0805b',
-    accountCountries: $accountCountries,
-    xMoovVersion: 'v2024.01.00'
+    accountCountries: $accountCountries
 
 );
 
@@ -615,6 +612,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -626,9 +624,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->accounts->getMerchantAgreement(
-    accountID: '6180d9b9-2377-4190-8530-70a99d31a578',
-    xMoovVersion: 'v2024.01.00'
-
+    accountID: '6180d9b9-2377-4190-8530-70a99d31a578'
 );
 
 if ($response->bytes !== null) {
@@ -672,6 +668,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -683,9 +680,6 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->accounts->getTermsOfServiceToken(
-    xMoovVersion: 'v2024.01.00',
-    origin: '<value>',
-    referer: 'major-order.info'
 
 );
 
@@ -731,6 +725,7 @@ use Moov\MoovPhp\Models\Components;
 use Moov\MoovPhp\Models\Operations;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -788,6 +783,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -800,8 +796,7 @@ $sdk = MoovPhp\Moov::builder()
 
 $response = $sdk->accounts->getFile(
     accountID: '7f888113-d35a-4536-b9bc-c55076736ab6',
-    fileID: 'af170db9-0d17-4a9f-ade6-5dd2f1b3412d',
-    xMoovVersion: 'v2024.01.00'
+    fileID: 'af170db9-0d17-4a9f-ade6-5dd2f1b3412d'
 
 );
 

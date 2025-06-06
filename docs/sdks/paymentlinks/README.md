@@ -50,6 +50,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -83,8 +84,7 @@ $createPaymentLink = new Components\CreatePaymentLink(
 
 $response = $sdk->paymentLinks->create(
     accountID: 'cc1d04a8-03b1-4600-b675-e6180d574074',
-    createPaymentLink: $createPaymentLink,
-    xMoovVersion: 'v2024.01.00'
+    createPaymentLink: $createPaymentLink
 
 );
 
@@ -131,6 +131,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -142,9 +143,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->paymentLinks->list(
-    accountID: 'd1039e6d-21ee-4a29-8adf-1dd2a6625a0d',
-    xMoovVersion: 'v2024.01.00'
-
+    accountID: 'd1039e6d-21ee-4a29-8adf-1dd2a6625a0d'
 );
 
 if ($response->paymentLinks !== null) {
@@ -187,6 +186,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -199,8 +199,7 @@ $sdk = MoovPhp\Moov::builder()
 
 $response = $sdk->paymentLinks->get(
     accountID: '323f95b1-3798-4203-8a73-5c8668a9226e',
-    paymentLinkCode: 'uc7ZYKrMhi',
-    xMoovVersion: 'v2024.01.00'
+    paymentLinkCode: 'uc7ZYKrMhi'
 
 );
 
@@ -245,6 +244,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -267,8 +267,7 @@ $updatePaymentLink = new Components\UpdatePaymentLink(
 $response = $sdk->paymentLinks->update(
     accountID: 'ddad6613-2350-446a-883b-f76abb2cd4ea',
     paymentLinkCode: 'uc7ZYKrMhi',
-    updatePaymentLink: $updatePaymentLink,
-    xMoovVersion: 'v2024.01.00'
+    updatePaymentLink: $updatePaymentLink
 
 );
 
@@ -316,6 +315,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -328,8 +328,7 @@ $sdk = MoovPhp\Moov::builder()
 
 $response = $sdk->paymentLinks->disable(
     accountID: 'c1cf000d-0dd9-4dec-bd5e-a88e135adf82',
-    paymentLinkCode: 'uc7ZYKrMhi',
-    xMoovVersion: 'v2024.01.00'
+    paymentLinkCode: 'uc7ZYKrMhi'
 
 );
 
@@ -376,6 +375,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -388,8 +388,7 @@ $sdk = MoovPhp\Moov::builder()
 
 $response = $sdk->paymentLinks->getQrCode(
     accountID: '2f01a42a-aa5a-424f-9f47-6f8999ed05dc',
-    paymentLinkCode: 'uc7ZYKrMhi',
-    xMoovVersion: 'v2024.01.00'
+    paymentLinkCode: 'uc7ZYKrMhi'
 
 );
 

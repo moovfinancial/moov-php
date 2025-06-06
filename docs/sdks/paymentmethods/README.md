@@ -34,6 +34,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -45,11 +46,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->paymentMethods->list(
-    accountID: 'f5503781-dfe4-4bcd-9487-5b5fe2b4d53b',
-    xMoovVersion: 'v2024.01.00',
-    sourceID: '2e00e975-911c-442a-b6db-76ad7459d7b1',
-    paymentMethodType: Components\PaymentMethodType::CardPresentPayment
-
+    accountID: 'f5503781-dfe4-4bcd-9487-5b5fe2b4d53b'
 );
 
 if ($response->paymentMethods !== null) {
@@ -94,6 +91,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -106,8 +104,7 @@ $sdk = MoovPhp\Moov::builder()
 
 $response = $sdk->paymentMethods->get(
     accountID: '56878537-30b0-48ee-9c54-07ab3a8b243d',
-    paymentMethodID: 'aa740bf3-4c5f-459b-9370-4f7d4bea382b',
-    xMoovVersion: 'v2024.01.00'
+    paymentMethodID: 'aa740bf3-4c5f-459b-9370-4f7d4bea382b'
 
 );
 

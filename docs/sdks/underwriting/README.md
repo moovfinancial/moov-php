@@ -38,6 +38,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -49,9 +50,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->underwriting->get(
-    accountID: 'efe07546-f697-4da5-bf73-d9987efd4cdd',
-    xMoovVersion: 'v2024.01.00'
-
+    accountID: 'efe07546-f697-4da5-bf73-d9987efd4cdd'
 );
 
 if ($response->underwriting !== null) {
@@ -96,6 +95,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -119,17 +119,16 @@ $updateUnderwriting = new Components\UpdateUnderwriting(
         debtRepaymentPercentage: 990303,
     ),
     fulfillment: new Components\FulfillmentDetails(
-        hasPhysicalGoods: false,
-        isShippingProduct: false,
-        shipmentDurationDays: 245577,
-        returnPolicy: Components\ReturnPolicyType::ExchangeOnly,
+        hasPhysicalGoods: true,
+        isShippingProduct: true,
+        shipmentDurationDays: 388451,
+        returnPolicy: Components\ReturnPolicyType::Other,
     ),
 );
 
 $response = $sdk->underwriting->upsert(
-    accountID: '6c371bf3-9445-4dfb-9a86-15ad5483b1f9',
-    updateUnderwriting: $updateUnderwriting,
-    xMoovVersion: 'v2024.01.00'
+    accountID: '371bf394-45df-4ba8-a615-ad5483b1f963',
+    updateUnderwriting: $updateUnderwriting
 
 );
 

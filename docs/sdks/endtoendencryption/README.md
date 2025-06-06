@@ -29,6 +29,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -42,9 +43,7 @@ $e2EEToken = new Components\E2EEToken(
 );
 
 $response = $sdk->endToEndEncryption->testToken(
-    e2EEToken: $e2EEToken,
-    xMoovVersion: 'v2024.01.00'
-
+    e2EEToken: $e2EEToken
 );
 
 if ($response->statusCode === 200) {
@@ -85,6 +84,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -96,7 +96,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->endToEndEncryption->generateKey(
-    xMoovVersion: 'v2024.01.00'
+
 );
 
 if ($response->jsonWebKey !== null) {

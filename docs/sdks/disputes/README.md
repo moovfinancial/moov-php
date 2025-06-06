@@ -96,6 +96,7 @@ use Moov\MoovPhp\Models\Components;
 use Moov\MoovPhp\Models\Operations;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -156,6 +157,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -168,8 +170,7 @@ $sdk = MoovPhp\Moov::builder()
 
 $response = $sdk->disputes->get(
     accountID: '44d3e9dd-7128-4b00-8cd9-09d3242e5bcf',
-    disputeID: '4be10af9-ddeb-428b-8333-7430afce142f',
-    xMoovVersion: 'v2024.01.00'
+    disputeID: '4be10af9-ddeb-428b-8333-7430afce142f'
 
 );
 
@@ -216,6 +217,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -228,8 +230,7 @@ $sdk = MoovPhp\Moov::builder()
 
 $response = $sdk->disputes->accept(
     accountID: 'ef028cdd-49e0-4cd8-9c89-6673e28e226e',
-    disputeID: 'b7cf0931-5fbb-4e79-94cb-96291b634f63',
-    xMoovVersion: 'v2024.01.00'
+    disputeID: 'b7cf0931-5fbb-4e79-94cb-96291b634f63'
 
 );
 
@@ -277,6 +278,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -289,8 +291,7 @@ $sdk = MoovPhp\Moov::builder()
 
 $response = $sdk->disputes->listEvidence(
     accountID: 'efc12040-97af-4720-91c5-14cd1a83877b',
-    disputeID: 'f1c23432-4110-4981-9b72-b98df94bb61c',
-    xMoovVersion: 'v2024.01.00'
+    disputeID: 'f1c23432-4110-4981-9b72-b98df94bb61c'
 
 );
 
@@ -337,6 +338,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -356,8 +358,7 @@ $createEvidenceFileMultiPart = new Components\CreateEvidenceFileMultiPart(
 $response = $sdk->disputes->uploadEvidenceFile(
     accountID: 'fbed9e03-f856-45d3-8ddc-67dad27f84d0',
     disputeID: 'b1db0cf5-be00-41d7-a125-1d2d283c2a62',
-    createEvidenceFileMultiPart: $createEvidenceFileMultiPart,
-    xMoovVersion: 'v2024.01.00'
+    createEvidenceFileMultiPart: $createEvidenceFileMultiPart
 
 );
 
@@ -407,6 +408,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -423,8 +425,7 @@ $createEvidenceText = new Components\CreateEvidenceText(
 $response = $sdk->disputes->uploadEvidenceText(
     accountID: 'ed2ca924-e2c4-4f3a-b077-866bb07b0671',
     disputeID: '14832e8d-3613-45ce-942e-3116b9e0d194',
-    createEvidenceText: $createEvidenceText,
-    xMoovVersion: 'v2024.01.00'
+    createEvidenceText: $createEvidenceText
 
 );
 
@@ -476,6 +477,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -488,8 +490,7 @@ $sdk = MoovPhp\Moov::builder()
 
 $response = $sdk->disputes->submitEvidence(
     accountID: '01f79d04-f2de-42de-9e37-23c751edecb4',
-    disputeID: '8c5d6d6e-420a-49c8-b7c3-d4b5d1bbd415',
-    xMoovVersion: 'v2024.01.00'
+    disputeID: '8c5d6d6e-420a-49c8-b7c3-d4b5d1bbd415'
 
 );
 
@@ -537,6 +538,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -550,8 +552,7 @@ $sdk = MoovPhp\Moov::builder()
 $response = $sdk->disputes->getEvidence(
     accountID: 'ab59cc9a-6480-40fe-8a06-8c41883e3c79',
     disputeID: '4fc54609-7e6b-4a75-b8b3-7ffbeb138e22',
-    evidenceID: '08c4d04c-1296-4bfd-bafb-bee195f85785',
-    xMoovVersion: 'v2024.01.00'
+    evidenceID: '08c4d04c-1296-4bfd-bafb-bee195f85785'
 
 );
 
@@ -600,6 +601,7 @@ use Moov\MoovPhp\Models\Components;
 use Moov\MoovPhp\Models\Operations;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -661,6 +663,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -674,8 +677,7 @@ $sdk = MoovPhp\Moov::builder()
 $response = $sdk->disputes->deleteEvidence(
     accountID: 'b21731c6-3497-46a3-859a-3761a6b8e096',
     disputeID: '1759456d-80e3-4428-a08d-302c8877b418',
-    evidenceID: 'ea10cba6-166f-464d-b57b-30d995d44b98',
-    xMoovVersion: 'v2024.01.00'
+    evidenceID: 'ea10cba6-166f-464d-b57b-30d995d44b98'
 
 );
 
@@ -724,6 +726,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -737,8 +740,7 @@ $sdk = MoovPhp\Moov::builder()
 $response = $sdk->disputes->getEvidenceData(
     accountID: '83e6bc61-f894-4cd8-b847-d617383323fb',
     disputeID: 'b7e45862-1e55-4ba0-842f-9fce30c0228b',
-    evidenceID: '3d195b92-798e-4ea4-9347-1c86efacbf38',
-    xMoovVersion: 'v2024.01.00'
+    evidenceID: '3d195b92-798e-4ea4-9347-1c86efacbf38'
 
 );
 

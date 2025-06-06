@@ -40,6 +40,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -61,8 +62,7 @@ $brandProperties = new Components\BrandProperties(
 
 $response = $sdk->branding->create(
     accountID: '0a6ae927-b52b-4ef4-86d0-288f27479817',
-    brandProperties: $brandProperties,
-    xMoovVersion: 'v2024.01.00'
+    brandProperties: $brandProperties
 
 );
 
@@ -109,6 +109,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -130,8 +131,7 @@ $brandProperties = new Components\BrandProperties(
 
 $response = $sdk->branding->upsert(
     accountID: '0cd408b1-a57d-477b-825b-12331c2ed00a',
-    brandProperties: $brandProperties,
-    xMoovVersion: 'v2024.01.00'
+    brandProperties: $brandProperties
 
 );
 
@@ -178,6 +178,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -189,9 +190,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->branding->get(
-    accountID: '8a4ec43e-d45f-481d-a291-683cb221e3cc',
-    xMoovVersion: 'v2024.01.00'
-
+    accountID: '8a4ec43e-d45f-481d-a291-683cb221e3cc'
 );
 
 if ($response->brandProperties !== null) {
@@ -234,6 +233,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -246,8 +246,7 @@ $updateBrand = new Components\UpdateBrand();
 
 $response = $sdk->branding->update(
     accountID: '0c0dc4a5-ecd9-4223-810a-a71632980156',
-    updateBrand: $updateBrand,
-    xMoovVersion: 'v2024.01.00'
+    updateBrand: $updateBrand
 
 );
 

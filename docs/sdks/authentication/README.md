@@ -27,6 +27,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -42,9 +43,7 @@ $revokeTokenRequest = new Components\RevokeTokenRequest(
 );
 
 $response = $sdk->authentication->revokeToken(
-    revokeTokenRequest: $revokeTokenRequest,
-    xMoovVersion: 'v2024.01.00'
-
+    revokeTokenRequest: $revokeTokenRequest
 );
 
 if ($response->statusCode === 200) {
@@ -86,6 +85,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -103,9 +103,7 @@ $authTokenRequest = new Components\AuthTokenRequest(
 );
 
 $response = $sdk->authentication->createToken(
-    authTokenRequest: $authTokenRequest,
-    xMoovVersion: 'v2024.01.00'
-
+    authTokenRequest: $authTokenRequest
 );
 
 if ($response->authToken !== null) {

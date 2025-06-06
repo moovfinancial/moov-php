@@ -32,6 +32,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -43,14 +44,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->receipts->create(
-    requestBody: [
-        new Components\ReceiptRequest(
-            kind: Components\ReceiptKind::SaleCustomerV1,
-            email: 'jordan.lee@classbooker.dev',
-        ),
-    ],
-    xMoovVersion: 'v2024.01.00'
-
+    requestBody: []
 );
 
 if ($response->receiptResponses !== null) {
@@ -94,6 +88,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -105,9 +100,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->receipts->list(
-    id: '8508cf6c-9ce4-4e35-84c1-4b77320a620b',
-    xMoovVersion: 'v2024.01.00'
-
+    id: '8508cf6c-9ce4-4e35-84c1-4b77320a620b'
 );
 
 if ($response->receiptResponses !== null) {

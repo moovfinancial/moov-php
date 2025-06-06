@@ -38,6 +38,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -57,8 +58,7 @@ $fileUploadRequestMultiPart = new Components\FileUploadRequestMultiPart(
 
 $response = $sdk->files->upload(
     accountID: '51ae4a14-07bf-4659-b9b7-285439b7a22e',
-    fileUploadRequestMultiPart: $fileUploadRequestMultiPart,
-    xMoovVersion: 'v2024.01.00'
+    fileUploadRequestMultiPart: $fileUploadRequestMultiPart
 
 );
 
@@ -105,6 +105,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -116,9 +117,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->files->list(
-    accountID: 'd1133bf2-4853-4436-9a03-23739895ab98',
-    xMoovVersion: 'v2024.01.00'
-
+    accountID: 'd1133bf2-4853-4436-9a03-23739895ab98'
 );
 
 if ($response->fileDetails !== null) {

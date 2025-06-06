@@ -61,6 +61,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -77,8 +78,7 @@ $registerApplePayMerchantDomains = new Components\RegisterApplePayMerchantDomain
 
 $response = $sdk->applePay->registerDomains(
     accountID: '60825531-8c7e-421c-8014-019c6603250c',
-    registerApplePayMerchantDomains: $registerApplePayMerchantDomains,
-    xMoovVersion: 'v2024.01.00'
+    registerApplePayMerchantDomains: $registerApplePayMerchantDomains
 
 );
 
@@ -127,6 +127,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -146,8 +147,7 @@ $updateApplePayMerchantDomains = new Components\UpdateApplePayMerchantDomains(
 
 $response = $sdk->applePay->updateDomains(
     accountID: '34b1c132-91d4-4676-9864-87e1d961d56d',
-    updateApplePayMerchantDomains: $updateApplePayMerchantDomains,
-    xMoovVersion: 'v2024.01.00'
+    updateApplePayMerchantDomains: $updateApplePayMerchantDomains
 
 );
 
@@ -195,6 +195,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -206,9 +207,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->applePay->getDomains(
-    accountID: '28704d00-d07b-47db-9e54-016a9713d697',
-    xMoovVersion: 'v2024.01.00'
-
+    accountID: '28704d00-d07b-47db-9e54-016a9713d697'
 );
 
 if ($response->applePayMerchantDomains !== null) {
@@ -254,6 +253,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -269,8 +269,7 @@ $createApplePaySession = new Components\CreateApplePaySession(
 
 $response = $sdk->applePay->createSession(
     accountID: '32ab62ca-7afd-4f49-89cb-0bb237258f23',
-    createApplePaySession: $createApplePaySession,
-    xMoovVersion: 'v2024.01.00'
+    createApplePaySession: $createApplePaySession
 
 );
 
@@ -319,6 +318,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -359,8 +359,7 @@ $linkApplePay = new Components\LinkApplePay(
 
 $response = $sdk->applePay->linkToken(
     accountID: 'bf498c07-3852-4060-b561-bf992e26a851',
-    linkApplePay: $linkApplePay,
-    xMoovVersion: 'v2024.01.00'
+    linkApplePay: $linkApplePay
 
 );
 

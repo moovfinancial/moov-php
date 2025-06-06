@@ -28,6 +28,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -39,9 +40,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->enrichedProfile->get(
-    email: 'Thaddeus.Welch@gmail.com',
-    xMoovVersion: 'v2024.01.00'
-
+    email: 'Thaddeus.Welch@gmail.com'
 );
 
 if ($response->enrichedBusinessResponse !== null) {

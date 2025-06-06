@@ -116,6 +116,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -127,18 +128,12 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->bankAccounts->link(
-    accountID: '8b326319-d611-4892-b1d8-2d5810d562ee',
-    linkBankAccount: new Components\BankAccountPayload(
-        account: new Components\BankAccountIntegration(
-            holderName: '<value>',
-            holderType: Components\BankAccountHolderType::Individual,
-            accountNumber: '<value>',
-            bankAccountType: Components\BankAccountType::Checking,
-            routingNumber: '<value>',
+    accountID: 'b326319d-6118-4921-8d82-d5810d562eef',
+    linkBankAccount: new Components\PlaidLinkPayload(
+        plaidLink: new Components\PlaidLinkIntegration(
+            publicToken: '<value>',
         ),
-    ),
-    xMoovVersion: 'v2024.01.00',
-    xWaitFor: Components\BankAccountWaitFor::PaymentMethod
+    )
 
 );
 
@@ -188,6 +183,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -199,9 +195,7 @@ $sdk = MoovPhp\Moov::builder()
 
 
 $response = $sdk->bankAccounts->list(
-    accountID: '85539920-22dd-4900-a07e-7a88268456d9',
-    xMoovVersion: 'v2024.01.00'
-
+    accountID: '85539920-22dd-4900-a07e-7a88268456d9'
 );
 
 if ($response->bankAccounts !== null) {
@@ -246,6 +240,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -258,8 +253,7 @@ $sdk = MoovPhp\Moov::builder()
 
 $response = $sdk->bankAccounts->get(
     accountID: '32ac681d-3244-4673-8541-362e40b7677a',
-    bankAccountID: 'dd241177-be83-4aad-80f8-31aded5f3616',
-    xMoovVersion: 'v2024.01.00'
+    bankAccountID: 'dd241177-be83-4aad-80f8-31aded5f3616'
 
 );
 
@@ -304,6 +298,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -316,8 +311,7 @@ $sdk = MoovPhp\Moov::builder()
 
 $response = $sdk->bankAccounts->disable(
     accountID: '6b6ade5f-0b20-493c-b483-cf1f670a1055',
-    bankAccountID: 'b9295fc2-f5fd-4767-894f-5ca45abfd3fc',
-    xMoovVersion: 'v2024.01.00'
+    bankAccountID: 'b9295fc2-f5fd-4767-894f-5ca45abfd3fc'
 
 );
 
@@ -374,6 +368,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -386,8 +381,7 @@ $sdk = MoovPhp\Moov::builder()
 
 $response = $sdk->bankAccounts->initiateMicroDeposits(
     accountID: 'ced90412-ebb4-43d4-a171-0a929ed5fb37',
-    bankAccountID: 'f2b630cc-a8ae-44be-970b-7bed47b2d952',
-    xMoovVersion: 'v2024.01.00'
+    bankAccountID: 'f2b630cc-a8ae-44be-970b-7bed47b2d952'
 
 );
 
@@ -433,6 +427,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -451,8 +446,7 @@ $completeMicroDeposits = new Components\CompleteMicroDeposits(
 $response = $sdk->bankAccounts->completeMicroDeposits(
     accountID: 'af0efd2b-a1fa-40fd-998b-2007b8df0766',
     bankAccountID: 'b468e916-699b-4590-becf-ede76d1413cb',
-    completeMicroDeposits: $completeMicroDeposits,
-    xMoovVersion: 'v2024.01.00'
+    completeMicroDeposits: $completeMicroDeposits
 
 );
 
@@ -509,6 +503,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -521,8 +516,7 @@ $sdk = MoovPhp\Moov::builder()
 
 $response = $sdk->bankAccounts->getVerification(
     accountID: 'c87bc077-580a-4c2a-b312-2afbd21fc1cd',
-    bankAccountID: 'aaceed83-ef83-4d48-8136-096f834280cc',
-    xMoovVersion: 'v2024.01.00'
+    bankAccountID: 'aaceed83-ef83-4d48-8136-096f834280cc'
 
 );
 
@@ -582,6 +576,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -594,9 +589,7 @@ $sdk = MoovPhp\Moov::builder()
 
 $response = $sdk->bankAccounts->initiateVerification(
     accountID: '9d6d433b-c13a-48d7-849a-1897fa71375b',
-    bankAccountID: 'bd092468-393d-4ee0-85a8-48238fee70d2',
-    xMoovVersion: 'v2024.01.00',
-    xWaitFor: Components\BankAccountWaitFor::PaymentMethod
+    bankAccountID: 'bd092468-393d-4ee0-85a8-48238fee70d2'
 
 );
 
@@ -650,6 +643,7 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -665,8 +659,7 @@ $completeBankAccountVerification = new Components\CompleteBankAccountVerificatio
 $response = $sdk->bankAccounts->completeVerification(
     accountID: '2116e60b-0ea7-447e-a7af-5d647f92f06a',
     bankAccountID: '96606c15-fd37-49fe-9af2-4e42dcf44fe3',
-    completeBankAccountVerification: $completeBankAccountVerification,
-    xMoovVersion: 'v2024.01.00'
+    completeBankAccountVerification: $completeBankAccountVerification
 
 );
 
