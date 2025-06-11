@@ -27,21 +27,20 @@ class WebhookDataTransferCreated
     public string $transferID;
 
     /**
-     * Status of a transfer.
      *
-     * @var TransferStatus $status
+     * @var WebhookDataTransferStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferStatus')]
-    public TransferStatus $status;
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\WebhookDataTransferStatus')]
+    public WebhookDataTransferStatus $status;
 
     /**
      * @param  string  $accountID
      * @param  string  $transferID
-     * @param  TransferStatus  $status
+     * @param  WebhookDataTransferStatus  $status
      * @phpstan-pure
      */
-    public function __construct(string $accountID, string $transferID, TransferStatus $status)
+    public function __construct(string $accountID, string $transferID, WebhookDataTransferStatus $status)
     {
         $this->accountID = $accountID;
         $this->transferID = $transferID;

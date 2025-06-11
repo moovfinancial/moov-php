@@ -218,6 +218,14 @@ class CreatedTransfer
     public ?string $occurrenceID = null;
 
     /**
+     *
+     * @var ?string $paymentLinkCode
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('paymentLinkCode')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $paymentLinkCode = null;
+
+    /**
      * Optional sales tax amount. `transfer.amount.value` should be inclusive of any sales tax and represents the total amount charged.
      *
      * @var ?Amount $salesTaxAmount
@@ -251,10 +259,11 @@ class CreatedTransfer
      * @param  ?string  $sweepID
      * @param  ?string  $scheduleID
      * @param  ?string  $occurrenceID
+     * @param  ?string  $paymentLinkCode
      * @param  ?Amount  $salesTaxAmount
      * @phpstan-pure
      */
-    public function __construct(string $transferID, \DateTime $createdOn, ?TransferSource $source = null, ?TransferDestination $destination = null, ?\DateTime $completedOn = null, ?TransferStatus $status = null, ?TransferFailureReason $failureReason = null, ?Amount $amount = null, ?string $description = null, ?array $metadata = null, ?FacilitatorFee $facilitatorFee = null, ?int $moovFee = null, ?string $moovFeeDecimal = null, ?MoovFeeDetails $moovFeeDetails = null, ?string $groupID = null, ?array $cancellations = null, ?Amount $refundedAmount = null, ?array $refunds = null, ?Amount $disputedAmount = null, ?array $disputes = null, ?string $sweepID = null, ?string $scheduleID = null, ?string $occurrenceID = null, ?Amount $salesTaxAmount = null)
+    public function __construct(string $transferID, \DateTime $createdOn, ?TransferSource $source = null, ?TransferDestination $destination = null, ?\DateTime $completedOn = null, ?TransferStatus $status = null, ?TransferFailureReason $failureReason = null, ?Amount $amount = null, ?string $description = null, ?array $metadata = null, ?FacilitatorFee $facilitatorFee = null, ?int $moovFee = null, ?string $moovFeeDecimal = null, ?MoovFeeDetails $moovFeeDetails = null, ?string $groupID = null, ?array $cancellations = null, ?Amount $refundedAmount = null, ?array $refunds = null, ?Amount $disputedAmount = null, ?array $disputes = null, ?string $sweepID = null, ?string $scheduleID = null, ?string $occurrenceID = null, ?string $paymentLinkCode = null, ?Amount $salesTaxAmount = null)
     {
         $this->transferID = $transferID;
         $this->createdOn = $createdOn;
@@ -279,6 +288,7 @@ class CreatedTransfer
         $this->sweepID = $sweepID;
         $this->scheduleID = $scheduleID;
         $this->occurrenceID = $occurrenceID;
+        $this->paymentLinkCode = $paymentLinkCode;
         $this->salesTaxAmount = $salesTaxAmount;
     }
 }

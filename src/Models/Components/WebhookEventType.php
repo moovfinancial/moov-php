@@ -12,6 +12,7 @@ namespace Moov\MoovPhp\Models\Components;
 /** The type of event that occurred. */
 enum WebhookEventType: string
 {
+    case Wildcard = '*';
     case AccountCreated = 'account.created';
     case AccountUpdated = 'account.updated';
     case AccountDeleted = 'account.deleted';

@@ -7,6 +7,7 @@ The type of event that occurred.
 
 | Name                         | Value                        |
 | ---------------------------- | ---------------------------- |
+| `Wildcard`                   | *                            |
 | `AccountCreated`             | account.created              |
 | `AccountUpdated`             | account.updated              |
 | `AccountDeleted`             | account.deleted              |

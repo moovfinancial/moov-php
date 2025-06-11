@@ -68,12 +68,12 @@ class ListTransfersRequest
     public ?string $scheduleID = null;
 
     /**
-     * Optional ID to filter for transfers associated with the payment link.
+     * Optional code to filter for transfers associated with the payment link.
      *
-     * @var ?string $paymentLinkID
+     * @var ?string $paymentLinkCode
      */
-    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=paymentLinkID')]
-    public ?string $paymentLinkID = null;
+    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=paymentLinkCode')]
+    public ?string $paymentLinkCode = null;
 
     /**
      * Optional parameter to only return refunded transfers.
@@ -131,14 +131,14 @@ class ListTransfersRequest
      * @param  ?\DateTime  $endDateTime
      * @param  ?string  $groupID
      * @param  ?string  $scheduleID
-     * @param  ?string  $paymentLinkID
+     * @param  ?string  $paymentLinkCode
      * @param  ?bool  $refunded
      * @param  ?bool  $disputed
      * @param  ?int  $skip
      * @param  ?int  $count
      * @phpstan-pure
      */
-    public function __construct(string $accountID, ?array $accountIDs = null, ?Components\TransferStatus $status = null, ?\DateTime $startDateTime = null, ?\DateTime $endDateTime = null, ?string $groupID = null, ?string $scheduleID = null, ?string $paymentLinkID = null, ?bool $refunded = null, ?bool $disputed = null, ?int $skip = null, ?int $count = null, ?string $xMoovVersion = 'v2024.01.00')
+    public function __construct(string $accountID, ?array $accountIDs = null, ?Components\TransferStatus $status = null, ?\DateTime $startDateTime = null, ?\DateTime $endDateTime = null, ?string $groupID = null, ?string $scheduleID = null, ?string $paymentLinkCode = null, ?bool $refunded = null, ?bool $disputed = null, ?int $skip = null, ?int $count = null, ?string $xMoovVersion = 'v2024.01.00')
     {
         $this->accountID = $accountID;
         $this->accountIDs = $accountIDs;
@@ -147,7 +147,7 @@ class ListTransfersRequest
         $this->endDateTime = $endDateTime;
         $this->groupID = $groupID;
         $this->scheduleID = $scheduleID;
-        $this->paymentLinkID = $paymentLinkID;
+        $this->paymentLinkCode = $paymentLinkCode;
         $this->refunded = $refunded;
         $this->disputed = $disputed;
         $this->skip = $skip;

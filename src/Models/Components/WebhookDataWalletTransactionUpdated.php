@@ -41,24 +41,23 @@ class WebhookDataWalletTransactionUpdated
     public WalletTransactionStatus $status;
 
     /**
-     * The available balance of a wallet.
      *
-     * @var ?WebhookWalletAvailableBalance $availableBalance
+     * @var ?WalletAvailableBalance $availableBalance
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('availableBalance')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\WebhookWalletAvailableBalance|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\WalletAvailableBalance|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?WebhookWalletAvailableBalance $availableBalance = null;
+    public ?WalletAvailableBalance $availableBalance = null;
 
     /**
      * @param  string  $accountID
      * @param  string  $walletID
      * @param  string  $transactionID
      * @param  WalletTransactionStatus  $status
-     * @param  ?WebhookWalletAvailableBalance  $availableBalance
+     * @param  ?WalletAvailableBalance  $availableBalance
      * @phpstan-pure
      */
-    public function __construct(string $accountID, string $walletID, string $transactionID, WalletTransactionStatus $status, ?WebhookWalletAvailableBalance $availableBalance = null)
+    public function __construct(string $accountID, string $walletID, string $transactionID, WalletTransactionStatus $status, ?WalletAvailableBalance $availableBalance = null)
     {
         $this->accountID = $accountID;
         $this->walletID = $walletID;

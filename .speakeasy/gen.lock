@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 1336e6006a6ba73af264ebeae162e0f2
+  docChecksum: 1ddf8d5f19b3bce069da9e62a1fd57d5
   docVersion: latest
-  speakeasyVersion: 1.558.1
-  generationVersion: 2.623.4
-  releaseVersion: 0.4.10
-  configChecksum: 8a10187a163652eb6d9a9c68a6548c00
+  speakeasyVersion: 1.559.0
+  generationVersion: 2.624.0
+  releaseVersion: 0.4.11
+  configChecksum: 752fe831245fb9511ed62010488d0486
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
@@ -481,12 +481,12 @@ generatedFiles:
   - docs/Models/Components/WebhookDataTerminalApplicationCreated.md
   - docs/Models/Components/WebhookDataTerminalApplicationUpdated.md
   - docs/Models/Components/WebhookDataTransferCreated.md
+  - docs/Models/Components/WebhookDataTransferStatus.md
   - docs/Models/Components/WebhookDataTransferUpdated.md
   - docs/Models/Components/WebhookDataWalletTransactionUpdated.md
   - docs/Models/Components/WebhookEvent.md
   - docs/Models/Components/WebhookEventType.md
   - docs/Models/Components/WebhookTransferPaymentMethodDetails.md
-  - docs/Models/Components/WebhookWalletAvailableBalance.md
   - docs/Models/Components/WireInstitution.md
   - docs/Models/Components/WireServices.md
   - docs/Models/Errors/AccountTerminalApplicationError.md
@@ -1319,12 +1319,12 @@ generatedFiles:
   - src/Models/Components/WebhookDataTerminalApplicationCreated.php
   - src/Models/Components/WebhookDataTerminalApplicationUpdated.php
   - src/Models/Components/WebhookDataTransferCreated.php
+  - src/Models/Components/WebhookDataTransferStatus.php
   - src/Models/Components/WebhookDataTransferUpdated.php
   - src/Models/Components/WebhookDataWalletTransactionUpdated.php
   - src/Models/Components/WebhookEvent.php
   - src/Models/Components/WebhookEventType.php
   - src/Models/Components/WebhookTransferPaymentMethodDetails.php
-  - src/Models/Components/WebhookWalletAvailableBalance.php
   - src/Models/Components/WireInstitution.php
   - src/Models/Components/WireServices.php
   - src/Models/Errors/APIException.php

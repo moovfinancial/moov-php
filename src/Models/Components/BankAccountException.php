@@ -13,6 +13,14 @@ namespace Moov\MoovPhp\Models\Components;
 class BankAccountException
 {
     /**
+     * Details related to an `errored` or `verificationFailed` bank account status.
+     *
+     * @var string $description
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('description')]
+    public string $description;
+
+    /**
      * The return code of an ACH transaction that caused the bank account status to change.
      *
      *
@@ -37,11 +45,12 @@ class BankAccountException
      * - R38: Stop Payment on Source Document (Adjustment Entry)
      * - R39: Improper Source Document
      *
-     * @var ACHReturnCode $achReturnCode
+     * @var ?ACHReturnCode $achReturnCode
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('achReturnCode')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ACHReturnCode')]
-    public ACHReturnCode $achReturnCode;
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ACHReturnCode|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?ACHReturnCode $achReturnCode = null;
 
     /**
      * The rejection code of an RTP transaction that caused the bank account status to change.
@@ -55,30 +64,23 @@ class BankAccountException
      * - AG03: Transaction Type Not Supported
      * - MD07: Customer Deceased
      *
-     * @var RTPRejectionCode $rtpRejectionCode
+     * @var ?RTPRejectionCode $rtpRejectionCode
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('rtpRejectionCode')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RTPRejectionCode')]
-    public RTPRejectionCode $rtpRejectionCode;
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RTPRejectionCode|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?RTPRejectionCode $rtpRejectionCode = null;
 
     /**
-     * Details related to an `errored` or `verificationFailed` bank account status.
-     *
-     * @var string $description
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('description')]
-    public string $description;
-
-    /**
-     * @param  ACHReturnCode  $achReturnCode
-     * @param  RTPRejectionCode  $rtpRejectionCode
      * @param  string  $description
+     * @param  ?ACHReturnCode  $achReturnCode
+     * @param  ?RTPRejectionCode  $rtpRejectionCode
      * @phpstan-pure
      */
-    public function __construct(ACHReturnCode $achReturnCode, RTPRejectionCode $rtpRejectionCode, string $description)
+    public function __construct(string $description, ?ACHReturnCode $achReturnCode = null, ?RTPRejectionCode $rtpRejectionCode = null)
     {
+        $this->description = $description;
         $this->achReturnCode = $achReturnCode;
         $this->rtpRejectionCode = $rtpRejectionCode;
-        $this->description = $description;
     }
 }

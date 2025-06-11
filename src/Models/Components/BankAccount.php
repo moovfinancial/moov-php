@@ -20,7 +20,7 @@ class BankAccount
     public string $bankAccountID;
 
     /**
-     * Once the bank account is linked, we don't reveal the full bank account number. 
+     * Once the bank account is linked, we don't reveal the full bank account number.
      *
      *
      * The fingerprint acts as a way to identify whether two linked bank accounts are the same.
