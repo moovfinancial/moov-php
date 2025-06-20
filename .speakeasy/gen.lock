@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 1ddf8d5f19b3bce069da9e62a1fd57d5
+  docChecksum: 753e61fd05ca0e9d78198303dbfc4151
   docVersion: latest
-  speakeasyVersion: 1.559.0
-  generationVersion: 2.624.0
-  releaseVersion: 0.4.11
-  configChecksum: 752fe831245fb9511ed62010488d0486
+  speakeasyVersion: 1.567.2
+  generationVersion: 2.632.1
+  releaseVersion: 0.4.12
+  configChecksum: 05251b82c313640814f273b8577746a4
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
 features:
   php:
     constsAndDefaults: 0.2.0
-    core: 3.8.5
+    core: 3.8.6
     deprecations: 2.81.1
     flattening: 2.81.1
     globalSecurity: 2.81.8
@@ -25,7 +25,7 @@ features:
     nameOverrides: 2.81.2
     nullables: 1.0.1
     responseFormat: 0.1.0
-    unions: 0.1.4
+    unions: 0.1.5
 generatedFiles:
   - .gitattributes
   - USAGE.md
@@ -564,6 +564,8 @@ generatedFiles:
   - docs/Models/Operations/CreateSweepConfigResponse.md
   - docs/Models/Operations/CreateTerminalApplicationRequest.md
   - docs/Models/Operations/CreateTerminalApplicationResponse.md
+  - docs/Models/Operations/CreateTransferOptionsForAccountRequest.md
+  - docs/Models/Operations/CreateTransferOptionsForAccountResponse.md
   - docs/Models/Operations/CreateTransferOptionsRequest.md
   - docs/Models/Operations/CreateTransferOptionsResponse.md
   - docs/Models/Operations/CreateTransferRequest.md
@@ -1437,6 +1439,8 @@ generatedFiles:
   - src/Models/Operations/CreateSweepConfigResponse.php
   - src/Models/Operations/CreateTerminalApplicationRequest.php
   - src/Models/Operations/CreateTerminalApplicationResponse.php
+  - src/Models/Operations/CreateTransferOptionsForAccountRequest.php
+  - src/Models/Operations/CreateTransferOptionsForAccountResponse.php
   - src/Models/Operations/CreateTransferOptionsRequest.php
   - src/Models/Operations/CreateTransferOptionsResponse.php
   - src/Models/Operations/CreateTransferRequest.php
@@ -2127,6 +2131,15 @@ examples:
       responses:
         "200":
           application/json: [{"capability": "transfers", "accountID": "01234567-89ab-cdef-0123-456789abcdef", "status": "enabled", "createdOn": "2024-05-06T12:20:38.184Z", "updatedOn": "2024-05-06T12:20:38.184Z"}, {"capability": "collect-funds", "accountID": "01234567-89ab-cdef-0123-456789abcdef", "status": "in-review", "requirements": {"currentlyDue": ["business.owners"]}, "createdOn": "2024-05-06T12:20:38.184Z", "updatedOn": "2024-05-06T12:20:38.184Z"}]
+    speakeasy-default-list-capabilities:
+      parameters:
+        path:
+          accountID: "1a50ab1c-1714-49e7-a016-cea17b33511a"
+        header:
+          x-moov-version: "v2024.01.00"
+      responses:
+        "200":
+          application/json: [{"capability": "collect-funds", "accountID": "2f213305-a981-4b02-b1be-fefe5908de2d", "status": "disabled", "createdOn": "2023-07-16T23:06:32.315Z", "updatedOn": "2023-07-20T07:01:43.530Z"}]
   requestCapabilities:
     "":
       parameters:
@@ -2139,6 +2152,21 @@ examples:
       responses:
         "200":
           application/json: [{"capability": "transfers", "accountID": "01234567-89ab-cdef-0123-456789abcdef", "status": "enabled", "createdOn": "2024-05-06T12:20:38.184Z", "updatedOn": "2024-05-06T12:20:38.184Z"}, {"capability": "collect-funds", "accountID": "01234567-89ab-cdef-0123-456789abcdef", "status": "in-review", "requirements": {"currentlyDue": ["business.owners"]}, "createdOn": "2024-05-06T12:20:38.184Z", "updatedOn": "2024-05-06T12:20:38.184Z"}]
+    speakeasy-default-request-capabilities:
+      parameters:
+        path:
+          accountID: "de140d5c-c78e-4ebb-a001-f51aaf6c814a"
+        header:
+          x-moov-version: "v2024.01.00"
+      requestBody:
+        application/json: {"capabilities": []}
+      responses:
+        "200":
+          application/json: [{"capability": "wallet", "accountID": "2e510c5d-4d85-48f7-970c-ad78e7480e4e", "status": "pending", "createdOn": "2024-08-06T15:28:41.745Z", "updatedOn": "2024-10-15T15:39:15.277Z"}]
+        "400":
+          application/json: {"error": "<value>"}
+        "422":
+          application/json: {}
   getCapability:
     "":
       parameters:
@@ -2150,6 +2178,16 @@ examples:
       responses:
         "200":
           application/json: {"capability": "transfers", "accountID": "01234567-89ab-cdef-0123-456789abcdef", "status": "enabled", "createdOn": "2024-05-06T12:20:38.184Z", "updatedOn": "2024-05-06T12:20:38.184Z"}
+    speakeasy-default-get-capability:
+      parameters:
+        path:
+          accountID: "c1697ea6-c984-4ba1-9b81-93e5e18660af"
+          capabilityID: "send-funds"
+        header:
+          x-moov-version: "v2024.01.00"
+      responses:
+        "200":
+          application/json: {"capability": "transfers", "accountID": "eb8b26fe-83f5-4e63-8e2c-7eb0c94d312a", "status": "enabled", "createdOn": "2023-09-10T00:14:30.908Z", "updatedOn": "2024-03-19T19:49:37.863Z"}
   disableCapability:
     speakeasy-default-disable-capability:
       parameters:
@@ -2174,6 +2212,22 @@ examples:
       responses:
         "200":
           application/json: {"cardID": "01234567-89ab-cdef-0123-456789abcdef", "fingerprint": "9948962d92a1ce40c9f918cd9ece3a22bde62fb325a2f1fe2e833969de672ba3", "brand": "Visa", "cardType": "credit", "cardCategory": "CLASSIC", "lastFourCardNumber": "1111", "bin": "411111", "expiration": {"month": "01", "year": "21"}, "holderName": "Jules Jackson", "billingAddress": {"addressLine1": "123 Main Street", "addressLine2": "Apt 302", "city": "Boulder", "stateOrProvince": "CO", "postalCode": "80301", "country": "US"}, "cardVerification": {"cvv": "match", "addressLine1": "match", "postalCode": "match", "accountName": {"firstName": "match", "lastName": "match", "middleName": "match", "fullName": "match"}}, "issuer": "GRINGOTTS BANK", "issuerCountry": "US", "issuerURL": "HTTPS://WWW.EXAMPLE.COM/", "issuerPhone": "8185551212", "commercial": false, "regulated": false, "cardOnFile": true, "merchantAccountID": "01234567-89ab-cdef-0123-456789abcdef", "cardAccountUpdater": {"updatedOn": "2024-05-06T12:20:38.184Z", "updateType": "number-update"}, "domesticPushToCard": "standard", "domesticPullFromCard": "supported", "paymentMethods": [{"paymentMethodID": "01234567-89ab-cdef-0123-456789abcdef", "paymentMethodType": "card-payment"}, {"paymentMethodID": "01234567-89ab-cdef-0123-456789abcdef", "paymentMethodType": "push-to-card"}, {"paymentMethodID": "01234567-89ab-cdef-0123-456789abcdef", "paymentMethodType": "pull-from-card"}]}
+    speakeasy-default-link-card:
+      parameters:
+        path:
+          accountID: "5593e46f-7936-474b-a52b-96f1da46867b"
+        header:
+          x-moov-version: "v2024.01.00"
+          x-wait-for: "payment-method"
+      requestBody:
+        application/json: {"cardNumber": "4111111111111111", "cardCvv": "123", "expiration": {"month": "01", "year": "21"}, "holderName": "Jules Jackson", "billingAddress": {"postalCode": "80301"}}
+      responses:
+        "200":
+          application/json: {"cardID": "01234567-89ab-cdef-0123-456789abcdef", "fingerprint": "9948962d92a1ce40c9f918cd9ece3a22bde62fb325a2f1fe2e833969de672ba3", "brand": "Visa", "cardType": "credit", "cardCategory": "CLASSIC", "lastFourCardNumber": "1111", "bin": "411111", "expiration": {"month": "01", "year": "21"}, "holderName": "Jules Jackson", "billingAddress": {"addressLine1": "123 Main Street", "addressLine2": "Apt 302", "city": "Boulder", "stateOrProvince": "CO", "postalCode": "80301", "country": "US"}, "cardVerification": {"cvv": "match", "addressLine1": "match", "postalCode": "match", "accountName": {"firstName": "match", "lastName": "match", "middleName": "match", "fullName": "match"}}, "issuer": "GRINGOTTS BANK", "issuerCountry": "US", "issuerURL": "HTTPS://WWW.EXAMPLE.COM/", "issuerPhone": "8185551212", "commercial": false, "regulated": false, "cardOnFile": true, "merchantAccountID": "01234567-89ab-cdef-0123-456789abcdef", "cardAccountUpdater": {"updatedOn": "2024-05-06T12:20:38.184Z", "updateType": "number-update"}, "domesticPushToCard": "standard", "domesticPullFromCard": "supported"}
+        "400":
+          application/json: {"error": "<value>"}
+        "422":
+          application/json: {}
   listCards:
     speakeasy-default-list-cards:
       parameters:
@@ -2236,8 +2290,32 @@ examples:
       responses:
         "200":
           application/json: [{"disputeID": "6e356108-fdfa-4910-bbe4-1e3c8abf5520", "merchantAccountID": "34233b72-780c-4e0e-8b08-cbbe1bc878f8", "amount": {"currency": "USD", "value": 257753}, "networkReasonCode": "10.4", "transfer": {"transferID": "ecac148a-917e-4ee0-b46a-c51408939fff"}, "respondBy": "2024-12-23T18:55:00Z", "status": "response-needed", "phase": "chargeback", "createdOn": "2024-12-23T17:55:00Z"}]
+    speakeasy-default-list-disputes:
+      parameters:
+        path:
+          accountID: "6fee8f6c-b2c5-44a4-aebb-718335fe4f8e"
+        query:
+          skip: 60
+          count: 20
+        header:
+          x-moov-version: "v2024.01.00"
+      responses:
+        "200":
+          application/json: [{"disputeID": "6e356108-fdfa-4910-bbe4-1e3c8abf5520", "merchantAccountID": "34233b72-780c-4e0e-8b08-cbbe1bc878f8", "amount": {"currency": "USD", "value": 257753}, "networkReasonCode": "10.4", "transfer": {"transferID": "ecac148a-917e-4ee0-b46a-c51408939fff"}, "respondBy": "2024-12-23T18:55:00Z", "status": "response-needed", "phase": "chargeback", "createdOn": "2024-12-23T17:55:00Z"}]
+        "400":
+          application/json: {"error": "<value>"}
   getDispute:
     "":
+      parameters:
+        path:
+          accountID: "44d3e9dd-7128-4b00-8cd9-09d3242e5bcf"
+          disputeID: "4be10af9-ddeb-428b-8333-7430afce142f"
+        header:
+          x-moov-version: "v2024.01.00"
+      responses:
+        "200":
+          application/json: {"disputeID": "6e356108-fdfa-4910-bbe4-1e3c8abf5520", "merchantAccountID": "34233b72-780c-4e0e-8b08-cbbe1bc878f8", "amount": {"currency": "USD", "value": 257753}, "networkReasonCode": "10.4", "transfer": {"transferID": "ecac148a-917e-4ee0-b46a-c51408939fff"}, "respondBy": "2024-12-23T18:55:00Z", "status": "response-needed", "phase": "chargeback", "createdOn": "2024-12-23T17:55:00Z"}
+    speakeasy-default-get-dispute:
       parameters:
         path:
           accountID: "44d3e9dd-7128-4b00-8cd9-09d3242e5bcf"
@@ -2258,6 +2336,18 @@ examples:
       responses:
         "200":
           application/json: {"disputeID": "6e356108-fdfa-4910-bbe4-1e3c8abf5520", "merchantAccountID": "34233b72-780c-4e0e-8b08-cbbe1bc878f8", "amount": {"currency": "USD", "value": 257753}, "networkReasonCode": "10.4", "transfer": {"transferID": "ecac148a-917e-4ee0-b46a-c51408939fff"}, "respondBy": "2024-12-23T18:55:00Z", "status": "accepted", "phase": "chargeback", "createdOn": "2024-12-23T17:55:00Z"}
+    speakeasy-default-accept-dispute:
+      parameters:
+        path:
+          accountID: "ef028cdd-49e0-4cd8-9c89-6673e28e226e"
+          disputeID: "b7cf0931-5fbb-4e79-94cb-96291b634f63"
+        header:
+          x-moov-version: "v2024.01.00"
+      responses:
+        "200":
+          application/json: {"disputeID": "6e356108-fdfa-4910-bbe4-1e3c8abf5520", "merchantAccountID": "34233b72-780c-4e0e-8b08-cbbe1bc878f8", "amount": {"currency": "USD", "value": 257753}, "networkReasonCode": "10.4", "transfer": {"transferID": "ecac148a-917e-4ee0-b46a-c51408939fff"}, "respondBy": "2024-12-23T18:55:00Z", "status": "response-needed", "phase": "chargeback", "createdOn": "2024-12-23T17:55:00Z"}
+        "400":
+          application/json: {"error": "<value>"}
   listDisputeEvidence:
     speakeasy-default-list-dispute-evidence:
       parameters:
@@ -2550,6 +2640,15 @@ examples:
       responses:
         "200":
           application/json: [{"paymentMethodID": "01234567-89ab-cdef-0123-456789abcdef", "paymentMethodType": "moov-wallet", "wallet": {"walletID": "01234567-89ab-cdef-0123-456789abcdef"}}, {"paymentMethodID": "01234567-89ab-cdef-0123-456789abcdef", "paymentMethodType": "apple-pay", "applePay": {"brand": "Visa", "cardType": "credit", "cardDisplayName": "Visa 1256", "fingerprint": "9948962d92a1ce40c9f918cd9ece3a22bde62fb325a2f1fe2e833969de672ba3", "expiration": {"month": "01", "year": "21"}, "dynamicLastFour": "1256", "issuerCountry": "US"}}]
+    speakeasy-default-list-payment-methods:
+      parameters:
+        path:
+          accountID: "f5503781-dfe4-4bcd-9487-5b5fe2b4d53b"
+        header:
+          x-moov-version: "v2024.01.00"
+      responses:
+        "200":
+          application/json: [{"paymentMethodID": "e00e9759-11c4-42a6-bdb7-6ad7459d7b1c", "paymentMethodType": "ach-debit-fund", "bankAccount": {"bankAccountID": "29781cfb-d4b8-48f5-9609-17d34916c113", "fingerprint": "<value>", "status": "new", "holderName": "<value>", "holderType": "individual", "bankName": "<value>", "bankAccountType": "loan", "routingNumber": "<value>", "lastFourAccountNumber": "<value>", "updatedOn": "2025-07-05T14:51:11.091Z"}}]
   getPaymentMethod:
     "":
       parameters:
@@ -2561,6 +2660,16 @@ examples:
       responses:
         "200":
           application/json: {"paymentMethodID": "01234567-89ab-cdef-0123-456789abcdef", "paymentMethodType": "moov-wallet", "wallet": {"walletID": "01234567-89ab-cdef-0123-456789abcdef"}}
+    speakeasy-default-get-payment-method:
+      parameters:
+        path:
+          accountID: "56878537-30b0-48ee-9c54-07ab3a8b243d"
+          paymentMethodID: "aa740bf3-4c5f-459b-9370-4f7d4bea382b"
+        header:
+          x-moov-version: "v2024.01.00"
+      responses:
+        "200":
+          application/json: {"paymentMethodID": "074a5f67-f965-4997-9599-4bbbe72f5f5e", "paymentMethodType": "rtp-credit", "bankAccount": {"bankAccountID": "2f12d0d7-a87a-42be-afd7-6395d3a0a4c2", "fingerprint": "<value>", "status": "pending", "holderName": "<value>", "holderType": "individual", "bankName": "<value>", "bankAccountType": "checking", "routingNumber": "<value>", "lastFourAccountNumber": "<value>", "updatedOn": "2025-11-10T13:03:32.290Z"}}
   createRepresentative:
     speakeasy-default-create-representative:
       parameters:
@@ -2716,6 +2825,21 @@ examples:
       responses:
         "200":
           application/json: {"sweepConfigID": "01234567-89ab-cdef-0123-456789abcdef", "walletID": "01234567-89ab-cdef-0123-456789abcdef", "status": "enabled", "pushPaymentMethod": {"paymentMethodID": "01234567-89ab-cdef-0123-456789abcdef"}, "pullPaymentMethod": {"paymentMethodID": "01234567-89ab-cdef-0123-456789abcdef"}, "minimumBalance": "0.00", "statementDescriptor": "swp_012345", "createdOn": "2024-05-06T12:20:38.184Z", "updatedOn": "2024-05-06T12:20:38.184Z"}
+    speakeasy-default-create-sweep-config:
+      parameters:
+        path:
+          accountID: "02c3d1d1-d847-4eb3-bef3-8caa32a5610b"
+        header:
+          x-moov-version: "v2024.01.00"
+      requestBody:
+        application/json: {"walletID": "cd0ec32e-bd84-418c-90d3-fffbc5465f8b", "status": "enabled", "pushPaymentMethodID": "c7a72abe-280e-467d-b136-223df09ed56f", "pullPaymentMethodID": "6b1feb79-7c08-4d6a-ac73-99aeb4735e7c"}
+      responses:
+        "200":
+          application/json: {"sweepConfigID": "c82ae932-b615-485b-8a8b-9b88a2112a0c", "walletID": "4d53a330-a5f8-461f-943e-b8bceb0d1f49", "status": "disabled", "pushPaymentMethod": {"paymentMethodID": "760dec43-616b-4d9a-b30d-67bcc284e6ce"}, "pullPaymentMethod": {"paymentMethodID": "ee7e97e9-3323-42a4-ab63-55c3c6f30b45"}, "createdOn": "2024-10-26T18:47:55.964Z", "updatedOn": "2025-06-01T01:01:48.961Z"}
+        "400":
+          application/json: {"error": "<value>"}
+        "422":
+          application/json: {}
   listSweepConfigs:
     "":
       parameters:
@@ -2726,6 +2850,15 @@ examples:
       responses:
         "200":
           application/json: [{"sweepConfigID": "01234567-89ab-cdef-0123-456789abcdef", "walletID": "01234567-89ab-cdef-0123-456789abcdef", "status": "enabled", "pushPaymentMethod": {"paymentMethodID": "01234567-89ab-cdef-0123-456789abcdef"}, "pullPaymentMethod": {"paymentMethodID": "01234567-89ab-cdef-0123-456789abcdef"}, "minimumBalance": "0.00", "statementDescriptor": "swp_012345", "createdOn": "2024-05-06T12:20:38.184Z", "updatedOn": "2024-05-06T12:20:38.184Z"}, {"sweepConfigID": "01234567-89ab-cdef-0123-456789abcdef", "walletID": "01234567-89ab-cdef-0123-456789abcdef", "status": "disabled", "pushPaymentMethod": {"paymentMethodID": "01234567-89ab-cdef-0123-456789abcdef"}, "pullPaymentMethod": {"paymentMethodID": "01234567-89ab-cdef-0123-456789abcdef"}, "minimumBalance": "0.00", "statementDescriptor": "swp_012345", "createdOn": "2024-05-06T12:20:38.184Z", "updatedOn": "2024-05-06T12:20:38.184Z"}]
+    speakeasy-default-list-sweep-configs:
+      parameters:
+        path:
+          accountID: "ed67e4c8-03d3-4d88-ba38-fcd87de45a92"
+        header:
+          x-moov-version: "v2024.01.00"
+      responses:
+        "200":
+          application/json: [{"sweepConfigID": "eea1b7df-e57a-48cc-a970-1bfd5ee46f8e", "walletID": "011ae67b-88c6-4ddf-b420-c1d07a292695", "status": "enabled", "pushPaymentMethod": {"paymentMethodID": "9dd0d940-644a-4e81-a573-b8bfd70b79d4"}, "pullPaymentMethod": {"paymentMethodID": "00b45484-ae7d-473c-a572-aa0228fce584"}, "createdOn": "2024-06-19T05:06:14.400Z", "updatedOn": "2023-04-30T00:39:15.787Z"}]
   getSweepConfig:
     "":
       parameters:
@@ -2737,6 +2870,16 @@ examples:
       responses:
         "200":
           application/json: {"sweepConfigID": "01234567-89ab-cdef-0123-456789abcdef", "walletID": "01234567-89ab-cdef-0123-456789abcdef", "status": "enabled", "pushPaymentMethod": {"paymentMethodID": "01234567-89ab-cdef-0123-456789abcdef"}, "pullPaymentMethod": {"paymentMethodID": "01234567-89ab-cdef-0123-456789abcdef"}, "minimumBalance": "0.00", "statementDescriptor": "swp_012345", "createdOn": "2024-05-06T12:20:38.184Z", "updatedOn": "2024-05-06T12:20:38.184Z"}
+    speakeasy-default-get-sweep-config:
+      parameters:
+        path:
+          accountID: "ae1c2e76-3195-4fc8-b922-b7af6dcf1aad"
+          sweepConfigID: "bfddff28-5291-4d9b-a0f8-22a0895e8486"
+        header:
+          x-moov-version: "v2024.01.00"
+      responses:
+        "200":
+          application/json: {"sweepConfigID": "f5c623b6-fa68-4607-9de5-829ef0639b3f", "walletID": "131eab7b-495a-4992-87a0-3fad086920e5", "status": "disabled", "pushPaymentMethod": {"paymentMethodID": "ca03b20b-b121-4d06-87c9-db225d497381"}, "pullPaymentMethod": {"paymentMethodID": "64b20595-2057-4857-befb-a21dec422183"}, "createdOn": "2024-02-20T04:51:39.687Z", "updatedOn": "2025-02-01T14:08:03.269Z"}
   updateSweepConfig:
     "":
       parameters:
@@ -2750,6 +2893,22 @@ examples:
       responses:
         "200":
           application/json: {"sweepConfigID": "01234567-89ab-cdef-0123-456789abcdef", "walletID": "01234567-89ab-cdef-0123-456789abcdef", "status": "disabled", "pushPaymentMethod": {"paymentMethodID": "01234567-89ab-cdef-0123-456789abcdef"}, "pullPaymentMethod": {"paymentMethodID": "01234567-89ab-cdef-0123-456789abcdef"}, "minimumBalance": "0.00", "statementDescriptor": "swp_012345", "createdOn": "2024-05-06T12:20:38.184Z", "updatedOn": "2024-05-06T12:20:38.184Z"}
+    speakeasy-default-update-sweep-config:
+      parameters:
+        path:
+          accountID: "c16d0264-3e93-4d13-b8d8-6e8e98122631"
+          sweepConfigID: "f7943244-882b-4a3a-837a-a58418358399"
+        header:
+          x-moov-version: "v2024.01.00"
+      requestBody:
+        application/json: {}
+      responses:
+        "200":
+          application/json: {"sweepConfigID": "409f9302-83c7-4ca1-8c8c-a8755ce03055", "walletID": "f72f2b8a-37c5-4c8d-8169-46c0a736da59", "status": "disabled", "pushPaymentMethod": {"paymentMethodID": "a3363d15-5fe3-4c79-8b1e-9c74617ed4ec"}, "pullPaymentMethod": {"paymentMethodID": "0a9f1961-a7e3-44bf-a2e7-fce3971075dd"}, "createdOn": "2023-01-17T19:03:01.094Z", "updatedOn": "2025-09-26T17:35:56.589Z"}
+        "400":
+          application/json: {"error": "<value>"}
+        "422":
+          application/json: {}
   listSweeps:
     "":
       parameters:
@@ -2764,6 +2923,19 @@ examples:
       responses:
         "200":
           application/json: [{"sweepID": "01234567-89ab-cdef-0123-456789abcdef", "status": "accruing", "accruedAmount": "100.00", "currency": "USD", "accrualStartedOn": "2024-05-06T12:20:38.184Z", "subtotals": [{"type": "moov-fee", "count": 1, "amount": {"currency": "USD", "valueDecimal": "50.00"}}, {"type": "account-funding", "count": 1, "amount": {"currency": "USD", "valueDecimal": "50.00"}}]}]
+    speakeasy-default-list-sweeps:
+      parameters:
+        path:
+          accountID: "a227b50c-035d-4b7f-932c-a4b7e02aaf5c"
+          walletID: "d01e5b34-b207-4a5c-b249-6e049be6a841"
+        query:
+          skip: 60
+          count: 20
+        header:
+          x-moov-version: "v2024.01.00"
+      responses:
+        "200":
+          application/json: [{"sweepID": "b157b318-4fa9-4f35-bdfb-31972b5af2fd", "status": "failed", "accruedAmount": "<value>", "currency": "USD", "accrualStartedOn": "2023-08-15T21:06:01.613Z", "subtotals": [{"type": "wallet-transfer", "count": 677458, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}]}]
   getSweep:
     Paid sweep:
       parameters:
@@ -2958,6 +3130,16 @@ examples:
       responses:
         "200":
           application/json: [{"refundID": "ec7e1848-dc80-4ab0-8827-dd7fc0737b43", "createdOn": "2024-08-24T14:15:22Z", "updatedOn": "2024-08-24T14:15:22Z", "status": "completed", "amount": {"currency": "USD", "value": 1204}, "cardDetails": {"status": "completed", "initiatedOn": "2024-08-24T14:15:22Z", "confirmedOn": "2024-08-24T14:15:22Z", "settledOn": "2024-08-24T14:15:22Z", "completedOn": "2024-08-24T14:15:22Z"}}]
+    speakeasy-default-list-refunds:
+      parameters:
+        path:
+          accountID: "03f5baaa-f5d8-44bd-90db-868745fe66e8"
+          transferID: "6b1aa1a1-bff1-43b9-9126-2806fdc9c732"
+        header:
+          x-moov-version: "v2024.01.00"
+      responses:
+        "200":
+          application/json: [{"refundID": "3b8ca177-a402-43d2-88eb-38c2ba3c5dc0", "createdOn": "2024-02-14T05:49:46.407Z", "updatedOn": "2025-06-22T03:01:29.731Z", "status": "created", "amount": {"currency": "USD", "value": 1204}}]
   getRefund:
     "":
       parameters:
@@ -2970,6 +3152,17 @@ examples:
       responses:
         "200":
           application/json: {"refundID": "ec7e1848-dc80-4ab0-8827-dd7fc0737b43", "createdOn": "2024-08-24T14:15:22Z", "updatedOn": "2024-08-24T14:15:22Z", "status": "completed", "amount": {"currency": "USD", "value": 1204}, "cardDetails": {"status": "completed", "initiatedOn": "2024-08-24T14:15:22Z", "confirmedOn": "2024-08-24T14:15:22Z", "settledOn": "2024-08-24T14:15:22Z", "completedOn": "2024-08-24T14:15:22Z"}}
+    speakeasy-default-get-refund:
+      parameters:
+        path:
+          transferID: "e90d3386-c5b2-4e2b-b841-efc590eba6c0"
+          accountID: "bbb69538-edaa-4a0b-b107-f46f2da89864"
+          refundID: "8e12687e-a4e8-46c9-9e11-a57bbd781e44"
+        header:
+          x-moov-version: "v2024.01.00"
+      responses:
+        "200":
+          application/json: {"refundID": "18037bce-04f8-464c-9d60-c7d3136a40a1", "createdOn": "2025-03-27T13:14:59.679Z", "updatedOn": "2023-07-31T23:52:13.362Z", "status": "pending", "amount": {"currency": "USD", "value": 1204}}
   createReversal:
     Reversed by refund:
       parameters:
@@ -3047,6 +3240,15 @@ examples:
       responses:
         "200":
           application/json: [{"walletID": "01234567-89ab-cdef-0123-456789abcdef", "availableBalance": {"currency": "USD", "value": 1234, "valueDecimal": "12.34"}}]
+    speakeasy-default-list-wallets:
+      parameters:
+        path:
+          accountID: "25221c3c-8e3f-40db-8570-66d17b51014d"
+        header:
+          x-moov-version: "v2024.01.00"
+      responses:
+        "200":
+          application/json: [{"walletID": "4db4c1c0-d682-4bf9-9b5c-952207d1d15d", "availableBalance": {"currency": "USD", "value": 1204, "valueDecimal": "<value>"}}]
   getWallet:
     "":
       parameters:
@@ -3058,6 +3260,16 @@ examples:
       responses:
         "200":
           application/json: {"walletID": "01234567-89ab-cdef-0123-456789abcdef", "availableBalance": {"currency": "USD", "value": 1234, "valueDecimal": "12.34"}}
+    speakeasy-default-get-wallet:
+      parameters:
+        path:
+          accountID: "d04dfd44-8194-422f-a666-08d30c183f9a"
+          walletID: "10a6bc37-8eeb-41c8-bf5f-77b40955542a"
+        header:
+          x-moov-version: "v2024.01.00"
+      responses:
+        "200":
+          application/json: {"walletID": "15598b8b-1d91-4c43-ab38-0c32a9725a71", "availableBalance": {"currency": "USD", "value": 1204, "valueDecimal": "<value>"}}
   listWalletTransactions:
     "":
       parameters:
@@ -3072,6 +3284,19 @@ examples:
       responses:
         "200":
           application/json: [{"walletID": "01234567-89ab-cdef-0123-456789abcdef", "transactionID": "01234567-89ab-cdef-0123-456789abcdef", "transactionType": "card-payment", "sourceType": "transfer", "sourceID": "01234567-89ab-cdef-0123-456789abcdef", "status": "completed", "memo": "An example completed card payment", "createdOn": "2024-05-06T12:20:38.184Z", "completedOn": "2024-05-06T12:20:38.184Z", "currency": "USD", "grossAmount": 2000, "grossAmountDecimal": "20.00", "fee": 30, "feeDecimal": "0.30", "netAmount": 1970, "netAmountDecimal": "19.70", "availableBalance": 10000, "availableBalanceDecimal": "100.00"}, {"walletID": "01234567-89ab-cdef-0123-456789abcdef", "transactionID": "01234567-89ab-cdef-0123-456789abcdef", "transactionType": "card-payment", "sourceType": "transfer", "sourceID": "01234567-89ab-cdef-0123-456789abcdef", "status": "pending", "memo": "An example pending card payment", "createdOn": "2024-05-06T12:20:38.184Z", "currency": "USD", "grossAmount": 2000, "grossAmountDecimal": "20.00", "fee": 30, "feeDecimal": "0.30", "netAmount": 1970, "netAmountDecimal": "19.70"}]
+    speakeasy-default-list-wallet-transactions:
+      parameters:
+        path:
+          accountID: "69e4529b-baf0-4f00-877b-123cfd9d6116"
+          walletID: "4f971587-62fe-42c9-bc61-7409d9c8660c"
+        query:
+          skip: 60
+          count: 20
+        header:
+          x-moov-version: "v2024.01.00"
+      responses:
+        "200":
+          application/json: [{"walletID": "5532c31a-9ced-42c4-9f14-62fc23ae59a4", "transactionID": "52439d32-a6be-4d5c-bd3f-fbcae65a1f1a", "transactionType": "refund-failure", "sourceType": "transfer", "sourceID": "d9a9c4d9-fc78-40ef-b5a5-5d4a9f1a4350", "status": "failed", "memo": "<value>", "createdOn": "2023-01-29T04:14:24.300Z", "currency": "USD", "grossAmount": 31636, "grossAmountDecimal": "<value>", "fee": 595117, "feeDecimal": "<value>", "netAmount": 866412, "netAmountDecimal": "<value>"}]
   getWalletTransaction:
     "":
       parameters:
@@ -3084,6 +3309,17 @@ examples:
       responses:
         "200":
           application/json: {"walletID": "01234567-89ab-cdef-0123-456789abcdef", "transactionID": "01234567-89ab-cdef-0123-456789abcdef", "transactionType": "card-payment", "sourceType": "transfer", "sourceID": "01234567-89ab-cdef-0123-456789abcdef", "status": "completed", "memo": "An example completed card payment", "createdOn": "2024-05-06T12:20:38.184Z", "completedOn": "2024-05-06T12:20:38.184Z", "currency": "USD", "grossAmount": 2000, "grossAmountDecimal": "20.00", "fee": 30, "feeDecimal": "0.30", "netAmount": 1970, "netAmountDecimal": "19.70", "availableBalance": 10000, "availableBalanceDecimal": "100.00"}
+    speakeasy-default-get-wallet-transaction:
+      parameters:
+        path:
+          accountID: "f0b02d73-10dc-42e6-8030-fd78fcbc114f"
+          walletID: "03db97f6-c308-4595-8f43-fd247f1bd3f2"
+          transactionID: "e0a32cf5-5758-49ba-83da-75bf02c9c6d7"
+        header:
+          x-moov-version: "v2024.01.00"
+      responses:
+        "200":
+          application/json: {"walletID": "ad6c6ce2-a5cb-4294-84e4-67fe009c9b49", "transactionID": "6cdb9344-d54a-4a8a-9a1a-5950251d870b", "transactionType": "card-decline", "sourceType": "dispute", "sourceID": "07fe2dc9-b1c3-4b15-a22b-cd228ba9f14c", "status": "pending", "memo": "<value>", "createdOn": "2024-02-02T01:39:46.187Z", "currency": "USD", "grossAmount": 3463, "grossAmountDecimal": "<value>", "fee": 392014, "feeDecimal": "<value>", "netAmount": 910883, "netAmountDecimal": "<value>"}
   getAvatar:
     speakeasy-default-get-avatar:
       parameters:
@@ -3422,5 +3658,21 @@ examples:
       responses:
         "200":
           application/json: {"ach": [{"name": "First Citizens", "routingNumber": "123456789", "address": {"addressLine1": "123 Main Street", "addressLine2": "Apt 302", "city": "Boulder", "stateOrProvince": "CO", "postalCode": "80301", "country": "US"}, "contact": {"phone": {"number": "8185551212", "countryCode": "1"}}}], "rtp": [], "wire": [{"name": "First Citizens", "routingNumber": "123456789", "address": {"addressLine1": "123 Main Street", "addressLine2": "Apt 302", "city": "Boulder", "stateOrProvince": "CO", "postalCode": "80301", "country": "US"}, "services": {"fundsTransferStatus": true, "fundsSettlementOnlyStatus": false, "bookEntrySecuritiesTransferStatus": false}}]}
+  createTransferOptionsForAccount:
+    speakeasy-default-create-transfer-options-for-account:
+      parameters:
+        path:
+          accountID: "d00e90ff-48ce-48a8-b5e0-b7fd222c1b3a"
+        header:
+          x-moov-version: "v2024.01.00"
+      requestBody:
+        application/json: {"source": {}, "destination": {}, "amount": {"currency": "USD", "value": 1204}}
+      responses:
+        "200":
+          application/json: {"sourceOptions": [{"paymentMethodID": "eb230495-a226-4829-9d02-3f844444cc8a", "paymentMethodType": "ach-credit-same-day", "bankAccount": {"bankAccountID": "5085fc54-58da-43e8-bbf0-577eceb9d83a", "fingerprint": "<value>", "status": "pending", "holderName": "<value>", "holderType": "individual", "bankName": "<value>", "bankAccountType": "checking", "routingNumber": "<value>", "lastFourAccountNumber": "<value>", "updatedOn": "2024-11-08T07:29:55.577Z"}}], "destinationOptions": [{"paymentMethodID": "e561dbd2-aaea-4556-a271-1ba0eb9f81a7", "paymentMethodType": "ach-debit-fund", "bankAccount": {"bankAccountID": "5085fc54-58da-43e8-bbf0-577eceb9d83a", "fingerprint": "<value>", "status": "pending", "holderName": "<value>", "holderType": "individual", "bankName": "<value>", "bankAccountType": "checking", "routingNumber": "<value>", "lastFourAccountNumber": "<value>", "updatedOn": "2024-11-08T07:29:55.577Z"}}]}
+        "400":
+          application/json: {"error": "<value>"}
+        "422":
+          application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}

@@ -50,7 +50,7 @@ $sdk = MoovPhp\Moov::builder()
 $fileUploadRequestMultiPart = new Components\FileUploadRequestMultiPart(
     file: new Components\FileUploadRequestMultiPartFile(
         fileName: 'example.file',
-        content: '0x331A41fC37',
+        content: file_get_contents('example.file');,
     ),
     filePurpose: Components\FilePurpose::RepresentativeVerification,
     metadata: '{"requirement_id": "document.individual.verification"}',

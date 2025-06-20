@@ -350,7 +350,7 @@ $sdk = MoovPhp\Moov::builder()
 $createEvidenceFileMultiPart = new Components\CreateEvidenceFileMultiPart(
     file: new Components\File(
         fileName: 'example.file',
-        content: '0x6B0cFC3Eba',
+        content: file_get_contents('example.file');,
     ),
     evidenceType: Components\EvidenceType::CancelationPolicy,
 );
