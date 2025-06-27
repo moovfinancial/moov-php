@@ -53,19 +53,29 @@ class WebhookDataTransferUpdated
     public WebhookTransferPaymentMethodDetails $destination;
 
     /**
+     *
+     * @var ?string $foreignID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('foreignID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $foreignID = null;
+
+    /**
      * @param  string  $accountID
      * @param  string  $transferID
      * @param  WebhookDataTransferStatus  $status
      * @param  WebhookTransferPaymentMethodDetails  $source
      * @param  WebhookTransferPaymentMethodDetails  $destination
+     * @param  ?string  $foreignID
      * @phpstan-pure
      */
-    public function __construct(string $accountID, string $transferID, WebhookDataTransferStatus $status, WebhookTransferPaymentMethodDetails $source, WebhookTransferPaymentMethodDetails $destination)
+    public function __construct(string $accountID, string $transferID, WebhookDataTransferStatus $status, WebhookTransferPaymentMethodDetails $source, WebhookTransferPaymentMethodDetails $destination, ?string $foreignID = null)
     {
         $this->accountID = $accountID;
         $this->transferID = $transferID;
         $this->status = $status;
         $this->source = $source;
         $this->destination = $destination;
+        $this->foreignID = $foreignID;
     }
 }

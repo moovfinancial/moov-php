@@ -92,6 +92,14 @@ class ListTransfersRequest
     public ?bool $disputed = null;
 
     /**
+     * Optional alias from a foreign/external system which can be used to reference this resource.
+     *
+     * @var ?string $foreignID
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=foreignID')]
+    public ?string $foreignID = null;
+
+    /**
      *
      * @var ?int $skip
      */
@@ -134,11 +142,12 @@ class ListTransfersRequest
      * @param  ?string  $paymentLinkCode
      * @param  ?bool  $refunded
      * @param  ?bool  $disputed
+     * @param  ?string  $foreignID
      * @param  ?int  $skip
      * @param  ?int  $count
      * @phpstan-pure
      */
-    public function __construct(string $accountID, ?array $accountIDs = null, ?Components\TransferStatus $status = null, ?\DateTime $startDateTime = null, ?\DateTime $endDateTime = null, ?string $groupID = null, ?string $scheduleID = null, ?string $paymentLinkCode = null, ?bool $refunded = null, ?bool $disputed = null, ?int $skip = null, ?int $count = null, ?string $xMoovVersion = 'v2024.01.00')
+    public function __construct(string $accountID, ?array $accountIDs = null, ?Components\TransferStatus $status = null, ?\DateTime $startDateTime = null, ?\DateTime $endDateTime = null, ?string $groupID = null, ?string $scheduleID = null, ?string $paymentLinkCode = null, ?bool $refunded = null, ?bool $disputed = null, ?string $foreignID = null, ?int $skip = null, ?int $count = null, ?string $xMoovVersion = 'v2024.01.00')
     {
         $this->accountID = $accountID;
         $this->accountIDs = $accountIDs;
@@ -150,6 +159,7 @@ class ListTransfersRequest
         $this->paymentLinkCode = $paymentLinkCode;
         $this->refunded = $refunded;
         $this->disputed = $disputed;
+        $this->foreignID = $foreignID;
         $this->skip = $skip;
         $this->count = $count;
         $this->xMoovVersion = $xMoovVersion;

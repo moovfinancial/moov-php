@@ -77,6 +77,15 @@ class CreateTransfer
     public ?Amount $salesTaxAmount = null;
 
     /**
+     * Optional alias from a foreign/external system which can be used to reference this resource.
+     *
+     * @var ?string $foreignID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('foreignID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $foreignID = null;
+
+    /**
      * @param  CreateTransferSource  $source
      * @param  CreateTransferDestination  $destination
      * @param  Amount  $amount
@@ -84,9 +93,10 @@ class CreateTransfer
      * @param  ?string  $description
      * @param  ?array<string, string>  $metadata
      * @param  ?Amount  $salesTaxAmount
+     * @param  ?string  $foreignID
      * @phpstan-pure
      */
-    public function __construct(CreateTransferSource $source, CreateTransferDestination $destination, Amount $amount, ?FacilitatorFee $facilitatorFee = null, ?string $description = null, ?array $metadata = null, ?Amount $salesTaxAmount = null)
+    public function __construct(CreateTransferSource $source, CreateTransferDestination $destination, Amount $amount, ?FacilitatorFee $facilitatorFee = null, ?string $description = null, ?array $metadata = null, ?Amount $salesTaxAmount = null, ?string $foreignID = null)
     {
         $this->source = $source;
         $this->destination = $destination;
@@ -95,5 +105,6 @@ class CreateTransfer
         $this->description = $description;
         $this->metadata = $metadata;
         $this->salesTaxAmount = $salesTaxAmount;
+        $this->foreignID = $foreignID;
     }
 }

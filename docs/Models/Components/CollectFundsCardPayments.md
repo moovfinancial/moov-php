@@ -1,0 +1,12 @@
+# CollectFundsCardPayments
+
+
+## Fields
+
+| Field                                                                                 | Type                                                                                  | Required                                                                              | Description                                                                           |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `cardAcceptanceMethods`                                                               | [?Components\CardAcceptanceMethods](../../Models/Components/CardAcceptanceMethods.md) | :heavy_minus_sign:                                                                    | Describes the distribution of card transactions by payment method.                    |
+| `currentlyAcceptsCards`                                                               | *?bool*                                                                               | :heavy_minus_sign:                                                                    | N/A                                                                                   |
+| `estimatedActivity`                                                                   | [?Components\EstimatedActivity](../../Models/Components/EstimatedActivity.md)         | :heavy_minus_sign:                                                                    | N/A                                                                                   |
+| `fulfillment`                                                                         | [?Components\Fulfillment](../../Models/Components/Fulfillment.md)                     | :heavy_minus_sign:                                                                    | N/A                                                                                   |
+| `refundPolicy`                                                                        | [?Components\RefundPolicy](../../Models/Components/RefundPolicy.md)                   | :heavy_minus_sign:                                                                    | N/A                                                                                   |

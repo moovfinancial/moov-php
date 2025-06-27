@@ -1,0 +1,10 @@
+# SendFundsError
+
+
+## Fields
+
+| Field                                                                                       | Type                                                                                        | Required                                                                                    | Description                                                                                 |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `ach`                                                                                       | [?Components\SendFundsAchError](../../Models/Components/SendFundsAchError.md)               | :heavy_minus_sign:                                                                          | N/A                                                                                         |
+| `pushToCard`                                                                                | [?Components\SendFundsPushToCardError](../../Models/Components/SendFundsPushToCardError.md) | :heavy_minus_sign:                                                                          | N/A                                                                                         |
+| `rtp`                                                                                       | [?Components\SendFundsRtpError](../../Models/Components/SendFundsRtpError.md)               | :heavy_minus_sign:                                                                          | N/A                                                                                         |

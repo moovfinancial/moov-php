@@ -14,69 +14,146 @@ class Underwriting
 {
     /**
      *
-     * @var int $averageTransactionSize
+     * @var ?int $averageTransactionSize
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('averageTransactionSize')]
-    public int $averageTransactionSize;
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?int $averageTransactionSize = null;
 
     /**
      *
-     * @var int $maxTransactionSize
+     * @var ?int $maxTransactionSize
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('maxTransactionSize')]
-    public int $maxTransactionSize;
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?int $maxTransactionSize = null;
 
     /**
      *
-     * @var int $averageMonthlyTransactionVolume
+     * @var ?int $averageMonthlyTransactionVolume
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('averageMonthlyTransactionVolume')]
-    public int $averageMonthlyTransactionVolume;
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?int $averageMonthlyTransactionVolume = null;
 
     /**
      *
-     * @var UnderwritingStatus $status
+     * @var ?UnderwritingStatus $status
      * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\UnderwritingStatus')]
-    public UnderwritingStatus $status;
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\UnderwritingStatus|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?UnderwritingStatus $status = null;
 
     /**
      *
-     * @var VolumeByCustomerType $volumeByCustomerType
+     * @var ?VolumeByCustomerType $volumeByCustomerType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('volumeByCustomerType')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\VolumeByCustomerType')]
-    public VolumeByCustomerType $volumeByCustomerType;
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\VolumeByCustomerType|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?VolumeByCustomerType $volumeByCustomerType = null;
 
     /**
      *
-     * @var CardVolumeDistribution $cardVolumeDistribution
+     * @var ?CardVolumeDistribution $cardVolumeDistribution
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardVolumeDistribution')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardVolumeDistribution')]
-    public CardVolumeDistribution $cardVolumeDistribution;
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardVolumeDistribution|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?CardVolumeDistribution $cardVolumeDistribution = null;
 
     /**
      *
-     * @var FulfillmentDetails $fulfillment
+     * @var ?FulfillmentDetails $fulfillment
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('fulfillment')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\FulfillmentDetails')]
-    public FulfillmentDetails $fulfillment;
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\FulfillmentDetails|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?FulfillmentDetails $fulfillment = null;
 
     /**
-     * @param  int  $averageTransactionSize
-     * @param  int  $maxTransactionSize
-     * @param  int  $averageMonthlyTransactionVolume
-     * @param  UnderwritingStatus  $status
-     * @param  VolumeByCustomerType  $volumeByCustomerType
-     * @param  CardVolumeDistribution  $cardVolumeDistribution
-     * @param  FulfillmentDetails  $fulfillment
+     *
+     * @var ?GeographicReach $geographicReach
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('geographicReach')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\GeographicReach|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?GeographicReach $geographicReach = null;
+
+    /**
+     *
+     * @var ?BusinessPresence $businessPresence
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('businessPresence')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BusinessPresence|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?BusinessPresence $businessPresence = null;
+
+    /**
+     *
+     * @var ?PendingLitigation $pendingLitigation
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('pendingLitigation')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PendingLitigation|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?PendingLitigation $pendingLitigation = null;
+
+    /**
+     *
+     * @var ?VolumeShareByCustomerType $volumeShareByCustomerType
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('volumeShareByCustomerType')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\VolumeShareByCustomerType|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?VolumeShareByCustomerType $volumeShareByCustomerType = null;
+
+    /**
+     *
+     * @var ?CollectFunds $collectFunds
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('collectFunds')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CollectFunds|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?CollectFunds $collectFunds = null;
+
+    /**
+     *
+     * @var ?MoneyTransfer $moneyTransfer
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('moneyTransfer')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\MoneyTransfer|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?MoneyTransfer $moneyTransfer = null;
+
+    /**
+     *
+     * @var ?SendFunds $sendFunds
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('sendFunds')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\SendFunds|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?SendFunds $sendFunds = null;
+
+    /**
+     * @param  ?int  $averageTransactionSize
+     * @param  ?int  $maxTransactionSize
+     * @param  ?int  $averageMonthlyTransactionVolume
+     * @param  ?UnderwritingStatus  $status
+     * @param  ?VolumeByCustomerType  $volumeByCustomerType
+     * @param  ?CardVolumeDistribution  $cardVolumeDistribution
+     * @param  ?FulfillmentDetails  $fulfillment
+     * @param  ?GeographicReach  $geographicReach
+     * @param  ?BusinessPresence  $businessPresence
+     * @param  ?PendingLitigation  $pendingLitigation
+     * @param  ?VolumeShareByCustomerType  $volumeShareByCustomerType
+     * @param  ?CollectFunds  $collectFunds
+     * @param  ?MoneyTransfer  $moneyTransfer
+     * @param  ?SendFunds  $sendFunds
      * @phpstan-pure
      */
-    public function __construct(int $averageTransactionSize, int $maxTransactionSize, int $averageMonthlyTransactionVolume, UnderwritingStatus $status, VolumeByCustomerType $volumeByCustomerType, CardVolumeDistribution $cardVolumeDistribution, FulfillmentDetails $fulfillment)
+    public function __construct(?int $averageTransactionSize = null, ?int $maxTransactionSize = null, ?int $averageMonthlyTransactionVolume = null, ?UnderwritingStatus $status = null, ?VolumeByCustomerType $volumeByCustomerType = null, ?CardVolumeDistribution $cardVolumeDistribution = null, ?FulfillmentDetails $fulfillment = null, ?GeographicReach $geographicReach = null, ?BusinessPresence $businessPresence = null, ?PendingLitigation $pendingLitigation = null, ?VolumeShareByCustomerType $volumeShareByCustomerType = null, ?CollectFunds $collectFunds = null, ?MoneyTransfer $moneyTransfer = null, ?SendFunds $sendFunds = null)
     {
         $this->averageTransactionSize = $averageTransactionSize;
         $this->maxTransactionSize = $maxTransactionSize;
@@ -85,5 +162,12 @@ class Underwriting
         $this->volumeByCustomerType = $volumeByCustomerType;
         $this->cardVolumeDistribution = $cardVolumeDistribution;
         $this->fulfillment = $fulfillment;
+        $this->geographicReach = $geographicReach;
+        $this->businessPresence = $businessPresence;
+        $this->pendingLitigation = $pendingLitigation;
+        $this->volumeShareByCustomerType = $volumeShareByCustomerType;
+        $this->collectFunds = $collectFunds;
+        $this->moneyTransfer = $moneyTransfer;
+        $this->sendFunds = $sendFunds;
     }
 }

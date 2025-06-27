@@ -244,6 +244,15 @@ class Transfer
     public ?Components\Amount $salesTaxAmount = null;
 
     /**
+     * Optional alias from a foreign/external system which can be used to reference this resource.
+     *
+     * @var ?string $foreignID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('foreignID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $foreignID = null;
+
+    /**
      * @param  string  $transferID
      * @param  \DateTime  $createdOn
      * @param  Components\TransferSource  $source
@@ -270,9 +279,10 @@ class Transfer
      * @param  ?string  $occurrenceID
      * @param  ?string  $paymentLinkCode
      * @param  ?Components\Amount  $salesTaxAmount
+     * @param  ?string  $foreignID
      * @phpstan-pure
      */
-    public function __construct(string $transferID, \DateTime $createdOn, Components\TransferSource $source, Components\TransferDestination $destination, Components\TransferStatus $status, Components\Amount $amount, ?\DateTime $completedOn = null, ?Components\TransferFailureReason $failureReason = null, ?string $description = null, ?array $metadata = null, ?Components\FacilitatorFee $facilitatorFee = null, ?int $moovFee = null, ?string $moovFeeDecimal = null, ?Components\MoovFeeDetails $moovFeeDetails = null, ?array $moovFees = null, ?string $groupID = null, ?array $cancellations = null, ?Components\Amount $refundedAmount = null, ?array $refunds = null, ?Components\Amount $disputedAmount = null, ?array $disputes = null, ?string $sweepID = null, ?string $scheduleID = null, ?string $occurrenceID = null, ?string $paymentLinkCode = null, ?Components\Amount $salesTaxAmount = null)
+    public function __construct(string $transferID, \DateTime $createdOn, Components\TransferSource $source, Components\TransferDestination $destination, Components\TransferStatus $status, Components\Amount $amount, ?\DateTime $completedOn = null, ?Components\TransferFailureReason $failureReason = null, ?string $description = null, ?array $metadata = null, ?Components\FacilitatorFee $facilitatorFee = null, ?int $moovFee = null, ?string $moovFeeDecimal = null, ?Components\MoovFeeDetails $moovFeeDetails = null, ?array $moovFees = null, ?string $groupID = null, ?array $cancellations = null, ?Components\Amount $refundedAmount = null, ?array $refunds = null, ?Components\Amount $disputedAmount = null, ?array $disputes = null, ?string $sweepID = null, ?string $scheduleID = null, ?string $occurrenceID = null, ?string $paymentLinkCode = null, ?Components\Amount $salesTaxAmount = null, ?string $foreignID = null)
     {
         $this->transferID = $transferID;
         $this->createdOn = $createdOn;
@@ -300,6 +310,7 @@ class Transfer
         $this->occurrenceID = $occurrenceID;
         $this->paymentLinkCode = $paymentLinkCode;
         $this->salesTaxAmount = $salesTaxAmount;
+        $this->foreignID = $foreignID;
     }
 
     public function toException(): TransferThrowable

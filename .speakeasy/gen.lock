@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: d22c6de69873385e389e92195238e67e
+  docChecksum: 77e89b3b35fde8af643d243c438f46b6
   docVersion: latest
-  speakeasyVersion: 1.570.0
-  generationVersion: 2.638.0
-  releaseVersion: 0.4.13
-  configChecksum: cf226940f4adaf23dab000aedfa1e72f
+  speakeasyVersion: 1.570.2
+  generationVersion: 2.638.5
+  releaseVersion: 0.4.14
+  configChecksum: b39709d66c42091422b18cbed86eed16
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
@@ -101,6 +101,7 @@ generatedFiles:
   - docs/Models/Components/BrandColorValidationError.md
   - docs/Models/Components/BrandColors.md
   - docs/Models/Components/BrandProperties.md
+  - docs/Models/Components/BusinessPresence.md
   - docs/Models/Components/BusinessProfile.md
   - docs/Models/Components/BusinessType.md
   - docs/Models/Components/CallToAction.md
@@ -112,6 +113,8 @@ generatedFiles:
   - docs/Models/Components/CapabilityRequirement.md
   - docs/Models/Components/CapabilityStatus.md
   - docs/Models/Components/Card.md
+  - docs/Models/Components/CardAcceptanceMethods.md
+  - docs/Models/Components/CardAcceptanceMethodsError.md
   - docs/Models/Components/CardAccountUpdater.md
   - docs/Models/Components/CardAcquiringDispute.md
   - docs/Models/Components/CardAcquiringModel.md
@@ -139,6 +142,12 @@ generatedFiles:
   - docs/Models/Components/CardVerificationResult.md
   - docs/Models/Components/CardVolumeDistribution.md
   - docs/Models/Components/CardVolumeDistributionError.md
+  - docs/Models/Components/CollectFunds.md
+  - docs/Models/Components/CollectFundsAch.md
+  - docs/Models/Components/CollectFundsAchError.md
+  - docs/Models/Components/CollectFundsCardPayments.md
+  - docs/Models/Components/CollectFundsCardPaymentsError.md
+  - docs/Models/Components/CollectFundsError.md
   - docs/Models/Components/CollectionPaymentMethodType.md
   - docs/Models/Components/ColorsValidationError.md
   - docs/Models/Components/CompleteBankAccountVerification.md
@@ -212,6 +221,8 @@ generatedFiles:
   - docs/Models/Components/EnrichedIndustryCodes.md
   - docs/Models/Components/EntryMode.md
   - docs/Models/Components/Error.md
+  - docs/Models/Components/EstimatedActivity.md
+  - docs/Models/Components/EstimatedActivityError.md
   - docs/Models/Components/EvidenceTextResponse.md
   - docs/Models/Components/EvidenceType.md
   - docs/Models/Components/EvidenceUploadResponse.md
@@ -229,8 +240,12 @@ generatedFiles:
   - docs/Models/Components/FileUploadRequestMultiPart.md
   - docs/Models/Components/FileUploadRequestMultiPartFile.md
   - docs/Models/Components/FinancialInstitutions.md
+  - docs/Models/Components/Fulfillment.md
   - docs/Models/Components/FulfillmentDetails.md
   - docs/Models/Components/FulfillmentDetailsError.md
+  - docs/Models/Components/FulfillmentError.md
+  - docs/Models/Components/FulfillmentMethod.md
+  - docs/Models/Components/FulfillmentTimeframe.md
   - docs/Models/Components/FullIssuedCard.md
   - docs/Models/Components/GeneratedBy.md
   - docs/Models/Components/GeneratedByAccountID.md
@@ -238,6 +253,7 @@ generatedFiles:
   - docs/Models/Components/GeneratedByCardID.md
   - docs/Models/Components/GeneratedByDisputeID.md
   - docs/Models/Components/GeneratedByTransferID.md
+  - docs/Models/Components/GeographicReach.md
   - docs/Models/Components/GovernmentID.md
   - docs/Models/Components/GovernmentIDError.md
   - docs/Models/Components/GovernmentIDErrorItin.md
@@ -287,7 +303,14 @@ generatedFiles:
   - docs/Models/Components/MicroDepositStatus.md
   - docs/Models/Components/MinimumCommitment.md
   - docs/Models/Components/Mode.md
+  - docs/Models/Components/MoneyTransfer.md
+  - docs/Models/Components/MoneyTransferError.md
+  - docs/Models/Components/MoneyTransferPullFromCard.md
+  - docs/Models/Components/MoneyTransferPullFromCardError.md
+  - docs/Models/Components/MoneyTransferPushToCard.md
+  - docs/Models/Components/MoneyTransferPushToCardError.md
   - docs/Models/Components/MonthlyPlatformFee.md
+  - docs/Models/Components/MonthlyVolumeRange.md
   - docs/Models/Components/MoovFee.md
   - docs/Models/Components/MoovFeeDetails.md
   - docs/Models/Components/MoovWalletPaymentMethod.md
@@ -330,6 +353,7 @@ generatedFiles:
   - docs/Models/Components/PayoutRecipient.md
   - docs/Models/Components/PayoutRecipientError.md
   - docs/Models/Components/PayoutRecipientUpdate.md
+  - docs/Models/Components/PendingLitigation.md
   - docs/Models/Components/Phone.md
   - docs/Models/Components/PhoneNumber.md
   - docs/Models/Components/PhoneNumberError.md
@@ -360,6 +384,7 @@ generatedFiles:
   - docs/Models/Components/Recur.md
   - docs/Models/Components/RefundCardDetails.md
   - docs/Models/Components/RefundCardStatus.md
+  - docs/Models/Components/RefundPolicy.md
   - docs/Models/Components/RefundStatus.md
   - docs/Models/Components/RegisterApplePayMerchantDomains.md
   - docs/Models/Components/Representative.md
@@ -383,6 +408,14 @@ generatedFiles:
   - docs/Models/Components/SchedulePaymentMethod.md
   - docs/Models/Components/ScheduleResponse.md
   - docs/Models/Components/Security.md
+  - docs/Models/Components/SendFunds.md
+  - docs/Models/Components/SendFundsAch.md
+  - docs/Models/Components/SendFundsAchError.md
+  - docs/Models/Components/SendFundsError.md
+  - docs/Models/Components/SendFundsPushToCard.md
+  - docs/Models/Components/SendFundsPushToCardError.md
+  - docs/Models/Components/SendFundsRtp.md
+  - docs/Models/Components/SendFundsRtpError.md
   - docs/Models/Components/SentReceipt.md
   - docs/Models/Components/Settings.md
   - docs/Models/Components/SourceDestinationOptions.md
@@ -441,12 +474,15 @@ generatedFiles:
   - docs/Models/Components/UpdateRepresentativeSsn.md
   - docs/Models/Components/UpdateUnderwriting.md
   - docs/Models/Components/UpsertSchedule.md
+  - docs/Models/Components/UpsertUnderwriting.md
   - docs/Models/Components/UseT.md
   - docs/Models/Components/Verification.md
   - docs/Models/Components/VerificationStatus.md
   - docs/Models/Components/VerificationStatusDetail.md
   - docs/Models/Components/VolumeByCustomerType.md
   - docs/Models/Components/VolumeByCustomerTypeError.md
+  - docs/Models/Components/VolumeShareByCustomerType.md
+  - docs/Models/Components/VolumeShareByCustomerTypeError.md
   - docs/Models/Components/Wallet.md
   - docs/Models/Components/WalletAvailableBalance.md
   - docs/Models/Components/WalletTransaction.md
@@ -526,6 +562,7 @@ generatedFiles:
   - docs/Models/Errors/UpdatePaymentLinkError.md
   - docs/Models/Errors/UpdateUnderwritingError.md
   - docs/Models/Errors/UpdateUnderwritingErrorError.md
+  - docs/Models/Errors/UpsertUnderwritingError.md
   - docs/Models/Operations/AcceptDisputeRequest.md
   - docs/Models/Operations/AcceptDisputeResponse.md
   - docs/Models/Operations/AssignAccountCountriesRequest.md
@@ -763,6 +800,8 @@ generatedFiles:
   - docs/Models/Operations/RevokeAccessTokenResponse.md
   - docs/Models/Operations/RevokeOnboardingInviteRequest.md
   - docs/Models/Operations/RevokeOnboardingInviteResponse.md
+  - docs/Models/Operations/SaveUnderwritingRequest.md
+  - docs/Models/Operations/SaveUnderwritingResponse.md
   - docs/Models/Operations/SearchInstitutionsRequest.md
   - docs/Models/Operations/SearchInstitutionsResponse.md
   - docs/Models/Operations/SubmitDisputeEvidenceRequest.md
@@ -953,6 +992,7 @@ generatedFiles:
   - src/Models/Components/BrandColorValidationError.php
   - src/Models/Components/BrandColors.php
   - src/Models/Components/BrandProperties.php
+  - src/Models/Components/BusinessPresence.php
   - src/Models/Components/BusinessProfile.php
   - src/Models/Components/BusinessType.php
   - src/Models/Components/CallToAction.php
@@ -964,6 +1004,8 @@ generatedFiles:
   - src/Models/Components/CapabilityRequirement.php
   - src/Models/Components/CapabilityStatus.php
   - src/Models/Components/Card.php
+  - src/Models/Components/CardAcceptanceMethods.php
+  - src/Models/Components/CardAcceptanceMethodsError.php
   - src/Models/Components/CardAccountUpdater.php
   - src/Models/Components/CardAcquiringDispute.php
   - src/Models/Components/CardAcquiringModel.php
@@ -991,6 +1033,12 @@ generatedFiles:
   - src/Models/Components/CardVerificationResult.php
   - src/Models/Components/CardVolumeDistribution.php
   - src/Models/Components/CardVolumeDistributionError.php
+  - src/Models/Components/CollectFunds.php
+  - src/Models/Components/CollectFundsAch.php
+  - src/Models/Components/CollectFundsAchError.php
+  - src/Models/Components/CollectFundsCardPayments.php
+  - src/Models/Components/CollectFundsCardPaymentsError.php
+  - src/Models/Components/CollectFundsError.php
   - src/Models/Components/CollectionPaymentMethodType.php
   - src/Models/Components/ColorsValidationError.php
   - src/Models/Components/CompleteBankAccountVerification.php
@@ -1061,6 +1109,8 @@ generatedFiles:
   - src/Models/Components/EnrichedIndustryCodes.php
   - src/Models/Components/EntryMode.php
   - src/Models/Components/Error.php
+  - src/Models/Components/EstimatedActivity.php
+  - src/Models/Components/EstimatedActivityError.php
   - src/Models/Components/EvidenceTextResponse.php
   - src/Models/Components/EvidenceType.php
   - src/Models/Components/EvidenceUploadResponse.php
@@ -1078,14 +1128,19 @@ generatedFiles:
   - src/Models/Components/FileUploadRequestMultiPart.php
   - src/Models/Components/FileUploadRequestMultiPartFile.php
   - src/Models/Components/FinancialInstitutions.php
+  - src/Models/Components/Fulfillment.php
   - src/Models/Components/FulfillmentDetails.php
   - src/Models/Components/FulfillmentDetailsError.php
+  - src/Models/Components/FulfillmentError.php
+  - src/Models/Components/FulfillmentMethod.php
+  - src/Models/Components/FulfillmentTimeframe.php
   - src/Models/Components/FullIssuedCard.php
   - src/Models/Components/GeneratedByAccountID.php
   - src/Models/Components/GeneratedByBankAccountID.php
   - src/Models/Components/GeneratedByCardID.php
   - src/Models/Components/GeneratedByDisputeID.php
   - src/Models/Components/GeneratedByTransferID.php
+  - src/Models/Components/GeographicReach.php
   - src/Models/Components/GovernmentID.php
   - src/Models/Components/GovernmentIDError.php
   - src/Models/Components/GovernmentIDErrorItin.php
@@ -1134,7 +1189,14 @@ generatedFiles:
   - src/Models/Components/MicroDepositStatus.php
   - src/Models/Components/MinimumCommitment.php
   - src/Models/Components/Mode.php
+  - src/Models/Components/MoneyTransfer.php
+  - src/Models/Components/MoneyTransferError.php
+  - src/Models/Components/MoneyTransferPullFromCard.php
+  - src/Models/Components/MoneyTransferPullFromCardError.php
+  - src/Models/Components/MoneyTransferPushToCard.php
+  - src/Models/Components/MoneyTransferPushToCardError.php
   - src/Models/Components/MonthlyPlatformFee.php
+  - src/Models/Components/MonthlyVolumeRange.php
   - src/Models/Components/MoovFee.php
   - src/Models/Components/MoovFeeDetails.php
   - src/Models/Components/MoovWalletPaymentMethod.php
@@ -1175,6 +1237,7 @@ generatedFiles:
   - src/Models/Components/PayoutRecipient.php
   - src/Models/Components/PayoutRecipientError.php
   - src/Models/Components/PayoutRecipientUpdate.php
+  - src/Models/Components/PendingLitigation.php
   - src/Models/Components/Phone.php
   - src/Models/Components/PhoneNumber.php
   - src/Models/Components/PhoneNumberError.php
@@ -1203,6 +1266,7 @@ generatedFiles:
   - src/Models/Components/Recur.php
   - src/Models/Components/RefundCardDetails.php
   - src/Models/Components/RefundCardStatus.php
+  - src/Models/Components/RefundPolicy.php
   - src/Models/Components/RefundStatus.php
   - src/Models/Components/RegisterApplePayMerchantDomains.php
   - src/Models/Components/Representative.php
@@ -1225,6 +1289,14 @@ generatedFiles:
   - src/Models/Components/SchedulePaymentMethod.php
   - src/Models/Components/ScheduleResponse.php
   - src/Models/Components/Security.php
+  - src/Models/Components/SendFunds.php
+  - src/Models/Components/SendFundsAch.php
+  - src/Models/Components/SendFundsAchError.php
+  - src/Models/Components/SendFundsError.php
+  - src/Models/Components/SendFundsPushToCard.php
+  - src/Models/Components/SendFundsPushToCardError.php
+  - src/Models/Components/SendFundsRtp.php
+  - src/Models/Components/SendFundsRtpError.php
   - src/Models/Components/SentReceipt.php
   - src/Models/Components/Settings.php
   - src/Models/Components/SourceDestinationOptions.php
@@ -1282,12 +1354,15 @@ generatedFiles:
   - src/Models/Components/UpdateRepresentativeSsn.php
   - src/Models/Components/UpdateUnderwriting.php
   - src/Models/Components/UpsertSchedule.php
+  - src/Models/Components/UpsertUnderwriting.php
   - src/Models/Components/UseT.php
   - src/Models/Components/Verification.php
   - src/Models/Components/VerificationStatus.php
   - src/Models/Components/VerificationStatusDetail.php
   - src/Models/Components/VolumeByCustomerType.php
   - src/Models/Components/VolumeByCustomerTypeError.php
+  - src/Models/Components/VolumeShareByCustomerType.php
+  - src/Models/Components/VolumeShareByCustomerTypeError.php
   - src/Models/Components/Wallet.php
   - src/Models/Components/WalletAvailableBalance.php
   - src/Models/Components/WalletTransaction.php
@@ -1401,6 +1476,8 @@ generatedFiles:
   - src/Models/Errors/UpdateUnderwritingError.php
   - src/Models/Errors/UpdateUnderwritingErrorError.php
   - src/Models/Errors/UpdateUnderwritingErrorThrowable.php
+  - src/Models/Errors/UpsertUnderwritingError.php
+  - src/Models/Errors/UpsertUnderwritingErrorThrowable.php
   - src/Models/Operations/AcceptDisputeRequest.php
   - src/Models/Operations/AcceptDisputeResponse.php
   - src/Models/Operations/AssignAccountCountriesRequest.php
@@ -1638,6 +1715,8 @@ generatedFiles:
   - src/Models/Operations/RevokeAccessTokenResponse.php
   - src/Models/Operations/RevokeOnboardingInviteRequest.php
   - src/Models/Operations/RevokeOnboardingInviteResponse.php
+  - src/Models/Operations/SaveUnderwritingRequest.php
+  - src/Models/Operations/SaveUnderwritingResponse.php
   - src/Models/Operations/SearchInstitutionsRequest.php
   - src/Models/Operations/SearchInstitutionsResponse.php
   - src/Models/Operations/SubmitDisputeEvidenceRequest.php
@@ -3213,7 +3292,7 @@ examples:
           x-moov-version: "v2024.01.00"
       responses:
         "200":
-          application/json: {"averageTransactionSize": 808922, "maxTransactionSize": 971571, "averageMonthlyTransactionVolume": 770579, "status": "pending", "volumeByCustomerType": {"businessToBusinessPercentage": 34876, "consumerToBusinessPercentage": 321682}, "cardVolumeDistribution": {"ecommercePercentage": 371017, "cardPresentPercentage": 897389, "mailOrPhonePercentage": 257332, "debtRepaymentPercentage": 643662}, "fulfillment": {"hasPhysicalGoods": false, "isShippingProduct": true, "shipmentDurationDays": 116118, "returnPolicy": "other"}}
+          application/json: {}
   upsertUnderwriting:
     speakeasy-default-upsert-underwriting:
       parameters:
@@ -3225,7 +3304,7 @@ examples:
         application/json: {"averageTransactionSize": 622191, "maxTransactionSize": 123692, "averageMonthlyTransactionVolume": 438164, "volumeByCustomerType": {"businessToBusinessPercentage": 671399, "consumerToBusinessPercentage": 482010}, "cardVolumeDistribution": {"ecommercePercentage": 47450, "cardPresentPercentage": 146275, "mailOrPhonePercentage": 309315, "debtRepaymentPercentage": 990303}, "fulfillment": {"hasPhysicalGoods": true, "isShippingProduct": true, "shipmentDurationDays": 388451, "returnPolicy": "other"}}
       responses:
         "200":
-          application/json: {"averageTransactionSize": 272674, "maxTransactionSize": 313833, "averageMonthlyTransactionVolume": 43330, "status": "pendingReview", "volumeByCustomerType": {"businessToBusinessPercentage": 671399, "consumerToBusinessPercentage": 482010}, "cardVolumeDistribution": {"ecommercePercentage": 47450, "cardPresentPercentage": 146275, "mailOrPhonePercentage": 309315, "debtRepaymentPercentage": 990303}, "fulfillment": {"hasPhysicalGoods": true, "isShippingProduct": true, "shipmentDurationDays": 388451, "returnPolicy": "other"}}
+          application/json: {}
         "400":
           application/json: {"error": "<value>"}
         "422":
@@ -3670,6 +3749,22 @@ examples:
       responses:
         "200":
           application/json: {"sourceOptions": [{"paymentMethodID": "eb230495-a226-4829-9d02-3f844444cc8a", "paymentMethodType": "ach-credit-same-day", "bankAccount": {"bankAccountID": "5085fc54-58da-43e8-bbf0-577eceb9d83a", "fingerprint": "<value>", "status": "pending", "holderName": "<value>", "holderType": "individual", "bankName": "<value>", "bankAccountType": "checking", "routingNumber": "<value>", "lastFourAccountNumber": "<value>", "updatedOn": "2024-11-08T07:29:55.577Z"}}], "destinationOptions": [{"paymentMethodID": "e561dbd2-aaea-4556-a271-1ba0eb9f81a7", "paymentMethodType": "ach-debit-fund", "bankAccount": {"bankAccountID": "5085fc54-58da-43e8-bbf0-577eceb9d83a", "fingerprint": "<value>", "status": "pending", "holderName": "<value>", "holderType": "individual", "bankName": "<value>", "bankAccountType": "checking", "routingNumber": "<value>", "lastFourAccountNumber": "<value>", "updatedOn": "2024-11-08T07:29:55.577Z"}}]}
+        "400":
+          application/json: {"error": "<value>"}
+        "422":
+          application/json: {}
+  saveUnderwriting:
+    speakeasy-default-save-underwriting:
+      parameters:
+        path:
+          accountID: "ffe3ca1b-de3f-4305-8d8c-cfd28f279cad"
+        header:
+          x-moov-version: "v2024.01.00"
+      requestBody:
+        application/json: {}
+      responses:
+        "200":
+          application/json: {}
         "400":
           application/json: {"error": "<value>"}
         "422":
