@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 77e89b3b35fde8af643d243c438f46b6
+  docChecksum: e6f44fee69630acf354493cf5ee971c0
   docVersion: latest
-  speakeasyVersion: 1.570.2
-  generationVersion: 2.638.5
-  releaseVersion: 0.4.14
-  configChecksum: b39709d66c42091422b18cbed86eed16
+  speakeasyVersion: 1.575.1
+  generationVersion: 2.648.1
+  releaseVersion: 0.4.15
+  configChecksum: fba9cddfe2557e52b9668411f17f2e7b
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
@@ -186,6 +186,8 @@ generatedFiles:
   - docs/Models/Components/CreateReversal.md
   - docs/Models/Components/CreateSweepConfig.md
   - docs/Models/Components/CreateTerminalApplication.md
+  - docs/Models/Components/CreateTicket.md
+  - docs/Models/Components/CreateTicketContactError.md
   - docs/Models/Components/CreateTransfer.md
   - docs/Models/Components/CreateTransferDestination.md
   - docs/Models/Components/CreateTransferDestinationACH.md
@@ -441,6 +443,10 @@ generatedFiles:
   - docs/Models/Components/TermsOfServiceError.md
   - docs/Models/Components/TermsOfServiceToken.md
   - docs/Models/Components/TermsOfServiceTokenUpdate.md
+  - docs/Models/Components/Ticket.md
+  - docs/Models/Components/TicketContact.md
+  - docs/Models/Components/TicketMessage.md
+  - docs/Models/Components/TicketStatus.md
   - docs/Models/Components/TokenType.md
   - docs/Models/Components/TokenTypeHint.md
   - docs/Models/Components/TransactionSource.md
@@ -472,6 +478,8 @@ generatedFiles:
   - docs/Models/Components/UpdateRepresentativeGovernmentID.md
   - docs/Models/Components/UpdateRepresentativeItin.md
   - docs/Models/Components/UpdateRepresentativeSsn.md
+  - docs/Models/Components/UpdateTicket.md
+  - docs/Models/Components/UpdateTicketStatus.md
   - docs/Models/Components/UpdateUnderwriting.md
   - docs/Models/Components/UpsertSchedule.md
   - docs/Models/Components/UpsertUnderwriting.md
@@ -535,6 +543,7 @@ generatedFiles:
   - docs/Models/Errors/CreateAccountResponseBody.md
   - docs/Models/Errors/CreatePaymentLinkError.md
   - docs/Models/Errors/CreateSweepConfigError.md
+  - docs/Models/Errors/CreateTicketError.md
   - docs/Models/Errors/Error.md
   - docs/Models/Errors/FeePlanAgreementError.md
   - docs/Models/Errors/File.md
@@ -560,6 +569,7 @@ generatedFiles:
   - docs/Models/Errors/UpdateCardError.md
   - docs/Models/Errors/UpdateIssuedCardError.md
   - docs/Models/Errors/UpdatePaymentLinkError.md
+  - docs/Models/Errors/UpdateTicketError.md
   - docs/Models/Errors/UpdateUnderwritingError.md
   - docs/Models/Errors/UpdateUnderwritingErrorError.md
   - docs/Models/Errors/UpsertUnderwritingError.md
@@ -601,6 +611,8 @@ generatedFiles:
   - docs/Models/Operations/CreateSweepConfigResponse.md
   - docs/Models/Operations/CreateTerminalApplicationRequest.md
   - docs/Models/Operations/CreateTerminalApplicationResponse.md
+  - docs/Models/Operations/CreateTicketRequest.md
+  - docs/Models/Operations/CreateTicketResponse.md
   - docs/Models/Operations/CreateTransferOptionsForAccountRequest.md
   - docs/Models/Operations/CreateTransferOptionsForAccountResponse.md
   - docs/Models/Operations/CreateTransferOptionsRequest.md
@@ -697,6 +709,8 @@ generatedFiles:
   - docs/Models/Operations/GetTerminalConfigurationResponse.md
   - docs/Models/Operations/GetTermsOfServiceTokenRequest.md
   - docs/Models/Operations/GetTermsOfServiceTokenResponse.md
+  - docs/Models/Operations/GetTicketRequest.md
+  - docs/Models/Operations/GetTicketResponse.md
   - docs/Models/Operations/GetTransferRequest.md
   - docs/Models/Operations/GetTransferResponse.md
   - docs/Models/Operations/GetUnderwritingRequest.md
@@ -780,6 +794,10 @@ generatedFiles:
   - docs/Models/Operations/ListSweepsResponse.md
   - docs/Models/Operations/ListTerminalApplicationsRequest.md
   - docs/Models/Operations/ListTerminalApplicationsResponse.md
+  - docs/Models/Operations/ListTicketMessagesRequest.md
+  - docs/Models/Operations/ListTicketMessagesResponse.md
+  - docs/Models/Operations/ListTicketsRequest.md
+  - docs/Models/Operations/ListTicketsResponse.md
   - docs/Models/Operations/ListTransfersRequest.md
   - docs/Models/Operations/ListTransfersResponse.md
   - docs/Models/Operations/ListWalletTransactionsRequest.md
@@ -828,6 +846,8 @@ generatedFiles:
   - docs/Models/Operations/UpdateScheduleResponse.md
   - docs/Models/Operations/UpdateSweepConfigRequest.md
   - docs/Models/Operations/UpdateSweepConfigResponse.md
+  - docs/Models/Operations/UpdateTicketRequest.md
+  - docs/Models/Operations/UpdateTicketResponse.md
   - docs/Models/Operations/UpdateTransferRequest.md
   - docs/Models/Operations/UpdateTransferResponse.md
   - docs/Models/Operations/UploadDisputeEvidenceFileRequest.md
@@ -872,6 +892,7 @@ generatedFiles:
   - docs/sdks/representatives/README.md
   - docs/sdks/schedules/README.md
   - docs/sdks/scheduling/README.md
+  - docs/sdks/support/README.md
   - docs/sdks/sweeps/README.md
   - docs/sdks/terminalapplications/README.md
   - docs/sdks/transactions/README.md
@@ -1075,6 +1096,8 @@ generatedFiles:
   - src/Models/Components/CreateReversal.php
   - src/Models/Components/CreateSweepConfig.php
   - src/Models/Components/CreateTerminalApplication.php
+  - src/Models/Components/CreateTicket.php
+  - src/Models/Components/CreateTicketContactError.php
   - src/Models/Components/CreateTransfer.php
   - src/Models/Components/CreateTransferDestination.php
   - src/Models/Components/CreateTransferDestinationACH.php
@@ -1321,6 +1344,10 @@ generatedFiles:
   - src/Models/Components/TermsOfServiceError.php
   - src/Models/Components/TermsOfServiceToken.php
   - src/Models/Components/TermsOfServiceTokenUpdate.php
+  - src/Models/Components/Ticket.php
+  - src/Models/Components/TicketContact.php
+  - src/Models/Components/TicketMessage.php
+  - src/Models/Components/TicketStatus.php
   - src/Models/Components/TokenType.php
   - src/Models/Components/TokenTypeHint.php
   - src/Models/Components/TransactionSource.php
@@ -1352,6 +1379,8 @@ generatedFiles:
   - src/Models/Components/UpdateRepresentativeGovernmentID.php
   - src/Models/Components/UpdateRepresentativeItin.php
   - src/Models/Components/UpdateRepresentativeSsn.php
+  - src/Models/Components/UpdateTicket.php
+  - src/Models/Components/UpdateTicketStatus.php
   - src/Models/Components/UpdateUnderwriting.php
   - src/Models/Components/UpsertSchedule.php
   - src/Models/Components/UpsertUnderwriting.php
@@ -1425,6 +1454,8 @@ generatedFiles:
   - src/Models/Errors/CreatePaymentLinkErrorThrowable.php
   - src/Models/Errors/CreateSweepConfigError.php
   - src/Models/Errors/CreateSweepConfigErrorThrowable.php
+  - src/Models/Errors/CreateTicketError.php
+  - src/Models/Errors/CreateTicketErrorThrowable.php
   - src/Models/Errors/Error.php
   - src/Models/Errors/FeePlanAgreementError.php
   - src/Models/Errors/FeePlanAgreementErrorThrowable.php
@@ -1473,6 +1504,8 @@ generatedFiles:
   - src/Models/Errors/UpdateIssuedCardErrorThrowable.php
   - src/Models/Errors/UpdatePaymentLinkError.php
   - src/Models/Errors/UpdatePaymentLinkErrorThrowable.php
+  - src/Models/Errors/UpdateTicketError.php
+  - src/Models/Errors/UpdateTicketErrorThrowable.php
   - src/Models/Errors/UpdateUnderwritingError.php
   - src/Models/Errors/UpdateUnderwritingErrorError.php
   - src/Models/Errors/UpdateUnderwritingErrorThrowable.php
@@ -1516,6 +1549,8 @@ generatedFiles:
   - src/Models/Operations/CreateSweepConfigResponse.php
   - src/Models/Operations/CreateTerminalApplicationRequest.php
   - src/Models/Operations/CreateTerminalApplicationResponse.php
+  - src/Models/Operations/CreateTicketRequest.php
+  - src/Models/Operations/CreateTicketResponse.php
   - src/Models/Operations/CreateTransferOptionsForAccountRequest.php
   - src/Models/Operations/CreateTransferOptionsForAccountResponse.php
   - src/Models/Operations/CreateTransferOptionsRequest.php
@@ -1612,6 +1647,8 @@ generatedFiles:
   - src/Models/Operations/GetTerminalConfigurationResponse.php
   - src/Models/Operations/GetTermsOfServiceTokenRequest.php
   - src/Models/Operations/GetTermsOfServiceTokenResponse.php
+  - src/Models/Operations/GetTicketRequest.php
+  - src/Models/Operations/GetTicketResponse.php
   - src/Models/Operations/GetTransferRequest.php
   - src/Models/Operations/GetTransferResponse.php
   - src/Models/Operations/GetUnderwritingRequest.php
@@ -1695,6 +1732,10 @@ generatedFiles:
   - src/Models/Operations/ListSweepsResponse.php
   - src/Models/Operations/ListTerminalApplicationsRequest.php
   - src/Models/Operations/ListTerminalApplicationsResponse.php
+  - src/Models/Operations/ListTicketMessagesRequest.php
+  - src/Models/Operations/ListTicketMessagesResponse.php
+  - src/Models/Operations/ListTicketsRequest.php
+  - src/Models/Operations/ListTicketsResponse.php
   - src/Models/Operations/ListTransfersRequest.php
   - src/Models/Operations/ListTransfersResponse.php
   - src/Models/Operations/ListWalletTransactionsRequest.php
@@ -1743,6 +1784,8 @@ generatedFiles:
   - src/Models/Operations/UpdateScheduleResponse.php
   - src/Models/Operations/UpdateSweepConfigRequest.php
   - src/Models/Operations/UpdateSweepConfigResponse.php
+  - src/Models/Operations/UpdateTicketRequest.php
+  - src/Models/Operations/UpdateTicketResponse.php
   - src/Models/Operations/UpdateTransferRequest.php
   - src/Models/Operations/UpdateTransferResponse.php
   - src/Models/Operations/UploadDisputeEvidenceFileRequest.php
@@ -1767,6 +1810,7 @@ generatedFiles:
   - src/SDKConfiguration.php
   - src/Schedules.php
   - src/Scheduling.php
+  - src/Support.php
   - src/Sweeps.php
   - src/TerminalApplications.php
   - src/Transactions.php
@@ -3769,5 +3813,76 @@ examples:
           application/json: {"error": "<value>"}
         "422":
           application/json: {}
+  createTicket:
+    speakeasy-default-create-ticket:
+      parameters:
+        path:
+          accountID: "4af4784a-c777-48f6-8211-063d5341f84b"
+        header:
+          x-moov-version: "v2024.01.00"
+      requestBody:
+        application/json: {"title": "<value>", "body": "<value>", "contact": {"email": "Melany.Roberts@yahoo.com"}}
+      responses:
+        "200":
+          application/json: {"ticketID": "<id>", "number": 494500, "title": "<value>", "contact": {"email": "Melany.Roberts@yahoo.com"}, "status": "on-hold", "createdOn": "2024-03-04T08:59:45.001Z", "updatedOn": "2025-03-28T11:01:45.719Z"}
+        "400":
+          application/json: {"error": "<value>"}
+        "422":
+          application/json: {}
+  listTickets:
+    speakeasy-default-list-tickets:
+      parameters:
+        path:
+          accountID: "8ef75c13-2a50-4438-b294-2a850eb4986d"
+        query:
+          skip: 60
+          count: 20
+        header:
+          x-moov-version: "v2024.01.00"
+      responses:
+        "200":
+          application/json: [{"ticketID": "<id>", "number": 994820, "title": "<value>", "contact": {"email": "Shanel71@hotmail.com"}, "status": "in-progress", "createdOn": "2025-12-23T04:28:29.580Z", "updatedOn": "2024-03-28T03:42:32.571Z"}]
+  getTicket:
+    speakeasy-default-get-ticket:
+      parameters:
+        path:
+          accountID: "873ccb78-88b3-4520-85f2-7cc2aef5704b"
+          ticketID: "91fea9bf-b373-40f7-86e0-2c80690126e4"
+        header:
+          x-moov-version: "v2024.01.00"
+      responses:
+        "200":
+          application/json: {"ticketID": "<id>", "number": 55177, "title": "<value>", "contact": {"email": "Florencio.Fahey19@yahoo.com"}, "status": "on-hold", "createdOn": "2025-09-29T16:08:46.272Z", "updatedOn": "2024-10-10T04:04:41.316Z"}
+  updateTicket:
+    speakeasy-default-update-ticket:
+      parameters:
+        path:
+          accountID: "7cce2b85-37c2-4c76-954c-03dcec2b12f0"
+          ticketID: "1d621d17-8e7d-4ac0-9f7d-6e9fcebe8eef"
+        header:
+          x-moov-version: "v2024.01.00"
+      requestBody:
+        application/json: {}
+      responses:
+        "200":
+          application/json: {"ticketID": "<id>", "number": 696443, "title": "<value>", "contact": {"email": "Daryl.Lehner@yahoo.com"}, "status": "new", "createdOn": "2024-04-10T00:52:48.089Z", "updatedOn": "2024-03-13T16:45:35.474Z"}
+        "400":
+          application/json: {"error": "<value>"}
+        "422":
+          application/json: {}
+  listTicketMessages:
+    speakeasy-default-list-ticket-messages:
+      parameters:
+        path:
+          accountID: "72444918-8529-4986-b10c-41817e45d09e"
+          ticketID: "edeaab65-c54c-45b8-881b-19138f125fb1"
+        query:
+          skip: 60
+          count: 20
+        header:
+          x-moov-version: "v2024.01.00"
+      responses:
+        "200":
+          application/json: [{"author": "<value>", "body": "<value>", "sentOn": "2024-03-23T02:27:06.138Z"}]
 examplesVersion: 1.0.2
 generatedTests: {}

@@ -58,6 +58,8 @@ class Moov
 
     public AccountTerminalApplications $accountTerminalApplications;
 
+    public Support $support;
+
     public Transfers $transfers;
 
     public Underwriting $underwriting;
@@ -131,6 +133,7 @@ class Moov
         $this->schedules = new Schedules($this->sdkConfiguration);
         $this->sweeps = new Sweeps($this->sdkConfiguration);
         $this->accountTerminalApplications = new AccountTerminalApplications($this->sdkConfiguration);
+        $this->support = new Support($this->sdkConfiguration);
         $this->transfers = new Transfers($this->sdkConfiguration);
         $this->underwriting = new Underwriting($this->sdkConfiguration);
         $this->wallets = new Wallets($this->sdkConfiguration);
@@ -162,5 +165,6 @@ class Moov
         if ($preHooksUrl != $ret->url) {
             $this->sdkConfiguration->serverUrl = $ret->url;
         }
+        $this->sdkConfiguration->client = $ret->client;
     }
 }

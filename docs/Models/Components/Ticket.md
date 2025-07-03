@@ -1,0 +1,16 @@
+# Ticket
+
+
+## Fields
+
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `ticketID`                                                           | *string*                                                             | :heavy_check_mark:                                                   | N/A                                                                  |
+| `number`                                                             | *int*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
+| `title`                                                              | *string*                                                             | :heavy_check_mark:                                                   | N/A                                                                  |
+| `contact`                                                            | [Components\TicketContact](../../Models/Components/TicketContact.md) | :heavy_check_mark:                                                   | N/A                                                                  |
+| `status`                                                             | [Components\TicketStatus](../../Models/Components/TicketStatus.md)   | :heavy_check_mark:                                                   | N/A                                                                  |
+| `createdOn`                                                          | [\DateTime](https://www.php.net/manual/en/class.datetime.php)        | :heavy_check_mark:                                                   | N/A                                                                  |
+| `updatedOn`                                                          | [\DateTime](https://www.php.net/manual/en/class.datetime.php)        | :heavy_check_mark:                                                   | N/A                                                                  |
+| `latestMessageOn`                                                    | [\DateTime](https://www.php.net/manual/en/class.datetime.php)        | :heavy_minus_sign:                                                   | N/A                                                                  |
+| `closedOn`                                                           | [\DateTime](https://www.php.net/manual/en/class.datetime.php)        | :heavy_minus_sign:                                                   | N/A                                                                  |
