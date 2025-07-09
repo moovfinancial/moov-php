@@ -12,6 +12,15 @@ namespace Moov\MoovPhp\Models\Components;
 class PatchTransfer
 {
     /**
+     * Optional alias from a foreign/external system which can be used to reference this resource.
+     *
+     * @var ?string $foreignID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('foreignID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $foreignID = null;
+
+    /**
      * $metadata
      *
      * @var ?array<string, string> $metadata
@@ -22,11 +31,13 @@ class PatchTransfer
     public ?array $metadata = null;
 
     /**
+     * @param  ?string  $foreignID
      * @param  ?array<string, string>  $metadata
      * @phpstan-pure
      */
-    public function __construct(?array $metadata = null)
+    public function __construct(?string $foreignID = null, ?array $metadata = null)
     {
+        $this->foreignID = $foreignID;
         $this->metadata = $metadata;
     }
 }
