@@ -49,7 +49,7 @@ class Support
      * Create a support ticket for a Moov account.
      *
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
-     * you'll need to specify the `/accounts/{accountID}/support.write` scope.
+     * you'll need to specify the `/accounts/{accountID}/tickets.write` scope.
      *
      * @param  Components\CreateTicket  $createTicket
      * @param  string  $accountID
@@ -154,7 +154,7 @@ class Support
      * Retrieve a support ticket by ID.
      *
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
-     * you'll need to specify the `/accounts/{accountID}/support.read` scope.
+     * you'll need to specify the `/accounts/{accountID}/tickets.read` scope.
      *
      * @param  string  $accountID
      * @param  string  $ticketID
@@ -232,20 +232,25 @@ class Support
      * List all the messages for a support ticket.
      *
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
-     * you'll need to specify the `/accounts/{accountID}/support.read` scope.
+     * you'll need to specify the `/accounts/{accountID}/tickets.read` scope.
      *
-     * @param  Operations\ListTicketMessagesRequest  $request
+     * @param  string  $accountID
+     * @param  string  $ticketID
+     * @param  ?string  $xMoovVersion
      * @return Operations\ListTicketMessagesResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function listTicketMessages(Operations\ListTicketMessagesRequest $request, ?Options $options = null): Operations\ListTicketMessagesResponse
+    public function listTicketMessages(string $accountID, string $ticketID, ?string $xMoovVersion = null, ?Options $options = null): Operations\ListTicketMessagesResponse
     {
+        $request = new Operations\ListTicketMessagesRequest(
+            accountID: $accountID,
+            ticketID: $ticketID,
+            xMoovVersion: $xMoovVersion,
+        );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/tickets/{ticketID}/messages', Operations\ListTicketMessagesRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-
-        $qp = Utils\Utils::getQueryParams(Operations\ListTicketMessagesRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
         $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
@@ -255,7 +260,6 @@ class Support
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
         $hookContext = new HookContext($this->sdkConfiguration, $baseUrl, 'listTicketMessages', [], $this->sdkConfiguration->securitySource);
         $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
-        $httpOptions['query'] = Utils\QueryParameters::standardizeQueryParams($httpRequest, $qp);
         $httpOptions = Utils\Utils::convertHeadersToOptions($httpRequest, $httpOptions);
         $httpRequest = Utils\Utils::removeHeaders($httpRequest);
         try {
@@ -306,21 +310,21 @@ class Support
      * List all the support tickets created under a Moov account.
      *
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
-     * you'll need to specify the `/accounts/{accountID}/support.read` scope.
+     * you'll need to specify the `/accounts/{accountID}/tickets.read` scope.
      *
      * @param  string  $accountID
      * @param  ?string  $xMoovVersion
-     * @param  ?int  $skip
+     * @param  ?string  $cursor
      * @param  ?int  $count
      * @return Operations\ListTicketsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function listTickets(string $accountID, ?string $xMoovVersion = null, ?int $skip = null, ?int $count = null, ?Options $options = null): Operations\ListTicketsResponse
+    public function listTickets(string $accountID, ?string $xMoovVersion = null, ?string $cursor = null, ?int $count = null, ?Options $options = null): Operations\ListTicketsResponse
     {
         $request = new Operations\ListTicketsRequest(
             accountID: $accountID,
             xMoovVersion: $xMoovVersion,
-            skip: $skip,
+            cursor: $cursor,
             count: $count,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
@@ -389,7 +393,7 @@ class Support
      * Updates a support ticket.
      *
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
-     * you'll need to specify the `/accounts/{accountID}/support.write` scope.
+     * you'll need to specify the `/accounts/{accountID}/tickets.write` scope.
      *
      * @param  Components\UpdateTicket  $updateTicket
      * @param  string  $accountID
