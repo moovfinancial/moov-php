@@ -13,6 +13,14 @@ use Moov\MoovPhp\Utils\SpeakeasyMetadata;
 class CreateTransferOptionsRequest
 {
     /**
+     * The partner's Moov account ID.
+     *
+     * @var string $accountID
+     */
+    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=accountID')]
+    public string $accountID;
+
+    /**
      *
      * @var Components\CreateTransferOptions $createTransferOptions
      */
@@ -37,12 +45,14 @@ class CreateTransferOptionsRequest
     public ?string $xMoovVersion = null;
 
     /**
+     * @param  string  $accountID
      * @param  Components\CreateTransferOptions  $createTransferOptions
      * @param  ?string  $xMoovVersion
      * @phpstan-pure
      */
-    public function __construct(Components\CreateTransferOptions $createTransferOptions, ?string $xMoovVersion = 'v2024.01.00')
+    public function __construct(string $accountID, Components\CreateTransferOptions $createTransferOptions, ?string $xMoovVersion = 'v2024.01.00')
     {
+        $this->accountID = $accountID;
         $this->createTransferOptions = $createTransferOptions;
         $this->xMoovVersion = $xMoovVersion;
     }

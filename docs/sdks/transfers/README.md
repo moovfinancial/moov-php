@@ -5,7 +5,7 @@
 
 ### Available Operations
 
-* [generateOptionsForAccount](#generateoptionsforaccount) - Generate available payment method options for one or multiple transfer participants depending on the accountID or paymentMethodID you 
+* [generateOptions](#generateoptions) - Generate available payment method options for one or multiple transfer participants depending on the accountID or paymentMethodID you 
 supply in the request body.
 
 The accountID in the route should the partner's accountID.
@@ -73,15 +73,8 @@ to learn more.
 
 To access this endpoint using a [token](https://docs.moov.io/api/authentication/access-tokens/) you'll need 
 to specify the `/accounts/{accountID}/transfers.write` scope.
-* [generateOptions](#generateoptions) - Generate available payment method options for one or multiple transfer participants depending on the accountID or paymentMethodID you 
-supply in the request. 
 
-Read our [transfers overview guide](https://docs.moov.io/guides/money-movement/overview/) to learn more.
-
-To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
-you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
-
-## generateOptionsForAccount
+## generateOptions
 
 Generate available payment method options for one or multiple transfer participants depending on the accountID or paymentMethodID you 
 supply in the request body.
@@ -122,8 +115,8 @@ $createTransferOptions = new Components\CreateTransferOptions(
     ),
 );
 
-$response = $sdk->transfers->generateOptionsForAccount(
-    accountID: 'd00e90ff-48ce-48a8-b5e0-b7fd222c1b3a',
+$response = $sdk->transfers->generateOptions(
+    accountID: 'deafe3cf-31d4-4dcc-8176-3d6bf8bb4f04',
     createTransferOptions: $createTransferOptions
 
 );
@@ -143,7 +136,7 @@ if ($response->transferOptions !== null) {
 
 ### Response
 
-**[?Operations\CreateTransferOptionsForAccountResponse](../../Models/Operations/CreateTransferOptionsForAccountResponse.md)**
+**[?Operations\CreateTransferOptionsResponse](../../Models/Operations/CreateTransferOptionsResponse.md)**
 
 ### Errors
 
@@ -795,70 +788,3 @@ if ($response->reversal !== null) {
 | Errors\GenericError            | 400, 409                       | application/json               |
 | Errors\ReversalValidationError | 422                            | application/json               |
 | Errors\APIException            | 4XX, 5XX                       | \*/\*                          |
-
-## generateOptions
-
-Generate available payment method options for one or multiple transfer participants depending on the accountID or paymentMethodID you 
-supply in the request. 
-
-Read our [transfers overview guide](https://docs.moov.io/guides/money-movement/overview/) to learn more.
-
-To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
-you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use Moov\MoovPhp;
-use Moov\MoovPhp\Models\Components;
-
-$sdk = MoovPhp\Moov::builder()
-    ->setXMoovVersion('v2024.01.00')
-    ->setSecurity(
-        new Components\Security(
-            username: '',
-            password: '',
-        )
-    )
-    ->build();
-
-$createTransferOptions = new Components\CreateTransferOptions(
-    source: new Components\SourceDestinationOptions(),
-    destination: new Components\SourceDestinationOptions(),
-    amount: new Components\Amount(
-        currency: 'USD',
-        value: 1204,
-    ),
-);
-
-$response = $sdk->transfers->generateOptions(
-    createTransferOptions: $createTransferOptions
-);
-
-if ($response->transferOptions !== null) {
-    // handle response
-}
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Required                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `createTransferOptions`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | [Components\CreateTransferOptions](../../Models/Components/CreateTransferOptions.md)                                                                                                                                                                                                                                                                                                                                                                                                                                              | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| `xMoovVersion`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | *?string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Specify an API version.<br/><br/>API versioning follows the format `vYYYY.QQ.BB`, where <br/>  - `YYYY` is the year<br/>  - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)<br/>  - `BB` is the build number, starting at `.01`, for subsequent builds in the same quarter. <br/>    - For example, `v2024.01.00` is the initial release of the first quarter of 2024.<br/><br/>The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release. |
-
-### Response
-
-**[?Operations\CreateTransferOptionsResponse](../../Models/Operations/CreateTransferOptionsResponse.md)**
-
-### Errors
-
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| Errors\GenericError                   | 400                                   | application/json                      |
-| Errors\TransferOptionsValidationError | 422                                   | application/json                      |
-| Errors\APIException                   | 4XX, 5XX                              | \*/\*                                 |

@@ -109,6 +109,24 @@ class TerminalCard
     public ?string $lastFourCardNumber = null;
 
     /**
+     * Identifier for the point of sale terminal application.
+     *
+     * @var ?string $applicationID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('applicationID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $applicationID = null;
+
+    /**
+     * Name label for the point of sale terminal application.
+     *
+     * @var ?string $applicationName
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('applicationName')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $applicationName = null;
+
+    /**
      * @param  ?EntryMode  $entryMode
      * @param  ?CardBrand  $brand
      * @param  ?string  $bin
@@ -119,9 +137,11 @@ class TerminalCard
      * @param  ?string  $issuer
      * @param  ?string  $issuerCountry
      * @param  ?string  $lastFourCardNumber
+     * @param  ?string  $applicationID
+     * @param  ?string  $applicationName
      * @phpstan-pure
      */
-    public function __construct(?EntryMode $entryMode = null, ?CardBrand $brand = null, ?string $bin = null, ?CardType $cardType = null, ?CardExpiration $expiration = null, ?string $fingerprint = null, ?string $holderName = null, ?string $issuer = null, ?string $issuerCountry = null, ?string $lastFourCardNumber = null)
+    public function __construct(?EntryMode $entryMode = null, ?CardBrand $brand = null, ?string $bin = null, ?CardType $cardType = null, ?CardExpiration $expiration = null, ?string $fingerprint = null, ?string $holderName = null, ?string $issuer = null, ?string $issuerCountry = null, ?string $lastFourCardNumber = null, ?string $applicationID = null, ?string $applicationName = null)
     {
         $this->entryMode = $entryMode;
         $this->brand = $brand;
@@ -133,5 +153,7 @@ class TerminalCard
         $this->issuer = $issuer;
         $this->issuerCountry = $issuerCountry;
         $this->lastFourCardNumber = $lastFourCardNumber;
+        $this->applicationID = $applicationID;
+        $this->applicationName = $applicationName;
     }
 }

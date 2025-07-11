@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: a84b2057ef29487e257d5eab4f13aa98
+  docChecksum: 4451e7c488b7502397a24b3b3455e26f
   docVersion: latest
-  speakeasyVersion: 1.580.1
-  generationVersion: 2.656.3
-  releaseVersion: 0.4.18
-  configChecksum: 7a6c1a667e1112e244ac5162b396d761
+  speakeasyVersion: 1.580.2
+  generationVersion: 2.656.5
+  releaseVersion: 0.4.19
+  configChecksum: d994cd5565de634b879b81c98f4bb8eb
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
@@ -613,8 +613,6 @@ generatedFiles:
   - docs/Models/Operations/CreateTerminalApplicationResponse.md
   - docs/Models/Operations/CreateTicketRequest.md
   - docs/Models/Operations/CreateTicketResponse.md
-  - docs/Models/Operations/CreateTransferOptionsForAccountRequest.md
-  - docs/Models/Operations/CreateTransferOptionsForAccountResponse.md
   - docs/Models/Operations/CreateTransferOptionsRequest.md
   - docs/Models/Operations/CreateTransferOptionsResponse.md
   - docs/Models/Operations/CreateTransferRequest.md
@@ -1551,8 +1549,6 @@ generatedFiles:
   - src/Models/Operations/CreateTerminalApplicationResponse.php
   - src/Models/Operations/CreateTicketRequest.php
   - src/Models/Operations/CreateTicketResponse.php
-  - src/Models/Operations/CreateTransferOptionsForAccountRequest.php
-  - src/Models/Operations/CreateTransferOptionsForAccountResponse.php
   - src/Models/Operations/CreateTransferOptionsRequest.php
   - src/Models/Operations/CreateTransferOptionsResponse.php
   - src/Models/Operations/CreateTransferRequest.php
@@ -3327,6 +3323,8 @@ examples:
   createTransferOptions:
     speakeasy-default-create-transfer-options:
       parameters:
+        path:
+          accountID: "deafe3cf-31d4-4dcc-8176-3d6bf8bb4f04"
         header:
           x-moov-version: "v2024.01.00"
       requestBody:
