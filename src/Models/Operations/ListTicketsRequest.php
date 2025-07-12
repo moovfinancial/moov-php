@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Moov\MoovPhp\Models\Operations;
 
+use Moov\MoovPhp\Models\Components;
 use Moov\MoovPhp\Utils\SpeakeasyMetadata;
 class ListTicketsRequest
 {
@@ -33,6 +34,13 @@ class ListTicketsRequest
     public ?int $count = null;
 
     /**
+     *
+     * @var ?Components\TicketStatus $status
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=status')]
+    public ?Components\TicketStatus $status = null;
+
+    /**
      * Specify an API version.
      *
      *
@@ -54,13 +62,15 @@ class ListTicketsRequest
      * @param  ?string  $xMoovVersion
      * @param  ?string  $cursor
      * @param  ?int  $count
+     * @param  ?Components\TicketStatus  $status
      * @phpstan-pure
      */
-    public function __construct(string $accountID, ?string $cursor = null, ?int $count = null, ?string $xMoovVersion = 'v2024.01.00')
+    public function __construct(string $accountID, ?string $cursor = null, ?int $count = null, ?Components\TicketStatus $status = null, ?string $xMoovVersion = 'v2024.01.00')
     {
         $this->accountID = $accountID;
         $this->cursor = $cursor;
         $this->count = $count;
+        $this->status = $status;
         $this->xMoovVersion = $xMoovVersion;
     }
 }

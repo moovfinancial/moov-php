@@ -312,21 +312,12 @@ class Support
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/tickets.read` scope.
      *
-     * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
-     * @param  ?string  $cursor
-     * @param  ?int  $count
+     * @param  Operations\ListTicketsRequest  $request
      * @return Operations\ListTicketsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function listTickets(string $accountID, ?string $xMoovVersion = null, ?string $cursor = null, ?int $count = null, ?Options $options = null): Operations\ListTicketsResponse
+    public function listTickets(Operations\ListTicketsRequest $request, ?Options $options = null): Operations\ListTicketsResponse
     {
-        $request = new Operations\ListTicketsRequest(
-            accountID: $accountID,
-            xMoovVersion: $xMoovVersion,
-            cursor: $cursor,
-            count: $count,
-        );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/tickets', Operations\ListTicketsRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
@@ -364,13 +355,13 @@ class Support
 
                 $serializer = Utils\JSON::createSerializer();
                 $responseData = (string) $httpResponse->getBody();
-                $obj = $serializer->deserialize($responseData, 'array<\Moov\MoovPhp\Models\Components\Ticket>', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj = $serializer->deserialize($responseData, '\Moov\MoovPhp\Models\Operations\ListTicketsResponseBody', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
                 $response = new Operations\ListTicketsResponse(
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
                     headers: $httpResponse->getHeaders(),
-                    tickets: $obj);
+                    object: $obj);
 
                 return $response;
             } else {

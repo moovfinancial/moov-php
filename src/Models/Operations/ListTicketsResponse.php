@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Moov\MoovPhp\Models\Operations;
 
-use Moov\MoovPhp\Models\Components;
+
 class ListTicketsResponse
 {
     /**
@@ -42,24 +42,24 @@ class ListTicketsResponse
     /**
      * The request completed successfully.
      *
-     * @var ?array<Components\Ticket> $tickets
+     * @var ?ListTicketsResponseBody $object
      */
-    public ?array $tickets = null;
+    public ?ListTicketsResponseBody $object = null;
 
     /**
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?array<Components\Ticket>  $tickets
+     * @param  ?ListTicketsResponseBody  $object
      * @phpstan-pure
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?array $tickets = null, ?array $headers = [])
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?ListTicketsResponseBody $object = null, ?array $headers = [])
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
         $this->headers = $headers;
-        $this->tickets = $tickets;
+        $this->object = $object;
     }
 }

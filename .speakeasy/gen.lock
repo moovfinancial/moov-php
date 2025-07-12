@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 4451e7c488b7502397a24b3b3455e26f
+  docChecksum: 603ddff2063c7a661270d260a1b77914
   docVersion: latest
-  speakeasyVersion: 1.580.2
+  speakeasyVersion: 1.581.0
   generationVersion: 2.656.5
-  releaseVersion: 0.4.19
-  configChecksum: d994cd5565de634b879b81c98f4bb8eb
+  releaseVersion: 0.4.20
+  configChecksum: 39196bdcec1dad62d6a765fe3d34f0b4
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
@@ -285,6 +285,7 @@ generatedFiles:
   - docs/Models/Components/IssuingMerchantData.md
   - docs/Models/Components/IssuingVelocityLimit.md
   - docs/Models/Components/IssuingVelocityLimitError.md
+  - docs/Models/Components/ItemListNextPage.md
   - docs/Models/Components/Itin.md
   - docs/Models/Components/JSONWebKey.md
   - docs/Models/Components/LinkAccountTerminalApplication.md
@@ -796,6 +797,7 @@ generatedFiles:
   - docs/Models/Operations/ListTicketMessagesResponse.md
   - docs/Models/Operations/ListTicketsRequest.md
   - docs/Models/Operations/ListTicketsResponse.md
+  - docs/Models/Operations/ListTicketsResponseBody.md
   - docs/Models/Operations/ListTransfersRequest.md
   - docs/Models/Operations/ListTransfersResponse.md
   - docs/Models/Operations/ListWalletTransactionsRequest.md
@@ -1191,6 +1193,7 @@ generatedFiles:
   - src/Models/Components/IssuingMerchantData.php
   - src/Models/Components/IssuingVelocityLimit.php
   - src/Models/Components/IssuingVelocityLimitError.php
+  - src/Models/Components/ItemListNextPage.php
   - src/Models/Components/Itin.php
   - src/Models/Components/JSONWebKey.php
   - src/Models/Components/LinkAccountTerminalApplication.php
@@ -1732,6 +1735,7 @@ generatedFiles:
   - src/Models/Operations/ListTicketMessagesResponse.php
   - src/Models/Operations/ListTicketsRequest.php
   - src/Models/Operations/ListTicketsResponse.php
+  - src/Models/Operations/ListTicketsResponseBody.php
   - src/Models/Operations/ListTransfersRequest.php
   - src/Models/Operations/ListTransfersResponse.php
   - src/Models/Operations/ListWalletTransactionsRequest.php
@@ -3850,7 +3854,7 @@ examples:
           x-moov-version: "v2024.01.00"
       responses:
         "200":
-          application/json: [{"ticketID": "<id>", "number": 994820, "title": "<value>", "contact": {"email": "Shanel71@hotmail.com"}, "status": "in-progress", "createdOn": "2025-12-23T04:28:29.580Z", "updatedOn": "2024-03-28T03:42:32.571Z"}]
+          application/json: {"items": [{"ticketID": "<id>", "number": 877499, "title": "<value>", "contact": {"email": "Jadon.Schinner20@hotmail.com"}, "status": "on-hold", "createdOn": "2023-12-26T08:25:53.230Z", "updatedOn": "2023-01-10T16:33:45.538Z"}]}
   getTicket:
     speakeasy-default-get-ticket:
       parameters:
