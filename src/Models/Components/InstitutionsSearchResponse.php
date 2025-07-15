@@ -14,37 +14,37 @@ class InstitutionsSearchResponse
     /**
      * $ach
      *
-     * @var array<ACHInstitution> $ach
+     * @var ?array<ACHInstitution> $ach
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('ach')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\ACHInstitution>')]
-    public array $ach;
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\ACHInstitution>|null')]
+    public ?array $ach;
 
     /**
      * $rtp
      *
-     * @var array<RTPInstitution> $rtp
+     * @var ?array<RTPInstitution> $rtp
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('rtp')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\RTPInstitution>')]
-    public array $rtp;
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\RTPInstitution>|null')]
+    public ?array $rtp;
 
     /**
      * $wire
      *
-     * @var array<WireInstitution> $wire
+     * @var ?array<WireInstitution> $wire
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('wire')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\WireInstitution>')]
-    public array $wire;
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\WireInstitution>|null')]
+    public ?array $wire;
 
     /**
-     * @param  array<ACHInstitution>  $ach
-     * @param  array<RTPInstitution>  $rtp
-     * @param  array<WireInstitution>  $wire
+     * @param  ?array<ACHInstitution>  $ach
+     * @param  ?array<RTPInstitution>  $rtp
+     * @param  ?array<WireInstitution>  $wire
      * @phpstan-pure
      */
-    public function __construct(array $ach, array $rtp, array $wire)
+    public function __construct(?array $ach = null, ?array $rtp = null, ?array $wire = null)
     {
         $this->ach = $ach;
         $this->rtp = $rtp;
