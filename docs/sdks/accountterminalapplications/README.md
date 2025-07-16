@@ -59,7 +59,7 @@ $response = $sdk->accountTerminalApplications->link(
 
 );
 
-if ($response->terminalApplication !== null) {
+if ($response->accountTerminalApplication !== null) {
     // handle response
 }
 ```
@@ -117,7 +117,7 @@ $response = $sdk->accountTerminalApplications->list(
     accountID: '76d4c8a0-1f2b-4e3b-8f5c-7a9e1b2c3d4e'
 );
 
-if ($response->terminalApplications !== null) {
+if ($response->accountTerminalApplications !== null) {
     // handle response
 }
 ```
@@ -174,7 +174,7 @@ $response = $sdk->accountTerminalApplications->get(
 
 );
 
-if ($response->terminalApplication !== null) {
+if ($response->accountTerminalApplication !== null) {
     // handle response
 }
 ```

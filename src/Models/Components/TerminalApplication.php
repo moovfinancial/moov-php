@@ -57,7 +57,7 @@ class TerminalApplication
     public ?string $packageName = null;
 
     /**
-     * The app version of the terminal application Will be returned if platform is `android`.
+     * A cryptographic hash of the signing key for the application. Will be returned if platform is `android`.
      *
      * @var ?string $sha256Digest
      */
@@ -66,7 +66,7 @@ class TerminalApplication
     public ?string $sha256Digest = null;
 
     /**
-     * The app version of the terminal application Will be returned if platform is `android`.
+     * The app version code of the terminal application. Will be returned if platform is `android`.
      *
      * @var ?string $versionCode
      */

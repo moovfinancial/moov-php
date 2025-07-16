@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Operations;
 
 use Moov\MoovPhp\Models\Components;
-class ListAccountTerminalApplicationsResponse
+class CreateTerminalApplicationVersionResponse
 {
     /**
      * HTTP response content type for this operation
@@ -42,24 +42,24 @@ class ListAccountTerminalApplicationsResponse
     /**
      * The request completed successfully.
      *
-     * @var ?array<Components\AccountTerminalApplication> $accountTerminalApplications
+     * @var ?Components\TerminalApplicationVersion $terminalApplicationVersion
      */
-    public ?array $accountTerminalApplications = null;
+    public ?Components\TerminalApplicationVersion $terminalApplicationVersion = null;
 
     /**
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?array<Components\AccountTerminalApplication>  $accountTerminalApplications
+     * @param  ?Components\TerminalApplicationVersion  $terminalApplicationVersion
      * @phpstan-pure
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?array $accountTerminalApplications = null, ?array $headers = [])
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\TerminalApplicationVersion $terminalApplicationVersion = null, ?array $headers = [])
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
         $this->headers = $headers;
-        $this->accountTerminalApplications = $accountTerminalApplications;
+        $this->terminalApplicationVersion = $terminalApplicationVersion;
     }
 }

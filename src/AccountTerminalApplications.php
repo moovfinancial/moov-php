@@ -98,13 +98,13 @@ class AccountTerminalApplications
 
                 $serializer = Utils\JSON::createSerializer();
                 $responseData = (string) $httpResponse->getBody();
-                $obj = $serializer->deserialize($responseData, '\Moov\MoovPhp\Models\Components\TerminalApplication', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj = $serializer->deserialize($responseData, '\Moov\MoovPhp\Models\Components\AccountTerminalApplication', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
                 $response = new Operations\GetAccountTerminalApplicationResponse(
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
                     headers: $httpResponse->getHeaders(),
-                    terminalApplication: $obj);
+                    accountTerminalApplication: $obj);
 
                 return $response;
             } else {
@@ -259,13 +259,13 @@ class AccountTerminalApplications
 
                 $serializer = Utils\JSON::createSerializer();
                 $responseData = (string) $httpResponse->getBody();
-                $obj = $serializer->deserialize($responseData, '\Moov\MoovPhp\Models\Components\TerminalApplication', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj = $serializer->deserialize($responseData, '\Moov\MoovPhp\Models\Components\AccountTerminalApplication', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
                 $response = new Operations\LinkAccountTerminalApplicationResponse(
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
                     headers: $httpResponse->getHeaders(),
-                    terminalApplication: $obj);
+                    accountTerminalApplication: $obj);
 
                 return $response;
             } else {
@@ -357,13 +357,13 @@ class AccountTerminalApplications
 
                 $serializer = Utils\JSON::createSerializer();
                 $responseData = (string) $httpResponse->getBody();
-                $obj = $serializer->deserialize($responseData, 'array<\Moov\MoovPhp\Models\Components\TerminalApplication>', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj = $serializer->deserialize($responseData, 'array<\Moov\MoovPhp\Models\Components\AccountTerminalApplication>', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
                 $response = new Operations\ListAccountTerminalApplicationsResponse(
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
                     headers: $httpResponse->getHeaders(),
-                    terminalApplications: $obj);
+                    accountTerminalApplications: $obj);
 
                 return $response;
             } else {

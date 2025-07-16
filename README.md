@@ -908,6 +908,10 @@ you'll need to specify the `/terminal-applications.read` scope.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/terminal-applications.write` scope.
+* [createVersion](docs/sdks/terminalapplications/README.md#createversion) - Register a new version of a terminal application. For Android applications, this is used to register a new version code of the application.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/terminal-applications.write` scope.
 
 ### [transactions](docs/sdks/transactions/README.md)
 

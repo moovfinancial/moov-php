@@ -40,7 +40,7 @@ class CreateTerminalApplication
     public ?string $packageName = null;
 
     /**
-     * The app version of the terminal application. Required if paltform is `android`.
+     * The SHA-256 digest of the signing key for the application. Required if platform is `android`.
      *
      * @var ?string $sha256Digest
      */
@@ -49,7 +49,7 @@ class CreateTerminalApplication
     public ?string $sha256Digest = null;
 
     /**
-     * The app version of the terminal application. Required if platform is `android`.
+     * The version code of the Android application. Required if platform is `android`.
      *
      * @var ?string $versionCode
      */
