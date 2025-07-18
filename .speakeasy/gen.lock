@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 62bc4cef2bdcfaea8392942a5a35872a
+  docChecksum: 9e685ed0e825b12b65dfe62abe6e9a88
   docVersion: latest
   speakeasyVersion: 1.582.0
   generationVersion: 2.657.1
-  releaseVersion: 0.4.22
-  configChecksum: 2ed0415b28aaa466172c82f641399411
+  releaseVersion: 0.4.23
+  configChecksum: f3d4b55244c961098a3345f562068cfa
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
@@ -289,6 +289,7 @@ generatedFiles:
   - docs/Models/Components/ItemListNextPage.md
   - docs/Models/Components/Itin.md
   - docs/Models/Components/JSONWebKey.md
+  - docs/Models/Components/Kind.md
   - docs/Models/Components/LinkAccountTerminalApplication.md
   - docs/Models/Components/LinkApplePay.md
   - docs/Models/Components/LinkApplePayToken.md
@@ -1201,6 +1202,7 @@ generatedFiles:
   - src/Models/Components/ItemListNextPage.php
   - src/Models/Components/Itin.php
   - src/Models/Components/JSONWebKey.php
+  - src/Models/Components/Kind.php
   - src/Models/Components/LinkAccountTerminalApplication.php
   - src/Models/Components/LinkApplePay.php
   - src/Models/Components/LinkApplePayToken.php

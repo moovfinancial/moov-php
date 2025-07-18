@@ -13,13 +13,12 @@ namespace Moov\MoovPhp\Models\Components;
 class ReceiptRequest
 {
     /**
-     * The type of receipt being requested.
      *
-     * @var ReceiptKind $kind
+     * @var Kind $kind
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('kind')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ReceiptKind')]
-    public ReceiptKind $kind;
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Kind')]
+    public Kind $kind;
 
     /**
      * The email address to send the receipt to.
@@ -77,7 +76,7 @@ class ReceiptRequest
     public ?string $forOccurrenceID = null;
 
     /**
-     * @param  ReceiptKind  $kind
+     * @param  Kind  $kind
      * @param  ?string  $email
      * @param  ?string  $emailAccountID
      * @param  ?string  $forTransferID
@@ -85,7 +84,7 @@ class ReceiptRequest
      * @param  ?string  $forOccurrenceID
      * @phpstan-pure
      */
-    public function __construct(ReceiptKind $kind, ?string $email = null, ?string $emailAccountID = null, ?string $forTransferID = null, ?string $forScheduleID = null, ?string $forOccurrenceID = null)
+    public function __construct(Kind $kind, ?string $email = null, ?string $emailAccountID = null, ?string $forTransferID = null, ?string $forScheduleID = null, ?string $forOccurrenceID = null)
     {
         $this->kind = $kind;
         $this->email = $email;
