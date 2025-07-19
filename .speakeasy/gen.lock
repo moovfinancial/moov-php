@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 9e685ed0e825b12b65dfe62abe6e9a88
+  docChecksum: 7e7537430f796096e432a88d37c3cdb7
   docVersion: latest
-  speakeasyVersion: 1.582.0
-  generationVersion: 2.657.1
-  releaseVersion: 0.4.23
-  configChecksum: f3d4b55244c961098a3345f562068cfa
+  speakeasyVersion: 1.583.0
+  generationVersion: 2.658.3
+  releaseVersion: 0.4.24
+  configChecksum: 67404fc8a1979c195f367d25aa5bb263
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true

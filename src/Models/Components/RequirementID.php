@@ -66,4 +66,16 @@ enum RequirementID: string
     case RepresentativeRepUuidIsOwner = 'representative.{rep-uuid}.is-owner';
     case RepresentativeRepUuidOwnership = 'representative.{rep-uuid}.ownership';
     case DocumentDocUuid = 'document.{doc-uuid}';
+    case UnderwritingBusinessPresence = 'underwriting.businessPresence';
+    case UnderwritingCapabilityCardAcceptanceMethods = 'underwriting.{capability}.cardAcceptanceMethods';
+    case UnderwritingCapabilityCurrentlyAcceptsCards = 'underwriting.{capability}.currentlyAcceptsCards';
+    case UnderwritingCapabilityEstimatedActivityAverageTransactionAmount = 'underwriting.{capability}.estimatedActivity.averageTransactionAmount';
+    case UnderwritingCapabilityEstimatedActivityMaximumTransactionAmount = 'underwriting.{capability}.estimatedActivity.maximumTransactionAmount';
+    case UnderwritingCapabilityEstimatedActivityMonthlyVolumeRange = 'underwriting.{capability}.estimatedActivity.monthlyVolumeRange';
+    case UnderwritingCapabilityFulfillment = 'underwriting.{capability}.fulfillment';
+    case UnderwritingGeographicReach = 'underwriting.geographicReach';
+    case UnderwritingPendingLitigation = 'underwriting.pendingLitigation';
+    case UnderwritingDocumentsProcessingStatementsPast3Months = 'underwriting.documents.processingStatementsPast3Months';
+    case UnderwritingCapabilityRefundPolicy = 'underwriting.{capability}.refundPolicy';
+    case UnderwritingVolumeShareByCustomerType = 'underwriting.volumeShareByCustomerType';
 }
