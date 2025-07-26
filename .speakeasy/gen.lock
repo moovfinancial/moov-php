@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 188ed4e145fb0676cae266fdb900709e
+  docChecksum: f38c592a972c10b7d8f927dd24a69360
   docVersion: latest
-  speakeasyVersion: 1.587.1
-  generationVersion: 2.662.0
-  releaseVersion: 0.4.26
-  configChecksum: 0ae7958139160f9633f2305b6d737201
+  speakeasyVersion: 1.590.0
+  generationVersion: 2.666.0
+  releaseVersion: 0.4.27
+  configChecksum: 9ad353ba36ff948469eb56da530b7955
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
 features:
   php:
     constsAndDefaults: 0.2.0
-    core: 3.8.6
+    core: 3.8.8
     deprecations: 2.81.1
     flattening: 2.81.1
     globalSecurity: 2.81.8
@@ -428,6 +428,7 @@ generatedFiles:
   - docs/Models/Components/StatementDescriptor.md
   - docs/Models/Components/StatementDescriptor2.md
   - docs/Models/Components/Status.md
+  - docs/Models/Components/SubmissionIntent.md
   - docs/Models/Components/Sweep.md
   - docs/Models/Components/SweepConfig.md
   - docs/Models/Components/SweepConfigPaymentMethod.md
@@ -1334,6 +1335,7 @@ generatedFiles:
   - src/Models/Components/Ssn.php
   - src/Models/Components/StatementDescriptor2.php
   - src/Models/Components/Status.php
+  - src/Models/Components/SubmissionIntent.php
   - src/Models/Components/Sweep.php
   - src/Models/Components/SweepConfig.php
   - src/Models/Components/SweepConfigPaymentMethod.php

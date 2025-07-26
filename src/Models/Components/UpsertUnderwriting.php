@@ -75,6 +75,15 @@ class UpsertUnderwriting
     public ?SendFunds $sendFunds = null;
 
     /**
+     *
+     * @var ?SubmissionIntent $submissionIntent
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('submissionIntent')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\SubmissionIntent|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?SubmissionIntent $submissionIntent = null;
+
+    /**
      * @param  ?GeographicReach  $geographicReach
      * @param  ?BusinessPresence  $businessPresence
      * @param  ?PendingLitigation  $pendingLitigation
@@ -82,9 +91,10 @@ class UpsertUnderwriting
      * @param  ?CollectFunds  $collectFunds
      * @param  ?MoneyTransfer  $moneyTransfer
      * @param  ?SendFunds  $sendFunds
+     * @param  ?SubmissionIntent  $submissionIntent
      * @phpstan-pure
      */
-    public function __construct(?GeographicReach $geographicReach = null, ?BusinessPresence $businessPresence = null, ?PendingLitigation $pendingLitigation = null, ?VolumeShareByCustomerType $volumeShareByCustomerType = null, ?CollectFunds $collectFunds = null, ?MoneyTransfer $moneyTransfer = null, ?SendFunds $sendFunds = null)
+    public function __construct(?GeographicReach $geographicReach = null, ?BusinessPresence $businessPresence = null, ?PendingLitigation $pendingLitigation = null, ?VolumeShareByCustomerType $volumeShareByCustomerType = null, ?CollectFunds $collectFunds = null, ?MoneyTransfer $moneyTransfer = null, ?SendFunds $sendFunds = null, ?SubmissionIntent $submissionIntent = null)
     {
         $this->geographicReach = $geographicReach;
         $this->businessPresence = $businessPresence;
@@ -93,5 +103,6 @@ class UpsertUnderwriting
         $this->collectFunds = $collectFunds;
         $this->moneyTransfer = $moneyTransfer;
         $this->sendFunds = $sendFunds;
+        $this->submissionIntent = $submissionIntent;
     }
 }
