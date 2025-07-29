@@ -19,6 +19,7 @@ you'll need to specify the `/accounts.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="createOnboardingInvite" method="post" path="/onboarding-invites" -->
 ```php
 declare(strict_types=1);
 

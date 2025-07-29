@@ -19,6 +19,7 @@ you'll need to specify the `/ping.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="ping" method="get" path="/ping" -->
 ```php
 declare(strict_types=1);
 

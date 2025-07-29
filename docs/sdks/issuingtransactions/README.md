@@ -31,6 +31,7 @@ you'll need to specify the `/accounts/{accountID}/issued-cards.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="listIssuedCardAuthorizations" method="get" path="/issuing/{accountID}/authorizations" -->
 ```php
 declare(strict_types=1);
 
@@ -90,6 +91,7 @@ you'll need to specify the `/accounts/{accountID}/issued-cards.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getIssuedCardAuthorization" method="get" path="/issuing/{accountID}/authorizations/{authorizationID}" -->
 ```php
 declare(strict_types=1);
 
@@ -148,6 +150,7 @@ you'll need to specify the `/accounts/{accountID}/issued-cards.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="listIssuedCardAuthorizationEvents" method="get" path="/issuing/{accountID}/authorizations/{authorizationID}/events" -->
 ```php
 declare(strict_types=1);
 
@@ -208,6 +211,7 @@ you'll need to specify the `/accounts/{accountID}/issued-cards.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="listIssuedCardTransactions" method="get" path="/issuing/{accountID}/card-transactions" -->
 ```php
 declare(strict_types=1);
 

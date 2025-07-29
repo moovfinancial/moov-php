@@ -52,6 +52,7 @@ you'll need to specify the `/accounts/{accountID}/apple-pay.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="registerApplePayMerchantDomains" method="post" path="/accounts/{accountID}/apple-pay/domains" -->
 ```php
 declare(strict_types=1);
 
@@ -118,6 +119,7 @@ you'll need to specify the `/accounts/{accountID}/apple-pay.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="updateApplePayMerchantDomains" method="patch" path="/accounts/{accountID}/apple-pay/domains" -->
 ```php
 declare(strict_types=1);
 
@@ -186,6 +188,7 @@ you'll need to specify the `/accounts/{accountID}/apple-pay.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getApplePayMerchantDomains" method="get" path="/accounts/{accountID}/apple-pay/domains" -->
 ```php
 declare(strict_types=1);
 
@@ -244,6 +247,7 @@ you'll need to specify the `/accounts/{accountID}/apple-pay.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="createApplePaySession" method="post" path="/accounts/{accountID}/apple-pay/sessions" -->
 ```php
 declare(strict_types=1);
 
@@ -309,6 +313,7 @@ you'll need to specify the `/accounts/{accountID}/cards.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="linkApplePayToken" method="post" path="/accounts/{accountID}/apple-pay/tokens" -->
 ```php
 declare(strict_types=1);
 

@@ -86,6 +86,7 @@ you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="listDisputes" method="get" path="/accounts/{accountID}/disputes" -->
 ```php
 declare(strict_types=1);
 
@@ -148,6 +149,7 @@ you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getDispute" method="get" path="/accounts/{accountID}/disputes/{disputeID}" -->
 ```php
 declare(strict_types=1);
 
@@ -208,6 +210,7 @@ you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="acceptDispute" method="post" path="/accounts/{accountID}/disputes/{disputeID}/accept" -->
 ```php
 declare(strict_types=1);
 
@@ -269,6 +272,7 @@ you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="listDisputeEvidence" method="get" path="/accounts/{accountID}/disputes/{disputeID}/evidence" -->
 ```php
 declare(strict_types=1);
 
@@ -329,6 +333,7 @@ you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="uploadDisputeEvidenceFile" method="post" path="/accounts/{accountID}/disputes/{disputeID}/evidence-file" -->
 ```php
 declare(strict_types=1);
 
@@ -399,6 +404,7 @@ you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="uploadDisputeEvidenceText" method="post" path="/accounts/{accountID}/disputes/{disputeID}/evidence-text" -->
 ```php
 declare(strict_types=1);
 
@@ -468,6 +474,7 @@ you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="submitDisputeEvidence" method="post" path="/accounts/{accountID}/disputes/{disputeID}/evidence/submit" -->
 ```php
 declare(strict_types=1);
 
@@ -529,6 +536,7 @@ you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getDisputeEvidence" method="get" path="/accounts/{accountID}/disputes/{disputeID}/evidence/{evidenceID}" -->
 ```php
 declare(strict_types=1);
 
@@ -591,6 +599,7 @@ you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="updateDisputeEvidence" method="patch" path="/accounts/{accountID}/disputes/{disputeID}/evidence/{evidenceID}" -->
 ```php
 declare(strict_types=1);
 
@@ -654,6 +663,7 @@ you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="deleteDisputeEvidenceFile" method="delete" path="/accounts/{accountID}/disputes/{disputeID}/evidence/{evidenceID}" -->
 ```php
 declare(strict_types=1);
 
@@ -717,6 +727,7 @@ you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getDisputeEvidenceData" method="get" path="/accounts/{accountID}/disputes/{disputeID}/evidence/{evidenceID}/data" -->
 ```php
 declare(strict_types=1);
 

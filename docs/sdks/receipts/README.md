@@ -23,6 +23,7 @@ you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="createReceipts" method="post" path="/receipts" -->
 ```php
 declare(strict_types=1);
 
@@ -79,6 +80,7 @@ you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="listReceipts" method="get" path="/receipts" -->
 ```php
 declare(strict_types=1);
 

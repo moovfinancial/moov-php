@@ -35,6 +35,7 @@ you'll need to specify the `/accounts/{accountID}/wallets.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="listWallets" method="get" path="/accounts/{accountID}/wallets" -->
 ```php
 declare(strict_types=1);
 
@@ -92,6 +93,7 @@ you'll need to specify the `/accounts/{accountID}/wallets.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getWallet" method="get" path="/accounts/{accountID}/wallets/{walletID}" -->
 ```php
 declare(strict_types=1);
 
@@ -152,6 +154,7 @@ you'll need to specify the `/accounts/{accountID}/wallets.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="listWalletTransactions" method="get" path="/accounts/{accountID}/wallets/{walletID}/transactions" -->
 ```php
 declare(strict_types=1);
 

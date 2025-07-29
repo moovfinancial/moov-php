@@ -40,6 +40,7 @@ you'll need to specify the `/accounts/{accountID}/profile.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="listFeePlanAgreements" method="get" path="/accounts/{accountID}/fee-plan-agreements" -->
 ```php
 declare(strict_types=1);
 
@@ -99,6 +100,7 @@ you'll need to specify the `/accounts/{accountID}/profile.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="createFeePlanAgreements" method="post" path="/accounts/{accountID}/fee-plan-agreements" -->
 ```php
 declare(strict_types=1);
 
@@ -162,6 +164,7 @@ you'll need to specify the `/accounts/{accountID}/profile.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="listFeePlans" method="get" path="/accounts/{accountID}/fee-plans" -->
 ```php
 declare(strict_types=1);
 
@@ -218,6 +221,7 @@ you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="listFeesFetch" method="post" path="/accounts/{accountID}/fees/.fetch" -->
 ```php
 declare(strict_types=1);
 
@@ -276,6 +280,7 @@ you'll need to specify the `/accounts/{accountID}/profile.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="listPartnerPricing" method="get" path="/accounts/{accountID}/partner-pricing" -->
 ```php
 declare(strict_types=1);
 
@@ -332,6 +337,7 @@ you'll need to specify the `/accounts/{accountID}/profile.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="listPartnerPricingAgreements" method="get" path="/accounts/{accountID}/partner-pricing-agreements" -->
 ```php
 declare(strict_types=1);
 

@@ -19,6 +19,7 @@ you'll need to specify the `/profile-enrichment.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getEnrichmentProfile" method="get" path="/enrichment/profile" -->
 ```php
 declare(strict_types=1);
 

@@ -25,6 +25,7 @@ you'll need to specify the `/accounts/{accountID}/payment-methods.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="listPaymentMethods" method="get" path="/accounts/{accountID}/payment-methods" -->
 ```php
 declare(strict_types=1);
 
@@ -82,6 +83,7 @@ you'll need to specify the `/accounts/{accountID}/payment-methods.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getPaymentMethod" method="get" path="/accounts/{accountID}/payment-methods/{paymentMethodID}" -->
 ```php
 declare(strict_types=1);
 

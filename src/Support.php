@@ -51,6 +51,9 @@ class Support
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/tickets.write` scope.
      *
+     * If you're creating the ticket on behalf of another account, then you'll need to
+     * specify the `/accounts/{partnerAccountID}/tickets.write` and `/accounts/{accountID}/profile.read` scopes.
+     *
      * @param  Components\CreateTicket  $createTicket
      * @param  string  $accountID
      * @param  ?string  $xMoovVersion
@@ -156,6 +159,9 @@ class Support
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/tickets.read` scope.
      *
+     * If you're retrieving another account's ticket, then you'll need to
+     * specify the `/accounts/{partnerAccountID}/tickets.read` and `/accounts/{accountID}/profile.read` scopes.
+     *
      * @param  string  $accountID
      * @param  string  $ticketID
      * @param  ?string  $xMoovVersion
@@ -233,6 +239,9 @@ class Support
      *
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/tickets.read` scope.
+     *
+     * If you're listing another account's messages, then you'll need to
+     * specify the `/accounts/{partnerAccountID}/tickets.read` and `/accounts/{accountID}/profile.read` scopes.
      *
      * @param  string  $accountID
      * @param  string  $ticketID
@@ -312,6 +321,9 @@ class Support
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/tickets.read` scope.
      *
+     * If you're listing another account's tickets, then you'll need to
+     * specify the `/accounts/{partnerAccountID}/tickets.read` and `/accounts/{accountID}/profile.read` scopes.
+     *
      * @param  Operations\ListTicketsRequest  $request
      * @return Operations\ListTicketsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
@@ -385,6 +397,9 @@ class Support
      *
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/tickets.write` scope.
+     *
+     * If you're updating the ticket on behalf of another account, then you'll need to
+     * specify the `/accounts/{partnerAccountID}/tickets.write` and `/accounts/{accountID}/profile.read` scopes.
      *
      * @param  Components\UpdateTicket  $updateTicket
      * @param  string  $accountID

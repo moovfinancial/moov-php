@@ -18,6 +18,7 @@ Allows clients to notify the authorization server that a previously obtained ref
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="revokeAccessToken" method="post" path="/oauth2/revoke" -->
 ```php
 declare(strict_types=1);
 
@@ -76,6 +77,7 @@ Create or refresh an access token.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="createAccessToken" method="post" path="/oauth2/token" -->
 ```php
 declare(strict_types=1);
 

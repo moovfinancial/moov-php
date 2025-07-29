@@ -19,6 +19,7 @@ you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="cancelSchedule" method="delete" path="/accounts/{accountID}/schedules/{scheduleID}" -->
 ```php
 declare(strict_types=1);
 

@@ -76,6 +76,7 @@ you'll need to specify the `/accounts/{accountID}/cards.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="linkCard" method="post" path="/accounts/{accountID}/cards" -->
 ```php
 declare(strict_types=1);
 
@@ -151,6 +152,7 @@ you'll need to specify the `/accounts/{accountID}/cards.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="listCards" method="get" path="/accounts/{accountID}/cards" -->
 ```php
 declare(strict_types=1);
 
@@ -208,6 +210,7 @@ you'll need to specify the `/accounts/{accountID}/cards.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getCard" method="get" path="/accounts/{accountID}/cards/{cardID}" -->
 ```php
 declare(strict_types=1);
 
@@ -275,6 +278,7 @@ you'll need to specify the `/accounts/{accountID}/cards.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="updateCard" method="patch" path="/accounts/{accountID}/cards/{cardID}" -->
 ```php
 declare(strict_types=1);
 
@@ -339,6 +343,7 @@ you'll need to specify the `/accounts/{accountID}/cards.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="disableCard" method="delete" path="/accounts/{accountID}/cards/{cardID}" -->
 ```php
 declare(strict_types=1);
 

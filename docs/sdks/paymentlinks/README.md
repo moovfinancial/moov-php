@@ -41,6 +41,7 @@ you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="createPaymentLink" method="post" path="/accounts/{accountID}/payment-links" -->
 ```php
 declare(strict_types=1);
 
@@ -122,6 +123,7 @@ you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="listPaymentLinks" method="get" path="/accounts/{accountID}/payment-links" -->
 ```php
 declare(strict_types=1);
 
@@ -177,6 +179,7 @@ you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getPaymentLink" method="get" path="/accounts/{accountID}/payment-links/{paymentLinkCode}" -->
 ```php
 declare(strict_types=1);
 
@@ -235,6 +238,7 @@ you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="updatePaymentLink" method="patch" path="/accounts/{accountID}/payment-links/{paymentLinkCode}" -->
 ```php
 declare(strict_types=1);
 
@@ -306,6 +310,7 @@ you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="disablePaymentLink" method="delete" path="/accounts/{accountID}/payment-links/{paymentLinkCode}" -->
 ```php
 declare(strict_types=1);
 
@@ -366,6 +371,7 @@ you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getPaymentLinkQRCode" method="get" path="/accounts/{accountID}/payment-links/{paymentLinkCode}/qrcode" -->
 ```php
 declare(strict_types=1);
 

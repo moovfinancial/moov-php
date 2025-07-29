@@ -31,6 +31,7 @@ you'll need to specify the `/accounts/{accountID}/terminal-applications.write` s
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="linkAccountTerminalApplication" method="post" path="/accounts/{accountID}/terminal-applications" -->
 ```php
 declare(strict_types=1);
 
@@ -93,6 +94,7 @@ you'll need to specify the `/accounts/{accountID}/terminal-applications.read` sc
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="listAccountTerminalApplications" method="get" path="/accounts/{accountID}/terminal-applications" -->
 ```php
 declare(strict_types=1);
 
@@ -148,6 +150,7 @@ you'll need to specify the `/accounts/{accountID}/terminal-applications.read` sc
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getAccountTerminalApplication" method="get" path="/accounts/{accountID}/terminal-applications/{terminalApplicationID}" -->
 ```php
 declare(strict_types=1);
 
@@ -206,6 +209,7 @@ you'll need to specify the `/accounts/{accountID}/terminal-configuration.read` s
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getTerminalConfiguration" method="get" path="/accounts/{accountID}/terminal-applications/{terminalApplicationID}/configuration" -->
 ```php
 declare(strict_types=1);
 

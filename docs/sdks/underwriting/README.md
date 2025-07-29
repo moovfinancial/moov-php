@@ -35,6 +35,7 @@ you'll need to specify the `/accounts/{accountID}/profile.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getUnderwriting" method="get" path="/accounts/{accountID}/underwriting" -->
 ```php
 declare(strict_types=1);
 
@@ -92,6 +93,7 @@ you'll need to specify the `/accounts/{accountID}/profile.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="saveUnderwriting" method="post" path="/accounts/{accountID}/underwriting" -->
 ```php
 declare(strict_types=1);
 
@@ -154,6 +156,7 @@ you'll need to specify the `/accounts/{accountID}/profile.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="upsertUnderwriting" method="put" path="/accounts/{accountID}/underwriting" -->
 ```php
 declare(strict_types=1);
 

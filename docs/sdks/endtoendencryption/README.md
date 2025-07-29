@@ -20,6 +20,7 @@ you'll need to specify the `/ping.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="testEndToEndToken" method="post" path="/debug/end-to-end-token" -->
 ```php
 declare(strict_types=1);
 
@@ -75,6 +76,7 @@ Generates a public key used to create a JWE token for passing secure authenticat
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="generateEndToEndKey" method="post" path="/end-to-end-keys" -->
 ```php
 declare(strict_types=1);
 

@@ -19,6 +19,7 @@ you'll need to specify the `/profile-enrichment.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getAvatar" method="get" path="/avatars/{uniqueID}" -->
 ```php
 declare(strict_types=1);
 

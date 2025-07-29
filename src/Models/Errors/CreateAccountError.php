@@ -6,9 +6,10 @@
 
 declare(strict_types=1);
 
-namespace Moov\MoovPhp\Models\Components;
+namespace Moov\MoovPhp\Models\Errors;
 
-
+use Moov\MoovPhp\Models\Components;
+use Moov\MoovPhp\Utils;
 class CreateAccountError
 {
     /**
@@ -21,12 +22,12 @@ class CreateAccountError
 
     /**
      *
-     * @var ?CreateProfileError $profile
+     * @var ?Components\CreateProfileError $profile
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('profile')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateProfileError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?CreateProfileError $profile = null;
+    public ?Components\CreateProfileError $profile = null;
 
     /**
      *
@@ -38,12 +39,12 @@ class CreateAccountError
 
     /**
      *
-     * @var ?TermsOfServiceError $termsOfService
+     * @var ?Components\TermsOfServiceError $termsOfService
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('termsOfService')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TermsOfServiceError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?TermsOfServiceError $termsOfService = null;
+    public ?Components\TermsOfServiceError $termsOfService = null;
 
     /**
      *
@@ -55,21 +56,21 @@ class CreateAccountError
 
     /**
      *
-     * @var ?CustomerSupportError $customerSupport
+     * @var ?Components\CustomerSupportError $customerSupport
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('customerSupport')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CustomerSupportError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?CustomerSupportError $customerSupport = null;
+    public ?Components\CustomerSupportError $customerSupport = null;
 
     /**
      *
-     * @var ?CreateAccountSettings $settings
+     * @var ?Components\CreateAccountSettings $settings
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('settings')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateAccountSettings|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?CreateAccountSettings $settings = null;
+    public ?Components\CreateAccountSettings $settings = null;
 
     /**
      * $capabilities
@@ -83,16 +84,16 @@ class CreateAccountError
 
     /**
      * @param  ?string  $accountType
-     * @param  ?CreateProfileError  $profile
+     * @param  ?Components\CreateProfileError  $profile
      * @param  ?string  $metadata
-     * @param  ?TermsOfServiceError  $termsOfService
+     * @param  ?Components\TermsOfServiceError  $termsOfService
      * @param  ?string  $foreignID
-     * @param  ?CustomerSupportError  $customerSupport
-     * @param  ?CreateAccountSettings  $settings
+     * @param  ?Components\CustomerSupportError  $customerSupport
+     * @param  ?Components\CreateAccountSettings  $settings
      * @param  ?array<string, string>  $capabilities
      * @phpstan-pure
      */
-    public function __construct(?string $accountType = null, ?CreateProfileError $profile = null, ?string $metadata = null, ?TermsOfServiceError $termsOfService = null, ?string $foreignID = null, ?CustomerSupportError $customerSupport = null, ?CreateAccountSettings $settings = null, ?array $capabilities = null)
+    public function __construct(?string $accountType = null, ?Components\CreateProfileError $profile = null, ?string $metadata = null, ?Components\TermsOfServiceError $termsOfService = null, ?string $foreignID = null, ?Components\CustomerSupportError $customerSupport = null, ?Components\CreateAccountSettings $settings = null, ?array $capabilities = null)
     {
         $this->accountType = $accountType;
         $this->profile = $profile;
@@ -102,5 +103,14 @@ class CreateAccountError
         $this->customerSupport = $customerSupport;
         $this->settings = $settings;
         $this->capabilities = $capabilities;
+    }
+
+    public function toException(): CreateAccountErrorThrowable
+    {
+        $serializer = Utils\JSON::createSerializer();
+        $message = $serializer->serialize($this, 'json');
+        $code = -1;
+
+        return new CreateAccountErrorThrowable($message, (int) $code, $this);
     }
 }

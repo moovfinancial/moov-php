@@ -6,19 +6,20 @@
 
 declare(strict_types=1);
 
-namespace Moov\MoovPhp\Models\Components;
+namespace Moov\MoovPhp\Models\Errors;
 
-
+use Moov\MoovPhp\Models\Components;
+use Moov\MoovPhp\Utils;
 class PatchAccountError
 {
     /**
      *
-     * @var ?CreateProfileError $profile
+     * @var ?Components\CreateProfileError $profile
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('profile')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateProfileError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?CreateProfileError $profile = null;
+    public ?Components\CreateProfileError $profile = null;
 
     /**
      *
@@ -30,12 +31,12 @@ class PatchAccountError
 
     /**
      *
-     * @var ?TermsOfServiceError $termsOfService
+     * @var ?Components\TermsOfServiceError $termsOfService
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('termsOfService')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TermsOfServiceError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?TermsOfServiceError $termsOfService = null;
+    public ?Components\TermsOfServiceError $termsOfService = null;
 
     /**
      *
@@ -47,32 +48,32 @@ class PatchAccountError
 
     /**
      *
-     * @var ?CustomerSupportError $customerSupport
+     * @var ?Components\CustomerSupportError $customerSupport
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('customerSupport')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CustomerSupportError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?CustomerSupportError $customerSupport = null;
+    public ?Components\CustomerSupportError $customerSupport = null;
 
     /**
      *
-     * @var ?CreateAccountSettings $settings
+     * @var ?Components\CreateAccountSettings $settings
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('settings')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateAccountSettings|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?CreateAccountSettings $settings = null;
+    public ?Components\CreateAccountSettings $settings = null;
 
     /**
-     * @param  ?CreateProfileError  $profile
+     * @param  ?Components\CreateProfileError  $profile
      * @param  ?string  $metadata
-     * @param  ?TermsOfServiceError  $termsOfService
+     * @param  ?Components\TermsOfServiceError  $termsOfService
      * @param  ?string  $foreignID
-     * @param  ?CustomerSupportError  $customerSupport
-     * @param  ?CreateAccountSettings  $settings
+     * @param  ?Components\CustomerSupportError  $customerSupport
+     * @param  ?Components\CreateAccountSettings  $settings
      * @phpstan-pure
      */
-    public function __construct(?CreateProfileError $profile = null, ?string $metadata = null, ?TermsOfServiceError $termsOfService = null, ?string $foreignID = null, ?CustomerSupportError $customerSupport = null, ?CreateAccountSettings $settings = null)
+    public function __construct(?Components\CreateProfileError $profile = null, ?string $metadata = null, ?Components\TermsOfServiceError $termsOfService = null, ?string $foreignID = null, ?Components\CustomerSupportError $customerSupport = null, ?Components\CreateAccountSettings $settings = null)
     {
         $this->profile = $profile;
         $this->metadata = $metadata;
@@ -80,5 +81,14 @@ class PatchAccountError
         $this->foreignID = $foreignID;
         $this->customerSupport = $customerSupport;
         $this->settings = $settings;
+    }
+
+    public function toException(): PatchAccountErrorThrowable
+    {
+        $serializer = Utils\JSON::createSerializer();
+        $message = $serializer->serialize($this, 'json');
+        $code = -1;
+
+        return new PatchAccountErrorThrowable($message, (int) $code, $this);
     }
 }

@@ -31,6 +31,7 @@ you'll need to specify the `/institutions.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="searchInstitutions" method="get" path="/institutions" -->
 ```php
 declare(strict_types=1);
 
@@ -88,6 +89,7 @@ you'll need to specify the `/fed.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="listInstitutions" method="get" path="/institutions/ach/search" -->
 ```php
 declare(strict_types=1);
 

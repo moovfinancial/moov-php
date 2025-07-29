@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: f38c592a972c10b7d8f927dd24a69360
+  docChecksum: 876cac9d5990a65eac2f3d2ac8aa7fef
   docVersion: latest
-  speakeasyVersion: 1.590.0
-  generationVersion: 2.666.0
-  releaseVersion: 0.4.27
-  configChecksum: 9ad353ba36ff948469eb56da530b7955
+  speakeasyVersion: 1.592.1
+  generationVersion: 2.667.0
+  releaseVersion: 0.4.28
+  configChecksum: 1c34005a9debb77b650a68bc8da91cdd
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
 features:
   php:
     constsAndDefaults: 0.2.0
-    core: 3.8.8
+    core: 3.8.9
     deprecations: 2.81.1
     flattening: 2.81.1
     globalSecurity: 2.81.8
@@ -157,7 +157,6 @@ generatedFiles:
   - docs/Models/Components/Contact.md
   - docs/Models/Components/CountriesErrors.md
   - docs/Models/Components/CreateAccount.md
-  - docs/Models/Components/CreateAccountError.md
   - docs/Models/Components/CreateAccountSettings.md
   - docs/Models/Components/CreateAccountTermsOfService.md
   - docs/Models/Components/CreateAccountType.md
@@ -332,7 +331,6 @@ generatedFiles:
   - docs/Models/Components/PartnerPricingAgreement.md
   - docs/Models/Components/PatchAccount.md
   - docs/Models/Components/PatchAccountCustomerSupport.md
-  - docs/Models/Components/PatchAccountError.md
   - docs/Models/Components/PatchAccountTermsOfService.md
   - docs/Models/Components/PatchBusiness.md
   - docs/Models/Components/PatchIndividual.md
@@ -545,7 +543,7 @@ generatedFiles:
   - docs/Models/Errors/BankAccountValidationError.md
   - docs/Models/Errors/BrandValidationError.md
   - docs/Models/Errors/CardAcquiringRefund.md
-  - docs/Models/Errors/CreateAccountResponseBody.md
+  - docs/Models/Errors/CreateAccountError.md
   - docs/Models/Errors/CreatePaymentLinkError.md
   - docs/Models/Errors/CreateSweepConfigError.md
   - docs/Models/Errors/CreateTicketError.md
@@ -559,6 +557,7 @@ generatedFiles:
   - docs/Models/Errors/LinkCardError.md
   - docs/Models/Errors/MicroDepositValidationError.md
   - docs/Models/Errors/OnboardingInviteError.md
+  - docs/Models/Errors/PatchAccountError.md
   - docs/Models/Errors/PatchSweepConfigError.md
   - docs/Models/Errors/RefundValidationError.md
   - docs/Models/Errors/RepresentativeValidationError.md
@@ -570,7 +569,6 @@ generatedFiles:
   - docs/Models/Errors/Transfer.md
   - docs/Models/Errors/TransferOptionsValidationError.md
   - docs/Models/Errors/TransferValidationError.md
-  - docs/Models/Errors/UpdateAccountResponseBody.md
   - docs/Models/Errors/UpdateCardError.md
   - docs/Models/Errors/UpdateIssuedCardError.md
   - docs/Models/Errors/UpdatePaymentLinkError.md
@@ -1075,7 +1073,6 @@ generatedFiles:
   - src/Models/Components/Contact.php
   - src/Models/Components/CountriesErrors.php
   - src/Models/Components/CreateAccount.php
-  - src/Models/Components/CreateAccountError.php
   - src/Models/Components/CreateAccountSettings.php
   - src/Models/Components/CreateAccountType.php
   - src/Models/Components/CreateApplePaySession.php
@@ -1245,7 +1242,6 @@ generatedFiles:
   - src/Models/Components/PartnerPricingAgreement.php
   - src/Models/Components/PatchAccount.php
   - src/Models/Components/PatchAccountCustomerSupport.php
-  - src/Models/Components/PatchAccountError.php
   - src/Models/Components/PatchBusiness.php
   - src/Models/Components/PatchIndividual.php
   - src/Models/Components/PatchProfile.php
@@ -1459,8 +1455,8 @@ generatedFiles:
   - src/Models/Errors/BrandValidationErrorThrowable.php
   - src/Models/Errors/CardAcquiringRefund.php
   - src/Models/Errors/CardAcquiringRefundThrowable.php
-  - src/Models/Errors/CreateAccountResponseBody.php
-  - src/Models/Errors/CreateAccountResponseBodyThrowable.php
+  - src/Models/Errors/CreateAccountError.php
+  - src/Models/Errors/CreateAccountErrorThrowable.php
   - src/Models/Errors/CreatePaymentLinkError.php
   - src/Models/Errors/CreatePaymentLinkErrorThrowable.php
   - src/Models/Errors/CreateSweepConfigError.php
@@ -1485,6 +1481,8 @@ generatedFiles:
   - src/Models/Errors/MicroDepositValidationErrorThrowable.php
   - src/Models/Errors/OnboardingInviteError.php
   - src/Models/Errors/OnboardingInviteErrorThrowable.php
+  - src/Models/Errors/PatchAccountError.php
+  - src/Models/Errors/PatchAccountErrorThrowable.php
   - src/Models/Errors/PatchSweepConfigError.php
   - src/Models/Errors/PatchSweepConfigErrorThrowable.php
   - src/Models/Errors/RefundValidationError.php
@@ -1507,8 +1505,6 @@ generatedFiles:
   - src/Models/Errors/TransferThrowable.php
   - src/Models/Errors/TransferValidationError.php
   - src/Models/Errors/TransferValidationErrorThrowable.php
-  - src/Models/Errors/UpdateAccountResponseBody.php
-  - src/Models/Errors/UpdateAccountResponseBodyThrowable.php
   - src/Models/Errors/UpdateCardError.php
   - src/Models/Errors/UpdateCardErrorThrowable.php
   - src/Models/Errors/UpdateIssuedCardError.php
@@ -1879,7 +1875,7 @@ examples:
         "400":
           application/json: {"error": "<value>"}
         "422":
-          application/json: {"error": {"capabilities": {"0": "first element failed validation..."}}}
+          application/json: {"capabilities": {"0": "first element failed validation..."}}
   listAccounts:
     speakeasy-default-list-accounts:
       parameters:
@@ -1917,7 +1913,7 @@ examples:
         "400":
           application/json: {"error": "<value>"}
         "422":
-          application/json: {"error": {}}
+          application/json: {}
   disconnectAccount:
     speakeasy-default-disconnect-account:
       parameters:

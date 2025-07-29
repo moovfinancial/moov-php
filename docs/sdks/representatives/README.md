@@ -55,6 +55,7 @@ you'll need to specify the `/accounts/{accountID}/representatives.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="createRepresentative" method="post" path="/accounts/{accountID}/representatives" -->
 ```php
 declare(strict_types=1);
 
@@ -147,6 +148,7 @@ you'll need to specify the `/accounts/{accountID}/representatives.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="listRepresentatives" method="get" path="/accounts/{accountID}/representatives" -->
 ```php
 declare(strict_types=1);
 
@@ -202,6 +204,7 @@ you'll need to specify the `/accounts/{accountID}/representatives.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="deleteRepresentative" method="delete" path="/accounts/{accountID}/representatives/{representativeID}" -->
 ```php
 declare(strict_types=1);
 
@@ -261,6 +264,7 @@ you'll need to specify the `/accounts/{accountID}/representatives.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getRepresentative" method="get" path="/accounts/{accountID}/representatives/{representativeID}" -->
 ```php
 declare(strict_types=1);
 
@@ -332,6 +336,7 @@ you'll need to specify the `/accounts/{accountID}/representatives.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="updateRepresentative" method="patch" path="/accounts/{accountID}/representatives/{representativeID}" -->
 ```php
 declare(strict_types=1);
 

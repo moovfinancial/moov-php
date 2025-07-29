@@ -39,6 +39,7 @@ you'll need to specify the `/accounts/{accountID}/wallets.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="createSweepConfig" method="post" path="/accounts/{accountID}/sweep-configs" -->
 ```php
 declare(strict_types=1);
 
@@ -104,6 +105,7 @@ you'll need to specify the `/accounts/{accountID}/wallets.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="listSweepConfigs" method="get" path="/accounts/{accountID}/sweep-configs" -->
 ```php
 declare(strict_types=1);
 
@@ -159,6 +161,7 @@ you'll need to specify the `/accounts/{accountID}/wallets.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getSweepConfig" method="get" path="/accounts/{accountID}/sweep-configs/{sweepConfigID}" -->
 ```php
 declare(strict_types=1);
 
@@ -217,6 +220,7 @@ you'll need to specify the `/accounts/{accountID}/wallets.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="updateSweepConfig" method="patch" path="/accounts/{accountID}/sweep-configs/{sweepConfigID}" -->
 ```php
 declare(strict_types=1);
 
@@ -281,6 +285,7 @@ you'll need to specify the `/accounts/{accountID}/wallets.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="listSweeps" method="get" path="/accounts/{accountID}/wallets/{walletID}/sweeps" -->
 ```php
 declare(strict_types=1);
 
@@ -341,6 +346,7 @@ you'll need to specify the `/accounts/{accountID}/wallets.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getSweep" method="get" path="/accounts/{accountID}/wallets/{walletID}/sweeps/{sweepID}" -->
 ```php
 declare(strict_types=1);
 

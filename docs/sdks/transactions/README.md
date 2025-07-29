@@ -19,6 +19,7 @@ you'll need to specify the `/accounts/{accountID}/issued-cards.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getIssuedCardTransaction" method="get" path="/issuing/{accountID}/card-transactions/{cardTransactionID}" -->
 ```php
 declare(strict_types=1);
 

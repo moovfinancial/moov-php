@@ -35,6 +35,7 @@ you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="createSchedule" method="post" path="/accounts/{accountID}/schedules" -->
 ```php
 declare(strict_types=1);
 
@@ -195,6 +196,7 @@ you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="listSchedules" method="get" path="/accounts/{accountID}/schedules" -->
 ```php
 declare(strict_types=1);
 
@@ -254,6 +256,7 @@ you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="updateSchedule" method="put" path="/accounts/{accountID}/schedules/{scheduleID}" -->
 ```php
 declare(strict_types=1);
 
@@ -448,6 +451,7 @@ you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getSchedules" method="get" path="/accounts/{accountID}/schedules/{scheduleID}" -->
 ```php
 declare(strict_types=1);
 
@@ -506,6 +510,7 @@ you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getScheduledOccurrence" method="get" path="/accounts/{accountID}/schedules/{scheduleID}/occurrences/{occurrenceFilter}" -->
 ```php
 declare(strict_types=1);
 

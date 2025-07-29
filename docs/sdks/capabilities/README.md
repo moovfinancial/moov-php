@@ -35,6 +35,7 @@ you'll need to specify the `/accounts/{accountID}/capabilities.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="listCapabilities" method="get" path="/accounts/{accountID}/capabilities" -->
 ```php
 declare(strict_types=1);
 
@@ -90,6 +91,7 @@ you'll need to specify the `/accounts/{accountID}/capabilities.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="requestCapabilities" method="post" path="/accounts/{accountID}/capabilities" -->
 ```php
 declare(strict_types=1);
 
@@ -154,6 +156,7 @@ you'll need to specify the `/accounts/{accountID}/capabilities.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getCapability" method="get" path="/accounts/{accountID}/capabilities/{capabilityID}" -->
 ```php
 declare(strict_types=1);
 
@@ -212,6 +215,7 @@ you'll need to specify the `/accounts/{accountID}/capabilities.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="disableCapability" method="delete" path="/accounts/{accountID}/capabilities/{capabilityID}" -->
 ```php
 declare(strict_types=1);
 

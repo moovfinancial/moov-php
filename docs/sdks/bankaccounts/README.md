@@ -107,6 +107,7 @@ you'll need to specify the `/accounts/{accountID}/bank-accounts.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="linkBankAccount" method="post" path="/accounts/{accountID}/bank-accounts" -->
 ```php
 declare(strict_types=1);
 
@@ -174,6 +175,7 @@ you'll need to specify the `/accounts/{accountID}/bank-accounts.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="listBankAccounts" method="get" path="/accounts/{accountID}/bank-accounts" -->
 ```php
 declare(strict_types=1);
 
@@ -231,6 +233,7 @@ you'll need to specify the `/accounts/{accountID}/bank-accounts.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getBankAccount" method="get" path="/accounts/{accountID}/bank-accounts/{bankAccountID}" -->
 ```php
 declare(strict_types=1);
 
@@ -289,6 +292,7 @@ you'll need to specify the `/accounts/{accountID}/bank-accounts.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="disableBankAccount" method="delete" path="/accounts/{accountID}/bank-accounts/{bankAccountID}" -->
 ```php
 declare(strict_types=1);
 
@@ -359,6 +363,7 @@ you'll need to specify the `/accounts/{accountID}/bank-accounts.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="initiateMicroDeposits" method="post" path="/accounts/{accountID}/bank-accounts/{bankAccountID}/micro-deposits" -->
 ```php
 declare(strict_types=1);
 
@@ -418,6 +423,7 @@ you'll need to specify the `/accounts/{accountID}/bank-accounts.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="completeMicroDeposits" method="put" path="/accounts/{accountID}/bank-accounts/{bankAccountID}/micro-deposits" -->
 ```php
 declare(strict_types=1);
 
@@ -494,6 +500,7 @@ you'll need to specify the `/accounts/{accountID}/bank-accounts.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getBankAccountVerification" method="get" path="/accounts/{accountID}/bank-accounts/{bankAccountID}/verify" -->
 ```php
 declare(strict_types=1);
 
@@ -567,6 +574,7 @@ you'll need to specify the `/accounts/{accountID}/bank-accounts.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="initiateBankAccountVerification" method="post" path="/accounts/{accountID}/bank-accounts/{bankAccountID}/verify" -->
 ```php
 declare(strict_types=1);
 
@@ -634,6 +642,7 @@ you'll need to specify the `/accounts/{accountID}/bank-accounts.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="completeBankAccountVerification" method="put" path="/accounts/{accountID}/bank-accounts/{bankAccountID}/verify" -->
 ```php
 declare(strict_types=1);
 

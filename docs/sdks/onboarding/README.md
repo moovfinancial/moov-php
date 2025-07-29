@@ -27,6 +27,7 @@ you'll need to specify the `/accounts.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="listOnboardingInvites" method="get" path="/onboarding-invites" -->
 ```php
 declare(strict_types=1);
 
@@ -81,6 +82,7 @@ you'll need to specify the `/accounts.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getOnboardingInvite" method="get" path="/onboarding-invites/{code}" -->
 ```php
 declare(strict_types=1);
 
@@ -136,6 +138,7 @@ you'll need to specify the `/accounts.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="revokeOnboardingInvite" method="delete" path="/onboarding-invites/{code}" -->
 ```php
 declare(strict_types=1);
 

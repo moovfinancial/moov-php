@@ -23,6 +23,7 @@ you'll need to specify the `/accounts/{accountID}/wallets.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="listAdjustments" method="get" path="/accounts/{accountID}/adjustments" -->
 ```php
 declare(strict_types=1);
 
@@ -79,6 +80,7 @@ you'll need to specify the `/accounts/{accountID}/wallets.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getAdjustment" method="get" path="/accounts/{accountID}/adjustments/{adjustmentID}" -->
 ```php
 declare(strict_types=1);
 

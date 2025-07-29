@@ -8,11 +8,11 @@ declare(strict_types=1);
 
 namespace Moov\MoovPhp\Models\Errors;
 
-class UpdateAccountResponseBodyThrowable extends \RuntimeException
+class CreateAccountErrorThrowable extends \RuntimeException
 {
-    public UpdateAccountResponseBody $container;
+    public CreateAccountError $container;
 
-    public function __construct(string $message, int $statusCode, UpdateAccountResponseBody $container)
+    public function __construct(string $message, int $statusCode, CreateAccountError $container)
     {
         parent::__construct($message, $statusCode);
         $this->container = $container;

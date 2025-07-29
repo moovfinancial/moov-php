@@ -88,6 +88,7 @@ you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="createTransferOptions" method="post" path="/accounts/{accountID}/transfer-options" -->
 ```php
 declare(strict_types=1);
 
@@ -157,6 +158,7 @@ you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="createTransfer" method="post" path="/accounts/{accountID}/transfers" -->
 ```php
 declare(strict_types=1);
 
@@ -241,6 +243,7 @@ you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="listTransfers" method="get" path="/accounts/{accountID}/transfers" -->
 ```php
 declare(strict_types=1);
 
@@ -303,6 +306,7 @@ you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getTransfer" method="get" path="/accounts/{accountID}/transfers/{transferID}" -->
 ```php
 declare(strict_types=1);
 
@@ -363,6 +367,7 @@ you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="updateTransfer" method="patch" path="/accounts/{accountID}/transfers/{transferID}" -->
 ```php
 declare(strict_types=1);
 
@@ -427,6 +432,7 @@ if ($response->transfer !== null) {
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="createCancellation" method="post" path="/accounts/{accountID}/transfers/{transferID}/cancellations" -->
 ```php
 declare(strict_types=1);
 
@@ -486,6 +492,7 @@ if ($response->cancellation !== null) {
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getCancellation" method="get" path="/accounts/{accountID}/transfers/{transferID}/cancellations/{cancellationID}" -->
 ```php
 declare(strict_types=1);
 
@@ -549,6 +556,7 @@ you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="initiateRefund" method="post" path="/accounts/{accountID}/transfers/{transferID}/refunds" -->
 ```php
 declare(strict_types=1);
 
@@ -614,6 +622,7 @@ you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="listRefunds" method="get" path="/accounts/{accountID}/transfers/{transferID}/refunds" -->
 ```php
 declare(strict_types=1);
 
@@ -672,6 +681,7 @@ you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getRefund" method="get" path="/accounts/{accountID}/transfers/{transferID}/refunds/{refundID}" -->
 ```php
 declare(strict_types=1);
 
@@ -734,6 +744,7 @@ to specify the `/accounts/{accountID}/transfers.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="createReversal" method="post" path="/accounts/{accountID}/transfers/{transferID}/reversals" -->
 ```php
 declare(strict_types=1);
 

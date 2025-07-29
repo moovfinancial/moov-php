@@ -31,6 +31,7 @@ you'll need to specify the `/accounts/{accountID}/branding.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="createBrand" method="post" path="/accounts/{accountID}/branding" -->
 ```php
 declare(strict_types=1);
 
@@ -100,6 +101,7 @@ you'll need to specify the `/accounts/{accountID}/branding.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="upsertBrand" method="put" path="/accounts/{accountID}/branding" -->
 ```php
 declare(strict_types=1);
 
@@ -169,6 +171,7 @@ you'll need to specify the `/accounts/{accountID}/branding.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getBrand" method="get" path="/accounts/{accountID}/branding" -->
 ```php
 declare(strict_types=1);
 
@@ -224,6 +227,7 @@ you'll need to specify the `/accounts/{accountID}/branding.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="updateBrand" method="patch" path="/accounts/{accountID}/branding" -->
 ```php
 declare(strict_types=1);
 

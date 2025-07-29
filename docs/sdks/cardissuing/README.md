@@ -33,6 +33,7 @@ you'll need to specify the `/accounts/{accountID}/issued-cards.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="requestCard" method="post" path="/issuing/{accountID}/issued-cards" -->
 ```php
 declare(strict_types=1);
 
@@ -117,6 +118,7 @@ you'll need to specify the `/accounts/{accountID}/issued-cards.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getIssuedCard" method="get" path="/issuing/{accountID}/issued-cards/{issuedCardID}" -->
 ```php
 declare(strict_types=1);
 
@@ -175,6 +177,7 @@ you'll need to specify the `/accounts/{accountID}/issued-cards.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="updateIssuedCard" method="patch" path="/issuing/{accountID}/issued-cards/{issuedCardID}" -->
 ```php
 declare(strict_types=1);
 
@@ -247,6 +250,7 @@ you'll need to specify the `/accounts/{accountID}/issued-cards.read-secure` scop
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getFullIssuedCard" method="get" path="/issuing/{accountID}/issued-cards/{issuedCardID}/details" -->
 ```php
 declare(strict_types=1);
 

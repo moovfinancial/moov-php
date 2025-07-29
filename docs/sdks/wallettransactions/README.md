@@ -23,6 +23,7 @@ you'll need to specify the `/accounts/{accountID}/wallets.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getWalletTransaction" method="get" path="/accounts/{accountID}/wallets/{walletID}/transactions/{transactionID}" -->
 ```php
 declare(strict_types=1);
 

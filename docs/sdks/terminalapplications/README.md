@@ -35,6 +35,7 @@ you'll need to specify the `/terminal-applications.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="createTerminalApplication" method="post" path="/terminal-applications" -->
 ```php
 declare(strict_types=1);
 
@@ -97,6 +98,7 @@ you'll need to specify the `/terminal-applications.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="listTerminalApplications" method="get" path="/terminal-applications" -->
 ```php
 declare(strict_types=1);
 
@@ -151,6 +153,7 @@ you'll need to specify the `/terminal-applications.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getTerminalApplication" method="get" path="/terminal-applications/{terminalApplicationID}" -->
 ```php
 declare(strict_types=1);
 
@@ -206,6 +209,7 @@ you'll need to specify the `/terminal-applications.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="deleteTerminalApplication" method="delete" path="/terminal-applications/{terminalApplicationID}" -->
 ```php
 declare(strict_types=1);
 
@@ -262,6 +266,7 @@ you'll need to specify the `/terminal-applications.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="createTerminalApplicationVersion" method="post" path="/terminal-applications/{terminalApplicationID}/versions" -->
 ```php
 declare(strict_types=1);
 

@@ -98,6 +98,7 @@ to specify the `/accounts.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="createAccount" method="post" path="/accounts" -->
 ```php
 declare(strict_types=1);
 
@@ -147,11 +148,11 @@ if ($response->account !== null) {
 
 ### Errors
 
-| Error Type                       | Status Code                      | Content Type                     |
-| -------------------------------- | -------------------------------- | -------------------------------- |
-| Errors\GenericError              | 400, 409                         | application/json                 |
-| Errors\CreateAccountResponseBody | 422                              | application/json                 |
-| Errors\APIException              | 4XX, 5XX                         | \*/\*                            |
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| Errors\GenericError       | 400, 409                  | application/json          |
+| Errors\CreateAccountError | 422                       | application/json          |
+| Errors\APIException       | 4XX, 5XX                  | \*/\*                     |
 
 ## list
 
@@ -166,6 +167,7 @@ to specify the `/accounts.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="listAccounts" method="get" path="/accounts" -->
 ```php
 declare(strict_types=1);
 
@@ -225,6 +227,7 @@ to specify the `/accounts/{accountID}/profile.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getAccount" method="get" path="/accounts/{accountID}" -->
 ```php
 declare(strict_types=1);
 
@@ -288,6 +291,7 @@ to specify the `/accounts/{accountID}/profile.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="updateAccount" method="patch" path="/accounts/{accountID}" -->
 ```php
 declare(strict_types=1);
 
@@ -409,11 +413,11 @@ if ($response->account !== null) {
 
 ### Errors
 
-| Error Type                       | Status Code                      | Content Type                     |
-| -------------------------------- | -------------------------------- | -------------------------------- |
-| Errors\GenericError              | 400, 409                         | application/json                 |
-| Errors\UpdateAccountResponseBody | 422                              | application/json                 |
-| Errors\APIException              | 4XX, 5XX                         | \*/\*                            |
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| Errors\GenericError      | 400, 409                 | application/json         |
+| Errors\PatchAccountError | 422                      | application/json         |
+| Errors\APIException      | 4XX, 5XX                 | \*/\*                    |
 
 ## disconnect
 
@@ -426,6 +430,7 @@ you'll need to specify the `/accounts/{accountID}/profile.disconnect` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="disconnectAccount" method="delete" path="/accounts/{accountID}" -->
 ```php
 declare(strict_types=1);
 
@@ -482,6 +487,7 @@ you'll need to specify the `/accounts/{accountID}/profile.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getAccountCountries" method="get" path="/accounts/{accountID}/countries" -->
 ```php
 declare(strict_types=1);
 
@@ -539,6 +545,7 @@ you'll need to specify the `/accounts/{accountID}/profile.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="assignAccountCountries" method="put" path="/accounts/{accountID}/countries" -->
 ```php
 declare(strict_types=1);
 
@@ -603,6 +610,7 @@ you'll need to specify the `/accounts/{accountID}/profile.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getMerchantProcessingAgreement" method="get" path="/accounts/{accountID}/merchant-agreement" -->
 ```php
 declare(strict_types=1);
 
@@ -659,6 +667,7 @@ token patched to the account. Read more in our [documentation](https://docs.moov
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getTermsOfServiceToken" method="get" path="/tos-token" -->
 ```php
 declare(strict_types=1);
 
@@ -715,6 +724,7 @@ you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="retrieveFees" method="get" path="/accounts/{accountID}/fees" -->
 ```php
 declare(strict_types=1);
 
@@ -774,6 +784,7 @@ you'll need to specify the `/accounts/{accountID}/files.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getFileDetails" method="get" path="/accounts/{accountID}/files/{fileID}" -->
 ```php
 declare(strict_types=1);
 

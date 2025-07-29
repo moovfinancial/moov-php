@@ -846,22 +846,37 @@ you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/tickets.write` scope.
+
+If you're creating the ticket on behalf of another account, then you'll need to
+specify the `/accounts/{partnerAccountID}/tickets.write` and `/accounts/{accountID}/profile.read` scopes.
 * [listTickets](docs/sdks/support/README.md#listtickets) - List all the support tickets created under a Moov account.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/tickets.read` scope.
+
+If you're listing another account's tickets, then you'll need to
+specify the `/accounts/{partnerAccountID}/tickets.read` and `/accounts/{accountID}/profile.read` scopes.
 * [getTicket](docs/sdks/support/README.md#getticket) - Retrieve a support ticket by ID.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/tickets.read` scope.
+
+If you're retrieving another account's ticket, then you'll need to
+specify the `/accounts/{partnerAccountID}/tickets.read` and `/accounts/{accountID}/profile.read` scopes.
 * [updateTicket](docs/sdks/support/README.md#updateticket) - Updates a support ticket.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/tickets.write` scope.
+
+If you're updating the ticket on behalf of another account, then you'll need to
+specify the `/accounts/{partnerAccountID}/tickets.write` and `/accounts/{accountID}/profile.read` scopes.
 * [listTicketMessages](docs/sdks/support/README.md#listticketmessages) - List all the messages for a support ticket.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/tickets.read` scope.
+
+If you're listing another account's messages, then you'll need to
+specify the `/accounts/{partnerAccountID}/tickets.read` and `/accounts/{accountID}/profile.read` scopes.
 
 ### [sweeps](docs/sdks/sweeps/README.md)
 
@@ -1061,11 +1076,11 @@ By default an API error will raise a `Errors\APIException` exception, which has 
 
 When custom error responses are specified for an operation, the SDK may also throw their associated exception. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `create` method throws the following exceptions:
 
-| Error Type                       | Status Code | Content Type     |
-| -------------------------------- | ----------- | ---------------- |
-| Errors\GenericError              | 400, 409    | application/json |
-| Errors\CreateAccountResponseBody | 422         | application/json |
-| Errors\APIException              | 4XX, 5XX    | \*/\*            |
+| Error Type                | Status Code | Content Type     |
+| ------------------------- | ----------- | ---------------- |
+| Errors\GenericError       | 400, 409    | application/json |
+| Errors\CreateAccountError | 422         | application/json |
+| Errors\APIException       | 4XX, 5XX    | \*/\*            |
 
 ### Example
 
@@ -1108,7 +1123,7 @@ try {
 } catch (Errors\GenericErrorThrowable $e) {
     // handle $e->$container data
     throw $e;
-} catch (Errors\CreateAccountResponseBodyThrowable $e) {
+} catch (Errors\CreateAccountErrorThrowable $e) {
     // handle $e->$container data
     throw $e;
 } catch (Errors\APIException $e) {

@@ -29,6 +29,7 @@ you'll need to specify the `/accounts/{accountID}/files.write` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="uploadFile" method="post" path="/accounts/{accountID}/files" -->
 ```php
 declare(strict_types=1);
 
@@ -96,6 +97,7 @@ you'll need to specify the `/accounts/{accountID}/files.read` scope.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="listFiles" method="get" path="/accounts/{accountID}/files" -->
 ```php
 declare(strict_types=1);
 
