@@ -9,6 +9,6 @@
 | --------------- | --------------- |
 | `Approved`      | approved        |
 | `Rejected`      | rejected        |
-| `PendingReview` | pendingReview   |
+| `PendingReview` | pending_review  |
 | `Pending`       | pending         |
-| `NotRequested`  | notRequested    |
+| `NotRequested`  | not_requested   |
