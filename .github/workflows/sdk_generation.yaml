@@ -29,3 +29,4 @@ jobs:
       packagist_username: ${{ secrets.PACKAGIST_USERNAME }}
       packagist_token: ${{ secrets.PACKAGIST_TOKEN }}
       speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
+      slack_webhook_url: ${{ secrets.SLACK_WEBHOOK }}
