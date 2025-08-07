@@ -3,10 +3,10 @@ id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
   docChecksum: a143a29d2c3c170f3014a01f14a16b81
   docVersion: latest
-  speakeasyVersion: 1.598.0
-  generationVersion: 2.674.1
-  releaseVersion: 0.4.30
-  configChecksum: 14ac94e5018c0c28b3c8f80520598ce1
+  speakeasyVersion: 1.598.3
+  generationVersion: 2.674.3
+  releaseVersion: 0.4.31
+  configChecksum: 4c2c559259454c5fa47d2c332508eefe
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
