@@ -23,13 +23,13 @@ Components\WebhookDataAccountCreated $value = /* values here */
 Components\WebhookDataAccountUpdated $value = /* values here */
 ```
 
-### `Components\WebhookDataAccountDeleted`
+### `Components\WebhookDataAccountDisconnected`
 
 ```php
 /**
-* @var Components\WebhookDataAccountDeleted
+* @var Components\WebhookDataAccountDisconnected
 */
-Components\WebhookDataAccountDeleted $value = /* values here */
+Components\WebhookDataAccountDisconnected $value = /* values here */
 ```
 
 ### `Components\WebhookDataBalanceUpdated`

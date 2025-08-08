@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: a143a29d2c3c170f3014a01f14a16b81
+  docChecksum: fcee0a586b75dd667560f3b4d878f5ab
   docVersion: latest
-  speakeasyVersion: 1.598.3
-  generationVersion: 2.674.3
-  releaseVersion: 0.4.31
-  configChecksum: 4c2c559259454c5fa47d2c332508eefe
+  speakeasyVersion: 1.599.0
+  generationVersion: 2.675.0
+  releaseVersion: 0.4.32
+  configChecksum: bc64f16c723d58c4b691c889b915d5e2
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
@@ -502,7 +502,7 @@ generatedFiles:
   - docs/Models/Components/WalletTransactionType.md
   - docs/Models/Components/WebhookData.md
   - docs/Models/Components/WebhookDataAccountCreated.md
-  - docs/Models/Components/WebhookDataAccountDeleted.md
+  - docs/Models/Components/WebhookDataAccountDisconnected.md
   - docs/Models/Components/WebhookDataAccountUpdated.md
   - docs/Models/Components/WebhookDataBalanceUpdated.md
   - docs/Models/Components/WebhookDataBankAccountCreated.md
@@ -1406,7 +1406,7 @@ generatedFiles:
   - src/Models/Components/WalletTransactionStatus.php
   - src/Models/Components/WalletTransactionType.php
   - src/Models/Components/WebhookDataAccountCreated.php
-  - src/Models/Components/WebhookDataAccountDeleted.php
+  - src/Models/Components/WebhookDataAccountDisconnected.php
   - src/Models/Components/WebhookDataAccountUpdated.php
   - src/Models/Components/WebhookDataBalanceUpdated.php
   - src/Models/Components/WebhookDataBankAccountCreated.php

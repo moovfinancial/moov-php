@@ -1,4 +1,4 @@
-# WebhookDataAccountDeleted
+# WebhookDataAccountDisconnected
 
 
 ## Fields

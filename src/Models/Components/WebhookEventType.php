@@ -15,7 +15,7 @@ enum WebhookEventType: string
     case Wildcard = '*';
     case AccountCreated = 'account.created';
     case AccountUpdated = 'account.updated';
-    case AccountDeleted = 'account.deleted';
+    case AccountDisconnected = 'account.disconnected';
     case BalanceUpdated = 'balance.updated';
     case BankAccountCreated = 'bankAccount.created';
     case BankAccountUpdated = 'bankAccount.updated';
