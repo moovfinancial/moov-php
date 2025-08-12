@@ -16,4 +16,5 @@ enum PrimaryRegulator: string
     case Fdic = 'FDIC';
     case Ncua = 'NCUA';
     case Frb = 'FRB';
+    case StateCuRegulator = 'state-cu-regulator';
 }

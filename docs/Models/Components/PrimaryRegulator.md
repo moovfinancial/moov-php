@@ -5,9 +5,10 @@ If the business is a financial institution, this field describes its primary reg
 
 ## Values
 
-| Name   | Value  |
-| ------ | ------ |
-| `Occ`  | OCC    |
-| `Fdic` | FDIC   |
-| `Ncua` | NCUA   |
-| `Frb`  | FRB    |
+| Name               | Value              |
+| ------------------ | ------------------ |
+| `Occ`              | OCC                |
+| `Fdic`             | FDIC               |
+| `Ncua`             | NCUA               |
+| `Frb`              | FRB                |
+| `StateCuRegulator` | state-cu-regulator |
