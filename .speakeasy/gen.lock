@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 32481a756e9219a261bb5e5da7ac897c
+  docChecksum: a63f31e9ab35272808d0149966ec1c16
   docVersion: latest
-  speakeasyVersion: 1.603.0
-  generationVersion: 2.681.1
-  releaseVersion: 0.4.34
-  configChecksum: 7056fbbe50cf3418839af502eef98345
+  speakeasyVersion: 1.603.2
+  generationVersion: 2.681.8
+  releaseVersion: 0.4.35
+  configChecksum: 8eb573838f0f618093426694dbc45eb5
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
@@ -108,7 +108,6 @@ generatedFiles:
   - docs/Models/Components/CallToAction.md
   - docs/Models/Components/Cancellation.md
   - docs/Models/Components/CancellationStatus.md
-  - docs/Models/Components/CapabilitiesError.md
   - docs/Models/Components/Capability.md
   - docs/Models/Components/CapabilityID.md
   - docs/Models/Components/CapabilityRequirement.md
@@ -155,7 +154,6 @@ generatedFiles:
   - docs/Models/Components/CompleteMicroDeposits.md
   - docs/Models/Components/CompletedMicroDeposits.md
   - docs/Models/Components/Contact.md
-  - docs/Models/Components/CountriesErrors.md
   - docs/Models/Components/CreateAccount.md
   - docs/Models/Components/CreateAccountSettings.md
   - docs/Models/Components/CreateAccountTermsOfService.md
@@ -1024,7 +1022,6 @@ generatedFiles:
   - src/Models/Components/CallToAction.php
   - src/Models/Components/Cancellation.php
   - src/Models/Components/CancellationStatus.php
-  - src/Models/Components/CapabilitiesError.php
   - src/Models/Components/Capability.php
   - src/Models/Components/CapabilityID.php
   - src/Models/Components/CapabilityRequirement.php
@@ -1071,7 +1068,6 @@ generatedFiles:
   - src/Models/Components/CompleteMicroDeposits.php
   - src/Models/Components/CompletedMicroDeposits.php
   - src/Models/Components/Contact.php
-  - src/Models/Components/CountriesErrors.php
   - src/Models/Components/CreateAccount.php
   - src/Models/Components/CreateAccountSettings.php
   - src/Models/Components/CreateAccountType.php
@@ -1949,7 +1945,7 @@ examples:
         "400":
           application/json: {"error": "<value>"}
         "422":
-          application/json: {"error": {"countries": {"key": "<value>", "key1": "<value>"}}}
+          application/json: {"countries": {"key": "<value>"}}
   getMerchantProcessingAgreement:
     speakeasy-default-get-merchant-processing-agreement:
       parameters:

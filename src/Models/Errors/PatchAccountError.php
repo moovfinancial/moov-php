@@ -65,15 +65,24 @@ class PatchAccountError
     public ?Components\CreateAccountSettings $settings = null;
 
     /**
+     *
+     * @var ?string $error
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('error')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $error = null;
+
+    /**
      * @param  ?Components\CreateProfileError  $profile
      * @param  ?string  $metadata
      * @param  ?Components\TermsOfServiceError  $termsOfService
      * @param  ?string  $foreignID
      * @param  ?Components\CustomerSupportError  $customerSupport
      * @param  ?Components\CreateAccountSettings  $settings
+     * @param  ?string  $error
      * @phpstan-pure
      */
-    public function __construct(?Components\CreateProfileError $profile = null, ?string $metadata = null, ?Components\TermsOfServiceError $termsOfService = null, ?string $foreignID = null, ?Components\CustomerSupportError $customerSupport = null, ?Components\CreateAccountSettings $settings = null)
+    public function __construct(?Components\CreateProfileError $profile = null, ?string $metadata = null, ?Components\TermsOfServiceError $termsOfService = null, ?string $foreignID = null, ?Components\CustomerSupportError $customerSupport = null, ?Components\CreateAccountSettings $settings = null, ?string $error = null)
     {
         $this->profile = $profile;
         $this->metadata = $metadata;
@@ -81,6 +90,7 @@ class PatchAccountError
         $this->foreignID = $foreignID;
         $this->customerSupport = $customerSupport;
         $this->settings = $settings;
+        $this->error = $error;
     }
 
     public function toException(): PatchAccountErrorThrowable

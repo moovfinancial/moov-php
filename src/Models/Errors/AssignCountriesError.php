@@ -8,25 +8,25 @@ declare(strict_types=1);
 
 namespace Moov\MoovPhp\Models\Errors;
 
-use Moov\MoovPhp\Models\Components;
 use Moov\MoovPhp\Utils;
 class AssignCountriesError
 {
     /**
+     * $countries
      *
-     * @var Components\CountriesErrors $error
+     * @var array<string, string> $countries
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('error')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CountriesErrors')]
-    public Components\CountriesErrors $error;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('countries')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string, string>')]
+    public array $countries;
 
     /**
-     * @param  Components\CountriesErrors  $error
+     * @param  array<string, string>  $countries
      * @phpstan-pure
      */
-    public function __construct(Components\CountriesErrors $error)
+    public function __construct(array $countries)
     {
-        $this->error = $error;
+        $this->countries = $countries;
     }
 
     public function toException(): AssignCountriesErrorThrowable

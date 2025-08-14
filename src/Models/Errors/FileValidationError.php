@@ -29,6 +29,14 @@ class FileValidationError
 
     /**
      *
+     * @var ?string $fileName
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('FileName')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $fileName = null;
+
+    /**
+     *
      * @var ?string $filePurpose
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('filePurpose')]
@@ -46,14 +54,16 @@ class FileValidationError
     /**
      * @param  ?string  $error
      * @param  ?string  $file
+     * @param  ?string  $fileName
      * @param  ?string  $filePurpose
      * @param  ?string  $metadata
      * @phpstan-pure
      */
-    public function __construct(?string $error = null, ?string $file = null, ?string $filePurpose = null, ?string $metadata = null)
+    public function __construct(?string $error = null, ?string $file = null, ?string $fileName = null, ?string $filePurpose = null, ?string $metadata = null)
     {
         $this->error = $error;
         $this->file = $file;
+        $this->fileName = $fileName;
         $this->filePurpose = $filePurpose;
         $this->metadata = $metadata;
     }

@@ -8,26 +8,36 @@ declare(strict_types=1);
 
 namespace Moov\MoovPhp\Models\Errors;
 
-use Moov\MoovPhp\Models\Components;
 use Moov\MoovPhp\Utils;
 class AddCapabilitiesError
 {
     /**
      *
-     * @var ?Components\CapabilitiesError $error
+     * @var ?string $error
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('error')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CapabilitiesError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?Components\CapabilitiesError $error = null;
+    public ?string $error = null;
 
     /**
-     * @param  ?Components\CapabilitiesError  $error
+     * $capabilities
+     *
+     * @var ?array<string, string> $capabilities
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('capabilities')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string, string>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $capabilities = null;
+
+    /**
+     * @param  ?string  $error
+     * @param  ?array<string, string>  $capabilities
      * @phpstan-pure
      */
-    public function __construct(?Components\CapabilitiesError $error = null)
+    public function __construct(?string $error = null, ?array $capabilities = null)
     {
         $this->error = $error;
+        $this->capabilities = $capabilities;
     }
 
     public function toException(): AddCapabilitiesErrorThrowable
