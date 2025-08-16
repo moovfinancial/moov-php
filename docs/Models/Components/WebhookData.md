@@ -239,6 +239,33 @@ Components\WebhookDataTerminalApplicationCreated $value = /* values here */
 Components\WebhookDataTerminalApplicationUpdated $value = /* values here */
 ```
 
+### `Components\WebhookDataTicketCreated`
+
+```php
+/**
+* @var Components\WebhookDataTicketCreated
+*/
+Components\WebhookDataTicketCreated $value = /* values here */
+```
+
+### `Components\WebhookDataTicketUpdated`
+
+```php
+/**
+* @var Components\WebhookDataTicketUpdated
+*/
+Components\WebhookDataTicketUpdated $value = /* values here */
+```
+
+### `Components\WebhookDataTicketMessageAdded`
+
+```php
+/**
+* @var Components\WebhookDataTicketMessageAdded
+*/
+Components\WebhookDataTicketMessageAdded $value = /* values here */
+```
+
 ### `Components\WebhookDataTransferCreated`
 
 ```php

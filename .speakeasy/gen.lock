@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: a63f31e9ab35272808d0149966ec1c16
+  docChecksum: 374f4b9652802b02a66b8c2457c91b51
   docVersion: latest
-  speakeasyVersion: 1.603.2
-  generationVersion: 2.681.8
-  releaseVersion: 0.4.35
-  configChecksum: 8eb573838f0f618093426694dbc45eb5
+  speakeasyVersion: 1.605.0
+  generationVersion: 2.684.0
+  releaseVersion: 0.4.36
+  configChecksum: 81127679d2dbcbba69b6a5d1373ec091
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
@@ -525,6 +525,9 @@ generatedFiles:
   - docs/Models/Components/WebhookDataSweepUpdated.md
   - docs/Models/Components/WebhookDataTerminalApplicationCreated.md
   - docs/Models/Components/WebhookDataTerminalApplicationUpdated.md
+  - docs/Models/Components/WebhookDataTicketCreated.md
+  - docs/Models/Components/WebhookDataTicketMessageAdded.md
+  - docs/Models/Components/WebhookDataTicketUpdated.md
   - docs/Models/Components/WebhookDataTransferCreated.md
   - docs/Models/Components/WebhookDataTransferStatus.md
   - docs/Models/Components/WebhookDataTransferUpdated.md
@@ -1427,6 +1430,9 @@ generatedFiles:
   - src/Models/Components/WebhookDataSweepUpdated.php
   - src/Models/Components/WebhookDataTerminalApplicationCreated.php
   - src/Models/Components/WebhookDataTerminalApplicationUpdated.php
+  - src/Models/Components/WebhookDataTicketCreated.php
+  - src/Models/Components/WebhookDataTicketMessageAdded.php
+  - src/Models/Components/WebhookDataTicketUpdated.php
   - src/Models/Components/WebhookDataTransferCreated.php
   - src/Models/Components/WebhookDataTransferStatus.php
   - src/Models/Components/WebhookDataTransferUpdated.php

@@ -39,6 +39,9 @@ enum WebhookEventType: string
     case SweepUpdated = 'sweep.updated';
     case TerminalApplicationCreated = 'terminalApplication.created';
     case TerminalApplicationUpdated = 'terminalApplication.updated';
+    case TicketCreated = 'ticket.created';
+    case TicketUpdated = 'ticket.updated';
+    case TicketMessageAdded = 'ticket.messageAdded';
     case TransferCreated = 'transfer.created';
     case TransferUpdated = 'transfer.updated';
     case WalletTransactionUpdated = 'walletTransaction.updated';
