@@ -13,6 +13,7 @@ use Moov\MoovPhp\Utils\SpeakeasyMetadata;
 class CreateScheduleRequest
 {
     /**
+     * Account ID of the account that will run the transfer.
      *
      * @var string $accountID
      */

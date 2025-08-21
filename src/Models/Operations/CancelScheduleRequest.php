@@ -12,6 +12,7 @@ use Moov\MoovPhp\Utils\SpeakeasyMetadata;
 class CancelScheduleRequest
 {
     /**
+     * Your Moov account ID as the partner running the transfers.
      *
      * @var string $accountID
      */
