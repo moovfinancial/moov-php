@@ -30,3 +30,4 @@
 | `TopUp`                        | top-up                         |
 | `WalletTransfer`               | wallet-transfer                |
 | `Adjustment`                   | adjustment                     |
+| `FeeRevenue`                   | fee-revenue                    |

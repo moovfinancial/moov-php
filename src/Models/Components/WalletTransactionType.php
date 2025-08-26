@@ -36,4 +36,5 @@ enum WalletTransactionType: string
     case TopUp = 'top-up';
     case WalletTransfer = 'wallet-transfer';
     case Adjustment = 'adjustment';
+    case FeeRevenue = 'fee-revenue';
 }
