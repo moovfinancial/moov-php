@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 14dbdfb93605d70de90e2849c6734760
+  docChecksum: f9b0451547d27c09d84c34edce2961ad
   docVersion: latest
-  speakeasyVersion: 1.606.5
-  generationVersion: 2.687.1
-  releaseVersion: 0.4.38
-  configChecksum: a6bc328d49a430def867e60a7e83b0aa
+  speakeasyVersion: 1.606.8
+  generationVersion: 2.687.13
+  releaseVersion: 0.4.39
+  configChecksum: 722cd519e04c447c11e3a91be3d2a5b3
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
@@ -3927,4 +3927,4 @@ examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## SDK Changes Detected:
-  * `moov->wallets->listTransactions()`:  `request` **Changed**
+  * `moov->accounts->list()`:  `request` **Changed** **Breaking** :warning:

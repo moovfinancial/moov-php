@@ -47,21 +47,12 @@ class ListAccountsRequest
      *   be searched. For example, if `type=business` and `name=moov`, the search will attempt to find matches against
      *   the display name and Business Profile name fields (`legalBusinessName`, and `doingBusinessAs`).
      *
-     * @var ?Components\AccountType $type
+     *   Filtering by `type=guest` is not currently supported.
+     *
+     * @var ?Components\CreateAccountType $type
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=type')]
-    public ?Components\AccountType $type = null;
-
-    /**
-     *   Filter accounts with AccountType guest.
-     *
-     *   
-     *   If true, the response will include guest accounts.
-     *
-     * @var ?bool $includeGuest
-     */
-    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=includeGuest')]
-    public ?bool $includeGuest = null;
+    public ?Components\CreateAccountType $type = null;
 
     /**
      *   Serves as an optional alias from a foreign/external system which can be used to reference this resource.
@@ -133,8 +124,7 @@ class ListAccountsRequest
      * @param  ?string  $xMoovVersion
      * @param  ?string  $name
      * @param  ?string  $email
-     * @param  ?Components\AccountType  $type
-     * @param  ?bool  $includeGuest
+     * @param  ?Components\CreateAccountType  $type
      * @param  ?string  $foreignID
      * @param  ?bool  $includeDisconnected
      * @param  ?Components\CapabilityID  $capability
@@ -143,12 +133,11 @@ class ListAccountsRequest
      * @param  ?int  $count
      * @phpstan-pure
      */
-    public function __construct(?string $name = null, ?string $email = null, ?Components\AccountType $type = null, ?bool $includeGuest = null, ?string $foreignID = null, ?bool $includeDisconnected = null, ?Components\CapabilityID $capability = null, ?Components\CapabilityStatus $capabilityStatus = null, ?int $skip = null, ?int $count = null, ?string $xMoovVersion = 'v2024.01.00')
+    public function __construct(?string $name = null, ?string $email = null, ?Components\CreateAccountType $type = null, ?string $foreignID = null, ?bool $includeDisconnected = null, ?Components\CapabilityID $capability = null, ?Components\CapabilityStatus $capabilityStatus = null, ?int $skip = null, ?int $count = null, ?string $xMoovVersion = 'v2024.01.00')
     {
         $this->name = $name;
         $this->email = $email;
         $this->type = $type;
-        $this->includeGuest = $includeGuest;
         $this->foreignID = $foreignID;
         $this->includeDisconnected = $includeDisconnected;
         $this->capability = $capability;

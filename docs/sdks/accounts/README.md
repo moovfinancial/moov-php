@@ -188,7 +188,7 @@ $sdk = MoovPhp\Moov::builder()
     ->build();
 
 $request = new Operations\ListAccountsRequest(
-    type: Components\AccountType::Business,
+    type: Components\CreateAccountType::Business,
     skip: 60,
     count: 20,
 );
