@@ -39,4 +39,6 @@ The type of event that occurred.
 | `TicketMessageAdded`         | ticket.messageAdded          |
 | `TransferCreated`            | transfer.created             |
 | `TransferUpdated`            | transfer.updated             |
+| `WalletCreated`              | wallet.created               |
+| `WalletUpdated`              | wallet.updated               |
 | `WalletTransactionUpdated`   | walletTransaction.updated    |

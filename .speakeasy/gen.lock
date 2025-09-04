@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: f9b0451547d27c09d84c34edce2961ad
+  docChecksum: e7fa9cceb686bd87c3e55f086969f61b
   docVersion: latest
-  speakeasyVersion: 1.606.8
-  generationVersion: 2.687.13
-  releaseVersion: 0.4.39
-  configChecksum: 722cd519e04c447c11e3a91be3d2a5b3
+  speakeasyVersion: 1.609.0
+  generationVersion: 2.692.0
+  releaseVersion: 0.4.40
+  configChecksum: 87256eb2620d46c3cf6a7230d13946da
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
 features:
   php:
     constsAndDefaults: 0.2.0
-    core: 3.8.9
+    core: 3.8.10
     deprecations: 2.81.1
     flattening: 2.81.1
     globalSecurity: 2.81.8
@@ -194,6 +194,7 @@ generatedFiles:
   - docs/Models/Components/CreateTransferSource.md
   - docs/Models/Components/CreateTransferSourceACH.md
   - docs/Models/Components/CreateTransferSourceCard.md
+  - docs/Models/Components/CreateWallet.md
   - docs/Models/Components/CreatedTransfer.md
   - docs/Models/Components/CustomerSupport.md
   - docs/Models/Components/CustomerSupportError.md
@@ -335,6 +336,7 @@ generatedFiles:
   - docs/Models/Components/PatchProfile.md
   - docs/Models/Components/PatchSweepConfig.md
   - docs/Models/Components/PatchTransfer.md
+  - docs/Models/Components/PatchWallet.md
   - docs/Models/Components/PaymentDetailsError.md
   - docs/Models/Components/PaymentLink.md
   - docs/Models/Components/PaymentLinkCustomerOptions.md
@@ -494,10 +496,12 @@ generatedFiles:
   - docs/Models/Components/VolumeShareByCustomerTypeError.md
   - docs/Models/Components/Wallet.md
   - docs/Models/Components/WalletAvailableBalance.md
+  - docs/Models/Components/WalletStatus.md
   - docs/Models/Components/WalletTransaction.md
   - docs/Models/Components/WalletTransactionSourceType.md
   - docs/Models/Components/WalletTransactionStatus.md
   - docs/Models/Components/WalletTransactionType.md
+  - docs/Models/Components/WalletType.md
   - docs/Models/Components/WebhookData.md
   - docs/Models/Components/WebhookDataAccountCreated.md
   - docs/Models/Components/WebhookDataAccountDisconnected.md
@@ -531,7 +535,9 @@ generatedFiles:
   - docs/Models/Components/WebhookDataTransferCreated.md
   - docs/Models/Components/WebhookDataTransferStatus.md
   - docs/Models/Components/WebhookDataTransferUpdated.md
+  - docs/Models/Components/WebhookDataWalletCreated.md
   - docs/Models/Components/WebhookDataWalletTransactionUpdated.md
+  - docs/Models/Components/WebhookDataWalletUpdated.md
   - docs/Models/Components/WebhookEvent.md
   - docs/Models/Components/WebhookEventType.md
   - docs/Models/Components/WebhookTransferPaymentMethodDetails.md
@@ -548,6 +554,7 @@ generatedFiles:
   - docs/Models/Errors/CreatePaymentLinkError.md
   - docs/Models/Errors/CreateSweepConfigError.md
   - docs/Models/Errors/CreateTicketError.md
+  - docs/Models/Errors/CreateWalletError.md
   - docs/Models/Errors/Error.md
   - docs/Models/Errors/FeePlanAgreementError.md
   - docs/Models/Errors/File.md
@@ -560,6 +567,7 @@ generatedFiles:
   - docs/Models/Errors/OnboardingInviteError.md
   - docs/Models/Errors/PatchAccountError.md
   - docs/Models/Errors/PatchSweepConfigError.md
+  - docs/Models/Errors/PatchWalletError.md
   - docs/Models/Errors/RefundValidationError.md
   - docs/Models/Errors/RepresentativeValidationError.md
   - docs/Models/Errors/RequestCardError.md
@@ -623,6 +631,8 @@ generatedFiles:
   - docs/Models/Operations/CreateTransferOptionsResponse.md
   - docs/Models/Operations/CreateTransferRequest.md
   - docs/Models/Operations/CreateTransferResponse.md
+  - docs/Models/Operations/CreateWalletRequest.md
+  - docs/Models/Operations/CreateWalletResponse.md
   - docs/Models/Operations/DeleteDisputeEvidenceFileRequest.md
   - docs/Models/Operations/DeleteDisputeEvidenceFileResponse.md
   - docs/Models/Operations/DeleteRepresentativeRequest.md
@@ -855,6 +865,8 @@ generatedFiles:
   - docs/Models/Operations/UpdateTicketResponse.md
   - docs/Models/Operations/UpdateTransferRequest.md
   - docs/Models/Operations/UpdateTransferResponse.md
+  - docs/Models/Operations/UpdateWalletRequest.md
+  - docs/Models/Operations/UpdateWalletResponse.md
   - docs/Models/Operations/UploadDisputeEvidenceFileRequest.md
   - docs/Models/Operations/UploadDisputeEvidenceFileResponse.md
   - docs/Models/Operations/UploadDisputeEvidenceTextRequest.md
@@ -1109,6 +1121,7 @@ generatedFiles:
   - src/Models/Components/CreateTransferSource.php
   - src/Models/Components/CreateTransferSourceACH.php
   - src/Models/Components/CreateTransferSourceCard.php
+  - src/Models/Components/CreateWallet.php
   - src/Models/Components/CreatedTransfer.php
   - src/Models/Components/CustomerSupport.php
   - src/Models/Components/CustomerSupportError.php
@@ -1246,6 +1259,7 @@ generatedFiles:
   - src/Models/Components/PatchProfile.php
   - src/Models/Components/PatchSweepConfig.php
   - src/Models/Components/PatchTransfer.php
+  - src/Models/Components/PatchWallet.php
   - src/Models/Components/PaymentDetailsError.php
   - src/Models/Components/PaymentLink.php
   - src/Models/Components/PaymentLinkCustomerOptions.php
@@ -1400,10 +1414,12 @@ generatedFiles:
   - src/Models/Components/VolumeShareByCustomerTypeError.php
   - src/Models/Components/Wallet.php
   - src/Models/Components/WalletAvailableBalance.php
+  - src/Models/Components/WalletStatus.php
   - src/Models/Components/WalletTransaction.php
   - src/Models/Components/WalletTransactionSourceType.php
   - src/Models/Components/WalletTransactionStatus.php
   - src/Models/Components/WalletTransactionType.php
+  - src/Models/Components/WalletType.php
   - src/Models/Components/WebhookDataAccountCreated.php
   - src/Models/Components/WebhookDataAccountDisconnected.php
   - src/Models/Components/WebhookDataAccountUpdated.php
@@ -1436,7 +1452,9 @@ generatedFiles:
   - src/Models/Components/WebhookDataTransferCreated.php
   - src/Models/Components/WebhookDataTransferStatus.php
   - src/Models/Components/WebhookDataTransferUpdated.php
+  - src/Models/Components/WebhookDataWalletCreated.php
   - src/Models/Components/WebhookDataWalletTransactionUpdated.php
+  - src/Models/Components/WebhookDataWalletUpdated.php
   - src/Models/Components/WebhookEvent.php
   - src/Models/Components/WebhookEventType.php
   - src/Models/Components/WebhookTransferPaymentMethodDetails.php
@@ -1465,6 +1483,8 @@ generatedFiles:
   - src/Models/Errors/CreateSweepConfigErrorThrowable.php
   - src/Models/Errors/CreateTicketError.php
   - src/Models/Errors/CreateTicketErrorThrowable.php
+  - src/Models/Errors/CreateWalletError.php
+  - src/Models/Errors/CreateWalletErrorThrowable.php
   - src/Models/Errors/Error.php
   - src/Models/Errors/FeePlanAgreementError.php
   - src/Models/Errors/FeePlanAgreementErrorThrowable.php
@@ -1487,6 +1507,8 @@ generatedFiles:
   - src/Models/Errors/PatchAccountErrorThrowable.php
   - src/Models/Errors/PatchSweepConfigError.php
   - src/Models/Errors/PatchSweepConfigErrorThrowable.php
+  - src/Models/Errors/PatchWalletError.php
+  - src/Models/Errors/PatchWalletErrorThrowable.php
   - src/Models/Errors/RefundValidationError.php
   - src/Models/Errors/RefundValidationErrorThrowable.php
   - src/Models/Errors/RepresentativeValidationError.php
@@ -1566,6 +1588,8 @@ generatedFiles:
   - src/Models/Operations/CreateTransferOptionsResponse.php
   - src/Models/Operations/CreateTransferRequest.php
   - src/Models/Operations/CreateTransferResponse.php
+  - src/Models/Operations/CreateWalletRequest.php
+  - src/Models/Operations/CreateWalletResponse.php
   - src/Models/Operations/DeleteDisputeEvidenceFileRequest.php
   - src/Models/Operations/DeleteDisputeEvidenceFileResponse.php
   - src/Models/Operations/DeleteRepresentativeRequest.php
@@ -1798,6 +1822,8 @@ generatedFiles:
   - src/Models/Operations/UpdateTicketResponse.php
   - src/Models/Operations/UpdateTransferRequest.php
   - src/Models/Operations/UpdateTransferResponse.php
+  - src/Models/Operations/UpdateWalletRequest.php
+  - src/Models/Operations/UpdateWalletResponse.php
   - src/Models/Operations/UploadDisputeEvidenceFileRequest.php
   - src/Models/Operations/UploadDisputeEvidenceFileResponse.php
   - src/Models/Operations/UploadDisputeEvidenceTextRequest.php
@@ -3390,11 +3416,14 @@ examples:
       parameters:
         path:
           accountID: "25221c3c-8e3f-40db-8570-66d17b51014d"
+        query:
+          skip: 60
+          count: 20
         header:
           x-moov-version: "v2024.01.00"
       responses:
         "200":
-          application/json: [{"walletID": "4db4c1c0-d682-4bf9-9b5c-952207d1d15d", "availableBalance": {"currency": "USD", "value": 1204, "valueDecimal": "<value>"}}]
+          application/json: [{"walletID": "4db4c1c0-d682-4bf9-9b5c-952207d1d15d", "availableBalance": {"currency": "USD", "value": 1204, "valueDecimal": "<value>"}, "partnerAccountID": "25221c3c-8e3f-40db-8570-66d17b51014d", "name": "<value>", "status": "active", "walletType": "general", "description": "likewise beyond hydrant drat that jeopardise whose disadvantage", "createdOn": "2024-01-20T06:32:10.729Z"}]
   getWallet:
     "":
       parameters:
@@ -3415,7 +3444,7 @@ examples:
           x-moov-version: "v2024.01.00"
       responses:
         "200":
-          application/json: {"walletID": "15598b8b-1d91-4c43-ab38-0c32a9725a71", "availableBalance": {"currency": "USD", "value": 1204, "valueDecimal": "<value>"}}
+          application/json: {"walletID": "15598b8b-1d91-4c43-ab38-0c32a9725a71", "availableBalance": {"currency": "USD", "value": 1204, "valueDecimal": "<value>"}, "partnerAccountID": "d04dfd44-8194-422f-a666-08d30c183f9a", "name": "<value>", "status": "active", "walletType": "default", "description": "underneath besides questioningly than misreport ew fooey over", "metadata": {"optional": "metadata"}, "createdOn": "2024-06-02T05:23:07.110Z"}
   listWalletTransactions:
     "":
       parameters:
@@ -3923,8 +3952,39 @@ examples:
           application/json: {"error": "<value>"}
         "422":
           application/json: {}
+  createWallet:
+    speakeasy-default-create-wallet:
+      parameters:
+        path:
+          accountID: "b4b3f37c-b73e-4271-b8ec-108a8593c9b9"
+        header:
+          x-moov-version: "v2024.01.00"
+      requestBody:
+        application/json: {"name": "My wallet", "description": "A general wallet used for my payments", "metadata": {"optional": "metadata"}}
+      responses:
+        "200":
+          application/json: {"walletID": "8e7812bc-9001-4db2-a813-7d49ac539d80", "availableBalance": {"currency": "USD", "value": 1204, "valueDecimal": "<value>"}, "partnerAccountID": "e99f00ad-84a0-4edc-bf6e-89cf20a2a941", "name": "<value>", "status": "active", "walletType": "general", "description": "entrench deceivingly marketplace gee from about whose fedora bookend", "metadata": {"optional": "metadata"}, "createdOn": "2023-10-20T10:51:45.704Z"}
+        "400":
+          application/json: {"error": "<value>"}
+        "422":
+          application/json: {}
+  updateWallet:
+    speakeasy-default-update-wallet:
+      parameters:
+        path:
+          walletID: "9f1c6e07-aae8-40e6-b290-502bb1bc486e"
+          accountID: "e4aad2fb-201d-4390-b4d3-6de7716152e1"
+        header:
+          x-moov-version: "v2024.01.00"
+      requestBody:
+        application/json: {"name": "My second wallet", "description": "My new description", "metadata": {"optional": "metadata"}}
+      responses:
+        "200":
+          application/json: {"walletID": "87eeefeb-1e32-4720-aa2a-c8bb6c52010b", "availableBalance": {"currency": "USD", "value": 1204, "valueDecimal": "<value>"}, "partnerAccountID": "5c6a2a05-6027-4f50-9e77-6786f662fda5", "name": "<value>", "status": "active", "walletType": "general", "description": "smug instead hmph snuggle yahoo supposing culminate", "metadata": {"optional": "metadata"}, "createdOn": "2025-01-12T01:09:15.232Z"}
+        "400":
+          application/json: {"error": "<value>"}
+        "422":
+          application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## SDK Changes Detected:
-  * `moov->accounts->list()`:  `request` **Changed** **Breaking** :warning:
+releaseNotes: "## Php SDK Changes Detected:\n* `moov->wallets->list()`: \n  *  `request` **Changed** **Breaking** :warning:\n  *  `response.[]` **Changed**\n* `moov->wallets->create()`: **Added**\n* `moov->wallets->update()`: **Added**\n* `moov->wallets->get()`:  `response` **Changed**\n"

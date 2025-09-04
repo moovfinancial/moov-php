@@ -284,6 +284,24 @@ Components\WebhookDataTransferCreated $value = /* values here */
 Components\WebhookDataTransferUpdated $value = /* values here */
 ```
 
+### `Components\WebhookDataWalletCreated`
+
+```php
+/**
+* @var Components\WebhookDataWalletCreated
+*/
+Components\WebhookDataWalletCreated $value = /* values here */
+```
+
+### `Components\WebhookDataWalletUpdated`
+
+```php
+/**
+* @var Components\WebhookDataWalletUpdated
+*/
+Components\WebhookDataWalletUpdated $value = /* values here */
+```
+
 ### `Components\WebhookDataWalletTransactionUpdated`
 
 ```php

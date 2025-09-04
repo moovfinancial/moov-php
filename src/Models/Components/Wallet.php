@@ -28,13 +28,101 @@ class Wallet
     public WalletAvailableBalance $availableBalance;
 
     /**
+     *
+     * @var string $partnerAccountID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('partnerAccountID')]
+    public string $partnerAccountID;
+
+    /**
+     * Name of the wallet
+     *
+     * @var string $name
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('name')]
+    public string $name;
+
+    /**
+     * Status of a wallet.
+     *
+     *   - `active`: The wallet is available for use and has an enabled payment method.
+     *   - `closed`: The wallet is no longer active and the corresponding payment method has been disabled.
+     *
+     * @var WalletStatus $status
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\WalletStatus')]
+    public WalletStatus $status;
+
+    /**
+     * Type of a wallet.
+     *
+     *   - `default`: The primary system-generated wallet automatically created by Moov when an account is granted the wallet capability. This generates a moov-wallet payment method that is available for use immediately. Only one default wallet exists per account.
+     *   - `general`: A user-defined wallet created via the API to segment funds for specific use cases. Users can create multiple general wallets per account to support internal business models or financial reporting needs.
+     *
+     * @var WalletType $walletType
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('walletType')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\WalletType')]
+    public WalletType $walletType;
+
+    /**
+     * Description of the wallet
+     *
+     * @var string $description
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('description')]
+    public string $description;
+
+    /**
+     *
+     * @var \DateTime $createdOn
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('createdOn')]
+    public \DateTime $createdOn;
+
+    /**
+     * Free-form key-value pair list. Useful for storing information that is not captured elsewhere.
+     *
+     * @var ?array<string, string> $metadata
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('metadata')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string, string>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $metadata = null;
+
+    /**
+     *
+     * @var ?\DateTime $closedOn
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('closedOn')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?\DateTime $closedOn = null;
+
+    /**
      * @param  string  $walletID
      * @param  WalletAvailableBalance  $availableBalance
+     * @param  string  $partnerAccountID
+     * @param  string  $name
+     * @param  WalletStatus  $status
+     * @param  WalletType  $walletType
+     * @param  string  $description
+     * @param  \DateTime  $createdOn
+     * @param  ?array<string, string>  $metadata
+     * @param  ?\DateTime  $closedOn
      * @phpstan-pure
      */
-    public function __construct(string $walletID, WalletAvailableBalance $availableBalance)
+    public function __construct(string $walletID, WalletAvailableBalance $availableBalance, string $partnerAccountID, string $name, WalletStatus $status, WalletType $walletType, string $description, \DateTime $createdOn, ?array $metadata = null, ?\DateTime $closedOn = null)
     {
         $this->walletID = $walletID;
         $this->availableBalance = $availableBalance;
+        $this->partnerAccountID = $partnerAccountID;
+        $this->name = $name;
+        $this->status = $status;
+        $this->walletType = $walletType;
+        $this->description = $description;
+        $this->createdOn = $createdOn;
+        $this->metadata = $metadata;
+        $this->closedOn = $closedOn;
     }
 }

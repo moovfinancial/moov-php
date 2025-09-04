@@ -10,9 +10,10 @@ namespace Moov\MoovPhp\Models\Operations;
 
 use Moov\MoovPhp\Models\Components;
 use Moov\MoovPhp\Utils\SpeakeasyMetadata;
-class ListWalletsRequest
+class CreateWalletRequest
 {
     /**
+     * The Moov account ID the wallet belongs to.
      *
      * @var string $accountID
      */
@@ -20,34 +21,11 @@ class ListWalletsRequest
     public string $accountID;
 
     /**
-     * Optional parameter for filtering wallets by status.
      *
-     * @var ?Components\WalletStatus $status
+     * @var Components\CreateWallet $createWallet
      */
-    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=status')]
-    public ?Components\WalletStatus $status = null;
-
-    /**
-     * Optional parameter for filtering wallets by type.
-     *
-     * @var ?Components\WalletType $walletType
-     */
-    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=walletType')]
-    public ?Components\WalletType $walletType = null;
-
-    /**
-     *
-     * @var ?int $skip
-     */
-    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=skip')]
-    public ?int $skip = null;
-
-    /**
-     *
-     * @var ?int $count
-     */
-    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=count')]
-    public ?int $count = null;
+    #[SpeakeasyMetadata('request:mediaType=application/json')]
+    public Components\CreateWallet $createWallet;
 
     /**
      * Specify an API version.
@@ -68,20 +46,14 @@ class ListWalletsRequest
 
     /**
      * @param  string  $accountID
+     * @param  Components\CreateWallet  $createWallet
      * @param  ?string  $xMoovVersion
-     * @param  ?Components\WalletStatus  $status
-     * @param  ?Components\WalletType  $walletType
-     * @param  ?int  $skip
-     * @param  ?int  $count
      * @phpstan-pure
      */
-    public function __construct(string $accountID, ?Components\WalletStatus $status = null, ?Components\WalletType $walletType = null, ?int $skip = null, ?int $count = null, ?string $xMoovVersion = 'v2024.01.00')
+    public function __construct(string $accountID, Components\CreateWallet $createWallet, ?string $xMoovVersion = 'v2024.01.00')
     {
         $this->accountID = $accountID;
-        $this->status = $status;
-        $this->walletType = $walletType;
-        $this->skip = $skip;
-        $this->count = $count;
+        $this->createWallet = $createWallet;
         $this->xMoovVersion = $xMoovVersion;
     }
 }
