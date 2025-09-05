@@ -12,6 +12,7 @@ namespace Moov\MoovPhp\Models\Components;
 /**
  * PayoutRecipient - Specify the intended recipient of the payout.
  *
+ * Either `email` or `phone` must be specified, but not both.
  *
  * This information will be used to authenticate the end user when they follow the payment link.
  */
@@ -19,17 +20,29 @@ class PayoutRecipient
 {
     /**
      *
-     * @var string $email
+     * @var ?string $email
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('email')]
-    public string $email;
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $email = null;
 
     /**
-     * @param  string  $email
+     *
+     * @var ?PhoneNumber $phone
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('phone')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PhoneNumber|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?PhoneNumber $phone = null;
+
+    /**
+     * @param  ?string  $email
+     * @param  ?PhoneNumber  $phone
      * @phpstan-pure
      */
-    public function __construct(string $email)
+    public function __construct(?string $email = null, ?PhoneNumber $phone = null)
     {
         $this->email = $email;
+        $this->phone = $phone;
     }
 }

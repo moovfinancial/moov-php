@@ -24,22 +24,23 @@ class PaymentLinkPayoutDetailsUpdate
     /**
      * Specify the intended recipient of the payout.
      *
+     * Either `email` or `phone` must be specified, but not both.
      *
      * This information will be used to authenticate the end user when they follow the payment link.
      *
-     * @var ?PayoutRecipientUpdate $recipient
+     * @var ?PayoutRecipient $recipient
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('recipient')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PayoutRecipientUpdate|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PayoutRecipient|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?PayoutRecipientUpdate $recipient = null;
+    public ?PayoutRecipient $recipient = null;
 
     /**
      * @param  ?array<DisbursementPaymentMethodType>  $allowedMethods
-     * @param  ?PayoutRecipientUpdate  $recipient
+     * @param  ?PayoutRecipient  $recipient
      * @phpstan-pure
      */
-    public function __construct(?array $allowedMethods = null, ?PayoutRecipientUpdate $recipient = null)
+    public function __construct(?array $allowedMethods = null, ?PayoutRecipient $recipient = null)
     {
         $this->allowedMethods = $allowedMethods;
         $this->recipient = $recipient;

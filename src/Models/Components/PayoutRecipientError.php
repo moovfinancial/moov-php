@@ -20,11 +20,22 @@ class PayoutRecipientError
     public ?string $email = null;
 
     /**
+     *
+     * @var ?PhoneNumberError $phone
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('phone')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PhoneNumberError|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?PhoneNumberError $phone = null;
+
+    /**
      * @param  ?string  $email
+     * @param  ?PhoneNumberError  $phone
      * @phpstan-pure
      */
-    public function __construct(?string $email = null)
+    public function __construct(?string $email = null, ?PhoneNumberError $phone = null)
     {
         $this->email = $email;
+        $this->phone = $phone;
     }
 }

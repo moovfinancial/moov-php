@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: e7fa9cceb686bd87c3e55f086969f61b
+  docChecksum: ddffdef3cc240ae07dfd51fe4e9b0fd2
   docVersion: latest
   speakeasyVersion: 1.609.0
   generationVersion: 2.692.0
-  releaseVersion: 0.4.40
-  configChecksum: 87256eb2620d46c3cf6a7230d13946da
+  releaseVersion: 0.4.41
+  configChecksum: e32871640b8a62e021250e7ae6c6f8bb
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
@@ -355,7 +355,6 @@ generatedFiles:
   - docs/Models/Components/PayoutDetailsError.md
   - docs/Models/Components/PayoutRecipient.md
   - docs/Models/Components/PayoutRecipientError.md
-  - docs/Models/Components/PayoutRecipientUpdate.md
   - docs/Models/Components/PendingLitigation.md
   - docs/Models/Components/Phone.md
   - docs/Models/Components/PhoneNumber.md
@@ -1277,7 +1276,6 @@ generatedFiles:
   - src/Models/Components/PayoutDetailsError.php
   - src/Models/Components/PayoutRecipient.php
   - src/Models/Components/PayoutRecipientError.php
-  - src/Models/Components/PayoutRecipientUpdate.php
   - src/Models/Components/PendingLitigation.php
   - src/Models/Components/Phone.php
   - src/Models/Components/PhoneNumber.php
@@ -3987,4 +3985,4 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Php SDK Changes Detected:\n* `moov->wallets->list()`: \n  *  `request` **Changed** **Breaking** :warning:\n  *  `response.[]` **Changed**\n* `moov->wallets->create()`: **Added**\n* `moov->wallets->update()`: **Added**\n* `moov->wallets->get()`:  `response` **Changed**\n"
+releaseNotes: "## Php SDK Changes Detected:\n* `moov->paymentlinks->create()`: \n  *  `request.createPaymentLink->payout->recipient` **Changed**\n  *  `response.payout->recipient` **Changed**\n  *  `error.payout->recipient->phone` **Added**\n* `moov->paymentlinks->list()`:  `response.[]->payout->recipient` **Changed**\n* `moov->paymentlinks->get()`:  `response.payout->recipient` **Changed**\n* `moov->paymentlinks->update()`: \n  *  `request.updatePaymentLink->payout->recipient->phone` **Added**\n  *  `response.payout->recipient` **Changed**\n  *  `error.payout->recipient->phone` **Added**\n"
