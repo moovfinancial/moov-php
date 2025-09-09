@@ -31,3 +31,4 @@
 | `WalletTransfer`               | wallet-transfer                |
 | `Adjustment`                   | adjustment                     |
 | `FeeRevenue`                   | fee-revenue                    |
+| `Residual`                     | residual                       |

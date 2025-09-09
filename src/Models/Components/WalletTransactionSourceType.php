@@ -18,4 +18,5 @@ enum WalletTransactionSourceType: string
     case Sweep = 'sweep';
     case Adjustment = 'adjustment';
     case Fee = 'fee';
+    case Residual = 'residual';
 }

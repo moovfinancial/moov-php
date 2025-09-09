@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: ddffdef3cc240ae07dfd51fe4e9b0fd2
+  docChecksum: 6556d370d5cb8f3b0dff38346546fe41
   docVersion: latest
-  speakeasyVersion: 1.609.0
-  generationVersion: 2.692.0
-  releaseVersion: 0.4.41
-  configChecksum: e32871640b8a62e021250e7ae6c6f8bb
+  speakeasyVersion: 1.613.0
+  generationVersion: 2.696.0
+  releaseVersion: 0.4.42
+  configChecksum: c9d2543abefb83f6f6170f6c4e3879ff
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
@@ -3985,4 +3985,6 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Php SDK Changes Detected:\n* `moov->paymentlinks->create()`: \n  *  `request.createPaymentLink->payout->recipient` **Changed**\n  *  `response.payout->recipient` **Changed**\n  *  `error.payout->recipient->phone` **Added**\n* `moov->paymentlinks->list()`:  `response.[]->payout->recipient` **Changed**\n* `moov->paymentlinks->get()`:  `response.payout->recipient` **Changed**\n* `moov->paymentlinks->update()`: \n  *  `request.updatePaymentLink->payout->recipient->phone` **Added**\n  *  `response.payout->recipient` **Changed**\n  *  `error.payout->recipient->phone` **Added**\n"
+releaseNotes: |
+  ## Php SDK Changes Detected:
+  * `moov->wallets->listTransactions()`:  `request` **Changed**

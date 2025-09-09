@@ -12,3 +12,4 @@
 | `Sweep`                  | sweep                    |
 | `Adjustment`             | adjustment               |
 | `Fee`                    | fee                      |
+| `Residual`               | residual                 |
