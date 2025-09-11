@@ -17,7 +17,7 @@ enum UnderwritingStatus: string
 {
     case Approved = 'approved';
     case Rejected = 'rejected';
-    case PendingReview = 'pending_review';
+    case PendingReview = 'pendingReview';
     case Pending = 'pending';
-    case NotRequested = 'not_requested';
+    case NotRequested = 'notRequested';
 }
