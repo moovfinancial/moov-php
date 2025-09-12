@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 22b23ba772bcc428dd78c5c702760e4c
+  docChecksum: 09f2d403e1e0bd65c492aa4df743c4bc
   docVersion: latest
-  speakeasyVersion: 1.615.1
+  speakeasyVersion: 1.615.2
   generationVersion: 2.698.4
-  releaseVersion: 0.4.43
-  configChecksum: 917b66da49e2048738f0a6294a6b3570
+  releaseVersion: 0.4.44
+  configChecksum: fd7d09c0ee26e7c8009a6f05ce46860d
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
@@ -3985,3 +3985,4 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: "## Php SDK Changes Detected:\n* `moov->support->createTicket()`: \n  *  `request.createTicket` **Changed**\n  *  `response.foreignId` **Added**\n  *  `error` **Changed**\n* `moov->support->listTickets()`: \n  *  `request->foreignId` **Added**\n  *  `response.items->[]->foreignId` **Added**\n* `moov->support->getTicket()`:  `response.foreignId` **Added**\n* `moov->support->updateTicket()`:  `response.foreignId` **Added**\n"

@@ -34,15 +34,25 @@ class WebhookDataTicketUpdated
     public TicketStatus $status;
 
     /**
+     *
+     * @var ?string $foreignID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('foreignID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $foreignID = null;
+
+    /**
      * @param  string  $accountID
      * @param  string  $ticketID
      * @param  TicketStatus  $status
+     * @param  ?string  $foreignID
      * @phpstan-pure
      */
-    public function __construct(string $accountID, string $ticketID, TicketStatus $status)
+    public function __construct(string $accountID, string $ticketID, TicketStatus $status, ?string $foreignID = null)
     {
         $this->accountID = $accountID;
         $this->ticketID = $ticketID;
         $this->status = $status;
+        $this->foreignID = $foreignID;
     }
 }

@@ -79,6 +79,14 @@ class Ticket
     public ?\DateTime $closedOn = null;
 
     /**
+     *
+     * @var ?string $foreignID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('foreignID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $foreignID = null;
+
+    /**
      * @param  string  $ticketID
      * @param  int  $number
      * @param  string  $title
@@ -88,9 +96,10 @@ class Ticket
      * @param  \DateTime  $updatedOn
      * @param  ?\DateTime  $latestMessageOn
      * @param  ?\DateTime  $closedOn
+     * @param  ?string  $foreignID
      * @phpstan-pure
      */
-    public function __construct(string $ticketID, int $number, string $title, TicketContact $contact, TicketStatus $status, \DateTime $createdOn, \DateTime $updatedOn, ?\DateTime $latestMessageOn = null, ?\DateTime $closedOn = null)
+    public function __construct(string $ticketID, int $number, string $title, TicketContact $contact, TicketStatus $status, \DateTime $createdOn, \DateTime $updatedOn, ?\DateTime $latestMessageOn = null, ?\DateTime $closedOn = null, ?string $foreignID = null)
     {
         $this->ticketID = $ticketID;
         $this->number = $number;
@@ -101,5 +110,6 @@ class Ticket
         $this->updatedOn = $updatedOn;
         $this->latestMessageOn = $latestMessageOn;
         $this->closedOn = $closedOn;
+        $this->foreignID = $foreignID;
     }
 }

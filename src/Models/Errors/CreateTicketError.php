@@ -30,6 +30,14 @@ class CreateTicketError
 
     /**
      *
+     * @var ?string $author
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('author')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $author = null;
+
+    /**
+     *
      * @var ?Components\CreateTicketContactError $contact
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('contact')]
@@ -38,16 +46,28 @@ class CreateTicketError
     public ?Components\CreateTicketContactError $contact = null;
 
     /**
+     *
+     * @var ?string $foreignID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('foreignID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $foreignID = null;
+
+    /**
      * @param  ?string  $title
      * @param  ?string  $body
+     * @param  ?string  $author
      * @param  ?Components\CreateTicketContactError  $contact
+     * @param  ?string  $foreignID
      * @phpstan-pure
      */
-    public function __construct(?string $title = null, ?string $body = null, ?Components\CreateTicketContactError $contact = null)
+    public function __construct(?string $title = null, ?string $body = null, ?string $author = null, ?Components\CreateTicketContactError $contact = null, ?string $foreignID = null)
     {
         $this->title = $title;
         $this->body = $body;
+        $this->author = $author;
         $this->contact = $contact;
+        $this->foreignID = $foreignID;
     }
 
     public function toException(): CreateTicketErrorThrowable

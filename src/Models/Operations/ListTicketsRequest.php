@@ -41,6 +41,13 @@ class ListTicketsRequest
     public ?Components\TicketStatus $status = null;
 
     /**
+     *
+     * @var ?string $foreignID
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=foreignID')]
+    public ?string $foreignID = null;
+
+    /**
      * Specify an API version.
      *
      *
@@ -63,14 +70,16 @@ class ListTicketsRequest
      * @param  ?string  $cursor
      * @param  ?int  $count
      * @param  ?Components\TicketStatus  $status
+     * @param  ?string  $foreignID
      * @phpstan-pure
      */
-    public function __construct(string $accountID, ?string $cursor = null, ?int $count = null, ?Components\TicketStatus $status = null, ?string $xMoovVersion = 'v2024.01.00')
+    public function __construct(string $accountID, ?string $cursor = null, ?int $count = null, ?Components\TicketStatus $status = null, ?string $foreignID = null, ?string $xMoovVersion = 'v2024.01.00')
     {
         $this->accountID = $accountID;
         $this->cursor = $cursor;
         $this->count = $count;
         $this->status = $status;
+        $this->foreignID = $foreignID;
         $this->xMoovVersion = $xMoovVersion;
     }
 }

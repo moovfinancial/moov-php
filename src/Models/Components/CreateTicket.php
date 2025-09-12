@@ -35,15 +35,35 @@ class CreateTicket
     public TicketContact $contact;
 
     /**
+     *
+     * @var ?string $author
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('author')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $author = null;
+
+    /**
+     *
+     * @var ?string $foreignID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('foreignID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $foreignID = null;
+
+    /**
      * @param  string  $title
      * @param  string  $body
      * @param  TicketContact  $contact
+     * @param  ?string  $author
+     * @param  ?string  $foreignID
      * @phpstan-pure
      */
-    public function __construct(string $title, string $body, TicketContact $contact)
+    public function __construct(string $title, string $body, TicketContact $contact, ?string $author = null, ?string $foreignID = null)
     {
         $this->title = $title;
         $this->body = $body;
         $this->contact = $contact;
+        $this->author = $author;
+        $this->foreignID = $foreignID;
     }
 }

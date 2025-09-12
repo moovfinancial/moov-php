@@ -26,13 +26,23 @@ class WebhookDataTicketMessageAdded
     public string $ticketID;
 
     /**
+     *
+     * @var ?string $foreignID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('foreignID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $foreignID = null;
+
+    /**
      * @param  string  $accountID
      * @param  string  $ticketID
+     * @param  ?string  $foreignID
      * @phpstan-pure
      */
-    public function __construct(string $accountID, string $ticketID)
+    public function __construct(string $accountID, string $ticketID, ?string $foreignID = null)
     {
         $this->accountID = $accountID;
         $this->ticketID = $ticketID;
+        $this->foreignID = $foreignID;
     }
 }
