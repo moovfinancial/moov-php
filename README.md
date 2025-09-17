@@ -164,7 +164,7 @@ to specify the `/accounts.write` scope.
 
 All supported query parameters are optional. If none are provided the response will include all connected accounts.
 Pagination is supported via the `skip` and `count` query parameters. Searching by name and email will overlap and 
-return results based on relevance.
+return results based on relevance. Accounts with AccountType `guest` will not be included in the response.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) you'll need 
 to specify the `/accounts.read` scope.

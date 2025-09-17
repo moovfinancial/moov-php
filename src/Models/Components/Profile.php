@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-/** Profile - Describes a Moov account profile. A profile will have a business or an individual, depending on the account's type. */
+/** Profile - Describes a Moov account profile. A profile will have a business, individual, or guest depending on the account's type. */
 class Profile
 {
     /**

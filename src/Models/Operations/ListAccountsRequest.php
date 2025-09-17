@@ -23,6 +23,8 @@ class ListAccountsRequest
      *   <li>Business Profile `legalBusinessName`</li>
      * </ul>
      *
+     * Filtering by Guest Profile `name` is not currently supported.
+     *
      * @var ?string $name
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=name')]
