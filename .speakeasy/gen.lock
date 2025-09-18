@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 3059bb7844e6d198da69b0a87b27a6a2
+  docChecksum: efd9aab6954b36ab4e4fbddaaf82f6c7
   docVersion: latest
-  speakeasyVersion: 1.617.1
-  generationVersion: 2.701.8
-  releaseVersion: 0.4.46
-  configChecksum: bfeef825bb72d04374b399e2d1c8aa4a
+  speakeasyVersion: 1.620.0
+  generationVersion: 2.706.1
+  releaseVersion: 0.5.0
+  configChecksum: ef2df4f4e7d7644a87e7a729ab71278c
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
@@ -14,6 +14,7 @@ features:
   php:
     constsAndDefaults: 0.2.0
     core: 3.8.10
+    decimal: 0.1.1
     deprecations: 2.81.1
     flattening: 2.81.1
     globalSecurity: 2.81.9
@@ -31,6 +32,7 @@ generatedFiles:
   - USAGE.md
   - composer.json
   - docs/Models/Components/ACHException.md
+  - docs/Models/Components/ACHFees.md
   - docs/Models/Components/ACHInstitution.md
   - docs/Models/Components/ACHPaymentDetails.md
   - docs/Models/Components/ACHPaymentDetailsError.md
@@ -94,6 +96,11 @@ generatedFiles:
   - docs/Models/Components/BankAccountWaitFor.md
   - docs/Models/Components/BasicPaymentMethod.md
   - docs/Models/Components/BillableFee.md
+  - docs/Models/Components/BillingCountAndAmount.md
+  - docs/Models/Components/BillingInterchangeProgramFee.md
+  - docs/Models/Components/BillingSummary.md
+  - docs/Models/Components/BillingSummaryDetails.md
+  - docs/Models/Components/BillingSummaryInterchange.md
   - docs/Models/Components/BirthDate.md
   - docs/Models/Components/BirthDateError.md
   - docs/Models/Components/BirthDateUpdate.md
@@ -116,11 +123,14 @@ generatedFiles:
   - docs/Models/Components/CardAcceptanceMethods.md
   - docs/Models/Components/CardAcceptanceMethodsError.md
   - docs/Models/Components/CardAccountUpdater.md
+  - docs/Models/Components/CardAcquiring.md
   - docs/Models/Components/CardAcquiringDispute.md
+  - docs/Models/Components/CardAcquiringFees.md
   - docs/Models/Components/CardAcquiringModel.md
   - docs/Models/Components/CardAcquiringRefund.md
   - docs/Models/Components/CardAddress.md
   - docs/Models/Components/CardBrand.md
+  - docs/Models/Components/CardBrandFees.md
   - docs/Models/Components/CardDetails.md
   - docs/Models/Components/CardExpiration.md
   - docs/Models/Components/CardExpirationError.md
@@ -268,6 +278,7 @@ generatedFiles:
   - docs/Models/Components/IndividualProfile.md
   - docs/Models/Components/IndustryCodes.md
   - docs/Models/Components/IndustryTaxonomy.md
+  - docs/Models/Components/InstantPaymentFees.md
   - docs/Models/Components/InstitutionsSearchResponse.md
   - docs/Models/Components/IssuedCard.md
   - docs/Models/Components/IssuedCardAuthorization.md
@@ -325,6 +336,7 @@ generatedFiles:
   - docs/Models/Components/OnboardingInvite.md
   - docs/Models/Components/OnboardingInviteRequest.md
   - docs/Models/Components/OnboardingPartnerAccount.md
+  - docs/Models/Components/OtherCardFees.md
   - docs/Models/Components/PartialScheduleAccount.md
   - docs/Models/Components/PartnerPricing.md
   - docs/Models/Components/PartnerPricingAgreement.md
@@ -363,6 +375,7 @@ generatedFiles:
   - docs/Models/Components/PlaidLinkIntegration.md
   - docs/Models/Components/PlaidLinkPayload.md
   - docs/Models/Components/PlaidPayload.md
+  - docs/Models/Components/PlatformFees.md
   - docs/Models/Components/PrimaryRegulator.md
   - docs/Models/Components/Profile.md
   - docs/Models/Components/PullFromCardPaymentMethod.md
@@ -422,6 +435,7 @@ generatedFiles:
   - docs/Models/Components/Settings.md
   - docs/Models/Components/SourceDestinationOptions.md
   - docs/Models/Components/Ssn.md
+  - docs/Models/Components/Statement.md
   - docs/Models/Components/StatementDescriptor.md
   - docs/Models/Components/StatementDescriptor2.md
   - docs/Models/Components/Status.md
@@ -501,6 +515,7 @@ generatedFiles:
   - docs/Models/Components/WalletTransactionStatus.md
   - docs/Models/Components/WalletTransactionType.md
   - docs/Models/Components/WalletType.md
+  - docs/Models/Components/WebhookBillingStatementCreated.md
   - docs/Models/Components/WebhookData.md
   - docs/Models/Components/WebhookDataAccountCreated.md
   - docs/Models/Components/WebhookDataAccountDisconnected.md
@@ -712,6 +727,8 @@ generatedFiles:
   - docs/Models/Operations/GetScheduledOccurrenceResponse.md
   - docs/Models/Operations/GetSchedulesRequest.md
   - docs/Models/Operations/GetSchedulesResponse.md
+  - docs/Models/Operations/GetStatementRequest.md
+  - docs/Models/Operations/GetStatementResponse.md
   - docs/Models/Operations/GetSweepConfigRequest.md
   - docs/Models/Operations/GetSweepConfigResponse.md
   - docs/Models/Operations/GetSweepRequest.md
@@ -801,6 +818,8 @@ generatedFiles:
   - docs/Models/Operations/ListRepresentativesResponse.md
   - docs/Models/Operations/ListSchedulesRequest.md
   - docs/Models/Operations/ListSchedulesResponse.md
+  - docs/Models/Operations/ListStatementsRequest.md
+  - docs/Models/Operations/ListStatementsResponse.md
   - docs/Models/Operations/ListSweepConfigsRequest.md
   - docs/Models/Operations/ListSweepConfigsResponse.md
   - docs/Models/Operations/ListSweepsRequest.md
@@ -908,6 +927,7 @@ generatedFiles:
   - docs/sdks/representatives/README.md
   - docs/sdks/schedules/README.md
   - docs/sdks/scheduling/README.md
+  - docs/sdks/statements/README.md
   - docs/sdks/support/README.md
   - docs/sdks/sweeps/README.md
   - docs/sdks/terminalapplications/README.md
@@ -959,6 +979,7 @@ generatedFiles:
   - src/IssuedCards.php
   - src/IssuingTransactions.php
   - src/Models/Components/ACHException.php
+  - src/Models/Components/ACHFees.php
   - src/Models/Components/ACHInstitution.php
   - src/Models/Components/ACHPaymentDetails.php
   - src/Models/Components/ACHPaymentDetailsError.php
@@ -1022,6 +1043,11 @@ generatedFiles:
   - src/Models/Components/BankAccountWaitFor.php
   - src/Models/Components/BasicPaymentMethod.php
   - src/Models/Components/BillableFee.php
+  - src/Models/Components/BillingCountAndAmount.php
+  - src/Models/Components/BillingInterchangeProgramFee.php
+  - src/Models/Components/BillingSummary.php
+  - src/Models/Components/BillingSummaryDetails.php
+  - src/Models/Components/BillingSummaryInterchange.php
   - src/Models/Components/BirthDate.php
   - src/Models/Components/BirthDateError.php
   - src/Models/Components/BirthDateUpdate.php
@@ -1044,11 +1070,14 @@ generatedFiles:
   - src/Models/Components/CardAcceptanceMethods.php
   - src/Models/Components/CardAcceptanceMethodsError.php
   - src/Models/Components/CardAccountUpdater.php
+  - src/Models/Components/CardAcquiring.php
   - src/Models/Components/CardAcquiringDispute.php
+  - src/Models/Components/CardAcquiringFees.php
   - src/Models/Components/CardAcquiringModel.php
   - src/Models/Components/CardAcquiringRefund.php
   - src/Models/Components/CardAddress.php
   - src/Models/Components/CardBrand.php
+  - src/Models/Components/CardBrandFees.php
   - src/Models/Components/CardDetails.php
   - src/Models/Components/CardExpiration.php
   - src/Models/Components/CardExpirationError.php
@@ -1192,6 +1221,7 @@ generatedFiles:
   - src/Models/Components/IndividualProfile.php
   - src/Models/Components/IndustryCodes.php
   - src/Models/Components/IndustryTaxonomy.php
+  - src/Models/Components/InstantPaymentFees.php
   - src/Models/Components/InstitutionsSearchResponse.php
   - src/Models/Components/IssuedCard.php
   - src/Models/Components/IssuedCardAuthorization.php
@@ -1248,6 +1278,7 @@ generatedFiles:
   - src/Models/Components/OnboardingInvite.php
   - src/Models/Components/OnboardingInviteRequest.php
   - src/Models/Components/OnboardingPartnerAccount.php
+  - src/Models/Components/OtherCardFees.php
   - src/Models/Components/PartialScheduleAccount.php
   - src/Models/Components/PartnerPricing.php
   - src/Models/Components/PartnerPricingAgreement.php
@@ -1284,6 +1315,7 @@ generatedFiles:
   - src/Models/Components/PlaidLinkIntegration.php
   - src/Models/Components/PlaidLinkPayload.php
   - src/Models/Components/PlaidPayload.php
+  - src/Models/Components/PlatformFees.php
   - src/Models/Components/PrimaryRegulator.php
   - src/Models/Components/Profile.php
   - src/Models/Components/PullFromCardPaymentMethod.php
@@ -1340,6 +1372,7 @@ generatedFiles:
   - src/Models/Components/Settings.php
   - src/Models/Components/SourceDestinationOptions.php
   - src/Models/Components/Ssn.php
+  - src/Models/Components/Statement.php
   - src/Models/Components/StatementDescriptor2.php
   - src/Models/Components/Status.php
   - src/Models/Components/SubmissionIntent.php
@@ -1418,6 +1451,7 @@ generatedFiles:
   - src/Models/Components/WalletTransactionStatus.php
   - src/Models/Components/WalletTransactionType.php
   - src/Models/Components/WalletType.php
+  - src/Models/Components/WebhookBillingStatementCreated.php
   - src/Models/Components/WebhookDataAccountCreated.php
   - src/Models/Components/WebhookDataAccountDisconnected.php
   - src/Models/Components/WebhookDataAccountUpdated.php
@@ -1668,6 +1702,8 @@ generatedFiles:
   - src/Models/Operations/GetScheduledOccurrenceResponse.php
   - src/Models/Operations/GetSchedulesRequest.php
   - src/Models/Operations/GetSchedulesResponse.php
+  - src/Models/Operations/GetStatementRequest.php
+  - src/Models/Operations/GetStatementResponse.php
   - src/Models/Operations/GetSweepConfigRequest.php
   - src/Models/Operations/GetSweepConfigResponse.php
   - src/Models/Operations/GetSweepRequest.php
@@ -1757,6 +1793,8 @@ generatedFiles:
   - src/Models/Operations/ListRepresentativesResponse.php
   - src/Models/Operations/ListSchedulesRequest.php
   - src/Models/Operations/ListSchedulesResponse.php
+  - src/Models/Operations/ListStatementsRequest.php
+  - src/Models/Operations/ListStatementsResponse.php
   - src/Models/Operations/ListSweepConfigsRequest.php
   - src/Models/Operations/ListSweepConfigsResponse.php
   - src/Models/Operations/ListSweepsRequest.php
@@ -1844,6 +1882,7 @@ generatedFiles:
   - src/SDKConfiguration.php
   - src/Schedules.php
   - src/Scheduling.php
+  - src/Statements.php
   - src/Support.php
   - src/Sweeps.php
   - src/TerminalApplications.php
@@ -3983,5 +4022,36 @@ examples:
           application/json: {"error": "<value>"}
         "422":
           application/json: {}
+  listStatements:
+    speakeasy-default-list-statements:
+      parameters:
+        path:
+          accountID: "b63ef5ea-db36-47f1-a72e-1a5eb1c43c0f"
+        query:
+          skip: 60
+          count: 20
+        header:
+          x-moov-version: "v2024.01.00"
+      responses:
+        "200":
+          application/json: [{"statementID": "e4be54bf-96d6-444f-b01c-0e175967a2c0", "statementName": "<value>", "fileName": "example.file", "fileSize": 281032, "billingPeriodStartDateTime": "2024-10-17T09:30:55.077Z", "billingPeriodEndDateTime": "2025-09-10T02:38:03.006Z", "subscriptionIDs": ["<value 1>"], "summary": {"cardAcquiring": {"volumeAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "feeAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "interchangeFees": {"visa": {"currency": "USD", "valueDecimal": "12.987654321"}, "mastercard": {"currency": "USD", "valueDecimal": "12.987654321"}, "discover": {"currency": "USD", "valueDecimal": "12.987654321"}, "americanExpress": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "ach": {"volumeAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "feeAmount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "instantPayments": {"volumeAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "feeAmount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "platformFees": {"currency": "USD", "valueDecimal": "12.987654321"}, "adjustmentFees": {"currency": "USD", "valueDecimal": "12.987654321"}, "otherFees": {"currency": "USD", "valueDecimal": "12.987654321"}, "total": {"currency": "USD", "valueDecimal": "12.987654321"}}, "cardAcquiringFees": {"visa": {"interchange": {"count": 500717, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "interchangePrograms": [{"programName": "<value>", "count": 362075, "percentageRate": 4672.83, "perItemRate": {"currency": "USD", "valueDecimal": "12.987654321"}, "total": {"currency": "USD", "valueDecimal": "12.987654321"}, "transferVolume": {"currency": "USD", "valueDecimal": "12.987654321"}}], "networkPassthrough": {"count": 671365, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticOnline": {"count": 879912, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticInPerson": {"count": 620149, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalOnline": {"count": 358326, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalInPerson": {"count": 301983, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "declines": {"count": 212543, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "refunds": {"count": 126384, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"count": 107724, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "mastercard": {"interchange": {"count": 500717, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "interchangePrograms": [{"programName": "<value>", "count": 362075, "percentageRate": 4672.83, "perItemRate": {"currency": "USD", "valueDecimal": "12.987654321"}, "total": {"currency": "USD", "valueDecimal": "12.987654321"}, "transferVolume": {"currency": "USD", "valueDecimal": "12.987654321"}}], "networkPassthrough": {"count": 671365, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticOnline": {"count": 879912, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticInPerson": {"count": 620149, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalOnline": {"count": 358326, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalInPerson": {"count": 301983, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "declines": {"count": 212543, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "refunds": {"count": 126384, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"count": 107724, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "discover": {"interchange": {"count": 500717, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "interchangePrograms": [{"programName": "<value>", "count": 362075, "percentageRate": 4672.83, "perItemRate": {"currency": "USD", "valueDecimal": "12.987654321"}, "total": {"currency": "USD", "valueDecimal": "12.987654321"}, "transferVolume": {"currency": "USD", "valueDecimal": "12.987654321"}}], "networkPassthrough": {"count": 671365, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticOnline": {"count": 879912, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticInPerson": {"count": 620149, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalOnline": {"count": 358326, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalInPerson": {"count": 301983, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "declines": {"count": 212543, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "refunds": {"count": 126384, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"count": 107724, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "americanExpress": {"interchange": {"count": 500717, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "interchangePrograms": [{"programName": "<value>", "count": 362075, "percentageRate": 4672.83, "perItemRate": {"currency": "USD", "valueDecimal": "12.987654321"}, "total": {"currency": "USD", "valueDecimal": "12.987654321"}, "transferVolume": {"currency": "USD", "valueDecimal": "12.987654321"}}], "networkPassthrough": {"count": 671365, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticOnline": {"count": 879912, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticInPerson": {"count": 620149, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalOnline": {"count": 358326, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalInPerson": {"count": 301983, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "declines": {"count": 212543, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "refunds": {"count": 126384, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"count": 107724, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}}, "achFees": {"standardCredit": {"count": 581345, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "sameDayCredit": {"count": 946784, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "debits": {"count": 885521, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "return": {"count": 671871, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "unauthorizedReturn": {"count": 281238, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "noticeOfChange": {"count": 248570, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"count": 107724, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "instantPaymentFees": {"rtpCreditTransaction": {"count": 160394, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "rtpDecline": {"count": 431011, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "pushToCardTransaction": {"count": 599234, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "pushToCardDecline": {"count": 417130, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "pullFromCardTransaction": {"count": 22091, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "pullFromCardDecline": {"count": 784368, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "pullFromCardRefund": {"count": 656663, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"count": 107724, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "platformFees": {"walletFee": {"currency": "USD", "valueDecimal": "12.987654321"}, "merchantPCIFee": {"currency": "USD", "valueDecimal": "12.987654321"}, "total": {"currency": "USD", "valueDecimal": "12.987654321"}}, "otherCardFees": {"disputes": {"count": 566742, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "cardAccountUpdater": {"count": 429213, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "cardVerification": {"count": 947495, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "nameVerification": {"count": 820648, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"count": 107724, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "createdOn": "2025-10-25T02:00:38.723Z", "updatedOn": "2023-05-17T16:09:45.917Z"}]
+        "400":
+          application/json: {"error": "<value>"}
+  getStatement:
+    speakeasy-default-get-statement:
+      parameters:
+        path:
+          accountID: "5623ff52-0b05-41ea-b7b3-655835064007"
+          statementID: "9d45acbf-c4fe-4843-846c-eaa43c9ca17f"
+        header:
+          x-moov-version: "v2024.01.00"
+      responses:
+        "200":
+          application/json: {"statementID": "6fcce0d9-75c1-4c2f-b04e-ce0f1cecf736", "statementName": "<value>", "fileName": "example.file", "fileSize": 491710, "billingPeriodStartDateTime": "2025-01-30T13:15:52.427Z", "billingPeriodEndDateTime": "2024-03-15T11:54:00.098Z", "subscriptionIDs": ["<value 1>", "<value 2>", "<value 3>"], "summary": {"cardAcquiring": {"volumeAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "feeAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "interchangeFees": {"visa": {"currency": "USD", "valueDecimal": "12.987654321"}, "mastercard": {"currency": "USD", "valueDecimal": "12.987654321"}, "discover": {"currency": "USD", "valueDecimal": "12.987654321"}, "americanExpress": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "ach": {"volumeAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "feeAmount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "instantPayments": {"volumeAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "feeAmount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "platformFees": {"currency": "USD", "valueDecimal": "12.987654321"}, "adjustmentFees": {"currency": "USD", "valueDecimal": "12.987654321"}, "otherFees": {"currency": "USD", "valueDecimal": "12.987654321"}, "total": {"currency": "USD", "valueDecimal": "12.987654321"}}, "cardAcquiringFees": {"visa": {"interchange": {"count": 566266, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "interchangePrograms": [{"programName": "<value>", "count": 311812, "percentageRate": 1208.53, "perItemRate": {"currency": "USD", "valueDecimal": "12.987654321"}, "total": {"currency": "USD", "valueDecimal": "12.987654321"}, "transferVolume": {"currency": "USD", "valueDecimal": "12.987654321"}}], "networkPassthrough": {"count": 314153, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticOnline": {"count": 830656, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticInPerson": {"count": 767457, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalOnline": {"count": 687826, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalInPerson": {"count": 141784, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "declines": {"count": 6447, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "refunds": {"count": 510292, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"count": 325636, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "mastercard": {"interchange": {"count": 566266, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "interchangePrograms": [{"programName": "<value>", "count": 311812, "percentageRate": 1208.53, "perItemRate": {"currency": "USD", "valueDecimal": "12.987654321"}, "total": {"currency": "USD", "valueDecimal": "12.987654321"}, "transferVolume": {"currency": "USD", "valueDecimal": "12.987654321"}}], "networkPassthrough": {"count": 314153, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticOnline": {"count": 830656, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticInPerson": {"count": 767457, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalOnline": {"count": 687826, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalInPerson": {"count": 141784, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "declines": {"count": 6447, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "refunds": {"count": 510292, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"count": 325636, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "discover": {"interchange": {"count": 566266, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "interchangePrograms": [{"programName": "<value>", "count": 311812, "percentageRate": 1208.53, "perItemRate": {"currency": "USD", "valueDecimal": "12.987654321"}, "total": {"currency": "USD", "valueDecimal": "12.987654321"}, "transferVolume": {"currency": "USD", "valueDecimal": "12.987654321"}}], "networkPassthrough": {"count": 314153, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticOnline": {"count": 830656, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticInPerson": {"count": 767457, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalOnline": {"count": 687826, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalInPerson": {"count": 141784, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "declines": {"count": 6447, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "refunds": {"count": 510292, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"count": 325636, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "americanExpress": {"interchange": {"count": 566266, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "interchangePrograms": [{"programName": "<value>", "count": 311812, "percentageRate": 1208.53, "perItemRate": {"currency": "USD", "valueDecimal": "12.987654321"}, "total": {"currency": "USD", "valueDecimal": "12.987654321"}, "transferVolume": {"currency": "USD", "valueDecimal": "12.987654321"}}], "networkPassthrough": {"count": 314153, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticOnline": {"count": 830656, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticInPerson": {"count": 767457, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalOnline": {"count": 687826, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalInPerson": {"count": 141784, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "declines": {"count": 6447, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "refunds": {"count": 510292, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"count": 325636, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}}, "achFees": {"standardCredit": {"count": 178500, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "sameDayCredit": {"count": 231593, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "debits": {"count": 940652, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "return": {"count": 437920, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "unauthorizedReturn": {"count": 476712, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "noticeOfChange": {"count": 950531, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"count": 325636, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "instantPaymentFees": {"rtpCreditTransaction": {"count": 497959, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "rtpDecline": {"count": 84081, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "pushToCardTransaction": {"count": 933887, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "pushToCardDecline": {"count": 148596, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "pullFromCardTransaction": {"count": 186879, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "pullFromCardDecline": {"count": 32245, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "pullFromCardRefund": {"count": 815075, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"count": 325636, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "platformFees": {"walletFee": {"currency": "USD", "valueDecimal": "12.987654321"}, "merchantPCIFee": {"currency": "USD", "valueDecimal": "12.987654321"}, "total": {"currency": "USD", "valueDecimal": "12.987654321"}}, "otherCardFees": {"disputes": {"count": 979998, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "cardAccountUpdater": {"count": 589185, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "cardVerification": {"count": 477464, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "nameVerification": {"count": 854516, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"count": 325636, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "createdOn": "2023-03-21T23:03:13.806Z", "updatedOn": "2025-12-26T06:16:23.912Z"}
+          application/pdf: "0xfE7bF3258c"
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: |
+  ## Php SDK Changes Detected:
+  * `moov->statements->list()`: **Added**
+  * `moov->statements->get()`: **Added**

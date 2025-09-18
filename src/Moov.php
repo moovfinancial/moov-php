@@ -54,6 +54,8 @@ class Moov
 
     public Schedules $schedules;
 
+    public Statements $statements;
+
     public Sweeps $sweeps;
 
     public AccountTerminalApplications $accountTerminalApplications;
@@ -131,6 +133,7 @@ class Moov
         $this->representatives = new Representatives($this->sdkConfiguration);
         $this->scheduling = new Scheduling($this->sdkConfiguration);
         $this->schedules = new Schedules($this->sdkConfiguration);
+        $this->statements = new Statements($this->sdkConfiguration);
         $this->sweeps = new Sweeps($this->sdkConfiguration);
         $this->accountTerminalApplications = new AccountTerminalApplications($this->sdkConfiguration);
         $this->support = new Support($this->sdkConfiguration);

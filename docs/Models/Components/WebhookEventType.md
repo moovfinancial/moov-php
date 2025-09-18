@@ -42,3 +42,4 @@ The type of event that occurred.
 | `WalletCreated`              | wallet.created               |
 | `WalletUpdated`              | wallet.updated               |
 | `WalletTransactionUpdated`   | walletTransaction.updated    |
+| `BillingStatementCreated`    | billingStatement.created     |

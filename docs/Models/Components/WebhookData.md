@@ -311,3 +311,12 @@ Components\WebhookDataWalletUpdated $value = /* values here */
 Components\WebhookDataWalletTransactionUpdated $value = /* values here */
 ```
 
+### `Components\WebhookBillingStatementCreated`
+
+```php
+/**
+* @var Components\WebhookBillingStatementCreated
+*/
+Components\WebhookBillingStatementCreated $value = /* values here */
+```
+
