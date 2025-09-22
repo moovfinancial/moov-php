@@ -3,10 +3,10 @@ id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
   docChecksum: efd9aab6954b36ab4e4fbddaaf82f6c7
   docVersion: latest
-  speakeasyVersion: 1.620.0
-  generationVersion: 2.706.1
-  releaseVersion: 0.5.0
-  configChecksum: ef2df4f4e7d7644a87e7a729ab71278c
+  speakeasyVersion: 1.622.1
+  generationVersion: 2.709.0
+  releaseVersion: 0.5.1
+  configChecksum: 2ad9661f10fc387685652deb3e641a8d
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
@@ -4051,7 +4051,3 @@ examples:
           application/pdf: "0xfE7bF3258c"
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Php SDK Changes Detected:
-  * `moov->statements->list()`: **Added**
-  * `moov->statements->get()`: **Added**
