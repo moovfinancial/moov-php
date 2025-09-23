@@ -1,4 +1,4 @@
-# PatchWalletError
+# PatchWalletValidationError
 
 
 ## Fields

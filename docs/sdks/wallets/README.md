@@ -99,11 +99,11 @@ if ($response->wallet !== null) {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| Errors\GenericError      | 400, 409                 | application/json         |
-| Errors\CreateWalletError | 422                      | application/json         |
-| Errors\APIException      | 4XX, 5XX                 | \*/\*                    |
+| Error Type                         | Status Code                        | Content Type                       |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| Errors\GenericError                | 400, 409                           | application/json                   |
+| Errors\CreateWalletValidationError | 422                                | application/json                   |
+| Errors\APIException                | 4XX, 5XX                           | \*/\*                              |
 
 ## list
 
@@ -163,9 +163,10 @@ if ($response->wallets !== null) {
 
 ### Errors
 
-| Error Type          | Status Code         | Content Type        |
-| ------------------- | ------------------- | ------------------- |
-| Errors\APIException | 4XX, 5XX            | \*/\*               |
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| Errors\ListWalletsValidationError | 422                               | application/json                  |
+| Errors\APIException               | 4XX, 5XX                          | \*/\*                             |
 
 ## get
 
@@ -293,11 +294,11 @@ if ($response->wallet !== null) {
 
 ### Errors
 
-| Error Type              | Status Code             | Content Type            |
-| ----------------------- | ----------------------- | ----------------------- |
-| Errors\GenericError     | 400, 409                | application/json        |
-| Errors\PatchWalletError | 422                     | application/json        |
-| Errors\APIException     | 4XX, 5XX                | \*/\*                   |
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| Errors\GenericError               | 400, 409                          | application/json                  |
+| Errors\PatchWalletValidationError | 422                               | application/json                  |
+| Errors\APIException               | 4XX, 5XX                          | \*/\*                             |
 
 ## listTransactions
 
@@ -358,6 +359,7 @@ if ($response->walletTransactions !== null) {
 
 ### Errors
 
-| Error Type          | Status Code         | Content Type        |
-| ------------------- | ------------------- | ------------------- |
-| Errors\APIException | 4XX, 5XX            | \*/\*               |
+| Error Type                                   | Status Code                                  | Content Type                                 |
+| -------------------------------------------- | -------------------------------------------- | -------------------------------------------- |
+| Errors\ListWalletTransactionsValidationError | 422                                          | application/json                             |
+| Errors\APIException                          | 4XX, 5XX                                     | \*/\*                                        |

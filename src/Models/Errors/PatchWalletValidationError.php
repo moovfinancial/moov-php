@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Errors;
 
 use Moov\MoovPhp\Utils;
-class CreateWalletError
+class PatchWalletValidationError
 {
     /**
      *
@@ -18,6 +18,14 @@ class CreateWalletError
     #[\Speakeasy\Serializer\Annotation\SerializedName('name')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $name = null;
+
+    /**
+     *
+     * @var ?string $status
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $status = null;
 
     /**
      *
@@ -37,23 +45,25 @@ class CreateWalletError
 
     /**
      * @param  ?string  $name
+     * @param  ?string  $status
      * @param  ?string  $description
      * @param  ?string  $metadata
      * @phpstan-pure
      */
-    public function __construct(?string $name = null, ?string $description = null, ?string $metadata = null)
+    public function __construct(?string $name = null, ?string $status = null, ?string $description = null, ?string $metadata = null)
     {
         $this->name = $name;
+        $this->status = $status;
         $this->description = $description;
         $this->metadata = $metadata;
     }
 
-    public function toException(): CreateWalletErrorThrowable
+    public function toException(): PatchWalletValidationErrorThrowable
     {
         $serializer = Utils\JSON::createSerializer();
         $message = $serializer->serialize($this, 'json');
         $code = -1;
 
-        return new CreateWalletErrorThrowable($message, (int) $code, $this);
+        return new PatchWalletValidationErrorThrowable($message, (int) $code, $this);
     }
 }

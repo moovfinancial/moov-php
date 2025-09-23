@@ -290,9 +290,10 @@ if ($response->transfers !== null) {
 
 ### Errors
 
-| Error Type          | Status Code         | Content Type        |
-| ------------------- | ------------------- | ------------------- |
-| Errors\APIException | 4XX, 5XX            | \*/\*               |
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Errors\ListTransfersValidationError | 422                                 | application/json                    |
+| Errors\APIException                 | 4XX, 5XX                            | \*/\*                               |
 
 ## get
 
@@ -419,9 +420,10 @@ if ($response->transfer !== null) {
 
 ### Errors
 
-| Error Type          | Status Code         | Content Type        |
-| ------------------- | ------------------- | ------------------- |
-| Errors\APIException | 4XX, 5XX            | \*/\*               |
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Errors\PatchTransferValidationError | 422                                 | application/json                    |
+| Errors\APIException                 | 4XX, 5XX                            | \*/\*                               |
 
 ## createCancellation
 

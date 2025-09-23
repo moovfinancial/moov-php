@@ -8,11 +8,11 @@ declare(strict_types=1);
 
 namespace Moov\MoovPhp\Models\Errors;
 
-class CreateWalletErrorThrowable extends \RuntimeException
+class ListWalletsValidationErrorThrowable extends \RuntimeException
 {
-    public CreateWalletError $container;
+    public ListWalletsValidationError $container;
 
-    public function __construct(string $message, int $statusCode, CreateWalletError $container)
+    public function __construct(string $message, int $statusCode, ListWalletsValidationError $container)
     {
         parent::__construct($message, $statusCode);
         $this->container = $container;

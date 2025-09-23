@@ -1,4 +1,4 @@
-# CreateWalletError
+# CreateWalletValidationError
 
 
 ## Fields

@@ -13,14 +13,6 @@ class TransferValidationError
 {
     /**
      *
-     * @var ?string $transfer
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('Transfer')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $transfer = null;
-
-    /**
-     *
      * @var ?string $amount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
@@ -84,16 +76,22 @@ class TransferValidationError
     public ?string $metadata = null;
 
     /**
-     * Used for generic errors when invalid request data isn't attributed to a single request field.
      *
-     * @var ?string $error
+     * @var ?string $salesTaxAmount
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('error')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('salesTaxAmount')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $error = null;
+    public ?string $salesTaxAmount = null;
 
     /**
-     * @param  ?string  $transfer
+     *
+     * @var ?string $foreignID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('foreignID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $foreignID = null;
+
+    /**
      * @param  ?string  $amount
      * @param  ?string  $source
      * @param  ?string  $sourcePaymentMethodID
@@ -102,12 +100,12 @@ class TransferValidationError
      * @param  ?string  $facilitatorFeeTotalDecimal
      * @param  ?string  $facilitatorFeeMarkupDecimal
      * @param  ?string  $metadata
-     * @param  ?string  $error
+     * @param  ?string  $salesTaxAmount
+     * @param  ?string  $foreignID
      * @phpstan-pure
      */
-    public function __construct(?string $transfer = null, ?string $amount = null, ?string $source = null, ?string $sourcePaymentMethodID = null, ?string $destinationPaymentMethodID = null, ?string $description = null, ?string $facilitatorFeeTotalDecimal = null, ?string $facilitatorFeeMarkupDecimal = null, ?string $metadata = null, ?string $error = null)
+    public function __construct(?string $amount = null, ?string $source = null, ?string $sourcePaymentMethodID = null, ?string $destinationPaymentMethodID = null, ?string $description = null, ?string $facilitatorFeeTotalDecimal = null, ?string $facilitatorFeeMarkupDecimal = null, ?string $metadata = null, ?string $salesTaxAmount = null, ?string $foreignID = null)
     {
-        $this->transfer = $transfer;
         $this->amount = $amount;
         $this->source = $source;
         $this->sourcePaymentMethodID = $sourcePaymentMethodID;
@@ -116,7 +114,8 @@ class TransferValidationError
         $this->facilitatorFeeTotalDecimal = $facilitatorFeeTotalDecimal;
         $this->facilitatorFeeMarkupDecimal = $facilitatorFeeMarkupDecimal;
         $this->metadata = $metadata;
-        $this->error = $error;
+        $this->salesTaxAmount = $salesTaxAmount;
+        $this->foreignID = $foreignID;
     }
 
     public function toException(): TransferValidationErrorThrowable

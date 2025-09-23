@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: efd9aab6954b36ab4e4fbddaaf82f6c7
+  docChecksum: e0971aaccbf8eeba0b057705dc8c12e0
   docVersion: latest
   speakeasyVersion: 1.622.1
   generationVersion: 2.709.0
-  releaseVersion: 0.5.1
-  configChecksum: 2ad9661f10fc387685652deb3e641a8d
+  releaseVersion: 0.5.2
+  configChecksum: d03cccdba1dc996e0cf192a36b95a21d
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
@@ -568,7 +568,7 @@ generatedFiles:
   - docs/Models/Errors/CreatePaymentLinkError.md
   - docs/Models/Errors/CreateSweepConfigError.md
   - docs/Models/Errors/CreateTicketError.md
-  - docs/Models/Errors/CreateWalletError.md
+  - docs/Models/Errors/CreateWalletValidationError.md
   - docs/Models/Errors/Error.md
   - docs/Models/Errors/FeePlanAgreementError.md
   - docs/Models/Errors/File.md
@@ -577,11 +577,15 @@ generatedFiles:
   - docs/Models/Errors/GenericError.md
   - docs/Models/Errors/LinkApplePayError.md
   - docs/Models/Errors/LinkCardError.md
+  - docs/Models/Errors/ListTransfersValidationError.md
+  - docs/Models/Errors/ListWalletTransactionsValidationError.md
+  - docs/Models/Errors/ListWalletsValidationError.md
   - docs/Models/Errors/MicroDepositValidationError.md
   - docs/Models/Errors/OnboardingInviteError.md
   - docs/Models/Errors/PatchAccountError.md
   - docs/Models/Errors/PatchSweepConfigError.md
-  - docs/Models/Errors/PatchWalletError.md
+  - docs/Models/Errors/PatchTransferValidationError.md
+  - docs/Models/Errors/PatchWalletValidationError.md
   - docs/Models/Errors/RefundValidationError.md
   - docs/Models/Errors/RepresentativeValidationError.md
   - docs/Models/Errors/RequestCardError.md
@@ -1515,8 +1519,8 @@ generatedFiles:
   - src/Models/Errors/CreateSweepConfigErrorThrowable.php
   - src/Models/Errors/CreateTicketError.php
   - src/Models/Errors/CreateTicketErrorThrowable.php
-  - src/Models/Errors/CreateWalletError.php
-  - src/Models/Errors/CreateWalletErrorThrowable.php
+  - src/Models/Errors/CreateWalletValidationError.php
+  - src/Models/Errors/CreateWalletValidationErrorThrowable.php
   - src/Models/Errors/Error.php
   - src/Models/Errors/FeePlanAgreementError.php
   - src/Models/Errors/FeePlanAgreementErrorThrowable.php
@@ -1531,6 +1535,12 @@ generatedFiles:
   - src/Models/Errors/LinkApplePayErrorThrowable.php
   - src/Models/Errors/LinkCardError.php
   - src/Models/Errors/LinkCardErrorThrowable.php
+  - src/Models/Errors/ListTransfersValidationError.php
+  - src/Models/Errors/ListTransfersValidationErrorThrowable.php
+  - src/Models/Errors/ListWalletTransactionsValidationError.php
+  - src/Models/Errors/ListWalletTransactionsValidationErrorThrowable.php
+  - src/Models/Errors/ListWalletsValidationError.php
+  - src/Models/Errors/ListWalletsValidationErrorThrowable.php
   - src/Models/Errors/MicroDepositValidationError.php
   - src/Models/Errors/MicroDepositValidationErrorThrowable.php
   - src/Models/Errors/OnboardingInviteError.php
@@ -1539,8 +1549,10 @@ generatedFiles:
   - src/Models/Errors/PatchAccountErrorThrowable.php
   - src/Models/Errors/PatchSweepConfigError.php
   - src/Models/Errors/PatchSweepConfigErrorThrowable.php
-  - src/Models/Errors/PatchWalletError.php
-  - src/Models/Errors/PatchWalletErrorThrowable.php
+  - src/Models/Errors/PatchTransferValidationError.php
+  - src/Models/Errors/PatchTransferValidationErrorThrowable.php
+  - src/Models/Errors/PatchWalletValidationError.php
+  - src/Models/Errors/PatchWalletValidationErrorThrowable.php
   - src/Models/Errors/RefundValidationError.php
   - src/Models/Errors/RefundValidationErrorThrowable.php
   - src/Models/Errors/RepresentativeValidationError.php
@@ -3241,6 +3253,8 @@ examples:
       responses:
         "200":
           application/json: [{"transferID": "d835gf30-4b19-4850-a9b2-c0624c41ecb3", "createdOn": "2025-01-21T21:32:16Z", "source": {"paymentMethodID": "9506dbf6-4208-44c3-ad8a-e4431660e1f2", "paymentMethodType": "card-payment", "account": {"accountID": "7e4b26c2-b399-49ef-8390-50e1ea44d550", "email": "jules@julesjackson.com", "displayName": "Jules Jackson"}, "card": {"cardID": "aefd5563-93c6-413c-875e-1bd0ebfc116d", "fingerprint": "2f5d782ceef1c3bd31ed5...", "brand": "Visa", "cardType": "credit", "lastFourCardNumber": "2000", "bin": "400020", "expiration": {"month": "01", "year": "28"}, "holderName": "Jules Jackson", "billingAddress": {"postalCode": "80301"}, "cardVerification": {"cvv": "unavailable", "addressLine1": "unavailable", "postalCode": "unavailable", "accountName": {"firstName": "unavailable", "lastName": "unavailable", "middleName": "unavailable", "fullName": "unavailable"}}, "issuer": "Moov Visa Sandbox", "issuerCountry": "US", "cardAccountUpdater": {}, "domesticPushToCard": "standard", "domesticPullFromCard": "supported"}, "cardDetails": {"status": "confirmed", "dynamicDescriptor": "WhlBdy *Yoga 11-12", "confirmedOn": "2025-01-21T21:32:16.799681237Z"}}, "destination": {"paymentMethodID": "3f9969cf-a1f3-4d83-8ddc-229a506651cf", "paymentMethodType": "moov-wallet", "account": {"accountID": "34233b72-780c-4a0d-8b08-cbbe23k878f8", "email": "john@wholebodyfitness.io", "displayName": "Whole Body Fitness"}, "wallet": {"walletID": "744b2e78-8cc8-4a6a-af42-611e3b844503"}}, "status": "pending", "amount": {"currency": "USD", "value": 32945}, "description": "Transfer from card to wallet"}]
+        "422":
+          application/json: {}
   getTransfer:
     speakeasy-default-get-transfer:
       parameters:
@@ -3265,6 +3279,8 @@ examples:
       responses:
         "200":
           application/json: {"transferID": "d835gf30-4b19-4850-a9b2-c0624c41ecb3", "createdOn": "2025-01-21T21:32:16Z", "source": {"paymentMethodID": "9506dbf6-4208-44c3-ad8a-e4431660e1f2", "paymentMethodType": "card-payment", "account": {"accountID": "7e4b26c2-b399-49ef-8390-50e1ea44d550", "email": "jules@julesjackson.com", "displayName": "Jules Jackson"}, "card": {"cardID": "aefd5563-93c6-413c-875e-1bd0ebfc116d", "fingerprint": "2f5d782ceef1c3bd31ed5...", "brand": "Visa", "cardType": "credit", "lastFourCardNumber": "2000", "bin": "400020", "expiration": {"month": "01", "year": "28"}, "holderName": "Jules Jackson", "billingAddress": {"postalCode": "80301"}, "cardVerification": {"cvv": "unavailable", "addressLine1": "unavailable", "postalCode": "unavailable", "accountName": {"firstName": "unavailable", "lastName": "unavailable", "middleName": "unavailable", "fullName": "unavailable"}}, "issuer": "Moov Visa Sandbox", "issuerCountry": "US", "cardAccountUpdater": {}, "domesticPushToCard": "standard", "domesticPullFromCard": "supported"}, "cardDetails": {"status": "confirmed", "dynamicDescriptor": "WhlBdy *Yoga 11-12", "confirmedOn": "2025-01-21T21:32:16.799681237Z"}}, "destination": {"paymentMethodID": "3f9969cf-a1f3-4d83-8ddc-229a506651cf", "paymentMethodType": "moov-wallet", "account": {"accountID": "34233b72-780c-4a0d-8b08-cbbe23k878f8", "email": "john@wholebodyfitness.io", "displayName": "Whole Body Fitness"}, "wallet": {"walletID": "744b2e78-8cc8-4a6a-af42-611e3b844503"}}, "status": "pending", "amount": {"currency": "USD", "value": 32945}, "description": "Transfer from card to wallet", "moovFees": [{"accountID": "7e4b26c2-b399-49ef-8390-50e1ea44d550", "transferParty": "source", "totalAmount": {"currency": "USD", "valueDecimal": "0.1"}, "feeIDs": ["9d957d33-1a9a-47aa-9460-fe1a90f003dd"]}]}
+        "422":
+          application/json: {}
   createCancellation:
     Created cancellation:
       parameters:
@@ -3461,6 +3477,8 @@ examples:
       responses:
         "200":
           application/json: [{"walletID": "4db4c1c0-d682-4bf9-9b5c-952207d1d15d", "availableBalance": {"currency": "USD", "value": 1204, "valueDecimal": "<value>"}, "partnerAccountID": "25221c3c-8e3f-40db-8570-66d17b51014d", "name": "<value>", "status": "active", "walletType": "general", "description": "likewise beyond hydrant drat that jeopardise whose disadvantage", "createdOn": "2024-01-20T06:32:10.729Z"}]
+        "422":
+          application/json: {}
   getWallet:
     "":
       parameters:
@@ -3509,6 +3527,8 @@ examples:
       responses:
         "200":
           application/json: [{"walletID": "5532c31a-9ced-42c4-9f14-62fc23ae59a4", "transactionID": "52439d32-a6be-4d5c-bd3f-fbcae65a1f1a", "transactionType": "refund-failure", "sourceType": "transfer", "sourceID": "d9a9c4d9-fc78-40ef-b5a5-5d4a9f1a4350", "status": "failed", "memo": "<value>", "createdOn": "2023-01-29T04:14:24.300Z", "currency": "USD", "grossAmount": 31636, "grossAmountDecimal": "<value>", "fee": 595117, "feeDecimal": "<value>", "netAmount": 866412, "netAmountDecimal": "<value>"}]
+        "422":
+          application/json: {}
   getWalletTransaction:
     "":
       parameters:
@@ -4051,3 +4071,10 @@ examples:
           application/pdf: "0xfE7bF3258c"
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: |
+  ## Php SDK Changes Detected:
+  * `moov->transfers->create()`:  `error` **Changed** **Breaking** :warning:
+  * `moov->transfers->list()`:  `error.status[422]` **Added**
+  * `moov->transfers->update()`:  `error.status[422]` **Added**
+  * `moov->wallets->list()`:  `error.status[422]` **Added**
+  * `moov->wallets->listTransactions()`:  `error.status[422]` **Added**
