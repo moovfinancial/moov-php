@@ -3,17 +3,17 @@ id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
   docChecksum: e0971aaccbf8eeba0b057705dc8c12e0
   docVersion: latest
-  speakeasyVersion: 1.622.1
-  generationVersion: 2.709.0
-  releaseVersion: 0.5.2
-  configChecksum: d03cccdba1dc996e0cf192a36b95a21d
+  speakeasyVersion: 1.628.4
+  generationVersion: 2.716.5
+  releaseVersion: 0.5.3
+  configChecksum: 9a3985fdad10299ab6b040e9cbde7bc8
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
 features:
   php:
     constsAndDefaults: 0.2.0
-    core: 3.8.10
+    core: 3.8.11
     decimal: 0.1.1
     deprecations: 2.81.1
     flattening: 2.81.1
@@ -4071,10 +4071,3 @@ examples:
           application/pdf: "0xfE7bF3258c"
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Php SDK Changes Detected:
-  * `moov->transfers->create()`:  `error` **Changed** **Breaking** :warning:
-  * `moov->transfers->list()`:  `error.status[422]` **Added**
-  * `moov->transfers->update()`:  `error.status[422]` **Added**
-  * `moov->wallets->list()`:  `error.status[422]` **Added**
-  * `moov->wallets->listTransactions()`:  `error.status[422]` **Added**
