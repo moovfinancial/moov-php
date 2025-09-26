@@ -13,11 +13,11 @@ namespace Moov\MoovPhp\Models\Components;
 enum MonthlyVolumeRange: string
 {
     case Under10k = 'under-10k';
-    case TenK50K = '10K-50K';
-    case FiftyK100K = '50K-100K';
-    case OneHundredK250K = '100K-250K';
-    case TwoHundredAndFiftyK500K = '250K-500K';
-    case FiveHundredK1M = '500K-1M';
-    case OneM5M = '1M-5M';
+    case Tenk50k = '10k-50k';
+    case Fiftyk100k = '50k-100k';
+    case OneHundredk250k = '100k-250k';
+    case TwoHundredAndFiftyk500k = '250k-500k';
+    case FiveHundredk1m = '500k-1m';
+    case Onem5m = '1m-5m';
     case Over5m = 'over-5m';
 }

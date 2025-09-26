@@ -39,15 +39,26 @@ class InstitutionsSearchResponse
     public ?array $wire;
 
     /**
+     * $fednow
+     *
+     * @var ?array<FedNowInstitution> $fednow
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('fednow')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\FedNowInstitution>|null')]
+    public ?array $fednow;
+
+    /**
      * @param  ?array<ACHInstitution>  $ach
      * @param  ?array<RTPInstitution>  $rtp
      * @param  ?array<WireInstitution>  $wire
+     * @param  ?array<FedNowInstitution>  $fednow
      * @phpstan-pure
      */
-    public function __construct(?array $ach = null, ?array $rtp = null, ?array $wire = null)
+    public function __construct(?array $ach = null, ?array $rtp = null, ?array $wire = null, ?array $fednow = null)
     {
         $this->ach = $ach;
         $this->rtp = $rtp;
         $this->wire = $wire;
+        $this->fednow = $fednow;
     }
 }
