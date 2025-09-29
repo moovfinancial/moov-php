@@ -3,10 +3,10 @@ id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
   docChecksum: f03a056e0ad780443ff3a7732f748a0c
   docVersion: latest
-  speakeasyVersion: 1.629.0
-  generationVersion: 2.716.9
-  releaseVersion: 0.5.4
-  configChecksum: d22b7b598365702ffa3d32e080044d97
+  speakeasyVersion: 1.631.4
+  generationVersion: 2.716.16
+  releaseVersion: 0.5.5
+  configChecksum: d666cff168c05c8e5bddfb8b15f05811
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
@@ -4075,6 +4075,3 @@ examples:
           application/pdf: "0xfE7bF3258c"
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Php SDK Changes Detected:
-  * `moov->institutions->searchInstitutions()`:  `response.fednow` **Added**
