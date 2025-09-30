@@ -19,11 +19,34 @@ class PaymentMethodsWallet
     public string $walletID;
 
     /**
+     *
+     * @var string $partnerAccountID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('partnerAccountID')]
+    public string $partnerAccountID;
+
+    /**
+     * Type of a wallet.
+     *
+     *   - `default`: The primary system-generated wallet automatically created by Moov when an account is granted the wallet capability. This generates a moov-wallet payment method that is available for use immediately. Only one default wallet exists per account.
+     *   - `general`: A user-defined wallet created via the API to segment funds for specific use cases. Users can create multiple general wallets per account to support internal business models or financial reporting needs.
+     *
+     * @var WalletType $walletType
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('walletType')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\WalletType')]
+    public WalletType $walletType;
+
+    /**
      * @param  string  $walletID
+     * @param  string  $partnerAccountID
+     * @param  WalletType  $walletType
      * @phpstan-pure
      */
-    public function __construct(string $walletID)
+    public function __construct(string $walletID, string $partnerAccountID, WalletType $walletType)
     {
         $this->walletID = $walletID;
+        $this->partnerAccountID = $partnerAccountID;
+        $this->walletType = $walletType;
     }
 }
