@@ -639,6 +639,13 @@ you'll need to specify the `/accounts/{accountID}/files.write` scope.
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/files.read` scope.
 
+### [images](docs/sdks/images/README.md)
+
+* [list](docs/sdks/images/README.md#list) - List metadata for all images in the specified account.
+* [getMetadata](docs/sdks/images/README.md#getmetadata) - Retrieve metadata for a specific image by its ID.
+* [delete](docs/sdks/images/README.md#delete) - Permanently delete an image by its ID.
+* [getPublic](docs/sdks/images/README.md#getpublic) - Get an image by its public ID.
+
 ### [industries](docs/sdks/industries/README.md)
 
 * [list](docs/sdks/industries/README.md#list) - Returns a list of industries relevant to merchant profile enrichment.  Results are ordered by industry name.
