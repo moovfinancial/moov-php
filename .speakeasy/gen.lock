@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: e8ab880c2c7a931216ea5938a90504f6
+  docChecksum: 1633031b8914179f2832e3f6ea8a19aa
   docVersion: latest
-  speakeasyVersion: 1.633.1
-  generationVersion: 2.720.1
-  releaseVersion: 0.5.7
-  configChecksum: 45295a53f5b41e3350cbfab3b665804e
+  speakeasyVersion: 1.634.2
+  generationVersion: 2.721.3
+  releaseVersion: 0.5.8
+  configChecksum: ab594918f588b2491bdddb0f44b6e5aa
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
@@ -4139,9 +4139,3 @@ examples:
           image/jpeg: "0xcEe99Dc82c"
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Php SDK Changes Detected:
-  * `moov->images->list()`: **Added**
-  * `moov->images->getMetadata()`: **Added**
-  * `moov->images->delete()`: **Added**
-  * `moov->images->getPublic()`: **Added**
