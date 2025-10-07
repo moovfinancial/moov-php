@@ -587,9 +587,6 @@ you'll need to specify the `/ping.read` scope.
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/profile-enrichment.read` scope.
 
-### [enrichment](docs/sdks/enrichment/README.md)
-
-
 #### [enrichment->address](docs/sdks/address/README.md)
 
 * [get](docs/sdks/address/README.md#get) - Fetch enriched address suggestions. Requires a partial address. 
@@ -693,7 +690,6 @@ you'll need to specify the `/accounts/{accountID}/issued-cards.read` scope.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/issued-cards.read` scope.
-
 
 ### [onboarding](docs/sdks/onboarding/README.md)
 

@@ -3,10 +3,10 @@ id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
   docChecksum: 1633031b8914179f2832e3f6ea8a19aa
   docVersion: latest
-  speakeasyVersion: 1.634.2
-  generationVersion: 2.721.3
-  releaseVersion: 0.5.8
-  configChecksum: ab594918f588b2491bdddb0f44b6e5aa
+  speakeasyVersion: 1.635.2
+  generationVersion: 2.722.5
+  releaseVersion: 0.5.9
+  configChecksum: f43e4f7df436780ea54002d3c83ba109
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
@@ -20,7 +20,7 @@ features:
     globalSecurity: 2.81.9
     globalServerURLs: 2.82.2
     globals: 2.82.2
-    groups: 2.81.2
+    groups: 2.81.3
     includes: 2.81.1
     methodArguments: 0.1.0
     nameOverrides: 2.81.2
@@ -925,7 +925,6 @@ generatedFiles:
   - docs/sdks/disputes/README.md
   - docs/sdks/endtoendencryption/README.md
   - docs/sdks/enrichedprofile/README.md
-  - docs/sdks/enrichment/README.md
   - docs/sdks/feeplans/README.md
   - docs/sdks/files/README.md
   - docs/sdks/images/README.md
@@ -933,7 +932,6 @@ generatedFiles:
   - docs/sdks/institutions/README.md
   - docs/sdks/issuedcards/README.md
   - docs/sdks/issuingtransactions/README.md
-  - docs/sdks/moov/README.md
   - docs/sdks/onboarding/README.md
   - docs/sdks/onboardinginvites/README.md
   - docs/sdks/paymentlinks/README.md
