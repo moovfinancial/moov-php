@@ -39,15 +39,26 @@ class SendFundsError
     public ?SendFundsRtpError $rtp = null;
 
     /**
+     *
+     * @var ?SendFundsInstantBankError $instantBank
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('instantBank')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\SendFundsInstantBankError|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?SendFundsInstantBankError $instantBank = null;
+
+    /**
      * @param  ?SendFundsAchError  $ach
      * @param  ?SendFundsPushToCardError  $pushToCard
      * @param  ?SendFundsRtpError  $rtp
+     * @param  ?SendFundsInstantBankError  $instantBank
      * @phpstan-pure
      */
-    public function __construct(?SendFundsAchError $ach = null, ?SendFundsPushToCardError $pushToCard = null, ?SendFundsRtpError $rtp = null)
+    public function __construct(?SendFundsAchError $ach = null, ?SendFundsPushToCardError $pushToCard = null, ?SendFundsRtpError $rtp = null, ?SendFundsInstantBankError $instantBank = null)
     {
         $this->ach = $ach;
         $this->pushToCard = $pushToCard;
         $this->rtp = $rtp;
+        $this->instantBank = $instantBank;
     }
 }

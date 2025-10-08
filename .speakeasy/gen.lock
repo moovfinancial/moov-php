@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 1633031b8914179f2832e3f6ea8a19aa
+  docChecksum: 50805dc3e7fe8d261e3f2713c33be60e
   docVersion: latest
-  speakeasyVersion: 1.635.2
-  generationVersion: 2.722.5
-  releaseVersion: 0.5.9
-  configChecksum: f43e4f7df436780ea54002d3c83ba109
+  speakeasyVersion: 1.636.0
+  generationVersion: 2.723.2
+  releaseVersion: 0.5.10
+  configChecksum: f6abea410d17701810bae980310cd515
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
@@ -430,6 +430,8 @@ generatedFiles:
   - docs/Models/Components/SendFundsAch.md
   - docs/Models/Components/SendFundsAchError.md
   - docs/Models/Components/SendFundsError.md
+  - docs/Models/Components/SendFundsInstantBank.md
+  - docs/Models/Components/SendFundsInstantBankError.md
   - docs/Models/Components/SendFundsPushToCard.md
   - docs/Models/Components/SendFundsPushToCardError.md
   - docs/Models/Components/SendFundsRtp.md
@@ -1382,6 +1384,8 @@ generatedFiles:
   - src/Models/Components/SendFundsAch.php
   - src/Models/Components/SendFundsAchError.php
   - src/Models/Components/SendFundsError.php
+  - src/Models/Components/SendFundsInstantBank.php
+  - src/Models/Components/SendFundsInstantBankError.php
   - src/Models/Components/SendFundsPushToCard.php
   - src/Models/Components/SendFundsPushToCardError.php
   - src/Models/Components/SendFundsRtp.php
@@ -4137,3 +4141,4 @@ examples:
           image/jpeg: "0xcEe99Dc82c"
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: "## Php SDK Changes Detected:\n* `moov->accounts->list()`: \n  *  `request->capability` **Changed**\n* `moov->capabilities->get()`:  `request.capabilityId` **Changed**\n* `moov->capabilities->disable()`:  `request.capabilityId` **Changed**\n* `moov->underwriting->get()`:  `response.sendFunds->instantBank` **Added**\n* `moov->underwriting->save()`: \n  *  `request.upsertUnderwriting->sendFunds->instantBank` **Added**\n  *  `response.sendFunds->instantBank` **Added**\n  *  `error.sendFunds->instantBank` **Added**\n* `moov->underwriting->upsert()`:  `response.sendFunds->instantBank` **Added**\n"

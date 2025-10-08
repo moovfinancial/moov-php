@@ -23,6 +23,7 @@ enum CapabilityID: string
     case MoneyTransferPushToCard = 'money-transfer.push-to-card';
     case SendFundsAch = 'send-funds.ach';
     case SendFundsRtp = 'send-funds.rtp';
+    case SendFundsInstantBank = 'send-funds.instant-bank';
     case CollectFunds = 'collect-funds';
     case CollectFundsCardPayments = 'collect-funds.card-payments';
     case MoneyTransferPullFromCard = 'money-transfer.pull-from-card';
