@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 50805dc3e7fe8d261e3f2713c33be60e
+  docChecksum: c4ff178501b060a0be3eb29f79a508a6
   docVersion: latest
-  speakeasyVersion: 1.636.0
-  generationVersion: 2.723.2
-  releaseVersion: 0.5.10
-  configChecksum: f6abea410d17701810bae980310cd515
+  speakeasyVersion: 1.636.3
+  generationVersion: 2.723.11
+  releaseVersion: 0.5.11
+  configChecksum: 9079ec399e3ba37b1527d2f07024b6e7
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
@@ -4141,4 +4141,3 @@ examples:
           image/jpeg: "0xcEe99Dc82c"
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Php SDK Changes Detected:\n* `moov->accounts->list()`: \n  *  `request->capability` **Changed**\n* `moov->capabilities->get()`:  `request.capabilityId` **Changed**\n* `moov->capabilities->disable()`:  `request.capabilityId` **Changed**\n* `moov->underwriting->get()`:  `response.sendFunds->instantBank` **Added**\n* `moov->underwriting->save()`: \n  *  `request.upsertUnderwriting->sendFunds->instantBank` **Added**\n  *  `response.sendFunds->instantBank` **Added**\n  *  `error.sendFunds->instantBank` **Added**\n* `moov->underwriting->upsert()`:  `response.sendFunds->instantBank` **Added**\n"
