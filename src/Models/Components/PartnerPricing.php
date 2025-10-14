@@ -19,7 +19,7 @@ class PartnerPricing
     public string $planID;
 
     /**
-     * The name of the fee plan.
+     * The name of the partner pricing plan.
      *
      * @var string $name
      */
@@ -27,12 +27,15 @@ class PartnerPricing
     public string $name;
 
     /**
-     * The integer percentage value of the revenue split for partner.
+     *   The decimal-formatted numerical string of the revenue split for partner.
      *
-     * @var int $revenueShare
+     *   
+     *   For example, 2.25% is '2.25'.
+     *
+     * @var string $revenueShare
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('revenueShare')]
-    public int $revenueShare;
+    public string $revenueShare;
 
     /**
      * Specifies the card processing pricing model
@@ -89,7 +92,7 @@ class PartnerPricing
     /**
      * @param  string  $planID
      * @param  string  $name
-     * @param  int  $revenueShare
+     * @param  string  $revenueShare
      * @param  CardAcquiringModel  $cardAcquiringModel
      * @param  array<BillableFee>  $billableFees
      * @param  MinimumCommitment  $minimumCommitment
@@ -98,7 +101,7 @@ class PartnerPricing
      * @param  ?string  $description
      * @phpstan-pure
      */
-    public function __construct(string $planID, string $name, int $revenueShare, CardAcquiringModel $cardAcquiringModel, array $billableFees, MinimumCommitment $minimumCommitment, MonthlyPlatformFee $monthlyPlatformFee, \DateTime $createdAt, ?string $description = null)
+    public function __construct(string $planID, string $name, string $revenueShare, CardAcquiringModel $cardAcquiringModel, array $billableFees, MinimumCommitment $minimumCommitment, MonthlyPlatformFee $monthlyPlatformFee, \DateTime $createdAt, ?string $description = null)
     {
         $this->planID = $planID;
         $this->name = $name;

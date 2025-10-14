@@ -85,12 +85,15 @@ class PartnerPricingAgreement
     public MonthlyPlatformFee $monthlyPlatformFee;
 
     /**
-     * The integer percentage value of the revenue split for partner.
+     *   The decimal-formatted numerical string of the revenue split for partner.
      *
-     * @var int $revenueShare
+     *   
+     *   For example, 2.25% is '2.25'.
+     *
+     * @var string $revenueShare
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('revenueShare')]
-    public int $revenueShare;
+    public string $revenueShare;
 
     /**
      *
@@ -119,12 +122,12 @@ class PartnerPricingAgreement
      * @param  array<BillableFee>  $billableFees
      * @param  MinimumCommitment  $minimumCommitment
      * @param  MonthlyPlatformFee  $monthlyPlatformFee
-     * @param  int  $revenueShare
+     * @param  string  $revenueShare
      * @param  ?string  $accountID
      * @param  ?string  $description
      * @phpstan-pure
      */
-    public function __construct(string $agreementID, string $planID, string $name, \DateTime $acceptedOn, FeePlanAgreementStatus $status, CardAcquiringModel $cardAcquiringModel, array $billableFees, MinimumCommitment $minimumCommitment, MonthlyPlatformFee $monthlyPlatformFee, int $revenueShare, ?string $accountID = null, ?string $description = null)
+    public function __construct(string $agreementID, string $planID, string $name, \DateTime $acceptedOn, FeePlanAgreementStatus $status, CardAcquiringModel $cardAcquiringModel, array $billableFees, MinimumCommitment $minimumCommitment, MonthlyPlatformFee $monthlyPlatformFee, string $revenueShare, ?string $accountID = null, ?string $description = null)
     {
         $this->agreementID = $agreementID;
         $this->planID = $planID;

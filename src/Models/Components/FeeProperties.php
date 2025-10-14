@@ -13,6 +13,15 @@ namespace Moov\MoovPhp\Models\Components;
 class FeeProperties
 {
     /**
+     * Defines the volume ranges for tiered pricing models.
+     *
+     * @var array<VolumeRange> $volumeRanges
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('volumeRanges')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\VolumeRange>')]
+    public array $volumeRanges;
+
+    /**
      * A fixed fee that is applied to the amount of each transaction in the `fixed` and `blended` fee models.
      *
      * @var ?AmountDecimal $fixedAmount
@@ -55,14 +64,16 @@ class FeeProperties
     public ?AmountDecimal $maxPerTransaction = null;
 
     /**
+     * @param  array<VolumeRange>  $volumeRanges
      * @param  ?AmountDecimal  $fixedAmount
      * @param  ?string  $variableRate
      * @param  ?AmountDecimal  $minPerTransaction
      * @param  ?AmountDecimal  $maxPerTransaction
      * @phpstan-pure
      */
-    public function __construct(?AmountDecimal $fixedAmount = null, ?string $variableRate = null, ?AmountDecimal $minPerTransaction = null, ?AmountDecimal $maxPerTransaction = null)
+    public function __construct(array $volumeRanges, ?AmountDecimal $fixedAmount = null, ?string $variableRate = null, ?AmountDecimal $minPerTransaction = null, ?AmountDecimal $maxPerTransaction = null)
     {
+        $this->volumeRanges = $volumeRanges;
         $this->fixedAmount = $fixedAmount;
         $this->variableRate = $variableRate;
         $this->minPerTransaction = $minPerTransaction;
