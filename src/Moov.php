@@ -50,6 +50,8 @@ class Moov
 
     public PaymentMethods $paymentMethods;
 
+    public Products $products;
+
     public Representatives $representatives;
 
     public Scheduling $scheduling;
@@ -133,6 +135,7 @@ class Moov
         $this->images = new Images($this->sdkConfiguration);
         $this->paymentLinks = new PaymentLinks($this->sdkConfiguration);
         $this->paymentMethods = new PaymentMethods($this->sdkConfiguration);
+        $this->products = new Products($this->sdkConfiguration);
         $this->representatives = new Representatives($this->sdkConfiguration);
         $this->scheduling = new Scheduling($this->sdkConfiguration);
         $this->schedules = new Schedules($this->sdkConfiguration);
