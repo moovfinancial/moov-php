@@ -36,11 +36,12 @@ class CreateProductOption
     /**
      * The adjustment applied to a product's base price by this option. Can be negative, positive, or zero.
      *
-     * @var ?string $priceModifier
+     * @var ?AmountDecimal $priceModifier
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('priceModifier')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $priceModifier = null;
+    public ?AmountDecimal $priceModifier = null;
 
     /**
      * Assign previously uploaded images to a product or option.
@@ -55,11 +56,11 @@ class CreateProductOption
     /**
      * @param  string  $name
      * @param  ?string  $description
-     * @param  ?string  $priceModifier
+     * @param  ?AmountDecimal  $priceModifier
      * @param  ?array<AssignProductImage>  $images
      * @phpstan-pure
      */
-    public function __construct(string $name, ?string $description = null, ?string $priceModifier = null, ?array $images = null)
+    public function __construct(string $name, ?string $description = null, ?AmountDecimal $priceModifier = null, ?array $images = null)
     {
         $this->name = $name;
         $this->description = $description;

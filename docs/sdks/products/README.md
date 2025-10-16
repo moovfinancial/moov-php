@@ -121,7 +121,10 @@ $productRequest = new Components\ProductRequest(
                 new Components\CreateProductOption(
                     name: 'Strawberry puree',
                     description: 'Fresh and fruity.',
-                    priceModifier: '0.99',
+                    priceModifier: new Components\AmountDecimal(
+                        currency: 'USD',
+                        valueDecimal: '0.99',
+                    ),
                     images: [
                         new Components\AssignProductImage(
                             imageID: 'd359808d-9896-4414-8d17-dac43f35842d',
@@ -130,11 +133,17 @@ $productRequest = new Components\ProductRequest(
                 ),
                 new Components\CreateProductOption(
                     name: 'Passionfruit syrup',
-                    priceModifier: '0.49',
+                    priceModifier: new Components\AmountDecimal(
+                        currency: 'USD',
+                        valueDecimal: '0.49',
+                    ),
                 ),
                 new Components\CreateProductOption(
                     name: 'Cherry syrup',
-                    priceModifier: '0.49',
+                    priceModifier: new Components\AmountDecimal(
+                        currency: 'USD',
+                        valueDecimal: '0.49',
+                    ),
                 ),
             ],
         ),
@@ -149,7 +158,10 @@ $productRequest = new Components\ProductRequest(
                 ),
                 new Components\CreateProductOption(
                     name: 'Honey',
-                    priceModifier: '0.99',
+                    priceModifier: new Components\AmountDecimal(
+                        currency: 'USD',
+                        valueDecimal: '0.99',
+                    ),
                 ),
                 new Components\CreateProductOption(
                     name: 'Stevia',

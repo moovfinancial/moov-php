@@ -29,11 +29,12 @@ class ProductOptionValidationError
 
     /**
      *
-     * @var ?string $priceModifier
+     * @var ?AmountDecimalValidationError $priceModifier
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('priceModifier')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimalValidationError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $priceModifier = null;
+    public ?AmountDecimalValidationError $priceModifier = null;
 
     /**
      * $images
@@ -48,11 +49,11 @@ class ProductOptionValidationError
     /**
      * @param  ?string  $name
      * @param  ?string  $description
-     * @param  ?string  $priceModifier
+     * @param  ?AmountDecimalValidationError  $priceModifier
      * @param  ?array<string, AssignProductImageValidationError>  $images
      * @phpstan-pure
      */
-    public function __construct(?string $name = null, ?string $description = null, ?string $priceModifier = null, ?array $images = null)
+    public function __construct(?string $name = null, ?string $description = null, ?AmountDecimalValidationError $priceModifier = null, ?array $images = null)
     {
         $this->name = $name;
         $this->description = $description;
