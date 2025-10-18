@@ -639,7 +639,14 @@ you'll need to specify the `/accounts/{accountID}/files.read` scope.
 ### [images](docs/sdks/images/README.md)
 
 * [list](docs/sdks/images/README.md#list) - List metadata for all images in the specified account.
+* [upload](docs/sdks/images/README.md#upload) -   Upload a new PNG, JPEG, or WebP image with optional metadata. 
+  Duplicate images, and requests larger than 16MB will be rejected.
 * [getMetadata](docs/sdks/images/README.md#getmetadata) - Retrieve metadata for a specific image by its ID.
+* [update](docs/sdks/images/README.md#update) - Update an existing image and/or its metadata.
+
+Duplicate images, and requests larger than 16MB will be rejected. Omit any
+form parts you do not wish to update. Existing metadata can be cleared by
+sending `null` for the `metadata` form part.
 * [delete](docs/sdks/images/README.md#delete) - Permanently delete an image by its ID.
 * [getPublic](docs/sdks/images/README.md#getpublic) - Get an image by its public ID.
 

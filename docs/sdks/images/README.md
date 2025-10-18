@@ -6,7 +6,14 @@
 ### Available Operations
 
 * [list](#list) - List metadata for all images in the specified account.
+* [upload](#upload) -   Upload a new PNG, JPEG, or WebP image with optional metadata. 
+  Duplicate images, and requests larger than 16MB will be rejected.
 * [getMetadata](#getmetadata) - Retrieve metadata for a specific image by its ID.
+* [update](#update) - Update an existing image and/or its metadata.
+
+Duplicate images, and requests larger than 16MB will be rejected. Omit any
+form parts you do not wish to update. Existing metadata can be cleared by
+sending `null` for the `metadata` form part.
 * [delete](#delete) - Permanently delete an image by its ID.
 * [getPublic](#getpublic) - Get an image by its public ID.
 
@@ -63,6 +70,70 @@ if ($response->imageMetadata !== null) {
 | ------------------- | ------------------- | ------------------- |
 | Errors\APIException | 4XX, 5XX            | \*/\*               |
 
+## upload
+
+  Upload a new PNG, JPEG, or WebP image with optional metadata. 
+  Duplicate images, and requests larger than 16MB will be rejected.
+
+### Example Usage
+
+<!-- UsageSnippet language="php" operationID="uploadImage" method="post" path="/accounts/{accountID}/images" -->
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
+
+$sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
+
+$imageUploadRequestMultiPart = new Components\ImageUploadRequestMultiPart(
+    image: new Components\Image(
+        fileName: 'example.file',
+        content: file_get_contents('example.file');,
+    ),
+);
+
+$response = $sdk->images->upload(
+    accountID: 'c0971a52-1f1c-4511-876a-f45c4cfd6154',
+    imageUploadRequestMultiPart: $imageUploadRequestMultiPart
+
+);
+
+if ($response->imageMetadata !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Required                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `accountID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `imageUploadRequestMultiPart`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | [Components\ImageUploadRequestMultiPart](../../Models/Components/ImageUploadRequestMultiPart.md)                                                                                                                                                                                                                                                                                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `xMoovVersion`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | *?string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Specify an API version.<br/><br/>API versioning follows the format `vYYYY.QQ.BB`, where <br/>  - `YYYY` is the year<br/>  - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)<br/>  - `BB` is the build number, starting at `.01`, for subsequent builds in the same quarter. <br/>    - For example, `v2024.01.00` is the initial release of the first quarter of 2024.<br/><br/>The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release. |
+
+### Response
+
+**[?Operations\UploadImageResponse](../../Models/Operations/UploadImageResponse.md)**
+
+### Errors
+
+| Error Type                         | Status Code                        | Content Type                       |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| Errors\GenericError                | 400, 409                           | application/json                   |
+| Errors\ImageRequestValidationError | 422                                | application/json                   |
+| Errors\APIException                | 4XX, 5XX                           | \*/\*                              |
+
 ## getMetadata
 
 Retrieve metadata for a specific image by its ID.
@@ -118,6 +189,70 @@ if ($response->imageMetadata !== null) {
 | Error Type          | Status Code         | Content Type        |
 | ------------------- | ------------------- | ------------------- |
 | Errors\APIException | 4XX, 5XX            | \*/\*               |
+
+## update
+
+Update an existing image and/or its metadata.
+
+Duplicate images, and requests larger than 16MB will be rejected. Omit any
+form parts you do not wish to update. Existing metadata can be cleared by
+sending `null` for the `metadata` form part.
+
+### Example Usage
+
+<!-- UsageSnippet language="php" operationID="updateImage" method="patch" path="/accounts/{accountID}/images/{imageID}" -->
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
+
+$sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
+
+$imageUpdateRequestMultiPart = new Components\ImageUpdateRequestMultiPart();
+
+$response = $sdk->images->update(
+    accountID: '310f4f19-45cf-4429-9aae-8e93827ecb0d',
+    imageID: '8ef109f8-5a61-4355-b2e4-b8ac2f6f6f47',
+    imageUpdateRequestMultiPart: $imageUpdateRequestMultiPart
+
+);
+
+if ($response->imageMetadata !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Required                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `accountID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `imageID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `imageUpdateRequestMultiPart`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | [Components\ImageUpdateRequestMultiPart](../../Models/Components/ImageUpdateRequestMultiPart.md)                                                                                                                                                                                                                                                                                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `xMoovVersion`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | *?string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Specify an API version.<br/><br/>API versioning follows the format `vYYYY.QQ.BB`, where <br/>  - `YYYY` is the year<br/>  - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)<br/>  - `BB` is the build number, starting at `.01`, for subsequent builds in the same quarter. <br/>    - For example, `v2024.01.00` is the initial release of the first quarter of 2024.<br/><br/>The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release. |
+
+### Response
+
+**[?Operations\UpdateImageResponse](../../Models/Operations/UpdateImageResponse.md)**
+
+### Errors
+
+| Error Type                         | Status Code                        | Content Type                       |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| Errors\GenericError                | 400, 409                           | application/json                   |
+| Errors\ImageRequestValidationError | 422                                | application/json                   |
+| Errors\APIException                | 4XX, 5XX                           | \*/\*                              |
 
 ## delete
 

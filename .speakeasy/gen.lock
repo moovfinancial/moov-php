@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 226ed990a33c2be43def145db8787829
+  docChecksum: 7d66d52cadf8fc1fce3e1d83c945ff5f
   docVersion: latest
-  speakeasyVersion: 1.636.3
-  generationVersion: 2.723.11
-  releaseVersion: 0.5.14
-  configChecksum: c15cf39bf2dc78b31001120173276eef
+  speakeasyVersion: 1.637.0
+  generationVersion: 2.727.4
+  releaseVersion: 0.6.0
+  configChecksum: 81cee7ccfccda938e5a01104543d48cb
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
 features:
   php:
     constsAndDefaults: 0.2.0
-    core: 3.8.11
+    core: 3.9.0
     decimal: 0.1.1
     deprecations: 2.81.1
     flattening: 2.81.1
@@ -278,7 +278,13 @@ generatedFiles:
   - docs/Models/Components/GovernmentIDErrorSsn.md
   - docs/Models/Components/GrantType.md
   - docs/Models/Components/GuestProfile.md
+  - docs/Models/Components/Image.md
   - docs/Models/Components/ImageMetadata.md
+  - docs/Models/Components/ImageMetadataRequest.md
+  - docs/Models/Components/ImageMetadataValidationError.md
+  - docs/Models/Components/ImageUpdateRequestMultiPart.md
+  - docs/Models/Components/ImageUpdateRequestMultiPartImage.md
+  - docs/Models/Components/ImageUploadRequestMultiPart.md
   - docs/Models/Components/IncurredFee.md
   - docs/Models/Components/IndividualName.md
   - docs/Models/Components/IndividualNameError.md
@@ -322,6 +328,7 @@ generatedFiles:
   - docs/Models/Components/Manual.md
   - docs/Models/Components/ManualTermsOfService.md
   - docs/Models/Components/ManualTermsOfServiceUpdate.md
+  - docs/Models/Components/Metadata.md
   - docs/Models/Components/MicroDepositStatus.md
   - docs/Models/Components/MinimumCommitment.md
   - docs/Models/Components/Mode.md
@@ -593,6 +600,7 @@ generatedFiles:
   - docs/Models/Errors/FileUploadValidationError.md
   - docs/Models/Errors/FileValidationError.md
   - docs/Models/Errors/GenericError.md
+  - docs/Models/Errors/ImageRequestValidationError.md
   - docs/Models/Errors/LinkApplePayError.md
   - docs/Models/Errors/LinkCardError.md
   - docs/Models/Errors/ListTransfersValidationError.md
@@ -908,6 +916,8 @@ generatedFiles:
   - docs/Models/Operations/UpdateCardResponse.md
   - docs/Models/Operations/UpdateDisputeEvidenceRequest.md
   - docs/Models/Operations/UpdateDisputeEvidenceResponse.md
+  - docs/Models/Operations/UpdateImageRequest.md
+  - docs/Models/Operations/UpdateImageResponse.md
   - docs/Models/Operations/UpdateIssuedCardRequest.md
   - docs/Models/Operations/UpdateIssuedCardResponse.md
   - docs/Models/Operations/UpdatePaymentLinkRequest.md
@@ -932,6 +942,8 @@ generatedFiles:
   - docs/Models/Operations/UploadDisputeEvidenceTextResponse.md
   - docs/Models/Operations/UploadFileRequest.md
   - docs/Models/Operations/UploadFileResponse.md
+  - docs/Models/Operations/UploadImageRequest.md
+  - docs/Models/Operations/UploadImageResponse.md
   - docs/Models/Operations/UpsertBrandRequest.md
   - docs/Models/Operations/UpsertBrandResponse.md
   - docs/Models/Operations/UpsertUnderwritingRequest.md
@@ -1263,7 +1275,13 @@ generatedFiles:
   - src/Models/Components/GovernmentIDErrorSsn.php
   - src/Models/Components/GrantType.php
   - src/Models/Components/GuestProfile.php
+  - src/Models/Components/Image.php
   - src/Models/Components/ImageMetadata.php
+  - src/Models/Components/ImageMetadataRequest.php
+  - src/Models/Components/ImageMetadataValidationError.php
+  - src/Models/Components/ImageUpdateRequestMultiPart.php
+  - src/Models/Components/ImageUpdateRequestMultiPartImage.php
+  - src/Models/Components/ImageUploadRequestMultiPart.php
   - src/Models/Components/IncurredFee.php
   - src/Models/Components/IndividualName.php
   - src/Models/Components/IndividualNameError.php
@@ -1306,6 +1324,7 @@ generatedFiles:
   - src/Models/Components/Manual.php
   - src/Models/Components/ManualTermsOfService.php
   - src/Models/Components/ManualTermsOfServiceUpdate.php
+  - src/Models/Components/Metadata.php
   - src/Models/Components/MicroDepositStatus.php
   - src/Models/Components/MinimumCommitment.php
   - src/Models/Components/Mode.php
@@ -1587,6 +1606,8 @@ generatedFiles:
   - src/Models/Errors/FileValidationErrorThrowable.php
   - src/Models/Errors/GenericError.php
   - src/Models/Errors/GenericErrorThrowable.php
+  - src/Models/Errors/ImageRequestValidationError.php
+  - src/Models/Errors/ImageRequestValidationErrorThrowable.php
   - src/Models/Errors/LinkApplePayError.php
   - src/Models/Errors/LinkApplePayErrorThrowable.php
   - src/Models/Errors/LinkCardError.php
@@ -1930,6 +1951,8 @@ generatedFiles:
   - src/Models/Operations/UpdateCardResponse.php
   - src/Models/Operations/UpdateDisputeEvidenceRequest.php
   - src/Models/Operations/UpdateDisputeEvidenceResponse.php
+  - src/Models/Operations/UpdateImageRequest.php
+  - src/Models/Operations/UpdateImageResponse.php
   - src/Models/Operations/UpdateIssuedCardRequest.php
   - src/Models/Operations/UpdateIssuedCardResponse.php
   - src/Models/Operations/UpdatePaymentLinkRequest.php
@@ -1954,6 +1977,8 @@ generatedFiles:
   - src/Models/Operations/UploadDisputeEvidenceTextResponse.php
   - src/Models/Operations/UploadFileRequest.php
   - src/Models/Operations/UploadFileResponse.php
+  - src/Models/Operations/UploadImageRequest.php
+  - src/Models/Operations/UploadImageResponse.php
   - src/Models/Operations/UpsertBrandRequest.php
   - src/Models/Operations/UpsertBrandResponse.php
   - src/Models/Operations/UpsertUnderwritingRequest.php
@@ -4258,6 +4283,42 @@ examples:
       responses:
         "400":
           application/json: {"error": "<value>"}
+  uploadImage:
+    speakeasy-default-upload-image:
+      parameters:
+        path:
+          accountID: "c0971a52-1f1c-4511-876a-f45c4cfd6154"
+        header:
+          x-moov-version: "v2024.01.00"
+      requestBody:
+        multipart/form-data: {"image": "x-file: example.file"}
+      responses:
+        "201":
+          application/json: {"imageID": "533aadc1-0389-4da9-9c87-92bd49469db5", "link": "https://api.moov.io/images/qJRAaAwwF5hmfeAFdHjIb", "createdOn": "2023-03-14T15:49:36.140Z", "updatedOn": "2024-08-18T16:45:51.667Z"}
+        "400":
+          application/json: {"error": "<value>"}
+        "422":
+          application/json: {}
+  updateImage:
+    speakeasy-default-update-image:
+      parameters:
+        path:
+          accountID: "310f4f19-45cf-4429-9aae-8e93827ecb0d"
+          imageID: "8ef109f8-5a61-4355-b2e4-b8ac2f6f6f47"
+        header:
+          x-moov-version: "v2024.01.00"
+      requestBody:
+        multipart/form-data: {}
+      responses:
+        "200":
+          application/json: {"imageID": "37d44505-cb7b-46de-8995-9c6633aaa305", "link": "https://api.moov.io/images/qJRAaAwwF5hmfeAFdHjIb", "createdOn": "2023-07-27T04:09:13.260Z", "updatedOn": "2025-11-20T16:38:12.638Z"}
+        "400":
+          application/json: {"error": "<value>"}
+        "422":
+          application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Php SDK Changes Detected:\n* `moov->products->list()`:  `response.[]->optionGroups->[]->options->[]->priceModifier` **Changed** **Breaking** :warning:\n* `moov->products->create()`: \n  *  `request.productRequest->optionGroups->[]->options->[]->priceModifier` **Changed** **Breaking** :warning:\n  *  `response.optionGroups->[]->options->[]->priceModifier` **Changed** **Breaking** :warning:\n  *  `error.optionGroups->{}->options->{}->priceModifier` **Changed** **Breaking** :warning:\n* `moov->products->get()`:  `response.optionGroups->[]->options->[]->priceModifier` **Changed** **Breaking** :warning:\n* `moov->products->update()`: \n  *  `request.productRequest->optionGroups->[]->options->[]->priceModifier` **Changed** **Breaking** :warning:\n  *  `response.optionGroups->[]->options->[]->priceModifier` **Changed** **Breaking** :warning:\n  *  `error.optionGroups->{}->options->{}->priceModifier` **Changed** **Breaking** :warning:\n"
+releaseNotes: |
+  ## Php SDK Changes Detected:
+  * `moov->images->upload()`: **Added**
+  * `moov->images->update()`: **Added**
