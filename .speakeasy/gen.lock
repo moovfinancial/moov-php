@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 7d66d52cadf8fc1fce3e1d83c945ff5f
+  docChecksum: 3b20e597f278ede21cd6129177ea431e
   docVersion: latest
-  speakeasyVersion: 1.637.0
-  generationVersion: 2.727.4
-  releaseVersion: 0.6.0
-  configChecksum: 81cee7ccfccda938e5a01104543d48cb
+  speakeasyVersion: 1.637.3
+  generationVersion: 2.727.9
+  releaseVersion: 0.6.1
+  configChecksum: 79df9e800016cdd431dc49220f97a193
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
@@ -4320,5 +4320,5 @@ examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## Php SDK Changes Detected:
-  * `moov->images->upload()`: **Added**
-  * `moov->images->update()`: **Added**
+  * `moov->accounts->getFees()`:  `response.[]->generatedBy` **Changed** **Breaking** :warning:
+  * `moov->feeplans->fetchFees()`:  `response.[]->generatedBy` **Changed** **Breaking** :warning:

@@ -15,7 +15,7 @@ class GeneratedByBankAccountID
      *
      * @var ?string $bankAccountID
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('BankAccountID')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('bankAccountID')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $bankAccountID = null;
 

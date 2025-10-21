@@ -15,7 +15,7 @@ class GeneratedByCardID
      *
      * @var ?string $cardID
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('CardID')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('cardID')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $cardID = null;
 

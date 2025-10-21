@@ -15,7 +15,7 @@ class GeneratedByDisputeID
      *
      * @var ?string $disputeID
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('DisputeID')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('disputeID')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $disputeID = null;
 
