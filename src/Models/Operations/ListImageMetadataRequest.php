@@ -19,6 +19,20 @@ class ListImageMetadataRequest
     public string $accountID;
 
     /**
+     *
+     * @var ?int $skip
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=skip')]
+    public ?int $skip = null;
+
+    /**
+     *
+     * @var ?int $count
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=count')]
+    public ?int $count = null;
+
+    /**
      * Specify an API version.
      *
      *
@@ -38,11 +52,15 @@ class ListImageMetadataRequest
     /**
      * @param  string  $accountID
      * @param  ?string  $xMoovVersion
+     * @param  ?int  $skip
+     * @param  ?int  $count
      * @phpstan-pure
      */
-    public function __construct(string $accountID, ?string $xMoovVersion = 'v2024.01.00')
+    public function __construct(string $accountID, ?int $skip = null, ?int $count = null, ?string $xMoovVersion = 'v2024.01.00')
     {
         $this->accountID = $accountID;
+        $this->skip = $skip;
+        $this->count = $count;
         $this->xMoovVersion = $xMoovVersion;
     }
 }

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 3b20e597f278ede21cd6129177ea431e
+  docChecksum: 11731228de48a8410bd220caea2c843f
   docVersion: latest
-  speakeasyVersion: 1.637.3
-  generationVersion: 2.727.9
-  releaseVersion: 0.6.1
-  configChecksum: 79df9e800016cdd431dc49220f97a193
+  speakeasyVersion: 1.638.0
+  generationVersion: 2.728.0
+  releaseVersion: 0.6.2
+  configChecksum: 77fcd21e617fe3347dfa9414618743bd
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
@@ -4176,6 +4176,9 @@ examples:
       parameters:
         path:
           accountID: "3a4ed2d9-03e1-4b0e-b45f-2a9ca72f8adb"
+        query:
+          skip: 60
+          count: 20
         header:
           x-moov-version: "v2024.01.00"
       responses:
@@ -4320,5 +4323,5 @@ examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## Php SDK Changes Detected:
-  * `moov->accounts->getFees()`:  `response.[]->generatedBy` **Changed** **Breaking** :warning:
-  * `moov->feeplans->fetchFees()`:  `response.[]->generatedBy` **Changed** **Breaking** :warning:
+  * `moov->images->list()`:  `request` **Changed**
+  * `moov->images->getPublic()`:  `error.status[503]` **Added**
