@@ -70,7 +70,7 @@ class ListSweepsRequest
      *
      * @var ?string $xMoovVersion
      */
-    #[SpeakeasyMetadata('header:style=simple,explode=false,name=x-moov-version')]
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=X-Moov-Version')]
     public ?string $xMoovVersion = null;
 
     /**

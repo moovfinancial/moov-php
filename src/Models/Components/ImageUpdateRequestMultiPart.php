@@ -14,10 +14,10 @@ class ImageUpdateRequestMultiPart
 {
     /**
      *
-     * @var ?ImageUpdateRequestMultiPartImage $image
+     * @var ImageUpdateRequestMultiPartImage $image
      */
     #[SpeakeasyMetadata('multipartForm:file=true,name=image')]
-    public ?ImageUpdateRequestMultiPartImage $image = null;
+    public ImageUpdateRequestMultiPartImage $image;
 
     /**
      * JSON-encoded metadata to update for the image.
@@ -31,11 +31,11 @@ class ImageUpdateRequestMultiPart
     public ?Metadata $metadata = null;
 
     /**
-     * @param  ?ImageUpdateRequestMultiPartImage  $image
+     * @param  ImageUpdateRequestMultiPartImage  $image
      * @param  ?Metadata  $metadata
      * @phpstan-pure
      */
-    public function __construct(?ImageUpdateRequestMultiPartImage $image = null, ?Metadata $metadata = null)
+    public function __construct(ImageUpdateRequestMultiPartImage $image, ?Metadata $metadata = null)
     {
         $this->image = $image;
         $this->metadata = $metadata;

@@ -87,7 +87,7 @@ class MoovBuilder
         return $this;
     }
     /**
-     * setXMoovVersion is used to configure the x-moov-version parameter for the SDK.
+     * setXMoovVersion is used to configure the X-Moov-Version parameter for the SDK.
      *
      * @param  string  $xMoovVersion
      * @return MoovBuilder

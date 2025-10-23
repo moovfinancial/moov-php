@@ -64,12 +64,12 @@ class IncurredFee
     /**
      * The entity that generated the fee.
      *
-     * @var GeneratedByTransferID|GeneratedByCardID|GeneratedByDisputeID|GeneratedByAccountID|GeneratedByBankAccountID|null $generatedBy
+     * @var ?GeneratedBy $generatedBy
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('generatedBy')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\GeneratedByTransferID|\Moov\MoovPhp\Models\Components\GeneratedByCardID|\Moov\MoovPhp\Models\Components\GeneratedByDisputeID|\Moov\MoovPhp\Models\Components\GeneratedByAccountID|\Moov\MoovPhp\Models\Components\GeneratedByBankAccountID|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\GeneratedBy|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public GeneratedByTransferID|GeneratedByCardID|GeneratedByDisputeID|GeneratedByAccountID|GeneratedByBankAccountID|null $generatedBy = null;
+    public ?GeneratedBy $generatedBy = null;
 
     /**
      * @param  ?string  $feeID
@@ -78,10 +78,10 @@ class IncurredFee
      * @param  ?\DateTime  $createdOn
      * @param  ?string  $feeName
      * @param  ?AmountDecimal  $amount
-     * @param  GeneratedByTransferID|GeneratedByCardID|GeneratedByDisputeID|GeneratedByAccountID|GeneratedByBankAccountID|null  $generatedBy
+     * @param  ?GeneratedBy  $generatedBy
      * @phpstan-pure
      */
-    public function __construct(?string $feeID = null, ?string $accountID = null, ?string $walletID = null, ?\DateTime $createdOn = null, ?string $feeName = null, ?AmountDecimal $amount = null, GeneratedByTransferID|GeneratedByCardID|GeneratedByDisputeID|GeneratedByAccountID|GeneratedByBankAccountID|null $generatedBy = null)
+    public function __construct(?string $feeID = null, ?string $accountID = null, ?string $walletID = null, ?\DateTime $createdOn = null, ?string $feeName = null, ?AmountDecimal $amount = null, ?GeneratedBy $generatedBy = null)
     {
         $this->feeID = $feeID;
         $this->accountID = $accountID;

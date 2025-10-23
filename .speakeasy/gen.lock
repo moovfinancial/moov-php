@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 11731228de48a8410bd220caea2c843f
+  docChecksum: 49d74d4f5d6c5593b23e2d8c24911d4f
   docVersion: latest
-  speakeasyVersion: 1.638.0
-  generationVersion: 2.728.0
-  releaseVersion: 0.6.2
-  configChecksum: 77fcd21e617fe3347dfa9414618743bd
+  speakeasyVersion: 1.638.1
+  generationVersion: 2.729.2
+  releaseVersion: 0.6.3
+  configChecksum: 2712a9018d02895a6913c5e2b59c3cd7
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
@@ -266,11 +266,6 @@ generatedFiles:
   - docs/Models/Components/FulfillmentTimeframe.md
   - docs/Models/Components/FullIssuedCard.md
   - docs/Models/Components/GeneratedBy.md
-  - docs/Models/Components/GeneratedByAccountID.md
-  - docs/Models/Components/GeneratedByBankAccountID.md
-  - docs/Models/Components/GeneratedByCardID.md
-  - docs/Models/Components/GeneratedByDisputeID.md
-  - docs/Models/Components/GeneratedByTransferID.md
   - docs/Models/Components/GeographicReach.md
   - docs/Models/Components/GovernmentID.md
   - docs/Models/Components/GovernmentIDError.md
@@ -600,6 +595,7 @@ generatedFiles:
   - docs/Models/Errors/FileUploadValidationError.md
   - docs/Models/Errors/FileValidationError.md
   - docs/Models/Errors/GenericError.md
+  - docs/Models/Errors/ImageMetadataValidationError.md
   - docs/Models/Errors/ImageRequestValidationError.md
   - docs/Models/Errors/LinkApplePayError.md
   - docs/Models/Errors/LinkCardError.md
@@ -916,6 +912,8 @@ generatedFiles:
   - docs/Models/Operations/UpdateCardResponse.md
   - docs/Models/Operations/UpdateDisputeEvidenceRequest.md
   - docs/Models/Operations/UpdateDisputeEvidenceResponse.md
+  - docs/Models/Operations/UpdateImageMetadataRequest.md
+  - docs/Models/Operations/UpdateImageMetadataResponse.md
   - docs/Models/Operations/UpdateImageRequest.md
   - docs/Models/Operations/UpdateImageResponse.md
   - docs/Models/Operations/UpdateIssuedCardRequest.md
@@ -1263,11 +1261,7 @@ generatedFiles:
   - src/Models/Components/FulfillmentMethod.php
   - src/Models/Components/FulfillmentTimeframe.php
   - src/Models/Components/FullIssuedCard.php
-  - src/Models/Components/GeneratedByAccountID.php
-  - src/Models/Components/GeneratedByBankAccountID.php
-  - src/Models/Components/GeneratedByCardID.php
-  - src/Models/Components/GeneratedByDisputeID.php
-  - src/Models/Components/GeneratedByTransferID.php
+  - src/Models/Components/GeneratedBy.php
   - src/Models/Components/GeographicReach.php
   - src/Models/Components/GovernmentID.php
   - src/Models/Components/GovernmentIDError.php
@@ -1606,6 +1600,8 @@ generatedFiles:
   - src/Models/Errors/FileValidationErrorThrowable.php
   - src/Models/Errors/GenericError.php
   - src/Models/Errors/GenericErrorThrowable.php
+  - src/Models/Errors/ImageMetadataValidationError.php
+  - src/Models/Errors/ImageMetadataValidationErrorThrowable.php
   - src/Models/Errors/ImageRequestValidationError.php
   - src/Models/Errors/ImageRequestValidationErrorThrowable.php
   - src/Models/Errors/LinkApplePayError.php
@@ -1951,6 +1947,8 @@ generatedFiles:
   - src/Models/Operations/UpdateCardResponse.php
   - src/Models/Operations/UpdateDisputeEvidenceRequest.php
   - src/Models/Operations/UpdateDisputeEvidenceResponse.php
+  - src/Models/Operations/UpdateImageMetadataRequest.php
+  - src/Models/Operations/UpdateImageMetadataResponse.php
   - src/Models/Operations/UpdateImageRequest.php
   - src/Models/Operations/UpdateImageResponse.php
   - src/Models/Operations/UpdateIssuedCardRequest.php
@@ -2046,6 +2044,7 @@ examples:
       parameters:
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"accountType": "business", "profile": {"business": {"legalBusinessName": "Whole Body Fitness LLC"}}}
       responses:
@@ -2064,6 +2063,7 @@ examples:
           count: 20
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: [{"accountID": "53ca67ea-6fd3-423f-9544-ce2404159d33", "mode": "sandbox", "accountType": "business", "displayName": "Whole Body Fitness LLC", "profile": {"business": {"legalBusinessName": "Whole Body Fitness LLC", "ownersProvided": false}}, "verification": {"verificationStatus": "unverified", "status": "unverified"}, "settings": {"cardPayment": {"statementDescriptor": "Whole Body Fitness LLC"}, "achPayment": {"companyName": "Whole Body Fitne"}}, "createdOn": "2024-12-16T17:55:20.557151867Z", "updatedOn": "2024-12-16T17:55:20.557151867Z"}]
@@ -2074,6 +2074,7 @@ examples:
           accountID: "2f93a6cf-3b3b-4c17-8d3b-110dfadccea4"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"accountID": "53ca67ea-6fd3-423f-9544-ce2404159d33", "mode": "sandbox", "accountType": "business", "displayName": "Whole Body Fitness LLC", "profile": {"business": {"legalBusinessName": "Whole Body Fitness LLC", "ownersProvided": false}}, "verification": {"verificationStatus": "unverified", "status": "unverified"}, "settings": {"cardPayment": {"statementDescriptor": "Whole Body Fitness LLC"}, "achPayment": {"companyName": "Whole Body Fitne"}}, "createdOn": "2024-12-16T17:55:20.557151867Z", "updatedOn": "2024-12-16T17:55:20.557151867Z"}
@@ -2084,6 +2085,7 @@ examples:
           accountID: "433cb9d1-5943-4fd5-91b4-2aef5b30e2e7"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"profile": {"individual": {"name": {"firstName": "Jordan", "middleName": "Reese", "lastName": "Lee", "suffix": "Jr"}, "phone": {"number": "8185551212", "countryCode": "1"}, "email": "jordan.lee@classbooker.dev", "address": {"addressLine1": "123 Main Street", "addressLine2": "Apt 302", "city": "Boulder", "stateOrProvince": "CO", "postalCode": "80301", "country": "US"}, "birthDate": {"day": 9, "month": 11, "year": 1989}}, "business": {"businessType": "llc", "address": {"addressLine1": "123 Main Street", "addressLine2": "Apt 302", "city": "Boulder", "stateOrProvince": "CO", "postalCode": "80301", "country": "US"}, "phone": {"number": "8185551212", "countryCode": "1"}, "email": "jordan.lee@classbooker.dev", "taxID": {"ein": {"number": "12-3456789"}}, "industryCodes": {"naics": "713940", "sic": "7991", "mcc": "7997"}}}, "metadata": {"optional": "metadata"}, "termsOfService": {"token": "kgT1uxoMAk7QKuyJcmQE8nqW_HjpyuXBabiXPi6T83fUQoxsyWYPcYzuHQTqrt7YRp4gCwyDQvb6U5REM9Pgl2EloCe35t-eiMAbUWGo3Kerxme6aqNcKrP_6-v0MTXViOEJ96IBxPFTvMV7EROI2dq3u4e-x4BbGSCedAX-ViAQND6hcreCDXwrO6sHuzh5Xi2IzSqZHxaovnWEboaxuZKRJkA3dsFID6fzitMpm2qrOh4"}, "customerSupport": {"phone": {"number": "8185551212", "countryCode": "1"}, "email": "jordan.lee@classbooker.dev", "address": {"addressLine1": "123 Main Street", "addressLine2": "Apt 302", "city": "Boulder", "stateOrProvince": "CO", "postalCode": "80301", "country": "US"}}}
       responses:
@@ -2100,6 +2102,7 @@ examples:
           accountID: "cfdfea7d-f185-4de5-ba90-b09f14fe6683"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "400":
           application/json: {"error": "<value>"}
@@ -2110,6 +2113,7 @@ examples:
           accountID: "a2026036-cc26-42c1-beef-950662d13b5d"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"countries": ["United States"]}
@@ -2120,6 +2124,7 @@ examples:
           accountID: "46736fa8-4bf7-4144-8e0e-dbea1eb0805b"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"countries": ["United States"]}
       responses:
@@ -2136,6 +2141,7 @@ examples:
           accountID: "6180d9b9-2377-4190-8530-70a99d31a578"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/pdf: "0xFfecC3FD5F"
@@ -2144,6 +2150,7 @@ examples:
       parameters:
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"token": "kgT1uxoMAk7QKuyJcmQE8nqW_HjpyuXBabiXPi6T83fUQoxsyWYPcYzuHQTqrt7YRp4gCwyDQvb6U5REM9Pgl2EloCe35t-eiMAbUWGo3Kerxme6aqNcKrP_6-v0MTXViOEJ96IBxPFTvMV7EROI2dq3u4e-x4BbGSCedAX-ViAQND6hcreCDXwrO6sHuzh5Xi2IzSqZHxaovnWEboaxuZKRJkA3dsFID6fzitMpm2qrOh4"}
@@ -2157,6 +2164,7 @@ examples:
           count: 20
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: [{"amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, {"amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, {"amount": {"currency": "USD", "valueDecimal": "12.987654321"}}]
@@ -2168,6 +2176,7 @@ examples:
           fileID: "af170db9-0d17-4a9f-ade6-5dd2f1b3412d"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"fileID": "a48b433f-6b24-4450-9caa-bd9b97056f1b", "fileName": "logo.png", "accountID": "c7128f97-89cd-4ce3-becf-5ca5b57dcf53", "filePurpose": "representative_verification", "fileStatus": "pending", "metadata": "{\"error_code\": \"document-name-mismatch\", \"requirement_id\": \"document.individual.verification\", \"representative_id\": \"c63ab175-251d-497e-a267-7346d087e180\", \"comment\": \"testing comment\"", "decisionReason": "not correct file", "fileSizeBytes": 325288, "createdOn": "2025-10-12T07:50:10.235Z", "updatedOn": "2023-02-06T18:16:27.730Z"}
@@ -2178,6 +2187,7 @@ examples:
           accountID: "c054f3a6-d542-4310-a955-830739f800f0"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: [{"adjustmentID": "bad9b7a5-d6bb-47be-946a-85eb49fe3be2", "walletID": "32f7004f-54fe-40a5-ad12-c627c4d7850e", "amount": {"currency": "USD", "valueDecimal": "12.987654321"}, "createdOn": "2024-12-29T06:38:58.708Z"}]
@@ -2189,6 +2199,7 @@ examples:
           adjustmentID: "cbe4a8e7-605f-4667-a308-1afde85cd7a5"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"adjustmentID": "950762dc-6318-413b-bcd8-2d040ea93fec", "walletID": "16801496-adae-4cb9-a977-0ceb656ad430", "amount": {"currency": "USD", "valueDecimal": "12.987654321"}, "createdOn": "2023-01-06T12:05:52.282Z"}
@@ -2199,6 +2210,7 @@ examples:
           accountID: "60825531-8c7e-421c-8014-019c6603250c"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"domains": ["checkout.classbooker.dev"]}
       responses:
@@ -2213,6 +2225,7 @@ examples:
           accountID: "34b1c132-91d4-4676-9864-87e1d961d56d"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"addDomains": ["pay.classbooker.dev"], "removeDomains": ["checkout.classbooker.dev"]}
       responses:
@@ -2225,6 +2238,7 @@ examples:
           accountID: "28704d00-d07b-47db-9e54-016a9713d697"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"accountID": "<id>", "displayName": "Cordie.Pfeffer91", "domains": ["checkout.classbooker.dev"], "createdOn": "2025-11-09T04:18:26.907Z", "updatedOn": "2023-08-23T09:21:32.029Z"}
@@ -2235,6 +2249,7 @@ examples:
           accountID: "32ab62ca-7afd-4f49-89cb-0bb237258f23"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"domain": "checkout.classbooker.dev", "displayName": "Fay11"}
       responses:
@@ -2249,6 +2264,7 @@ examples:
           accountID: "bf498c07-3852-4060-b561-bf992e26a851"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"token": {"paymentData": {"version": "EC_v1", "data": "3+f4oOTwPa6f1UZ6tG...CE=", "signature": "MIAGCSqGSIb3DQ.AAAA==", "header": {"ephemeralPublicKey": "MFkwEK...Md==", "publicKeyHash": "l0CnXdMv...D1I=", "transactionId": "32b...4f3"}}, "paymentMethod": {"displayName": "Visa 1234", "network": "Visa", "type": "debit"}, "transactionIdentifier": "32b...4f3"}, "billingContact": {"addressLines": ["123 Sesame Street"], "locality": "Phoenix", "postalCode": "30345", "administrativeArea": "AZ", "countryCode": "US"}}
       responses:
@@ -2265,6 +2281,7 @@ examples:
           accountID: "b326319d-6118-4921-8d82-d5810d562eef"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"plaidLink": {"publicToken": "<value>"}}
       responses:
@@ -2281,6 +2298,7 @@ examples:
           accountID: "85539920-22dd-4900-a07e-7a88268456d9"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: [{"bankAccountID": "833fa3ef-14d3-4c97-ba45-6af66f739832", "fingerprint": "dd4cbfe5fbaf47b392770b5b595bec604fd99394749b7d017153e2b9cfbea40e", "status": "new", "holderName": "John Doe", "holderType": "individual", "bankName": "Gringotts Bank", "bankAccountType": "checking", "routingNumber": "123456780", "lastFourAccountNumber": "6789", "updatedOn": "2024-11-26T22:37:06Z", "statusReason": "bank-account-created"}]
@@ -2292,6 +2310,7 @@ examples:
           bankAccountID: "dd241177-be83-4aad-80f8-31aded5f3616"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"bankAccountID": "833fa3ef-14d3-4c97-ba45-6af66f739832", "fingerprint": "dd4cbfe5fbaf47b392770b5b595bec604fd99394749b7d017153e2b9cfbea40e", "status": "new", "holderName": "John Doe", "holderType": "individual", "bankName": "Gringotts Bank", "bankAccountType": "checking", "routingNumber": "123456780", "lastFourAccountNumber": "6789", "updatedOn": "2024-11-26T22:37:06Z", "statusReason": "bank-account-created"}
@@ -2303,6 +2322,7 @@ examples:
           bankAccountID: "b9295fc2-f5fd-4767-894f-5ca45abfd3fc"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "400":
           application/json: {"error": "<value>"}
@@ -2314,6 +2334,7 @@ examples:
           bankAccountID: "f2b630cc-a8ae-44be-970b-7bed47b2d952"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "400":
           application/json: {"error": "<value>"}
@@ -2325,6 +2346,7 @@ examples:
           bankAccountID: "b468e916-699b-4590-becf-ede76d1413cb"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"amounts": [18, 21]}
       responses:
@@ -2342,6 +2364,7 @@ examples:
           bankAccountID: "aaceed83-ef83-4d48-8136-096f834280cc"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"verificationMethod": "ach", "status": "failed"}
@@ -2353,6 +2376,7 @@ examples:
           bankAccountID: "bd092468-393d-4ee0-85a8-48238fee70d2"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"verificationMethod": "instant", "status": "failed"}
@@ -2366,6 +2390,7 @@ examples:
           bankAccountID: "96606c15-fd37-49fe-9af2-4e42dcf44fe3"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"code": "MV1234"}
       responses:
@@ -2380,6 +2405,7 @@ examples:
           accountID: "0a6ae927-b52b-4ef4-86d0-288f27479817"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"colors": {"dark": {"accent": "#111111"}, "light": {"accent": "#111111"}}}
       responses:
@@ -2396,6 +2422,7 @@ examples:
           accountID: "0cd408b1-a57d-477b-825b-12331c2ed00a"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"colors": {"dark": {"accent": "#111111"}, "light": {"accent": "#111111"}}}
       responses:
@@ -2412,6 +2439,7 @@ examples:
           accountID: "8a4ec43e-d45f-481d-a291-683cb221e3cc"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"colors": {"dark": {"accent": "#111111"}, "light": {"accent": "#111111"}}}
@@ -2422,6 +2450,7 @@ examples:
           accountID: "0c0dc4a5-ecd9-4223-810a-a71632980156"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {}
       responses:
@@ -2447,6 +2476,7 @@ examples:
           accountID: "1a50ab1c-1714-49e7-a016-cea17b33511a"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: [{"capability": "collect-funds", "accountID": "2f213305-a981-4b02-b1be-fefe5908de2d", "status": "disabled", "createdOn": "2023-07-16T23:06:32.315Z", "updatedOn": "2023-07-20T07:01:43.530Z"}]
@@ -2468,6 +2498,7 @@ examples:
           accountID: "de140d5c-c78e-4ebb-a001-f51aaf6c814a"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"capabilities": []}
       responses:
@@ -2495,6 +2526,7 @@ examples:
           capabilityID: "send-funds"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"capability": "transfers", "accountID": "eb8b26fe-83f5-4e63-8e2c-7eb0c94d312a", "status": "enabled", "createdOn": "2023-09-10T00:14:30.908Z", "updatedOn": "2024-03-19T19:49:37.863Z"}
@@ -2506,6 +2538,7 @@ examples:
           capabilityID: "transfers"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "400":
           application/json: {"error": "<value>"}
@@ -2529,6 +2562,7 @@ examples:
         header:
           x-moov-version: "v2024.01.00"
           x-wait-for: "payment-method"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"cardNumber": "4111111111111111", "cardCvv": "123", "expiration": {"month": "01", "year": "21"}, "holderName": "Jules Jackson", "billingAddress": {"postalCode": "80301"}}
       responses:
@@ -2545,6 +2579,7 @@ examples:
           accountID: "b902712f-8ab9-47ba-b39f-5ccfbcac528c"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: [{"cardID": "01234567-89ab-cdef-0123-456789abcdef", "fingerprint": "9948962d92a1ce40c9f918cd9ece3a22bde62fb325a2f1fe2e833969de672ba3", "brand": "Visa", "cardType": "credit", "cardCategory": "CLASSIC", "lastFourCardNumber": "1111", "bin": "411111", "expiration": {"month": "01", "year": "21"}, "holderName": "Jules Jackson", "billingAddress": {"addressLine1": "123 Main Street", "addressLine2": "Apt 302", "city": "Boulder", "stateOrProvince": "CO", "postalCode": "80301", "country": "US"}, "cardVerification": {"cvv": "match", "addressLine1": "match", "postalCode": "match", "accountName": {"firstName": "match", "lastName": "match", "middleName": "match", "fullName": "match"}}, "issuer": "GRINGOTTS BANK", "issuerCountry": "US", "issuerURL": "HTTPS://WWW.EXAMPLE.COM/", "issuerPhone": "8185551212", "commercial": false, "regulated": false, "cardOnFile": true, "merchantAccountID": "01234567-89ab-cdef-0123-456789abcdef", "cardAccountUpdater": {"updatedOn": "2024-05-06T12:20:38.184Z", "updateType": "number-update"}, "domesticPushToCard": "standard", "domesticPullFromCard": "supported"}]
@@ -2556,6 +2591,7 @@ examples:
           cardID: "01234567-89ab-cdef-0123-456789abcdef"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"cardID": "01234567-89ab-cdef-0123-456789abcdef", "fingerprint": "9948962d92a1ce40c9f918cd9ece3a22bde62fb325a2f1fe2e833969de672ba3", "brand": "Visa", "cardType": "credit", "cardCategory": "CLASSIC", "lastFourCardNumber": "1111", "bin": "411111", "expiration": {"month": "01", "year": "21"}, "holderName": "Jules Jackson", "billingAddress": {"addressLine1": "123 Main Street", "addressLine2": "Apt 302", "city": "Boulder", "stateOrProvince": "CO", "postalCode": "80301", "country": "US"}, "cardVerification": {"cvv": "match", "addressLine1": "match", "postalCode": "match", "accountName": {"firstName": "match", "lastName": "match", "middleName": "match", "fullName": "match"}}, "issuer": "GRINGOTTS BANK", "issuerCountry": "US", "issuerURL": "HTTPS://WWW.EXAMPLE.COM/", "issuerPhone": "8185551212", "commercial": false, "regulated": false, "cardOnFile": true, "merchantAccountID": "01234567-89ab-cdef-0123-456789abcdef", "cardAccountUpdater": {"updatedOn": "2024-05-06T12:20:38.184Z", "updateType": "number-update"}, "domesticPushToCard": "standard", "domesticPullFromCard": "supported"}
@@ -2567,6 +2603,7 @@ examples:
           cardID: "01234567-89ab-cdef-0123-456789abcdef"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"cardCvv": "456"}
       responses:
@@ -2584,6 +2621,7 @@ examples:
           cardID: "01234567-89ab-cdef-0123-456789abcdef"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "400":
           application/json: {"error": "<value>"}
@@ -2609,6 +2647,7 @@ examples:
           count: 20
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: [{"disputeID": "6e356108-fdfa-4910-bbe4-1e3c8abf5520", "merchantAccountID": "34233b72-780c-4e0e-8b08-cbbe1bc878f8", "amount": {"currency": "USD", "value": 257753}, "networkReasonCode": "10.4", "transfer": {"transferID": "ecac148a-917e-4ee0-b46a-c51408939fff"}, "respondBy": "2024-12-23T18:55:00Z", "status": "response-needed", "phase": "chargeback", "createdOn": "2024-12-23T17:55:00Z"}]
@@ -2632,6 +2671,7 @@ examples:
           disputeID: "4be10af9-ddeb-428b-8333-7430afce142f"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"disputeID": "6e356108-fdfa-4910-bbe4-1e3c8abf5520", "merchantAccountID": "34233b72-780c-4e0e-8b08-cbbe1bc878f8", "amount": {"currency": "USD", "value": 257753}, "networkReasonCode": "10.4", "transfer": {"transferID": "ecac148a-917e-4ee0-b46a-c51408939fff"}, "respondBy": "2024-12-23T18:55:00Z", "status": "response-needed", "phase": "chargeback", "createdOn": "2024-12-23T17:55:00Z"}
@@ -2653,6 +2693,7 @@ examples:
           disputeID: "b7cf0931-5fbb-4e79-94cb-96291b634f63"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"disputeID": "6e356108-fdfa-4910-bbe4-1e3c8abf5520", "merchantAccountID": "34233b72-780c-4e0e-8b08-cbbe1bc878f8", "amount": {"currency": "USD", "value": 257753}, "networkReasonCode": "10.4", "transfer": {"transferID": "ecac148a-917e-4ee0-b46a-c51408939fff"}, "respondBy": "2024-12-23T18:55:00Z", "status": "response-needed", "phase": "chargeback", "createdOn": "2024-12-23T17:55:00Z"}
@@ -2666,6 +2707,7 @@ examples:
           disputeID: "f1c23432-4110-4981-9b72-b98df94bb61c"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: [{"evidenceID": "cb09d1a4-2da9-4a8a-a9b9-4de457a1356d", "disputeID": "9db5f000-60eb-41e9-8d0d-dfb574361032", "evidenceType": "generic-evidence", "createdOn": "2024-11-12T16:47:54.408Z", "updatedOn": "2025-11-18T21:26:55.818Z"}, {"evidenceID": "cb09d1a4-2da9-4a8a-a9b9-4de457a1356d", "disputeID": "9db5f000-60eb-41e9-8d0d-dfb574361032", "evidenceType": "generic-evidence", "createdOn": "2024-11-12T16:47:54.408Z", "updatedOn": "2025-11-18T21:26:55.818Z"}, {"evidenceID": "cb09d1a4-2da9-4a8a-a9b9-4de457a1356d", "disputeID": "9db5f000-60eb-41e9-8d0d-dfb574361032", "evidenceType": "generic-evidence", "createdOn": "2024-11-12T16:47:54.408Z", "updatedOn": "2025-11-18T21:26:55.818Z"}]
@@ -2677,6 +2719,7 @@ examples:
           disputeID: "b1db0cf5-be00-41d7-a125-1d2d283c2a62"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         multipart/form-data: {"file": "x-file: example.file", "evidenceType": "cancelation-policy"}
       responses:
@@ -2694,6 +2737,7 @@ examples:
           disputeID: "14832e8d-3613-45ce-942e-3116b9e0d194"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"text": "<value>", "evidenceType": "generic-evidence"}
       responses:
@@ -2709,6 +2753,7 @@ examples:
           disputeID: "8c5d6d6e-420a-49c8-b7c3-d4b5d1bbd415"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"disputeID": "6e356108-fdfa-4910-bbe4-1e3c8abf5520", "merchantAccountID": "34233b72-780c-4e0e-8b08-cbbe1bc878f8", "amount": {"currency": "USD", "value": 257753}, "networkReasonCode": "10.4", "transfer": {"transferID": "ecac148a-917e-4ee0-b46a-c51408939fff"}, "respondBy": "2024-12-23T18:55:00Z", "status": "response-needed", "phase": "chargeback", "createdOn": "2024-12-23T17:55:00Z"}
@@ -2723,6 +2768,7 @@ examples:
           evidenceID: "08c4d04c-1296-4bfd-bafb-bee195f85785"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"evidenceID": "75a8fa06-d4eb-4e57-8226-f0dfe362dd37", "disputeID": "a7749771-9e21-475a-9bd9-a128d6cdb224", "evidenceType": "proof-of-delivery", "createdOn": "2024-03-25T08:26:44.886Z", "updatedOn": "2023-06-06T03:22:21.545Z"}
@@ -2735,6 +2781,7 @@ examples:
           evidenceID: "fd46ede8-5d47-4e5e-91a7-9af8162f76b2"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {}
       responses:
@@ -2751,6 +2798,7 @@ examples:
           evidenceID: "ea10cba6-166f-464d-b57b-30d995d44b98"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "409":
           application/json: {"error": "<value>"}
@@ -2763,6 +2811,7 @@ examples:
           evidenceID: "3d195b92-798e-4ea4-9347-1c86efacbf38"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/pdf: "0xbf1Cd95efE"
@@ -2778,6 +2827,7 @@ examples:
           count: 20
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: [{"agreementID": "25f5ff72-5340-40a5-85e6-302c43fc6889", "planID": "2bc80586-7c12-45b1-b7a5-ec9153e71560", "name": "<value>", "acceptedOn": "2023-10-20T10:07:10.461Z", "status": "terminated", "cardAcquiringModel": "cost-plus", "billableFees": [{"billableFeeID": "9d957d33-1a9a-47aa-9460-fe1a90f003dd", "billableEvent": "card-auth-volume", "feeName": "Card decline fee", "feeModel": "fixed", "feeCategory": "card-acquiring", "feeProperties": {"fixedAmount": {"currency": "USD", "valueDecimal": "0.1"}, "volumeRanges": [{"fromValue": 239103, "flatAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "perUnitAmount": {"currency": "USD", "valueDecimal": "12.987654321"}}]}, "feeConditions": {"transactionType": ["decline"]}}], "minimumCommitment": {"currency": "USD", "valueDecimal": "12.987654321"}, "monthlyPlatformFee": {"currency": "USD", "valueDecimal": "12.987654321"}}, {"agreementID": "25f5ff72-5340-40a5-85e6-302c43fc6889", "planID": "2bc80586-7c12-45b1-b7a5-ec9153e71560", "name": "<value>", "acceptedOn": "2023-10-20T10:07:10.461Z", "status": "terminated", "cardAcquiringModel": "cost-plus", "billableFees": [{"billableFeeID": "9d957d33-1a9a-47aa-9460-fe1a90f003dd", "billableEvent": "card-auth-volume", "feeName": "Card decline fee", "feeModel": "fixed", "feeCategory": "card-acquiring", "feeProperties": {"fixedAmount": {"currency": "USD", "valueDecimal": "0.1"}, "volumeRanges": [{"fromValue": 239103, "flatAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "perUnitAmount": {"currency": "USD", "valueDecimal": "12.987654321"}}]}, "feeConditions": {"transactionType": ["decline"]}}], "minimumCommitment": {"currency": "USD", "valueDecimal": "12.987654321"}, "monthlyPlatformFee": {"currency": "USD", "valueDecimal": "12.987654321"}}]
@@ -2788,6 +2838,7 @@ examples:
           accountID: "409c6b4b-e622-40c2-9dc4-fb494e555723"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"planID": "19801f96-ea27-4610-b4d1-8c6b46f37928"}
       responses:
@@ -2804,6 +2855,7 @@ examples:
           accountID: "b3d59179-f74e-4ee8-b123-33220b3c7d4b"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: [{"planID": "fa23421a-92bf-406c-902d-a8a985f1ce1b", "name": "Fixed Rate Merchant Plan", "cardAcquiringModel": "flat-rate", "billableFees": [{"billableFeeID": "9d957d33-1a9a-47aa-9460-fe1a90f003dd", "billableEvent": "card-auth-volume", "feeName": "Card decline fee", "feeModel": "fixed", "feeCategory": "card-acquiring", "feeProperties": {"fixedAmount": {"currency": "USD", "valueDecimal": "0.1"}, "volumeRanges": [{"fromValue": 237376, "flatAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "perUnitAmount": {"currency": "USD", "valueDecimal": "12.987654321"}}]}, "feeConditions": {"transactionType": ["decline"]}}], "minimumCommitment": {"currency": "USD", "valueDecimal": "12.987654321"}, "monthlyPlatformFee": {"currency": "USD", "valueDecimal": "12.987654321"}, "createdAt": "2025-12-06T17:04:26.493Z"}, {"planID": "fa23421a-92bf-406c-902d-a8a985f1ce1b", "name": "Fixed Rate Merchant Plan", "cardAcquiringModel": "flat-rate", "billableFees": [{"billableFeeID": "9d957d33-1a9a-47aa-9460-fe1a90f003dd", "billableEvent": "card-auth-volume", "feeName": "Card decline fee", "feeModel": "fixed", "feeCategory": "card-acquiring", "feeProperties": {"fixedAmount": {"currency": "USD", "valueDecimal": "0.1"}, "volumeRanges": [{"fromValue": 237376, "flatAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "perUnitAmount": {"currency": "USD", "valueDecimal": "12.987654321"}}]}, "feeConditions": {"transactionType": ["decline"]}}], "minimumCommitment": {"currency": "USD", "valueDecimal": "12.987654321"}, "monthlyPlatformFee": {"currency": "USD", "valueDecimal": "12.987654321"}, "createdAt": "2025-12-06T17:04:26.493Z"}, {"planID": "fa23421a-92bf-406c-902d-a8a985f1ce1b", "name": "Fixed Rate Merchant Plan", "cardAcquiringModel": "flat-rate", "billableFees": [{"billableFeeID": "9d957d33-1a9a-47aa-9460-fe1a90f003dd", "billableEvent": "card-auth-volume", "feeName": "Card decline fee", "feeModel": "fixed", "feeCategory": "card-acquiring", "feeProperties": {"fixedAmount": {"currency": "USD", "valueDecimal": "0.1"}, "volumeRanges": []}, "feeConditions": {"transactionType": ["decline"]}}], "minimumCommitment": {"currency": "USD", "valueDecimal": "12.987654321"}, "monthlyPlatformFee": {"currency": "USD", "valueDecimal": "12.987654321"}, "createdAt": "2025-12-06T17:04:26.493Z"}]
@@ -2814,6 +2866,7 @@ examples:
           accountID: "55c34e26-269d-4872-8e42-0fa83e3f4b10"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: [{"amount": {"currency": "USD", "valueDecimal": "12.987654321"}}]
@@ -2824,6 +2877,7 @@ examples:
           accountID: "600637f9-c38a-473f-b909-0d5ac537b8a5"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: [{"planID": "41ed75b5-ca4d-4500-9dab-013c2d82489e", "name": "Fixed Rate Merchant Plan", "revenueShare": "10", "cardAcquiringModel": "cost-plus", "billableFees": [{"billableFeeID": "9d957d33-1a9a-47aa-9460-fe1a90f003dd", "billableEvent": "card-auth-volume", "feeName": "Card decline fee", "feeModel": "fixed", "feeCategory": "card-acquiring", "feeProperties": {"fixedAmount": {"currency": "USD", "valueDecimal": "0.1"}, "volumeRanges": []}, "feeConditions": {"transactionType": ["decline"]}}], "minimumCommitment": {"currency": "USD", "valueDecimal": "12.987654321"}, "monthlyPlatformFee": {"currency": "USD", "valueDecimal": "12.987654321"}, "createdAt": "2024-08-02T23:33:27.243Z"}]
@@ -2837,6 +2891,7 @@ examples:
           count: 20
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: [{"agreementID": "ba2da1e9-2d20-4087-954c-b98d8a31f7cd", "planID": "c36ac001-943c-45db-b131-c61168041bc0", "name": "<value>", "acceptedOn": "2023-09-13T12:35:32.627Z", "status": "terminated", "cardAcquiringModel": "cost-plus", "billableFees": [{"billableFeeID": "9d957d33-1a9a-47aa-9460-fe1a90f003dd", "billableEvent": "card-auth-volume", "feeName": "Card decline fee", "feeModel": "fixed", "feeCategory": "card-acquiring", "feeProperties": {"fixedAmount": {"currency": "USD", "valueDecimal": "0.1"}, "volumeRanges": []}, "feeConditions": {"transactionType": ["decline"]}}], "minimumCommitment": {"currency": "USD", "valueDecimal": "12.987654321"}, "monthlyPlatformFee": {"currency": "USD", "valueDecimal": "12.987654321"}, "revenueShare": "10"}]
@@ -2847,6 +2902,7 @@ examples:
           accountID: "51ae4a14-07bf-4659-b9b7-285439b7a22e"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         multipart/form-data: {"file": "x-file: example.file", "filePurpose": "representative_verification", "metadata": "{\"requirement_id\": \"document.individual.verification\"}"}
       responses:
@@ -2863,6 +2919,7 @@ examples:
           accountID: "d1133bf2-4853-4436-9a03-23739895ab98"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: [{"fileID": "b13078e8-2feb-47ab-88f2-d1e24c736de9", "fileName": "logo.png", "accountID": "4d8ea8d7-6aa5-482c-96fe-8800f1c74d95", "filePurpose": "representative_verification", "fileStatus": "pending", "metadata": "{\"error_code\": \"document-name-mismatch\", \"requirement_id\": \"document.individual.verification\", \"representative_id\": \"c63ab175-251d-497e-a267-7346d087e180\", \"comment\": \"testing comment\"", "decisionReason": "not correct file", "fileSizeBytes": 257222, "createdOn": "2025-03-31T14:09:52.046Z", "updatedOn": "2023-09-13T05:01:08.866Z"}, {"fileID": "b13078e8-2feb-47ab-88f2-d1e24c736de9", "fileName": "logo.png", "accountID": "4d8ea8d7-6aa5-482c-96fe-8800f1c74d95", "filePurpose": "representative_verification", "fileStatus": "pending", "metadata": "{\"error_code\": \"document-name-mismatch\", \"requirement_id\": \"document.individual.verification\", \"representative_id\": \"c63ab175-251d-497e-a267-7346d087e180\", \"comment\": \"testing comment\"", "decisionReason": "not correct file", "fileSizeBytes": 257222, "createdOn": "2025-03-31T14:09:52.046Z", "updatedOn": "2023-09-13T05:01:08.866Z"}]
@@ -2873,6 +2930,7 @@ examples:
           accountID: "cc1d04a8-03b1-4600-b675-e6180d574074"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"partnerAccountID": "d290f1ee-6c54-4b01-90e6-d701748f0851", "merchantPaymentMethodID": "4c4e7f8e-81f4-4f3d-8f6f-6f6e7f8e4c4e", "amount": {"currency": "USD", "value": 10000}, "display": {"title": "Example Payment Link", "description": "This is an example payment link.", "callToAction": "pay"}, "customer": {"requirePhone": true}, "payment": {"allowedMethods": ["card-payment", "ach-debit-collect"]}}
       responses:
@@ -2889,6 +2947,7 @@ examples:
           accountID: "d1039e6d-21ee-4a29-8adf-1dd2a6625a0d"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: [{"code": "3QLHtONjd5", "mode": "sandbox", "status": "active", "partnerAccountID": "d290f1ee-6c54-4b01-90e6-d701748f0851", "merchantAccountID": "34233b72-780c-4e0e-8b08-cbbe1bc878f8", "merchantPaymentMethodID": "4c4e7f8e-81f4-4f3d-8f6f-6f6e7f8e4c4e", "link": "https://moov.money/3QLHtONjd5", "amount": {"currency": "USD", "value": 10000}, "uses": 0, "display": {"title": "Example Payment Link", "description": "This is an example payment link.", "callToAction": "pay"}, "customer": {"requirePhone": true}, "payment": {"allowedMethods": ["card-payment", "ach-debit-collect"]}, "createdOn": "2025-01-09T17:09:13.33Z", "updatedOn": "2025-01-09T17:09:13.33Z"}]
@@ -2900,6 +2959,7 @@ examples:
           paymentLinkCode: "uc7ZYKrMhi"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"code": "3QLHtONjd5", "mode": "sandbox", "status": "active", "partnerAccountID": "d290f1ee-6c54-4b01-90e6-d701748f0851", "merchantAccountID": "34233b72-780c-4e0e-8b08-cbbe1bc878f8", "merchantPaymentMethodID": "4c4e7f8e-81f4-4f3d-8f6f-6f6e7f8e4c4e", "link": "https://moov.money/3QLHtONjd5", "amount": {"currency": "USD", "value": 10000}, "uses": 0, "display": {"title": "Example Payment Link", "description": "This is an example payment link.", "callToAction": "pay"}, "customer": {"requirePhone": true}, "payment": {"allowedMethods": ["card-payment", "ach-debit-collect"]}, "createdOn": "2025-01-09T17:09:13.33Z", "updatedOn": "2025-01-09T17:09:13.33Z"}
@@ -2911,6 +2971,7 @@ examples:
           paymentLinkCode: "uc7ZYKrMhi"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"amount": {"currency": "USD", "value": 12099}, "customer": {"requireAddress": true, "requirePhone": true}}
       responses:
@@ -2928,6 +2989,7 @@ examples:
           paymentLinkCode: "uc7ZYKrMhi"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
   getPaymentLinkQRCode:
     speakeasy-default-get-payment-link-QR-code:
       parameters:
@@ -2936,6 +2998,7 @@ examples:
           paymentLinkCode: "uc7ZYKrMhi"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"qrCode": "iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAIAAADaA7F0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA..."}
@@ -2956,6 +3019,7 @@ examples:
           accountID: "f5503781-dfe4-4bcd-9487-5b5fe2b4d53b"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: [{"paymentMethodID": "e00e9759-11c4-42a6-bdb7-6ad7459d7b1c", "paymentMethodType": "ach-debit-fund", "bankAccount": {"bankAccountID": "29781cfb-d4b8-48f5-9609-17d34916c113", "fingerprint": "<value>", "status": "new", "holderName": "<value>", "holderType": "individual", "bankName": "<value>", "bankAccountType": "loan", "routingNumber": "<value>", "lastFourAccountNumber": "<value>", "updatedOn": "2025-07-05T14:51:11.091Z"}}]
@@ -2977,6 +3041,7 @@ examples:
           paymentMethodID: "aa740bf3-4c5f-459b-9370-4f7d4bea382b"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"paymentMethodID": "074a5f67-f965-4997-9599-4bbbe72f5f5e", "paymentMethodType": "rtp-credit", "bankAccount": {"bankAccountID": "2f12d0d7-a87a-42be-afd7-6395d3a0a4c2", "fingerprint": "<value>", "status": "pending", "holderName": "<value>", "holderType": "individual", "bankName": "<value>", "bankAccountType": "checking", "routingNumber": "<value>", "lastFourAccountNumber": "<value>", "updatedOn": "2025-11-10T13:03:32.290Z"}}
@@ -2987,6 +3052,7 @@ examples:
           accountID: "5abfe3a5-7cd3-4f92-a8bd-19b64e3ccc10"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"name": {"firstName": "Jordan", "middleName": "Reese", "lastName": "Lee", "suffix": "Jr"}, "phone": {"number": "8185551212", "countryCode": "1"}, "email": "jordan.lee@classbooker.dev", "address": {"addressLine1": "123 Main Street", "addressLine2": "Apt 302", "city": "Boulder", "stateOrProvince": "CO", "postalCode": "80301", "country": "US"}, "birthDate": {"day": 9, "month": 11, "year": 1989}, "responsibilities": {"ownershipPercentage": 38, "jobTitle": "CEO"}}
       responses:
@@ -3003,6 +3069,7 @@ examples:
           accountID: "aa071158-7ed6-4c18-af34-4fa37b755e53"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: [{"representativeID": "e5d90b39-600a-46bb-9d5c-0157079792b7", "name": {"firstName": "Jordan", "middleName": "Reese", "lastName": "Lee", "suffix": "Jr"}, "phone": {"number": "8185551212", "countryCode": "1"}, "email": "jordan.lee@classbooker.dev", "address": {"addressLine1": "123 Main Street", "addressLine2": "Apt 302", "city": "Boulder", "stateOrProvince": "CO", "postalCode": "80301", "country": "US"}, "responsibilities": {"ownershipPercentage": 38, "jobTitle": "CEO"}, "createdOn": "2023-11-03T13:58:49.981Z", "updatedOn": "2025-06-26T00:48:52.697Z"}, {"representativeID": "e5d90b39-600a-46bb-9d5c-0157079792b7", "name": {"firstName": "Jordan", "middleName": "Reese", "lastName": "Lee", "suffix": "Jr"}, "phone": {"number": "8185551212", "countryCode": "1"}, "email": "jordan.lee@classbooker.dev", "address": {"addressLine1": "123 Main Street", "addressLine2": "Apt 302", "city": "Boulder", "stateOrProvince": "CO", "postalCode": "80301", "country": "US"}, "responsibilities": {"ownershipPercentage": 38, "jobTitle": "CEO"}, "createdOn": "2023-11-03T13:58:49.981Z", "updatedOn": "2025-06-26T00:48:52.697Z"}]
@@ -3014,6 +3081,7 @@ examples:
           representativeID: "74d0f56b-b81b-467a-bc86-47a55fe5e503"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "400":
           application/json: {"error": "<value>"}
@@ -3025,6 +3093,7 @@ examples:
           representativeID: "00d87070-b167-48e6-be2f-198b5e1556c4"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"representativeID": "e30f90a5-e53f-4354-9122-9eb3bf36b0b0", "name": {"firstName": "Jordan", "middleName": "Reese", "lastName": "Lee", "suffix": "Jr"}, "phone": {"number": "8185551212", "countryCode": "1"}, "email": "jordan.lee@classbooker.dev", "address": {"addressLine1": "123 Main Street", "addressLine2": "Apt 302", "city": "Boulder", "stateOrProvince": "CO", "postalCode": "80301", "country": "US"}, "responsibilities": {"ownershipPercentage": 38, "jobTitle": "CEO"}, "createdOn": "2024-06-20T12:52:06.415Z", "updatedOn": "2023-03-11T21:34:18.727Z"}
@@ -3036,6 +3105,7 @@ examples:
           representativeID: "e89d3d0d-fbe3-4df6-8b18-d7cbcb761161"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"name": {"firstName": "Jordan", "middleName": "Reese", "lastName": "Lee", "suffix": "Jr"}, "phone": {"number": "8185551212", "countryCode": "1"}, "address": {"addressLine1": "123 Main Street", "addressLine2": "Apt 302", "city": "Boulder", "stateOrProvince": "CO", "postalCode": "80301", "country": "US"}, "birthDate": null, "responsibilities": {"ownershipPercentage": 38, "jobTitle": "CEO"}}
       responses:
@@ -3050,6 +3120,7 @@ examples:
           accountID: "38fd6ae1-0e70-4162-9359-d64482d61854"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"occurrences": [{"occurrenceID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "runOn": "2009-11-10T23:00:00Z", "runTransfer": {"amount": {"currency": "USD", "value": 1204}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "sediment yahoo a rudely mmm massive helpful brr"}}, {"occurrenceID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "runOn": "2009-11-10T23:00:00Z", "runTransfer": {"amount": {"currency": "USD", "value": 1204}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "sediment yahoo a rudely mmm massive helpful brr"}}], "recur": {"recurrenceRule": "<value>", "runTransfer": {"amount": {"currency": "USD", "value": 1204}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "sediment yahoo a rudely mmm massive helpful brr"}, "start": "2009-11-10T23:00:00Z"}}
       responses:
@@ -3069,6 +3140,7 @@ examples:
           count: 20
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: [{"destinationAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "mode": "production", "occurrences": [{"mode": "production", "runOn": "2025-02-21T17:08:08.097Z", "runTransfer": {"amount": {"currency": "USD", "value": 1204}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "worth better provided"}}, {"mode": "production", "runOn": "2025-02-21T17:08:08.097Z", "runTransfer": {"amount": {"currency": "USD", "value": 1204}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "worth better provided"}}, {"mode": "production", "runOn": "2025-02-21T17:08:08.097Z", "runTransfer": {"amount": {"currency": "USD", "value": 1204}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "worth better provided"}}], "ownerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "recur": {"recurrenceRule": "<value>", "runTransfer": {"amount": {"currency": "USD", "value": 1204}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "worth better provided"}, "start": "2009-11-10T23:00:00Z"}, "scheduleID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "sourceAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "createdOn": "2023-11-04T08:19:49.752Z", "updatedOn": "2025-10-16T11:38:36.434Z"}]
@@ -3080,6 +3152,7 @@ examples:
           scheduleID: "1b29a8ad-60ee-4c90-90e7-fda62cd24154"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"occurrences": [{"occurrenceID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "runOn": "2009-11-10T23:00:00Z", "runTransfer": {"amount": {"currency": "USD", "value": 1204}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "er reasoning following veto oof fervently ha how till now"}}, {"occurrenceID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "runOn": "2009-11-10T23:00:00Z", "runTransfer": {"amount": {"currency": "USD", "value": 1204}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "er reasoning following veto oof fervently ha how till now"}}, {"occurrenceID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "runOn": "2009-11-10T23:00:00Z", "runTransfer": {"amount": {"currency": "USD", "value": 1204}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "er reasoning following veto oof fervently ha how till now"}}], "recur": {"recurrenceRule": "<value>", "runTransfer": {"amount": {"currency": "USD", "value": 1204}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "er reasoning following veto oof fervently ha how till now"}, "start": "2009-11-10T23:00:00Z"}}
       responses:
@@ -3097,6 +3170,7 @@ examples:
           scheduleID: "55487e07-f3b7-44e8-b6f3-64fc85701c34"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"destinationAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "mode": "production", "occurrences": [{"mode": "production", "runOn": "2024-01-01T08:31:57.297Z", "runTransfer": {"amount": {"currency": "USD", "value": 1204}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "gently lest banish appertain resolve agile beyond drat psst"}}, {"mode": "production", "runOn": "2024-01-01T08:31:57.297Z", "runTransfer": {"amount": {"currency": "USD", "value": 1204}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "gently lest banish appertain resolve agile beyond drat psst"}}], "ownerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "recur": {"recurrenceRule": "<value>", "runTransfer": {"amount": {"currency": "USD", "value": 1204}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "gently lest banish appertain resolve agile beyond drat psst"}, "start": "2009-11-10T23:00:00Z"}, "scheduleID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "sourceAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "createdOn": "2025-01-10T05:23:46.948Z", "updatedOn": "2023-09-22T17:43:13.629Z"}
@@ -3109,6 +3183,7 @@ examples:
           occurrenceFilter: "<value>"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"mode": "production", "runOn": "2024-08-28T12:44:49.769Z", "runTransfer": {"amount": {"currency": "USD", "value": 1204}, "destination": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "partnerAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "source": {"paymentMethodID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "achDetails": {"companyEntryDescription": "Gym dues", "originatingCompanyName": "Whole Body Fit"}, "cardDetails": {"dynamicDescriptor": "WhlBdy *Yoga 11-12"}}, "description": "and always opposite helplessly quaff"}}
@@ -3120,6 +3195,7 @@ examples:
           scheduleID: "5ca67de0-63f6-4cb7-b94a-6c84616ffe03"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "400":
           application/json: {"error": "<value>"}
@@ -3141,6 +3217,7 @@ examples:
           accountID: "02c3d1d1-d847-4eb3-bef3-8caa32a5610b"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"walletID": "cd0ec32e-bd84-418c-90d3-fffbc5465f8b", "status": "enabled", "pushPaymentMethodID": "c7a72abe-280e-467d-b136-223df09ed56f", "pullPaymentMethodID": "6b1feb79-7c08-4d6a-ac73-99aeb4735e7c"}
       responses:
@@ -3166,6 +3243,7 @@ examples:
           accountID: "ed67e4c8-03d3-4d88-ba38-fcd87de45a92"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: [{"sweepConfigID": "eea1b7df-e57a-48cc-a970-1bfd5ee46f8e", "walletID": "011ae67b-88c6-4ddf-b420-c1d07a292695", "status": "enabled", "pushPaymentMethod": {"paymentMethodID": "9dd0d940-644a-4e81-a573-b8bfd70b79d4"}, "pullPaymentMethod": {"paymentMethodID": "00b45484-ae7d-473c-a572-aa0228fce584"}, "createdOn": "2024-06-19T05:06:14.400Z", "updatedOn": "2023-04-30T00:39:15.787Z"}]
@@ -3187,6 +3265,7 @@ examples:
           sweepConfigID: "bfddff28-5291-4d9b-a0f8-22a0895e8486"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"sweepConfigID": "f5c623b6-fa68-4607-9de5-829ef0639b3f", "walletID": "131eab7b-495a-4992-87a0-3fad086920e5", "status": "disabled", "pushPaymentMethod": {"paymentMethodID": "ca03b20b-b121-4d06-87c9-db225d497381"}, "pullPaymentMethod": {"paymentMethodID": "64b20595-2057-4857-befb-a21dec422183"}, "createdOn": "2024-02-20T04:51:39.687Z", "updatedOn": "2025-02-01T14:08:03.269Z"}
@@ -3210,6 +3289,7 @@ examples:
           sweepConfigID: "f7943244-882b-4a3a-837a-a58418358399"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {}
       responses:
@@ -3243,6 +3323,7 @@ examples:
           count: 20
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: [{"sweepID": "b157b318-4fa9-4f35-bdfb-31972b5af2fd", "status": "failed", "accruedAmount": "<value>", "currency": "USD", "accrualStartedOn": "2023-08-15T21:06:01.613Z", "subtotals": [{"type": "wallet-transfer", "count": 677458, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}]}]
@@ -3255,6 +3336,7 @@ examples:
           sweepID: "c88c9731-06c2-4b4a-a7d2-34c8b936d9ae"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"sweepID": "01234567-89ab-cdef-0123-456789abcdef", "status": "paid", "accruedAmount": "100.00", "residualBalance": "0.00", "currency": "USD", "accrualStartedOn": "2024-05-06T12:20:38.184Z", "accrualEndedOn": "2024-05-06T12:20:38.184Z", "pushPaymentMethodID": "01234567-89ab-cdef-0123-456789abcdef", "transferID": "01234567-89ab-cdef-0123-456789abcdef", "transferAmount": "12.98", "statementDescriptor": "swp_012345", "subtotals": [{"type": "moov-fee", "count": 1, "amount": {"currency": "USD", "valueDecimal": "50.00"}}, {"type": "account-funding", "count": 1, "amount": {"currency": "USD", "valueDecimal": "50.00"}}]}
@@ -3266,6 +3348,7 @@ examples:
           sweepID: "0d89f082-405d-49ed-9a20-e47891c11c8a"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"sweepID": "01234567-89ab-cdef-0123-456789abcdef", "status": "accruing", "accruedAmount": "100.00", "currency": "USD", "accrualStartedOn": "2024-05-06T12:20:38.184Z", "subtotals": [{"type": "moov-fee", "count": 1, "amount": {"currency": "USD", "valueDecimal": "50.00"}}, {"type": "account-funding", "count": 1, "amount": {"currency": "USD", "valueDecimal": "50.00"}}]}
@@ -3276,6 +3359,7 @@ examples:
           accountID: "76d4c8a0-1f2b-4e3b-8f5c-7a9e1b2c3d4e"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"terminalApplicationID": "12345678-1234-1234-1234-123456789012"}
       responses:
@@ -3292,6 +3376,7 @@ examples:
           accountID: "76d4c8a0-1f2b-4e3b-8f5c-7a9e1b2c3d4e"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: [{"accountID": "76d4c8a0-1f2b-4e3b-8f5c-7a9e1b2c3d4e", "terminalApplicationID": "12345678-1234-1234-1234-123456789012"}]
@@ -3303,6 +3388,7 @@ examples:
           terminalApplicationID: "12345678-1234-1234-1234-123456789012"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"accountID": "76d4c8a0-1f2b-4e3b-8f5c-7a9e1b2c3d4e", "terminalApplicationID": "12345678-1234-1234-1234-123456789012"}
@@ -3314,6 +3400,7 @@ examples:
           terminalApplicationID: "12345678-1234-1234-1234-123456789012"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"configuration": "Zm9vYmFyCg=="}
@@ -3325,6 +3412,7 @@ examples:
         header:
           x-idempotency-key: "d6903402-776f-48d6-8fba-0358959d34e5"
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"source": {"paymentMethodID": "9506dbf6-4208-44c3-ad8a-e4431660e1f2"}, "destination": {"paymentMethodID": "3f9969cf-a1f3-4d83-8ddc-229a506651cf"}, "amount": {"currency": "USD", "value": 32945}, "description": "Transfer from card to wallet", "metadata": {"optional": "metadata"}}
       responses:
@@ -3337,6 +3425,7 @@ examples:
         header:
           x-idempotency-key: "6de5561f-5a9f-4bd3-a458-ce0baacae20d"
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"source": {"paymentMethodID": "9506dbf6-4208-44c3-ad8a-e4431660e1f2"}, "destination": {"paymentMethodID": "3f9969cf-a1f3-4d83-8ddc-229a506651cf"}, "amount": {"currency": "USD", "value": 32945}, "description": "Transfer from card to wallet", "metadata": {"optional": "metadata"}}
       responses:
@@ -3352,6 +3441,7 @@ examples:
           count: 20
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: [{"transferID": "d835gf30-4b19-4850-a9b2-c0624c41ecb3", "createdOn": "2025-01-21T21:32:16Z", "source": {"paymentMethodID": "9506dbf6-4208-44c3-ad8a-e4431660e1f2", "paymentMethodType": "card-payment", "account": {"accountID": "7e4b26c2-b399-49ef-8390-50e1ea44d550", "email": "jules@julesjackson.com", "displayName": "Jules Jackson"}, "card": {"cardID": "aefd5563-93c6-413c-875e-1bd0ebfc116d", "fingerprint": "2f5d782ceef1c3bd31ed5...", "brand": "Visa", "cardType": "credit", "lastFourCardNumber": "2000", "bin": "400020", "expiration": {"month": "01", "year": "28"}, "holderName": "Jules Jackson", "billingAddress": {"postalCode": "80301"}, "cardVerification": {"cvv": "unavailable", "addressLine1": "unavailable", "postalCode": "unavailable", "accountName": {"firstName": "unavailable", "lastName": "unavailable", "middleName": "unavailable", "fullName": "unavailable"}}, "issuer": "Moov Visa Sandbox", "issuerCountry": "US", "cardAccountUpdater": {}, "domesticPushToCard": "standard", "domesticPullFromCard": "supported"}, "cardDetails": {"status": "confirmed", "dynamicDescriptor": "WhlBdy *Yoga 11-12", "confirmedOn": "2025-01-21T21:32:16.799681237Z"}}, "destination": {"paymentMethodID": "3f9969cf-a1f3-4d83-8ddc-229a506651cf", "paymentMethodType": "moov-wallet", "account": {"accountID": "34233b72-780c-4a0d-8b08-cbbe23k878f8", "email": "john@wholebodyfitness.io", "displayName": "Whole Body Fitness"}, "wallet": {"walletID": "744b2e78-8cc8-4a6a-af42-611e3b844503", "partnerAccountID": "0579c895-4d2b-4024-8092-f71b80ab5d00", "walletType": "general"}}, "status": "pending", "amount": {"currency": "USD", "value": 32945}, "description": "Transfer from card to wallet"}]
@@ -3365,6 +3455,7 @@ examples:
           accountID: "31113f7b-9f68-44e9-9338-6d8e655c7c96"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"transferID": "d835gf30-4b19-4850-a9b2-c0624c41ecb3", "createdOn": "2025-01-21T21:32:16Z", "source": {"paymentMethodID": "9506dbf6-4208-44c3-ad8a-e4431660e1f2", "paymentMethodType": "card-payment", "account": {"accountID": "7e4b26c2-b399-49ef-8390-50e1ea44d550", "email": "jules@julesjackson.com", "displayName": "Jules Jackson"}, "card": {"cardID": "aefd5563-93c6-413c-875e-1bd0ebfc116d", "fingerprint": "2f5d782ceef1c3bd31ed5...", "brand": "Visa", "cardType": "credit", "lastFourCardNumber": "2000", "bin": "400020", "expiration": {"month": "01", "year": "28"}, "holderName": "Jules Jackson", "billingAddress": {"postalCode": "80301"}, "cardVerification": {"cvv": "unavailable", "addressLine1": "unavailable", "postalCode": "unavailable", "accountName": {"firstName": "unavailable", "lastName": "unavailable", "middleName": "unavailable", "fullName": "unavailable"}}, "issuer": "Moov Visa Sandbox", "issuerCountry": "US", "cardAccountUpdater": {}, "domesticPushToCard": "standard", "domesticPullFromCard": "supported"}, "cardDetails": {"status": "confirmed", "dynamicDescriptor": "WhlBdy *Yoga 11-12", "confirmedOn": "2025-01-21T21:32:16.799681237Z"}}, "destination": {"paymentMethodID": "3f9969cf-a1f3-4d83-8ddc-229a506651cf", "paymentMethodType": "moov-wallet", "account": {"accountID": "34233b72-780c-4a0d-8b08-cbbe23k878f8", "email": "john@wholebodyfitness.io", "displayName": "Whole Body Fitness"}, "wallet": {"walletID": "744b2e78-8cc8-4a6a-af42-611e3b844503", "partnerAccountID": "65b57f28-49e9-4afb-9bf6-7e4fb6444917", "walletType": "general"}}, "status": "pending", "amount": {"currency": "USD", "value": 32945}, "description": "Transfer from card to wallet", "moovFees": [{"accountID": "7e4b26c2-b399-49ef-8390-50e1ea44d550", "transferParty": "source", "totalAmount": {"currency": "USD", "valueDecimal": "0.1"}, "feeIDs": ["9d957d33-1a9a-47aa-9460-fe1a90f003dd"]}]}
@@ -3376,6 +3467,7 @@ examples:
           accountID: "18a7907d-2f89-493a-b15a-3aad91c24496"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"metadata": {"optional": "metadata"}}
       responses:
@@ -3391,6 +3483,7 @@ examples:
           transferID: "36c80a6c-ceb2-4e5d-a437-8a39afdfdc58"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"cancellationID": "89ca7f54-13ba-4714-b9af-17163eae2057", "status": "completed", "createdOn": "2025-01-19T03:02:43.255309588Z"}
@@ -3414,6 +3507,7 @@ examples:
           cancellationID: "770cb4b5-d5b0-4e8b-995b-86b790296ba5"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"cancellationID": "89ca7f54-13ba-4714-b9af-17163eae2057", "status": "completed", "createdOn": "2025-01-19T03:02:43.255309588Z"}
@@ -3426,6 +3520,7 @@ examples:
         header:
           x-idempotency-key: "8d9af6b8-67e1-4efa-8188-68039f34097d"
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"amount": 1000}
       responses:
@@ -3439,6 +3534,7 @@ examples:
         header:
           x-idempotency-key: "4e7a906a-e6d1-4bca-9cc5-6246295ef93c"
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"amount": 1000}
       responses:
@@ -3462,6 +3558,7 @@ examples:
           transferID: "6b1aa1a1-bff1-43b9-9126-2806fdc9c732"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: [{"refundID": "3b8ca177-a402-43d2-88eb-38c2ba3c5dc0", "createdOn": "2024-02-14T05:49:46.407Z", "updatedOn": "2025-06-22T03:01:29.731Z", "status": "created", "amount": {"currency": "USD", "value": 1204}}]
@@ -3485,6 +3582,7 @@ examples:
           refundID: "8e12687e-a4e8-46c9-9e11-a57bbd781e44"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"refundID": "18037bce-04f8-464c-9d60-c7d3136a40a1", "createdOn": "2025-03-27T13:14:59.679Z", "updatedOn": "2023-07-31T23:52:13.362Z", "status": "pending", "amount": {"currency": "USD", "value": 1204}}
@@ -3497,6 +3595,7 @@ examples:
         header:
           x-idempotency-key: "b91d00b2-4ecb-4eb4-a67f-d6f76c0b7ad8"
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"amount": 1000}
       responses:
@@ -3510,6 +3609,7 @@ examples:
         header:
           x-idempotency-key: "93d03831-45c4-49ec-a9b2-88cbd41dfca7"
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"amount": 1000}
       responses:
@@ -3522,6 +3622,7 @@ examples:
           accountID: "deafe3cf-31d4-4dcc-8176-3d6bf8bb4f04"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"source": {}, "destination": {}, "amount": {"currency": "USD", "value": 1204}}
       responses:
@@ -3538,6 +3639,7 @@ examples:
           accountID: "efe07546-f697-4da5-bf73-d9987efd4cdd"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {}
@@ -3548,6 +3650,7 @@ examples:
           accountID: "371bf394-45df-4ba8-a615-ad5483b1f963"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"averageTransactionSize": 622191, "maxTransactionSize": 123692, "averageMonthlyTransactionVolume": 438164, "volumeByCustomerType": {"businessToBusinessPercentage": 671399, "consumerToBusinessPercentage": 482010}, "cardVolumeDistribution": {"ecommercePercentage": 47450, "cardPresentPercentage": 146275, "mailOrPhonePercentage": 309315, "debtRepaymentPercentage": 990303}, "fulfillment": {"hasPhysicalGoods": true, "isShippingProduct": true, "shipmentDurationDays": 388451, "returnPolicy": "other"}}
       responses:
@@ -3576,6 +3679,7 @@ examples:
           count: 20
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: [{"walletID": "4db4c1c0-d682-4bf9-9b5c-952207d1d15d", "availableBalance": {"currency": "USD", "value": 1204, "valueDecimal": "<value>"}, "partnerAccountID": "25221c3c-8e3f-40db-8570-66d17b51014d", "name": "<value>", "status": "active", "walletType": "general", "description": "likewise beyond hydrant drat that jeopardise whose disadvantage", "createdOn": "2024-01-20T06:32:10.729Z"}]
@@ -3599,6 +3703,7 @@ examples:
           walletID: "10a6bc37-8eeb-41c8-bf5f-77b40955542a"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"walletID": "15598b8b-1d91-4c43-ab38-0c32a9725a71", "availableBalance": {"currency": "USD", "value": 1204, "valueDecimal": "<value>"}, "partnerAccountID": "d04dfd44-8194-422f-a666-08d30c183f9a", "name": "<value>", "status": "active", "walletType": "default", "description": "underneath besides questioningly than misreport ew fooey over", "metadata": {"optional": "metadata"}, "createdOn": "2024-06-02T05:23:07.110Z"}
@@ -3626,6 +3731,7 @@ examples:
           count: 20
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: [{"walletID": "5532c31a-9ced-42c4-9f14-62fc23ae59a4", "transactionID": "52439d32-a6be-4d5c-bd3f-fbcae65a1f1a", "transactionType": "refund-failure", "sourceType": "transfer", "sourceID": "d9a9c4d9-fc78-40ef-b5a5-5d4a9f1a4350", "status": "failed", "memo": "<value>", "createdOn": "2023-01-29T04:14:24.300Z", "currency": "USD", "grossAmount": 31636, "grossAmountDecimal": "<value>", "fee": 595117, "feeDecimal": "<value>", "netAmount": 866412, "netAmountDecimal": "<value>"}]
@@ -3651,6 +3757,7 @@ examples:
           transactionID: "e0a32cf5-5758-49ba-83da-75bf02c9c6d7"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"walletID": "ad6c6ce2-a5cb-4294-84e4-67fe009c9b49", "transactionID": "6cdb9344-d54a-4a8a-9a1a-5950251d870b", "transactionType": "card-decline", "sourceType": "dispute", "sourceID": "07fe2dc9-b1c3-4b15-a22b-cd228ba9f14c", "status": "pending", "memo": "<value>", "createdOn": "2024-02-02T01:39:46.187Z", "currency": "USD", "grossAmount": 3463, "grossAmountDecimal": "<value>", "fee": 392014, "feeDecimal": "<value>", "netAmount": 910883, "netAmountDecimal": "<value>"}
@@ -3661,6 +3768,7 @@ examples:
           uniqueID: "<id>"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           image/*: "0x81b918c2D9"
@@ -3669,6 +3777,7 @@ examples:
       parameters:
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"token": "eyJhbGciOiJFQ0RILUVTK0EyNTZLVyIsImVuYyI6IkEyNTZHQ00iLCJlcGsiOnsia3R5IjoiRUMiLCJjcnYiOiJQLTUyMSIsIngiOiJBS0NYVDM1WVdvTm8wbzExNy1SU0dqUGg3alN1NjFmLUhnYkx1dW0xVG1ueTRlcW5yX2hyU0hpY0w1d3gwODRCWDBRZjVTdEtkRUoydzY2ZUJqWHprRV9OIiwieSI6IkFIMEJfT2RaYTQtbG43dGJ4M3VBdlc1NDNQRE9HUXBCTDloRFFNWjlTQXNfOW05UWN3dnhRd1hrb1VrM3VzT1FnVV9ySVFrNFRoZ1NTUzV4UlhKcm5ZaTkifSwia2lkIjoiYmRvV3pLekpKUGw0TVFIaENDa05WYTZlZ1dmYi02V1haSjZKTFZqQ0hWMD0ifQ.HalyoHsfufBJEODd2lD9ThQvvVWw3b2kgWDLHGxmHhMv8rODyLL_Ug.rpQP178t8Ed_pUU2.Sn9UFeVoegAxiMUv11q7l3M0y9YHSLYi2n_JB7n7Pc777_47-icfaxstJemT0IC81w.akkq1EBxzWkBr4vEomSpWA"}
       responses:
@@ -3679,6 +3788,7 @@ examples:
       parameters:
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"kty": "EC", "use": "enc", "alg": "ECDH-ES+A256KW", "kid": "bOaoOIgm-7dI_gBIvsr0jQrPyYp6H_od0Ok-hSYZQ-g=", "crv": "P-521", "x": "ABcm3wzKpPzYYwjDC0HSrxxVM3ULbuMDUuzkR5wNciaMHkZvQ02gLFdqTL65evV7EWaQyC7zRc28eW20p5MVDdQr", "y": "AVa-eQsoiltOcQYy1QEcrQ9NbWktl_D4ewfg8diOZ2_svLEgEu4T1PqNcLbBGozP_VqPkXOMwNCUNI7pxajVGiIP"}
@@ -3689,6 +3799,7 @@ examples:
           search: "<value>"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"suggestions": [{}]}
@@ -3699,6 +3810,7 @@ examples:
           email: "Thaddeus.Welch@gmail.com"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"business": {"address": {"addressLine1": "123 Main Street", "addressLine2": "Apt 302", "city": "Boulder", "stateOrProvince": "CO", "postalCode": "80301", "country": "US"}, "email": "jordan.lee@classbooker.dev", "industryCodes": {"naics": "713940", "sic": "7991"}, "phone": {"number": "8185551212", "countryCode": "1"}}}
@@ -3707,6 +3819,7 @@ examples:
       parameters:
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"industries": []}
@@ -3715,6 +3828,7 @@ examples:
       parameters:
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"achParticipants": [{"achLocation": {"address": "123 Main Street", "city": "Boulder", "postalCode": "80301", "postalCodeExtension": "0000", "state": "Colorado"}, "customerName": "Main Street Bank", "newRoutingNumber": "987654321", "officeCode": "0", "phoneNumber": "1234567789", "recordTypeCode": "1", "revised": "041921", "routingNumber": "123456789", "servicingFRBNumber": "123456789", "statusCode": "1", "viewCode": "1", "cleanName": "Main Street Bank", "logo": {"name": "Main Street Bank", "url": "https://www.mainstreetbank.com/logo.png"}}, {"achLocation": {"address": "123 Main Street", "city": "Boulder", "postalCode": "80301", "postalCodeExtension": "0000", "state": "Colorado"}, "customerName": "Main Street Bank", "newRoutingNumber": "987654321", "officeCode": "0", "phoneNumber": "1234567789", "recordTypeCode": "1", "revised": "041921", "routingNumber": "123456789", "servicingFRBNumber": "123456789", "statusCode": "1", "viewCode": "1", "cleanName": "Main Street Bank", "logo": {"name": "Main Street Bank", "url": "https://www.mainstreetbank.com/logo.png"}}]}
@@ -3730,6 +3844,7 @@ examples:
           count: 20
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: [{"authorizationID": "d44dc79a-bc38-43a6-bd41-5c426b594c0c", "issuedCardID": "b8eed25b-d6e0-439d-bcf2-d907528d5be7", "fundingWalletID": "209c115d-48a8-4881-970f-453174f254c0", "network": "discover", "authorizedAmount": "-14.89", "status": "canceled", "merchantData": {"name": "Whole Body Fitness", "city": "San Francisco", "country": "US", "postalCode": "94107", "state": "CA", "mcc": "7298"}, "createdOn": "2025-08-25T04:32:53.604Z"}, {"authorizationID": "d44dc79a-bc38-43a6-bd41-5c426b594c0c", "issuedCardID": "b8eed25b-d6e0-439d-bcf2-d907528d5be7", "fundingWalletID": "209c115d-48a8-4881-970f-453174f254c0", "network": "discover", "authorizedAmount": "-14.89", "status": "canceled", "merchantData": {"name": "Whole Body Fitness", "city": "San Francisco", "country": "US", "postalCode": "94107", "state": "CA", "mcc": "7298"}, "createdOn": "2025-08-25T04:32:53.604Z"}]
@@ -3741,6 +3856,7 @@ examples:
           authorizationID: "d9ee8dde-b1eb-492f-bea1-d8e09bccbc52"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"authorizationID": "5679e0eb-92ad-4d62-8654-5845c9b1ba45", "issuedCardID": "c2920cdf-9079-4249-bfbc-2d1cb78de45a", "fundingWalletID": "be90b6de-e185-4c1a-b908-cd34604f7dec", "network": "shazam", "authorizedAmount": "-14.89", "status": "canceled", "merchantData": {"name": "Whole Body Fitness", "city": "San Francisco", "country": "US", "postalCode": "94107", "state": "CA", "mcc": "7298"}, "createdOn": "2025-12-07T07:49:40.695Z"}
@@ -3755,6 +3871,7 @@ examples:
           count: 20
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: [{"eventID": "eb23494f-5b4f-4137-a153-f0b93ac8d618", "eventType": "clearing", "amount": "-14.89", "result": "processed", "createdOn": "2024-03-15T15:56:47.080Z"}]
@@ -3768,6 +3885,7 @@ examples:
           count: 20
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: [{"cardTransactionID": "66d68b3b-f9fa-402d-8b37-7901e0d82c51", "issuedCardID": "dfbe052a-e141-4efd-9be4-0b1784d5ae57", "fundingWalletID": "59b7399c-5bd6-481b-b6ab-998a04d00a1f", "amount": "-14.89", "authorizedOn": "2023-08-07T22:46:43.547Z", "merchantData": {"name": "Whole Body Fitness", "city": "San Francisco", "country": "US", "postalCode": "94107", "state": "CA", "mcc": "7298"}, "createdOn": "2025-02-19T21:27:25.037Z"}]
@@ -3779,6 +3897,7 @@ examples:
           cardTransactionID: "d5a1aab9-eb96-409a-ab95-88ac99cf00a5"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"cardTransactionID": "1c465368-01d9-4079-8359-e79009b1ff8a", "issuedCardID": "be25723e-2643-422b-9d9e-7c968aa792fe", "fundingWalletID": "f97211c6-f793-400d-afd2-bfadf24e033a", "amount": "-14.89", "authorizedOn": "2024-01-14T07:05:01.255Z", "merchantData": {"name": "Whole Body Fitness", "city": "San Francisco", "country": "US", "postalCode": "94107", "state": "CA", "mcc": "7298"}, "createdOn": "2024-03-14T23:28:20.507Z"}
@@ -3789,6 +3908,7 @@ examples:
           accountID: "d9ac71ae-fccb-4dfc-9fed-710ca654e3ed"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"fundingWalletID": "fd98e3b2-696f-4f67-9250-17b3474ababf", "authorizedUser": {"firstName": "Milton", "lastName": "Stiedemann", "birthDate": {"day": 9, "month": 11, "year": 1989}}, "formFactor": "virtual", "expiration": {"month": "01", "year": "21"}, "controls": {"velocityLimits": [{"amount": 10000, "interval": "per-transaction"}]}}
       responses:
@@ -3806,6 +3926,7 @@ examples:
           issuedCardID: "d04885c9-ea6b-43a7-9186-63d9fbd57716"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"issuedCardID": "deeefe7b-57ed-458b-b426-c18ea8227f44", "brand": "Visa", "lastFourCardNumber": "<value>", "expiration": {"month": "01", "year": "21"}, "authorizedUser": {"firstName": "Loma", "lastName": "Raynor"}, "fundingWalletID": "<id>", "state": "active", "formFactor": "virtual", "controls": {"velocityLimits": [{"amount": 10000, "interval": "per-transaction"}, {"amount": 10000, "interval": "per-transaction"}]}, "createdOn": "2025-06-18T04:15:21.229Z"}
@@ -3817,6 +3938,7 @@ examples:
           issuedCardID: "69ca2a7e-7bbc-4176-9d0c-2a1aa7143006"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"authorizedUser": {"birthDate": {"day": 9, "month": 11, "year": 1989}}}
       responses:
@@ -3832,6 +3954,7 @@ examples:
           issuedCardID: "087ecc51-11fe-4471-a3bb-44f20c1e87a9"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"issuedCardID": "c24cee70-26ae-4086-8585-5adbb8893a49", "brand": "Visa", "lastFourCardNumber": "<value>", "expiration": {"month": "01", "year": "21"}, "authorizedUser": {"firstName": "Elyse", "lastName": "Reinger"}, "fundingWalletID": "<id>", "state": "closed", "formFactor": "virtual", "controls": {"velocityLimits": [{"amount": 10000, "interval": "per-transaction"}]}, "createdOn": "2023-08-06T22:39:58.824Z", "pan": "<value>", "cvv": "098"}
@@ -3845,6 +3968,7 @@ examples:
           count: 20
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: [{"issuedCardID": "a42db9ea-0ef0-434f-84e1-e6241dd054ec", "brand": "Visa", "lastFourCardNumber": "<value>", "expiration": {"month": "01", "year": "21"}, "authorizedUser": {"firstName": "Bert", "lastName": "Mayert"}, "fundingWalletID": "<id>", "state": "inactive", "formFactor": "virtual", "controls": {"velocityLimits": [{"amount": 10000, "interval": "per-transaction"}]}, "createdOn": "2025-07-12T19:39:16.330Z"}, {"issuedCardID": "a42db9ea-0ef0-434f-84e1-e6241dd054ec", "brand": "Visa", "lastFourCardNumber": "<value>", "expiration": {"month": "01", "year": "21"}, "authorizedUser": {"firstName": "Bert", "lastName": "Mayert"}, "fundingWalletID": "<id>", "state": "inactive", "formFactor": "virtual", "controls": {"velocityLimits": [{"amount": 10000, "interval": "per-transaction"}]}, "createdOn": "2025-07-12T19:39:16.330Z"}]
@@ -3853,6 +3977,7 @@ examples:
       parameters:
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"token": "<value>", "client_id": "5clTR_MdVrrkgxw2", "client_secret": "dNC-hg7sVm22jc3g_Eogtyu0_1Mqh_4-"}
         application/x-www-form-urlencoded: {"token": "<value>", "client_id": "5clTR_MdVrrkgxw2", "client_secret": "dNC-hg7sVm22jc3g_Eogtyu0_1Mqh_4-"}
@@ -3866,6 +3991,7 @@ examples:
       parameters:
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"grant_type": "client_credentials", "client_id": "5clTR_MdVrrkgxw2", "client_secret": "dNC-hg7sVm22jc3g_Eogtyu0_1Mqh_4-", "scope": "/accounts.read /accounts.write", "refresh_token": "eyJhbGc0eSI6TQSIsImN0kpXVCIsImtp6IkpXVsImtpZC0a..."}
         application/x-www-form-urlencoded: {"grant_type": "client_credentials", "client_id": "5clTR_MdVrrkgxw2", "client_secret": "dNC-hg7sVm22jc3g_Eogtyu0_1Mqh_4-", "scope": "/accounts.read /accounts.write", "refresh_token": "eyJhbGc0eSI6TQSIsImN0kpXVCIsImtp6IkpXVsImtpZC0a..."}
@@ -3881,6 +4007,7 @@ examples:
       parameters:
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"scopes": ["accounts.read"], "capabilities": ["transfers"], "feePlanCodes": ["merchant-direct"], "prefill": {"accountType": "business", "profile": {"business": {"legalBusinessName": "Whole Body Fitness LLC"}}}}
       responses:
@@ -3895,6 +4022,7 @@ examples:
       parameters:
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: [{"code": "N1IA5eWYNh", "link": "https://cheerful-extension.org", "scopes": ["accounts.read"], "capabilities": ["transfers"], "feePlanCodes": ["merchant-direct"], "prefill": {"accountType": "business", "profile": {"business": {"legalBusinessName": "Whole Body Fitness LLC"}}}, "partner": {"accountID": "9343a755-4dff-4de8-95b9-dcc9776ef5a8", "accountMode": "production", "displayName": "Bob's Widgets"}, "createdOn": "2025-02-13T10:37:47.084Z"}, {"code": "N1IA5eWYNh", "link": "https://cheerful-extension.org", "scopes": ["accounts.read"], "capabilities": ["transfers"], "feePlanCodes": ["merchant-direct"], "prefill": {"accountType": "business", "profile": {"business": {"legalBusinessName": "Whole Body Fitness LLC"}}}, "partner": {"accountID": "9343a755-4dff-4de8-95b9-dcc9776ef5a8", "accountMode": "production", "displayName": "Bob's Widgets"}, "createdOn": "2025-02-13T10:37:47.084Z"}]
@@ -3905,6 +4033,7 @@ examples:
           code: "N1IA5eWYNh"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"code": "N1IA5eWYNh", "link": "https://austere-cappelletti.com", "scopes": ["accounts.read"], "capabilities": ["transfers"], "feePlanCodes": ["merchant-direct"], "prefill": {"accountType": "business", "profile": {"business": {"legalBusinessName": "Whole Body Fitness LLC"}}}, "partner": {"accountID": "056b20bf-2d5d-4e89-9317-29958a4e4a82", "accountMode": "production", "displayName": "Bob's Widgets"}, "createdOn": "2025-08-08T10:05:08.362Z"}
@@ -3915,16 +4044,19 @@ examples:
           code: "N1IA5eWYNh"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
   ping:
     speakeasy-default-ping:
       parameters:
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
   createReceipts:
     speakeasy-default-create-receipts:
       parameters:
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: []
       responses:
@@ -3939,6 +4071,7 @@ examples:
           id: "8508cf6c-9ce4-4e35-84c1-4b77320a620b"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: [{"receiptID": "4925c8a5-3b9a-4488-a514-9fd992546aca", "createdBy": "25a02396-1048-48f9-bf93-102d2fb7895e", "kind": "sale.customer.v1", "email": "jordan.lee@classbooker.dev", "forTransferID": "193ceb53-94c7-41c4-9272-c90c2832cb4c", "sentFor": [{"receiptID": "4925c8a5-3b9a-4488-a514-9fd992546aca", "idempotencyKey": "0c14c6a6-6f50-4d1e-b0c4-b46ff43ba6a1", "sentOn": "2025-01-16T17:52:14.219311143Z"}]}]
@@ -3947,6 +4080,7 @@ examples:
       parameters:
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"platform": "android", "packageName": "com.example.app", "sha256Digest": "AA:BB:CC:DD:EE:FF:AA:BB:CC:DD:EE:FF:AA:BB:CC:DD:AA:BB:CC:DD:EE:FF:AA:BB:CC:DD:EE:FF:AA:BB:CC:DD", "versionCode": "20332277"}
       responses:
@@ -3961,6 +4095,7 @@ examples:
       parameters:
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: [{"terminalApplicationID": "12345678-1234-1234-1234-123456789012", "status": "enabled", "platform": "ios", "appBundleID": "com.example.app", "packageName": "com.example.app", "sha256Digest": "1234567890", "versionCode": "1.0.0"}]
@@ -3971,6 +4106,7 @@ examples:
           terminalApplicationID: "12345678-1234-1234-1234-123456789012"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"terminalApplicationID": "12345678-1234-1234-1234-123456789012", "status": "pending", "platform": "android", "packageName": "com.example.app", "sha256Digest": "AA:BB:CC:DD:EE:FF:AA:BB:CC:DD:EE:FF:AA:BB:CC:DD:AA:BB:CC:DD:EE:FF:AA:BB:CC:DD:EE:FF:AA:BB:CC:DD", "versionCode": "20332277"}
@@ -3981,6 +4117,7 @@ examples:
           terminalApplicationID: "12345678-1234-1234-1234-123456789012"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "400":
           application/json: {"error": "<value>"}
@@ -3989,6 +4126,7 @@ examples:
       parameters:
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"ach": [{"name": "First Citizens", "routingNumber": "123456789", "address": {"addressLine1": "123 Main Street", "addressLine2": "Apt 302", "city": "Boulder", "stateOrProvince": "CO", "postalCode": "80301", "country": "US"}, "contact": {"phone": {"number": "8185551212", "countryCode": "1"}}}], "rtp": [], "wire": [{"name": "First Citizens", "routingNumber": "123456789", "address": {"addressLine1": "123 Main Street", "addressLine2": "Apt 302", "city": "Boulder", "stateOrProvince": "CO", "postalCode": "80301", "country": "US"}, "services": {"fundsTransferStatus": true, "fundsSettlementOnlyStatus": false, "bookEntrySecuritiesTransferStatus": false}}], "fednow": []}
@@ -4015,6 +4153,7 @@ examples:
           accountID: "ffe3ca1b-de3f-4305-8d8c-cfd28f279cad"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {}
       responses:
@@ -4031,6 +4170,7 @@ examples:
           accountID: "4af4784a-c777-48f6-8211-063d5341f84b"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"title": "<value>", "body": "<value>", "contact": {"email": "Melany.Roberts@yahoo.com"}}
       responses:
@@ -4050,6 +4190,7 @@ examples:
           count: 20
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"items": [{"ticketID": "<id>", "number": 877499, "title": "<value>", "contact": {"email": "Jadon.Schinner20@hotmail.com"}, "status": "on-hold", "createdOn": "2023-12-26T08:25:53.230Z", "updatedOn": "2023-01-10T16:33:45.538Z"}]}
@@ -4061,6 +4202,7 @@ examples:
           ticketID: "91fea9bf-b373-40f7-86e0-2c80690126e4"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"ticketID": "<id>", "number": 55177, "title": "<value>", "contact": {"email": "Florencio.Fahey19@yahoo.com"}, "status": "on-hold", "createdOn": "2025-09-29T16:08:46.272Z", "updatedOn": "2024-10-10T04:04:41.316Z"}
@@ -4072,6 +4214,7 @@ examples:
           ticketID: "1d621d17-8e7d-4ac0-9f7d-6e9fcebe8eef"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {}
       responses:
@@ -4092,6 +4235,7 @@ examples:
           count: 20
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: [{"author": "<value>", "body": "<value>", "sentOn": "2024-03-23T02:27:06.138Z"}]
@@ -4102,6 +4246,7 @@ examples:
           terminalApplicationID: "12345678-1234-1234-1234-123456789012"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"version": "20440059"}
       responses:
@@ -4118,6 +4263,7 @@ examples:
           accountID: "b4b3f37c-b73e-4271-b8ec-108a8593c9b9"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"name": "My wallet", "description": "A general wallet used for my payments", "metadata": {"optional": "metadata"}}
       responses:
@@ -4135,6 +4281,7 @@ examples:
           accountID: "e4aad2fb-201d-4390-b4d3-6de7716152e1"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"name": "My second wallet", "description": "My new description", "metadata": {"optional": "metadata"}}
       responses:
@@ -4154,6 +4301,7 @@ examples:
           count: 20
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: [{"statementID": "e4be54bf-96d6-444f-b01c-0e175967a2c0", "statementName": "<value>", "fileName": "example.file", "fileSize": 281032, "billingPeriodStartDateTime": "2024-10-17T09:30:55.077Z", "billingPeriodEndDateTime": "2025-09-10T02:38:03.006Z", "subscriptionIDs": ["<value 1>"], "summary": {"cardAcquiring": {"volumeAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "feeAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "interchangeFees": {"visa": {"currency": "USD", "valueDecimal": "12.987654321"}, "mastercard": {"currency": "USD", "valueDecimal": "12.987654321"}, "discover": {"currency": "USD", "valueDecimal": "12.987654321"}, "americanExpress": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "ach": {"volumeAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "feeAmount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "instantPayments": {"volumeAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "feeAmount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "platformFees": {"currency": "USD", "valueDecimal": "12.987654321"}, "adjustmentFees": {"currency": "USD", "valueDecimal": "12.987654321"}, "otherFees": {"currency": "USD", "valueDecimal": "12.987654321"}, "total": {"currency": "USD", "valueDecimal": "12.987654321"}}, "cardAcquiringFees": {"visa": {"interchange": {"count": 500717, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "interchangePrograms": [{"programName": "<value>", "count": 362075, "percentageRate": 4672.83, "perItemRate": {"currency": "USD", "valueDecimal": "12.987654321"}, "total": {"currency": "USD", "valueDecimal": "12.987654321"}, "transferVolume": {"currency": "USD", "valueDecimal": "12.987654321"}}], "networkPassthrough": {"count": 671365, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticOnline": {"count": 879912, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticInPerson": {"count": 620149, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalOnline": {"count": 358326, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalInPerson": {"count": 301983, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "declines": {"count": 212543, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "refunds": {"count": 126384, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"count": 107724, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "mastercard": {"interchange": {"count": 500717, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "interchangePrograms": [{"programName": "<value>", "count": 362075, "percentageRate": 4672.83, "perItemRate": {"currency": "USD", "valueDecimal": "12.987654321"}, "total": {"currency": "USD", "valueDecimal": "12.987654321"}, "transferVolume": {"currency": "USD", "valueDecimal": "12.987654321"}}], "networkPassthrough": {"count": 671365, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticOnline": {"count": 879912, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticInPerson": {"count": 620149, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalOnline": {"count": 358326, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalInPerson": {"count": 301983, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "declines": {"count": 212543, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "refunds": {"count": 126384, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"count": 107724, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "discover": {"interchange": {"count": 500717, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "interchangePrograms": [{"programName": "<value>", "count": 362075, "percentageRate": 4672.83, "perItemRate": {"currency": "USD", "valueDecimal": "12.987654321"}, "total": {"currency": "USD", "valueDecimal": "12.987654321"}, "transferVolume": {"currency": "USD", "valueDecimal": "12.987654321"}}], "networkPassthrough": {"count": 671365, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticOnline": {"count": 879912, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticInPerson": {"count": 620149, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalOnline": {"count": 358326, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalInPerson": {"count": 301983, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "declines": {"count": 212543, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "refunds": {"count": 126384, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"count": 107724, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "americanExpress": {"interchange": {"count": 500717, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "interchangePrograms": [{"programName": "<value>", "count": 362075, "percentageRate": 4672.83, "perItemRate": {"currency": "USD", "valueDecimal": "12.987654321"}, "total": {"currency": "USD", "valueDecimal": "12.987654321"}, "transferVolume": {"currency": "USD", "valueDecimal": "12.987654321"}}], "networkPassthrough": {"count": 671365, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticOnline": {"count": 879912, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticInPerson": {"count": 620149, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalOnline": {"count": 358326, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalInPerson": {"count": 301983, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "declines": {"count": 212543, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "refunds": {"count": 126384, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"count": 107724, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}}, "achFees": {"standardCredit": {"count": 581345, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "sameDayCredit": {"count": 946784, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "debits": {"count": 885521, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "return": {"count": 671871, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "unauthorizedReturn": {"count": 281238, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "noticeOfChange": {"count": 248570, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"count": 107724, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "instantPaymentFees": {"rtpCreditTransaction": {"count": 160394, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "rtpDecline": {"count": 431011, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "pushToCardTransaction": {"count": 599234, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "pushToCardDecline": {"count": 417130, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "pullFromCardTransaction": {"count": 22091, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "pullFromCardDecline": {"count": 784368, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "pullFromCardRefund": {"count": 656663, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"count": 107724, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "platformFees": {"walletFee": {"currency": "USD", "valueDecimal": "12.987654321"}, "merchantPCIFee": {"currency": "USD", "valueDecimal": "12.987654321"}, "total": {"currency": "USD", "valueDecimal": "12.987654321"}}, "otherCardFees": {"disputes": {"count": 566742, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "cardAccountUpdater": {"count": 429213, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "cardVerification": {"count": 947495, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "nameVerification": {"count": 820648, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"count": 107724, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "createdOn": "2025-10-25T02:00:38.723Z", "updatedOn": "2023-05-17T16:09:45.917Z"}]
@@ -4167,6 +4315,7 @@ examples:
           statementID: "9d45acbf-c4fe-4843-846c-eaa43c9ca17f"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"statementID": "6fcce0d9-75c1-4c2f-b04e-ce0f1cecf736", "statementName": "<value>", "fileName": "example.file", "fileSize": 491710, "billingPeriodStartDateTime": "2025-01-30T13:15:52.427Z", "billingPeriodEndDateTime": "2024-03-15T11:54:00.098Z", "subscriptionIDs": ["<value 1>", "<value 2>", "<value 3>"], "summary": {"cardAcquiring": {"volumeAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "feeAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "interchangeFees": {"visa": {"currency": "USD", "valueDecimal": "12.987654321"}, "mastercard": {"currency": "USD", "valueDecimal": "12.987654321"}, "discover": {"currency": "USD", "valueDecimal": "12.987654321"}, "americanExpress": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "ach": {"volumeAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "feeAmount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "instantPayments": {"volumeAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "feeAmount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "platformFees": {"currency": "USD", "valueDecimal": "12.987654321"}, "adjustmentFees": {"currency": "USD", "valueDecimal": "12.987654321"}, "otherFees": {"currency": "USD", "valueDecimal": "12.987654321"}, "total": {"currency": "USD", "valueDecimal": "12.987654321"}}, "cardAcquiringFees": {"visa": {"interchange": {"count": 566266, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "interchangePrograms": [{"programName": "<value>", "count": 311812, "percentageRate": 1208.53, "perItemRate": {"currency": "USD", "valueDecimal": "12.987654321"}, "total": {"currency": "USD", "valueDecimal": "12.987654321"}, "transferVolume": {"currency": "USD", "valueDecimal": "12.987654321"}}], "networkPassthrough": {"count": 314153, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticOnline": {"count": 830656, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticInPerson": {"count": 767457, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalOnline": {"count": 687826, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalInPerson": {"count": 141784, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "declines": {"count": 6447, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "refunds": {"count": 510292, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"count": 325636, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "mastercard": {"interchange": {"count": 566266, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "interchangePrograms": [{"programName": "<value>", "count": 311812, "percentageRate": 1208.53, "perItemRate": {"currency": "USD", "valueDecimal": "12.987654321"}, "total": {"currency": "USD", "valueDecimal": "12.987654321"}, "transferVolume": {"currency": "USD", "valueDecimal": "12.987654321"}}], "networkPassthrough": {"count": 314153, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticOnline": {"count": 830656, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticInPerson": {"count": 767457, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalOnline": {"count": 687826, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalInPerson": {"count": 141784, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "declines": {"count": 6447, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "refunds": {"count": 510292, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"count": 325636, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "discover": {"interchange": {"count": 566266, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "interchangePrograms": [{"programName": "<value>", "count": 311812, "percentageRate": 1208.53, "perItemRate": {"currency": "USD", "valueDecimal": "12.987654321"}, "total": {"currency": "USD", "valueDecimal": "12.987654321"}, "transferVolume": {"currency": "USD", "valueDecimal": "12.987654321"}}], "networkPassthrough": {"count": 314153, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticOnline": {"count": 830656, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticInPerson": {"count": 767457, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalOnline": {"count": 687826, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalInPerson": {"count": 141784, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "declines": {"count": 6447, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "refunds": {"count": 510292, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"count": 325636, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "americanExpress": {"interchange": {"count": 566266, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "interchangePrograms": [{"programName": "<value>", "count": 311812, "percentageRate": 1208.53, "perItemRate": {"currency": "USD", "valueDecimal": "12.987654321"}, "total": {"currency": "USD", "valueDecimal": "12.987654321"}, "transferVolume": {"currency": "USD", "valueDecimal": "12.987654321"}}], "networkPassthrough": {"count": 314153, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticOnline": {"count": 830656, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticInPerson": {"count": 767457, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalOnline": {"count": 687826, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalInPerson": {"count": 141784, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "declines": {"count": 6447, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "refunds": {"count": 510292, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"count": 325636, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}}, "achFees": {"standardCredit": {"count": 178500, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "sameDayCredit": {"count": 231593, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "debits": {"count": 940652, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "return": {"count": 437920, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "unauthorizedReturn": {"count": 476712, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "noticeOfChange": {"count": 950531, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"count": 325636, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "instantPaymentFees": {"rtpCreditTransaction": {"count": 497959, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "rtpDecline": {"count": 84081, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "pushToCardTransaction": {"count": 933887, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "pushToCardDecline": {"count": 148596, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "pullFromCardTransaction": {"count": 186879, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "pullFromCardDecline": {"count": 32245, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "pullFromCardRefund": {"count": 815075, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"count": 325636, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "platformFees": {"walletFee": {"currency": "USD", "valueDecimal": "12.987654321"}, "merchantPCIFee": {"currency": "USD", "valueDecimal": "12.987654321"}, "total": {"currency": "USD", "valueDecimal": "12.987654321"}}, "otherCardFees": {"disputes": {"count": 979998, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "cardAccountUpdater": {"count": 589185, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "cardVerification": {"count": 477464, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "nameVerification": {"count": 854516, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"count": 325636, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "createdOn": "2023-03-21T23:03:13.806Z", "updatedOn": "2025-12-26T06:16:23.912Z"}
@@ -4181,6 +4330,7 @@ examples:
           count: 20
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: [{"imageID": "5edf802b-5f6a-484d-aa0a-3f149b6a2175", "link": "https://api.moov.io/images/qJRAaAwwF5hmfeAFdHjIb", "createdOn": "2023-10-10T02:58:48.051Z", "updatedOn": "2025-08-12T02:08:56.107Z"}]
@@ -4192,6 +4342,7 @@ examples:
           imageID: "7cec5bd3-6340-4de4-a923-bf6ec0f7e921"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"imageID": "7608515e-9698-402b-8007-402711de1c6a", "link": "https://api.moov.io/images/qJRAaAwwF5hmfeAFdHjIb", "createdOn": "2024-09-02T01:01:36.892Z", "updatedOn": "2023-12-31T15:25:36.864Z"}
@@ -4203,6 +4354,7 @@ examples:
           imageID: "ca048253-31d2-4bfb-9077-1f07a2a09f26"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "400":
           application/json: {"error": "<value>"}
@@ -4228,6 +4380,7 @@ examples:
           count: 20
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: [{"productID": "1e229a22-6396-4efa-beac-d18ff5c58ab7", "title": "<value>", "basePrice": {"currency": "USD", "valueDecimal": "12.987654321"}, "optionGroups": [{"name": "<value>", "minSelect": 29985, "maxSelect": 247517, "options": [{"name": "<value>", "priceModifier": {"currency": "USD", "valueDecimal": "12.987654321"}, "images": [{"imageID": "47269bb9-c8c6-4c76-8933-0d6ce87d2946", "link": "https://api.moov.io/images/q7lKWleAy9fUNhEGezQ1g"}]}]}], "images": [{"imageID": "47269bb9-c8c6-4c76-8933-0d6ce87d2946", "link": "https://api.moov.io/images/q7lKWleAy9fUNhEGezQ1g"}], "createdOn": "2023-01-22T10:49:40.225Z", "updatedOn": "2023-11-19T10:02:46.267Z"}]
@@ -4238,6 +4391,7 @@ examples:
           accountID: "27cd3181-7c1c-4d81-b020-e7d55c33941f"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"title": "<value>", "basePrice": {"currency": "USD", "valueDecimal": "12.987654321"}, "optionGroups": [{"name": "<value>", "minSelect": 798807, "maxSelect": 321505, "options": [{"name": "<value>", "priceModifier": {"currency": "USD", "valueDecimal": "12.987654321"}}]}]}
       responses:
@@ -4255,6 +4409,7 @@ examples:
           productID: "dd0b4873-5cf5-4aa8-aa86-e31d86f7e38a"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "200":
           application/json: {"productID": "3c2445e7-f0c4-45d5-bd2a-88bcdc056c20", "title": "<value>", "basePrice": {"currency": "USD", "valueDecimal": "12.987654321"}, "optionGroups": [{"name": "<value>", "minSelect": 197351, "maxSelect": 515143, "options": []}], "images": [{"imageID": "33c05564-9e61-48d6-b69e-269a48a62a9e", "link": "https://api.moov.io/images/q7lKWleAy9fUNhEGezQ1g"}], "createdOn": "2024-11-12T09:31:50.113Z", "updatedOn": "2025-11-08T13:39:00.825Z"}
@@ -4266,6 +4421,7 @@ examples:
           productID: "fa407877-3b46-4484-814e-65b147d76a9e"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         application/json: {"title": "<value>", "basePrice": {"currency": "USD", "valueDecimal": "12.987654321"}, "optionGroups": [{"name": "<value>", "minSelect": 328576, "maxSelect": 430951, "options": []}]}
       responses:
@@ -4283,6 +4439,7 @@ examples:
           productID: "1e11a7dc-4e86-41ed-b256-55c22f3bfd38"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       responses:
         "400":
           application/json: {"error": "<value>"}
@@ -4293,6 +4450,7 @@ examples:
           accountID: "c0971a52-1f1c-4511-876a-f45c4cfd6154"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
         multipart/form-data: {"image": "x-file: example.file"}
       responses:
@@ -4310,8 +4468,9 @@ examples:
           imageID: "8ef109f8-5a61-4355-b2e4-b8ac2f6f6f47"
         header:
           x-moov-version: "v2024.01.00"
+          X-Moov-Version: "v2024.01.00"
       requestBody:
-        multipart/form-data: {}
+        multipart/form-data: {"image": "x-file: example.file"}
       responses:
         "200":
           application/json: {"imageID": "37d44505-cb7b-46de-8995-9c6633aaa305", "link": "https://api.moov.io/images/qJRAaAwwF5hmfeAFdHjIb", "createdOn": "2023-07-27T04:09:13.260Z", "updatedOn": "2025-11-20T16:38:12.638Z"}
@@ -4319,9 +4478,23 @@ examples:
           application/json: {"error": "<value>"}
         "422":
           application/json: {}
+  updateImageMetadata:
+    speakeasy-default-update-image-metadata:
+      parameters:
+        path:
+          accountID: "58c3c937-e648-49c5-88be-6225cca35af1"
+          imageID: "d957e703-ecd4-48ac-9c14-c0ecf1b496f0"
+        header:
+          X-Moov-Version: "v2024.01.00"
+      requestBody:
+        application/json: {}
+      responses:
+        "200":
+          application/json: {"imageID": "cb423c82-9aaf-48ef-af3b-465a22bc40d1", "link": "https://api.moov.io/images/qJRAaAwwF5hmfeAFdHjIb", "createdOn": "2025-05-20T15:12:09.782Z", "updatedOn": "2024-09-20T09:32:52.973Z"}
+        "400":
+          application/json: {"error": "<value>"}
+        "422":
+          application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Php SDK Changes Detected:
-  * `moov->images->list()`:  `request` **Changed**
-  * `moov->images->getPublic()`:  `error.status[503]` **Added**
+releaseNotes: "## Php SDK Changes Detected:\n* `moov->accounts->create()`:  `request` **Changed** **Breaking** :warning:\n* `moov->accounts->list()`:  `request` **Changed** **Breaking** :warning:\n* `moov->accounts->get()`:  `request` **Changed** **Breaking** :warning:\n* `moov->accounts->updateProfile()`:  `request` **Changed** **Breaking** :warning:\n* `moov->accounts->disconnect()`:  `request` **Changed** **Breaking** :warning:\n* `moov->accounts->getCountries()`:  `request` **Changed** **Breaking** :warning:\n* `moov->accounts->assignCountries()`:  `request` **Changed** **Breaking** :warning:\n* `moov->accounts->getMerchantAgreement()`:  `request` **Changed** **Breaking** :warning:\n* `moov->accounts->getTermsOfServiceToken()`:  `request` **Changed** **Breaking** :warning:\n* `moov->accounts->getFees()`: \n  *  `request` **Changed** **Breaking** :warning:\n  *  `response.[]->generatedBy` **Changed** **Breaking** :warning:\n* `moov->accounts->getFile()`:  `request` **Changed** **Breaking** :warning:\n* `moov->adjustments->list()`:  `request` **Changed** **Breaking** :warning:\n* `moov->adjustments->get()`:  `request` **Changed** **Breaking** :warning:\n* `moov->applepay->registerDomains()`:  `request` **Changed** **Breaking** :warning:\n* `moov->applepay->updateDomains()`:  `request` **Changed** **Breaking** :warning:\n* `moov->applepay->getDomains()`:  `request` **Changed** **Breaking** :warning:\n* `moov->applepay->createSession()`:  `request` **Changed** **Breaking** :warning:\n* `moov->applepay->linkToken()`:  `request` **Changed** **Breaking** :warning:\n* `moov->bankaccounts->link()`:  `request` **Changed** **Breaking** :warning:\n* `moov->bankaccounts->list()`:  `request` **Changed** **Breaking** :warning:\n* `moov->bankaccounts->get()`:  `request` **Changed** **Breaking** :warning:\n* `moov->bankaccounts->disable()`:  `request` **Changed** **Breaking** :warning:\n* `moov->bankaccounts->initiateMicroDeposits()`:  `request` **Changed** **Breaking** :warning:\n* `moov->bankaccounts->completeMicroDeposits()`:  `request` **Changed** **Breaking** :warning:\n* `moov->bankaccounts->getVerification()`:  `request` **Changed** **Breaking** :warning:\n* `moov->bankaccounts->initiateVerification()`:  `request` **Changed** **Breaking** :warning:\n* `moov->bankaccounts->completeVerification()`:  `request` **Changed** **Breaking** :warning:\n* `moov->branding->create()`:  `request` **Changed** **Breaking** :warning:\n* `moov->branding->upsert()`:  `request` **Changed** **Breaking** :warning:\n* `moov->branding->get()`:  `request` **Changed** **Breaking** :warning:\n* `moov->branding->update()`:  `request` **Changed** **Breaking** :warning:\n* `moov->capabilities->list()`:  `request` **Changed** **Breaking** :warning:\n* `moov->capabilities->request()`:  `request` **Changed** **Breaking** :warning:\n* `moov->capabilities->get()`:  `request` **Changed** **Breaking** :warning:\n* `moov->capabilities->disable()`:  `request` **Changed** **Breaking** :warning:\n* `moov->cards->link()`:  `request` **Changed** **Breaking** :warning:\n* `moov->cards->list()`:  `request` **Changed** **Breaking** :warning:\n* `moov->cards->get()`:  `request` **Changed** **Breaking** :warning:\n* `moov->cards->update()`:  `request` **Changed** **Breaking** :warning:\n* `moov->cards->disable()`:  `request` **Changed** **Breaking** :warning:\n* `moov->disputes->list()`:  `request` **Changed** **Breaking** :warning:\n* `moov->disputes->get()`:  `request` **Changed** **Breaking** :warning:\n* `moov->disputes->accept()`:  `request` **Changed** **Breaking** :warning:\n* `moov->disputes->listEvidence()`:  `request` **Changed** **Breaking** :warning:\n* `moov->disputes->uploadEvidenceFile()`:  `request` **Changed** **Breaking** :warning:\n* `moov->disputes->uploadEvidenceText()`:  `request` **Changed** **Breaking** :warning:\n* `moov->disputes->submitEvidence()`:  `request` **Changed** **Breaking** :warning:\n* `moov->disputes->getEvidence()`:  `request` **Changed** **Breaking** :warning:\n* `moov->disputes->updateEvidence()`:  `request` **Changed** **Breaking** :warning:\n* `moov->disputes->deleteEvidence()`:  `request` **Changed** **Breaking** :warning:\n* `moov->disputes->getEvidenceData()`:  `request` **Changed** **Breaking** :warning:\n* `moov->feeplans->list()`:  `request` **Changed** **Breaking** :warning:\n* `moov->feeplans->createAgreements()`:  `request` **Changed** **Breaking** :warning:\n* `moov->feeplans->listByAccount()`:  `request` **Changed** **Breaking** :warning:\n* `moov->feeplans->fetchFees()`: \n  *  `request` **Changed** **Breaking** :warning:\n  *  `response.[]->generatedBy` **Changed** **Breaking** :warning:\n* `moov->feeplans->listPartnerPricing()`:  `request` **Changed** **Breaking** :warning:\n* `moov->feeplans->listPartnerPricingAgreements()`:  `request` **Changed** **Breaking** :warning:\n* `moov->files->upload()`:  `request` **Changed** **Breaking** :warning:\n* `moov->files->list()`:  `request` **Changed** **Breaking** :warning:\n* `moov->images->list()`:  `request` **Changed** **Breaking** :warning:\n* `moov->images->upload()`:  `request` **Changed** **Breaking** :warning:\n* `moov->images->getMetadata()`:  `request` **Changed** **Breaking** :warning:\n* `moov->images->update()`:  `request` **Changed** **Breaking** :warning:\n* `moov->images->delete()`:  `request` **Changed** **Breaking** :warning:\n* `moov->paymentlinks->create()`:  `request` **Changed** **Breaking** :warning:\n* `moov->paymentlinks->list()`:  `request` **Changed** **Breaking** :warning:\n* `moov->paymentlinks->get()`:  `request` **Changed** **Breaking** :warning:\n* `moov->paymentlinks->update()`:  `request` **Changed** **Breaking** :warning:\n* `moov->paymentlinks->disable()`:  `request` **Changed** **Breaking** :warning:\n* `moov->paymentlinks->getQrCode()`:  `request` **Changed** **Breaking** :warning:\n* `moov->paymentmethods->list()`:  `request` **Changed** **Breaking** :warning:\n* `moov->paymentmethods->get()`:  `request` **Changed** **Breaking** :warning:\n* `moov->products->list()`:  `request` **Changed** **Breaking** :warning:\n* `moov->products->create()`:  `request` **Changed** **Breaking** :warning:\n* `moov->products->get()`:  `request` **Changed** **Breaking** :warning:\n* `moov->products->update()`:  `request` **Changed** **Breaking** :warning:\n* `moov->products->disable()`:  `request` **Changed** **Breaking** :warning:\n* `moov->representatives->create()`:  `request` **Changed** **Breaking** :warning:\n* `moov->representatives->list()`:  `request` **Changed** **Breaking** :warning:\n* `moov->representatives->delete()`:  `request` **Changed** **Breaking** :warning:\n* `moov->representatives->get()`:  `request` **Changed** **Breaking** :warning:\n* `moov->representatives->update()`:  `request` **Changed** **Breaking** :warning:\n* `moov->scheduling->create()`:  `request` **Changed** **Breaking** :warning:\n* `moov->scheduling->list()`:  `request` **Changed** **Breaking** :warning:\n* `moov->scheduling->update()`:  `request` **Changed** **Breaking** :warning:\n* `moov->scheduling->get()`:  `request` **Changed** **Breaking** :warning:\n* `moov->scheduling->getOccurrence()`:  `request` **Changed** **Breaking** :warning:\n* `moov->schedules->cancel()`:  `request` **Changed** **Breaking** :warning:\n* `moov->statements->list()`:  `request` **Changed** **Breaking** :warning:\n* `moov->statements->get()`:  `request` **Changed** **Breaking** :warning:\n* `moov->sweeps->createConfig()`:  `request` **Changed** **Breaking** :warning:\n* `moov->sweeps->listConfigs()`:  `request` **Changed** **Breaking** :warning:\n* `moov->sweeps->getConfig()`:  `request` **Changed** **Breaking** :warning:\n* `moov->sweeps->updateConfig()`:  `request` **Changed** **Breaking** :warning:\n* `moov->sweeps->list()`:  `request` **Changed** **Breaking** :warning:\n* `moov->sweeps->get()`:  `request` **Changed** **Breaking** :warning:\n* `moov->account terminal applications->link()`:  `request` **Changed** **Breaking** :warning:\n* `moov->account terminal applications->list()`:  `request` **Changed** **Breaking** :warning:\n* `moov->account terminal applications->get()`:  `request` **Changed** **Breaking** :warning:\n* `moov->account terminal applications->getConfiguration()`:  `request` **Changed** **Breaking** :warning:\n* `moov->support->createTicket()`:  `request` **Changed** **Breaking** :warning:\n* `moov->support->listTickets()`:  `request` **Changed** **Breaking** :warning:\n* `moov->support->getTicket()`:  `request` **Changed** **Breaking** :warning:\n* `moov->support->updateTicket()`:  `request` **Changed** **Breaking** :warning:\n* `moov->support->listTicketMessages()`:  `request` **Changed** **Breaking** :warning:\n* `moov->transfers->generateOptions()`:  `request` **Changed** **Breaking** :warning:\n* `moov->transfers->create()`:  `request` **Changed** **Breaking** :warning:\n* `moov->transfers->list()`:  `request` **Changed** **Breaking** :warning:\n* `moov->transfers->get()`:  `request` **Changed** **Breaking** :warning:\n* `moov->transfers->update()`:  `request` **Changed** **Breaking** :warning:\n* `moov->transfers->createCancellation()`:  `request` **Changed** **Breaking** :warning:\n* `moov->transfers->getCancellation()`:  `request` **Changed** **Breaking** :warning:\n* `moov->transfers->initiateRefund()`:  `request` **Changed** **Breaking** :warning:\n* `moov->transfers->listRefunds()`:  `request` **Changed** **Breaking** :warning:\n* `moov->transfers->getRefund()`:  `request` **Changed** **Breaking** :warning:\n* `moov->transfers->createReversal()`:  `request` **Changed** **Breaking** :warning:\n* `moov->underwriting->get()`:  `request` **Changed** **Breaking** :warning:\n* `moov->underwriting->save()`:  `request` **Changed** **Breaking** :warning:\n* `moov->underwriting->upsert()`:  `request` **Changed** **Breaking** :warning:\n* `moov->wallets->create()`:  `request` **Changed** **Breaking** :warning:\n* `moov->wallets->list()`:  `request` **Changed** **Breaking** :warning:\n* `moov->wallets->get()`:  `request` **Changed** **Breaking** :warning:\n* `moov->wallets->update()`:  `request` **Changed** **Breaking** :warning:\n* `moov->wallets->listTransactions()`:  `request` **Changed** **Breaking** :warning:\n* `moov->wallettransactions->get()`:  `request` **Changed** **Breaking** :warning:\n* `moov->avatars->get()`:  `request` **Changed** **Breaking** :warning:\n* `moov->endtoendencryption->testToken()`:  `request` **Changed** **Breaking** :warning:\n* `moov->endtoendencryption->generateKey()`:  `request` **Changed** **Breaking** :warning:\n* `moov->enrichment->address->get()`:  `request` **Changed** **Breaking** :warning:\n* `moov->enrichedprofile->get()`:  `request` **Changed** **Breaking** :warning:\n* `moov->industries->list()`:  `request` **Changed** **Breaking** :warning:\n* `moov->institutions->searchInstitutions()`:  `request` **Changed** **Breaking** :warning:\n* `moov->institutions->search()`:  `request` **Changed** **Breaking** :warning:\n* `moov->issuingtransactions->listAuthorizations()`:  `request` **Changed** **Breaking** :warning:\n* `moov->issuingtransactions->getAuthorization()`:  `request` **Changed** **Breaking** :warning:\n* `moov->issuingtransactions->listAuthorizationEvents()`:  `request` **Changed** **Breaking** :warning:\n* `moov->issuingtransactions->list()`:  `request` **Changed** **Breaking** :warning:\n* `moov->transactions->get()`:  `request` **Changed** **Breaking** :warning:\n* `moov->cardissuing->request()`:  `request` **Changed** **Breaking** :warning:\n* `moov->cardissuing->getIssuedCard()`:  `request` **Changed** **Breaking** :warning:\n* `moov->cardissuing->update()`:  `request` **Changed** **Breaking** :warning:\n* `moov->cardissuing->getFull()`:  `request` **Changed** **Breaking** :warning:\n* `moov->issuedcards->list()`:  `request` **Changed** **Breaking** :warning:\n* `moov->authentication->revokeToken()`:  `request` **Changed** **Breaking** :warning:\n* `moov->authentication->createToken()`:  `request` **Changed** **Breaking** :warning:\n* `moov->onboardinginvites->create()`:  `request` **Changed** **Breaking** :warning:\n* `moov->onboarding->listInvites()`:  `request` **Changed** **Breaking** :warning:\n* `moov->onboarding->getInvite()`:  `request` **Changed** **Breaking** :warning:\n* `moov->onboarding->revokeInvite()`:  `request` **Changed** **Breaking** :warning:\n* `moov->ping->get()`:  `request` **Changed** **Breaking** :warning:\n* `moov->receipts->create()`:  `request` **Changed** **Breaking** :warning:\n* `moov->receipts->list()`:  `request` **Changed** **Breaking** :warning:\n* `moov->terminalapplications->create()`:  `request` **Changed** **Breaking** :warning:\n* `moov->terminalapplications->list()`:  `request` **Changed** **Breaking** :warning:\n* `moov->terminalapplications->get()`:  `request` **Changed** **Breaking** :warning:\n* `moov->terminalapplications->delete()`:  `request` **Changed** **Breaking** :warning:\n* `moov->terminalapplications->createVersion()`:  `request` **Changed** **Breaking** :warning:\n* `moov->images->updateMetadata()`: **Added**\n"
