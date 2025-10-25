@@ -117,6 +117,15 @@ class BusinessProfile
     public ?IndustryCodes $industryCodes = null;
 
     /**
+     * Classification identifier for the industry. Use the [GET industries](https://docs.moov.io/api/enrichment/form-shortening/industries/get/) endpoint to retrieve an array of valid industry details for a merchant, inducing all industry field values.
+     *
+     * @var ?string $industry
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('industry')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $industry = null;
+
+    /**
      * If the business is a financial institution, this field describes its primary regulator.
      *
      * @var ?PrimaryRegulator $primaryRegulator
@@ -139,10 +148,11 @@ class BusinessProfile
      * @param  ?bool  $taxIDProvided
      * @param  ?array<Representative>  $representatives
      * @param  ?IndustryCodes  $industryCodes
+     * @param  ?string  $industry
      * @param  ?PrimaryRegulator  $primaryRegulator
      * @phpstan-pure
      */
-    public function __construct(string $legalBusinessName, bool $ownersProvided, ?string $doingBusinessAs = null, ?BusinessType $businessType = null, ?Address $address = null, ?PhoneNumber $phone = null, ?string $email = null, ?string $website = null, ?string $description = null, ?bool $taxIDProvided = null, ?array $representatives = null, ?IndustryCodes $industryCodes = null, ?PrimaryRegulator $primaryRegulator = null)
+    public function __construct(string $legalBusinessName, bool $ownersProvided, ?string $doingBusinessAs = null, ?BusinessType $businessType = null, ?Address $address = null, ?PhoneNumber $phone = null, ?string $email = null, ?string $website = null, ?string $description = null, ?bool $taxIDProvided = null, ?array $representatives = null, ?IndustryCodes $industryCodes = null, ?string $industry = null, ?PrimaryRegulator $primaryRegulator = null)
     {
         $this->legalBusinessName = $legalBusinessName;
         $this->ownersProvided = $ownersProvided;
@@ -156,6 +166,7 @@ class BusinessProfile
         $this->taxIDProvided = $taxIDProvided;
         $this->representatives = $representatives;
         $this->industryCodes = $industryCodes;
+        $this->industry = $industry;
         $this->primaryRegulator = $primaryRegulator;
     }
 }

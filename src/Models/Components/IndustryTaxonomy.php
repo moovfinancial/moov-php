@@ -13,7 +13,7 @@ namespace Moov\MoovPhp\Models\Components;
 class IndustryTaxonomy
 {
     /**
-     * URL-safe identifier for the industry
+     * Classification identifier for the industry.
      *
      * @var string $industry
      */

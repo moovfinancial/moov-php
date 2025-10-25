@@ -363,6 +363,7 @@ $patchAccount = new Components\PatchAccount(
                 sic: '7991',
                 mcc: '7997',
             ),
+            industry: 'electronics-appliances',
         ),
     ),
     metadata: [

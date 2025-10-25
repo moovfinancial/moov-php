@@ -35,6 +35,7 @@ enum RequirementID: string
     case BusinessOwners = 'business.owners';
     case BusinessClassification = 'business.classification';
     case BusinessIndustryCodeMcc = 'business.industry-code-mcc';
+    case BusinessIndustry = 'business.industry';
     case BusinessIndicateOwnersProvided = 'business.indicate-owners-provided';
     case BusinessAverageTransactionSize = 'business.average-transaction-size';
     case BusinessMaxTransactionSize = 'business.max-transaction-size';

@@ -96,6 +96,15 @@ class CreateBusinessError
     public ?CreateBusinessErrorIndustryCodes $industryCodes = null;
 
     /**
+     * Classification identifier for the industry. Use the [GET industries](https://docs.moov.io/api/enrichment/form-shortening/industries/get/) endpoint to retrieve an array of valid industry details for a merchant, inducing all industry field values.
+     *
+     * @var ?string $industry
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('industry')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $industry = null;
+
+    /**
      *
      * @var ?string $primaryRegulator
      */
@@ -114,10 +123,11 @@ class CreateBusinessError
      * @param  ?string  $description
      * @param  ?CreateBusinessErrorTaxID  $taxID
      * @param  ?CreateBusinessErrorIndustryCodes  $industryCodes
+     * @param  ?string  $industry
      * @param  ?string  $primaryRegulator
      * @phpstan-pure
      */
-    public function __construct(?string $legalBusinessName = null, ?string $doingBusinessAs = null, ?string $businessType = null, ?AddressError $address = null, ?PhoneNumberError $phone = null, ?string $email = null, ?string $website = null, ?string $description = null, ?CreateBusinessErrorTaxID $taxID = null, ?CreateBusinessErrorIndustryCodes $industryCodes = null, ?string $primaryRegulator = null)
+    public function __construct(?string $legalBusinessName = null, ?string $doingBusinessAs = null, ?string $businessType = null, ?AddressError $address = null, ?PhoneNumberError $phone = null, ?string $email = null, ?string $website = null, ?string $description = null, ?CreateBusinessErrorTaxID $taxID = null, ?CreateBusinessErrorIndustryCodes $industryCodes = null, ?string $industry = null, ?string $primaryRegulator = null)
     {
         $this->legalBusinessName = $legalBusinessName;
         $this->doingBusinessAs = $doingBusinessAs;
@@ -129,6 +139,7 @@ class CreateBusinessError
         $this->description = $description;
         $this->taxID = $taxID;
         $this->industryCodes = $industryCodes;
+        $this->industry = $industry;
         $this->primaryRegulator = $primaryRegulator;
     }
 }
