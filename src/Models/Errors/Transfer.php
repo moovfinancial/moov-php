@@ -202,6 +202,7 @@ class Transfer
     public ?array $disputes = null;
 
     /**
+     * ID of the sweep that created this transfer.
      *
      * @var ?string $sweepID
      */

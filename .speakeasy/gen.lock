@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 9966a5b21884daaeb864f7a595783cce
+  docChecksum: 4e708497bcfadaba99426eb22e0b53f1
   docVersion: latest
-  speakeasyVersion: 1.639.3
+  speakeasyVersion: 1.640.0
   generationVersion: 2.730.5
-  releaseVersion: 0.6.4
-  configChecksum: 56d315bfb7c344473b3f44ab06e80490
+  releaseVersion: 0.6.5
+  configChecksum: 61c74eed41599105630f1295ee6386f8
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
@@ -4497,4 +4497,3 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Php SDK Changes Detected:\n* `moov->accounts->create()`: \n  *  `request.createAccount->profile->business->industry` **Added**\n  *  `response.profile->business->industry` **Added**\n  *  `error.profile->business->industry` **Added**\n* `moov->accounts->list()`:  `response.[]->profile->business->industry` **Added**\n* `moov->accounts->get()`:  `response.profile->business->industry` **Added**\n* `moov->accounts->updateProfile()`: \n  *  `request.patchAccount->profile->business->industry` **Added**\n  *  `response.profile->business->industry` **Added**\n  *  `error.profile->business->industry` **Added**\n* `moov->onboardinginvites->create()`: \n  *  `request.onboardingInviteRequest->prefill->profile->business->industry` **Added**\n  *  `response.prefill->profile->business->industry` **Added**\n* `moov->onboarding->listInvites()`:  `response.[]->prefill->profile->business->industry` **Added**\n* `moov->onboarding->getInvite()`:  `response.prefill->profile->business->industry` **Added**\n"

@@ -166,6 +166,7 @@ class WalletTransaction
     public ?string $availableBalanceDecimal = null;
 
     /**
+     * ID of the sweep this transaction accrued in.
      *
      * @var ?string $sweepID
      */
