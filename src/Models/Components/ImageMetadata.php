@@ -20,6 +20,14 @@ class ImageMetadata
     public string $imageID;
 
     /**
+     * The ID used to get an image with the public endpoint.
+     *
+     * @var string $publicID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('publicID')]
+    public string $publicID;
+
+    /**
      * A public URL to access the image. An optional `size={width}x{height}` 
      *
      * query parameter can be provided to resize the image.
@@ -54,15 +62,17 @@ class ImageMetadata
 
     /**
      * @param  string  $imageID
+     * @param  string  $publicID
      * @param  string  $link
      * @param  \DateTime  $createdOn
      * @param  \DateTime  $updatedOn
      * @param  ?string  $altText
      * @phpstan-pure
      */
-    public function __construct(string $imageID, string $link, \DateTime $createdOn, \DateTime $updatedOn, ?string $altText = null)
+    public function __construct(string $imageID, string $publicID, string $link, \DateTime $createdOn, \DateTime $updatedOn, ?string $altText = null)
     {
         $this->imageID = $imageID;
+        $this->publicID = $publicID;
         $this->link = $link;
         $this->createdOn = $createdOn;
         $this->updatedOn = $updatedOn;

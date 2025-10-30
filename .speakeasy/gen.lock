@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 4e708497bcfadaba99426eb22e0b53f1
+  docChecksum: e49f308c7d671b27e559db3f50ebe4bb
   docVersion: latest
-  speakeasyVersion: 1.640.0
-  generationVersion: 2.730.5
-  releaseVersion: 0.6.5
-  configChecksum: 61c74eed41599105630f1295ee6386f8
+  speakeasyVersion: 1.642.2
+  generationVersion: 2.731.6
+  releaseVersion: 0.6.6
+  configChecksum: f848883c1244c2502371da31c92c2102
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
@@ -4333,7 +4333,7 @@ examples:
           X-Moov-Version: "v2024.01.00"
       responses:
         "200":
-          application/json: [{"imageID": "5edf802b-5f6a-484d-aa0a-3f149b6a2175", "link": "https://api.moov.io/images/qJRAaAwwF5hmfeAFdHjIb", "createdOn": "2023-10-10T02:58:48.051Z", "updatedOn": "2025-08-12T02:08:56.107Z"}]
+          application/json: [{"imageID": "5edf802b-5f6a-484d-aa0a-3f149b6a2175", "publicID": "<id>", "link": "https://api.moov.io/images/qJRAaAwwF5hmfeAFdHjIb", "createdOn": "2023-10-10T02:58:48.051Z", "updatedOn": "2025-08-12T02:08:56.107Z"}]
   getImageMetadata:
     speakeasy-default-get-image-metadata:
       parameters:
@@ -4345,7 +4345,7 @@ examples:
           X-Moov-Version: "v2024.01.00"
       responses:
         "200":
-          application/json: {"imageID": "7608515e-9698-402b-8007-402711de1c6a", "link": "https://api.moov.io/images/qJRAaAwwF5hmfeAFdHjIb", "createdOn": "2024-09-02T01:01:36.892Z", "updatedOn": "2023-12-31T15:25:36.864Z"}
+          application/json: {"imageID": "7608515e-9698-402b-8007-402711de1c6a", "publicID": "<id>", "link": "https://api.moov.io/images/qJRAaAwwF5hmfeAFdHjIb", "createdOn": "2024-09-02T01:01:36.892Z", "updatedOn": "2023-12-31T15:25:36.864Z"}
   deleteImage:
     speakeasy-default-delete-image:
       parameters:
@@ -4455,7 +4455,7 @@ examples:
         multipart/form-data: {"image": "x-file: example.file"}
       responses:
         "201":
-          application/json: {"imageID": "533aadc1-0389-4da9-9c87-92bd49469db5", "link": "https://api.moov.io/images/qJRAaAwwF5hmfeAFdHjIb", "createdOn": "2023-03-14T15:49:36.140Z", "updatedOn": "2024-08-18T16:45:51.667Z"}
+          application/json: {"imageID": "533aadc1-0389-4da9-9c87-92bd49469db5", "publicID": "<id>", "link": "https://api.moov.io/images/qJRAaAwwF5hmfeAFdHjIb", "createdOn": "2023-03-14T15:49:36.140Z", "updatedOn": "2024-08-18T16:45:51.667Z"}
         "400":
           application/json: {"error": "<value>"}
         "422":
@@ -4473,7 +4473,7 @@ examples:
         multipart/form-data: {"image": "x-file: example.file"}
       responses:
         "200":
-          application/json: {"imageID": "37d44505-cb7b-46de-8995-9c6633aaa305", "link": "https://api.moov.io/images/qJRAaAwwF5hmfeAFdHjIb", "createdOn": "2023-07-27T04:09:13.260Z", "updatedOn": "2025-11-20T16:38:12.638Z"}
+          application/json: {"imageID": "37d44505-cb7b-46de-8995-9c6633aaa305", "publicID": "<id>", "link": "https://api.moov.io/images/qJRAaAwwF5hmfeAFdHjIb", "createdOn": "2023-07-27T04:09:13.260Z", "updatedOn": "2025-11-20T16:38:12.638Z"}
         "400":
           application/json: {"error": "<value>"}
         "422":
@@ -4490,10 +4490,19 @@ examples:
         application/json: {}
       responses:
         "200":
-          application/json: {"imageID": "cb423c82-9aaf-48ef-af3b-465a22bc40d1", "link": "https://api.moov.io/images/qJRAaAwwF5hmfeAFdHjIb", "createdOn": "2025-05-20T15:12:09.782Z", "updatedOn": "2024-09-20T09:32:52.973Z"}
+          application/json: {"imageID": "cb423c82-9aaf-48ef-af3b-465a22bc40d1", "publicID": "<id>", "link": "https://api.moov.io/images/qJRAaAwwF5hmfeAFdHjIb", "createdOn": "2025-05-20T15:12:09.782Z", "updatedOn": "2024-09-20T09:32:52.973Z"}
         "400":
           application/json: {"error": "<value>"}
         "422":
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: |
+  ## Php SDK Changes Detected:
+  * `moov->accounts->getFees()`:  `response.[]->feeGroup` **Added**
+  * `moov->feeplans->fetchFees()`:  `response.[]->feeGroup` **Added**
+  * `moov->images->list()`:  `response.[]->publicId` **Added**
+  * `moov->images->upload()`:  `response.publicId` **Added**
+  * `moov->images->getMetadata()`:  `response.publicId` **Added**
+  * `moov->images->update()`:  `response.publicId` **Added**
+  * `moov->images->updateMetadata()`:  `response.publicId` **Added**

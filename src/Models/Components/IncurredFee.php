@@ -72,6 +72,14 @@ class IncurredFee
     public ?GeneratedBy $generatedBy = null;
 
     /**
+     *
+     * @var ?string $feeGroup
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('feeGroup')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $feeGroup = null;
+
+    /**
      * @param  ?string  $feeID
      * @param  ?string  $accountID
      * @param  ?string  $walletID
@@ -79,9 +87,10 @@ class IncurredFee
      * @param  ?string  $feeName
      * @param  ?AmountDecimal  $amount
      * @param  ?GeneratedBy  $generatedBy
+     * @param  ?string  $feeGroup
      * @phpstan-pure
      */
-    public function __construct(?string $feeID = null, ?string $accountID = null, ?string $walletID = null, ?\DateTime $createdOn = null, ?string $feeName = null, ?AmountDecimal $amount = null, ?GeneratedBy $generatedBy = null)
+    public function __construct(?string $feeID = null, ?string $accountID = null, ?string $walletID = null, ?\DateTime $createdOn = null, ?string $feeName = null, ?AmountDecimal $amount = null, ?GeneratedBy $generatedBy = null, ?string $feeGroup = null)
     {
         $this->feeID = $feeID;
         $this->accountID = $accountID;
@@ -90,5 +99,6 @@ class IncurredFee
         $this->feeName = $feeName;
         $this->amount = $amount;
         $this->generatedBy = $generatedBy;
+        $this->feeGroup = $feeGroup;
     }
 }
