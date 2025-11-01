@@ -621,6 +621,18 @@ you'll need to specify the `/accounts/{accountID}/profile.read` scope.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/profile.read` scope.
+* [listResiduals](docs/sdks/feeplans/README.md#listresiduals) - List all residuals associated with an account.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/profile.read` scope.
+* [getResidual](docs/sdks/feeplans/README.md#getresidual) - Get a residual associated with an account.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/profile.read` scope.
+* [listResidualFees](docs/sdks/feeplans/README.md#listresidualfees) - List all fees associated with a residual.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/profile.read` scope.
 
 ### [files](docs/sdks/files/README.md)
 

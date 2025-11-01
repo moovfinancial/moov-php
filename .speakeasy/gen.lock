@@ -1,24 +1,24 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: e49f308c7d671b27e559db3f50ebe4bb
+  docChecksum: 2b27e7d50e7084edb54806e9e9b9c978
   docVersion: latest
-  speakeasyVersion: 1.642.2
-  generationVersion: 2.731.6
-  releaseVersion: 0.6.6
-  configChecksum: f848883c1244c2502371da31c92c2102
+  speakeasyVersion: 1.645.1
+  generationVersion: 2.735.1
+  releaseVersion: 0.7.0
+  configChecksum: c73eb4e7970058c58bfc15bd44e14616
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
 features:
   php:
     constsAndDefaults: 0.2.0
-    core: 3.9.0
+    core: 3.9.1
     decimal: 0.1.1
     deprecations: 2.81.1
     flattening: 2.81.1
     globalSecurity: 2.81.9
-    globalServerURLs: 2.82.2
+    globalServerURLs: 2.83.0
     globals: 2.82.2
     groups: 2.81.3
     includes: 2.81.1
@@ -426,6 +426,7 @@ generatedFiles:
   - docs/Models/Components/RequirementError.md
   - docs/Models/Components/RequirementErrorCode.md
   - docs/Models/Components/RequirementID.md
+  - docs/Models/Components/Residual.md
   - docs/Models/Components/Responsibilities.md
   - docs/Models/Components/ReturnPolicyType.md
   - docs/Models/Components/Reversal.md
@@ -762,6 +763,8 @@ generatedFiles:
   - docs/Models/Operations/GetRefundResponse.md
   - docs/Models/Operations/GetRepresentativeRequest.md
   - docs/Models/Operations/GetRepresentativeResponse.md
+  - docs/Models/Operations/GetResidualRequest.md
+  - docs/Models/Operations/GetResidualResponse.md
   - docs/Models/Operations/GetScheduledOccurrenceRequest.md
   - docs/Models/Operations/GetScheduledOccurrenceResponse.md
   - docs/Models/Operations/GetSchedulesRequest.md
@@ -859,6 +862,10 @@ generatedFiles:
   - docs/Models/Operations/ListRefundsResponse.md
   - docs/Models/Operations/ListRepresentativesRequest.md
   - docs/Models/Operations/ListRepresentativesResponse.md
+  - docs/Models/Operations/ListResidualFeesRequest.md
+  - docs/Models/Operations/ListResidualFeesResponse.md
+  - docs/Models/Operations/ListResidualsRequest.md
+  - docs/Models/Operations/ListResidualsResponse.md
   - docs/Models/Operations/ListSchedulesRequest.md
   - docs/Models/Operations/ListSchedulesResponse.md
   - docs/Models/Operations/ListStatementsRequest.md
@@ -1417,6 +1424,7 @@ generatedFiles:
   - src/Models/Components/RequirementError.php
   - src/Models/Components/RequirementErrorCode.php
   - src/Models/Components/RequirementID.php
+  - src/Models/Components/Residual.php
   - src/Models/Components/Responsibilities.php
   - src/Models/Components/ReturnPolicyType.php
   - src/Models/Components/ReversedWithCancellation.php
@@ -1797,6 +1805,8 @@ generatedFiles:
   - src/Models/Operations/GetRefundResponse.php
   - src/Models/Operations/GetRepresentativeRequest.php
   - src/Models/Operations/GetRepresentativeResponse.php
+  - src/Models/Operations/GetResidualRequest.php
+  - src/Models/Operations/GetResidualResponse.php
   - src/Models/Operations/GetScheduledOccurrenceRequest.php
   - src/Models/Operations/GetScheduledOccurrenceResponse.php
   - src/Models/Operations/GetSchedulesRequest.php
@@ -1894,6 +1904,10 @@ generatedFiles:
   - src/Models/Operations/ListRefundsResponse.php
   - src/Models/Operations/ListRepresentativesRequest.php
   - src/Models/Operations/ListRepresentativesResponse.php
+  - src/Models/Operations/ListResidualFeesRequest.php
+  - src/Models/Operations/ListResidualFeesResponse.php
+  - src/Models/Operations/ListResidualsRequest.php
+  - src/Models/Operations/ListResidualsResponse.php
   - src/Models/Operations/ListSchedulesRequest.php
   - src/Models/Operations/ListSchedulesResponse.php
   - src/Models/Operations/ListStatementsRequest.php
@@ -4495,14 +4509,48 @@ examples:
           application/json: {"error": "<value>"}
         "422":
           application/json: {}
+  listResiduals:
+    speakeasy-default-list-residuals:
+      parameters:
+        path:
+          accountID: "8b40b967-ae12-4851-8be2-7b0c39978ce7"
+        query:
+          skip: 60
+          count: 20
+        header:
+          X-Moov-Version: "v2024.01.00"
+      responses:
+        "200":
+          application/json: [{"residualID": "e0bcab02-96d4-4555-9535-fff6f9fac05c", "partnerAccountID": "59fad78d-485c-4aa0-95e0-b6723b4489a3", "periodStart": "2025-08-23T18:39:55.611Z", "periodEnd": "2024-06-17T17:54:17.689Z", "merchantFees": {"currency": "USD", "valueDecimal": "12.987654321"}, "partnerCost": {"currency": "USD", "valueDecimal": "12.987654321"}, "netIncome": {"currency": "USD", "valueDecimal": "12.987654321"}, "revenueShare": "2.25", "residualAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "moovShare": {"currency": "USD", "valueDecimal": "12.987654321"}, "createdOn": "2023-11-11T13:56:49.759Z", "updatedOn": "2024-07-25T04:59:02.000Z"}]
+  getResidual:
+    speakeasy-default-get-residual:
+      parameters:
+        path:
+          accountID: "4c308842-45d1-49c1-98be-7299848b1e20"
+          residualID: "5f30e43d-1fa8-4834-8788-05a3c27a40d4"
+        header:
+          X-Moov-Version: "v2024.01.00"
+      responses:
+        "200":
+          application/json: {"residualID": "6969e439-dfcd-42de-bfb2-5c66b1163e3a", "partnerAccountID": "35af6ebf-647d-4b63-b996-dc1bfb4ac6d2", "periodStart": "2025-10-12T20:03:24.360Z", "periodEnd": "2024-10-08T00:08:30.005Z", "merchantFees": {"currency": "USD", "valueDecimal": "12.987654321"}, "partnerCost": {"currency": "USD", "valueDecimal": "12.987654321"}, "netIncome": {"currency": "USD", "valueDecimal": "12.987654321"}, "revenueShare": "2.25", "residualAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "moovShare": {"currency": "USD", "valueDecimal": "12.987654321"}, "createdOn": "2025-05-15T10:09:57.129Z", "updatedOn": "2023-05-10T01:27:08.185Z"}
+  listResidualFees:
+    speakeasy-default-list-residual-fees:
+      parameters:
+        path:
+          accountID: "6b95293f-c3e7-42b5-98b7-fd9cc8d49685"
+          residualID: "8ecb1a63-25e0-41e7-a9c7-bb8a1cf63d1c"
+        query:
+          skip: 60
+          count: 20
+        header:
+          X-Moov-Version: "v2024.01.00"
+      responses:
+        "200":
+          application/json: [{"amount": {"currency": "USD", "valueDecimal": "12.987654321"}}]
 examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## Php SDK Changes Detected:
-  * `moov->accounts->getFees()`:  `response.[]->feeGroup` **Added**
-  * `moov->feeplans->fetchFees()`:  `response.[]->feeGroup` **Added**
-  * `moov->images->list()`:  `response.[]->publicId` **Added**
-  * `moov->images->upload()`:  `response.publicId` **Added**
-  * `moov->images->getMetadata()`:  `response.publicId` **Added**
-  * `moov->images->update()`:  `response.publicId` **Added**
-  * `moov->images->updateMetadata()`:  `response.publicId` **Added**
+  * `moov->feeplans->listResiduals()`: **Added**
+  * `moov->feeplans->getResidual()`: **Added**
+  * `moov->feeplans->listResidualFees()`: **Added**
