@@ -28,6 +28,14 @@ class ProductImageMetadata
     public string $link;
 
     /**
+     * The public ID used to access the image.
+     *
+     * @var string $publicID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('publicID')]
+    public string $publicID;
+
+    /**
      * Alternative text for the image.
      *
      * @var ?string $altText
@@ -39,13 +47,15 @@ class ProductImageMetadata
     /**
      * @param  string  $imageID
      * @param  string  $link
+     * @param  string  $publicID
      * @param  ?string  $altText
      * @phpstan-pure
      */
-    public function __construct(string $imageID, string $link, ?string $altText = null)
+    public function __construct(string $imageID, string $link, string $publicID, ?string $altText = null)
     {
         $this->imageID = $imageID;
         $this->link = $link;
+        $this->publicID = $publicID;
         $this->altText = $altText;
     }
 }
