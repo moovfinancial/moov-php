@@ -57,20 +57,31 @@ class UpdatePaymentLinkError
     public ?Components\PayoutDetailsError $payout = null;
 
     /**
+     *
+     * @var ?Components\PaymentLinkLineItemsValidationError $lineItems
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('lineItems')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentLinkLineItemsValidationError|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?Components\PaymentLinkLineItemsValidationError $lineItems = null;
+
+    /**
      * @param  ?Components\AmountValidationError  $amount
      * @param  ?string  $expiresOn
      * @param  ?Components\DisplayOptionsError  $display
      * @param  ?Components\PaymentDetailsError  $payment
      * @param  ?Components\PayoutDetailsError  $payout
+     * @param  ?Components\PaymentLinkLineItemsValidationError  $lineItems
      * @phpstan-pure
      */
-    public function __construct(?Components\AmountValidationError $amount = null, ?string $expiresOn = null, ?Components\DisplayOptionsError $display = null, ?Components\PaymentDetailsError $payment = null, ?Components\PayoutDetailsError $payout = null)
+    public function __construct(?Components\AmountValidationError $amount = null, ?string $expiresOn = null, ?Components\DisplayOptionsError $display = null, ?Components\PaymentDetailsError $payment = null, ?Components\PayoutDetailsError $payout = null, ?Components\PaymentLinkLineItemsValidationError $lineItems = null)
     {
         $this->amount = $amount;
         $this->expiresOn = $expiresOn;
         $this->display = $display;
         $this->payment = $payment;
         $this->payout = $payout;
+        $this->lineItems = $lineItems;
     }
 
     public function toException(): UpdatePaymentLinkErrorThrowable

@@ -165,6 +165,18 @@ class PaymentLink
     public ?PaymentLinkPayoutDetails $payout = null;
 
     /**
+     * An optional collection of line items for a payment link.
+     *
+     * When line items are provided, their total plus sales tax must equal the payment link amount.
+     *
+     * @var ?PaymentLinkLineItems $lineItems
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('lineItems')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentLinkLineItems|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?PaymentLinkLineItems $lineItems = null;
+
+    /**
      *
      * @var ?\DateTime $disabledOn
      */
@@ -191,10 +203,11 @@ class PaymentLink
      * @param  ?\DateTime  $expiresOn
      * @param  ?PaymentLinkPaymentDetails  $payment
      * @param  ?PaymentLinkPayoutDetails  $payout
+     * @param  ?PaymentLinkLineItems  $lineItems
      * @param  ?\DateTime  $disabledOn
      * @phpstan-pure
      */
-    public function __construct(string $code, Mode $mode, PaymentLinkStatus $status, string $partnerAccountID, string $merchantAccountID, string $merchantPaymentMethodID, string $link, Amount $amount, int $uses, PaymentLinkDisplayOptions $display, PaymentLinkCustomerOptions $customer, \DateTime $createdOn, \DateTime $updatedOn, ?int $maxUses = null, ?\DateTime $lastUsedOn = null, ?\DateTime $expiresOn = null, ?PaymentLinkPaymentDetails $payment = null, ?PaymentLinkPayoutDetails $payout = null, ?\DateTime $disabledOn = null)
+    public function __construct(string $code, Mode $mode, PaymentLinkStatus $status, string $partnerAccountID, string $merchantAccountID, string $merchantPaymentMethodID, string $link, Amount $amount, int $uses, PaymentLinkDisplayOptions $display, PaymentLinkCustomerOptions $customer, \DateTime $createdOn, \DateTime $updatedOn, ?int $maxUses = null, ?\DateTime $lastUsedOn = null, ?\DateTime $expiresOn = null, ?PaymentLinkPaymentDetails $payment = null, ?PaymentLinkPayoutDetails $payout = null, ?PaymentLinkLineItems $lineItems = null, ?\DateTime $disabledOn = null)
     {
         $this->code = $code;
         $this->mode = $mode;
@@ -214,6 +227,7 @@ class PaymentLink
         $this->expiresOn = $expiresOn;
         $this->payment = $payment;
         $this->payout = $payout;
+        $this->lineItems = $lineItems;
         $this->disabledOn = $disabledOn;
     }
 }

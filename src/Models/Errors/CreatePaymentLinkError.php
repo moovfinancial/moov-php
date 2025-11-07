@@ -81,6 +81,15 @@ class CreatePaymentLinkError
     public ?Components\PayoutDetailsError $payout = null;
 
     /**
+     *
+     * @var ?Components\PaymentLinkLineItemsValidationError $lineItems
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('lineItems')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentLinkLineItemsValidationError|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?Components\PaymentLinkLineItemsValidationError $lineItems = null;
+
+    /**
      * @param  ?string  $partnerAccountID
      * @param  ?string  $merchantPaymentMethodID
      * @param  ?Components\AmountValidationError  $amount
@@ -89,9 +98,10 @@ class CreatePaymentLinkError
      * @param  ?Components\DisplayOptionsError  $display
      * @param  ?Components\PaymentDetailsError  $payment
      * @param  ?Components\PayoutDetailsError  $payout
+     * @param  ?Components\PaymentLinkLineItemsValidationError  $lineItems
      * @phpstan-pure
      */
-    public function __construct(?string $partnerAccountID = null, ?string $merchantPaymentMethodID = null, ?Components\AmountValidationError $amount = null, ?string $maxUses = null, ?string $expiresOn = null, ?Components\DisplayOptionsError $display = null, ?Components\PaymentDetailsError $payment = null, ?Components\PayoutDetailsError $payout = null)
+    public function __construct(?string $partnerAccountID = null, ?string $merchantPaymentMethodID = null, ?Components\AmountValidationError $amount = null, ?string $maxUses = null, ?string $expiresOn = null, ?Components\DisplayOptionsError $display = null, ?Components\PaymentDetailsError $payment = null, ?Components\PayoutDetailsError $payout = null, ?Components\PaymentLinkLineItemsValidationError $lineItems = null)
     {
         $this->partnerAccountID = $partnerAccountID;
         $this->merchantPaymentMethodID = $merchantPaymentMethodID;
@@ -101,6 +111,7 @@ class CreatePaymentLinkError
         $this->display = $display;
         $this->payment = $payment;
         $this->payout = $payout;
+        $this->lineItems = $lineItems;
     }
 
     public function toException(): CreatePaymentLinkErrorThrowable

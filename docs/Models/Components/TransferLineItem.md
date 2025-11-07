@@ -1,0 +1,14 @@
+# TransferLineItem
+
+Represents a single item in a transfer, including optional modifiers and quantity.
+
+
+## Fields
+
+| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `name`                                                                                        | *string*                                                                                      | :heavy_check_mark:                                                                            | The name of the item.                                                                         |
+| `basePrice`                                                                                   | [Components\AmountDecimal](../../Models/Components/AmountDecimal.md)                          | :heavy_check_mark:                                                                            | The base price of the item before applying option modifiers.                                  |
+| `quantity`                                                                                    | *int*                                                                                         | :heavy_check_mark:                                                                            | The quantity of this item.                                                                    |
+| `options`                                                                                     | array<[Components\TransferLineItemOption](../../Models/Components/TransferLineItemOption.md)> | :heavy_minus_sign:                                                                            | Optional list of modifiers applied to this item (e.g., toppings, upgrades, customizations).   |
+| `productID`                                                                                   | *?string*                                                                                     | :heavy_minus_sign:                                                                            | Optional unique identifier associating the line item with a product.                          |

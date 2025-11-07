@@ -245,6 +245,18 @@ class CreatedTransfer
     public ?string $foreignID = null;
 
     /**
+     * An optional collection of line items for a transfer.
+     *
+     * When line items are provided, their total plus sales tax must equal the transfer amount.
+     *
+     * @var ?TransferLineItems $lineItems
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('lineItems')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferLineItems|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?TransferLineItems $lineItems = null;
+
+    /**
      * @param  string  $transferID
      * @param  \DateTime  $createdOn
      * @param  ?TransferSource  $source
@@ -271,9 +283,10 @@ class CreatedTransfer
      * @param  ?string  $paymentLinkCode
      * @param  ?Amount  $salesTaxAmount
      * @param  ?string  $foreignID
+     * @param  ?TransferLineItems  $lineItems
      * @phpstan-pure
      */
-    public function __construct(string $transferID, \DateTime $createdOn, ?TransferSource $source = null, ?TransferDestination $destination = null, ?\DateTime $completedOn = null, ?TransferStatus $status = null, ?TransferFailureReason $failureReason = null, ?Amount $amount = null, ?string $description = null, ?array $metadata = null, ?FacilitatorFee $facilitatorFee = null, ?int $moovFee = null, ?string $moovFeeDecimal = null, ?MoovFeeDetails $moovFeeDetails = null, ?string $groupID = null, ?array $cancellations = null, ?Amount $refundedAmount = null, ?array $refunds = null, ?Amount $disputedAmount = null, ?array $disputes = null, ?string $sweepID = null, ?string $scheduleID = null, ?string $occurrenceID = null, ?string $paymentLinkCode = null, ?Amount $salesTaxAmount = null, ?string $foreignID = null)
+    public function __construct(string $transferID, \DateTime $createdOn, ?TransferSource $source = null, ?TransferDestination $destination = null, ?\DateTime $completedOn = null, ?TransferStatus $status = null, ?TransferFailureReason $failureReason = null, ?Amount $amount = null, ?string $description = null, ?array $metadata = null, ?FacilitatorFee $facilitatorFee = null, ?int $moovFee = null, ?string $moovFeeDecimal = null, ?MoovFeeDetails $moovFeeDetails = null, ?string $groupID = null, ?array $cancellations = null, ?Amount $refundedAmount = null, ?array $refunds = null, ?Amount $disputedAmount = null, ?array $disputes = null, ?string $sweepID = null, ?string $scheduleID = null, ?string $occurrenceID = null, ?string $paymentLinkCode = null, ?Amount $salesTaxAmount = null, ?string $foreignID = null, ?TransferLineItems $lineItems = null)
     {
         $this->transferID = $transferID;
         $this->createdOn = $createdOn;
@@ -301,5 +314,6 @@ class CreatedTransfer
         $this->paymentLinkCode = $paymentLinkCode;
         $this->salesTaxAmount = $salesTaxAmount;
         $this->foreignID = $foreignID;
+        $this->lineItems = $lineItems;
     }
 }

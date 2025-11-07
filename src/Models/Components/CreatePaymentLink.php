@@ -104,6 +104,18 @@ class CreatePaymentLink
     public ?PaymentLinkPayoutDetails $payout = null;
 
     /**
+     * An optional collection of line items for a payment link.
+     *
+     * When line items are provided, their total plus sales tax must equal the payment link amount.
+     *
+     * @var ?PaymentLinkLineItems $lineItems
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('lineItems')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentLinkLineItems|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?PaymentLinkLineItems $lineItems = null;
+
+    /**
      * @param  string  $partnerAccountID
      * @param  string  $merchantPaymentMethodID
      * @param  Amount  $amount
@@ -113,9 +125,10 @@ class CreatePaymentLink
      * @param  ?PaymentLinkCustomerOptions  $customer
      * @param  ?PaymentLinkPaymentDetails  $payment
      * @param  ?PaymentLinkPayoutDetails  $payout
+     * @param  ?PaymentLinkLineItems  $lineItems
      * @phpstan-pure
      */
-    public function __construct(string $partnerAccountID, string $merchantPaymentMethodID, Amount $amount, PaymentLinkDisplayOptions $display, ?int $maxUses = null, ?\DateTime $expiresOn = null, ?PaymentLinkCustomerOptions $customer = null, ?PaymentLinkPaymentDetails $payment = null, ?PaymentLinkPayoutDetails $payout = null)
+    public function __construct(string $partnerAccountID, string $merchantPaymentMethodID, Amount $amount, PaymentLinkDisplayOptions $display, ?int $maxUses = null, ?\DateTime $expiresOn = null, ?PaymentLinkCustomerOptions $customer = null, ?PaymentLinkPaymentDetails $payment = null, ?PaymentLinkPayoutDetails $payout = null, ?PaymentLinkLineItems $lineItems = null)
     {
         $this->partnerAccountID = $partnerAccountID;
         $this->merchantPaymentMethodID = $merchantPaymentMethodID;
@@ -126,5 +139,6 @@ class CreatePaymentLink
         $this->customer = $customer;
         $this->payment = $payment;
         $this->payout = $payout;
+        $this->lineItems = $lineItems;
     }
 }

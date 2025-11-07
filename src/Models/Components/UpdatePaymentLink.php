@@ -59,6 +59,18 @@ class UpdatePaymentLink
     public ?PaymentLinkPayoutDetailsUpdate $payout = null;
 
     /**
+     * An optional collection of line items for a payment link.
+     *
+     * When line items are provided, their total plus sales tax must equal the payment link amount.
+     *
+     * @var ?PaymentLinkLineItemsUpdate $lineItems
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('lineItems')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentLinkLineItemsUpdate|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?PaymentLinkLineItemsUpdate $lineItems = null;
+
+    /**
      *
      * @var ?\DateTime $expiresOn
      */
@@ -72,16 +84,18 @@ class UpdatePaymentLink
      * @param  ?PaymentLinkCustomerOptions  $customer
      * @param  ?PaymentLinkPaymentDetailsUpdate  $payment
      * @param  ?PaymentLinkPayoutDetailsUpdate  $payout
+     * @param  ?PaymentLinkLineItemsUpdate  $lineItems
      * @param  ?\DateTime  $expiresOn
      * @phpstan-pure
      */
-    public function __construct(?AmountUpdate $amount = null, ?PaymentLinkDisplayOptionsUpdate $display = null, ?PaymentLinkCustomerOptions $customer = null, ?PaymentLinkPaymentDetailsUpdate $payment = null, ?PaymentLinkPayoutDetailsUpdate $payout = null, ?\DateTime $expiresOn = null)
+    public function __construct(?AmountUpdate $amount = null, ?PaymentLinkDisplayOptionsUpdate $display = null, ?PaymentLinkCustomerOptions $customer = null, ?PaymentLinkPaymentDetailsUpdate $payment = null, ?PaymentLinkPayoutDetailsUpdate $payout = null, ?PaymentLinkLineItemsUpdate $lineItems = null, ?\DateTime $expiresOn = null)
     {
         $this->amount = $amount;
         $this->display = $display;
         $this->customer = $customer;
         $this->payment = $payment;
         $this->payout = $payout;
+        $this->lineItems = $lineItems;
         $this->expiresOn = $expiresOn;
     }
 }

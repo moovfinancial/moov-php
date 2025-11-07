@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: e8698faa51fb152b74d5661fc5256f8f
+  docChecksum: 4f52a07566b029ef03bf98a7b3b58b8a
   docVersion: latest
-  speakeasyVersion: 1.648.1
-  generationVersion: 2.739.1
-  releaseVersion: 0.7.2
-  configChecksum: ab5d3db18d42e368eeac147e1b21b911
+  speakeasyVersion: 1.650.0
+  generationVersion: 2.743.2
+  releaseVersion: 0.7.3
+  configChecksum: 035f75c929b7a8c13dcd4103beb51947
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
 features:
   php:
     constsAndDefaults: 0.2.0
-    core: 3.9.1
+    core: 3.9.2
     decimal: 0.1.1
     deprecations: 2.81.1
     flattening: 2.81.1
@@ -364,6 +364,13 @@ generatedFiles:
   - docs/Models/Components/PaymentLinkCustomerOptions.md
   - docs/Models/Components/PaymentLinkDisplayOptions.md
   - docs/Models/Components/PaymentLinkDisplayOptionsUpdate.md
+  - docs/Models/Components/PaymentLinkLineItem.md
+  - docs/Models/Components/PaymentLinkLineItemOption.md
+  - docs/Models/Components/PaymentLinkLineItemOptionValidationError.md
+  - docs/Models/Components/PaymentLinkLineItemValidationError.md
+  - docs/Models/Components/PaymentLinkLineItems.md
+  - docs/Models/Components/PaymentLinkLineItemsUpdate.md
+  - docs/Models/Components/PaymentLinkLineItemsValidationError.md
   - docs/Models/Components/PaymentLinkPaymentDetails.md
   - docs/Models/Components/PaymentLinkPaymentDetailsUpdate.md
   - docs/Models/Components/PaymentLinkPayoutDetails.md
@@ -490,6 +497,12 @@ generatedFiles:
   - docs/Models/Components/TransferAccount.md
   - docs/Models/Components/TransferDestination.md
   - docs/Models/Components/TransferFailureReason.md
+  - docs/Models/Components/TransferLineItem.md
+  - docs/Models/Components/TransferLineItemOption.md
+  - docs/Models/Components/TransferLineItemOptionValidationError.md
+  - docs/Models/Components/TransferLineItemValidationError.md
+  - docs/Models/Components/TransferLineItems.md
+  - docs/Models/Components/TransferLineItemsValidationError.md
   - docs/Models/Components/TransferOptions.md
   - docs/Models/Components/TransferParty.md
   - docs/Models/Components/TransferSource.md
@@ -1365,6 +1378,13 @@ generatedFiles:
   - src/Models/Components/PaymentLinkCustomerOptions.php
   - src/Models/Components/PaymentLinkDisplayOptions.php
   - src/Models/Components/PaymentLinkDisplayOptionsUpdate.php
+  - src/Models/Components/PaymentLinkLineItem.php
+  - src/Models/Components/PaymentLinkLineItemOption.php
+  - src/Models/Components/PaymentLinkLineItemOptionValidationError.php
+  - src/Models/Components/PaymentLinkLineItemValidationError.php
+  - src/Models/Components/PaymentLinkLineItems.php
+  - src/Models/Components/PaymentLinkLineItemsUpdate.php
+  - src/Models/Components/PaymentLinkLineItemsValidationError.php
   - src/Models/Components/PaymentLinkPaymentDetails.php
   - src/Models/Components/PaymentLinkPaymentDetailsUpdate.php
   - src/Models/Components/PaymentLinkPayoutDetails.php
@@ -1486,6 +1506,12 @@ generatedFiles:
   - src/Models/Components/TransferAccount.php
   - src/Models/Components/TransferDestination.php
   - src/Models/Components/TransferFailureReason.php
+  - src/Models/Components/TransferLineItem.php
+  - src/Models/Components/TransferLineItemOption.php
+  - src/Models/Components/TransferLineItemOptionValidationError.php
+  - src/Models/Components/TransferLineItemValidationError.php
+  - src/Models/Components/TransferLineItems.php
+  - src/Models/Components/TransferLineItemsValidationError.php
   - src/Models/Components/TransferOptions.php
   - src/Models/Components/TransferParty.php
   - src/Models/Components/TransferSource.php
@@ -4549,3 +4575,4 @@ examples:
           application/json: [{"amount": {"currency": "USD", "valueDecimal": "12.987654321"}}]
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: "## Php SDK Changes Detected:\n* `moov->paymentlinks->create()`: \n  *  `request.createPaymentLink->lineItems` **Added**\n  *  `response.lineItems` **Added**\n  *  `error.lineItems` **Added**\n* `moov->paymentlinks->list()`:  `response.[]->lineItems` **Added**\n* `moov->paymentlinks->get()`:  `response.lineItems` **Added**\n* `moov->paymentlinks->update()`: \n  *  `request.updatePaymentLink->lineItems` **Added**\n  *  `response.lineItems` **Added**\n  *  `error.lineItems` **Added**\n* `moov->transfers->create()`: \n  *  `request->createTransfer->lineItems` **Added**\n  *  `response.lineItems` **Added**\n  *  `error.lineItems` **Added**\n* `moov->transfers->list()`:  `response.[]->lineItems` **Added**\n* `moov->transfers->get()`:  `response.lineItems` **Added**\n* `moov->transfers->update()`:  `response.lineItems` **Added**\n"
