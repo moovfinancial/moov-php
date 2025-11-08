@@ -20,6 +20,14 @@ class PaymentLink
     public string $code;
 
     /**
+     *
+     * @var PaymentLinkType $paymentLinkType
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('paymentLinkType')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentLinkType')]
+    public PaymentLinkType $paymentLinkType;
+
+    /**
      * The operating mode for an account.
      *
      * @var Mode $mode
@@ -186,6 +194,7 @@ class PaymentLink
 
     /**
      * @param  string  $code
+     * @param  PaymentLinkType  $paymentLinkType
      * @param  Mode  $mode
      * @param  PaymentLinkStatus  $status
      * @param  string  $partnerAccountID
@@ -207,9 +216,10 @@ class PaymentLink
      * @param  ?\DateTime  $disabledOn
      * @phpstan-pure
      */
-    public function __construct(string $code, Mode $mode, PaymentLinkStatus $status, string $partnerAccountID, string $merchantAccountID, string $merchantPaymentMethodID, string $link, Amount $amount, int $uses, PaymentLinkDisplayOptions $display, PaymentLinkCustomerOptions $customer, \DateTime $createdOn, \DateTime $updatedOn, ?int $maxUses = null, ?\DateTime $lastUsedOn = null, ?\DateTime $expiresOn = null, ?PaymentLinkPaymentDetails $payment = null, ?PaymentLinkPayoutDetails $payout = null, ?PaymentLinkLineItems $lineItems = null, ?\DateTime $disabledOn = null)
+    public function __construct(string $code, PaymentLinkType $paymentLinkType, Mode $mode, PaymentLinkStatus $status, string $partnerAccountID, string $merchantAccountID, string $merchantPaymentMethodID, string $link, Amount $amount, int $uses, PaymentLinkDisplayOptions $display, PaymentLinkCustomerOptions $customer, \DateTime $createdOn, \DateTime $updatedOn, ?int $maxUses = null, ?\DateTime $lastUsedOn = null, ?\DateTime $expiresOn = null, ?PaymentLinkPaymentDetails $payment = null, ?PaymentLinkPayoutDetails $payout = null, ?PaymentLinkLineItems $lineItems = null, ?\DateTime $disabledOn = null)
     {
         $this->code = $code;
+        $this->paymentLinkType = $paymentLinkType;
         $this->mode = $mode;
         $this->status = $status;
         $this->partnerAccountID = $partnerAccountID;

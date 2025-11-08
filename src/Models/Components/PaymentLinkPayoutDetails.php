@@ -34,13 +34,25 @@ class PaymentLinkPayoutDetails
     public PayoutRecipient $recipient;
 
     /**
+     * Optional free-form metadata for the transfer.
+     *
+     * @var ?array<string, string> $metadata
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('metadata')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string, string>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $metadata = null;
+
+    /**
      * @param  array<DisbursementPaymentMethodType>  $allowedMethods
      * @param  PayoutRecipient  $recipient
+     * @param  ?array<string, string>  $metadata
      * @phpstan-pure
      */
-    public function __construct(array $allowedMethods, PayoutRecipient $recipient)
+    public function __construct(array $allowedMethods, PayoutRecipient $recipient, ?array $metadata = null)
     {
         $this->allowedMethods = $allowedMethods;
         $this->recipient = $recipient;
+        $this->metadata = $metadata;
     }
 }

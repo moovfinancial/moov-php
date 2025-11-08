@@ -393,21 +393,18 @@ class PaymentLinks
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
      *
-     * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
+     * @param  Operations\ListPaymentLinksRequest  $request
      * @return Operations\ListPaymentLinksResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function list(string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\ListPaymentLinksResponse
+    public function list(Operations\ListPaymentLinksRequest $request, ?Options $options = null): Operations\ListPaymentLinksResponse
     {
-        $request = new Operations\ListPaymentLinksRequest(
-            accountID: $accountID,
-            xMoovVersion: $xMoovVersion,
-        );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/payment-links', Operations\ListPaymentLinksRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
+
+        $qp = Utils\Utils::getQueryParams(Operations\ListPaymentLinksRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
         $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
@@ -417,6 +414,7 @@ class PaymentLinks
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
         $hookContext = new HookContext($this->sdkConfiguration, $baseUrl, 'listPaymentLinks', null, $this->sdkConfiguration->securitySource);
         $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
+        $httpOptions['query'] = Utils\QueryParameters::standardizeQueryParams($httpRequest, $qp);
         $httpOptions = Utils\Utils::convertHeadersToOptions($httpRequest, $httpOptions);
         $httpRequest = Utils\Utils::removeHeaders($httpRequest);
         try {

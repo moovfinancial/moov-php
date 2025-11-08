@@ -29,13 +29,23 @@ class PayoutDetailsError
     public ?PayoutRecipientError $recipient = null;
 
     /**
+     *
+     * @var ?string $metadata
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('metadata')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $metadata = null;
+
+    /**
      * @param  ?string  $allowedMethods
      * @param  ?PayoutRecipientError  $recipient
+     * @param  ?string  $metadata
      * @phpstan-pure
      */
-    public function __construct(?string $allowedMethods = null, ?PayoutRecipientError $recipient = null)
+    public function __construct(?string $allowedMethods = null, ?PayoutRecipientError $recipient = null, ?string $metadata = null)
     {
         $this->allowedMethods = $allowedMethods;
         $this->recipient = $recipient;
+        $this->metadata = $metadata;
     }
 }

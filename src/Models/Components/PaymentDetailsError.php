@@ -38,15 +38,25 @@ class PaymentDetailsError
     public ?ACHPaymentDetailsError $achDetails = null;
 
     /**
+     *
+     * @var ?string $metadata
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('metadata')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $metadata = null;
+
+    /**
      * @param  ?string  $allowedMethods
      * @param  ?CardPaymentDetailsError  $cardDetails
      * @param  ?ACHPaymentDetailsError  $achDetails
+     * @param  ?string  $metadata
      * @phpstan-pure
      */
-    public function __construct(?string $allowedMethods = null, ?CardPaymentDetailsError $cardDetails = null, ?ACHPaymentDetailsError $achDetails = null)
+    public function __construct(?string $allowedMethods = null, ?CardPaymentDetailsError $cardDetails = null, ?ACHPaymentDetailsError $achDetails = null, ?string $metadata = null)
     {
         $this->allowedMethods = $allowedMethods;
         $this->cardDetails = $cardDetails;
         $this->achDetails = $achDetails;
+        $this->metadata = $metadata;
     }
 }

@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Moov\MoovPhp\Models\Operations;
 
+use Moov\MoovPhp\Models\Components;
 use Moov\MoovPhp\Utils\SpeakeasyMetadata;
 class ListPaymentLinksRequest
 {
@@ -17,6 +18,34 @@ class ListPaymentLinksRequest
      */
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=accountID')]
     public string $accountID;
+
+    /**
+     *
+     * @var ?int $skip
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=skip')]
+    public ?int $skip = null;
+
+    /**
+     *
+     * @var ?int $count
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=count')]
+    public ?int $count = null;
+
+    /**
+     *
+     * @var ?Components\PaymentLinkType $type
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=type')]
+    public ?Components\PaymentLinkType $type = null;
+
+    /**
+     *
+     * @var ?Components\PaymentLinkStatus $status
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=status')]
+    public ?Components\PaymentLinkStatus $status = null;
 
     /**
      * Specify an API version.
@@ -38,11 +67,19 @@ class ListPaymentLinksRequest
     /**
      * @param  string  $accountID
      * @param  ?string  $xMoovVersion
+     * @param  ?int  $skip
+     * @param  ?int  $count
+     * @param  ?Components\PaymentLinkType  $type
+     * @param  ?Components\PaymentLinkStatus  $status
      * @phpstan-pure
      */
-    public function __construct(string $accountID, ?string $xMoovVersion = 'v2024.01.00')
+    public function __construct(string $accountID, ?int $skip = null, ?int $count = null, ?Components\PaymentLinkType $type = null, ?Components\PaymentLinkStatus $status = null, ?string $xMoovVersion = 'v2024.01.00')
     {
         $this->accountID = $accountID;
+        $this->skip = $skip;
+        $this->count = $count;
+        $this->type = $type;
+        $this->status = $status;
         $this->xMoovVersion = $xMoovVersion;
     }
 }

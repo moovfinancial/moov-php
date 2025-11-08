@@ -42,15 +42,27 @@ class PaymentLinkPaymentDetails
     public ?ACHPaymentDetails $achDetails = null;
 
     /**
+     * Optional free-form metadata for the transfer.
+     *
+     * @var ?array<string, string> $metadata
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('metadata')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string, string>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $metadata = null;
+
+    /**
      * @param  array<CollectionPaymentMethodType>  $allowedMethods
      * @param  ?CardPaymentDetails  $cardDetails
      * @param  ?ACHPaymentDetails  $achDetails
+     * @param  ?array<string, string>  $metadata
      * @phpstan-pure
      */
-    public function __construct(array $allowedMethods, ?CardPaymentDetails $cardDetails = null, ?ACHPaymentDetails $achDetails = null)
+    public function __construct(array $allowedMethods, ?CardPaymentDetails $cardDetails = null, ?ACHPaymentDetails $achDetails = null, ?array $metadata = null)
     {
         $this->allowedMethods = $allowedMethods;
         $this->cardDetails = $cardDetails;
         $this->achDetails = $achDetails;
+        $this->metadata = $metadata;
     }
 }
