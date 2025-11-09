@@ -19,6 +19,24 @@ class ListStatementsRequest
     public string $accountID;
 
     /**
+     * Specify an API version.
+     *
+     *
+     * API versioning follows the format `vYYYY.QQ.BB`, where 
+     *   - `YYYY` is the year
+     *   - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)
+     *   - `BB` is the build number, starting at `.01`, for subsequent builds in the same quarter. 
+     *     - For example, `v2024.01.00` is the initial release of the first quarter of 2024.
+     *
+     * The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release.
+     * When no version is specified, the API defaults to `v2024.01.00`.
+     *
+     * @var ?string $xMoovVersion
+     */
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=X-Moov-Version')]
+    public ?string $xMoovVersion = null;
+
+    /**
      * Optional date-time which inclusively filters all statements where billing period is on or after this date-time.
      *
      * @var ?\DateTime $billingPeriodStartDateTime
@@ -49,23 +67,6 @@ class ListStatementsRequest
     public ?int $count = null;
 
     /**
-     * Specify an API version.
-     *
-     *
-     * API versioning follows the format `vYYYY.QQ.BB`, where 
-     *   - `YYYY` is the year
-     *   - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)
-     *   - `BB` is the build number, starting at `.01`, for subsequent builds in the same quarter. 
-     *     - For example, `v2024.01.00` is the initial release of the first quarter of 2024.
-     *
-     * The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release.
-     *
-     * @var ?string $xMoovVersion
-     */
-    #[SpeakeasyMetadata('header:style=simple,explode=false,name=X-Moov-Version')]
-    public ?string $xMoovVersion = null;
-
-    /**
      * @param  string  $accountID
      * @param  ?string  $xMoovVersion
      * @param  ?\DateTime  $billingPeriodStartDateTime
@@ -74,13 +75,13 @@ class ListStatementsRequest
      * @param  ?int  $count
      * @phpstan-pure
      */
-    public function __construct(string $accountID, ?\DateTime $billingPeriodStartDateTime = null, ?\DateTime $billingPeriodEndDateTime = null, ?int $skip = null, ?int $count = null, ?string $xMoovVersion = 'v2024.01.00')
+    public function __construct(string $accountID, ?string $xMoovVersion = null, ?\DateTime $billingPeriodStartDateTime = null, ?\DateTime $billingPeriodEndDateTime = null, ?int $skip = null, ?int $count = null)
     {
         $this->accountID = $accountID;
+        $this->xMoovVersion = $xMoovVersion;
         $this->billingPeriodStartDateTime = $billingPeriodStartDateTime;
         $this->billingPeriodEndDateTime = $billingPeriodEndDateTime;
         $this->skip = $skip;
         $this->count = $count;
-        $this->xMoovVersion = $xMoovVersion;
     }
 }

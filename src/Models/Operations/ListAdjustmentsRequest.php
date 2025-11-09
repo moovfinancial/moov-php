@@ -19,14 +19,6 @@ class ListAdjustmentsRequest
     public string $accountID;
 
     /**
-     * A wallet ID to filter adjustments by.
-     *
-     * @var ?string $walletID
-     */
-    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=walletID')]
-    public ?string $walletID = null;
-
-    /**
      * Specify an API version.
      *
      *
@@ -37,6 +29,7 @@ class ListAdjustmentsRequest
      *     - For example, `v2024.01.00` is the initial release of the first quarter of 2024.
      *
      * The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release.
+     * When no version is specified, the API defaults to `v2024.01.00`.
      *
      * @var ?string $xMoovVersion
      */
@@ -44,15 +37,23 @@ class ListAdjustmentsRequest
     public ?string $xMoovVersion = null;
 
     /**
+     * A wallet ID to filter adjustments by.
+     *
+     * @var ?string $walletID
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=walletID')]
+    public ?string $walletID = null;
+
+    /**
      * @param  string  $accountID
      * @param  ?string  $xMoovVersion
      * @param  ?string  $walletID
      * @phpstan-pure
      */
-    public function __construct(string $accountID, ?string $walletID = null, ?string $xMoovVersion = 'v2024.01.00')
+    public function __construct(string $accountID, ?string $xMoovVersion = null, ?string $walletID = null)
     {
         $this->accountID = $accountID;
-        $this->walletID = $walletID;
         $this->xMoovVersion = $xMoovVersion;
+        $this->walletID = $walletID;
     }
 }

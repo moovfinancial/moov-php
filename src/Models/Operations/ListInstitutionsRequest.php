@@ -12,6 +12,24 @@ use Moov\MoovPhp\Utils\SpeakeasyMetadata;
 class ListInstitutionsRequest
 {
     /**
+     * Specify an API version.
+     *
+     *
+     * API versioning follows the format `vYYYY.QQ.BB`, where 
+     *   - `YYYY` is the year
+     *   - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)
+     *   - `BB` is the build number, starting at `.01`, for subsequent builds in the same quarter. 
+     *     - For example, `v2024.01.00` is the initial release of the first quarter of 2024.
+     *
+     * The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release.
+     * When no version is specified, the API defaults to `v2024.01.00`.
+     *
+     * @var ?string $xMoovVersion
+     */
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=X-Moov-Version')]
+    public ?string $xMoovVersion = null;
+
+    /**
      * Name of the financial institution. Either `name` or `routingNumber` is required.
      *
      * @var ?string $name
@@ -44,23 +62,6 @@ class ListInstitutionsRequest
     public ?int $limit = null;
 
     /**
-     * Specify an API version.
-     *
-     *
-     * API versioning follows the format `vYYYY.QQ.BB`, where 
-     *   - `YYYY` is the year
-     *   - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)
-     *   - `BB` is the build number, starting at `.01`, for subsequent builds in the same quarter. 
-     *     - For example, `v2024.01.00` is the initial release of the first quarter of 2024.
-     *
-     * The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release.
-     *
-     * @var ?string $xMoovVersion
-     */
-    #[SpeakeasyMetadata('header:style=simple,explode=false,name=X-Moov-Version')]
-    public ?string $xMoovVersion = null;
-
-    /**
      * @param  ?string  $xMoovVersion
      * @param  ?string  $name
      * @param  ?string  $routingNumber
@@ -68,12 +69,12 @@ class ListInstitutionsRequest
      * @param  ?int  $limit
      * @phpstan-pure
      */
-    public function __construct(?string $name = null, ?string $routingNumber = null, ?string $state = null, ?int $limit = null, ?string $xMoovVersion = 'v2024.01.00')
+    public function __construct(?string $xMoovVersion = null, ?string $name = null, ?string $routingNumber = null, ?string $state = null, ?int $limit = null)
     {
+        $this->xMoovVersion = $xMoovVersion;
         $this->name = $name;
         $this->routingNumber = $routingNumber;
         $this->state = $state;
         $this->limit = $limit;
-        $this->xMoovVersion = $xMoovVersion;
     }
 }

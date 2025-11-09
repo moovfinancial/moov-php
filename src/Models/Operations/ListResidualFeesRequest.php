@@ -26,6 +26,24 @@ class ListResidualFeesRequest
     public string $residualID;
 
     /**
+     * Specify an API version.
+     *
+     *
+     * API versioning follows the format `vYYYY.QQ.BB`, where 
+     *   - `YYYY` is the year
+     *   - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)
+     *   - `BB` is the build number, starting at `.01`, for subsequent builds in the same quarter. 
+     *     - For example, `v2024.01.00` is the initial release of the first quarter of 2024.
+     *
+     * The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release.
+     * When no version is specified, the API defaults to `v2024.01.00`.
+     *
+     * @var ?string $xMoovVersion
+     */
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=X-Moov-Version')]
+    public ?string $xMoovVersion = null;
+
+    /**
      *
      * @var ?int $skip
      */
@@ -56,23 +74,6 @@ class ListResidualFeesRequest
     public ?string $endDateTime = null;
 
     /**
-     * Specify an API version.
-     *
-     *
-     * API versioning follows the format `vYYYY.QQ.BB`, where 
-     *   - `YYYY` is the year
-     *   - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)
-     *   - `BB` is the build number, starting at `.01`, for subsequent builds in the same quarter. 
-     *     - For example, `v2024.01.00` is the initial release of the first quarter of 2024.
-     *
-     * The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release.
-     *
-     * @var ?string $xMoovVersion
-     */
-    #[SpeakeasyMetadata('header:style=simple,explode=false,name=X-Moov-Version')]
-    public ?string $xMoovVersion = null;
-
-    /**
      * @param  string  $accountID
      * @param  string  $residualID
      * @param  ?string  $xMoovVersion
@@ -82,14 +83,14 @@ class ListResidualFeesRequest
      * @param  ?string  $endDateTime
      * @phpstan-pure
      */
-    public function __construct(string $accountID, string $residualID, ?int $skip = null, ?int $count = null, ?string $startDateTime = null, ?string $endDateTime = null, ?string $xMoovVersion = 'v2024.01.00')
+    public function __construct(string $accountID, string $residualID, ?string $xMoovVersion = null, ?int $skip = null, ?int $count = null, ?string $startDateTime = null, ?string $endDateTime = null)
     {
         $this->accountID = $accountID;
         $this->residualID = $residualID;
+        $this->xMoovVersion = $xMoovVersion;
         $this->skip = $skip;
         $this->count = $count;
         $this->startDateTime = $startDateTime;
         $this->endDateTime = $endDateTime;
-        $this->xMoovVersion = $xMoovVersion;
     }
 }

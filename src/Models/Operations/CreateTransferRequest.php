@@ -36,16 +36,6 @@ class CreateTransferRequest
     public Components\CreateTransfer $createTransfer;
 
     /**
-     * Optional header that indicates whether to return a synchronous response that includes full transfer and rail-specific details or an 
-     *
-     * asynchronous response indicating the transfer was created (this is the default response if the header is omitted). A timeout will occur after 15 seconds.
-     *
-     * @var ?Components\TransferWaitFor $xWaitFor
-     */
-    #[SpeakeasyMetadata('header:style=simple,explode=false,name=x-wait-for')]
-    public ?Components\TransferWaitFor $xWaitFor = null;
-
-    /**
      * Specify an API version.
      *
      *
@@ -56,11 +46,22 @@ class CreateTransferRequest
      *     - For example, `v2024.01.00` is the initial release of the first quarter of 2024.
      *
      * The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release.
+     * When no version is specified, the API defaults to `v2024.01.00`.
      *
      * @var ?string $xMoovVersion
      */
     #[SpeakeasyMetadata('header:style=simple,explode=false,name=X-Moov-Version')]
     public ?string $xMoovVersion = null;
+
+    /**
+     * Optional header that indicates whether to return a synchronous response that includes full transfer and rail-specific details or an 
+     *
+     * asynchronous response indicating the transfer was created (this is the default response if the header is omitted). A timeout will occur after 15 seconds.
+     *
+     * @var ?Components\TransferWaitFor $xWaitFor
+     */
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=x-wait-for')]
+    public ?Components\TransferWaitFor $xWaitFor = null;
 
     /**
      * @param  string  $xIdempotencyKey
@@ -70,12 +71,12 @@ class CreateTransferRequest
      * @param  ?Components\TransferWaitFor  $xWaitFor
      * @phpstan-pure
      */
-    public function __construct(string $xIdempotencyKey, string $accountID, Components\CreateTransfer $createTransfer, ?Components\TransferWaitFor $xWaitFor = null, ?string $xMoovVersion = 'v2024.01.00')
+    public function __construct(string $xIdempotencyKey, string $accountID, Components\CreateTransfer $createTransfer, ?string $xMoovVersion = null, ?Components\TransferWaitFor $xWaitFor = null)
     {
         $this->xIdempotencyKey = $xIdempotencyKey;
         $this->accountID = $accountID;
         $this->createTransfer = $createTransfer;
-        $this->xWaitFor = $xWaitFor;
         $this->xMoovVersion = $xMoovVersion;
+        $this->xWaitFor = $xWaitFor;
     }
 }

@@ -12,6 +12,24 @@ use Moov\MoovPhp\Utils\SpeakeasyMetadata;
 class GetTermsOfServiceTokenRequest
 {
     /**
+     * Specify an API version.
+     *
+     *
+     * API versioning follows the format `vYYYY.QQ.BB`, where 
+     *   - `YYYY` is the year
+     *   - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)
+     *   - `BB` is the build number, starting at `.01`, for subsequent builds in the same quarter. 
+     *     - For example, `v2024.01.00` is the initial release of the first quarter of 2024.
+     *
+     * The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release.
+     * When no version is specified, the API defaults to `v2024.01.00`.
+     *
+     * @var ?string $xMoovVersion
+     */
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=X-Moov-Version')]
+    public ?string $xMoovVersion = null;
+
+    /**
      * Indicates the domain from which the request originated. Required if referer header is not present.
      *
      * @var ?string $origin
@@ -28,32 +46,15 @@ class GetTermsOfServiceTokenRequest
     public ?string $referer = null;
 
     /**
-     * Specify an API version.
-     *
-     *
-     * API versioning follows the format `vYYYY.QQ.BB`, where 
-     *   - `YYYY` is the year
-     *   - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)
-     *   - `BB` is the build number, starting at `.01`, for subsequent builds in the same quarter. 
-     *     - For example, `v2024.01.00` is the initial release of the first quarter of 2024.
-     *
-     * The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release.
-     *
-     * @var ?string $xMoovVersion
-     */
-    #[SpeakeasyMetadata('header:style=simple,explode=false,name=X-Moov-Version')]
-    public ?string $xMoovVersion = null;
-
-    /**
      * @param  ?string  $xMoovVersion
      * @param  ?string  $origin
      * @param  ?string  $referer
      * @phpstan-pure
      */
-    public function __construct(?string $origin = null, ?string $referer = null, ?string $xMoovVersion = 'v2024.01.00')
+    public function __construct(?string $xMoovVersion = null, ?string $origin = null, ?string $referer = null)
     {
+        $this->xMoovVersion = $xMoovVersion;
         $this->origin = $origin;
         $this->referer = $referer;
-        $this->xMoovVersion = $xMoovVersion;
     }
 }

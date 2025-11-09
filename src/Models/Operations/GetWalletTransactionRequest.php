@@ -43,6 +43,7 @@ class GetWalletTransactionRequest
      *     - For example, `v2024.01.00` is the initial release of the first quarter of 2024.
      *
      * The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release.
+     * When no version is specified, the API defaults to `v2024.01.00`.
      *
      * @var ?string $xMoovVersion
      */
@@ -56,7 +57,7 @@ class GetWalletTransactionRequest
      * @param  ?string  $xMoovVersion
      * @phpstan-pure
      */
-    public function __construct(string $accountID, string $walletID, string $transactionID, ?string $xMoovVersion = 'v2024.01.00')
+    public function __construct(string $accountID, string $walletID, string $transactionID, ?string $xMoovVersion = null)
     {
         $this->accountID = $accountID;
         $this->walletID = $walletID;

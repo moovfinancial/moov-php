@@ -37,13 +37,6 @@ class CreateReversalRequest
     public string $transferID;
 
     /**
-     *
-     * @var ?Components\CreateReversal $createReversal
-     */
-    #[SpeakeasyMetadata('request:mediaType=application/json')]
-    public ?Components\CreateReversal $createReversal = null;
-
-    /**
      * Specify an API version.
      *
      *
@@ -54,11 +47,19 @@ class CreateReversalRequest
      *     - For example, `v2024.01.00` is the initial release of the first quarter of 2024.
      *
      * The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release.
+     * When no version is specified, the API defaults to `v2024.01.00`.
      *
      * @var ?string $xMoovVersion
      */
     #[SpeakeasyMetadata('header:style=simple,explode=false,name=X-Moov-Version')]
     public ?string $xMoovVersion = null;
+
+    /**
+     *
+     * @var ?Components\CreateReversal $createReversal
+     */
+    #[SpeakeasyMetadata('request:mediaType=application/json')]
+    public ?Components\CreateReversal $createReversal = null;
 
     /**
      * @param  string  $xIdempotencyKey
@@ -68,12 +69,12 @@ class CreateReversalRequest
      * @param  ?Components\CreateReversal  $createReversal
      * @phpstan-pure
      */
-    public function __construct(string $xIdempotencyKey, string $accountID, string $transferID, ?Components\CreateReversal $createReversal = null, ?string $xMoovVersion = 'v2024.01.00')
+    public function __construct(string $xIdempotencyKey, string $accountID, string $transferID, ?string $xMoovVersion = null, ?Components\CreateReversal $createReversal = null)
     {
         $this->xIdempotencyKey = $xIdempotencyKey;
         $this->accountID = $accountID;
         $this->transferID = $transferID;
-        $this->createReversal = $createReversal;
         $this->xMoovVersion = $xMoovVersion;
+        $this->createReversal = $createReversal;
     }
 }

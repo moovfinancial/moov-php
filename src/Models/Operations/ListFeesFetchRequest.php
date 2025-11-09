@@ -20,13 +20,6 @@ class ListFeesFetchRequest
     public string $accountID;
 
     /**
-     *
-     * @var ?Components\ListFeesFetchRequest $listFeesFetchRequest
-     */
-    #[SpeakeasyMetadata('request:mediaType=application/json')]
-    public ?Components\ListFeesFetchRequest $listFeesFetchRequest = null;
-
-    /**
      * Specify an API version.
      *
      *
@@ -37,6 +30,7 @@ class ListFeesFetchRequest
      *     - For example, `v2024.01.00` is the initial release of the first quarter of 2024.
      *
      * The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release.
+     * When no version is specified, the API defaults to `v2024.01.00`.
      *
      * @var ?string $xMoovVersion
      */
@@ -44,15 +38,22 @@ class ListFeesFetchRequest
     public ?string $xMoovVersion = null;
 
     /**
+     *
+     * @var ?Components\ListFeesFetchRequest $listFeesFetchRequest
+     */
+    #[SpeakeasyMetadata('request:mediaType=application/json')]
+    public ?Components\ListFeesFetchRequest $listFeesFetchRequest = null;
+
+    /**
      * @param  string  $accountID
      * @param  ?string  $xMoovVersion
      * @param  ?Components\ListFeesFetchRequest  $listFeesFetchRequest
      * @phpstan-pure
      */
-    public function __construct(string $accountID, ?Components\ListFeesFetchRequest $listFeesFetchRequest = null, ?string $xMoovVersion = 'v2024.01.00')
+    public function __construct(string $accountID, ?string $xMoovVersion = null, ?Components\ListFeesFetchRequest $listFeesFetchRequest = null)
     {
         $this->accountID = $accountID;
-        $this->listFeesFetchRequest = $listFeesFetchRequest;
         $this->xMoovVersion = $xMoovVersion;
+        $this->listFeesFetchRequest = $listFeesFetchRequest;
     }
 }
