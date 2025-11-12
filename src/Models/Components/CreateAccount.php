@@ -39,12 +39,12 @@ class CreateAccount
 
     /**
      *
-     * @var TermsOfServiceToken|ManualTermsOfService|null $termsOfService
+     * @var ?TermsOfServicePayload $termsOfService
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('termsOfService')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TermsOfServiceToken|\Moov\MoovPhp\Models\Components\ManualTermsOfService|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TermsOfServicePayload|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public TermsOfServiceToken|ManualTermsOfService|null $termsOfService = null;
+    public ?TermsOfServicePayload $termsOfService = null;
 
     /**
      * Optional alias from a foreign/external system which can be used to reference this resource.
@@ -101,7 +101,7 @@ class CreateAccount
      * @param  CreateAccountType  $accountType
      * @param  CreateProfile  $profile
      * @param  ?array<string, string>  $metadata
-     * @param  TermsOfServiceToken|ManualTermsOfService|null  $termsOfService
+     * @param  ?TermsOfServicePayload  $termsOfService
      * @param  ?string  $foreignID
      * @param  ?CustomerSupport  $customerSupport
      * @param  ?Settings  $settings
@@ -109,7 +109,7 @@ class CreateAccount
      * @param  ?Mode  $mode
      * @phpstan-pure
      */
-    public function __construct(CreateAccountType $accountType, CreateProfile $profile, ?array $metadata = null, TermsOfServiceToken|ManualTermsOfService|null $termsOfService = null, ?string $foreignID = null, ?CustomerSupport $customerSupport = null, ?Settings $settings = null, ?array $capabilities = null, ?Mode $mode = null)
+    public function __construct(CreateAccountType $accountType, CreateProfile $profile, ?array $metadata = null, ?TermsOfServicePayload $termsOfService = null, ?string $foreignID = null, ?CustomerSupport $customerSupport = null, ?Settings $settings = null, ?array $capabilities = null, ?Mode $mode = null)
     {
         $this->accountType = $accountType;
         $this->profile = $profile;

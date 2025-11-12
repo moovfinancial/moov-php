@@ -26,12 +26,12 @@ class PatchAccount
 
     /**
      *
-     * @var TermsOfServiceTokenUpdate|ManualTermsOfServiceUpdate|null $termsOfService
+     * @var ?TermsOfServicePayloadUpdate $termsOfService
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('termsOfService')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TermsOfServiceTokenUpdate|\Moov\MoovPhp\Models\Components\ManualTermsOfServiceUpdate|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TermsOfServicePayloadUpdate|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public TermsOfServiceTokenUpdate|ManualTermsOfServiceUpdate|null $termsOfService = null;
+    public ?TermsOfServicePayloadUpdate $termsOfService = null;
 
     /**
      *
@@ -71,14 +71,14 @@ class PatchAccount
 
     /**
      * @param  ?PatchProfile  $profile
-     * @param  TermsOfServiceTokenUpdate|ManualTermsOfServiceUpdate|null  $termsOfService
+     * @param  ?TermsOfServicePayloadUpdate  $termsOfService
      * @param  ?string  $foreignID
      * @param  ?CreateAccountSettings  $settings
      * @param  ?array<string, string>  $metadata
      * @param  ?PatchAccountCustomerSupport  $customerSupport
      * @phpstan-pure
      */
-    public function __construct(?PatchProfile $profile = null, TermsOfServiceTokenUpdate|ManualTermsOfServiceUpdate|null $termsOfService = null, ?string $foreignID = null, ?CreateAccountSettings $settings = null, ?array $metadata = null, ?PatchAccountCustomerSupport $customerSupport = null)
+    public function __construct(?PatchProfile $profile = null, ?TermsOfServicePayloadUpdate $termsOfService = null, ?string $foreignID = null, ?CreateAccountSettings $settings = null, ?array $metadata = null, ?PatchAccountCustomerSupport $customerSupport = null)
     {
         $this->profile = $profile;
         $this->termsOfService = $termsOfService;
