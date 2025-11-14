@@ -3,10 +3,10 @@ id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
   docChecksum: 6e646e4b97daf34bf892118c64cc9b73
   docVersion: latest
-  speakeasyVersion: 1.656.2
-  generationVersion: 2.753.6
-  releaseVersion: 0.7.7
-  configChecksum: a3a3266cf40c7b5fdacb6793207afb6a
+  speakeasyVersion: 1.656.3
+  generationVersion: 2.753.7
+  releaseVersion: 0.7.8
+  configChecksum: e6ee43a10f39aa6596d706aebaef0c37
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
@@ -4582,7 +4582,3 @@ examples:
           application/json: [{"amount": {"currency": "USD", "valueDecimal": "12.987654321"}}]
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Php SDK Changes Detected:
-  * `moov->statements->list()`:  `response.[]->instantPaymentFees->instantVerification` **Added**
-  * `moov->statements->get()`:  `response.instantPaymentFees->instantVerification` **Added**
