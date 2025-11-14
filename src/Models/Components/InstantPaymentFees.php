@@ -40,6 +40,15 @@ class InstantPaymentFees
     public BillingCountAndAmount $pullFromCardTransaction;
 
     /**
+     * Fees for instant payment verifications.
+     *
+     * @var BillingCountAndAmount $instantVerification
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('instantVerification')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingCountAndAmount')]
+    public BillingCountAndAmount $instantVerification;
+
+    /**
      * Total instant payment fees.
      *
      * @var BillingCountAndAmount $total
@@ -92,6 +101,7 @@ class InstantPaymentFees
      * @param  BillingCountAndAmount  $rtpCreditTransaction
      * @param  BillingCountAndAmount  $pushToCardTransaction
      * @param  BillingCountAndAmount  $pullFromCardTransaction
+     * @param  BillingCountAndAmount  $instantVerification
      * @param  BillingCountAndAmount  $total
      * @param  ?BillingCountAndAmount  $rtpDecline
      * @param  ?BillingCountAndAmount  $pushToCardDecline
@@ -99,11 +109,12 @@ class InstantPaymentFees
      * @param  ?BillingCountAndAmount  $pullFromCardRefund
      * @phpstan-pure
      */
-    public function __construct(BillingCountAndAmount $rtpCreditTransaction, BillingCountAndAmount $pushToCardTransaction, BillingCountAndAmount $pullFromCardTransaction, BillingCountAndAmount $total, ?BillingCountAndAmount $rtpDecline = null, ?BillingCountAndAmount $pushToCardDecline = null, ?BillingCountAndAmount $pullFromCardDecline = null, ?BillingCountAndAmount $pullFromCardRefund = null)
+    public function __construct(BillingCountAndAmount $rtpCreditTransaction, BillingCountAndAmount $pushToCardTransaction, BillingCountAndAmount $pullFromCardTransaction, BillingCountAndAmount $instantVerification, BillingCountAndAmount $total, ?BillingCountAndAmount $rtpDecline = null, ?BillingCountAndAmount $pushToCardDecline = null, ?BillingCountAndAmount $pullFromCardDecline = null, ?BillingCountAndAmount $pullFromCardRefund = null)
     {
         $this->rtpCreditTransaction = $rtpCreditTransaction;
         $this->pushToCardTransaction = $pushToCardTransaction;
         $this->pullFromCardTransaction = $pullFromCardTransaction;
+        $this->instantVerification = $instantVerification;
         $this->total = $total;
         $this->rtpDecline = $rtpDecline;
         $this->pushToCardDecline = $pushToCardDecline;
