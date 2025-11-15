@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 6e646e4b97daf34bf892118c64cc9b73
+  docChecksum: b2d690c094129b245ffae74c7d4b7479
   docVersion: latest
-  speakeasyVersion: 1.656.3
-  generationVersion: 2.753.7
-  releaseVersion: 0.7.8
-  configChecksum: e6ee43a10f39aa6596d706aebaef0c37
+  speakeasyVersion: 1.657.0
+  generationVersion: 2.755.0
+  releaseVersion: 0.7.9
+  configChecksum: 63bcac6e79a038a0b3dffdd2e84c3dbb
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
@@ -486,7 +486,6 @@ generatedFiles:
   - docs/Models/Components/TermsOfServicePayload.md
   - docs/Models/Components/TermsOfServicePayloadUpdate.md
   - docs/Models/Components/TermsOfServiceToken.md
-  - docs/Models/Components/TermsOfServiceTokenUpdate.md
   - docs/Models/Components/Ticket.md
   - docs/Models/Components/TicketContact.md
   - docs/Models/Components/TicketMessage.md
@@ -1498,7 +1497,6 @@ generatedFiles:
   - src/Models/Components/TermsOfServicePayload.php
   - src/Models/Components/TermsOfServicePayloadUpdate.php
   - src/Models/Components/TermsOfServiceToken.php
-  - src/Models/Components/TermsOfServiceTokenUpdate.php
   - src/Models/Components/Ticket.php
   - src/Models/Components/TicketContact.php
   - src/Models/Components/TicketMessage.php
@@ -2131,7 +2129,7 @@ examples:
           x-moov-version: "v2024.01.00"
           X-Moov-Version: "v2024.01.00"
       requestBody:
-        application/json: {"profile": {"individual": {"name": {"firstName": "Jordan", "middleName": "Reese", "lastName": "Lee", "suffix": "Jr"}, "phone": {"number": "8185551212", "countryCode": "1"}, "email": "jordan.lee@classbooker.dev", "address": {"addressLine1": "123 Main Street", "addressLine2": "Apt 302", "city": "Boulder", "stateOrProvince": "CO", "postalCode": "80301", "country": "US"}, "birthDate": {"day": 9, "month": 11, "year": 1989}}, "business": {"businessType": "llc", "address": {"addressLine1": "123 Main Street", "addressLine2": "Apt 302", "city": "Boulder", "stateOrProvince": "CO", "postalCode": "80301", "country": "US"}, "phone": {"number": "8185551212", "countryCode": "1"}, "email": "jordan.lee@classbooker.dev", "taxID": {"ein": {"number": "12-3456789"}}, "industryCodes": {"naics": "713940", "sic": "7991", "mcc": "7997"}, "industry": "electronics-appliances"}}, "metadata": {"optional": "metadata"}, "termsOfService": {"token": {"token": "kgT1uxoMAk7QKuyJcmQE8nqW_HjpyuXBabiXPi6T83fUQoxsyWYPcYzuHQTqrt7YRp4gCwyDQvb6U5REM9Pgl2EloCe35t-eiMAbUWGo3Kerxme6aqNcKrP_6-v0MTXViOEJ96IBxPFTvMV7EROI2dq3u4e-x4BbGSCedAX-ViAQND6hcreCDXwrO6sHuzh5Xi2IzSqZHxaovnWEboaxuZKRJkA3dsFID6fzitMpm2qrOh4"}, "manual": {"acceptedIP": "172.217.2.46", "acceptedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.71 Safari/537.36"}}, "customerSupport": {"phone": {"number": "8185551212", "countryCode": "1"}, "email": "jordan.lee@classbooker.dev", "address": {"addressLine1": "123 Main Street", "addressLine2": "Apt 302", "city": "Boulder", "stateOrProvince": "CO", "postalCode": "80301", "country": "US"}}}
+        application/json: {"profile": {"individual": {"name": {"firstName": "Jordan", "middleName": "Reese", "lastName": "Lee", "suffix": "Jr"}, "phone": {"number": "8185551212", "countryCode": "1"}, "email": "jordan.lee@classbooker.dev", "address": {"addressLine1": "123 Main Street", "addressLine2": "Apt 302", "city": "Boulder", "stateOrProvince": "CO", "postalCode": "80301", "country": "US"}, "birthDate": {"day": 9, "month": 11, "year": 1989}}, "business": {"businessType": "llc", "address": {"addressLine1": "123 Main Street", "addressLine2": "Apt 302", "city": "Boulder", "stateOrProvince": "CO", "postalCode": "80301", "country": "US"}, "phone": {"number": "8185551212", "countryCode": "1"}, "email": "jordan.lee@classbooker.dev", "taxID": {"ein": {"number": "12-3456789"}}, "industryCodes": {"naics": "713940", "sic": "7991", "mcc": "7997"}, "industry": "electronics-appliances"}}, "metadata": {"optional": "metadata"}, "termsOfService": {"manual": {"acceptedIP": "172.217.2.46", "acceptedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.71 Safari/537.36"}}, "customerSupport": {"phone": {"number": "8185551212", "countryCode": "1"}, "email": "jordan.lee@classbooker.dev", "address": {"addressLine1": "123 Main Street", "addressLine2": "Apt 302", "city": "Boulder", "stateOrProvince": "CO", "postalCode": "80301", "country": "US"}}}
       responses:
         "200":
           application/json: {"accountID": "53ca67ea-6fd3-423f-9544-ce2404159d33", "mode": "sandbox", "accountType": "business", "displayName": "Whole Body Fitness LLC", "profile": {"business": {"legalBusinessName": "Whole Body Fitness LLC", "ownersProvided": false}}, "verification": {"verificationStatus": "unverified", "status": "unverified"}, "settings": {"cardPayment": {"statementDescriptor": "Whole Body Fitness LLC"}, "achPayment": {"companyName": "Whole Body Fitne"}}, "createdOn": "2024-12-16T17:55:20.557151867Z", "updatedOn": "2024-12-16T17:55:20.557151867Z"}
@@ -4582,3 +4580,4 @@ examples:
           application/json: [{"amount": {"currency": "USD", "valueDecimal": "12.987654321"}}]
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: "## Php SDK Changes Detected:\n* `moov->accounts->create()`: \n  *  `request.createAccount->termsOfService->token` **Changed** **Breaking** :warning:\n* `moov->accounts->updateProfile()`: \n  *  `request.patchAccount->termsOfService->token` **Changed** **Breaking** :warning:\n* `moov->onboardinginvites->create()`: \n  *  `request.onboardingInviteRequest->prefill->termsOfService->token` **Changed** **Breaking** :warning:\n  *  `response.prefill->termsOfService->token` **Changed** **Breaking** :warning:\n* `moov->onboarding->listInvites()`:  `response.[]->prefill->termsOfService->token` **Changed** **Breaking** :warning:\n* `moov->onboarding->getInvite()`:  `response.prefill->termsOfService->token` **Changed** **Breaking** :warning:\n"

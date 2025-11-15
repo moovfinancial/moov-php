@@ -12,14 +12,12 @@ namespace Moov\MoovPhp\Models\Components;
 class TermsOfServicePayloadUpdate
 {
     /**
-     * An encrypted value used to record acceptance of Moov's Terms of Service.
      *
-     * @var ?TermsOfServiceTokenUpdate $token
+     * @var ?string $token
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('token')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TermsOfServiceTokenUpdate|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?TermsOfServiceTokenUpdate $token = null;
+    public ?string $token = null;
 
     /**
      * Describes the acceptance of the Terms of Service. All data is required, and must be from the user.
@@ -32,11 +30,11 @@ class TermsOfServicePayloadUpdate
     public ?ManualTermsOfServiceUpdate $manual = null;
 
     /**
-     * @param  ?TermsOfServiceTokenUpdate  $token
+     * @param  ?string  $token
      * @param  ?ManualTermsOfServiceUpdate  $manual
      * @phpstan-pure
      */
-    public function __construct(?TermsOfServiceTokenUpdate $token = null, ?ManualTermsOfServiceUpdate $manual = null)
+    public function __construct(?string $token = null, ?ManualTermsOfServiceUpdate $manual = null)
     {
         $this->token = $token;
         $this->manual = $manual;
