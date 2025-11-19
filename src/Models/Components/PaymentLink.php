@@ -61,6 +61,14 @@ class PaymentLink
     public string $merchantAccountID;
 
     /**
+     * The payment link's owner's Moov account ID.
+     *
+     * @var string $ownerAccountID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('ownerAccountID')]
+    public string $ownerAccountID;
+
+    /**
      * The merchant's preferred payment method ID. Must be a wallet payment method.
      *
      * @var string $merchantPaymentMethodID
@@ -199,6 +207,7 @@ class PaymentLink
      * @param  PaymentLinkStatus  $status
      * @param  string  $partnerAccountID
      * @param  string  $merchantAccountID
+     * @param  string  $ownerAccountID
      * @param  string  $merchantPaymentMethodID
      * @param  string  $link
      * @param  Amount  $amount
@@ -216,7 +225,7 @@ class PaymentLink
      * @param  ?\DateTime  $disabledOn
      * @phpstan-pure
      */
-    public function __construct(string $code, PaymentLinkType $paymentLinkType, Mode $mode, PaymentLinkStatus $status, string $partnerAccountID, string $merchantAccountID, string $merchantPaymentMethodID, string $link, Amount $amount, int $uses, PaymentLinkDisplayOptions $display, PaymentLinkCustomerOptions $customer, \DateTime $createdOn, \DateTime $updatedOn, ?int $maxUses = null, ?\DateTime $lastUsedOn = null, ?\DateTime $expiresOn = null, ?PaymentLinkPaymentDetails $payment = null, ?PaymentLinkPayoutDetails $payout = null, ?PaymentLinkLineItems $lineItems = null, ?\DateTime $disabledOn = null)
+    public function __construct(string $code, PaymentLinkType $paymentLinkType, Mode $mode, PaymentLinkStatus $status, string $partnerAccountID, string $merchantAccountID, string $ownerAccountID, string $merchantPaymentMethodID, string $link, Amount $amount, int $uses, PaymentLinkDisplayOptions $display, PaymentLinkCustomerOptions $customer, \DateTime $createdOn, \DateTime $updatedOn, ?int $maxUses = null, ?\DateTime $lastUsedOn = null, ?\DateTime $expiresOn = null, ?PaymentLinkPaymentDetails $payment = null, ?PaymentLinkPayoutDetails $payout = null, ?PaymentLinkLineItems $lineItems = null, ?\DateTime $disabledOn = null)
     {
         $this->code = $code;
         $this->paymentLinkType = $paymentLinkType;
@@ -224,6 +233,7 @@ class PaymentLink
         $this->status = $status;
         $this->partnerAccountID = $partnerAccountID;
         $this->merchantAccountID = $merchantAccountID;
+        $this->ownerAccountID = $ownerAccountID;
         $this->merchantPaymentMethodID = $merchantPaymentMethodID;
         $this->link = $link;
         $this->amount = $amount;
