@@ -69,7 +69,7 @@ you'll need to specify the `/accounts/{accountID}/profile.read` scope.
 This token can only be generated via API. Any Moov account requesting the collect funds, send funds, wallet, 
 or card issuing capabilities must accept Moov's terms of service, then have the generated terms of service 
 token patched to the account. Read more in our [documentation](https://docs.moov.io/guides/accounts/requirements/platform-agreement/).
-* [getFees](#getfees) - Retrieve fees associated with an account.
+* [getFees](#getfees) - Retrieve fees assessed to an account.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
@@ -721,7 +721,7 @@ if ($response->termsOfServiceToken !== null) {
 
 ## getFees
 
-Retrieve fees associated with an account.
+Retrieve fees assessed to an account.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/transfers.read` scope.

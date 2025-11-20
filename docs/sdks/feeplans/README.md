@@ -30,6 +30,10 @@ you'll need to specify the `/accounts/{accountID}/profile.read` scope.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/profile.read` scope.
+* [listFeeRevenue](#listfeerevenue) - Used by a partner. Retrieve revenue generated from merchant fees.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/profile.read` scope.
 * [listResiduals](#listresiduals) - List all residuals associated with an account.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
@@ -393,6 +397,66 @@ if ($response->partnerPricingAgreements !== null) {
 ### Response
 
 **[?Operations\ListPartnerPricingAgreementsResponse](../../Models/Operations/ListPartnerPricingAgreementsResponse.md)**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| Errors\APIException | 4XX, 5XX            | \*/\*               |
+
+## listFeeRevenue
+
+Used by a partner. Retrieve revenue generated from merchant fees.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/profile.read` scope.
+
+### Example Usage
+
+<!-- UsageSnippet language="php" operationID="listFeeRevenue" method="get" path="/accounts/{accountID}/fee-revenue" -->
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
+use Moov\MoovPhp\Models\Operations;
+
+$sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('<value>')
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
+
+$request = new Operations\ListFeeRevenueRequest(
+    skip: 60,
+    count: 20,
+    accountID: '795465fb-f955-40e7-9d48-4a6d6fbdbdf2',
+);
+
+$response = $sdk->feePlans->listFeeRevenue(
+    request: $request
+);
+
+if ($response->incurredFees !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `$request`                                                                           | [Operations\ListFeeRevenueRequest](../../Models/Operations/ListFeeRevenueRequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+
+### Response
+
+**[?Operations\ListFeeRevenueResponse](../../Models/Operations/ListFeeRevenueResponse.md)**
 
 ### Errors
 

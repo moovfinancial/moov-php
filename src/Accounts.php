@@ -806,7 +806,7 @@ class Accounts
     }
 
     /**
-     * Retrieve fees associated with an account.
+     * Retrieve fees assessed to an account.
      *
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/transfers.read` scope.

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 7509ded8614c85c84f5b2c38546213ce
+  docChecksum: 2bff7e05360f0e1bc96d9adf666d41b4
   docVersion: latest
   speakeasyVersion: 1.658.2
   generationVersion: 2.755.9
-  releaseVersion: 0.7.10
-  configChecksum: 3eb58eb21ac43d84b24d890ad10d22be
+  releaseVersion: 0.7.11
+  configChecksum: c051c3cac3f307a477468195fc8a9611
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
@@ -286,6 +286,8 @@ generatedFiles:
   - docs/Models/Components/IndividualProfile.md
   - docs/Models/Components/IndustryCodes.md
   - docs/Models/Components/IndustryTaxonomy.md
+  - docs/Models/Components/InstantBankCreditPaymentMethod.md
+  - docs/Models/Components/InstantBankCreditPaymentMethodPaymentMethodType.md
   - docs/Models/Components/InstantPaymentFees.md
   - docs/Models/Components/InstitutionsSearchResponse.md
   - docs/Models/Components/IssuedCard.md
@@ -839,6 +841,8 @@ generatedFiles:
   - docs/Models/Operations/ListFeePlanAgreementsResponse.md
   - docs/Models/Operations/ListFeePlansRequest.md
   - docs/Models/Operations/ListFeePlansResponse.md
+  - docs/Models/Operations/ListFeeRevenueRequest.md
+  - docs/Models/Operations/ListFeeRevenueResponse.md
   - docs/Models/Operations/ListFeesFetchRequest.md
   - docs/Models/Operations/ListFeesFetchResponse.md
   - docs/Models/Operations/ListFilesRequest.md
@@ -1303,6 +1307,8 @@ generatedFiles:
   - src/Models/Components/IndividualProfile.php
   - src/Models/Components/IndustryCodes.php
   - src/Models/Components/IndustryTaxonomy.php
+  - src/Models/Components/InstantBankCreditPaymentMethod.php
+  - src/Models/Components/InstantBankCreditPaymentMethodPaymentMethodType.php
   - src/Models/Components/InstantPaymentFees.php
   - src/Models/Components/InstitutionsSearchResponse.php
   - src/Models/Components/IssuedCard.php
@@ -1896,6 +1902,8 @@ generatedFiles:
   - src/Models/Operations/ListFeePlanAgreementsResponse.php
   - src/Models/Operations/ListFeePlansRequest.php
   - src/Models/Operations/ListFeePlansResponse.php
+  - src/Models/Operations/ListFeeRevenueRequest.php
+  - src/Models/Operations/ListFeeRevenueResponse.php
   - src/Models/Operations/ListFeesFetchRequest.php
   - src/Models/Operations/ListFeesFetchResponse.php
   - src/Models/Operations/ListFilesRequest.php
@@ -4578,11 +4586,17 @@ examples:
       responses:
         "200":
           application/json: [{"amount": {"currency": "USD", "valueDecimal": "12.987654321"}}]
+  listFeeRevenue:
+    speakeasy-default-list-fee-revenue:
+      parameters:
+        path:
+          accountID: "795465fb-f955-40e7-9d48-4a6d6fbdbdf2"
+        query:
+          skip: 60
+          count: 20
+      responses:
+        "200":
+          application/json: [{"amount": {"currency": "USD", "valueDecimal": "12.987654321"}}]
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Php SDK Changes Detected:
-  * `moov->paymentlinks->create()`:  `response.ownerAccountId` **Added**
-  * `moov->paymentlinks->list()`:  `response.[]->ownerAccountId` **Added**
-  * `moov->paymentlinks->get()`:  `response.ownerAccountId` **Added**
-  * `moov->paymentlinks->update()`:  `response.ownerAccountId` **Added**
+releaseNotes: "## Php SDK Changes Detected:\n* `moov->feeplans->listFeeRevenue()`: **Added**\n* `moov->paymentmethods->list()`: \n  *  `request.paymentMethodType` **Changed**\n  *  `response.[]->[instant-bank-credit]` **Added**\n* `moov->paymentmethods->get()`:  `response.[instant-bank-credit]` **Added**\n* `moov->transfers->generateOptions()`:  `response.sourceOptions->[]->[instant-bank-credit]` **Added**\n"
