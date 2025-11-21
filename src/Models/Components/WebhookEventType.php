@@ -27,6 +27,8 @@ enum WebhookEventType: string
     case CapabilityUpdated = 'capability.updated';
     case DisputeCreated = 'dispute.created';
     case DisputeUpdated = 'dispute.updated';
+    case InvoiceCreated = 'invoice.created';
+    case InvoiceUpdated = 'invoice.updated';
     case NetworkIDUpdated = 'networkID.updated';
     case PaymentMethodEnabled = 'paymentMethod.enabled';
     case PaymentMethodDisabled = 'paymentMethod.disabled';

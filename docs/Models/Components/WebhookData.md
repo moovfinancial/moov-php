@@ -131,6 +131,24 @@ Components\WebhookDataDisputeCreated $value = /* values here */
 Components\WebhookDataDisputeUpdated $value = /* values here */
 ```
 
+### `Components\WebhookDataInvoiceCreated`
+
+```php
+/**
+* @var Components\WebhookDataInvoiceCreated
+*/
+Components\WebhookDataInvoiceCreated $value = /* values here */
+```
+
+### `Components\WebhookDataInvoiceUpdated`
+
+```php
+/**
+* @var Components\WebhookDataInvoiceUpdated
+*/
+Components\WebhookDataInvoiceUpdated $value = /* values here */
+```
+
 ### `Components\WebhookDataNetworkIDUpdated`
 
 ```php

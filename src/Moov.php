@@ -49,6 +49,8 @@ class Moov
 
     public Images $images;
 
+    public Invoices $invoices;
+
     public PaymentLinks $paymentLinks;
 
     public PaymentMethods $paymentMethods;
@@ -136,6 +138,7 @@ class Moov
         $this->feePlans = new FeePlans($this->sdkConfiguration);
         $this->files = new Files($this->sdkConfiguration);
         $this->images = new Images($this->sdkConfiguration);
+        $this->invoices = new Invoices($this->sdkConfiguration);
         $this->paymentLinks = new PaymentLinks($this->sdkConfiguration);
         $this->paymentMethods = new PaymentMethods($this->sdkConfiguration);
         $this->products = new Products($this->sdkConfiguration);

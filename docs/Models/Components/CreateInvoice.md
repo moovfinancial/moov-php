@@ -1,0 +1,13 @@
+# CreateInvoice
+
+
+## Fields
+
+| Field                                                                      | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `customerAccountID`                                                        | *string*                                                                   | :heavy_check_mark:                                                         | N/A                                                                        |
+| `description`                                                              | *string*                                                                   | :heavy_check_mark:                                                         | N/A                                                                        |
+| `lineItems`                                                                | [Components\InvoiceLineItems](../../Models/Components/InvoiceLineItems.md) | :heavy_check_mark:                                                         | A collection of line items for an invoice.                                 |
+| `invoiceDate`                                                              | [\DateTime](https://www.php.net/manual/en/class.datetime.php)              | :heavy_minus_sign:                                                         | N/A                                                                        |
+| `dueDate`                                                                  | [\DateTime](https://www.php.net/manual/en/class.datetime.php)              | :heavy_minus_sign:                                                         | N/A                                                                        |
+| `taxAmount`                                                                | [?Components\AmountDecimal](../../Models/Components/AmountDecimal.md)      | :heavy_minus_sign:                                                         | N/A                                                                        |
