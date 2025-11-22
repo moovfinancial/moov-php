@@ -9,8 +9,8 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-/** PaymentLinkLineItem - Represents a single line item in a payment link, including optional modifiers and quantity. */
-class PaymentLinkLineItem
+/** CreatePaymentLinkLineItem - Represents a single line item in a payment link, including optional modifiers and quantity. */
+class CreatePaymentLinkLineItem
 {
     /**
      * The name of the item.
@@ -40,22 +40,22 @@ class PaymentLinkLineItem
     /**
      * Optional list of modifiers applied to this item (e.g., toppings, upgrades, customizations).
      *
-     * @var ?array<PaymentLinkLineItemOption> $options
+     * @var ?array<CreatePaymentLinkLineItemOption> $options
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('options')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\PaymentLinkLineItemOption>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\CreatePaymentLinkLineItemOption>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $options = null;
 
     /**
      * Optional list of images associated with this line item.
      *
-     * @var ?array<PaymentLinkLineItemImageMetadata> $images
+     * @var ?array<string> $imageIDs
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('images')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\PaymentLinkLineItemImageMetadata>|null')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('imageIDs')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?array $images = null;
+    public ?array $imageIDs = null;
 
     /**
      * Optional unique identifier associating the line item with a product.
@@ -70,18 +70,18 @@ class PaymentLinkLineItem
      * @param  string  $name
      * @param  AmountDecimal  $basePrice
      * @param  int  $quantity
-     * @param  ?array<PaymentLinkLineItemOption>  $options
-     * @param  ?array<PaymentLinkLineItemImageMetadata>  $images
+     * @param  ?array<CreatePaymentLinkLineItemOption>  $options
+     * @param  ?array<string>  $imageIDs
      * @param  ?string  $productID
      * @phpstan-pure
      */
-    public function __construct(string $name, AmountDecimal $basePrice, int $quantity, ?array $options = null, ?array $images = null, ?string $productID = null)
+    public function __construct(string $name, AmountDecimal $basePrice, int $quantity, ?array $options = null, ?array $imageIDs = null, ?string $productID = null)
     {
         $this->name = $name;
         $this->basePrice = $basePrice;
         $this->quantity = $quantity;
         $this->options = $options;
-        $this->images = $images;
+        $this->imageIDs = $imageIDs;
         $this->productID = $productID;
     }
 }

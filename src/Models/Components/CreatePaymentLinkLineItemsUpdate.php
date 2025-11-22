@@ -10,24 +10,24 @@ namespace Moov\MoovPhp\Models\Components;
 
 
 /**
- * PaymentLinkLineItemsUpdate - An optional collection of line items for a payment link.
+ * CreatePaymentLinkLineItemsUpdate - An optional collection of line items for a payment link.
  *
  * When line items are provided, their total plus sales tax must equal the payment link amount.
  */
-class PaymentLinkLineItemsUpdate
+class CreatePaymentLinkLineItemsUpdate
 {
     /**
      * The list of line items.
      *
-     * @var ?array<PaymentLinkLineItem> $items
+     * @var ?array<CreatePaymentLinkLineItem> $items
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('items')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\PaymentLinkLineItem>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\CreatePaymentLinkLineItem>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $items = null;
 
     /**
-     * @param  ?array<PaymentLinkLineItem>  $items
+     * @param  ?array<CreatePaymentLinkLineItem>  $items
      * @phpstan-pure
      */
     public function __construct(?array $items = null)

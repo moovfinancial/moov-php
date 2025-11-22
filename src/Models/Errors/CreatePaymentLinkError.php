@@ -82,12 +82,12 @@ class CreatePaymentLinkError
 
     /**
      *
-     * @var ?Components\PaymentLinkLineItemsValidationError $lineItems
+     * @var ?Components\CreatePaymentLinkLineItemsValidationError $lineItems
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('lineItems')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentLinkLineItemsValidationError|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreatePaymentLinkLineItemsValidationError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?Components\PaymentLinkLineItemsValidationError $lineItems = null;
+    public ?Components\CreatePaymentLinkLineItemsValidationError $lineItems = null;
 
     /**
      * @param  ?string  $partnerAccountID
@@ -98,10 +98,10 @@ class CreatePaymentLinkError
      * @param  ?Components\DisplayOptionsError  $display
      * @param  ?Components\PaymentDetailsError  $payment
      * @param  ?Components\PayoutDetailsError  $payout
-     * @param  ?Components\PaymentLinkLineItemsValidationError  $lineItems
+     * @param  ?Components\CreatePaymentLinkLineItemsValidationError  $lineItems
      * @phpstan-pure
      */
-    public function __construct(?string $partnerAccountID = null, ?string $merchantPaymentMethodID = null, ?Components\AmountValidationError $amount = null, ?string $maxUses = null, ?string $expiresOn = null, ?Components\DisplayOptionsError $display = null, ?Components\PaymentDetailsError $payment = null, ?Components\PayoutDetailsError $payout = null, ?Components\PaymentLinkLineItemsValidationError $lineItems = null)
+    public function __construct(?string $partnerAccountID = null, ?string $merchantPaymentMethodID = null, ?Components\AmountValidationError $amount = null, ?string $maxUses = null, ?string $expiresOn = null, ?Components\DisplayOptionsError $display = null, ?Components\PaymentDetailsError $payment = null, ?Components\PayoutDetailsError $payout = null, ?Components\CreatePaymentLinkLineItemsValidationError $lineItems = null)
     {
         $this->partnerAccountID = $partnerAccountID;
         $this->merchantPaymentMethodID = $merchantPaymentMethodID;

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 6c7f3810d12861fca52c32b1a0122bca
+  docChecksum: 496f404ba55f95da85630d92b0f4d710
   docVersion: latest
-  speakeasyVersion: 1.659.0
-  generationVersion: 2.755.9
-  releaseVersion: 0.7.12
-  configChecksum: 9d9b7d763f843101ef7146ae4dd9856c
+  speakeasyVersion: 1.660.0
+  generationVersion: 2.760.2
+  releaseVersion: 0.7.13
+  configChecksum: ac904d1226a5e69d4427dd9959ba13b5
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
@@ -190,6 +190,13 @@ generatedFiles:
   - docs/Models/Components/CreateIndividualProfile.md
   - docs/Models/Components/CreateInvoice.md
   - docs/Models/Components/CreatePaymentLink.md
+  - docs/Models/Components/CreatePaymentLinkLineItem.md
+  - docs/Models/Components/CreatePaymentLinkLineItemOption.md
+  - docs/Models/Components/CreatePaymentLinkLineItemOptionValidationError.md
+  - docs/Models/Components/CreatePaymentLinkLineItemValidationError.md
+  - docs/Models/Components/CreatePaymentLinkLineItems.md
+  - docs/Models/Components/CreatePaymentLinkLineItemsUpdate.md
+  - docs/Models/Components/CreatePaymentLinkLineItemsValidationError.md
   - docs/Models/Components/CreateProductOption.md
   - docs/Models/Components/CreateProductOptionGroup.md
   - docs/Models/Components/CreateProfile.md
@@ -381,12 +388,9 @@ generatedFiles:
   - docs/Models/Components/PaymentLinkDisplayOptions.md
   - docs/Models/Components/PaymentLinkDisplayOptionsUpdate.md
   - docs/Models/Components/PaymentLinkLineItem.md
+  - docs/Models/Components/PaymentLinkLineItemImageMetadata.md
   - docs/Models/Components/PaymentLinkLineItemOption.md
-  - docs/Models/Components/PaymentLinkLineItemOptionValidationError.md
-  - docs/Models/Components/PaymentLinkLineItemValidationError.md
   - docs/Models/Components/PaymentLinkLineItems.md
-  - docs/Models/Components/PaymentLinkLineItemsUpdate.md
-  - docs/Models/Components/PaymentLinkLineItemsValidationError.md
   - docs/Models/Components/PaymentLinkPaymentDetails.md
   - docs/Models/Components/PaymentLinkPaymentDetailsUpdate.md
   - docs/Models/Components/PaymentLinkPayoutDetails.md
@@ -1249,6 +1253,13 @@ generatedFiles:
   - src/Models/Components/CreateIndividualProfile.php
   - src/Models/Components/CreateInvoice.php
   - src/Models/Components/CreatePaymentLink.php
+  - src/Models/Components/CreatePaymentLinkLineItem.php
+  - src/Models/Components/CreatePaymentLinkLineItemOption.php
+  - src/Models/Components/CreatePaymentLinkLineItemOptionValidationError.php
+  - src/Models/Components/CreatePaymentLinkLineItemValidationError.php
+  - src/Models/Components/CreatePaymentLinkLineItems.php
+  - src/Models/Components/CreatePaymentLinkLineItemsUpdate.php
+  - src/Models/Components/CreatePaymentLinkLineItemsValidationError.php
   - src/Models/Components/CreateProductOption.php
   - src/Models/Components/CreateProductOptionGroup.php
   - src/Models/Components/CreateProfile.php
@@ -1436,12 +1447,9 @@ generatedFiles:
   - src/Models/Components/PaymentLinkDisplayOptions.php
   - src/Models/Components/PaymentLinkDisplayOptionsUpdate.php
   - src/Models/Components/PaymentLinkLineItem.php
+  - src/Models/Components/PaymentLinkLineItemImageMetadata.php
   - src/Models/Components/PaymentLinkLineItemOption.php
-  - src/Models/Components/PaymentLinkLineItemOptionValidationError.php
-  - src/Models/Components/PaymentLinkLineItemValidationError.php
   - src/Models/Components/PaymentLinkLineItems.php
-  - src/Models/Components/PaymentLinkLineItemsUpdate.php
-  - src/Models/Components/PaymentLinkLineItemsValidationError.php
   - src/Models/Components/PaymentLinkPaymentDetails.php
   - src/Models/Components/PaymentLinkPaymentDetailsUpdate.php
   - src/Models/Components/PaymentLinkPayoutDetails.php
@@ -4738,10 +4746,4 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Php SDK Changes Detected:
-  * `moov->invoices->createInvoice()`: **Added**
-  * `moov->invoices->listInvoices()`: **Added**
-  * `moov->invoices->getInvoice()`: **Added**
-  * `moov->invoices->updateInvoice()`: **Added**
-  * `moov->invoices->markPaidInvoice()`: **Added**
+releaseNotes: "## Php SDK Changes Detected:\n* `moov->paymentlinks->create()`: \n  *  `request.createPaymentLink->lineItems->items->[]` **Changed**\n  *  `response.lineItems->items->[]` **Changed**\n* `moov->paymentlinks->list()`:  `response.[]->lineItems->items->[]` **Changed**\n* `moov->paymentlinks->get()`:  `response.lineItems->items->[]` **Changed**\n* `moov->paymentlinks->update()`: \n  *  `request.updatePaymentLink->lineItems->items->[]` **Changed**\n  *  `response.lineItems->items->[]` **Changed**\n"

@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-class PaymentLinkLineItemValidationError
+class CreatePaymentLinkLineItemValidationError
 {
     /**
      *
@@ -39,10 +39,10 @@ class PaymentLinkLineItemValidationError
     /**
      * $options
      *
-     * @var ?array<string, PaymentLinkLineItemOptionValidationError> $options
+     * @var ?array<string, CreatePaymentLinkLineItemOptionValidationError> $options
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('options')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<string, \Moov\MoovPhp\Models\Components\PaymentLinkLineItemOptionValidationError>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string, \Moov\MoovPhp\Models\Components\CreatePaymentLinkLineItemOptionValidationError>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $options = null;
 
@@ -58,7 +58,7 @@ class PaymentLinkLineItemValidationError
      * @param  ?string  $productID
      * @param  ?string  $name
      * @param  ?AmountDecimalValidationError  $basePrice
-     * @param  ?array<string, PaymentLinkLineItemOptionValidationError>  $options
+     * @param  ?array<string, CreatePaymentLinkLineItemOptionValidationError>  $options
      * @param  ?string  $quantity
      * @phpstan-pure
      */

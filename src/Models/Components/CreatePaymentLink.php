@@ -108,12 +108,12 @@ class CreatePaymentLink
      *
      * When line items are provided, their total plus sales tax must equal the payment link amount.
      *
-     * @var ?PaymentLinkLineItems $lineItems
+     * @var ?CreatePaymentLinkLineItems $lineItems
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('lineItems')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentLinkLineItems|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreatePaymentLinkLineItems|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?PaymentLinkLineItems $lineItems = null;
+    public ?CreatePaymentLinkLineItems $lineItems = null;
 
     /**
      * @param  string  $partnerAccountID
@@ -125,10 +125,10 @@ class CreatePaymentLink
      * @param  ?PaymentLinkCustomerOptions  $customer
      * @param  ?PaymentLinkPaymentDetails  $payment
      * @param  ?PaymentLinkPayoutDetails  $payout
-     * @param  ?PaymentLinkLineItems  $lineItems
+     * @param  ?CreatePaymentLinkLineItems  $lineItems
      * @phpstan-pure
      */
-    public function __construct(string $partnerAccountID, string $merchantPaymentMethodID, Amount $amount, PaymentLinkDisplayOptions $display, ?int $maxUses = null, ?\DateTime $expiresOn = null, ?PaymentLinkCustomerOptions $customer = null, ?PaymentLinkPaymentDetails $payment = null, ?PaymentLinkPayoutDetails $payout = null, ?PaymentLinkLineItems $lineItems = null)
+    public function __construct(string $partnerAccountID, string $merchantPaymentMethodID, Amount $amount, PaymentLinkDisplayOptions $display, ?int $maxUses = null, ?\DateTime $expiresOn = null, ?PaymentLinkCustomerOptions $customer = null, ?PaymentLinkPaymentDetails $payment = null, ?PaymentLinkPayoutDetails $payout = null, ?CreatePaymentLinkLineItems $lineItems = null)
     {
         $this->partnerAccountID = $partnerAccountID;
         $this->merchantPaymentMethodID = $merchantPaymentMethodID;

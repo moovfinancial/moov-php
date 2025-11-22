@@ -9,20 +9,20 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-class PaymentLinkLineItemsValidationError
+class CreatePaymentLinkLineItemsValidationError
 {
     /**
      * $items
      *
-     * @var ?array<string, PaymentLinkLineItemValidationError> $items
+     * @var ?array<string, CreatePaymentLinkLineItemValidationError> $items
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('items')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<string, \Moov\MoovPhp\Models\Components\PaymentLinkLineItemValidationError>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string, \Moov\MoovPhp\Models\Components\CreatePaymentLinkLineItemValidationError>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $items = null;
 
     /**
-     * @param  ?array<string, PaymentLinkLineItemValidationError>  $items
+     * @param  ?array<string, CreatePaymentLinkLineItemValidationError>  $items
      * @phpstan-pure
      */
     public function __construct(?array $items = null)
