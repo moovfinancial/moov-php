@@ -229,7 +229,7 @@ class Branding
     /**
      * Updates the brand properties for the specified account.
      *
-     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
      * you'll need to specify the `/accounts/{accountID}/branding.write` scope.
      *
      * @param  Components\UpdateBrand  $updateBrand

@@ -22,30 +22,27 @@ class PatchSweepConfig
 
     /**
      *
-     * @var string|PushPaymentMethodID2|null $pushPaymentMethodID
+     * @var ?string $pushPaymentMethodID
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('pushPaymentMethodID')]
-    #[\Speakeasy\Serializer\Annotation\Type('string|\Moov\MoovPhp\Models\Components\PushPaymentMethodID2|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public string|PushPaymentMethodID2|null $pushPaymentMethodID = null;
+    public ?string $pushPaymentMethodID = null;
 
     /**
      *
-     * @var string|PullPaymentMethodID2|null $pullPaymentMethodID
+     * @var ?string $pullPaymentMethodID
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('pullPaymentMethodID')]
-    #[\Speakeasy\Serializer\Annotation\Type('string|\Moov\MoovPhp\Models\Components\PullPaymentMethodID2|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public string|PullPaymentMethodID2|null $pullPaymentMethodID = null;
+    public ?string $pullPaymentMethodID = null;
 
     /**
      *
-     * @var string|StatementDescriptor2|null $statementDescriptor
+     * @var ?string $statementDescriptor
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('statementDescriptor')]
-    #[\Speakeasy\Serializer\Annotation\Type('string|\Moov\MoovPhp\Models\Components\StatementDescriptor2|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public string|StatementDescriptor2|null $statementDescriptor = null;
+    public ?string $statementDescriptor = null;
 
     /**
      *
@@ -57,13 +54,13 @@ class PatchSweepConfig
 
     /**
      * @param  ?Status  $status
-     * @param  string|PushPaymentMethodID2|null  $pushPaymentMethodID
-     * @param  string|PullPaymentMethodID2|null  $pullPaymentMethodID
-     * @param  string|StatementDescriptor2|null  $statementDescriptor
+     * @param  ?string  $pushPaymentMethodID
+     * @param  ?string  $pullPaymentMethodID
+     * @param  ?string  $statementDescriptor
      * @param  ?string  $minimumBalance
      * @phpstan-pure
      */
-    public function __construct(?Status $status = null, string|PushPaymentMethodID2|null $pushPaymentMethodID = null, string|PullPaymentMethodID2|null $pullPaymentMethodID = null, string|StatementDescriptor2|null $statementDescriptor = null, ?string $minimumBalance = null)
+    public function __construct(?Status $status = null, ?string $pushPaymentMethodID = null, ?string $pullPaymentMethodID = null, ?string $statementDescriptor = null, ?string $minimumBalance = null)
     {
         $this->status = $status;
         $this->pushPaymentMethodID = $pushPaymentMethodID;

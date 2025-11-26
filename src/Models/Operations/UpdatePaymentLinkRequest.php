@@ -13,6 +13,7 @@ use Moov\MoovPhp\Utils\SpeakeasyMetadata;
 class UpdatePaymentLinkRequest
 {
     /**
+     * The merchant account ID.
      *
      * @var string $accountID
      */

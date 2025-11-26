@@ -40,7 +40,7 @@ class CreateApplePaySessionResponse
     public array $headers;
 
     /**
-     * The request completed successfully.
+     * The request has succeeded.
      *
      * @var ?string $applePaySession
      */

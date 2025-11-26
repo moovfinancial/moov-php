@@ -28,10 +28,10 @@ class UpdateImageRequest
 
     /**
      *
-     * @var Components\ImageUpdateRequestMultiPart $imageUpdateRequestMultiPart
+     * @var Components\ImageUploadRequestMultiPart $imageUploadRequestMultiPart
      */
     #[SpeakeasyMetadata('request:mediaType=multipart/form-data')]
-    public Components\ImageUpdateRequestMultiPart $imageUpdateRequestMultiPart;
+    public Components\ImageUploadRequestMultiPart $imageUploadRequestMultiPart;
 
     /**
      * Specify an API version.
@@ -54,15 +54,15 @@ class UpdateImageRequest
     /**
      * @param  string  $accountID
      * @param  string  $imageID
-     * @param  Components\ImageUpdateRequestMultiPart  $imageUpdateRequestMultiPart
+     * @param  Components\ImageUploadRequestMultiPart  $imageUploadRequestMultiPart
      * @param  ?string  $xMoovVersion
      * @phpstan-pure
      */
-    public function __construct(string $accountID, string $imageID, Components\ImageUpdateRequestMultiPart $imageUpdateRequestMultiPart, ?string $xMoovVersion = null)
+    public function __construct(string $accountID, string $imageID, Components\ImageUploadRequestMultiPart $imageUploadRequestMultiPart, ?string $xMoovVersion = null)
     {
         $this->accountID = $accountID;
         $this->imageID = $imageID;
-        $this->imageUpdateRequestMultiPart = $imageUpdateRequestMultiPart;
+        $this->imageUploadRequestMultiPart = $imageUploadRequestMultiPart;
         $this->xMoovVersion = $xMoovVersion;
     }
 }

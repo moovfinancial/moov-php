@@ -54,7 +54,6 @@ $fileUploadRequestMultiPart = new Components\FileUploadRequestMultiPart(
         content: file_get_contents('example.file');,
     ),
     filePurpose: Components\FilePurpose::RepresentativeVerification,
-    metadata: '{"requirement_id": "document.individual.verification"}',
 );
 
 $response = $sdk->files->upload(

@@ -12,6 +12,7 @@ use Moov\MoovPhp\Utils\SpeakeasyMetadata;
 class DisablePaymentLinkRequest
 {
     /**
+     * The merchant account ID.
      *
      * @var string $accountID
      */

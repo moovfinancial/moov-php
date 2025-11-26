@@ -385,29 +385,28 @@ class Images
      * Replace an existing image and, optionally, its metadata.
      *
      * This endpoint replaces the existing image with the new PNG, JPEG, or WebP. Omit
-     * the metadata form section to keep existing metadata, or send `null` to clear it. 
-     * Duplicate images, and requests larger than 16MB will be rejected.
+     * the metadata form section to keep existing metadata. Duplicate images, and requests larger than 16MB will be rejected.
      *
-     * @param  Components\ImageUpdateRequestMultiPart  $imageUpdateRequestMultiPart
+     * @param  Components\ImageUploadRequestMultiPart  $imageUploadRequestMultiPart
      * @param  string  $accountID
      * @param  string  $imageID
      * @param  ?string  $xMoovVersion
      * @return Operations\UpdateImageResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function update(Components\ImageUpdateRequestMultiPart $imageUpdateRequestMultiPart, string $accountID, string $imageID, ?string $xMoovVersion = null, ?Options $options = null): Operations\UpdateImageResponse
+    public function update(Components\ImageUploadRequestMultiPart $imageUploadRequestMultiPart, string $accountID, string $imageID, ?string $xMoovVersion = null, ?Options $options = null): Operations\UpdateImageResponse
     {
         $request = new Operations\UpdateImageRequest(
             accountID: $accountID,
             imageID: $imageID,
-            imageUpdateRequestMultiPart: $imageUpdateRequestMultiPart,
+            imageUploadRequestMultiPart: $imageUploadRequestMultiPart,
             xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/images/{imageID}', Operations\UpdateImageRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request, 'imageUpdateRequestMultiPart', 'multipart');
+        $body = Utils\Utils::serializeRequestBody($request, 'imageUploadRequestMultiPart', 'multipart');
         if ($body === null) {
             throw new \Exception('Request body is required');
         }

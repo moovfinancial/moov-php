@@ -9,7 +9,6 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 use Moov\MoovPhp\Utils\SpeakeasyMetadata;
-/** FileUploadRequestMultiPart - Request to upload a file for an account. */
 class FileUploadRequestMultiPart
 {
     /**
@@ -21,7 +20,7 @@ class FileUploadRequestMultiPart
     public FileUploadRequestMultiPartFile $file;
 
     /**
-     * The file's purpose.
+     * The purpose of the file being uploaded.
      *
      * @var FilePurpose $filePurpose
      */

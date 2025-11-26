@@ -19,7 +19,7 @@ To access this endpoint using an [access token](https://docs.moov.io/api/authent
 you'll need to specify the `/accounts/{accountID}/wallets.read` scope.
 * [updateConfig](#updateconfig) - Update settings on a sweep config.
 
-To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
 you'll need to specify the `/accounts/{accountID}/wallets.write` scope.
 * [list](#list) - List sweeps associated with a wallet.
 
@@ -215,7 +215,7 @@ if ($response->sweepConfig !== null) {
 
 Update settings on a sweep config.
 
-To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
 you'll need to specify the `/accounts/{accountID}/wallets.write` scope.
 
 ### Example Usage

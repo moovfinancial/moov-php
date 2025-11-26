@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 496f404ba55f95da85630d92b0f4d710
+  docChecksum: e1ead396f056a28f0ce198d44f97cdff
   docVersion: latest
-  speakeasyVersion: 1.660.0
-  generationVersion: 2.760.2
-  releaseVersion: 0.7.13
-  configChecksum: ac904d1226a5e69d4427dd9959ba13b5
+  speakeasyVersion: 1.661.2
+  generationVersion: 2.763.3
+  releaseVersion: 0.7.14
+  configChecksum: 383357c1e2b42b058442fc173b3263df
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
 features:
   php:
     constsAndDefaults: 0.2.0
-    core: 3.9.4
+    core: 3.9.5
     decimal: 0.1.1
     deprecations: 2.81.1
     flattening: 2.81.1
@@ -236,7 +236,6 @@ generatedFiles:
   - docs/Models/Components/E2EEToken.md
   - docs/Models/Components/E2EETokenUpdate.md
   - docs/Models/Components/Ein.md
-  - docs/Models/Components/Email.md
   - docs/Models/Components/End2EndEncryptionError.md
   - docs/Models/Components/EnrichedAddressResponse.md
   - docs/Models/Components/EnrichedBusinessProfile.md
@@ -285,8 +284,6 @@ generatedFiles:
   - docs/Models/Components/ImageMetadata.md
   - docs/Models/Components/ImageMetadataRequest.md
   - docs/Models/Components/ImageMetadataValidationError.md
-  - docs/Models/Components/ImageUpdateRequestMultiPart.md
-  - docs/Models/Components/ImageUpdateRequestMultiPartImage.md
   - docs/Models/Components/ImageUploadRequestMultiPart.md
   - docs/Models/Components/IncurredFee.md
   - docs/Models/Components/IndividualName.md
@@ -347,7 +344,6 @@ generatedFiles:
   - docs/Models/Components/ManualTermsOfService.md
   - docs/Models/Components/ManualTermsOfServiceUpdate.md
   - docs/Models/Components/MarkInvoicePaid.md
-  - docs/Models/Components/Metadata.md
   - docs/Models/Components/MicroDepositStatus.md
   - docs/Models/Components/MinimumCommitment.md
   - docs/Models/Components/Mode.md
@@ -426,10 +422,6 @@ generatedFiles:
   - docs/Models/Components/Profile.md
   - docs/Models/Components/PullFromCardPaymentMethod.md
   - docs/Models/Components/PullFromCardPaymentMethodPaymentMethodType.md
-  - docs/Models/Components/PullPaymentMethodID.md
-  - docs/Models/Components/PullPaymentMethodId2.md
-  - docs/Models/Components/PushPaymentMethodID.md
-  - docs/Models/Components/PushPaymentMethodId2.md
   - docs/Models/Components/PushToCardPaymentMethod.md
   - docs/Models/Components/PushToCardPaymentMethodPaymentMethodType.md
   - docs/Models/Components/QRCode.md
@@ -485,8 +477,6 @@ generatedFiles:
   - docs/Models/Components/SourceDestinationOptions.md
   - docs/Models/Components/Ssn.md
   - docs/Models/Components/Statement.md
-  - docs/Models/Components/StatementDescriptor.md
-  - docs/Models/Components/StatementDescriptor2.md
   - docs/Models/Components/Status.md
   - docs/Models/Components/SubmissionIntent.md
   - docs/Models/Components/Sweep.md
@@ -531,7 +521,6 @@ generatedFiles:
   - docs/Models/Components/TransferSource.md
   - docs/Models/Components/TransferStatus.md
   - docs/Models/Components/TransferWaitFor.md
-  - docs/Models/Components/Two.md
   - docs/Models/Components/Underwriting.md
   - docs/Models/Components/UnderwritingStatus.md
   - docs/Models/Components/UpdateApplePayMerchantDomains.md
@@ -1346,8 +1335,6 @@ generatedFiles:
   - src/Models/Components/ImageMetadata.php
   - src/Models/Components/ImageMetadataRequest.php
   - src/Models/Components/ImageMetadataValidationError.php
-  - src/Models/Components/ImageUpdateRequestMultiPart.php
-  - src/Models/Components/ImageUpdateRequestMultiPartImage.php
   - src/Models/Components/ImageUploadRequestMultiPart.php
   - src/Models/Components/IncurredFee.php
   - src/Models/Components/IndividualName.php
@@ -1406,7 +1393,6 @@ generatedFiles:
   - src/Models/Components/ManualTermsOfService.php
   - src/Models/Components/ManualTermsOfServiceUpdate.php
   - src/Models/Components/MarkInvoicePaid.php
-  - src/Models/Components/Metadata.php
   - src/Models/Components/MicroDepositStatus.php
   - src/Models/Components/MinimumCommitment.php
   - src/Models/Components/Mode.php
@@ -1484,8 +1470,6 @@ generatedFiles:
   - src/Models/Components/Profile.php
   - src/Models/Components/PullFromCardPaymentMethod.php
   - src/Models/Components/PullFromCardPaymentMethodPaymentMethodType.php
-  - src/Models/Components/PullPaymentMethodID2.php
-  - src/Models/Components/PushPaymentMethodID2.php
   - src/Models/Components/PushToCardPaymentMethod.php
   - src/Models/Components/PushToCardPaymentMethodPaymentMethodType.php
   - src/Models/Components/QRCode.php
@@ -1540,7 +1524,6 @@ generatedFiles:
   - src/Models/Components/SourceDestinationOptions.php
   - src/Models/Components/Ssn.php
   - src/Models/Components/Statement.php
-  - src/Models/Components/StatementDescriptor2.php
   - src/Models/Components/Status.php
   - src/Models/Components/SubmissionIntent.php
   - src/Models/Components/Sweep.php
@@ -1585,7 +1568,6 @@ generatedFiles:
   - src/Models/Components/TransferSource.php
   - src/Models/Components/TransferStatus.php
   - src/Models/Components/TransferWaitFor.php
-  - src/Models/Components/Two.php
   - src/Models/Components/Underwriting.php
   - src/Models/Components/UnderwritingStatus.php
   - src/Models/Components/UpdateApplePayMerchantDomains.php
@@ -3035,7 +3017,7 @@ examples:
           x-moov-version: "v2024.01.00"
           X-Moov-Version: "v2024.01.00"
       requestBody:
-        multipart/form-data: {"file": "x-file: example.file", "filePurpose": "representative_verification", "metadata": "{\"requirement_id\": \"document.individual.verification\"}"}
+        multipart/form-data: {"file": "x-file: example.file", "filePurpose": "representative_verification"}
       responses:
         "200":
           application/json: {"fileID": "06993b21-f4f9-42a2-baa5-77433e8f6ef7", "fileName": "logo.png", "accountID": "dfb9a905-6b06-449c-8cb3-4c3ca7bf97e1", "filePurpose": "representative_verification", "fileStatus": "pending", "metadata": "{\"error_code\": \"document-name-mismatch\", \"requirement_id\": \"document.individual.verification\", \"representative_id\": \"c63ab175-251d-497e-a267-7346d087e180\", \"comment\": \"testing comment\"", "decisionReason": "not correct file", "fileSizeBytes": 997245, "createdOn": "2024-12-06T06:52:10.005Z", "updatedOn": "2024-05-27T09:39:22.152Z"}
@@ -3241,7 +3223,7 @@ examples:
           x-moov-version: "v2024.01.00"
           X-Moov-Version: "v2024.01.00"
       requestBody:
-        application/json: {"name": {"firstName": "Jordan", "middleName": "Reese", "lastName": "Lee", "suffix": "Jr"}, "phone": {"number": "8185551212", "countryCode": "1"}, "address": {"addressLine1": "123 Main Street", "addressLine2": "Apt 302", "city": "Boulder", "stateOrProvince": "CO", "postalCode": "80301", "country": "US"}, "birthDate": null, "responsibilities": {"ownershipPercentage": 38, "jobTitle": "CEO"}}
+        application/json: {"name": {"firstName": "Jordan", "middleName": "Reese", "lastName": "Lee", "suffix": "Jr"}, "phone": {"number": "8185551212", "countryCode": "1"}, "email": "jordan.lee@classbooker.dev", "address": {"addressLine1": "123 Main Street", "addressLine2": "Apt 302", "city": "Boulder", "stateOrProvince": "CO", "postalCode": "80301", "country": "US"}, "birthDate": null, "responsibilities": {"ownershipPercentage": 38, "jobTitle": "CEO"}}
       responses:
         "200":
           application/json: {"representativeID": "d7cd54cf-a231-46bb-b1ac-c6cdafa8219e", "name": {"firstName": "Jordan", "middleName": "Reese", "lastName": "Lee", "suffix": "Jr"}, "phone": {"number": "8185551212", "countryCode": "1"}, "email": "jordan.lee@classbooker.dev", "address": {"addressLine1": "123 Main Street", "addressLine2": "Apt 302", "city": "Boulder", "stateOrProvince": "CO", "postalCode": "80301", "country": "US"}, "responsibilities": {"ownershipPercentage": 38, "jobTitle": "CEO"}, "createdOn": "2025-06-02T03:39:27.129Z", "updatedOn": "2024-06-29T17:50:33.922Z"}
@@ -4746,4 +4728,4 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Php SDK Changes Detected:\n* `moov->paymentlinks->create()`: \n  *  `request.createPaymentLink->lineItems->items->[]` **Changed**\n  *  `response.lineItems->items->[]` **Changed**\n* `moov->paymentlinks->list()`:  `response.[]->lineItems->items->[]` **Changed**\n* `moov->paymentlinks->get()`:  `response.lineItems->items->[]` **Changed**\n* `moov->paymentlinks->update()`: \n  *  `request.updatePaymentLink->lineItems->items->[]` **Changed**\n  *  `response.lineItems->items->[]` **Changed**\n"
+releaseNotes: "## Php SDK Changes Detected:\n* `moov->images->update()`:  `request` **Changed** **Breaking** :warning:\n* `moov->representatives->update()`: \n  *  `request.updateRepresentative->email` **Changed** **Breaking** :warning:\n* `moov->sweeps->updateConfig()`:  `request.patchSweepConfig` **Changed** **Breaking** :warning:\n"

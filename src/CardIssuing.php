@@ -311,7 +311,7 @@ class CardIssuing
     /**
      * Update a Moov issued card.
      *
-     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
      * you'll need to specify the `/accounts/{accountID}/issued-cards.write` scope.
      *
      * @param  Components\UpdateIssuedCard  $updateIssuedCard

@@ -12,12 +12,12 @@ with Apple.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/apple-pay.write` scope.
-* [updateDomains](#updatedomains) - Add or remove domains to be registered with Apple Pay. 
+* [updateDomains](#updatedomains) - Add or remove domains to be registered with Apple Pay.
 
-Any domains that will be used to accept payments must first be [verified](https://docs.moov.io/guides/sources/cards/apple-pay/#register-your-domains) 
+Any domains that will be used to accept payments must first be [verified](https://docs.moov.io/guides/sources/cards/apple-pay/#register-your-domains)
 with Apple.
 
-To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
 you'll need to specify the `/accounts/{accountID}/apple-pay.write` scope.
 * [getDomains](#getdomains) - Get domains registered with Apple Pay. 
 
@@ -109,12 +109,12 @@ if ($response->applePayMerchantDomains !== null) {
 
 ## updateDomains
 
-Add or remove domains to be registered with Apple Pay. 
+Add or remove domains to be registered with Apple Pay.
 
-Any domains that will be used to accept payments must first be [verified](https://docs.moov.io/guides/sources/cards/apple-pay/#register-your-domains) 
+Any domains that will be used to accept payments must first be [verified](https://docs.moov.io/guides/sources/cards/apple-pay/#register-your-domains)
 with Apple.
 
-To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
 you'll need to specify the `/accounts/{accountID}/apple-pay.write` scope.
 
 ### Example Usage

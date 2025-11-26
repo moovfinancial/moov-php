@@ -31,12 +31,11 @@ class UpdateRepresentative
 
     /**
      *
-     * @var string|Two|null $email
+     * @var ?string $email
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('email')]
-    #[\Speakeasy\Serializer\Annotation\Type('string|\Moov\MoovPhp\Models\Components\Two|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public string|Two|null $email = null;
+    public ?string $email = null;
 
     /**
      *
@@ -77,14 +76,14 @@ class UpdateRepresentative
     /**
      * @param  ?IndividualNameUpdate  $name
      * @param  ?Phone  $phone
-     * @param  string|Two|null  $email
+     * @param  ?string  $email
      * @param  ?UpdateRepresentativeAddress  $address
      * @param  ?UpdateRepresentativeBirthDate  $birthDate
      * @param  ?UpdateRepresentativeGovernmentID  $governmentID
      * @param  ?Responsibilities  $responsibilities
      * @phpstan-pure
      */
-    public function __construct(?IndividualNameUpdate $name = null, ?Phone $phone = null, string|Two|null $email = null, ?UpdateRepresentativeAddress $address = null, ?UpdateRepresentativeBirthDate $birthDate = null, ?UpdateRepresentativeGovernmentID $governmentID = null, ?Responsibilities $responsibilities = null)
+    public function __construct(?IndividualNameUpdate $name = null, ?Phone $phone = null, ?string $email = null, ?UpdateRepresentativeAddress $address = null, ?UpdateRepresentativeBirthDate $birthDate = null, ?UpdateRepresentativeGovernmentID $governmentID = null, ?Responsibilities $responsibilities = null)
     {
         $this->name = $name;
         $this->phone = $phone;

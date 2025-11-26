@@ -9,10 +9,10 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 use Moov\MoovPhp\Utils\SpeakeasyMetadata;
-/** ImageUploadRequestMultiPart - Multipart request body for uploading an image with optional metadata. */
 class ImageUploadRequestMultiPart
 {
     /**
+     * A PNG, JPEG, or WebP image file to upload.
      *
      * @var Image $image
      */
