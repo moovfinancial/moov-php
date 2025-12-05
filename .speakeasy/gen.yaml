@@ -25,7 +25,7 @@ generation:
     generateNewTests: false
     skipResponseBodyAssertions: false
 php:
-  version: 0.7.14
+  version: 0.7.15
   additionalDependencies:
     autoload: {}
     autoload-dev: {}
@@ -50,6 +50,7 @@ php:
     svcName: openapi
   maxMethodParams: 4
   methodArguments: infer-optional-args
+  multipartArrayFormat: legacy
   namespace: Moov\MoovPhp
   outputModelSuffix: output
   packageName: moov/moov-php

@@ -28,11 +28,11 @@ class CreateInvoice
     /**
      * A collection of line items for an invoice.
      *
-     * @var InvoiceLineItems $lineItems
+     * @var CreateInvoiceLineItems $lineItems
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('lineItems')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\InvoiceLineItems')]
-    public InvoiceLineItems $lineItems;
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateInvoiceLineItems')]
+    public CreateInvoiceLineItems $lineItems;
 
     /**
      *
@@ -62,13 +62,13 @@ class CreateInvoice
     /**
      * @param  string  $customerAccountID
      * @param  string  $description
-     * @param  InvoiceLineItems  $lineItems
+     * @param  CreateInvoiceLineItems  $lineItems
      * @param  ?\DateTime  $invoiceDate
      * @param  ?\DateTime  $dueDate
      * @param  ?AmountDecimal  $taxAmount
      * @phpstan-pure
      */
-    public function __construct(string $customerAccountID, string $description, InvoiceLineItems $lineItems, ?\DateTime $invoiceDate = null, ?\DateTime $dueDate = null, ?AmountDecimal $taxAmount = null)
+    public function __construct(string $customerAccountID, string $description, CreateInvoiceLineItems $lineItems, ?\DateTime $invoiceDate = null, ?\DateTime $dueDate = null, ?AmountDecimal $taxAmount = null)
     {
         $this->customerAccountID = $customerAccountID;
         $this->description = $description;

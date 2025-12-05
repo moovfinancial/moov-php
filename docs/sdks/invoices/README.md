@@ -58,7 +58,7 @@ $sdk = MoovPhp\Moov::builder()
 $createInvoice = new Components\CreateInvoice(
     customerAccountID: '<id>',
     description: 'austere gah under ew failing provided repeatedly pick onto',
-    lineItems: new Components\InvoiceLineItems(
+    lineItems: new Components\CreateInvoiceLineItems(
         items: [],
     ),
     taxAmount: new Components\AmountDecimal(
@@ -247,9 +247,9 @@ $sdk = MoovPhp\Moov::builder()
     ->build();
 
 $updateInvoice = new Components\UpdateInvoice(
-    lineItems: new Components\InvoiceLineItemsUpdate(
+    lineItems: new Components\CreateInvoiceLineItemsUpdate(
         items: [
-            new Components\InvoiceLineItem(
+            new Components\CreateInvoiceLineItem(
                 name: '<value>',
                 basePrice: new Components\AmountDecimal(
                     currency: 'USD',
@@ -257,7 +257,7 @@ $updateInvoice = new Components\UpdateInvoice(
                 ),
                 quantity: 984515,
                 options: [
-                    new Components\InvoiceLineItemOption(
+                    new Components\CreateInvoiceLineItemOption(
                         name: '<value>',
                         quantity: 761923,
                         priceModifier: new Components\AmountDecimal(

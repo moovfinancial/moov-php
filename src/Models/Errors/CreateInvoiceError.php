@@ -30,12 +30,12 @@ class CreateInvoiceError
 
     /**
      *
-     * @var ?Components\InvoiceLineItemsValidationError $lineItems
+     * @var ?Components\CreateInvoiceLineItemsValidationError $lineItems
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('lineItems')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\InvoiceLineItemsValidationError|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateInvoiceLineItemsValidationError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?Components\InvoiceLineItemsValidationError $lineItems = null;
+    public ?Components\CreateInvoiceLineItemsValidationError $lineItems = null;
 
     /**
      *
@@ -65,13 +65,13 @@ class CreateInvoiceError
     /**
      * @param  ?string  $customerAccountID
      * @param  ?string  $description
-     * @param  ?Components\InvoiceLineItemsValidationError  $lineItems
+     * @param  ?Components\CreateInvoiceLineItemsValidationError  $lineItems
      * @param  ?string  $invoiceDate
      * @param  ?string  $dueDate
      * @param  ?Components\AmountDecimalValidationError  $taxAmount
      * @phpstan-pure
      */
-    public function __construct(?string $customerAccountID = null, ?string $description = null, ?Components\InvoiceLineItemsValidationError $lineItems = null, ?string $invoiceDate = null, ?string $dueDate = null, ?Components\AmountDecimalValidationError $taxAmount = null)
+    public function __construct(?string $customerAccountID = null, ?string $description = null, ?Components\CreateInvoiceLineItemsValidationError $lineItems = null, ?string $invoiceDate = null, ?string $dueDate = null, ?Components\AmountDecimalValidationError $taxAmount = null)
     {
         $this->customerAccountID = $customerAccountID;
         $this->description = $description;

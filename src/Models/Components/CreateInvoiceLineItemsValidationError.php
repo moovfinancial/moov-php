@@ -9,21 +9,20 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-/** InvoiceLineItemsUpdate - A collection of line items for an invoice. */
-class InvoiceLineItemsUpdate
+class CreateInvoiceLineItemsValidationError
 {
     /**
-     * The list of line items.
+     * $items
      *
-     * @var ?array<InvoiceLineItem> $items
+     * @var ?array<string, CreateInvoiceLineItemValidationError> $items
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('items')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\InvoiceLineItem>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string, \Moov\MoovPhp\Models\Components\CreateInvoiceLineItemValidationError>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $items = null;
 
     /**
-     * @param  ?array<InvoiceLineItem>  $items
+     * @param  ?array<string, CreateInvoiceLineItemValidationError>  $items
      * @phpstan-pure
      */
     public function __construct(?array $items = null)

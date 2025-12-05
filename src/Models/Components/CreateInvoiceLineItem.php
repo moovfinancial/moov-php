@@ -9,8 +9,8 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-/** InvoiceLineItem - Represents a single item in an invoice, including optional modifiers and quantity. */
-class InvoiceLineItem
+/** CreateInvoiceLineItem - Represents a single item in an invoice, including optional modifiers and quantity. */
+class CreateInvoiceLineItem
 {
     /**
      * The name of the item.
@@ -49,39 +49,39 @@ class InvoiceLineItem
     /**
      * Optional list of modifiers applied to this item (e.g., toppings, upgrades, customizations).
      *
-     * @var ?array<InvoiceLineItemOption> $options
+     * @var ?array<CreateInvoiceLineItemOption> $options
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('options')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\InvoiceLineItemOption>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\CreateInvoiceLineItemOption>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $options = null;
 
     /**
      * Optional list of images associated with this line item.
      *
-     * @var ?array<InvoiceLineItemImageMetadata> $images
+     * @var ?array<string> $imageIDs
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('images')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\InvoiceLineItemImageMetadata>|null')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('imageIDs')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?array $images = null;
+    public ?array $imageIDs = null;
 
     /**
      * @param  string  $name
      * @param  AmountDecimal  $basePrice
      * @param  int  $quantity
      * @param  ?string  $productID
-     * @param  ?array<InvoiceLineItemOption>  $options
-     * @param  ?array<InvoiceLineItemImageMetadata>  $images
+     * @param  ?array<CreateInvoiceLineItemOption>  $options
+     * @param  ?array<string>  $imageIDs
      * @phpstan-pure
      */
-    public function __construct(string $name, AmountDecimal $basePrice, int $quantity, ?string $productID = null, ?array $options = null, ?array $images = null)
+    public function __construct(string $name, AmountDecimal $basePrice, int $quantity, ?string $productID = null, ?array $options = null, ?array $imageIDs = null)
     {
         $this->name = $name;
         $this->basePrice = $basePrice;
         $this->quantity = $quantity;
         $this->productID = $productID;
         $this->options = $options;
-        $this->images = $images;
+        $this->imageIDs = $imageIDs;
     }
 }

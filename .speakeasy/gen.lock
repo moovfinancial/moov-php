@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: e1ead396f056a28f0ce198d44f97cdff
+  docChecksum: 829747b52382075f2b0d55238be70a42
   docVersion: latest
-  speakeasyVersion: 1.661.2
-  generationVersion: 2.763.3
-  releaseVersion: 0.7.14
-  configChecksum: 383357c1e2b42b058442fc173b3263df
+  speakeasyVersion: 1.668.0
+  generationVersion: 2.770.0
+  releaseVersion: 0.7.15
+  configChecksum: f59b1a01edf80ddf8091a73e98cfcef9
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
@@ -26,7 +26,7 @@ features:
     nameOverrides: 2.81.2
     nullables: 1.0.1
     responseFormat: 0.1.0
-    unions: 0.1.5
+    unions: 0.1.6
 generatedFiles:
   - .gitattributes
   - USAGE.md
@@ -189,6 +189,13 @@ generatedFiles:
   - docs/Models/Components/CreateIndividualErrorSsn.md
   - docs/Models/Components/CreateIndividualProfile.md
   - docs/Models/Components/CreateInvoice.md
+  - docs/Models/Components/CreateInvoiceLineItem.md
+  - docs/Models/Components/CreateInvoiceLineItemOption.md
+  - docs/Models/Components/CreateInvoiceLineItemOptionValidationError.md
+  - docs/Models/Components/CreateInvoiceLineItemValidationError.md
+  - docs/Models/Components/CreateInvoiceLineItems.md
+  - docs/Models/Components/CreateInvoiceLineItemsUpdate.md
+  - docs/Models/Components/CreateInvoiceLineItemsValidationError.md
   - docs/Models/Components/CreatePaymentLink.md
   - docs/Models/Components/CreatePaymentLinkLineItem.md
   - docs/Models/Components/CreatePaymentLinkLineItemOption.md
@@ -300,11 +307,11 @@ generatedFiles:
   - docs/Models/Components/InvoiceExternalPayment.md
   - docs/Models/Components/InvoiceExternalPaymentPaymentType.md
   - docs/Models/Components/InvoiceLineItem.md
+  - docs/Models/Components/InvoiceLineItemImageMetadata.md
   - docs/Models/Components/InvoiceLineItemOption.md
   - docs/Models/Components/InvoiceLineItemOptionValidationError.md
   - docs/Models/Components/InvoiceLineItemValidationError.md
   - docs/Models/Components/InvoiceLineItems.md
-  - docs/Models/Components/InvoiceLineItemsUpdate.md
   - docs/Models/Components/InvoiceLineItemsValidationError.md
   - docs/Models/Components/InvoicePayment.md
   - docs/Models/Components/InvoiceStatus.md
@@ -1241,6 +1248,13 @@ generatedFiles:
   - src/Models/Components/CreateIndividualErrorSsn.php
   - src/Models/Components/CreateIndividualProfile.php
   - src/Models/Components/CreateInvoice.php
+  - src/Models/Components/CreateInvoiceLineItem.php
+  - src/Models/Components/CreateInvoiceLineItemOption.php
+  - src/Models/Components/CreateInvoiceLineItemOptionValidationError.php
+  - src/Models/Components/CreateInvoiceLineItemValidationError.php
+  - src/Models/Components/CreateInvoiceLineItems.php
+  - src/Models/Components/CreateInvoiceLineItemsUpdate.php
+  - src/Models/Components/CreateInvoiceLineItemsValidationError.php
   - src/Models/Components/CreatePaymentLink.php
   - src/Models/Components/CreatePaymentLinkLineItem.php
   - src/Models/Components/CreatePaymentLinkLineItemOption.php
@@ -1351,11 +1365,11 @@ generatedFiles:
   - src/Models/Components/InvoiceExternalPayment.php
   - src/Models/Components/InvoiceExternalPaymentPaymentType.php
   - src/Models/Components/InvoiceLineItem.php
+  - src/Models/Components/InvoiceLineItemImageMetadata.php
   - src/Models/Components/InvoiceLineItemOption.php
   - src/Models/Components/InvoiceLineItemOptionValidationError.php
   - src/Models/Components/InvoiceLineItemValidationError.php
   - src/Models/Components/InvoiceLineItems.php
-  - src/Models/Components/InvoiceLineItemsUpdate.php
   - src/Models/Components/InvoiceLineItemsValidationError.php
   - src/Models/Components/InvoiceStatus.php
   - src/Models/Components/InvoiceTransferPayment.php
@@ -4728,4 +4742,4 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Php SDK Changes Detected:\n* `moov->images->update()`:  `request` **Changed** **Breaking** :warning:\n* `moov->representatives->update()`: \n  *  `request.updateRepresentative->email` **Changed** **Breaking** :warning:\n* `moov->sweeps->updateConfig()`:  `request.patchSweepConfig` **Changed** **Breaking** :warning:\n"
+releaseNotes: "## Php SDK Changes:\n* `moov->invoices->createInvoice()`: \n  *  `request.createInvoice->lineItems->items->[]` **Changed**\n  *  `response.lineItems->items->[]->images` **Added**\n* `moov->invoices->listInvoices()`:  `response.[]->lineItems->items->[]->images` **Added**\n* `moov->invoices->getInvoice()`:  `response.lineItems->items->[]->images` **Added**\n* `moov->invoices->updateInvoice()`: \n  *  `request.updateInvoice->lineItems->items->[]` **Changed**\n  *  `response.lineItems->items->[]->images` **Added**\n* `moov->invoices->markPaidInvoice()`:  `response.lineItems->items->[]->images` **Added**\n"

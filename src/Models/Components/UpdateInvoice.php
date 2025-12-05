@@ -22,12 +22,12 @@ class UpdateInvoice
     /**
      * A collection of line items for an invoice.
      *
-     * @var ?InvoiceLineItemsUpdate $lineItems
+     * @var ?CreateInvoiceLineItemsUpdate $lineItems
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('lineItems')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\InvoiceLineItemsUpdate|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateInvoiceLineItemsUpdate|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?InvoiceLineItemsUpdate $lineItems = null;
+    public ?CreateInvoiceLineItemsUpdate $lineItems = null;
 
     /**
      * Status can only be updated to `canceled` when the status is either `draft`, `unpaid`,  or `overdue`.
@@ -66,14 +66,14 @@ class UpdateInvoice
 
     /**
      * @param  ?string  $description
-     * @param  ?InvoiceLineItemsUpdate  $lineItems
+     * @param  ?CreateInvoiceLineItemsUpdate  $lineItems
      * @param  ?InvoiceStatus  $status
      * @param  ?AmountDecimalUpdate  $taxAmount
      * @param  ?\DateTime  $invoiceDate
      * @param  ?\DateTime  $dueDate
      * @phpstan-pure
      */
-    public function __construct(?string $description = null, ?InvoiceLineItemsUpdate $lineItems = null, ?InvoiceStatus $status = null, ?AmountDecimalUpdate $taxAmount = null, ?\DateTime $invoiceDate = null, ?\DateTime $dueDate = null)
+    public function __construct(?string $description = null, ?CreateInvoiceLineItemsUpdate $lineItems = null, ?InvoiceStatus $status = null, ?AmountDecimalUpdate $taxAmount = null, ?\DateTime $invoiceDate = null, ?\DateTime $dueDate = null)
     {
         $this->description = $description;
         $this->lineItems = $lineItems;
