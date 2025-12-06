@@ -1,5 +1,4 @@
 # Statements
-(*statements*)
 
 ## Overview
 

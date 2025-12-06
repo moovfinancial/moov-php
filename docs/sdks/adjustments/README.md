@@ -1,5 +1,4 @@
 # Adjustments
-(*adjustments*)
 
 ## Overview
 

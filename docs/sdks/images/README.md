@@ -1,5 +1,4 @@
 # Images
-(*images*)
 
 ## Overview
 

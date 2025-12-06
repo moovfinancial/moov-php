@@ -1,5 +1,4 @@
 # ApplePay
-(*applePay*)
 
 ## Overview
 

@@ -1,5 +1,4 @@
 # WalletTransactions
-(*walletTransactions*)
 
 ## Overview
 

@@ -1,5 +1,4 @@
 # Industries
-(*industries*)
 
 ## Overview
 

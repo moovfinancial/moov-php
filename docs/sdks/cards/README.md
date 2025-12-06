@@ -1,5 +1,4 @@
 # Cards
-(*cards*)
 
 ## Overview
 

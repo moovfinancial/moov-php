@@ -1,5 +1,4 @@
 # Branding
-(*branding*)
 
 ## Overview
 

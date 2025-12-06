@@ -1,5 +1,4 @@
 # Schedules
-(*schedules*)
 
 ## Overview
 

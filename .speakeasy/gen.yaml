@@ -20,12 +20,13 @@ generation:
   schemas:
     allOfMergeStrategy: shallowMerge
   requestBodyFieldName: ""
+  persistentEdits: {}
   tests:
     generateTests: true
     generateNewTests: false
     skipResponseBodyAssertions: false
 php:
-  version: 0.7.15
+  version: 0.7.16
   additionalDependencies:
     autoload: {}
     autoload-dev: {}

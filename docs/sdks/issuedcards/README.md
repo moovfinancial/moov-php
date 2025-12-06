@@ -1,5 +1,4 @@
 # IssuedCards
-(*issuedCards*)
 
 ## Overview
 

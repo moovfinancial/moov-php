@@ -1,5 +1,4 @@
 # Scheduling
-(*scheduling*)
 
 ## Overview
 

@@ -1,5 +1,4 @@
 # Representatives
-(*representatives*)
 
 ## Overview
 

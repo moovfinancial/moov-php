@@ -1,5 +1,4 @@
 # OnboardingInvites
-(*onboardingInvites*)
 
 ## Overview
 

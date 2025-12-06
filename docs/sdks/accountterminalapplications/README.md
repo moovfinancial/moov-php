@@ -1,5 +1,4 @@
 # AccountTerminalApplications
-(*accountTerminalApplications*)
 
 ## Overview
 
