@@ -405,10 +405,6 @@ you'll need to specify the `/accounts/{accountID}/branding.write` scope.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/branding.read` scope.
-* [update](docs/sdks/branding/README.md#update) - Updates the brand properties for the specified account.
-
-To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
-you'll need to specify the `/accounts/{accountID}/branding.write` scope.
 
 ### [Capabilities](docs/sdks/capabilities/README.md)
 
