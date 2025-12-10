@@ -45,6 +45,8 @@ class Institutions
     }
 
     /**
+     * This endpoint has been deprecated and will be removed in a future release. Use [/institutions](https://docs.moov.io/api/enrichment/form-shortening/institutions/get/).
+     *
      * Search for institutions by either their name or routing number.
      *
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
@@ -53,9 +55,11 @@ class Institutions
      * @param  ?Operations\ListInstitutionsRequest  $request
      * @return Operations\ListInstitutionsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
+     * @deprecated  method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     public function search(?Operations\ListInstitutionsRequest $request = null, ?Options $options = null): Operations\ListInstitutionsResponse
     {
+        trigger_error('Method '.__METHOD__.' is deprecated', E_USER_DEPRECATED);
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/institutions/ach/search');
         $urlOverride = null;

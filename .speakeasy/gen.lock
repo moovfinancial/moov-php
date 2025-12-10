@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 9ce127f120c29ccfcc47dbbda7bf3bba
+  docChecksum: b3c493403dc90dfe49005ca097fe396d
   docVersion: latest
-  speakeasyVersion: 1.672.0
-  generationVersion: 2.774.0
-  releaseVersion: 0.7.17
-  configChecksum: 7072f5ad536b8b995641899e0413a21d
+  speakeasyVersion: 1.674.0
+  generationVersion: 2.778.0
+  releaseVersion: 0.7.18
+  configChecksum: d0975c54784a0086cf02805ae68b670b
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
 persistentEdits:
-  generation_id: df3a1436-c742-43b7-8905-cf54f5ec29f6
-  pristine_commit_hash: 7e29938ab53a8be3c3196f505250589d67c11e57
-  pristine_tree_hash: 4825393bbbc3a66d6bde550b504ab1e9bfcf52fa
+  generation_id: 76d1bb9e-9f1f-4c50-a3c7-43e35bae5280
+  pristine_commit_hash: f12aff128492e1df16959fa4276415b93807ae1d
+  pristine_tree_hash: 0ade5a4ba03952fc98c9f51252513ce0da6b9baa
 features:
   php:
     constsAndDefaults: 0.2.0
@@ -2044,9 +2044,6 @@ trackedFiles:
     id: d45234efe220
     last_write_checksum: sha1:7da19886c551fcde593a43a102586cc7967b9a93
     pristine_git_object: 466f7225db0197a0542cf0761c74f639a7433e02
-  docs/Models/Components/UpdateBrand.md:
-    id: 2f69634d3372
-    pristine_git_object: 2a5998299986d61d282cacdb11134b102fee2947
   docs/Models/Components/UpdateCard.md:
     id: fd5158a5960b
     last_write_checksum: sha1:61c1b030235faa0b89f9f3f9c0797a52fe75b2e3
@@ -2059,12 +2056,6 @@ trackedFiles:
     id: 8ca2f268013a
     last_write_checksum: sha1:8ff97a1e1b930a6ff1e39588acafe16464f32019
     pristine_git_object: f1d759ec7617cbe378a35740d731dd0f608de2d0
-  docs/Models/Components/UpdateColor.md:
-    id: 7736526ad96c
-    pristine_git_object: 0b041a5c7b1ffe5fc62afb2dd7278daa37fc954b
-  docs/Models/Components/UpdateColors.md:
-    id: 67c6ecd2b4b3
-    pristine_git_object: 638d00dcd7c0dc28cde233ca1c165cfd89e5234a
   docs/Models/Components/UpdateEvidence.md:
     id: b9cf82baa42b
     last_write_checksum: sha1:95d3dd6e79c70b358269a9c41fbd2ae204d936f3
@@ -3765,12 +3756,6 @@ trackedFiles:
     id: 7f312f49a12a
     last_write_checksum: sha1:571f7a84deb93755bd7e0448704fca4438821592
     pristine_git_object: ac188806073f8d63e0cd43b9e94161eb32d95b71
-  docs/Models/Operations/UpdateBrandRequest.md:
-    id: 796e6161ec81
-    pristine_git_object: f6fa16a3c0ba49d56ce999637905655113bcb71f
-  docs/Models/Operations/UpdateBrandResponse.md:
-    id: b1b35504cdb2
-    pristine_git_object: b8fdbbc2833285d187d8304f6b67efc98c1c7931
   docs/Models/Operations/UpdateCardRequest.md:
     id: 3e399e90562b
     last_write_checksum: sha1:f18050466c0699d0227c9b1c2af6d5c27e039f3a
@@ -4009,8 +3994,8 @@ trackedFiles:
     pristine_git_object: 540dec142c5e3dbf6349bdac1e5ae821fe1fd7d7
   docs/sdks/institutions/README.md:
     id: 9eeb0b2b49a2
-    last_write_checksum: sha1:47bd299fe0f7fbddc4ee9ca7a6543650bf95c3db
-    pristine_git_object: 839289a7004eede84973950b10442df161a9621c
+    last_write_checksum: sha1:f6db9633406544f9ccdac958a2a8c950ef325085
+    pristine_git_object: 77a587909367e2d3a5a8f9f99382099e536e0083
   docs/sdks/invoices/README.md:
     id: a3f76a06eded
     last_write_checksum: sha1:ea5c3f65b7bc3d9cc5115a32d11c2801c282e3ea
@@ -4261,8 +4246,8 @@ trackedFiles:
     pristine_git_object: 27680159643407eb1af8aef77dd0de4fee3190a4
   src/Institutions.php:
     id: 068b2223528d
-    last_write_checksum: sha1:812d65e1b81043d35c8410530e0ebc2f42c01e47
-    pristine_git_object: ae8ac13bb4089466f35bd6547c71cca9d80706e1
+    last_write_checksum: sha1:f14719493b8a804735d598baced39695287b7b47
+    pristine_git_object: 0614cafa281bd3ab9c5003f9f5cb394aafe4b546
   src/Invoices.php:
     id: 60340ce922ba
     last_write_checksum: sha1:1aaedcfbc298b6a3ca871915f638583e528c74f4
@@ -6255,9 +6240,6 @@ trackedFiles:
     id: a2238adc23f1
     last_write_checksum: sha1:28447cc8a03fd59f32af2836ce9da5affb291ed8
     pristine_git_object: 053a9db2a11bda9b0f762ffcbf96659d8f443958
-  src/Models/Components/UpdateBrand.php:
-    id: cb21cc195c7d
-    pristine_git_object: fc9d93617c060523780a41f6c7d105aa8624131d
   src/Models/Components/UpdateCard.php:
     id: e813e9108c09
     last_write_checksum: sha1:30a6b9cd2d0737d1aa6c6776c3a765117c0664c4
@@ -6270,12 +6252,6 @@ trackedFiles:
     id: 1b8959ab2f51
     last_write_checksum: sha1:e3dacce4d2ba06d943325f16fb6db928c63a6096
     pristine_git_object: a7f3701dc6ccdaa6d5c40c1ec90da24988c09d83
-  src/Models/Components/UpdateColor.php:
-    id: 9a46c846ca52
-    pristine_git_object: cec7eb54e4fa9469d31db8e5eab8eda06b7d69d9
-  src/Models/Components/UpdateColors.php:
-    id: 132b396cc3b1
-    pristine_git_object: 25f28ce6769ad769d769c5b7f60bf615a1862e9a
   src/Models/Components/UpdateEvidence.php:
     id: cbbe917f6b5b
     last_write_checksum: sha1:533360bc8b49bfb2859974b8550a265990d2dedd
@@ -8176,12 +8152,6 @@ trackedFiles:
     id: 9780d47aa113
     last_write_checksum: sha1:84bc8b1ba7970cfc553b3952e4eb8919ddc5236e
     pristine_git_object: 23724577255c6782c8c857a8036e8dac51a3961b
-  src/Models/Operations/UpdateBrandRequest.php:
-    id: 07b37f9d03e9
-    pristine_git_object: c30cd998f895438e5439436844ce85596465a9f8
-  src/Models/Operations/UpdateBrandResponse.php:
-    id: a9171c8f3d96
-    pristine_git_object: b6daba46be815d8c76b73ed478b85b9e47d4e90e
   src/Models/Operations/UpdateCardRequest.php:
     id: 3a1a2bdbd19a
     last_write_checksum: sha1:03b4195ed6329bb2dd742452bb0713c572094708
@@ -8384,8 +8354,8 @@ trackedFiles:
     pristine_git_object: fc925901fa92bb1be68f28f6006d4a58337b1e07
   src/SDKConfiguration.php:
     id: 9d60ab0bec0b
-    last_write_checksum: sha1:515c180c7ce44a845dc612b8c2c6cf17e3e8a9fc
-    pristine_git_object: 39232e0bc4862f0f768c0330040765d6bd03f805
+    last_write_checksum: sha1:5f5d5c8d221158b1c334c32c8435a2c8f4ca04ef
+    pristine_git_object: 2ce93f117c37268a196e6a7005652c4326f3dd71
   src/Schedules.php:
     id: 8dbe56d2d033
     last_write_checksum: sha1:d28a0cf731c5291df4052da79bd90d035d4fca38
@@ -11149,7 +11119,7 @@ examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## Php SDK Changes:
-  * `moov->branding->update()`: **Deleted** **Breaking** :warning:
+  * `moov->institutions->search()`: **Deprecated**
 generatedFiles:
   - .gitattributes
   - USAGE.md
