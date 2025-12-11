@@ -52,19 +52,31 @@ class RunTransfer
     public string $description;
 
     /**
+     * Optional sales tax amount. This amount is included in the total transfer amount.
+     *
+     * @var ?Amount $salesTaxAmount
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('salesTaxAmount')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Amount|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?Amount $salesTaxAmount = null;
+
+    /**
      * @param  Amount  $amount
      * @param  SchedulePaymentMethod  $destination
      * @param  string  $partnerAccountID
      * @param  SchedulePaymentMethod  $source
      * @param  string  $description
+     * @param  ?Amount  $salesTaxAmount
      * @phpstan-pure
      */
-    public function __construct(Amount $amount, SchedulePaymentMethod $destination, string $partnerAccountID, SchedulePaymentMethod $source, string $description)
+    public function __construct(Amount $amount, SchedulePaymentMethod $destination, string $partnerAccountID, SchedulePaymentMethod $source, string $description, ?Amount $salesTaxAmount = null)
     {
         $this->amount = $amount;
         $this->destination = $destination;
         $this->partnerAccountID = $partnerAccountID;
         $this->source = $source;
         $this->description = $description;
+        $this->salesTaxAmount = $salesTaxAmount;
     }
 }

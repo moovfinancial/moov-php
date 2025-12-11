@@ -128,6 +128,10 @@ $upsertSchedule = new Components\UpsertSchedule(
                 currency: 'USD',
                 value: 1204,
             ),
+            salesTaxAmount: new Components\Amount(
+                currency: 'USD',
+                value: 1204,
+            ),
             destination: new Components\SchedulePaymentMethod(
                 paymentMethodID: 'c520f1b9-0ba7-42f5-b977-248cdbe41c69',
                 achDetails: new Components\AchDetails(
@@ -378,6 +382,10 @@ $upsertSchedule = new Components\UpsertSchedule(
         recurrenceRule: '<value>',
         runTransfer: new Components\RunTransfer(
             amount: new Components\Amount(
+                currency: 'USD',
+                value: 1204,
+            ),
+            salesTaxAmount: new Components\Amount(
                 currency: 'USD',
                 value: 1204,
             ),
