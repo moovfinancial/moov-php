@@ -9,7 +9,6 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-/** CardBrandFees - A detailed breakdown of fees for a specific card brand. */
 class CardBrandFees
 {
     /**

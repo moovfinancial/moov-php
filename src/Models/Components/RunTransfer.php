@@ -62,15 +62,28 @@ class RunTransfer
     public ?Amount $salesTaxAmount = null;
 
     /**
+     * An optional collection of line items for a scheduled transfer.
+     *
+     * When line items are provided their total must equal `amount` minus `salesTaxAmount`.
+     *
+     * @var ?ScheduledTransferLineItems $lineItems
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('lineItems')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ScheduledTransferLineItems|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?ScheduledTransferLineItems $lineItems = null;
+
+    /**
      * @param  Amount  $amount
      * @param  SchedulePaymentMethod  $destination
      * @param  string  $partnerAccountID
      * @param  SchedulePaymentMethod  $source
      * @param  string  $description
      * @param  ?Amount  $salesTaxAmount
+     * @param  ?ScheduledTransferLineItems  $lineItems
      * @phpstan-pure
      */
-    public function __construct(Amount $amount, SchedulePaymentMethod $destination, string $partnerAccountID, SchedulePaymentMethod $source, string $description, ?Amount $salesTaxAmount = null)
+    public function __construct(Amount $amount, SchedulePaymentMethod $destination, string $partnerAccountID, SchedulePaymentMethod $source, string $description, ?Amount $salesTaxAmount = null, ?ScheduledTransferLineItems $lineItems = null)
     {
         $this->amount = $amount;
         $this->destination = $destination;
@@ -78,5 +91,6 @@ class RunTransfer
         $this->source = $source;
         $this->description = $description;
         $this->salesTaxAmount = $salesTaxAmount;
+        $this->lineItems = $lineItems;
     }
 }

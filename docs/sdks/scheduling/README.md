@@ -154,6 +154,9 @@ $upsertSchedule = new Components\UpsertSchedule(
                 ),
             ),
             description: 'sediment yahoo a rudely mmm massive helpful brr',
+            lineItems: new Components\ScheduledTransferLineItems(
+                items: [],
+            ),
         ),
         start: Utils\Utils::parseDateTime('2009-11-10T23:00:00Z'),
     ),
@@ -411,6 +414,28 @@ $upsertSchedule = new Components\UpsertSchedule(
                 ),
             ),
             description: 'er reasoning following veto oof fervently ha how till now',
+            lineItems: new Components\ScheduledTransferLineItems(
+                items: [
+                    new Components\ScheduledTransferLineItem(
+                        name: '<value>',
+                        basePrice: new Components\AmountDecimal(
+                            currency: 'USD',
+                            valueDecimal: '12.987654321',
+                        ),
+                        quantity: 973458,
+                        options: [
+                            new Components\ScheduledTransferLineItemOption(
+                                name: '<value>',
+                                quantity: 221042,
+                                priceModifier: new Components\AmountDecimal(
+                                    currency: 'USD',
+                                    valueDecimal: '12.987654321',
+                                ),
+                            ),
+                        ],
+                    ),
+                ],
+            ),
         ),
         start: Utils\Utils::parseDateTime('2009-11-10T23:00:00Z'),
     ),

@@ -9,7 +9,11 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-/** PlatformFees - A detailed breakdown of platform fees. */
+/**
+ * PlatformFees - A detailed breakdown of platform fees. This field is deprecated and will be removed in a future release. Use accountFees.
+ *
+ * @deprecated  class: This will be removed in a future release, please migrate away from it as soon as possible.
+ */
 class PlatformFees
 {
     /**

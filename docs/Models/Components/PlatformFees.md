@@ -1,6 +1,8 @@
-# PlatformFees
+# ~~PlatformFees~~
 
-A detailed breakdown of platform fees.
+A detailed breakdown of platform fees. This field is deprecated and will be removed in a future release. Use accountFees.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 
 ## Fields

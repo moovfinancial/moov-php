@@ -23,6 +23,7 @@ enum BankAccountStatusReason: string
     case AchDebitReturn = 'ach-debit-return';
     case AchCreditReturn = 'ach-credit-return';
     case RtpCreditFailure = 'rtp-credit-failure';
+    case FednowCreditFailure = 'fednow-credit-failure';
     case MicroDepositReturn = 'micro-deposit-return';
     case AdminAction = 'admin-action';
     case Other = 'other';

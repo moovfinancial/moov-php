@@ -72,15 +72,46 @@ class BankAccountException
     public ?RTPRejectionCode $rtpRejectionCode = null;
 
     /**
+     * The rejection code of a FedNow transaction that caused the bank account status to change.
+     *
+     *
+     * - AC02: Debtor account is invalid
+     * - AC03: Creditor account is invalid
+     * - AC04: Account closed
+     * - AC06: Account is blocked
+     * - AC07: Creditor account closed
+     * - AC10: Debtor account currency is invalid or missing
+     * - AC11: Creditor account currency is invalid or missing
+     * - AC13: Debtor account type missing or invalid
+     * - AC14: Creditor account type missing or invalid
+     * - AG01: Transaction is forbidden on this type of account
+     * - AG03: Transaction type is not supported/authorized on this account
+     * - BE06: End customer specified is not known at associated Sort/National Bank Code or no longer exists in the books
+     * - DUPL: Payment is a duplicate of another payment
+     * - MD07: End customer is deceased
+     * - NOAT: Receiving customer account does not support/accept this message type
+     * - RC02: Bank identifier is invalid or missing
+     * - RC03: Debtor FI identifier is invalid or missing
+     * - RC04: Creditor FI identifier is invalid or missing
+     *
+     * @var ?string $fednowRejectionCode
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('fednowRejectionCode')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $fednowRejectionCode = null;
+
+    /**
      * @param  string  $description
      * @param  ?ACHReturnCode  $achReturnCode
      * @param  ?RTPRejectionCode  $rtpRejectionCode
+     * @param  ?string  $fednowRejectionCode
      * @phpstan-pure
      */
-    public function __construct(string $description, ?ACHReturnCode $achReturnCode = null, ?RTPRejectionCode $rtpRejectionCode = null)
+    public function __construct(string $description, ?ACHReturnCode $achReturnCode = null, ?RTPRejectionCode $rtpRejectionCode = null, ?string $fednowRejectionCode = null)
     {
         $this->description = $description;
         $this->achReturnCode = $achReturnCode;
         $this->rtpRejectionCode = $rtpRejectionCode;
+        $this->fednowRejectionCode = $fednowRejectionCode;
     }
 }

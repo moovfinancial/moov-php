@@ -9,23 +9,24 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-/** BillingSummaryDetails - Details of volume and fees for a specific payment method. */
 class BillingSummaryDetails
 {
     /**
-     * The total transaction volume amount.
+     * The total transaction volume amount. This field is deprecated and will be removed in a future release.
      *
-     * @var ?AmountDecimal $volumeAmount
+     * @var ?VolumeAmount $volumeAmount
+     * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('volumeAmount')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\VolumeAmount|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?AmountDecimal $volumeAmount = null;
+    public ?VolumeAmount $volumeAmount = null;
 
     /**
-     * The total number of transactions.
+     * The total number of transactions. This field is deprecated and will be removed in a future release.
      *
      * @var ?int $volumeCount
+     * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('volumeCount')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
@@ -42,15 +43,51 @@ class BillingSummaryDetails
     public ?AmountDecimal $feeAmount = null;
 
     /**
-     * @param  ?AmountDecimal  $volumeAmount
+     * Total fee revenue collected from merchants.
+     *
+     * @var ?AmountDecimal $merchantFeesCollected
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('merchantFeesCollected')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?AmountDecimal $merchantFeesCollected = null;
+
+    /**
+     * Total fee costs incurred by the partner.
+     *
+     * @var ?AmountDecimal $partnerFeesAssessed
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('partnerFeesAssessed')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?AmountDecimal $partnerFeesAssessed = null;
+
+    /**
+     * Net revenue after deducting partner fee costs.
+     *
+     * @var ?AmountDecimal $netIncome
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('netIncome')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?AmountDecimal $netIncome = null;
+
+    /**
+     * @param  ?VolumeAmount  $volumeAmount
      * @param  ?int  $volumeCount
      * @param  ?AmountDecimal  $feeAmount
+     * @param  ?AmountDecimal  $merchantFeesCollected
+     * @param  ?AmountDecimal  $partnerFeesAssessed
+     * @param  ?AmountDecimal  $netIncome
      * @phpstan-pure
      */
-    public function __construct(?AmountDecimal $volumeAmount = null, ?int $volumeCount = null, ?AmountDecimal $feeAmount = null)
+    public function __construct(?VolumeAmount $volumeAmount = null, ?int $volumeCount = null, ?AmountDecimal $feeAmount = null, ?AmountDecimal $merchantFeesCollected = null, ?AmountDecimal $partnerFeesAssessed = null, ?AmountDecimal $netIncome = null)
     {
         $this->volumeAmount = $volumeAmount;
         $this->volumeCount = $volumeCount;
         $this->feeAmount = $feeAmount;
+        $this->merchantFeesCollected = $merchantFeesCollected;
+        $this->partnerFeesAssessed = $partnerFeesAssessed;
+        $this->netIncome = $netIncome;
     }
 }

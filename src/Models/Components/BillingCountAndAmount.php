@@ -9,7 +9,6 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-/** BillingCountAndAmount - Represents a count of items and their total amount. */
 class BillingCountAndAmount
 {
     /**

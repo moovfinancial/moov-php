@@ -9,23 +9,25 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-/** CardAcquiring - A summary of card acquiring volume and fees. */
+/** CardAcquiring - A summary of card acquiring fees. */
 class CardAcquiring
 {
     /**
-     * The total transaction volume amount.
+     * The total transaction volume amount. This field is deprecated and will be removed in a future release.
      *
-     * @var ?AmountDecimal $volumeAmount
+     * @var ?BillingSummaryVolumeAmount $volumeAmount
+     * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('volumeAmount')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingSummaryVolumeAmount|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?AmountDecimal $volumeAmount = null;
+    public ?BillingSummaryVolumeAmount $volumeAmount = null;
 
     /**
-     * The total number of transactions.
+     * The total number of transactions. This field is deprecated and will be removed in a future release.
      *
      * @var ?int $volumeCount
+     * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('volumeCount')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
@@ -42,6 +44,36 @@ class CardAcquiring
     public ?AmountDecimal $feeAmount = null;
 
     /**
+     * Total fee revenue collected from merchants.
+     *
+     * @var ?AmountDecimal $merchantFeesCollected
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('merchantFeesCollected')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?AmountDecimal $merchantFeesCollected = null;
+
+    /**
+     * Total fee costs incurred by the partner.
+     *
+     * @var ?AmountDecimal $partnerFeesAssessed
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('partnerFeesAssessed')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?AmountDecimal $partnerFeesAssessed = null;
+
+    /**
+     * Net revenue after deducting partner fee costs.
+     *
+     * @var ?AmountDecimal $netIncome
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('netIncome')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?AmountDecimal $netIncome = null;
+
+    /**
      * A summary of interchange fees by card brand.
      *
      * @var ?BillingSummaryInterchange $interchangeFees
@@ -52,17 +84,23 @@ class CardAcquiring
     public ?BillingSummaryInterchange $interchangeFees = null;
 
     /**
-     * @param  ?AmountDecimal  $volumeAmount
+     * @param  ?BillingSummaryVolumeAmount  $volumeAmount
      * @param  ?int  $volumeCount
      * @param  ?AmountDecimal  $feeAmount
+     * @param  ?AmountDecimal  $merchantFeesCollected
+     * @param  ?AmountDecimal  $partnerFeesAssessed
+     * @param  ?AmountDecimal  $netIncome
      * @param  ?BillingSummaryInterchange  $interchangeFees
      * @phpstan-pure
      */
-    public function __construct(?AmountDecimal $volumeAmount = null, ?int $volumeCount = null, ?AmountDecimal $feeAmount = null, ?BillingSummaryInterchange $interchangeFees = null)
+    public function __construct(?BillingSummaryVolumeAmount $volumeAmount = null, ?int $volumeCount = null, ?AmountDecimal $feeAmount = null, ?AmountDecimal $merchantFeesCollected = null, ?AmountDecimal $partnerFeesAssessed = null, ?AmountDecimal $netIncome = null, ?BillingSummaryInterchange $interchangeFees = null)
     {
         $this->volumeAmount = $volumeAmount;
         $this->volumeCount = $volumeCount;
         $this->feeAmount = $feeAmount;
+        $this->merchantFeesCollected = $merchantFeesCollected;
+        $this->partnerFeesAssessed = $partnerFeesAssessed;
+        $this->netIncome = $netIncome;
         $this->interchangeFees = $interchangeFees;
     }
 }

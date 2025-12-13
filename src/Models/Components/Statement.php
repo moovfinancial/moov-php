@@ -70,7 +70,7 @@ class Statement
     public array $subscriptionIDs;
 
     /**
-     * A summary of all fees included in this statement.
+     * A summary of all fees included in a statement.
      *
      * @var BillingSummary $summary
      */
@@ -95,7 +95,7 @@ class Statement
     public \DateTime $updatedOn;
 
     /**
-     * A detailed breakdown of card acquiring fees.
+     * A detailed breakdown of card acquiring fees by card brand.
      *
      * @var ?CardAcquiringFees $cardAcquiringFees
      */
@@ -125,14 +125,25 @@ class Statement
     public ?InstantPaymentFees $instantPaymentFees = null;
 
     /**
-     * A detailed breakdown of platform fees.
+     * A detailed breakdown of platform fees. This field is deprecated and will be removed in a future release. Use accountFees.
      *
      * @var ?PlatformFees $platformFees
+     * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('platformFees')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PlatformFees|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?PlatformFees $platformFees = null;
+
+    /**
+     * A detailed breakdown of account fees.
+     *
+     * @var ?AccountFees $accountFees
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('accountFees')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AccountFees|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?AccountFees $accountFees = null;
 
     /**
      * A detailed breakdown of other card-related fees.
@@ -143,6 +154,16 @@ class Statement
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\OtherCardFees|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?OtherCardFees $otherCardFees = null;
+
+    /**
+     * Monthly partner costs that are charged separately and not included in residual subtotal (e.g. platform fees, minimums).
+     *
+     * @var ?PartnerFees $partnerFees
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('partnerFees')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PartnerFees|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?PartnerFees $partnerFees = null;
 
     /**
      * @param  string  $statementID
@@ -159,10 +180,12 @@ class Statement
      * @param  ?ACHFees  $achFees
      * @param  ?InstantPaymentFees  $instantPaymentFees
      * @param  ?PlatformFees  $platformFees
+     * @param  ?AccountFees  $accountFees
      * @param  ?OtherCardFees  $otherCardFees
+     * @param  ?PartnerFees  $partnerFees
      * @phpstan-pure
      */
-    public function __construct(string $statementID, string $statementName, string $fileName, int $fileSize, \DateTime $billingPeriodStartDateTime, \DateTime $billingPeriodEndDateTime, array $subscriptionIDs, BillingSummary $summary, \DateTime $createdOn, \DateTime $updatedOn, ?CardAcquiringFees $cardAcquiringFees = null, ?ACHFees $achFees = null, ?InstantPaymentFees $instantPaymentFees = null, ?PlatformFees $platformFees = null, ?OtherCardFees $otherCardFees = null)
+    public function __construct(string $statementID, string $statementName, string $fileName, int $fileSize, \DateTime $billingPeriodStartDateTime, \DateTime $billingPeriodEndDateTime, array $subscriptionIDs, BillingSummary $summary, \DateTime $createdOn, \DateTime $updatedOn, ?CardAcquiringFees $cardAcquiringFees = null, ?ACHFees $achFees = null, ?InstantPaymentFees $instantPaymentFees = null, ?PlatformFees $platformFees = null, ?AccountFees $accountFees = null, ?OtherCardFees $otherCardFees = null, ?PartnerFees $partnerFees = null)
     {
         $this->statementID = $statementID;
         $this->statementName = $statementName;
@@ -178,6 +201,8 @@ class Statement
         $this->achFees = $achFees;
         $this->instantPaymentFees = $instantPaymentFees;
         $this->platformFees = $platformFees;
+        $this->accountFees = $accountFees;
         $this->otherCardFees = $otherCardFees;
+        $this->partnerFees = $partnerFees;
     }
 }
