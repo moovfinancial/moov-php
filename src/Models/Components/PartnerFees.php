@@ -13,44 +13,42 @@ namespace Moov\MoovPhp\Models\Components;
 class PartnerFees
 {
     /**
-     * Total partner fees.
-     *
-     * @var BillingCountAndAmount $total
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('total')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingCountAndAmount')]
-    public BillingCountAndAmount $total;
-
-    /**
      * The minimum spending amount that must be met in the billing period. If actual usage is below the minimum amount, account is charged the difference.
      *
-     * @var ?BillingCountAndAmount $minimumCommitment
+     * @var AmountDecimal $minimumCommitment
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('minimumCommitment')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingCountAndAmount|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?BillingCountAndAmount $minimumCommitment = null;
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
+    public AmountDecimal $minimumCommitment;
 
     /**
      * Fixed recurring fee for the billing period regardless of usage.
      *
-     * @var ?BillingCountAndAmount $monthlyPlatform
+     * @var AmountDecimal $monthlyPlatform
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('monthlyPlatform')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingCountAndAmount|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?BillingCountAndAmount $monthlyPlatform = null;
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
+    public AmountDecimal $monthlyPlatform;
 
     /**
-     * @param  BillingCountAndAmount  $total
-     * @param  ?BillingCountAndAmount  $minimumCommitment
-     * @param  ?BillingCountAndAmount  $monthlyPlatform
+     * Total partner fees.
+     *
+     * @var AmountDecimal $total
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('total')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
+    public AmountDecimal $total;
+
+    /**
+     * @param  AmountDecimal  $minimumCommitment
+     * @param  AmountDecimal  $monthlyPlatform
+     * @param  AmountDecimal  $total
      * @phpstan-pure
      */
-    public function __construct(BillingCountAndAmount $total, ?BillingCountAndAmount $minimumCommitment = null, ?BillingCountAndAmount $monthlyPlatform = null)
+    public function __construct(AmountDecimal $minimumCommitment, AmountDecimal $monthlyPlatform, AmountDecimal $total)
     {
-        $this->total = $total;
         $this->minimumCommitment = $minimumCommitment;
         $this->monthlyPlatform = $monthlyPlatform;
+        $this->total = $total;
     }
 }
