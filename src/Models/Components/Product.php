@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-/** Product - A product available for purchase, which may have optional configuration options. */
+/** Product - A good or service offered by a merchant. */
 class Product
 {
     /**

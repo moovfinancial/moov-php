@@ -54,6 +54,15 @@ class CreatePaymentLink
     public PaymentLinkDisplayOptions $display;
 
     /**
+     *
+     * @var ?Amount $salesTaxAmount
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('salesTaxAmount')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Amount|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?Amount $salesTaxAmount = null;
+
+    /**
      * An optional limit on the number of times this payment link can be used. 
      *
      *
@@ -119,6 +128,7 @@ class CreatePaymentLink
      * @param  string  $merchantPaymentMethodID
      * @param  Amount  $amount
      * @param  PaymentLinkDisplayOptions  $display
+     * @param  ?Amount  $salesTaxAmount
      * @param  ?int  $maxUses
      * @param  ?\DateTime  $expiresOn
      * @param  ?PaymentLinkCustomerOptions  $customer
@@ -127,12 +137,13 @@ class CreatePaymentLink
      * @param  ?CreatePaymentLinkLineItems  $lineItems
      * @phpstan-pure
      */
-    public function __construct(string $partnerAccountID, string $merchantPaymentMethodID, Amount $amount, PaymentLinkDisplayOptions $display, ?int $maxUses = null, ?\DateTime $expiresOn = null, ?PaymentLinkCustomerOptions $customer = null, ?PaymentLinkPaymentDetails $payment = null, ?PaymentLinkPayoutDetails $payout = null, ?CreatePaymentLinkLineItems $lineItems = null)
+    public function __construct(string $partnerAccountID, string $merchantPaymentMethodID, Amount $amount, PaymentLinkDisplayOptions $display, ?Amount $salesTaxAmount = null, ?int $maxUses = null, ?\DateTime $expiresOn = null, ?PaymentLinkCustomerOptions $customer = null, ?PaymentLinkPaymentDetails $payment = null, ?PaymentLinkPayoutDetails $payout = null, ?CreatePaymentLinkLineItems $lineItems = null)
     {
         $this->partnerAccountID = $partnerAccountID;
         $this->merchantPaymentMethodID = $merchantPaymentMethodID;
         $this->amount = $amount;
         $this->display = $display;
+        $this->salesTaxAmount = $salesTaxAmount;
         $this->maxUses = $maxUses;
         $this->expiresOn = $expiresOn;
         $this->customer = $customer;

@@ -14,11 +14,26 @@ class IssuingMerchantData
     /**
      * External identifier used to identify the merchant with the card brand.
      *
-     * @var ?string $networkID
+     * @var string $networkID
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('networkID')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $networkID = null;
+    public string $networkID;
+
+    /**
+     * Two-letter country code.
+     *
+     * @var string $country
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('country')]
+    public string $country;
+
+    /**
+     * The Merchant Category Code.
+     *
+     * @var string $mcc
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('mcc')]
+    public string $mcc;
 
     /**
      * Name of the merchant.
@@ -39,15 +54,6 @@ class IssuingMerchantData
     public ?string $city = null;
 
     /**
-     * Two-letter country code.
-     *
-     * @var ?string $country
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('country')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $country = null;
-
-    /**
      * The merchant's five-digit postal code.
      *
      * @var ?string $postalCode
@@ -66,32 +72,23 @@ class IssuingMerchantData
     public ?string $state = null;
 
     /**
-     * The Merchant Category Code.
-     *
-     * @var ?string $mcc
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('mcc')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $mcc = null;
-
-    /**
-     * @param  ?string  $networkID
+     * @param  string  $networkID
+     * @param  string  $country
+     * @param  string  $mcc
      * @param  ?string  $name
      * @param  ?string  $city
-     * @param  ?string  $country
      * @param  ?string  $postalCode
      * @param  ?string  $state
-     * @param  ?string  $mcc
      * @phpstan-pure
      */
-    public function __construct(?string $networkID = null, ?string $name = null, ?string $city = null, ?string $country = null, ?string $postalCode = null, ?string $state = null, ?string $mcc = null)
+    public function __construct(string $networkID, string $country, string $mcc, ?string $name = null, ?string $city = null, ?string $postalCode = null, ?string $state = null)
     {
         $this->networkID = $networkID;
+        $this->country = $country;
+        $this->mcc = $mcc;
         $this->name = $name;
         $this->city = $city;
-        $this->country = $country;
         $this->postalCode = $postalCode;
         $this->state = $state;
-        $this->mcc = $mcc;
     }
 }

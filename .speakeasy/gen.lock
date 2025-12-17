@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: c3ddca92b8789d1224d3a1798f175fc4
+  docChecksum: 997020aa38e7b895aefd6ea04e37d98d
   docVersion: latest
-  speakeasyVersion: 1.676.1
-  generationVersion: 2.781.2
-  releaseVersion: 0.7.21
-  configChecksum: dbee55e82b0acc7badd12048bfd8e01b
+  speakeasyVersion: 1.678.0
+  generationVersion: 2.787.2
+  releaseVersion: 0.7.22
+  configChecksum: 342c04368bb7cc847f89b9cbc52b2681
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
 persistentEdits:
-  generation_id: a0d99733-700d-4ca0-999d-ac5589079789
-  pristine_commit_hash: fa3674bc620e5517b483b941d579aba3970ef591
-  pristine_tree_hash: f4599c8772bf907242eb0cd19f0e9dba157ba359
+  generation_id: 9831b19e-257a-4dfb-9356-7b73e67b6dd6
+  pristine_commit_hash: b0ee08a4ee3055573a5b4c934f6e37e17fa75bed
+  pristine_tree_hash: 19f45a12b56be365b291d5d6412276b9a508fb00
 features:
   php:
     constsAndDefaults: 0.2.0
@@ -722,8 +722,8 @@ trackedFiles:
     pristine_git_object: 49e005d8b5a7cc8a89064d6902b6861786ed7fff
   docs/Models/Components/CreatePaymentLink.md:
     id: 0acb6f951bb9
-    last_write_checksum: sha1:543e864c7c80be088e7396815e5095a79e0e6d1d
-    pristine_git_object: 72aebac2dab89e24bdefc99eec14e1befd4f6b31
+    last_write_checksum: sha1:bd0ae2580e88b458cf084c1f801e40e412ca5d02
+    pristine_git_object: fb25d06fccc78078fe017d7aa94a8add0ef1e2b3
   docs/Models/Components/CreatePaymentLinkLineItem.md:
     id: 4b9b4bf88faa
     last_write_checksum: sha1:42f65f4866a06c774f782de34c06e032fa60d73c
@@ -1150,8 +1150,8 @@ trackedFiles:
     pristine_git_object: e926a4b8635329b3522ed13ec7972f9f705e2f00
   docs/Models/Components/Invoice.md:
     id: ba7358ee6e48
-    last_write_checksum: sha1:8ba7ea21312bfa3968926a7696258c5f27f2af11
-    pristine_git_object: 77b79453ea0cc12fde93d8cdb80847a1bff32a3a
+    last_write_checksum: sha1:b810001dd05926bed71d3c49f28f035c11dfcfb3
+    pristine_git_object: eebcd1801e738f8310c28c9ffc3d650215c423ba
   docs/Models/Components/InvoiceExternalPayment.md:
     id: 355f31d8abd2
     last_write_checksum: sha1:e62ddec23faad6ae13b3bea159c7e903b6e13448
@@ -1190,8 +1190,12 @@ trackedFiles:
     pristine_git_object: 42105144923300f1fec92936fb1d57ae777db849
   docs/Models/Components/InvoicePayment.md:
     id: 411ff508bd20
-    last_write_checksum: sha1:740dd48fb5962d0b970db77e1c5fd0bebf363a23
-    pristine_git_object: 27df35cce4bc07dcb0ff9739fb263002fb14f567
+    last_write_checksum: sha1:1f60726654a755b44961cfda0e2f73c763e32173
+    pristine_git_object: f73068e6480aaa8e3616382d7442758753f2abb3
+  docs/Models/Components/InvoicePaymentType.md:
+    id: 3e0bdd200f5e
+    last_write_checksum: sha1:8b0576a1496ac88eb41e3fa600a883acf675823a
+    pristine_git_object: 4e164dc5f38780a529fef34959ff3103bdca58ea
   docs/Models/Components/InvoiceStatus.md:
     id: 5138cb519dd5
     last_write_checksum: sha1:8a06aa16b81df7eb45666a33da537659c08af7a6
@@ -1250,8 +1254,8 @@ trackedFiles:
     pristine_git_object: 11e23857ab0095fb744e912a8da5843e161215b3
   docs/Models/Components/IssuingMerchantData.md:
     id: 738da20409a6
-    last_write_checksum: sha1:532669330ce4e4b86fadec1dd15b595b34ddc902
-    pristine_git_object: e0d092b4d85f93329b8f28c93ce0dc53e9ed7420
+    last_write_checksum: sha1:a0276bef0731f1dfd314401520120e2dfdc6ff78
+    pristine_git_object: 1bf1855970f514c08f8f01327c3fc3248bbe02d2
   docs/Models/Components/IssuingVelocityLimit.md:
     id: 63419ce7f8a5
     last_write_checksum: sha1:1925c3d2399c7979199f219bb4dfaac3a9196b49
@@ -1490,8 +1494,8 @@ trackedFiles:
     pristine_git_object: 99647cff52d458b22cd5a51ac8f79d90e49f67c2
   docs/Models/Components/PaymentLink.md:
     id: 239eaf62939f
-    last_write_checksum: sha1:424617b63d052ac5bfe81623f592773522490617
-    pristine_git_object: e7f5adb2480227b14b585d6868bd54cfb523db2b
+    last_write_checksum: sha1:509a0714a938f908c76ef6bf99393a90c304ca6a
+    pristine_git_object: 4289656f3d62043c8f6a2858c9d4fc20a51157d6
   docs/Models/Components/PaymentLinkCustomerOptions.md:
     id: e097f616fe3b
     last_write_checksum: sha1:7ffb191392cb09dc246d2a5b4c1e3f0e8d166f32
@@ -1622,8 +1626,8 @@ trackedFiles:
     pristine_git_object: a493365f7b2bd57cbb9b12a95db6f52381baafb1
   docs/Models/Components/Product.md:
     id: 712a920eca61
-    last_write_checksum: sha1:ff9ad40075a92662a8a9a28785ecc351d2217239
-    pristine_git_object: c3946654250faed09205daa4de5fdbf4f7dc60b4
+    last_write_checksum: sha1:49c0190db6da2372325621ad8f2b4372a42734bb
+    pristine_git_object: 07534e6ca7eae9bc56c17f4abf0e230f17eabbf8
   docs/Models/Components/ProductImageMetadata.md:
     id: 734782da57b3
     last_write_checksum: sha1:27c6d0d1cbae3c7c0d8d0c8b9874889209c51812
@@ -2102,12 +2106,16 @@ trackedFiles:
     pristine_git_object: d0124a8572397cce96a2fa94baef360f7355ad91
   docs/Models/Components/UpdateIssuedCard.md:
     id: 720655aa16dc
-    last_write_checksum: sha1:161d8428bbd1e89e90a0d95d83af145b799741ab
-    pristine_git_object: c38b4d0c131c74b110c0e7c5ac7b1cc5b77d4140
+    last_write_checksum: sha1:9fb50daade325f3137c9e355274b4bdf35192e3e
+    pristine_git_object: d355bafe40079af69470ab94194ec73f8d48dc59
+  docs/Models/Components/UpdateIssuedCardState.md:
+    id: bdff59698b18
+    last_write_checksum: sha1:8ec80ce40e8b6f1dad55746ec2e9b19e95595f4e
+    pristine_git_object: 95f02c45bf99b724067bce58451b44b705cffa6c
   docs/Models/Components/UpdatePaymentLink.md:
     id: 2b74f1ce27a9
-    last_write_checksum: sha1:db0e8389d345534e779198f9452bcb6af8c88112
-    pristine_git_object: b331ab9359547b5d31a433e649938eefbe2d9fba
+    last_write_checksum: sha1:86f1783cdc934430231dc4c106f0a0c47fbd1797
+    pristine_git_object: 1596a5698d369cd526c39f75b8a513ca1e2b4dba
   docs/Models/Components/UpdateRepresentative.md:
     id: f2ba60e28ea0
     last_write_checksum: sha1:d3c00d1fa3b69aa52661d582b6553b85502b2da4
@@ -2438,8 +2446,8 @@ trackedFiles:
     pristine_git_object: 4f9db15d17f77b78fd2facde6525ee91d3c3255a
   docs/Models/Errors/CreatePaymentLinkError.md:
     id: f04fdba7cc63
-    last_write_checksum: sha1:8faa9f47b41d3e7eed15180c9ebc25db294a0b37
-    pristine_git_object: b977dfbcb6240d1cf13a3b8f29e10f0975066d96
+    last_write_checksum: sha1:c2a18617365f701463ba3f1601727a9980beee66
+    pristine_git_object: d8e62e9094b6824eab952906e49083fef9c96b91
   docs/Models/Errors/CreateSweepConfigError.md:
     id: c4072ef69d25
     last_write_checksum: sha1:8c6c76d331838f19dd675da69a63b1c9d25ad85f
@@ -2594,8 +2602,8 @@ trackedFiles:
     pristine_git_object: 613c50ad61c45432ca0a5b85c26184772c8cb44f
   docs/Models/Errors/UpdatePaymentLinkError.md:
     id: 71431e1a2d2a
-    last_write_checksum: sha1:56727e84b31e192c6f690b2fb91c7efedd3f7829
-    pristine_git_object: 69b157956450e50aea7ae9f25a430dc517636b67
+    last_write_checksum: sha1:65fc62659de3c4da405f74138d2bc0f8cf5a776d
+    pristine_git_object: 136912b0b3173221f46a6157874fdc8e1b81a16f
   docs/Models/Errors/UpdateTicketError.md:
     id: e75405b8aa15
     last_write_checksum: sha1:ad6ae859241182b8494cb151c122ac2651512364
@@ -4978,8 +4986,8 @@ trackedFiles:
     pristine_git_object: 946cf568146bca9148978c2c39c14c69b8f0292c
   src/Models/Components/CreatePaymentLink.php:
     id: b647ddccaae2
-    last_write_checksum: sha1:a9b3618164bab5072ae44e4da7d67e06c191c295
-    pristine_git_object: f74b3aba0c9413ad711b7a6fd5cee1027f5246fc
+    last_write_checksum: sha1:b299bd5e4b278cfd190db54d8ada94b7fefc54b4
+    pristine_git_object: d30477ee125904e6eb2897385ff216cde3fd113e
   src/Models/Components/CreatePaymentLinkLineItem.php:
     id: 3f4d9b4552ee
     last_write_checksum: sha1:763a7fe40579bc3612926358ba9860f27a4453dc
@@ -5402,8 +5410,8 @@ trackedFiles:
     pristine_git_object: c4cab21aa6ccfe0629c98b63135224fc14c97a78
   src/Models/Components/Invoice.php:
     id: 43df44796849
-    last_write_checksum: sha1:7e5fc86441b912ab1612bf72dff9c57b9c9ed261
-    pristine_git_object: 1afa3781a2edc6ada175b2d0d2c551470b699f91
+    last_write_checksum: sha1:867f30a32d3d665d704048376a35fabd7fdd56a3
+    pristine_git_object: 13d493d83e1e1df539be44d5da8af5aa6096ad6a
   src/Models/Components/InvoiceExternalPayment.php:
     id: 73acc86d60c2
     last_write_checksum: sha1:7ad0395f21793f1439e435b966eef9353efa9e17
@@ -5440,6 +5448,14 @@ trackedFiles:
     id: 37e9ea4f3a89
     last_write_checksum: sha1:5d8a0e95160dbb95687bc56773e8198bf374e9be
     pristine_git_object: bc9b5a3a2d8ae33504253b406bf81a313345f6e3
+  src/Models/Components/InvoicePayment.php:
+    id: bee091a5806f
+    last_write_checksum: sha1:0bbbfb81637586f49a4bc1c4691e2fa9e4477fa0
+    pristine_git_object: e48ec4cbb527836b8a2f215b2e018e35d88a666d
+  src/Models/Components/InvoicePaymentType.php:
+    id: 12d75e3f54c8
+    last_write_checksum: sha1:1c09aebd68642b3e6b59b25d5c666f1bd9591803
+    pristine_git_object: 0bb498e5a82efae976aea9e459bbad165f6c2a3d
   src/Models/Components/InvoiceStatus.php:
     id: bf9963a5ef99
     last_write_checksum: sha1:27f8347539e64f0aa8b71e7cc0eab4322141ded7
@@ -5498,8 +5514,8 @@ trackedFiles:
     pristine_git_object: 432e0853fff438f7e0bd6287ee62811579a27686
   src/Models/Components/IssuingMerchantData.php:
     id: 37cf3a261515
-    last_write_checksum: sha1:6b9810f0adc8fb2132ab222f3215843f4b6cee73
-    pristine_git_object: ebc0731e4f878a32c106167bdb924b41f6bafdd3
+    last_write_checksum: sha1:4cc2fb09a44bf095cadb9559f2dfaebc2631521f
+    pristine_git_object: 0f2d02438cec57fc50fb009c81c8e24a584f089f
   src/Models/Components/IssuingVelocityLimit.php:
     id: 34a6f0da868d
     last_write_checksum: sha1:60d3d709b9907de76dc8ef3902fdc4f610e4671d
@@ -5734,8 +5750,8 @@ trackedFiles:
     pristine_git_object: b9abfdd43940e2e6d2f29f250b3d28067fac24d6
   src/Models/Components/PaymentLink.php:
     id: 9fc3be429a23
-    last_write_checksum: sha1:1de3ca6012f312019709388672968893ec5ce7b7
-    pristine_git_object: 0f7ce10270647f660b4ed66fde6347ea47e49921
+    last_write_checksum: sha1:d645c9b18919d367a485c0bd3da3bf06b8e18566
+    pristine_git_object: d44f3ebc31a70d3e841b24444c1a83e1aa71040c
   src/Models/Components/PaymentLinkCustomerOptions.php:
     id: 768f6b44d4e1
     last_write_checksum: sha1:0953fe243e45e03a07791f6f4ffbb3dfdedb2730
@@ -5862,8 +5878,8 @@ trackedFiles:
     pristine_git_object: 99cb88b1fa12d6975ae069d80fb1b029c06fd494
   src/Models/Components/Product.php:
     id: 0f3be372058e
-    last_write_checksum: sha1:00ce1fc0ce21a34608d3eec1a13e4771ae3870ed
-    pristine_git_object: d3c12028505086039c1ab3354f8da9037b3cc028
+    last_write_checksum: sha1:3de3e18d2ce63c857612ad37e0267d15870c8972
+    pristine_git_object: e8951c4b5f636e9b2003a6ddc055e8c89aa1973c
   src/Models/Components/ProductImageMetadata.php:
     id: 479c231f7187
     last_write_checksum: sha1:a0b7f6bd4535ed0ab8e4c31267ae4e897ba63718
@@ -6338,12 +6354,16 @@ trackedFiles:
     pristine_git_object: e86c4364c115b0d01c19615d80f60a465da4977a
   src/Models/Components/UpdateIssuedCard.php:
     id: d1d97098efbd
-    last_write_checksum: sha1:b3562343a7f71690434524693aebdb940ce7e98c
-    pristine_git_object: 5941d27fdea9205eb75d57812f13ef6b074d75e6
+    last_write_checksum: sha1:b7439b68c6d6689b1b2bccb3eb8f5e41da4ae003
+    pristine_git_object: c1748dd8fbb9d4eb1c3e03746b03f8d93da10843
+  src/Models/Components/UpdateIssuedCardState.php:
+    id: ae71d518aae8
+    last_write_checksum: sha1:f8a135a30e4b17b07623dbffe41a77c02c6e91e5
+    pristine_git_object: 1820f1058682bbd137c927ea63f8f16ebbd424a4
   src/Models/Components/UpdatePaymentLink.php:
     id: 226ed3515dce
-    last_write_checksum: sha1:4f2b97ada48496c0ea0cbc4131a4f64d7d88f497
-    pristine_git_object: 625fe19f8b2effbfeb459cea6353d1f794f6c48f
+    last_write_checksum: sha1:2e61003bd5a45f1b07c2559b01ce0d4247f52cfd
+    pristine_git_object: ba85f0fc0ab6231a683b8a4c17ed3414b3e25859
   src/Models/Components/UpdateRepresentative.php:
     id: eee926ae1c2f
     last_write_checksum: sha1:17494129dd41a8f489501b4a735f6a41b33cca7b
@@ -6710,8 +6730,8 @@ trackedFiles:
     pristine_git_object: 05e92b6c4aa73f0212e1a8e1b7b0ba4d15a01a7d
   src/Models/Errors/CreatePaymentLinkError.php:
     id: 0343e98fe9b8
-    last_write_checksum: sha1:c265ffea8810f22b36534b108b372ef4d70f3230
-    pristine_git_object: 566fc1b352fedf5c1d7ec46ee73eb98cf5f720c3
+    last_write_checksum: sha1:db0e6247637c3ffbe42db52b89751f13c8e08450
+    pristine_git_object: 55935ccf210ea4189d4341eb3446c8b4079664e1
   src/Models/Errors/CreatePaymentLinkErrorThrowable.php:
     id: eb025f93d610
     last_write_checksum: sha1:346e8cbdf4508e141f400a30ef1f3706168f4fb5
@@ -7014,8 +7034,8 @@ trackedFiles:
     pristine_git_object: bf59fa4195879f8cda2821b94f3c8d6446c0372e
   src/Models/Errors/UpdatePaymentLinkError.php:
     id: 4a65cb8572ae
-    last_write_checksum: sha1:55a0601628a5bca733cb01ad5ca6398717c75f7d
-    pristine_git_object: 13d6017e3f1613e2e1697ff56b5385288a3e9b1b
+    last_write_checksum: sha1:8cd149d2f5c372afab5fcc97d6c788ee8e9f89e3
+    pristine_git_object: 6c029fefc66e7d5ca18e10b340808ac35b950fb2
   src/Models/Errors/UpdatePaymentLinkErrorThrowable.php:
     id: ee469606010a
     last_write_checksum: sha1:f8c9173364f384eef60f6c5897b83f6d2e32b5fe
@@ -8434,8 +8454,8 @@ trackedFiles:
     pristine_git_object: fc925901fa92bb1be68f28f6006d4a58337b1e07
   src/SDKConfiguration.php:
     id: 9d60ab0bec0b
-    last_write_checksum: sha1:601e7f61453e23f193c0f07e9914da038654e521
-    pristine_git_object: 47c541d2f06b4b3a4218329dbc26e8755a4c4bc9
+    last_write_checksum: sha1:17c108368c6ed1c94103cf84516742788092e340
+    pristine_git_object: 9a59f897d295a5727b3919bad7a532d154570f71
   src/Schedules.php:
     id: 8dbe56d2d033
     last_write_checksum: sha1:d28a0cf731c5291df4052da79bd90d035d4fca38
@@ -10432,7 +10452,7 @@ examples:
           X-Moov-Version: "v2024.01.00"
       responses:
         "200":
-          application/json: [{"authorizationID": "d44dc79a-bc38-43a6-bd41-5c426b594c0c", "issuedCardID": "b8eed25b-d6e0-439d-bcf2-d907528d5be7", "fundingWalletID": "209c115d-48a8-4881-970f-453174f254c0", "network": "discover", "authorizedAmount": "-14.89", "status": "canceled", "merchantData": {"name": "Whole Body Fitness", "city": "San Francisco", "country": "US", "postalCode": "94107", "state": "CA", "mcc": "7298"}, "createdOn": "2025-08-25T04:32:53.604Z"}, {"authorizationID": "d44dc79a-bc38-43a6-bd41-5c426b594c0c", "issuedCardID": "b8eed25b-d6e0-439d-bcf2-d907528d5be7", "fundingWalletID": "209c115d-48a8-4881-970f-453174f254c0", "network": "discover", "authorizedAmount": "-14.89", "status": "canceled", "merchantData": {"name": "Whole Body Fitness", "city": "San Francisco", "country": "US", "postalCode": "94107", "state": "CA", "mcc": "7298"}, "createdOn": "2025-08-25T04:32:53.604Z"}]
+          application/json: [{"authorizationID": "d44dc79a-bc38-43a6-bd41-5c426b594c0c", "issuedCardID": "b8eed25b-d6e0-439d-bcf2-d907528d5be7", "fundingWalletID": "209c115d-48a8-4881-970f-453174f254c0", "network": "discover", "authorizedAmount": "-14.89", "status": "canceled", "merchantData": {"networkID": "<id>", "name": "Whole Body Fitness", "city": "San Francisco", "country": "US", "postalCode": "94107", "state": "CA", "mcc": "7298"}, "createdOn": "2025-08-25T04:32:53.604Z"}, {"authorizationID": "d44dc79a-bc38-43a6-bd41-5c426b594c0c", "issuedCardID": "b8eed25b-d6e0-439d-bcf2-d907528d5be7", "fundingWalletID": "209c115d-48a8-4881-970f-453174f254c0", "network": "discover", "authorizedAmount": "-14.89", "status": "canceled", "merchantData": {"networkID": "<id>", "name": "Whole Body Fitness", "city": "San Francisco", "country": "US", "postalCode": "94107", "state": "CA", "mcc": "7298"}, "createdOn": "2025-08-25T04:32:53.604Z"}]
   getIssuedCardAuthorization:
     speakeasy-default-get-issued-card-authorization:
       parameters:
@@ -10444,7 +10464,7 @@ examples:
           X-Moov-Version: "v2024.01.00"
       responses:
         "200":
-          application/json: {"authorizationID": "5679e0eb-92ad-4d62-8654-5845c9b1ba45", "issuedCardID": "c2920cdf-9079-4249-bfbc-2d1cb78de45a", "fundingWalletID": "be90b6de-e185-4c1a-b908-cd34604f7dec", "network": "shazam", "authorizedAmount": "-14.89", "status": "canceled", "merchantData": {"name": "Whole Body Fitness", "city": "San Francisco", "country": "US", "postalCode": "94107", "state": "CA", "mcc": "7298"}, "createdOn": "2025-12-07T07:49:40.695Z"}
+          application/json: {"authorizationID": "5679e0eb-92ad-4d62-8654-5845c9b1ba45", "issuedCardID": "c2920cdf-9079-4249-bfbc-2d1cb78de45a", "fundingWalletID": "be90b6de-e185-4c1a-b908-cd34604f7dec", "network": "shazam", "authorizedAmount": "-14.89", "status": "canceled", "merchantData": {"networkID": "<id>", "name": "Whole Body Fitness", "city": "San Francisco", "country": "US", "postalCode": "94107", "state": "CA", "mcc": "7298"}, "createdOn": "2025-12-07T07:49:40.695Z"}
   listIssuedCardAuthorizationEvents:
     speakeasy-default-list-issued-card-authorization-events:
       parameters:
@@ -10473,7 +10493,7 @@ examples:
           X-Moov-Version: "v2024.01.00"
       responses:
         "200":
-          application/json: [{"cardTransactionID": "66d68b3b-f9fa-402d-8b37-7901e0d82c51", "issuedCardID": "dfbe052a-e141-4efd-9be4-0b1784d5ae57", "fundingWalletID": "59b7399c-5bd6-481b-b6ab-998a04d00a1f", "amount": "-14.89", "authorizedOn": "2023-08-07T22:46:43.547Z", "merchantData": {"name": "Whole Body Fitness", "city": "San Francisco", "country": "US", "postalCode": "94107", "state": "CA", "mcc": "7298"}, "createdOn": "2025-02-19T21:27:25.037Z"}]
+          application/json: [{"cardTransactionID": "66d68b3b-f9fa-402d-8b37-7901e0d82c51", "issuedCardID": "dfbe052a-e141-4efd-9be4-0b1784d5ae57", "fundingWalletID": "59b7399c-5bd6-481b-b6ab-998a04d00a1f", "amount": "-14.89", "authorizedOn": "2023-08-07T22:46:43.547Z", "merchantData": {"networkID": "<id>", "name": "Whole Body Fitness", "city": "San Francisco", "country": "US", "postalCode": "94107", "state": "CA", "mcc": "7298"}, "createdOn": "2025-02-19T21:27:25.037Z"}]
   getIssuedCardTransaction:
     speakeasy-default-get-issued-card-transaction:
       parameters:
@@ -10485,7 +10505,7 @@ examples:
           X-Moov-Version: "v2024.01.00"
       responses:
         "200":
-          application/json: {"cardTransactionID": "1c465368-01d9-4079-8359-e79009b1ff8a", "issuedCardID": "be25723e-2643-422b-9d9e-7c968aa792fe", "fundingWalletID": "f97211c6-f793-400d-afd2-bfadf24e033a", "amount": "-14.89", "authorizedOn": "2024-01-14T07:05:01.255Z", "merchantData": {"name": "Whole Body Fitness", "city": "San Francisco", "country": "US", "postalCode": "94107", "state": "CA", "mcc": "7298"}, "createdOn": "2024-03-14T23:28:20.507Z"}
+          application/json: {"cardTransactionID": "1c465368-01d9-4079-8359-e79009b1ff8a", "issuedCardID": "be25723e-2643-422b-9d9e-7c968aa792fe", "fundingWalletID": "f97211c6-f793-400d-afd2-bfadf24e033a", "amount": "-14.89", "authorizedOn": "2024-01-14T07:05:01.255Z", "merchantData": {"networkID": "<id>", "name": "Whole Body Fitness", "city": "San Francisco", "country": "US", "postalCode": "94107", "state": "CA", "mcc": "7298"}, "createdOn": "2024-03-14T23:28:20.507Z"}
   requestCard:
     speakeasy-default-request-card:
       parameters:
@@ -11138,7 +11158,7 @@ examples:
         application/json: {"customerAccountID": "<id>", "description": "austere gah under ew failing provided repeatedly pick onto", "lineItems": {"items": []}, "taxAmount": {"currency": "USD", "valueDecimal": "12.987654321"}}
       responses:
         "201":
-          application/json: {"invoiceID": "8e7c319b-fa73-40ae-9f04-17e4465fccc2", "invoiceNumber": "INV-1001", "description": "accelerator meh abnormally ick", "customerAccountID": "a26bf1ea-761f-4cd3-8c65-05f167bba51c", "partnerAccountID": "a22cf011-2aa1-4b05-8b4e-458806d2e1e2", "status": "draft", "lineItems": {"items": []}, "subtotalAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "taxAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "totalAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "pendingAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "paidAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "refundedAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "disputedAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "payments": [{"paymentType": "transfer", "transferID": "3265f602-f2e9-4708-9152-2486cef62add"}], "createdOn": "2023-07-17T20:51:09.811Z"}
+          application/json: {"invoiceID": "8e7c319b-fa73-40ae-9f04-17e4465fccc2", "invoiceNumber": "INV-1001", "description": "accelerator meh abnormally ick", "customerAccountID": "a26bf1ea-761f-4cd3-8c65-05f167bba51c", "partnerAccountID": "a22cf011-2aa1-4b05-8b4e-458806d2e1e2", "status": "draft", "lineItems": {"items": []}, "subtotalAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "taxAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "totalAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "pendingAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "paidAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "refundedAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "disputedAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "payments": [{"paymentType": "transfer"}], "createdOn": "2023-07-17T20:51:09.811Z"}
         "400":
           application/json: {"error": "<value>"}
         "422":
@@ -11153,7 +11173,7 @@ examples:
           count: 20
       responses:
         "200":
-          application/json: [{"invoiceID": "4ea1aef6-c3b1-4b1b-a992-2daf3b2f232a", "invoiceNumber": "INV-1001", "description": "pave hunt bouncy whereas briefly", "customerAccountID": "9cee1f88-2b2a-4265-9d7d-3192ed44f4f8", "partnerAccountID": "78c0d2bb-ff83-409d-8f3e-e52b7a2a05a2", "status": "payment-pending", "lineItems": {"items": []}, "subtotalAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "taxAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "totalAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "pendingAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "paidAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "refundedAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "disputedAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "payments": [{"paymentType": "transfer", "transferID": "a9fc2011-ea2b-475d-b7ac-86ab90640a29"}], "createdOn": "2023-02-27T11:12:32.243Z"}]
+          application/json: [{"invoiceID": "4ea1aef6-c3b1-4b1b-a992-2daf3b2f232a", "invoiceNumber": "INV-1001", "description": "pave hunt bouncy whereas briefly", "customerAccountID": "9cee1f88-2b2a-4265-9d7d-3192ed44f4f8", "partnerAccountID": "78c0d2bb-ff83-409d-8f3e-e52b7a2a05a2", "status": "payment-pending", "lineItems": {"items": []}, "subtotalAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "taxAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "totalAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "pendingAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "paidAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "refundedAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "disputedAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "payments": [{"paymentType": "transfer"}], "createdOn": "2023-02-27T11:12:32.243Z"}]
         "422":
           application/json: {}
   getInvoice:
@@ -11164,7 +11184,7 @@ examples:
           invoiceID: "fc90d016-39ea-4110-b77a-2e1c95827f46"
       responses:
         "200":
-          application/json: {"invoiceID": "5fcf112b-06b3-4f44-8394-a461504011f7", "invoiceNumber": "INV-1001", "description": "shaft ha proselytise whether how confide aged unto wasabi icy", "customerAccountID": "4e393a28-a21b-4f47-b394-1fd5db5066a0", "partnerAccountID": "7e715f6d-8253-42ee-b960-d0681d232b1a", "status": "payment-pending", "lineItems": {"items": [{"name": "<value>", "basePrice": {"currency": "USD", "valueDecimal": "12.987654321"}, "quantity": 786047, "options": [{"name": "<value>", "quantity": 272007, "priceModifier": {"currency": "USD", "valueDecimal": "12.987654321"}}]}]}, "subtotalAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "taxAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "totalAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "pendingAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "paidAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "refundedAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "disputedAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "payments": [{"paymentType": "transfer", "transferID": "f7c8f786-bf4b-42b1-8eea-98f774af7b0a"}], "createdOn": "2023-09-25T12:40:16.566Z"}
+          application/json: {"invoiceID": "5fcf112b-06b3-4f44-8394-a461504011f7", "invoiceNumber": "INV-1001", "description": "shaft ha proselytise whether how confide aged unto wasabi icy", "customerAccountID": "4e393a28-a21b-4f47-b394-1fd5db5066a0", "partnerAccountID": "7e715f6d-8253-42ee-b960-d0681d232b1a", "status": "payment-pending", "lineItems": {"items": [{"name": "<value>", "basePrice": {"currency": "USD", "valueDecimal": "12.987654321"}, "quantity": 786047, "options": [{"name": "<value>", "quantity": 272007, "priceModifier": {"currency": "USD", "valueDecimal": "12.987654321"}}]}]}, "subtotalAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "taxAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "totalAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "pendingAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "paidAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "refundedAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "disputedAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "payments": [{"paymentType": "transfer"}], "createdOn": "2023-09-25T12:40:16.566Z"}
   updateInvoice:
     speakeasy-default-update-invoice:
       parameters:
@@ -11175,7 +11195,7 @@ examples:
         application/json: {"lineItems": {"items": [{"name": "<value>", "basePrice": {"currency": "USD", "valueDecimal": "12.987654321"}, "quantity": 984515, "options": [{"name": "<value>", "quantity": 761923, "priceModifier": {"currency": "USD", "valueDecimal": "12.987654321"}}]}]}, "taxAmount": {"currency": "USD", "valueDecimal": "12.987654321"}}
       responses:
         "200":
-          application/json: {"invoiceID": "d07096dd-d765-4147-b39c-0a7b054e55da", "invoiceNumber": "INV-1001", "description": "near shakily um drat", "customerAccountID": "809dcb21-0671-43ee-8331-058d95d72d45", "partnerAccountID": "fe8f1be6-8486-498c-9748-1fa172596b35", "status": "overdue", "lineItems": {"items": [{"name": "<value>", "basePrice": {"currency": "USD", "valueDecimal": "12.987654321"}, "quantity": 984515, "options": [{"name": "<value>", "quantity": 761923, "priceModifier": {"currency": "USD", "valueDecimal": "12.987654321"}}]}]}, "subtotalAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "taxAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "totalAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "pendingAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "paidAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "refundedAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "disputedAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "payments": [{"paymentType": "transfer", "transferID": "72547143-8c7d-45dc-b9e0-406067afe10e"}], "createdOn": "2024-05-24T01:01:13.656Z"}
+          application/json: {"invoiceID": "d07096dd-d765-4147-b39c-0a7b054e55da", "invoiceNumber": "INV-1001", "description": "near shakily um drat", "customerAccountID": "809dcb21-0671-43ee-8331-058d95d72d45", "partnerAccountID": "fe8f1be6-8486-498c-9748-1fa172596b35", "status": "overdue", "lineItems": {"items": [{"name": "<value>", "basePrice": {"currency": "USD", "valueDecimal": "12.987654321"}, "quantity": 984515, "options": [{"name": "<value>", "quantity": 761923, "priceModifier": {"currency": "USD", "valueDecimal": "12.987654321"}}]}]}, "subtotalAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "taxAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "totalAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "pendingAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "paidAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "refundedAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "disputedAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "payments": [{"paymentType": "transfer"}], "createdOn": "2024-05-24T01:01:13.656Z"}
         "400":
           application/json: {"error": "<value>"}
         "422":
@@ -11190,17 +11210,14 @@ examples:
         application/json: {}
       responses:
         "200":
-          application/json: {"invoiceID": "f95d315a-9d47-41ac-a346-c4db88f8b415", "invoiceNumber": "INV-1001", "description": "sandy without atop milky tame forenenst via", "customerAccountID": "7b6946f3-21d8-404f-995f-5307e3776e5c", "partnerAccountID": "cd718ebe-5d23-44f6-9be9-2f5f4eb82789", "status": "draft", "lineItems": {"items": [{"name": "<value>", "basePrice": {"currency": "USD", "valueDecimal": "12.987654321"}, "quantity": 491045, "options": [{"name": "<value>", "quantity": 500070, "priceModifier": {"currency": "USD", "valueDecimal": "12.987654321"}}]}]}, "subtotalAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "taxAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "totalAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "pendingAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "paidAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "refundedAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "disputedAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "payments": [{"paymentType": "external", "description": "which concerning investigate", "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}], "createdOn": "2023-05-24T17:08:07.949Z"}
+          application/json: {"invoiceID": "f95d315a-9d47-41ac-a346-c4db88f8b415", "invoiceNumber": "INV-1001", "description": "sandy without atop milky tame forenenst via", "customerAccountID": "7b6946f3-21d8-404f-995f-5307e3776e5c", "partnerAccountID": "cd718ebe-5d23-44f6-9be9-2f5f4eb82789", "status": "draft", "lineItems": {"items": [{"name": "<value>", "basePrice": {"currency": "USD", "valueDecimal": "12.987654321"}, "quantity": 491045, "options": [{"name": "<value>", "quantity": 500070, "priceModifier": {"currency": "USD", "valueDecimal": "12.987654321"}}]}]}, "subtotalAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "taxAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "totalAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "pendingAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "paidAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "refundedAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "disputedAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "payments": [{"paymentType": "external"}], "createdOn": "2023-05-24T17:08:07.949Z"}
         "400":
           application/json: {"error": "<value>"}
         "422":
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Php SDK Changes:
-  * `moov->statements->list()`:  `response.[]->summary->monthlyPartnerCosts` **Changed** **Breaking** :warning:
-  * `moov->statements->get()`:  `response.summary->monthlyPartnerCosts` **Changed** **Breaking** :warning:
+releaseNotes: "## Php SDK Changes:\n* `moov->invoices->createInvoice()`:  `response.payments->[]` **Changed** **Breaking** :warning:\n* `moov->invoices->listInvoices()`:  `response.[]->payments->[]` **Changed** **Breaking** :warning:\n* `moov->invoices->getInvoice()`:  `response.payments->[]` **Changed** **Breaking** :warning:\n* `moov->invoices->updateInvoice()`:  `response.payments->[]` **Changed** **Breaking** :warning:\n* `moov->invoices->markPaidInvoice()`:  `response.payments->[]` **Changed** **Breaking** :warning:\n* `moov->paymentlinks->create()`: \n  *  `request.createPaymentLink->salesTaxAmount` **Added**\n  *  `response.salesTaxAmount` **Added**\n  *  `error.salesTaxAmount` **Added**\n* `moov->paymentlinks->list()`:  `response.[]->salesTaxAmount` **Added**\n* `moov->paymentlinks->get()`:  `response.salesTaxAmount` **Added**\n* `moov->paymentlinks->update()`: \n  *  `request.updatePaymentLink->salesTaxAmount` **Added**\n  *  `response.salesTaxAmount` **Added**\n  *  `error.salesTaxAmount` **Added**\n* `moov->issuingtransactions->listAuthorizations()`:  `response.[]->merchantData` **Changed**\n* `moov->issuingtransactions->getAuthorization()`:  `response.merchantData` **Changed**\n* `moov->issuingtransactions->list()`:  `response.[]->merchantData` **Changed**\n* `moov->transactions->get()`:  `response.merchantData` **Changed**\n"
 generatedFiles:
   - .gitattributes
   - USAGE.md

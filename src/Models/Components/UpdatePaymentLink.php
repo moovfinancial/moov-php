@@ -21,6 +21,15 @@ class UpdatePaymentLink
     public ?AmountUpdate $amount = null;
 
     /**
+     *
+     * @var ?AmountUpdate $salesTaxAmount
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('salesTaxAmount')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountUpdate|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?AmountUpdate $salesTaxAmount = null;
+
+    /**
      * Customizable display options for a payment link.
      *
      * @var ?PaymentLinkDisplayOptionsUpdate $display
@@ -80,6 +89,7 @@ class UpdatePaymentLink
 
     /**
      * @param  ?AmountUpdate  $amount
+     * @param  ?AmountUpdate  $salesTaxAmount
      * @param  ?PaymentLinkDisplayOptionsUpdate  $display
      * @param  ?PaymentLinkCustomerOptions  $customer
      * @param  ?PaymentLinkPaymentDetailsUpdate  $payment
@@ -88,9 +98,10 @@ class UpdatePaymentLink
      * @param  ?\DateTime  $expiresOn
      * @phpstan-pure
      */
-    public function __construct(?AmountUpdate $amount = null, ?PaymentLinkDisplayOptionsUpdate $display = null, ?PaymentLinkCustomerOptions $customer = null, ?PaymentLinkPaymentDetailsUpdate $payment = null, ?PaymentLinkPayoutDetailsUpdate $payout = null, ?CreatePaymentLinkLineItemsUpdate $lineItems = null, ?\DateTime $expiresOn = null)
+    public function __construct(?AmountUpdate $amount = null, ?AmountUpdate $salesTaxAmount = null, ?PaymentLinkDisplayOptionsUpdate $display = null, ?PaymentLinkCustomerOptions $customer = null, ?PaymentLinkPaymentDetailsUpdate $payment = null, ?PaymentLinkPayoutDetailsUpdate $payout = null, ?CreatePaymentLinkLineItemsUpdate $lineItems = null, ?\DateTime $expiresOn = null)
     {
         $this->amount = $amount;
+        $this->salesTaxAmount = $salesTaxAmount;
         $this->display = $display;
         $this->customer = $customer;
         $this->payment = $payment;

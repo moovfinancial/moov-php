@@ -12,20 +12,16 @@ namespace Moov\MoovPhp\Models\Components;
 class UpdateIssuedCard
 {
     /**
-     * The `state` represents the operational status of an issued card. A card can only approve incoming authorizations if it is in an active state.
+     * Updates the state of a Moov issued card.
      *
-     *
-     * - `active`: The card is operational and approves authorizations. Generally becomes active shortly after card creation.
-     * - `inactive`: The card cannot approve authorizations. This is currently a temporary state assigned post-creation during the activation process.
      * - `closed`: The card is permanently deactivated and cannot approve authorizations. A card can be closed by request or when it expires.
-     * - `pending-verification`: Awaiting additional authorized user verification before the card can be activated.
      *
-     * @var ?IssuedCardState $state
+     * @var ?UpdateIssuedCardState $state
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('state')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IssuedCardState|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\UpdateIssuedCardState|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?IssuedCardState $state = null;
+    public ?UpdateIssuedCardState $state = null;
 
     /**
      *
@@ -46,12 +42,12 @@ class UpdateIssuedCard
     public ?CreateAuthorizedUserUpdate $authorizedUser = null;
 
     /**
-     * @param  ?IssuedCardState  $state
+     * @param  ?UpdateIssuedCardState  $state
      * @param  ?string  $memo
      * @param  ?CreateAuthorizedUserUpdate  $authorizedUser
      * @phpstan-pure
      */
-    public function __construct(?IssuedCardState $state = null, ?string $memo = null, ?CreateAuthorizedUserUpdate $authorizedUser = null)
+    public function __construct(?UpdateIssuedCardState $state = null, ?string $memo = null, ?CreateAuthorizedUserUpdate $authorizedUser = null)
     {
         $this->state = $state;
         $this->memo = $memo;

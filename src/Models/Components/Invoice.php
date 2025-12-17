@@ -142,10 +142,10 @@ class Invoice
     /**
      * $payments
      *
-     * @var ?array<InvoiceTransferPayment|InvoiceExternalPayment> $payments
+     * @var ?array<InvoicePayment> $payments
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('payments')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\InvoiceTransferPayment|\Moov\MoovPhp\Models\Components\InvoiceExternalPayment>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\InvoicePayment>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $payments = null;
 
@@ -206,7 +206,7 @@ class Invoice
      * @param  AmountDecimal  $disputedAmount
      * @param  \DateTime  $createdOn
      * @param  ?string  $paymentLinkCode
-     * @param  ?array<InvoiceTransferPayment|InvoiceExternalPayment>  $payments
+     * @param  ?array<InvoicePayment>  $payments
      * @param  ?\DateTime  $invoiceDate
      * @param  ?\DateTime  $dueDate
      * @param  ?\DateTime  $sentOn

@@ -39,6 +39,15 @@ class CreatePaymentLinkError
 
     /**
      *
+     * @var ?Components\AmountValidationError $salesTaxAmount
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('salesTaxAmount')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountValidationError|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?Components\AmountValidationError $salesTaxAmount = null;
+
+    /**
+     *
      * @var ?string $maxUses
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('maxUses')]
@@ -93,6 +102,7 @@ class CreatePaymentLinkError
      * @param  ?string  $partnerAccountID
      * @param  ?string  $merchantPaymentMethodID
      * @param  ?Components\AmountValidationError  $amount
+     * @param  ?Components\AmountValidationError  $salesTaxAmount
      * @param  ?string  $maxUses
      * @param  ?string  $expiresOn
      * @param  ?Components\DisplayOptionsError  $display
@@ -101,11 +111,12 @@ class CreatePaymentLinkError
      * @param  ?Components\CreatePaymentLinkLineItemsValidationError  $lineItems
      * @phpstan-pure
      */
-    public function __construct(?string $partnerAccountID = null, ?string $merchantPaymentMethodID = null, ?Components\AmountValidationError $amount = null, ?string $maxUses = null, ?string $expiresOn = null, ?Components\DisplayOptionsError $display = null, ?Components\PaymentDetailsError $payment = null, ?Components\PayoutDetailsError $payout = null, ?Components\CreatePaymentLinkLineItemsValidationError $lineItems = null)
+    public function __construct(?string $partnerAccountID = null, ?string $merchantPaymentMethodID = null, ?Components\AmountValidationError $amount = null, ?Components\AmountValidationError $salesTaxAmount = null, ?string $maxUses = null, ?string $expiresOn = null, ?Components\DisplayOptionsError $display = null, ?Components\PaymentDetailsError $payment = null, ?Components\PayoutDetailsError $payout = null, ?Components\CreatePaymentLinkLineItemsValidationError $lineItems = null)
     {
         $this->partnerAccountID = $partnerAccountID;
         $this->merchantPaymentMethodID = $merchantPaymentMethodID;
         $this->amount = $amount;
+        $this->salesTaxAmount = $salesTaxAmount;
         $this->maxUses = $maxUses;
         $this->expiresOn = $expiresOn;
         $this->display = $display;

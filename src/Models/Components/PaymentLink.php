@@ -132,6 +132,16 @@ class PaymentLink
     public \DateTime $updatedOn;
 
     /**
+     * Optional sales tax amount.
+     *
+     * @var ?Amount $salesTaxAmount
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('salesTaxAmount')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Amount|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?Amount $salesTaxAmount = null;
+
+    /**
      * An optional limit on the number of times this payment link can be used. 
      *
      *
@@ -216,6 +226,7 @@ class PaymentLink
      * @param  PaymentLinkCustomerOptions  $customer
      * @param  \DateTime  $createdOn
      * @param  \DateTime  $updatedOn
+     * @param  ?Amount  $salesTaxAmount
      * @param  ?int  $maxUses
      * @param  ?\DateTime  $lastUsedOn
      * @param  ?\DateTime  $expiresOn
@@ -225,7 +236,7 @@ class PaymentLink
      * @param  ?\DateTime  $disabledOn
      * @phpstan-pure
      */
-    public function __construct(string $code, PaymentLinkType $paymentLinkType, Mode $mode, PaymentLinkStatus $status, string $partnerAccountID, string $merchantAccountID, string $ownerAccountID, string $merchantPaymentMethodID, string $link, Amount $amount, int $uses, PaymentLinkDisplayOptions $display, PaymentLinkCustomerOptions $customer, \DateTime $createdOn, \DateTime $updatedOn, ?int $maxUses = null, ?\DateTime $lastUsedOn = null, ?\DateTime $expiresOn = null, ?PaymentLinkPaymentDetails $payment = null, ?PaymentLinkPayoutDetails $payout = null, ?PaymentLinkLineItems $lineItems = null, ?\DateTime $disabledOn = null)
+    public function __construct(string $code, PaymentLinkType $paymentLinkType, Mode $mode, PaymentLinkStatus $status, string $partnerAccountID, string $merchantAccountID, string $ownerAccountID, string $merchantPaymentMethodID, string $link, Amount $amount, int $uses, PaymentLinkDisplayOptions $display, PaymentLinkCustomerOptions $customer, \DateTime $createdOn, \DateTime $updatedOn, ?Amount $salesTaxAmount = null, ?int $maxUses = null, ?\DateTime $lastUsedOn = null, ?\DateTime $expiresOn = null, ?PaymentLinkPaymentDetails $payment = null, ?PaymentLinkPayoutDetails $payout = null, ?PaymentLinkLineItems $lineItems = null, ?\DateTime $disabledOn = null)
     {
         $this->code = $code;
         $this->paymentLinkType = $paymentLinkType;
@@ -242,6 +253,7 @@ class PaymentLink
         $this->customer = $customer;
         $this->createdOn = $createdOn;
         $this->updatedOn = $updatedOn;
+        $this->salesTaxAmount = $salesTaxAmount;
         $this->maxUses = $maxUses;
         $this->lastUsedOn = $lastUsedOn;
         $this->expiresOn = $expiresOn;

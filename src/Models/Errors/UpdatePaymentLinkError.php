@@ -23,6 +23,15 @@ class UpdatePaymentLinkError
 
     /**
      *
+     * @var ?Components\AmountValidationError $salesTaxAmount
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('salesTaxAmount')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountValidationError|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?Components\AmountValidationError $salesTaxAmount = null;
+
+    /**
+     *
      * @var ?string $expiresOn
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('expiresOn')]
@@ -67,6 +76,7 @@ class UpdatePaymentLinkError
 
     /**
      * @param  ?Components\AmountValidationError  $amount
+     * @param  ?Components\AmountValidationError  $salesTaxAmount
      * @param  ?string  $expiresOn
      * @param  ?Components\DisplayOptionsError  $display
      * @param  ?Components\PaymentDetailsError  $payment
@@ -74,9 +84,10 @@ class UpdatePaymentLinkError
      * @param  ?Components\CreatePaymentLinkLineItemsValidationError  $lineItems
      * @phpstan-pure
      */
-    public function __construct(?Components\AmountValidationError $amount = null, ?string $expiresOn = null, ?Components\DisplayOptionsError $display = null, ?Components\PaymentDetailsError $payment = null, ?Components\PayoutDetailsError $payout = null, ?Components\CreatePaymentLinkLineItemsValidationError $lineItems = null)
+    public function __construct(?Components\AmountValidationError $amount = null, ?Components\AmountValidationError $salesTaxAmount = null, ?string $expiresOn = null, ?Components\DisplayOptionsError $display = null, ?Components\PaymentDetailsError $payment = null, ?Components\PayoutDetailsError $payout = null, ?Components\CreatePaymentLinkLineItemsValidationError $lineItems = null)
     {
         $this->amount = $amount;
+        $this->salesTaxAmount = $salesTaxAmount;
         $this->expiresOn = $expiresOn;
         $this->display = $display;
         $this->payment = $payment;
