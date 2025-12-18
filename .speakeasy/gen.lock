@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 997020aa38e7b895aefd6ea04e37d98d
+  docChecksum: 7e6de40f66d98db5cf860620c6d905db
   docVersion: latest
-  speakeasyVersion: 1.678.0
-  generationVersion: 2.787.2
-  releaseVersion: 0.7.22
-  configChecksum: 342c04368bb7cc847f89b9cbc52b2681
+  speakeasyVersion: 1.680.0
+  generationVersion: 2.788.4
+  releaseVersion: 0.7.23
+  configChecksum: fe985ffa4336e23926c919632bd2a19e
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
 persistentEdits:
-  generation_id: 9831b19e-257a-4dfb-9356-7b73e67b6dd6
-  pristine_commit_hash: b0ee08a4ee3055573a5b4c934f6e37e17fa75bed
-  pristine_tree_hash: 19f45a12b56be365b291d5d6412276b9a508fb00
+  generation_id: 10fb4983-57a0-49c4-b158-7b3a6c7e29d7
+  pristine_commit_hash: f2ec7657fa6f58d902b51d69c5ee6b5cbc09010e
+  pristine_tree_hash: 42934f2f4ee1fb9732dc199796f34716b89918c7
 features:
   php:
     constsAndDefaults: 0.2.0
@@ -2814,8 +2814,8 @@ trackedFiles:
     pristine_git_object: 151796540d60b96de9fe99a483778e3c6f96d300
   docs/Models/Operations/CreateTransferRequest.md:
     id: 4fb6423f0c05
-    last_write_checksum: sha1:b2802815a877732ca49a5a287bb8e24cd80ff6c1
-    pristine_git_object: 6dcce8523fcd3b1bcbb0657deeef160ac019f173
+    last_write_checksum: sha1:c3932bfe353ccb2dab2c0fb0c87e485e7cf89a82
+    pristine_git_object: 316a6dc2fdb14fb569af84f941444a161750e7d1
   docs/Models/Operations/CreateTransferResponse.md:
     id: 714c8e729d7d
     last_write_checksum: sha1:e8434b15a4b2d24d5f6ca5d11cd574910b8e0fed
@@ -7262,8 +7262,8 @@ trackedFiles:
     pristine_git_object: 8ab346d28d255d7b554607dbdf29670cc6e4918a
   src/Models/Operations/CreateTransferRequest.php:
     id: 7f2f11c3a98d
-    last_write_checksum: sha1:44ae5530d2b30a3e875337aaae16e548862d1508
-    pristine_git_object: 6fc708a20c207199922988e459efa51b76cceb24
+    last_write_checksum: sha1:7b81f26d5c309441c7299723e448230d94ddaefc
+    pristine_git_object: 756035f9515ab2464c6c71e4d1abe45b59301ace
   src/Models/Operations/CreateTransferResponse.php:
     id: 9e09fd5ebeca
     last_write_checksum: sha1:8b82ae502bf72c4f2c6c76dde13aa4bdd225ea38
@@ -8454,8 +8454,8 @@ trackedFiles:
     pristine_git_object: fc925901fa92bb1be68f28f6006d4a58337b1e07
   src/SDKConfiguration.php:
     id: 9d60ab0bec0b
-    last_write_checksum: sha1:17c108368c6ed1c94103cf84516742788092e340
-    pristine_git_object: 9a59f897d295a5727b3919bad7a532d154570f71
+    last_write_checksum: sha1:e46fa63a2db03e42aefa37cbc58d1082656de28c
+    pristine_git_object: e40d977c268f6b53130ca417a90ac03831d89165
   src/Schedules.php:
     id: 8dbe56d2d033
     last_write_checksum: sha1:d28a0cf731c5291df4052da79bd90d035d4fca38
@@ -11217,7 +11217,6 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Php SDK Changes:\n* `moov->invoices->createInvoice()`:  `response.payments->[]` **Changed** **Breaking** :warning:\n* `moov->invoices->listInvoices()`:  `response.[]->payments->[]` **Changed** **Breaking** :warning:\n* `moov->invoices->getInvoice()`:  `response.payments->[]` **Changed** **Breaking** :warning:\n* `moov->invoices->updateInvoice()`:  `response.payments->[]` **Changed** **Breaking** :warning:\n* `moov->invoices->markPaidInvoice()`:  `response.payments->[]` **Changed** **Breaking** :warning:\n* `moov->paymentlinks->create()`: \n  *  `request.createPaymentLink->salesTaxAmount` **Added**\n  *  `response.salesTaxAmount` **Added**\n  *  `error.salesTaxAmount` **Added**\n* `moov->paymentlinks->list()`:  `response.[]->salesTaxAmount` **Added**\n* `moov->paymentlinks->get()`:  `response.salesTaxAmount` **Added**\n* `moov->paymentlinks->update()`: \n  *  `request.updatePaymentLink->salesTaxAmount` **Added**\n  *  `response.salesTaxAmount` **Added**\n  *  `error.salesTaxAmount` **Added**\n* `moov->issuingtransactions->listAuthorizations()`:  `response.[]->merchantData` **Changed**\n* `moov->issuingtransactions->getAuthorization()`:  `response.merchantData` **Changed**\n* `moov->issuingtransactions->list()`:  `response.[]->merchantData` **Changed**\n* `moov->transactions->get()`:  `response.merchantData` **Changed**\n"
 generatedFiles:
   - .gitattributes
   - USAGE.md

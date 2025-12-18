@@ -13,7 +13,9 @@ use Moov\MoovPhp\Utils\SpeakeasyMetadata;
 class CreateTransferRequest
 {
     /**
-     * Prevents duplicate transfers from being created.
+     * Identifies a unique request to create a transfer.
+     *
+     * In order to avoid creating duplicate transfers, the same idempotency key should be reused when retrying a request.
      *
      * @var string $xIdempotencyKey
      */
