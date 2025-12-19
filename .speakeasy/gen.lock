@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 7e6de40f66d98db5cf860620c6d905db
+  docChecksum: 7848c058aae4d22a7e4fa3509dc28dcf
   docVersion: latest
-  speakeasyVersion: 1.680.0
-  generationVersion: 2.788.4
-  releaseVersion: 0.7.23
-  configChecksum: fe985ffa4336e23926c919632bd2a19e
+  speakeasyVersion: 1.680.1
+  generationVersion: 2.788.5
+  releaseVersion: 0.7.24
+  configChecksum: 13b34e0a58eb53b1e27827059f5630b5
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
 persistentEdits:
-  generation_id: 10fb4983-57a0-49c4-b158-7b3a6c7e29d7
-  pristine_commit_hash: f2ec7657fa6f58d902b51d69c5ee6b5cbc09010e
-  pristine_tree_hash: 42934f2f4ee1fb9732dc199796f34716b89918c7
+  generation_id: b50b13c6-a365-4cb4-aa28-2121106df8df
+  pristine_commit_hash: 4b79b2c7deef58e3014f0ccab9322329778b6d58
+  pristine_tree_hash: 380e66109e9c888727f8462ad862fa4da2f46391
 features:
   php:
     constsAndDefaults: 0.2.0
@@ -1884,6 +1884,10 @@ trackedFiles:
     id: 33cf1e7a657f
     last_write_checksum: sha1:8bf71f7b5f493e441b0720f6f595c4abd39868fe
     pristine_git_object: 8f3e8b7b07daaf9374d069379f4d3d08d3ad61b2
+  docs/Models/Components/ShareScopes.md:
+    id: ad0ca67182ca
+    last_write_checksum: sha1:91f6aaaafde6d242b4493477ebc27ff62f177463
+    pristine_git_object: de12636ba84cec216b579da2ea079d6d324111c3
   docs/Models/Components/SourceDestinationOptions.md:
     id: df97e6ec1e83
     last_write_checksum: sha1:88d8ab10f0a8b87953c6afcd223598fad555f193
@@ -2436,6 +2440,10 @@ trackedFiles:
     id: ae44d387fac6
     last_write_checksum: sha1:ece06b5bff00490451f337d38391852b00799f8d
     pristine_git_object: 943048bfe909f77df5a2540fe7e4274faf927975
+  docs/Models/Errors/ConnectAccountRequestValidationError.md:
+    id: 055c514f6302
+    last_write_checksum: sha1:ea49f4a27f42dc9259e4117a493f6d74829634ed
+    pristine_git_object: e6573ea54fc5988d681fbccbda4a533353cda633
   docs/Models/Errors/CreateAccountError.md:
     id: c32663f69115
     last_write_checksum: sha1:f69ddc5db208dc4e235e010f08c5f19804e2d64a
@@ -2660,6 +2668,14 @@ trackedFiles:
     id: 8cc223b4778a
     last_write_checksum: sha1:aca6c4911f813b68a452ceefd62cdf36f3af2dba
     pristine_git_object: ee1a587c954f5c9c120c076c5c8b74b627cc38e0
+  docs/Models/Operations/ConnectAccountRequest.md:
+    id: d3666d2da723
+    last_write_checksum: sha1:8368cde8baf5be8af2cbcff69caf53b4d550d3d8
+    pristine_git_object: 65b6cce4e94da685426395c4570e042f17e5dac7
+  docs/Models/Operations/ConnectAccountResponse.md:
+    id: c4321c87b285
+    last_write_checksum: sha1:6bc05f6a9cee917c11279b0733c57d631d1378ca
+    pristine_git_object: 794ae276bd70ebce9d76d21e37a2fbb0b1688eb9
   docs/Models/Operations/CreateAccessTokenRequest.md:
     id: 5330da3d6067
     last_write_checksum: sha1:93edf7bc9af98a33fc98a64623306f91f3e5628f
@@ -3400,6 +3416,14 @@ trackedFiles:
     id: c509786b0c8d
     last_write_checksum: sha1:2fc07e354c7b5d9c32623a0363415b0a7f7b4fc9
     pristine_git_object: e1d494809938fe9edd70672d09117f77994d75d1
+  docs/Models/Operations/ListConnectedAccountsForAccountRequest.md:
+    id: 367e36eedd0f
+    last_write_checksum: sha1:71aa9e13a6cee30ace7129d608837daf8c48a236
+    pristine_git_object: 2b7f94f8c9b3c008ad0554039486550aea70bb0a
+  docs/Models/Operations/ListConnectedAccountsForAccountResponse.md:
+    id: c624eca3efbc
+    last_write_checksum: sha1:0f3a58a46043f5744137f7638a50955869f270fd
+    pristine_git_object: 60be3888dcc0a119cda1bcda3279e7bd05c37482
   docs/Models/Operations/ListDisputeEvidenceRequest.md:
     id: 4d28758e7af2
     last_write_checksum: sha1:494f48419fcc3efe98d74efd9179802b69d90127
@@ -3966,8 +3990,8 @@ trackedFiles:
     pristine_git_object: e3086f9e0b1a0c93da17a9348dc12c695b2c0364
   docs/sdks/accounts/README.md:
     id: d6c754b1ca96
-    last_write_checksum: sha1:5445913ec86b6dc62fd9475cfc3869d16ddabaca
-    pristine_git_object: b0b52355cd87e0367efa20ea8e399733e9a59a02
+    last_write_checksum: sha1:60d853bc086a4040914a8306b1efe2f54b2c20a7
+    pristine_git_object: 32f8374a815e16558814345b5c1367f96b0a22ab
   docs/sdks/accountterminalapplications/README.md:
     id: 6ffa432d9156
     last_write_checksum: sha1:e2c712587dd5a8dfb57ea7a9db63b482364a00ad
@@ -4154,8 +4178,8 @@ trackedFiles:
     pristine_git_object: f5e97a644033d4dcd4010f4a93986f13b010553c
   src/Accounts.php:
     id: dd1cb27891fe
-    last_write_checksum: sha1:7abc1f77149012b9b6596b48c2656df73707d095
-    pristine_git_object: d62774ada3b62a26d0a182fb24d2c5bb0d10c9a8
+    last_write_checksum: sha1:9d724aa943a072f0b9ed0853f896b463e9fd3d3b
+    pristine_git_object: ef949e6432a32190665402cd8de37b50c713f3aa
   src/Address.php:
     id: 095eb49d5cc0
     last_write_checksum: sha1:9c3ec6e90eb7a43f8044c88177d202e7126cf153
@@ -6132,6 +6156,10 @@ trackedFiles:
     id: bcb145b2b0ad
     last_write_checksum: sha1:f7706197a20f3227b4e4f72cd583cc99d57afd47
     pristine_git_object: 78a9fcbbbb3e3d5e87b2390f6e0ba6b453ac87a1
+  src/Models/Components/ShareScopes.php:
+    id: b95044bff2a9
+    last_write_checksum: sha1:8a87ea71ca0188747b79f8a32a4c39cd552cb549
+    pristine_git_object: 0266fd5c109affad5e18801c4dec4adde377cea9
   src/Models/Components/SourceDestinationOptions.php:
     id: 196241e80292
     last_write_checksum: sha1:645713da29492b5c9626bd18eda04b2d3f055387
@@ -6712,6 +6740,14 @@ trackedFiles:
     id: c37a4312d076
     last_write_checksum: sha1:aa98eeda0fc12d0aed67e21ccbb7990cb8028dd8
     pristine_git_object: a7448d997648372a8dfbd02c4daa30934d1be497
+  src/Models/Errors/ConnectAccountRequestValidationError.php:
+    id: e8d994a46369
+    last_write_checksum: sha1:b76421418a1d18ed1b6c56f6bf5e62315b5c94a0
+    pristine_git_object: 64fc73f2b13e5e26c49af2bd5d322e929e74945a
+  src/Models/Errors/ConnectAccountRequestValidationErrorThrowable.php:
+    id: f640a3b06d3b
+    last_write_checksum: sha1:852bc47ba466970d7d04b40e5af230a596736d85
+    pristine_git_object: b996857c18b6faa88fb16ac1ad3acce77e8cd87b
   src/Models/Errors/CreateAccountError.php:
     id: fc590713414b
     last_write_checksum: sha1:ad72e195d831692d4e8600ef630607604f1b252a
@@ -7108,6 +7144,14 @@ trackedFiles:
     id: a37dbaa70b73
     last_write_checksum: sha1:4955a75551ac64a1448fc9b560221b333a90d316
     pristine_git_object: bc436ee45571a1213d5622e821e88e63a3d68d10
+  src/Models/Operations/ConnectAccountRequest.php:
+    id: de1f6052ab96
+    last_write_checksum: sha1:ca6dd90d5d51d5c4e7dcd6938d14ecbfc3396ea4
+    pristine_git_object: a757e052c1e08cafa7f5a5f65e07d1053d82538d
+  src/Models/Operations/ConnectAccountResponse.php:
+    id: d58bb8cee741
+    last_write_checksum: sha1:71feeba839e760fadcb2e2ac24bacc2d56e602e0
+    pristine_git_object: fcaee2a8e7abc62bab4ec4b7dc850dd6eb9598b2
   src/Models/Operations/CreateAccessTokenRequest.php:
     id: 234812e0b8fa
     last_write_checksum: sha1:e4afb120d9060df0fdf46540e96d39f9dcbc4d5a
@@ -7848,6 +7892,14 @@ trackedFiles:
     id: 252fd0d7b2b5
     last_write_checksum: sha1:1e88c9d197ad67157ec4a69b62af08f06aa4390f
     pristine_git_object: a74a7e3c1c96cd662ee7c41f3fc604e6be27217b
+  src/Models/Operations/ListConnectedAccountsForAccountRequest.php:
+    id: 5304c6815f02
+    last_write_checksum: sha1:1572b57da477331db4689a4bd1c61af491dd83d6
+    pristine_git_object: 2e30d02260cb0fb46519a446465989aecd66b787
+  src/Models/Operations/ListConnectedAccountsForAccountResponse.php:
+    id: 581c71ab3ec3
+    last_write_checksum: sha1:f0c6fbaa7017e1cb87ae439200735437ec045c97
+    pristine_git_object: dcfd2464ad3348621183eaa3be4ad5f5fc4143b8
   src/Models/Operations/ListDisputeEvidenceRequest.php:
     id: 072310d4e508
     last_write_checksum: sha1:6e3d7c927f17e4c77c8e7b8e64ae03ac4b6b17d1
@@ -8454,8 +8506,8 @@ trackedFiles:
     pristine_git_object: fc925901fa92bb1be68f28f6006d4a58337b1e07
   src/SDKConfiguration.php:
     id: 9d60ab0bec0b
-    last_write_checksum: sha1:e46fa63a2db03e42aefa37cbc58d1082656de28c
-    pristine_git_object: e40d977c268f6b53130ca417a90ac03831d89165
+    last_write_checksum: sha1:14fdf066a5a956c363ed6eb5e9384e638cd5e7f4
+    pristine_git_object: 16166d4668a4b14db857b1558c1e35ca1711ac3f
   src/Schedules.php:
     id: 8dbe56d2d033
     last_write_checksum: sha1:d28a0cf731c5291df4052da79bd90d035d4fca38
@@ -11215,8 +11267,35 @@ examples:
           application/json: {"error": "<value>"}
         "422":
           application/json: {}
+  listConnectedAccountsForAccount:
+    speakeasy-default-list-connected-accounts-for-account:
+      parameters:
+        path:
+          accountID: "7e09ffc8-e508-4fd4-a54e-21cff90a1824"
+        query:
+          skip: 60
+          count: 20
+      responses:
+        "200":
+          application/json: [{"accountID": "53ca67ea-6fd3-423f-9544-ce2404159d33", "mode": "sandbox", "accountType": "business", "displayName": "Whole Body Fitness LLC", "profile": {"business": {"legalBusinessName": "Whole Body Fitness LLC", "ownersProvided": false}}, "verification": {"verificationStatus": "unverified", "status": "unverified"}, "settings": {"cardPayment": {"statementDescriptor": "Whole Body Fitness LLC"}, "achPayment": {"companyName": "Whole Body Fitne"}}, "createdOn": "2024-12-16T17:55:20.557151867Z", "updatedOn": "2024-12-16T17:55:20.557151867Z"}]
+  connectAccount:
+    speakeasy-default-connect-account:
+      parameters:
+        path:
+          accountID: "456cb5b6-20dc-4585-97b4-745d013adb1f"
+      requestBody:
+        application/json: {"principalAccountID": "c520f1b9-0ba7-42f5-b977-248cdbe41c69", "allowScopes": ["transfers.write", "payment-methods.read"]}
+      responses:
+        "400":
+          application/json: {"error": "<value>"}
+        "422":
+          application/json: {"allowScopes": {"0": "first element failed validation..."}}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: |
+  ## Php SDK Changes:
+  * `moov->accounts->listConnected()`: **Added**
+  * `moov->accounts->connect()`: **Added**
 generatedFiles:
   - .gitattributes
   - USAGE.md
