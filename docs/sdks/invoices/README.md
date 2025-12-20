@@ -317,7 +317,7 @@ you'll need to specify the `/accounts/{accountID}/invoices.write` scope.
 
 ### Example Usage
 
-<!-- UsageSnippet language="php" operationID="markPaidInvoice" method="put" path="/accounts/{accountID}/invoices/{invoiceID}/mark-paid" -->
+<!-- UsageSnippet language="php" operationID="markPaidInvoice" method="post" path="/accounts/{accountID}/invoices/{invoiceID}/mark-paid" -->
 ```php
 declare(strict_types=1);
 

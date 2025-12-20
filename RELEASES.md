@@ -1269,3 +1269,13 @@ Based on:
 - [php v0.7.24] .
 ### Releases
 - [Composer v0.7.24] https://packagist.org/packages/moov/moov-php#v0.7.24 - .
+
+## 2025-12-20 00:20:01
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.680.3 (2.788.5) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [php v0.7.25] .
+### Releases
+- [Composer v0.7.25] https://packagist.org/packages/moov/moov-php#v0.7.25 - .

@@ -9,8 +9,8 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-/** TransferLineItem - Represents a single item in a transfer, including optional modifiers and quantity. */
-class TransferLineItem
+/** CreateTransferLineItem - Represents a single item in a transfer, including optional modifiers and quantity. */
+class CreateTransferLineItem
 {
     /**
      * The name of the item.
@@ -40,22 +40,22 @@ class TransferLineItem
     /**
      * Optional list of modifiers applied to this item (e.g., toppings, upgrades, customizations).
      *
-     * @var ?array<TransferLineItemOption> $options
+     * @var ?array<CreateTransferLineItemOption> $options
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('options')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\TransferLineItemOption>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\CreateTransferLineItemOption>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $options = null;
 
     /**
      * Optional list of images associated with this line item.
      *
-     * @var ?array<TransferLineItemImageMetadata> $images
+     * @var ?array<string> $imageIDs
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('images')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\TransferLineItemImageMetadata>|null')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('imageIDs')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?array $images = null;
+    public ?array $imageIDs = null;
 
     /**
      * Optional unique identifier associating the line item with a product.
@@ -70,18 +70,18 @@ class TransferLineItem
      * @param  string  $name
      * @param  AmountDecimal  $basePrice
      * @param  int  $quantity
-     * @param  ?array<TransferLineItemOption>  $options
-     * @param  ?array<TransferLineItemImageMetadata>  $images
+     * @param  ?array<CreateTransferLineItemOption>  $options
+     * @param  ?array<string>  $imageIDs
      * @param  ?string  $productID
      * @phpstan-pure
      */
-    public function __construct(string $name, AmountDecimal $basePrice, int $quantity, ?array $options = null, ?array $images = null, ?string $productID = null)
+    public function __construct(string $name, AmountDecimal $basePrice, int $quantity, ?array $options = null, ?array $imageIDs = null, ?string $productID = null)
     {
         $this->name = $name;
         $this->basePrice = $basePrice;
         $this->quantity = $quantity;
         $this->options = $options;
-        $this->images = $images;
+        $this->imageIDs = $imageIDs;
         $this->productID = $productID;
     }
 }

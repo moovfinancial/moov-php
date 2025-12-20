@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-class TransferLineItemOptionValidationError
+class CreateTransferLineItemOptionValidationError
 {
     /**
      *
@@ -45,17 +45,27 @@ class TransferLineItemOptionValidationError
     public ?string $quantity = null;
 
     /**
+     *
+     * @var ?string $imageIDs
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('imageIDs')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $imageIDs = null;
+
+    /**
      * @param  ?string  $name
      * @param  ?string  $group
      * @param  ?AmountDecimalValidationError  $priceModifier
      * @param  ?string  $quantity
+     * @param  ?string  $imageIDs
      * @phpstan-pure
      */
-    public function __construct(?string $name = null, ?string $group = null, ?AmountDecimalValidationError $priceModifier = null, ?string $quantity = null)
+    public function __construct(?string $name = null, ?string $group = null, ?AmountDecimalValidationError $priceModifier = null, ?string $quantity = null, ?string $imageIDs = null)
     {
         $this->name = $name;
         $this->group = $group;
         $this->priceModifier = $priceModifier;
         $this->quantity = $quantity;
+        $this->imageIDs = $imageIDs;
     }
 }

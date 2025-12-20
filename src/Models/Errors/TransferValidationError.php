@@ -94,12 +94,12 @@ class TransferValidationError
 
     /**
      *
-     * @var ?Components\TransferLineItemsValidationError $lineItems
+     * @var ?Components\CreateTransferLineItemsValidationError $lineItems
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('lineItems')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferLineItemsValidationError|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateTransferLineItemsValidationError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?Components\TransferLineItemsValidationError $lineItems = null;
+    public ?Components\CreateTransferLineItemsValidationError $lineItems = null;
 
     /**
      * @param  ?string  $amount
@@ -112,10 +112,10 @@ class TransferValidationError
      * @param  ?string  $metadata
      * @param  ?string  $salesTaxAmount
      * @param  ?string  $foreignID
-     * @param  ?Components\TransferLineItemsValidationError  $lineItems
+     * @param  ?Components\CreateTransferLineItemsValidationError  $lineItems
      * @phpstan-pure
      */
-    public function __construct(?string $amount = null, ?string $source = null, ?string $sourcePaymentMethodID = null, ?string $destinationPaymentMethodID = null, ?string $description = null, ?string $facilitatorFeeTotalDecimal = null, ?string $facilitatorFeeMarkupDecimal = null, ?string $metadata = null, ?string $salesTaxAmount = null, ?string $foreignID = null, ?Components\TransferLineItemsValidationError $lineItems = null)
+    public function __construct(?string $amount = null, ?string $source = null, ?string $sourcePaymentMethodID = null, ?string $destinationPaymentMethodID = null, ?string $description = null, ?string $facilitatorFeeTotalDecimal = null, ?string $facilitatorFeeMarkupDecimal = null, ?string $metadata = null, ?string $salesTaxAmount = null, ?string $foreignID = null, ?Components\CreateTransferLineItemsValidationError $lineItems = null)
     {
         $this->amount = $amount;
         $this->source = $source;

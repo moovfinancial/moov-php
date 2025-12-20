@@ -9,8 +9,8 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-/** TransferLineItemOption - Represents a modifier or option applied to a line item. */
-class TransferLineItemOption
+/** CreateTransferLineItemOption - Represents a modifier or option applied to a line item. */
+class CreateTransferLineItemOption
 {
     /**
      * The name of the option or modifier.
@@ -41,12 +41,12 @@ class TransferLineItemOption
     /**
      * Optional list of images associated with this line item option.
      *
-     * @var ?array<TransferLineItemImageMetadata> $images
+     * @var ?array<string> $imageIDs
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('images')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\TransferLineItemImageMetadata>|null')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('imageIDs')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?array $images = null;
+    public ?array $imageIDs = null;
 
     /**
      * Optional group identifier to categorize related options (e.g., 'toppings').
@@ -61,16 +61,16 @@ class TransferLineItemOption
      * @param  string  $name
      * @param  int  $quantity
      * @param  ?AmountDecimal  $priceModifier
-     * @param  ?array<TransferLineItemImageMetadata>  $images
+     * @param  ?array<string>  $imageIDs
      * @param  ?string  $group
      * @phpstan-pure
      */
-    public function __construct(string $name, int $quantity, ?AmountDecimal $priceModifier = null, ?array $images = null, ?string $group = null)
+    public function __construct(string $name, int $quantity, ?AmountDecimal $priceModifier = null, ?array $imageIDs = null, ?string $group = null)
     {
         $this->name = $name;
         $this->quantity = $quantity;
         $this->priceModifier = $priceModifier;
-        $this->images = $images;
+        $this->imageIDs = $imageIDs;
         $this->group = $group;
     }
 }

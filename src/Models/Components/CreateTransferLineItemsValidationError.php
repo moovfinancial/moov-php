@@ -9,20 +9,20 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-class TransferLineItemsValidationError
+class CreateTransferLineItemsValidationError
 {
     /**
      * $items
      *
-     * @var ?array<string, TransferLineItemValidationError> $items
+     * @var ?array<string, CreateTransferLineItemValidationError> $items
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('items')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<string, \Moov\MoovPhp\Models\Components\TransferLineItemValidationError>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string, \Moov\MoovPhp\Models\Components\CreateTransferLineItemValidationError>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $items = null;
 
     /**
-     * @param  ?array<string, TransferLineItemValidationError>  $items
+     * @param  ?array<string, CreateTransferLineItemValidationError>  $items
      * @phpstan-pure
      */
     public function __construct(?array $items = null)

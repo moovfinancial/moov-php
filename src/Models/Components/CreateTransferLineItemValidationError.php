@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-class TransferLineItemValidationError
+class CreateTransferLineItemValidationError
 {
     /**
      *
@@ -39,10 +39,10 @@ class TransferLineItemValidationError
     /**
      * $options
      *
-     * @var ?array<string, TransferLineItemOptionValidationError> $options
+     * @var ?array<string, CreateTransferLineItemOptionValidationError> $options
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('options')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<string, \Moov\MoovPhp\Models\Components\TransferLineItemOptionValidationError>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string, \Moov\MoovPhp\Models\Components\CreateTransferLineItemOptionValidationError>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $options = null;
 
@@ -55,19 +55,29 @@ class TransferLineItemValidationError
     public ?string $quantity = null;
 
     /**
+     *
+     * @var ?string $imageIDs
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('imageIDs')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $imageIDs = null;
+
+    /**
      * @param  ?string  $productID
      * @param  ?string  $name
      * @param  ?AmountDecimalValidationError  $basePrice
-     * @param  ?array<string, TransferLineItemOptionValidationError>  $options
+     * @param  ?array<string, CreateTransferLineItemOptionValidationError>  $options
      * @param  ?string  $quantity
+     * @param  ?string  $imageIDs
      * @phpstan-pure
      */
-    public function __construct(?string $productID = null, ?string $name = null, ?AmountDecimalValidationError $basePrice = null, ?array $options = null, ?string $quantity = null)
+    public function __construct(?string $productID = null, ?string $name = null, ?AmountDecimalValidationError $basePrice = null, ?array $options = null, ?string $quantity = null, ?string $imageIDs = null)
     {
         $this->productID = $productID;
         $this->name = $name;
         $this->basePrice = $basePrice;
         $this->options = $options;
         $this->quantity = $quantity;
+        $this->imageIDs = $imageIDs;
     }
 }

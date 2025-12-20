@@ -90,12 +90,12 @@ class CreateTransfer
      *
      * When line items are provided, their total plus sales tax must equal the transfer amount.
      *
-     * @var ?TransferLineItems $lineItems
+     * @var ?CreateTransferLineItems $lineItems
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('lineItems')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferLineItems|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateTransferLineItems|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?TransferLineItems $lineItems = null;
+    public ?CreateTransferLineItems $lineItems = null;
 
     /**
      * @param  CreateTransferSource  $source
@@ -106,10 +106,10 @@ class CreateTransfer
      * @param  ?array<string, string>  $metadata
      * @param  ?Amount  $salesTaxAmount
      * @param  ?string  $foreignID
-     * @param  ?TransferLineItems  $lineItems
+     * @param  ?CreateTransferLineItems  $lineItems
      * @phpstan-pure
      */
-    public function __construct(CreateTransferSource $source, CreateTransferDestination $destination, Amount $amount, ?FacilitatorFee $facilitatorFee = null, ?string $description = null, ?array $metadata = null, ?Amount $salesTaxAmount = null, ?string $foreignID = null, ?TransferLineItems $lineItems = null)
+    public function __construct(CreateTransferSource $source, CreateTransferDestination $destination, Amount $amount, ?FacilitatorFee $facilitatorFee = null, ?string $description = null, ?array $metadata = null, ?Amount $salesTaxAmount = null, ?string $foreignID = null, ?CreateTransferLineItems $lineItems = null)
     {
         $this->source = $source;
         $this->destination = $destination;
