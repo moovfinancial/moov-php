@@ -61,15 +61,24 @@ class ImageMetadata
     public ?string $altText = null;
 
     /**
+     *
+     * @var ?\DateTime $disabledOn
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('disabledOn')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?\DateTime $disabledOn = null;
+
+    /**
      * @param  string  $imageID
      * @param  string  $publicID
      * @param  string  $link
      * @param  \DateTime  $createdOn
      * @param  \DateTime  $updatedOn
      * @param  ?string  $altText
+     * @param  ?\DateTime  $disabledOn
      * @phpstan-pure
      */
-    public function __construct(string $imageID, string $publicID, string $link, \DateTime $createdOn, \DateTime $updatedOn, ?string $altText = null)
+    public function __construct(string $imageID, string $publicID, string $link, \DateTime $createdOn, \DateTime $updatedOn, ?string $altText = null, ?\DateTime $disabledOn = null)
     {
         $this->imageID = $imageID;
         $this->publicID = $publicID;
@@ -77,5 +86,6 @@ class ImageMetadata
         $this->createdOn = $createdOn;
         $this->updatedOn = $updatedOn;
         $this->altText = $altText;
+        $this->disabledOn = $disabledOn;
     }
 }

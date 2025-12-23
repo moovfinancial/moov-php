@@ -12,7 +12,10 @@
 
 This endpoint replaces the existing image with the new PNG, JPEG, or WebP. Omit
 the metadata form section to keep existing metadata. Duplicate images, and requests larger than 16MB will be rejected.
-* [delete](#delete) - Permanently delete an image by its ID.
+* [delete](#delete) -   Disable an image by its ID.
+  
+  Disabled images are still be accessible via their public URL, and cannot be assigned
+  to products or line-items.
 * [updateMetadata](#updatemetadata) - Replace the metadata for an existing image.
 * [getPublic](#getpublic) - Get an image by its public ID.
 
@@ -264,7 +267,10 @@ if ($response->imageMetadata !== null) {
 
 ## delete
 
-Permanently delete an image by its ID.
+  Disable an image by its ID.
+  
+  Disabled images are still be accessible via their public URL, and cannot be assigned
+  to products or line-items.
 
 ### Example Usage
 

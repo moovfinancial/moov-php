@@ -46,7 +46,10 @@ class Images
     }
 
     /**
-     * Permanently delete an image by its ID.
+     *   Disable an image by its ID.
+     *   
+     *   Disabled images are still be accessible via their public URL, and cannot be assigned
+     *   to products or line-items.
      *
      * @param  string  $accountID
      * @param  string  $imageID
