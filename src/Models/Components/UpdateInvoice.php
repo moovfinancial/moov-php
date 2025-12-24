@@ -30,7 +30,10 @@ class UpdateInvoice
     public ?CreateInvoiceLineItemsUpdate $lineItems = null;
 
     /**
-     * Status can only be updated to `canceled` when the status is either `draft`, `unpaid`,  or `overdue`.
+     * The status can be updated to one of the following values under specific conditions:
+     *
+     * - `canceled`: Can only be set if the current status is `draft`, `unpaid`, or `overdue`.
+     * - `unpaid`: Can only be set if the current status is `draft`. Setting the status to `unpaid` finalizes the invoice and sends an email with a payment link to the customer.
      *
      * @var ?InvoiceStatus $status
      */

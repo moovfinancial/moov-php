@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 93ebc974c4292449d6d6594906cf3e32
+  docChecksum: dafa41f4d6056cb13413c46fa3167cbf
   docVersion: latest
-  speakeasyVersion: 1.680.4
+  speakeasyVersion: 1.680.5
   generationVersion: 2.788.7
-  releaseVersion: 0.7.26
-  configChecksum: 2bebaa75acc986d49c9833c3da2df587
+  releaseVersion: 0.7.27
+  configChecksum: 6590872673aa56739325f978a767e628
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
 persistentEdits:
-  generation_id: 59e583fc-17d8-413b-b77d-6ffb29688d0a
-  pristine_commit_hash: 74b00128e954202a4d5091e22bad0d62f581e757
-  pristine_tree_hash: 68038ddfaf7c4a3a4cf06cc3df4d0922f6c66ea3
+  generation_id: 704c0069-3f36-4e68-a487-e2775531ffe8
+  pristine_commit_hash: 06bcb430a9735c941c044a31338c99ec3bf83896
+  pristine_tree_hash: 918df021b41f558c7106404e17685d261f030ed6
 features:
   php:
     constsAndDefaults: 0.2.0
@@ -2038,8 +2038,8 @@ trackedFiles:
     pristine_git_object: e6d88adf8ff920b6876c1ef326db4331c11406b5
   docs/Models/Components/Transfer.md:
     id: 477890c615c4
-    last_write_checksum: sha1:a6cde617b04d74b3f62f4cee35d0e9c3550ab787
-    pristine_git_object: 5f8b72e6525cdeeed99cf612e3f7eff7bc00cc32
+    last_write_checksum: sha1:25e0171d9eaa1f16a0e25590fefd23b794a10e75
+    pristine_git_object: ce64b7f8f73a838534a862bc84e77b1affa0a58b
   docs/Models/Components/TransferAccount.md:
     id: a305d332645c
     last_write_checksum: sha1:437c509630476a4b77b6f21a222c1142b3ff8ac3
@@ -2118,8 +2118,8 @@ trackedFiles:
     pristine_git_object: cc6c8f5a18b68c2514fd08c0ea71f3b44c4aaa25
   docs/Models/Components/UpdateInvoice.md:
     id: c30d640c401a
-    last_write_checksum: sha1:b2e3023c2a37cb4b6b225dd818f683fdc2db8f9f
-    pristine_git_object: d0124a8572397cce96a2fa94baef360f7355ad91
+    last_write_checksum: sha1:8bb191be813f5fda242e3141fbf6e18b1ffd4c5b
+    pristine_git_object: dbde10e9318fa3419dfabc837fc1bf8ebc492b13
   docs/Models/Components/UpdateIssuedCard.md:
     id: 720655aa16dc
     last_write_checksum: sha1:9fb50daade325f3137c9e355274b4bdf35192e3e
@@ -2594,8 +2594,8 @@ trackedFiles:
     pristine_git_object: 92a8d083afd38cd13a2442c2ae36776b11dee3f4
   docs/Models/Errors/Transfer.md:
     id: 5092eef72b0a
-    last_write_checksum: sha1:a6cde617b04d74b3f62f4cee35d0e9c3550ab787
-    pristine_git_object: 5f8b72e6525cdeeed99cf612e3f7eff7bc00cc32
+    last_write_checksum: sha1:25e0171d9eaa1f16a0e25590fefd23b794a10e75
+    pristine_git_object: ce64b7f8f73a838534a862bc84e77b1affa0a58b
   docs/Models/Errors/TransferOptionsValidationError.md:
     id: 600112fc5b2d
     last_write_checksum: sha1:e9b7b148909a3a0a0e9b0e76a14a5c5e433f21e0
@@ -6310,8 +6310,8 @@ trackedFiles:
     pristine_git_object: 5d93335b597041aead3fc955f00d79fb3aa5fa3b
   src/Models/Components/Transfer.php:
     id: 7ca39b81b4d0
-    last_write_checksum: sha1:8e6ea6917e9c78e7241d0884a32abdef20b43e72
-    pristine_git_object: ac192195f5a8f8b949d9edb14cbc3961ea271036
+    last_write_checksum: sha1:5a344dccc617e079915f1c24ef3d66480f4c840b
+    pristine_git_object: bec8ddb93e03a836cb388b5245285d0a89079a32
   src/Models/Components/TransferAccount.php:
     id: 6363215a10e4
     last_write_checksum: sha1:a65a94a5d8a20367206bb0a64716932210fbc2d2
@@ -6390,8 +6390,8 @@ trackedFiles:
     pristine_git_object: af935c42adbf03242098acde47c17d898861efe7
   src/Models/Components/UpdateInvoice.php:
     id: "173395773868"
-    last_write_checksum: sha1:d2a909e6cc6ac1a97a2c1716db482b8ce69383b3
-    pristine_git_object: e86c4364c115b0d01c19615d80f60a465da4977a
+    last_write_checksum: sha1:eb10420f88c2223c1d710d5d357557016712dfa6
+    pristine_git_object: a062cf05d53ac0af531133547a4b5f1c4f437f30
   src/Models/Components/UpdateIssuedCard.php:
     id: d1d97098efbd
     last_write_checksum: sha1:b7439b68c6d6689b1b2bccb3eb8f5e41da4ae003
@@ -7026,8 +7026,8 @@ trackedFiles:
     pristine_git_object: 28be0b1bb9d1a50009643f9026732fd1935d843c
   src/Models/Errors/Transfer.php:
     id: d8717ba9f3f4
-    last_write_checksum: sha1:f8e96cdd9fc68145f2cfc8a3708c2e0ff5b51ef4
-    pristine_git_object: 1a9130175670df9164530785f6b25ab677f69dd7
+    last_write_checksum: sha1:d93f45596b5fe8ccdb81ca1d0ec56256c3c619ad
+    pristine_git_object: f1c9fe06b829fd69c3ccf26913377aa369ddb1b9
   src/Models/Errors/TransferOptionsValidationError.php:
     id: b0c15a8e9a38
     last_write_checksum: sha1:6afd7668f1789059c787a94f670e5425af176f96
@@ -8502,8 +8502,8 @@ trackedFiles:
     pristine_git_object: fc925901fa92bb1be68f28f6006d4a58337b1e07
   src/SDKConfiguration.php:
     id: 9d60ab0bec0b
-    last_write_checksum: sha1:72c425513462fec289646b3742b0ddf3fc573a14
-    pristine_git_object: 95a7b14ca5df35683dd37a4955cfee201feba586
+    last_write_checksum: sha1:868809a8a4e9a1eb79ee66f735a55a5cfb80a0e6
+    pristine_git_object: 8fe088133e9722e75256c52cd29b4baa26d1febe
   src/Schedules.php:
     id: 8dbe56d2d033
     last_write_checksum: sha1:d28a0cf731c5291df4052da79bd90d035d4fca38
@@ -11288,14 +11288,7 @@ examples:
           application/json: {"allowScopes": {"0": "first element failed validation..."}}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Php SDK Changes:
-  * `moov->invoices->markPaidInvoice()`: **Deleted** **Breaking** :warning:
-  * `moov->images->list()`:  `response.[]->disabledOn` **Added**
-  * `moov->images->upload()`:  `response.disabledOn` **Added**
-  * `moov->images->getMetadata()`:  `response.disabledOn` **Added**
-  * `moov->images->update()`:  `response.disabledOn` **Added**
-  * `moov->images->updateMetadata()`:  `response.disabledOn` **Added**
+releaseNotes: "## Php SDK Changes:\n* `moov->transfers->create()`: \n  *  `response.invoiceId` **Added**\n  *  `error.invoiceId` **Added**\n* `moov->transfers->list()`:  `response.[]->invoiceId` **Added**\n* `moov->transfers->get()`:  `response.invoiceId` **Added**\n* `moov->transfers->update()`:  `response.invoiceId` **Added**\n"
 generatedFiles:
   - .gitattributes
   - USAGE.md
