@@ -50,17 +50,29 @@ class CreateTransferSourceACH
     public ?SECCode $secCode = null;
 
     /**
+     * $addenda
+     *
+     * @var ?array<CreateTransferACHAddendaRecord> $addenda
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('addenda')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\CreateTransferACHAddendaRecord>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $addenda = null;
+
+    /**
      * @param  ?string  $companyEntryDescription
      * @param  ?string  $originatingCompanyName
      * @param  ?DebitHoldPeriod  $debitHoldPeriod
      * @param  ?SECCode  $secCode
+     * @param  ?array<CreateTransferACHAddendaRecord>  $addenda
      * @phpstan-pure
      */
-    public function __construct(?string $companyEntryDescription = null, ?string $originatingCompanyName = null, ?DebitHoldPeriod $debitHoldPeriod = null, ?SECCode $secCode = null)
+    public function __construct(?string $companyEntryDescription = null, ?string $originatingCompanyName = null, ?DebitHoldPeriod $debitHoldPeriod = null, ?SECCode $secCode = null, ?array $addenda = null)
     {
         $this->companyEntryDescription = $companyEntryDescription;
         $this->originatingCompanyName = $originatingCompanyName;
         $this->debitHoldPeriod = $debitHoldPeriod;
         $this->secCode = $secCode;
+        $this->addenda = $addenda;
     }
 }

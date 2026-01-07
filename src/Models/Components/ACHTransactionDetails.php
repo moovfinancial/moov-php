@@ -141,6 +141,16 @@ class ACHTransactionDetails
     public ?DebitHoldPeriod $debitHoldPeriod = null;
 
     /**
+     * $addenda
+     *
+     * @var ?array<TransferACHAddendaRecord> $addenda
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('addenda')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\TransferACHAddendaRecord>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $addenda = null;
+
+    /**
      * @param  ACHTransactionStatus  $status
      * @param  string  $traceNumber
      * @param  ?ACHException  $return
@@ -156,9 +166,10 @@ class ACHTransactionDetails
      * @param  ?\DateTime  $failedOn
      * @param  ?\DateTime  $completedOn
      * @param  ?DebitHoldPeriod  $debitHoldPeriod
+     * @param  ?array<TransferACHAddendaRecord>  $addenda
      * @phpstan-pure
      */
-    public function __construct(ACHTransactionStatus $status, string $traceNumber, ?ACHException $return = null, ?ACHException $correction = null, ?string $companyEntryDescription = null, ?string $originatingCompanyName = null, ?SECCode $secCode = null, ?\DateTime $canceledOn = null, ?\DateTime $initiatedOn = null, ?\DateTime $originatedOn = null, ?\DateTime $correctedOn = null, ?\DateTime $returnedOn = null, ?\DateTime $failedOn = null, ?\DateTime $completedOn = null, ?DebitHoldPeriod $debitHoldPeriod = null)
+    public function __construct(ACHTransactionStatus $status, string $traceNumber, ?ACHException $return = null, ?ACHException $correction = null, ?string $companyEntryDescription = null, ?string $originatingCompanyName = null, ?SECCode $secCode = null, ?\DateTime $canceledOn = null, ?\DateTime $initiatedOn = null, ?\DateTime $originatedOn = null, ?\DateTime $correctedOn = null, ?\DateTime $returnedOn = null, ?\DateTime $failedOn = null, ?\DateTime $completedOn = null, ?DebitHoldPeriod $debitHoldPeriod = null, ?array $addenda = null)
     {
         $this->status = $status;
         $this->traceNumber = $traceNumber;
@@ -175,5 +186,6 @@ class ACHTransactionDetails
         $this->failedOn = $failedOn;
         $this->completedOn = $completedOn;
         $this->debitHoldPeriod = $debitHoldPeriod;
+        $this->addenda = $addenda;
     }
 }

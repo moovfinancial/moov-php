@@ -30,13 +30,25 @@ class CreateTransferDestinationACH
     public ?string $originatingCompanyName = null;
 
     /**
+     * $addenda
+     *
+     * @var ?array<CreateTransferACHAddendaRecord> $addenda
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('addenda')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\CreateTransferACHAddendaRecord>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $addenda = null;
+
+    /**
      * @param  ?string  $companyEntryDescription
      * @param  ?string  $originatingCompanyName
+     * @param  ?array<CreateTransferACHAddendaRecord>  $addenda
      * @phpstan-pure
      */
-    public function __construct(?string $companyEntryDescription = null, ?string $originatingCompanyName = null)
+    public function __construct(?string $companyEntryDescription = null, ?string $originatingCompanyName = null, ?array $addenda = null)
     {
         $this->companyEntryDescription = $companyEntryDescription;
         $this->originatingCompanyName = $originatingCompanyName;
+        $this->addenda = $addenda;
     }
 }
