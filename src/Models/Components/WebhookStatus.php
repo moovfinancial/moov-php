@@ -9,7 +9,9 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-enum InvoiceExternalPaymentPaymentType: string
+/** The status of a webhook. */
+enum WebhookStatus: string
 {
-    case External = 'external';
+    case Enabled = 'enabled';
+    case Disabled = 'disabled';
 }

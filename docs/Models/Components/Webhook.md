@@ -1,0 +1,17 @@
+# Webhook
+
+A configured webhook endpoint that receives event notifications.
+
+
+## Fields
+
+| Field                                                                             | Type                                                                              | Required                                                                          | Description                                                                       |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `webhookID`                                                                       | *string*                                                                          | :heavy_check_mark:                                                                | Unique identifier for the webhook.                                                |
+| `url`                                                                             | *string*                                                                          | :heavy_check_mark:                                                                | The URL where webhook events will be sent.                                        |
+| `status`                                                                          | [Components\WebhookStatus](../../Models/Components/WebhookStatus.md)              | :heavy_check_mark:                                                                | The status of a webhook.                                                          |
+| `eventTypes`                                                                      | array<[Components\WebhookEventType](../../Models/Components/WebhookEventType.md)> | :heavy_check_mark:                                                                | The list of event types this webhook is subscribed to.                            |
+| `description`                                                                     | *string*                                                                          | :heavy_check_mark:                                                                | A description of the webhook for reference.                                       |
+| `createdOn`                                                                       | [\DateTime](https://www.php.net/manual/en/class.datetime.php)                     | :heavy_check_mark:                                                                | Timestamp of when the webhook was created.                                        |
+| `updatedOn`                                                                       | [\DateTime](https://www.php.net/manual/en/class.datetime.php)                     | :heavy_check_mark:                                                                | Timestamp of when the webhook was last updated.                                   |
+| `lastUsedOn`                                                                      | [\DateTime](https://www.php.net/manual/en/class.datetime.php)                     | :heavy_minus_sign:                                                                | Timestamp of when the webhook last received an event.                             |

@@ -13,27 +13,17 @@ class InvoiceTransferPayment
 {
     /**
      *
-     * @var PaymentType $paymentType
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('paymentType')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentType')]
-    public PaymentType $paymentType;
-
-    /**
-     *
      * @var string $transferID
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('transferID')]
     public string $transferID;
 
     /**
-     * @param  PaymentType  $paymentType
      * @param  string  $transferID
      * @phpstan-pure
      */
-    public function __construct(PaymentType $paymentType, string $transferID)
+    public function __construct(string $transferID)
     {
-        $this->paymentType = $paymentType;
         $this->transferID = $transferID;
     }
 }

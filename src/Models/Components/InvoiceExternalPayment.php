@@ -13,14 +13,6 @@ class InvoiceExternalPayment
 {
     /**
      *
-     * @var InvoiceExternalPaymentPaymentType $paymentType
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('paymentType')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\InvoiceExternalPaymentPaymentType')]
-    public InvoiceExternalPaymentPaymentType $paymentType;
-
-    /**
-     *
      * @var string $description
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('description')]
@@ -51,16 +43,14 @@ class InvoiceExternalPayment
     public ?\DateTime $paymentDate = null;
 
     /**
-     * @param  InvoiceExternalPaymentPaymentType  $paymentType
      * @param  string  $description
      * @param  AmountDecimal  $amount
      * @param  ?string  $foreignID
      * @param  ?\DateTime  $paymentDate
      * @phpstan-pure
      */
-    public function __construct(InvoiceExternalPaymentPaymentType $paymentType, string $description, AmountDecimal $amount, ?string $foreignID = null, ?\DateTime $paymentDate = null)
+    public function __construct(string $description, AmountDecimal $amount, ?string $foreignID = null, ?\DateTime $paymentDate = null)
     {
-        $this->paymentType = $paymentType;
         $this->description = $description;
         $this->amount = $amount;
         $this->foreignID = $foreignID;

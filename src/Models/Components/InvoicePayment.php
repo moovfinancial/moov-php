@@ -14,11 +14,18 @@ class InvoicePayment
 {
     /**
      *
-     * @var InvoicePaymentType $paymentType
+     * @var string $invoicePaymentID
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('paymentType')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('invoicePaymentID')]
+    public string $invoicePaymentID;
+
+    /**
+     *
+     * @var InvoicePaymentType $invoicePaymentType
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('invoicePaymentType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\InvoicePaymentType')]
-    public InvoicePaymentType $paymentType;
+    public InvoicePaymentType $invoicePaymentType;
 
     /**
      *
@@ -39,14 +46,16 @@ class InvoicePayment
     public ?InvoiceExternalPayment $external = null;
 
     /**
-     * @param  InvoicePaymentType  $paymentType
+     * @param  string  $invoicePaymentID
+     * @param  InvoicePaymentType  $invoicePaymentType
      * @param  ?InvoiceTransferPayment  $transfer
      * @param  ?InvoiceExternalPayment  $external
      * @phpstan-pure
      */
-    public function __construct(InvoicePaymentType $paymentType, ?InvoiceTransferPayment $transfer = null, ?InvoiceExternalPayment $external = null)
+    public function __construct(string $invoicePaymentID, InvoicePaymentType $invoicePaymentType, ?InvoiceTransferPayment $transfer = null, ?InvoiceExternalPayment $external = null)
     {
-        $this->paymentType = $paymentType;
+        $this->invoicePaymentID = $invoicePaymentID;
+        $this->invoicePaymentType = $invoicePaymentType;
         $this->transfer = $transfer;
         $this->external = $external;
     }

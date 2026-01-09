@@ -87,6 +87,8 @@ class Moov
 
     public EnrichedProfile $enrichedProfile;
 
+    public Webhooks $webhooks;
+
     public Industries $industries;
 
     public Institutions $institutions;
@@ -157,6 +159,7 @@ class Moov
         $this->endToEndEncryption = new EndToEndEncryption($this->sdkConfiguration);
         $this->enrichment = new Enrichment($this->sdkConfiguration);
         $this->enrichedProfile = new EnrichedProfile($this->sdkConfiguration);
+        $this->webhooks = new Webhooks($this->sdkConfiguration);
         $this->industries = new Industries($this->sdkConfiguration);
         $this->institutions = new Institutions($this->sdkConfiguration);
         $this->issuingTransactions = new IssuingTransactions($this->sdkConfiguration);
