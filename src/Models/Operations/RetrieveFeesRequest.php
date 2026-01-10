@@ -53,6 +53,14 @@ class RetrieveFeesRequest
     public ?string $disputeID = null;
 
     /**
+     * Optional residual ID to filter the results by.
+     *
+     * @var ?string $residualID
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=residualID')]
+    public ?string $residualID = null;
+
+    /**
      * Optional date-time to inclusively filter all fees created after this date-time.
      *
      * @var ?string $startDateTime
@@ -87,18 +95,20 @@ class RetrieveFeesRequest
      * @param  ?string  $xMoovVersion
      * @param  ?string  $transferID
      * @param  ?string  $disputeID
+     * @param  ?string  $residualID
      * @param  ?string  $startDateTime
      * @param  ?string  $endDateTime
      * @param  ?int  $skip
      * @param  ?int  $count
      * @phpstan-pure
      */
-    public function __construct(string $accountID, ?string $xMoovVersion = null, ?string $transferID = null, ?string $disputeID = null, ?string $startDateTime = null, ?string $endDateTime = null, ?int $skip = null, ?int $count = null)
+    public function __construct(string $accountID, ?string $xMoovVersion = null, ?string $transferID = null, ?string $disputeID = null, ?string $residualID = null, ?string $startDateTime = null, ?string $endDateTime = null, ?int $skip = null, ?int $count = null)
     {
         $this->accountID = $accountID;
         $this->xMoovVersion = $xMoovVersion;
         $this->transferID = $transferID;
         $this->disputeID = $disputeID;
+        $this->residualID = $residualID;
         $this->startDateTime = $startDateTime;
         $this->endDateTime = $endDateTime;
         $this->skip = $skip;

@@ -9,8 +9,8 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-/** ScheduledTransferLineItem - Represents a single item in a scheduled transfer, including optional modifiers and quantity. */
-class ScheduledTransferLineItem
+/** CreateScheduledTransferLineItem - Represents a single item in a scheduled transfer, including optional modifiers and quantity. */
+class CreateScheduledTransferLineItem
 {
     /**
      * The name of the item.
@@ -40,10 +40,10 @@ class ScheduledTransferLineItem
     /**
      * Optional list of modifiers applied to this item (e.g., toppings, upgrades, customizations).
      *
-     * @var ?array<ScheduledTransferLineItemOption> $options
+     * @var ?array<CreateScheduledTransferLineItemOption> $options
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('options')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\ScheduledTransferLineItemOption>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\CreateScheduledTransferLineItemOption>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $options = null;
 
@@ -59,29 +59,29 @@ class ScheduledTransferLineItem
     /**
      * Optional list of images associated with this line item.
      *
-     * @var ?array<ScheduledTransferImageMetadata> $images
+     * @var ?array<string> $imageIDs
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('images')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\ScheduledTransferImageMetadata>|null')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('imageIDs')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?array $images = null;
+    public ?array $imageIDs = null;
 
     /**
      * @param  string  $name
      * @param  AmountDecimal  $basePrice
      * @param  int  $quantity
-     * @param  ?array<ScheduledTransferLineItemOption>  $options
+     * @param  ?array<CreateScheduledTransferLineItemOption>  $options
      * @param  ?string  $productID
-     * @param  ?array<ScheduledTransferImageMetadata>  $images
+     * @param  ?array<string>  $imageIDs
      * @phpstan-pure
      */
-    public function __construct(string $name, AmountDecimal $basePrice, int $quantity, ?array $options = null, ?string $productID = null, ?array $images = null)
+    public function __construct(string $name, AmountDecimal $basePrice, int $quantity, ?array $options = null, ?string $productID = null, ?array $imageIDs = null)
     {
         $this->name = $name;
         $this->basePrice = $basePrice;
         $this->quantity = $quantity;
         $this->options = $options;
         $this->productID = $productID;
-        $this->images = $images;
+        $this->imageIDs = $imageIDs;
     }
 }

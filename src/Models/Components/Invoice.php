@@ -27,13 +27,6 @@ class Invoice
 
     /**
      *
-     * @var string $description
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('description')]
-    public string $description;
-
-    /**
-     *
      * @var string $customerAccountID
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('customerAccountID')]
@@ -133,6 +126,14 @@ class Invoice
 
     /**
      *
+     * @var ?string $description
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('description')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $description = null;
+
+    /**
+     *
      * @var ?string $paymentLinkCode
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('paymentLinkCode')]
@@ -140,14 +141,14 @@ class Invoice
     public ?string $paymentLinkCode = null;
 
     /**
-     * $payments
+     * $invoicePayments
      *
-     * @var ?array<InvoicePayment> $payments
+     * @var ?array<InvoicePayment> $invoicePayments
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('payments')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('invoicePayments')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\InvoicePayment>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?array $payments = null;
+    public ?array $invoicePayments = null;
 
     /**
      *
@@ -192,7 +193,6 @@ class Invoice
     /**
      * @param  string  $invoiceID
      * @param  string  $invoiceNumber
-     * @param  string  $description
      * @param  string  $customerAccountID
      * @param  string  $partnerAccountID
      * @param  InvoiceStatus  $status
@@ -205,8 +205,9 @@ class Invoice
      * @param  AmountDecimal  $refundedAmount
      * @param  AmountDecimal  $disputedAmount
      * @param  \DateTime  $createdOn
+     * @param  ?string  $description
      * @param  ?string  $paymentLinkCode
-     * @param  ?array<InvoicePayment>  $payments
+     * @param  ?array<InvoicePayment>  $invoicePayments
      * @param  ?\DateTime  $invoiceDate
      * @param  ?\DateTime  $dueDate
      * @param  ?\DateTime  $sentOn
@@ -214,11 +215,10 @@ class Invoice
      * @param  ?\DateTime  $canceledOn
      * @phpstan-pure
      */
-    public function __construct(string $invoiceID, string $invoiceNumber, string $description, string $customerAccountID, string $partnerAccountID, InvoiceStatus $status, InvoiceLineItems $lineItems, AmountDecimal $subtotalAmount, AmountDecimal $taxAmount, AmountDecimal $totalAmount, AmountDecimal $pendingAmount, AmountDecimal $paidAmount, AmountDecimal $refundedAmount, AmountDecimal $disputedAmount, \DateTime $createdOn, ?string $paymentLinkCode = null, ?array $payments = null, ?\DateTime $invoiceDate = null, ?\DateTime $dueDate = null, ?\DateTime $sentOn = null, ?\DateTime $paidOn = null, ?\DateTime $canceledOn = null)
+    public function __construct(string $invoiceID, string $invoiceNumber, string $customerAccountID, string $partnerAccountID, InvoiceStatus $status, InvoiceLineItems $lineItems, AmountDecimal $subtotalAmount, AmountDecimal $taxAmount, AmountDecimal $totalAmount, AmountDecimal $pendingAmount, AmountDecimal $paidAmount, AmountDecimal $refundedAmount, AmountDecimal $disputedAmount, \DateTime $createdOn, ?string $description = null, ?string $paymentLinkCode = null, ?array $invoicePayments = null, ?\DateTime $invoiceDate = null, ?\DateTime $dueDate = null, ?\DateTime $sentOn = null, ?\DateTime $paidOn = null, ?\DateTime $canceledOn = null)
     {
         $this->invoiceID = $invoiceID;
         $this->invoiceNumber = $invoiceNumber;
-        $this->description = $description;
         $this->customerAccountID = $customerAccountID;
         $this->partnerAccountID = $partnerAccountID;
         $this->status = $status;
@@ -231,8 +231,9 @@ class Invoice
         $this->refundedAmount = $refundedAmount;
         $this->disputedAmount = $disputedAmount;
         $this->createdOn = $createdOn;
+        $this->description = $description;
         $this->paymentLinkCode = $paymentLinkCode;
-        $this->payments = $payments;
+        $this->invoicePayments = $invoicePayments;
         $this->invoiceDate = $invoiceDate;
         $this->dueDate = $dueDate;
         $this->sentOn = $sentOn;

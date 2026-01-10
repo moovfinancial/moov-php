@@ -19,13 +19,6 @@ class CreateInvoice
     public string $customerAccountID;
 
     /**
-     *
-     * @var string $description
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('description')]
-    public string $description;
-
-    /**
      * A collection of line items for an invoice.
      *
      * @var CreateInvoiceLineItems $lineItems
@@ -33,6 +26,14 @@ class CreateInvoice
     #[\Speakeasy\Serializer\Annotation\SerializedName('lineItems')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateInvoiceLineItems')]
     public CreateInvoiceLineItems $lineItems;
+
+    /**
+     *
+     * @var ?string $description
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('description')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $description = null;
 
     /**
      *
@@ -61,18 +62,18 @@ class CreateInvoice
 
     /**
      * @param  string  $customerAccountID
-     * @param  string  $description
      * @param  CreateInvoiceLineItems  $lineItems
+     * @param  ?string  $description
      * @param  ?\DateTime  $invoiceDate
      * @param  ?\DateTime  $dueDate
      * @param  ?AmountDecimal  $taxAmount
      * @phpstan-pure
      */
-    public function __construct(string $customerAccountID, string $description, CreateInvoiceLineItems $lineItems, ?\DateTime $invoiceDate = null, ?\DateTime $dueDate = null, ?AmountDecimal $taxAmount = null)
+    public function __construct(string $customerAccountID, CreateInvoiceLineItems $lineItems, ?string $description = null, ?\DateTime $invoiceDate = null, ?\DateTime $dueDate = null, ?AmountDecimal $taxAmount = null)
     {
         $this->customerAccountID = $customerAccountID;
-        $this->description = $description;
         $this->lineItems = $lineItems;
+        $this->description = $description;
         $this->invoiceDate = $invoiceDate;
         $this->dueDate = $dueDate;
         $this->taxAmount = $taxAmount;

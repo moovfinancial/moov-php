@@ -9,7 +9,8 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-class RunTransfer
+/** CreateRunTransfer - Defines the attributes of a transfer. */
+class CreateRunTransfer
 {
     /**
      *
@@ -61,14 +62,16 @@ class RunTransfer
     public ?Amount $salesTaxAmount = null;
 
     /**
-     * Line items for a scheduled transfer.
+     * An optional collection of line items for a scheduled transfer.
      *
-     * @var ?ScheduledTransferLineItems $lineItems
+     * When line items are provided their total must equal `amount` minus `salesTaxAmount`.
+     *
+     * @var ?CreateScheduledTransferLineItems $lineItems
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('lineItems')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ScheduledTransferLineItems|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateScheduledTransferLineItems|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?ScheduledTransferLineItems $lineItems = null;
+    public ?CreateScheduledTransferLineItems $lineItems = null;
 
     /**
      * @param  Amount  $amount
@@ -77,10 +80,10 @@ class RunTransfer
      * @param  SchedulePaymentMethod  $source
      * @param  string  $description
      * @param  ?Amount  $salesTaxAmount
-     * @param  ?ScheduledTransferLineItems  $lineItems
+     * @param  ?CreateScheduledTransferLineItems  $lineItems
      * @phpstan-pure
      */
-    public function __construct(Amount $amount, SchedulePaymentMethod $destination, string $partnerAccountID, SchedulePaymentMethod $source, string $description, ?Amount $salesTaxAmount = null, ?ScheduledTransferLineItems $lineItems = null)
+    public function __construct(Amount $amount, SchedulePaymentMethod $destination, string $partnerAccountID, SchedulePaymentMethod $source, string $description, ?Amount $salesTaxAmount = null, ?CreateScheduledTransferLineItems $lineItems = null)
     {
         $this->amount = $amount;
         $this->destination = $destination;

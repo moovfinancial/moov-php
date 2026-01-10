@@ -9,8 +9,8 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-/** ScheduledTransferLineItemOption - Represents a modifier or option applied to a scheduled transfer line item. */
-class ScheduledTransferLineItemOption
+/** CreateScheduledTransferLineItemOption - Represents a modifier or option applied to a scheduled transfer line item. */
+class CreateScheduledTransferLineItemOption
 {
     /**
      * The name of the option or modifier.
@@ -50,27 +50,27 @@ class ScheduledTransferLineItemOption
     /**
      * Optional list of images associated with this line item.
      *
-     * @var ?array<ScheduledTransferImageMetadata> $images
+     * @var ?array<string> $imageIDs
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('images')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\ScheduledTransferImageMetadata>|null')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('imageIDs')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?array $images = null;
+    public ?array $imageIDs = null;
 
     /**
      * @param  string  $name
      * @param  int  $quantity
      * @param  ?AmountDecimal  $priceModifier
      * @param  ?string  $group
-     * @param  ?array<ScheduledTransferImageMetadata>  $images
+     * @param  ?array<string>  $imageIDs
      * @phpstan-pure
      */
-    public function __construct(string $name, int $quantity, ?AmountDecimal $priceModifier = null, ?string $group = null, ?array $images = null)
+    public function __construct(string $name, int $quantity, ?AmountDecimal $priceModifier = null, ?string $group = null, ?array $imageIDs = null)
     {
         $this->name = $name;
         $this->quantity = $quantity;
         $this->priceModifier = $priceModifier;
         $this->group = $group;
-        $this->images = $images;
+        $this->imageIDs = $imageIDs;
     }
 }

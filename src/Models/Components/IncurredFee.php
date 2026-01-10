@@ -80,6 +80,14 @@ class IncurredFee
     public ?string $feeGroup = null;
 
     /**
+     *
+     * @var ?string $residualID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('residualID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $residualID = null;
+
+    /**
      * @param  ?string  $feeID
      * @param  ?string  $accountID
      * @param  ?string  $walletID
@@ -88,9 +96,10 @@ class IncurredFee
      * @param  ?AmountDecimal  $amount
      * @param  ?GeneratedBy  $generatedBy
      * @param  ?string  $feeGroup
+     * @param  ?string  $residualID
      * @phpstan-pure
      */
-    public function __construct(?string $feeID = null, ?string $accountID = null, ?string $walletID = null, ?\DateTime $createdOn = null, ?string $feeName = null, ?AmountDecimal $amount = null, ?GeneratedBy $generatedBy = null, ?string $feeGroup = null)
+    public function __construct(?string $feeID = null, ?string $accountID = null, ?string $walletID = null, ?\DateTime $createdOn = null, ?string $feeName = null, ?AmountDecimal $amount = null, ?GeneratedBy $generatedBy = null, ?string $feeGroup = null, ?string $residualID = null)
     {
         $this->feeID = $feeID;
         $this->accountID = $accountID;
@@ -100,5 +109,6 @@ class IncurredFee
         $this->amount = $amount;
         $this->generatedBy = $generatedBy;
         $this->feeGroup = $feeGroup;
+        $this->residualID = $residualID;
     }
 }

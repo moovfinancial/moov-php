@@ -89,14 +89,13 @@ class ScheduleListResponse
     public ?array $occurrences = null;
 
     /**
-     * Defines configuration for recurring transfers.
      *
-     * @var ?Recur $recur
+     * @var ?RecurResponse $recur
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('recur')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Recur|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RecurResponse|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?Recur $recur = null;
+    public ?RecurResponse $recur = null;
 
     /**
      *
@@ -144,14 +143,14 @@ class ScheduleListResponse
      * @param  \DateTime  $updatedOn
      * @param  ?string  $description
      * @param  ?array<OccurrencesResponse>  $occurrences
-     * @param  ?Recur  $recur
+     * @param  ?RecurResponse  $recur
      * @param  ?\DateTime  $disabledOn
      * @param  ?PartialScheduleAccount  $sourceAccount
      * @param  ?PartialScheduleAccount  $destinationAccount
      * @param  ?PartialScheduleAccount  $partnerAccount
      * @phpstan-pure
      */
-    public function __construct(string $destinationAccountID, Mode $mode, string $ownerAccountID, string $partnerAccountID, string $scheduleID, string $sourceAccountID, \DateTime $createdOn, \DateTime $updatedOn, ?string $description = null, ?array $occurrences = null, ?Recur $recur = null, ?\DateTime $disabledOn = null, ?PartialScheduleAccount $sourceAccount = null, ?PartialScheduleAccount $destinationAccount = null, ?PartialScheduleAccount $partnerAccount = null)
+    public function __construct(string $destinationAccountID, Mode $mode, string $ownerAccountID, string $partnerAccountID, string $scheduleID, string $sourceAccountID, \DateTime $createdOn, \DateTime $updatedOn, ?string $description = null, ?array $occurrences = null, ?RecurResponse $recur = null, ?\DateTime $disabledOn = null, ?PartialScheduleAccount $sourceAccount = null, ?PartialScheduleAccount $destinationAccount = null, ?PartialScheduleAccount $partnerAccount = null)
     {
         $this->destinationAccountID = $destinationAccountID;
         $this->mode = $mode;

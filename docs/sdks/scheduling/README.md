@@ -59,7 +59,7 @@ $upsertSchedule = new Components\UpsertSchedule(
         new Components\Occurrence(
             occurrenceID: 'c520f1b9-0ba7-42f5-b977-248cdbe41c69',
             runOn: Utils\Utils::parseDateTime('2009-11-10T23:00:00Z'),
-            runTransfer: new Components\RunTransfer(
+            runTransfer: new Components\CreateRunTransfer(
                 amount: new Components\Amount(
                     currency: 'USD',
                     value: 1204,
@@ -91,7 +91,7 @@ $upsertSchedule = new Components\UpsertSchedule(
         new Components\Occurrence(
             occurrenceID: 'c520f1b9-0ba7-42f5-b977-248cdbe41c69',
             runOn: Utils\Utils::parseDateTime('2009-11-10T23:00:00Z'),
-            runTransfer: new Components\RunTransfer(
+            runTransfer: new Components\CreateRunTransfer(
                 amount: new Components\Amount(
                     currency: 'USD',
                     value: 1204,
@@ -123,7 +123,7 @@ $upsertSchedule = new Components\UpsertSchedule(
     ],
     recur: new Components\Recur(
         recurrenceRule: '<value>',
-        runTransfer: new Components\RunTransfer(
+        runTransfer: new Components\CreateRunTransfer(
             amount: new Components\Amount(
                 currency: 'USD',
                 value: 1204,
@@ -154,7 +154,7 @@ $upsertSchedule = new Components\UpsertSchedule(
                 ),
             ),
             description: 'sediment yahoo a rudely mmm massive helpful brr',
-            lineItems: new Components\ScheduledTransferLineItems(
+            lineItems: new Components\CreateScheduledTransferLineItems(
                 items: [],
             ),
         ),
@@ -287,7 +287,7 @@ $upsertSchedule = new Components\UpsertSchedule(
         new Components\Occurrence(
             occurrenceID: 'c520f1b9-0ba7-42f5-b977-248cdbe41c69',
             runOn: Utils\Utils::parseDateTime('2009-11-10T23:00:00Z'),
-            runTransfer: new Components\RunTransfer(
+            runTransfer: new Components\CreateRunTransfer(
                 amount: new Components\Amount(
                     currency: 'USD',
                     value: 1204,
@@ -319,7 +319,7 @@ $upsertSchedule = new Components\UpsertSchedule(
         new Components\Occurrence(
             occurrenceID: 'c520f1b9-0ba7-42f5-b977-248cdbe41c69',
             runOn: Utils\Utils::parseDateTime('2009-11-10T23:00:00Z'),
-            runTransfer: new Components\RunTransfer(
+            runTransfer: new Components\CreateRunTransfer(
                 amount: new Components\Amount(
                     currency: 'USD',
                     value: 1204,
@@ -351,7 +351,7 @@ $upsertSchedule = new Components\UpsertSchedule(
         new Components\Occurrence(
             occurrenceID: 'c520f1b9-0ba7-42f5-b977-248cdbe41c69',
             runOn: Utils\Utils::parseDateTime('2009-11-10T23:00:00Z'),
-            runTransfer: new Components\RunTransfer(
+            runTransfer: new Components\CreateRunTransfer(
                 amount: new Components\Amount(
                     currency: 'USD',
                     value: 1204,
@@ -383,7 +383,7 @@ $upsertSchedule = new Components\UpsertSchedule(
     ],
     recur: new Components\Recur(
         recurrenceRule: '<value>',
-        runTransfer: new Components\RunTransfer(
+        runTransfer: new Components\CreateRunTransfer(
             amount: new Components\Amount(
                 currency: 'USD',
                 value: 1204,
@@ -414,9 +414,9 @@ $upsertSchedule = new Components\UpsertSchedule(
                 ),
             ),
             description: 'er reasoning following veto oof fervently ha how till now',
-            lineItems: new Components\ScheduledTransferLineItems(
+            lineItems: new Components\CreateScheduledTransferLineItems(
                 items: [
-                    new Components\ScheduledTransferLineItem(
+                    new Components\CreateScheduledTransferLineItem(
                         name: '<value>',
                         basePrice: new Components\AmountDecimal(
                             currency: 'USD',
@@ -424,7 +424,7 @@ $upsertSchedule = new Components\UpsertSchedule(
                         ),
                         quantity: 973458,
                         options: [
-                            new Components\ScheduledTransferLineItemOption(
+                            new Components\CreateScheduledTransferLineItemOption(
                                 name: '<value>',
                                 quantity: 221042,
                                 priceModifier: new Components\AmountDecimal(

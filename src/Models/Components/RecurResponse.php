@@ -9,11 +9,10 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-/** Recur - Defines configuration for recurring transfers. */
-class Recur
+class RecurResponse
 {
     /**
-     *   RRule as defined by RFC 5545 (https://www.rfc-editor.org/rfc/rfc5545#section-3.3.10). 
+     *   RRule as defined by RFC 5545 (https://www.rfc-editor.org/rfc/rfc5545#section-3.3.10).
      *
      *   Generators available online at the following sites - https://freetools.textmagic.com/rrule-generator, https://jkbrzt.github.io/rrule/
      *
@@ -23,13 +22,12 @@ class Recur
     public string $recurrenceRule;
 
     /**
-     * Defines the attributes of a transfer.
      *
-     * @var CreateRunTransfer $runTransfer
+     * @var RunTransfer $runTransfer
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('runTransfer')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateRunTransfer')]
-    public CreateRunTransfer $runTransfer;
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RunTransfer')]
+    public RunTransfer $runTransfer;
 
     /**
      * True if the RRule set runs indefinitely.
@@ -50,12 +48,12 @@ class Recur
 
     /**
      * @param  string  $recurrenceRule
-     * @param  CreateRunTransfer  $runTransfer
+     * @param  RunTransfer  $runTransfer
      * @param  ?bool  $indefinite
      * @param  ?\DateTime  $start
      * @phpstan-pure
      */
-    public function __construct(string $recurrenceRule, CreateRunTransfer $runTransfer, ?bool $indefinite = null, ?\DateTime $start = null)
+    public function __construct(string $recurrenceRule, RunTransfer $runTransfer, ?bool $indefinite = null, ?\DateTime $start = null)
     {
         $this->recurrenceRule = $recurrenceRule;
         $this->runTransfer = $runTransfer;

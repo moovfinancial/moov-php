@@ -13,18 +13,11 @@ class InvoiceExternalPayment
 {
     /**
      *
-     * @var string $description
+     * @var ?string $description
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('description')]
-    public string $description;
-
-    /**
-     *
-     * @var AmountDecimal $amount
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
-    public AmountDecimal $amount;
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $description = null;
 
     /**
      *
@@ -43,16 +36,14 @@ class InvoiceExternalPayment
     public ?\DateTime $paymentDate = null;
 
     /**
-     * @param  string  $description
-     * @param  AmountDecimal  $amount
+     * @param  ?string  $description
      * @param  ?string  $foreignID
      * @param  ?\DateTime  $paymentDate
      * @phpstan-pure
      */
-    public function __construct(string $description, AmountDecimal $amount, ?string $foreignID = null, ?\DateTime $paymentDate = null)
+    public function __construct(?string $description = null, ?string $foreignID = null, ?\DateTime $paymentDate = null)
     {
         $this->description = $description;
-        $this->amount = $amount;
         $this->foreignID = $foreignID;
         $this->paymentDate = $paymentDate;
     }

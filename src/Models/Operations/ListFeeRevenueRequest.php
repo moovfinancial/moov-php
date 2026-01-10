@@ -52,6 +52,30 @@ class ListFeeRevenueRequest
     public ?int $count = null;
 
     /**
+     * Optional transfer ID to filter the results by.
+     *
+     * @var ?string $transferID
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=transferID')]
+    public ?string $transferID = null;
+
+    /**
+     * Optional dispute ID to filter the results by.
+     *
+     * @var ?string $disputeID
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=disputeID')]
+    public ?string $disputeID = null;
+
+    /**
+     * Optional residual ID to filter the results by.
+     *
+     * @var ?string $residualID
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=residualID')]
+    public ?string $residualID = null;
+
+    /**
      * Optional date-time to inclusively filter all fees created after this date-time.
      *
      * @var ?string $startDateTime
@@ -72,16 +96,22 @@ class ListFeeRevenueRequest
      * @param  ?string  $xMoovVersion
      * @param  ?int  $skip
      * @param  ?int  $count
+     * @param  ?string  $transferID
+     * @param  ?string  $disputeID
+     * @param  ?string  $residualID
      * @param  ?string  $startDateTime
      * @param  ?string  $endDateTime
      * @phpstan-pure
      */
-    public function __construct(string $accountID, ?string $xMoovVersion = null, ?int $skip = null, ?int $count = null, ?string $startDateTime = null, ?string $endDateTime = null)
+    public function __construct(string $accountID, ?string $xMoovVersion = null, ?int $skip = null, ?int $count = null, ?string $transferID = null, ?string $disputeID = null, ?string $residualID = null, ?string $startDateTime = null, ?string $endDateTime = null)
     {
         $this->accountID = $accountID;
         $this->xMoovVersion = $xMoovVersion;
         $this->skip = $skip;
         $this->count = $count;
+        $this->transferID = $transferID;
+        $this->disputeID = $disputeID;
+        $this->residualID = $residualID;
         $this->startDateTime = $startDateTime;
         $this->endDateTime = $endDateTime;
     }

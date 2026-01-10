@@ -29,6 +29,14 @@ class InvoicePayment
 
     /**
      *
+     * @var AmountDecimal $amount
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
+    public AmountDecimal $amount;
+
+    /**
+     *
      * @var ?InvoiceTransferPayment $transfer
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('transfer')]
@@ -48,14 +56,16 @@ class InvoicePayment
     /**
      * @param  string  $invoicePaymentID
      * @param  InvoicePaymentType  $invoicePaymentType
+     * @param  AmountDecimal  $amount
      * @param  ?InvoiceTransferPayment  $transfer
      * @param  ?InvoiceExternalPayment  $external
      * @phpstan-pure
      */
-    public function __construct(string $invoicePaymentID, InvoicePaymentType $invoicePaymentType, ?InvoiceTransferPayment $transfer = null, ?InvoiceExternalPayment $external = null)
+    public function __construct(string $invoicePaymentID, InvoicePaymentType $invoicePaymentType, AmountDecimal $amount, ?InvoiceTransferPayment $transfer = null, ?InvoiceExternalPayment $external = null)
     {
         $this->invoicePaymentID = $invoicePaymentID;
         $this->invoicePaymentType = $invoicePaymentType;
+        $this->amount = $amount;
         $this->transfer = $transfer;
         $this->external = $external;
     }

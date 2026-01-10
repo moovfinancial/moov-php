@@ -19,7 +19,6 @@ class OccurrencesResponse
     public \DateTime $runOn;
 
     /**
-     * Defines the attributes of a transfer.
      *
      * @var RunTransfer $runTransfer
      */

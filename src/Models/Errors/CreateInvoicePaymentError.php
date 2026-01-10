@@ -8,9 +8,19 @@ declare(strict_types=1);
 
 namespace Moov\MoovPhp\Models\Errors;
 
+use Moov\MoovPhp\Models\Components;
 use Moov\MoovPhp\Utils;
 class CreateInvoicePaymentError
 {
+    /**
+     *
+     * @var ?Components\AmountDecimalValidationError $amount
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimalValidationError|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?Components\AmountDecimalValidationError $amount = null;
+
     /**
      *
      * @var ?string $foreignID
@@ -36,13 +46,15 @@ class CreateInvoicePaymentError
     public ?string $paymentDate = null;
 
     /**
+     * @param  ?Components\AmountDecimalValidationError  $amount
      * @param  ?string  $foreignID
      * @param  ?string  $description
      * @param  ?string  $paymentDate
      * @phpstan-pure
      */
-    public function __construct(?string $foreignID = null, ?string $description = null, ?string $paymentDate = null)
+    public function __construct(?Components\AmountDecimalValidationError $amount = null, ?string $foreignID = null, ?string $description = null, ?string $paymentDate = null)
     {
+        $this->amount = $amount;
         $this->foreignID = $foreignID;
         $this->description = $description;
         $this->paymentDate = $paymentDate;

@@ -9,11 +9,7 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-/**
- * ScheduledTransferLineItems - An optional collection of line items for a scheduled transfer.
- *
- * When line items are provided their total must equal `amount` minus `salesTaxAmount`.
- */
+/** ScheduledTransferLineItems - Line items for a scheduled transfer. */
 class ScheduledTransferLineItems
 {
     /**

@@ -44,21 +44,21 @@ class Occurrence
     /**
      * Defines the attributes of a transfer.
      *
-     * @var ?RunTransfer $runTransfer
+     * @var ?CreateRunTransfer $runTransfer
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('runTransfer')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RunTransfer|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateRunTransfer|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?RunTransfer $runTransfer = null;
+    public ?CreateRunTransfer $runTransfer = null;
 
     /**
      * @param  ?bool  $canceled
      * @param  ?string  $occurrenceID
      * @param  ?\DateTime  $runOn
-     * @param  ?RunTransfer  $runTransfer
+     * @param  ?CreateRunTransfer  $runTransfer
      * @phpstan-pure
      */
-    public function __construct(?bool $canceled = null, ?string $occurrenceID = null, ?\DateTime $runOn = null, ?RunTransfer $runTransfer = null)
+    public function __construct(?bool $canceled = null, ?string $occurrenceID = null, ?\DateTime $runOn = null, ?CreateRunTransfer $runTransfer = null)
     {
         $this->canceled = $canceled;
         $this->occurrenceID = $occurrenceID;

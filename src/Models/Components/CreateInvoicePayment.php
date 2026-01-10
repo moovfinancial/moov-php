@@ -13,6 +13,14 @@ class CreateInvoicePayment
 {
     /**
      *
+     * @var AmountDecimal $amount
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
+    public AmountDecimal $amount;
+
+    /**
+     *
      * @var ?string $foreignID
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('foreignID')]
@@ -36,13 +44,15 @@ class CreateInvoicePayment
     public ?\DateTime $paymentDate = null;
 
     /**
+     * @param  AmountDecimal  $amount
      * @param  ?string  $foreignID
      * @param  ?string  $description
      * @param  ?\DateTime  $paymentDate
      * @phpstan-pure
      */
-    public function __construct(?string $foreignID = null, ?string $description = null, ?\DateTime $paymentDate = null)
+    public function __construct(AmountDecimal $amount, ?string $foreignID = null, ?string $description = null, ?\DateTime $paymentDate = null)
     {
+        $this->amount = $amount;
         $this->foreignID = $foreignID;
         $this->description = $description;
         $this->paymentDate = $paymentDate;

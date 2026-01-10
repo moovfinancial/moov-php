@@ -60,7 +60,6 @@ $sdk = MoovPhp\Moov::builder()
 
 $createInvoice = new Components\CreateInvoice(
     customerAccountID: '<id>',
-    description: 'austere gah under ew failing provided repeatedly pick onto',
     lineItems: new Components\CreateInvoiceLineItems(
         items: [],
     ),
@@ -340,7 +339,12 @@ $sdk = MoovPhp\Moov::builder()
     )
     ->build();
 
-$createInvoicePayment = new Components\CreateInvoicePayment();
+$createInvoicePayment = new Components\CreateInvoicePayment(
+    amount: new Components\AmountDecimal(
+        currency: 'USD',
+        valueDecimal: '12.987654321',
+    ),
+);
 
 $response = $sdk->invoices->createInvoicePayment(
     accountID: 'e02333e4-a835-46d1-8d02-9af7a405e65f',
