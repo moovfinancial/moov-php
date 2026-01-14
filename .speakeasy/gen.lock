@@ -1,23 +1,23 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 063a89b6280e0e54ae3eaaa47aa8ef8c
+  docChecksum: bb283a0fa843817276c79b460cacff9f
   docVersion: latest
-  speakeasyVersion: 1.684.0
-  generationVersion: 2.793.0
-  releaseVersion: 0.7.30
-  configChecksum: bfeac388b6a1ce7078480181389d1dd4
+  speakeasyVersion: 1.685.0
+  generationVersion: 2.794.1
+  releaseVersion: 0.7.31
+  configChecksum: db1e475b48765716d825d2fbc73c5ad8
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
 persistentEdits:
-  generation_id: 9cc4e74e-6117-415f-aa7c-ca0a9d2e282c
-  pristine_commit_hash: 27b758b53685c1937c6ced0b123dd0694fc17a03
-  pristine_tree_hash: 57d953fd00fd3c20925161f982d5dfa74829785b
+  generation_id: 73b6fe90-0ddd-4fc1-be41-58ea6707ce4b
+  pristine_commit_hash: b1d060a3d4839cc7c79e7ec8a1316647d367343e
+  pristine_tree_hash: 85b061ace46966fff59a0e4a04ff56506ca0d0e6
 features:
   php:
     constsAndDefaults: 0.2.0
-    core: 3.9.8
+    core: 3.9.9
     decimal: 0.1.1
     deprecations: 2.81.1
     flattening: 2.81.1
@@ -8814,8 +8814,8 @@ trackedFiles:
     pristine_git_object: fc925901fa92bb1be68f28f6006d4a58337b1e07
   src/SDKConfiguration.php:
     id: 9d60ab0bec0b
-    last_write_checksum: sha1:67ddc2feb0723fed0eaba5af085962b3f2a20329
-    pristine_git_object: deccb08a7b161204c97a216f3e8998738f180a5b
+    last_write_checksum: sha1:54916ccbb92ef91f97042e9aba749b3fd4672dc1
+    pristine_git_object: 327abde711e1cb4b683156182009db5cafd16823
   src/Schedules.php:
     id: 8dbe56d2d033
     last_write_checksum: sha1:d28a0cf731c5291df4052da79bd90d035d4fca38
@@ -8930,8 +8930,8 @@ trackedFiles:
     pristine_git_object: 66dd0365ada245788da86fa430c32f334bb25e49
   src/Utils/RequestBodies.php:
     id: 30dc93a697d3
-    last_write_checksum: sha1:49841bdf96e7654f09e163e9987c8b73a423b310
-    pristine_git_object: a9798bd27e1d3854fabffe94a5c160f528ca89f4
+    last_write_checksum: sha1:5545da1e6774a7af32c3dad69b45c52f903bb0b8
+    pristine_git_object: 3f05d5d33d32641cd969fcaac476f5a363b72457
   src/Utils/RequestMetadata.php:
     id: 63c8deb4cf4a
     last_write_checksum: sha1:b31dd5844c71881d61ac5758ba1c03144179c2eb
@@ -11695,7 +11695,6 @@ examples:
           application/json: {"secret": "<value>"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Php SDK Changes:\n* `moov->invoices->listInvoicePayments()`:  `response.[]` **Changed** **Breaking** :warning:\n* `moov->invoices->updateInvoice()`:  `response` **Changed** **Breaking** :warning:\n* `moov->invoices->createInvoicePayment()`: \n  *  `request.createInvoicePayment->amount` **Added** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n  *  `error.amount` **Added**\n* `moov->invoices->getInvoice()`:  `response` **Changed** **Breaking** :warning:\n* `moov->invoices->createInvoice()`: \n  *  `request.createInvoice->description` **Changed**\n  *  `response` **Changed** **Breaking** :warning:\n* `moov->invoices->listInvoices()`:  `response.[]` **Changed** **Breaking** :warning:\n* `moov->feeplans->fetchFees()`:  `response.[]->residualId` **Added**\n* `moov->scheduling->create()`: \n  *  `request.upsertSchedule->occurrences->[]->runTransfer->lineItems->items->[]` **Changed**\n  *  `response.occurrences->[]->runTransfer->lineItems->items->[]` **Changed**\n* `moov->feeplans->listResidualFees()`:  `response.[]->residualId` **Added**\n* `moov->accounts->getFees()`: \n  *  `request->residualId` **Added**\n  *  `response.[]->residualId` **Added**\n* `moov->feeplans->listFeeRevenue()`: \n  *  `request` **Changed**\n  *  `response.[]->residualId` **Added**\n* `moov->scheduling->list()`:  `response.[]->occurrences->[]->runTransfer->lineItems->items->[]` **Changed**\n* `moov->scheduling->update()`: \n  *  `request.upsertSchedule->occurrences->[]->runTransfer->lineItems->items->[]` **Changed**\n  *  `response.occurrences->[]->runTransfer->lineItems->items->[]` **Changed**\n* `moov->scheduling->get()`:  `response.occurrences->[]->runTransfer->lineItems->items->[]` **Changed**\n* `moov->scheduling->getOccurrence()`:  `response.runTransfer->lineItems->items->[]` **Changed**\n"
 generatedFiles:
   - .gitattributes
   - USAGE.md
