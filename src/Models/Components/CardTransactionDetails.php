@@ -15,11 +15,12 @@ class CardTransactionDetails
     /**
      * Status of a transaction within the card payment lifecycle.
      *
-     * @var CardTransactionStatus $status
+     * @var ?CardTransactionStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardTransactionStatus')]
-    public CardTransactionStatus $status;
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardTransactionStatus|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?CardTransactionStatus $status = null;
 
     /**
      *
@@ -130,7 +131,7 @@ class CardTransactionDetails
     public ?string $authorizationCode = null;
 
     /**
-     * @param  CardTransactionStatus  $status
+     * @param  ?CardTransactionStatus  $status
      * @param  ?CardTransactionFailureCode  $failureCode
      * @param  ?string  $dynamicDescriptor
      * @param  ?TransactionSource  $transactionSource
@@ -145,7 +146,7 @@ class CardTransactionDetails
      * @param  ?string  $authorizationCode
      * @phpstan-pure
      */
-    public function __construct(CardTransactionStatus $status, ?CardTransactionFailureCode $failureCode = null, ?string $dynamicDescriptor = null, ?TransactionSource $transactionSource = null, ?\DateTime $initiatedOn = null, ?\DateTime $confirmedOn = null, ?\DateTime $settledOn = null, ?\DateTime $failedOn = null, ?\DateTime $canceledOn = null, ?\DateTime $completedOn = null, ?string $interchangeQualification = null, ?string $feeProgram = null, ?string $authorizationCode = null)
+    public function __construct(?CardTransactionStatus $status = null, ?CardTransactionFailureCode $failureCode = null, ?string $dynamicDescriptor = null, ?TransactionSource $transactionSource = null, ?\DateTime $initiatedOn = null, ?\DateTime $confirmedOn = null, ?\DateTime $settledOn = null, ?\DateTime $failedOn = null, ?\DateTime $canceledOn = null, ?\DateTime $completedOn = null, ?string $interchangeQualification = null, ?string $feeProgram = null, ?string $authorizationCode = null)
     {
         $this->status = $status;
         $this->failureCode = $failureCode;

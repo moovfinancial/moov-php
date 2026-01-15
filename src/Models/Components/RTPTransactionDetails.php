@@ -15,11 +15,12 @@ class RTPTransactionDetails
     /**
      * Status of a transaction within the RTP lifecycle.
      *
-     * @var RTPTransactionStatus $status
+     * @var ?RTPTransactionStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RTPTransactionStatus')]
-    public RTPTransactionStatus $status;
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RTPTransactionStatus|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?RTPTransactionStatus $status = null;
 
     /**
      * Response code returned by network on failure.
@@ -73,7 +74,7 @@ class RTPTransactionDetails
     public ?\DateTime $acceptedWithoutPostingOn = null;
 
     /**
-     * @param  RTPTransactionStatus  $status
+     * @param  ?RTPTransactionStatus  $status
      * @param  ?string  $networkResponseCode
      * @param  ?RTPFailureCode  $failureCode
      * @param  ?\DateTime  $initiatedOn
@@ -82,7 +83,7 @@ class RTPTransactionDetails
      * @param  ?\DateTime  $acceptedWithoutPostingOn
      * @phpstan-pure
      */
-    public function __construct(RTPTransactionStatus $status, ?string $networkResponseCode = null, ?RTPFailureCode $failureCode = null, ?\DateTime $initiatedOn = null, ?\DateTime $completedOn = null, ?\DateTime $failedOn = null, ?\DateTime $acceptedWithoutPostingOn = null)
+    public function __construct(?RTPTransactionStatus $status = null, ?string $networkResponseCode = null, ?RTPFailureCode $failureCode = null, ?\DateTime $initiatedOn = null, ?\DateTime $completedOn = null, ?\DateTime $failedOn = null, ?\DateTime $acceptedWithoutPostingOn = null)
     {
         $this->status = $status;
         $this->networkResponseCode = $networkResponseCode;

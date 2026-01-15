@@ -15,18 +15,20 @@ class ACHTransactionDetails
     /**
      * Status of a transaction within the ACH lifecycle.
      *
-     * @var ACHTransactionStatus $status
+     * @var ?ACHTransactionStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ACHTransactionStatus')]
-    public ACHTransactionStatus $status;
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ACHTransactionStatus|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?ACHTransactionStatus $status = null;
 
     /**
      *
-     * @var string $traceNumber
+     * @var ?string $traceNumber
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('traceNumber')]
-    public string $traceNumber;
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $traceNumber = null;
 
     /**
      *
@@ -151,8 +153,8 @@ class ACHTransactionDetails
     public ?array $addenda = null;
 
     /**
-     * @param  ACHTransactionStatus  $status
-     * @param  string  $traceNumber
+     * @param  ?ACHTransactionStatus  $status
+     * @param  ?string  $traceNumber
      * @param  ?ACHException  $return
      * @param  ?ACHException  $correction
      * @param  ?string  $companyEntryDescription
@@ -169,7 +171,7 @@ class ACHTransactionDetails
      * @param  ?array<TransferACHAddendaRecord>  $addenda
      * @phpstan-pure
      */
-    public function __construct(ACHTransactionStatus $status, string $traceNumber, ?ACHException $return = null, ?ACHException $correction = null, ?string $companyEntryDescription = null, ?string $originatingCompanyName = null, ?SECCode $secCode = null, ?\DateTime $canceledOn = null, ?\DateTime $initiatedOn = null, ?\DateTime $originatedOn = null, ?\DateTime $correctedOn = null, ?\DateTime $returnedOn = null, ?\DateTime $failedOn = null, ?\DateTime $completedOn = null, ?DebitHoldPeriod $debitHoldPeriod = null, ?array $addenda = null)
+    public function __construct(?ACHTransactionStatus $status = null, ?string $traceNumber = null, ?ACHException $return = null, ?ACHException $correction = null, ?string $companyEntryDescription = null, ?string $originatingCompanyName = null, ?SECCode $secCode = null, ?\DateTime $canceledOn = null, ?\DateTime $initiatedOn = null, ?\DateTime $originatedOn = null, ?\DateTime $correctedOn = null, ?\DateTime $returnedOn = null, ?\DateTime $failedOn = null, ?\DateTime $completedOn = null, ?DebitHoldPeriod $debitHoldPeriod = null, ?array $addenda = null)
     {
         $this->status = $status;
         $this->traceNumber = $traceNumber;

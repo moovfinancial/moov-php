@@ -37,6 +37,14 @@ class ListProductsRequest
     public ?string $xMoovVersion = null;
 
     /**
+     * Allows filtering products by title. This supports partial matches and is case-insensitive
+     *
+     * @var ?string $title
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=title')]
+    public ?string $title = null;
+
+    /**
      *
      * @var ?int $skip
      */
@@ -53,14 +61,16 @@ class ListProductsRequest
     /**
      * @param  string  $accountID
      * @param  ?string  $xMoovVersion
+     * @param  ?string  $title
      * @param  ?int  $skip
      * @param  ?int  $count
      * @phpstan-pure
      */
-    public function __construct(string $accountID, ?string $xMoovVersion = null, ?int $skip = null, ?int $count = null)
+    public function __construct(string $accountID, ?string $xMoovVersion = null, ?string $title = null, ?int $skip = null, ?int $count = null)
     {
         $this->accountID = $accountID;
         $this->xMoovVersion = $xMoovVersion;
+        $this->title = $title;
         $this->skip = $skip;
         $this->count = $count;
     }

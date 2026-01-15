@@ -303,21 +303,12 @@ class Products
     /**
      * List active (non-disabled) products for an account.
      *
-     * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
-     * @param  ?int  $skip
-     * @param  ?int  $count
+     * @param  Operations\ListProductsRequest  $request
      * @return Operations\ListProductsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function list(string $accountID, ?string $xMoovVersion = null, ?int $skip = null, ?int $count = null, ?Options $options = null): Operations\ListProductsResponse
+    public function list(Operations\ListProductsRequest $request, ?Options $options = null): Operations\ListProductsResponse
     {
-        $request = new Operations\ListProductsRequest(
-            accountID: $accountID,
-            xMoovVersion: $xMoovVersion,
-            skip: $skip,
-            count: $count,
-        );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/products', Operations\ListProductsRequest::class, $request, $this->sdkConfiguration->globals);
         $urlOverride = null;
