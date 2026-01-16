@@ -15,7 +15,7 @@ targets:
         sourceRevisionDigest: sha256:3d9abe469963e06acff2c993dd68605209cdf1a8982a2301bdd5dd059139ae8b
         sourceBlobDigest: sha256:f0ed3cab8d0975bce02d708adabd86a753bc05392d30a4bc143f9e13281d2ea3
         codeSamplesNamespace: latest-php-code-samples
-        codeSamplesRevisionDigest: sha256:286bb7b9dcfb3630639af4cdc330bd6cd4e34b94c2e6d6693fb31f6d874bad60
+        codeSamplesRevisionDigest: sha256:9762c3d186a317e3eb56cc12d639ba2568d132adf716819a4151969740b485c4
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest

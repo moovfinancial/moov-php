@@ -6,14 +6,14 @@ management:
   speakeasyVersion: 1.686.0
   generationVersion: 2.796.1
   releaseVersion: 0.7.33
-  configChecksum: dfaa4ab7b30246d8bc7a4d2f21c2477b
+  configChecksum: 1cc617f1e840999ffb86035d5e3c64db
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
 persistentEdits:
-  generation_id: 2d5715e1-9a28-4c16-ae6f-8da6c2c16f0c
-  pristine_commit_hash: 674b0077923fbd7849dc74adffa4993b572e9027
-  pristine_tree_hash: 9f4af088cf1af31258dd052896cd1fef007b2262
+  generation_id: 89d01cf0-62aa-4897-9ac8-1f929e1ba15b
+  pristine_commit_hash: b02630ac92c326e58c3bab43ab919c62a395410e
+  pristine_tree_hash: a5e44368a3ebe0527432c3567625da39c96b3e89
 features:
   php:
     constsAndDefaults: 0.2.0
@@ -4442,16 +4442,12 @@ trackedFiles:
     pristine_git_object: 8691ae97dad0205b71981500bf0a22cb241a36fd
   src/Hooks/SDKHooks.php:
     id: d31b27b84f0b
-    last_write_checksum: sha1:ee8180148fb8804aed5afda927d0909303119d42
-    pristine_git_object: 801f96949164e439d66d85054c4c853ae20e089d
+    last_write_checksum: sha1:e789333bed37e193bcc4438d2b43d22f390dcc6b
+    pristine_git_object: fb48a12f65edccf214b8377e6310ab2948efb067
   src/Hooks/SDKInitHook.php:
     id: 16729a806274
-    last_write_checksum: sha1:faa1717e4d5215eba9c8f403601e13cb3ae56e36
-    pristine_git_object: 53f5c8b37bd4900719eb202aee91ca48f534baf3
-  src/Hooks/SDKRequestContext.php:
-    id: c229582a4ae0
-    last_write_checksum: sha1:0967ec7b4014a10ba369977b7948a173d0254a16
-    pristine_git_object: 3e9c4fd50d1eb600e9c542fcf41f5dd58fa276cd
+    last_write_checksum: sha1:52f10814f5127a5e0cb6655aceba52314118b8bf
+    pristine_git_object: d438a1ed35ffaa178b17ca2c21244bc917c73432
   src/Hooks/Session.php:
     id: dc21f349b594
     last_write_checksum: sha1:5270fc574ea3611d72f149eef303341ed6c778b7
@@ -8774,8 +8770,8 @@ trackedFiles:
     pristine_git_object: 2230d87ce926d813ae05b3a3d583a2a01bf793fc
   src/Moov.php:
     id: dc71fbddcc66
-    last_write_checksum: sha1:48f571af850a12c17c56e6e44e69e6a9924e8e66
-    pristine_git_object: 33a1c5ef5b92bcf461835696b47e906a706422f7
+    last_write_checksum: sha1:c97debc8136fc77af5e13f764cfe055d38186e0f
+    pristine_git_object: dcf4bd558d1c02274c550e06c357d0796f120a6c
   src/MoovBuilder.php:
     id: 54c7b02995c1
     last_write_checksum: sha1:2de7dee325c039d6341640d7b8563397e1a56741
@@ -11695,10 +11691,6 @@ examples:
           application/json: {"secret": "<value>"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Php SDK Changes:
-  * `moov->statements->list()`:  `response.[]->achFees->bankAccountVerification` **Added**
-  * `moov->statements->get()`:  `response.achFees->bankAccountVerification` **Added**
 generatedFiles:
   - .gitattributes
   - USAGE.md

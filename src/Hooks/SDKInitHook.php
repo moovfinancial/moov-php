@@ -9,7 +9,9 @@ declare(strict_types=1);
 
 namespace Moov\MoovPhp\Hooks;
 
+use Moov\MoovPhp\SDKConfiguration;
+
 interface SDKInitHook
 {
-    public function sdkInit(string $baseUrl, \GuzzleHttp\ClientInterface $client): SDKRequestContext;
+    public function sdkInit(SDKConfiguration $config): SDKConfiguration;
 }
