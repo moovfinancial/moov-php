@@ -67,6 +67,15 @@ class ACHFees
     public BillingCountAndAmount $noticeOfChange;
 
     /**
+     * Fees for successful bank account verifications via Plaid or MX.
+     *
+     * @var BillingCountAndAmount $bankAccountVerification
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('bankAccountVerification')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingCountAndAmount')]
+    public BillingCountAndAmount $bankAccountVerification;
+
+    /**
      * Total ACH fees.
      *
      * @var BillingCountAndAmount $total
@@ -82,10 +91,11 @@ class ACHFees
      * @param  BillingCountAndAmount  $return
      * @param  BillingCountAndAmount  $unauthorizedReturn
      * @param  BillingCountAndAmount  $noticeOfChange
+     * @param  BillingCountAndAmount  $bankAccountVerification
      * @param  BillingCountAndAmount  $total
      * @phpstan-pure
      */
-    public function __construct(BillingCountAndAmount $standardCredit, BillingCountAndAmount $sameDayCredit, BillingCountAndAmount $debits, BillingCountAndAmount $return, BillingCountAndAmount $unauthorizedReturn, BillingCountAndAmount $noticeOfChange, BillingCountAndAmount $total)
+    public function __construct(BillingCountAndAmount $standardCredit, BillingCountAndAmount $sameDayCredit, BillingCountAndAmount $debits, BillingCountAndAmount $return, BillingCountAndAmount $unauthorizedReturn, BillingCountAndAmount $noticeOfChange, BillingCountAndAmount $bankAccountVerification, BillingCountAndAmount $total)
     {
         $this->standardCredit = $standardCredit;
         $this->sameDayCredit = $sameDayCredit;
@@ -93,6 +103,7 @@ class ACHFees
         $this->return = $return;
         $this->unauthorizedReturn = $unauthorizedReturn;
         $this->noticeOfChange = $noticeOfChange;
+        $this->bankAccountVerification = $bankAccountVerification;
         $this->total = $total;
     }
 }

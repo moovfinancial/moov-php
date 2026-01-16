@@ -141,7 +141,7 @@ class Invoice
     public ?string $paymentLinkCode = null;
 
     /**
-     * $invoicePayments
+     * Payment made towards an invoice, will be either a transfer or an external payment.
      *
      * @var ?array<InvoicePayment> $invoicePayments
      */
