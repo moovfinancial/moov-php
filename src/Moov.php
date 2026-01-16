@@ -178,11 +178,6 @@ class Moov
 
     private function initHooks(): void
     {
-        $preHooksUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $ret = $this->sdkConfiguration->hooks->sdkInit($preHooksUrl, $this->sdkConfiguration->client);
-        if ($preHooksUrl != $ret->url) {
-            $this->sdkConfiguration->serverUrl = $ret->url;
-        }
-        $this->sdkConfiguration->client = $ret->client;
+        $this->sdkConfiguration = $this->sdkConfiguration->hooks->sdkInit($this->sdkConfiguration);
     }
 }
