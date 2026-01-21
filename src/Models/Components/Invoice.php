@@ -12,6 +12,7 @@ namespace Moov\MoovPhp\Models\Components;
 class Invoice
 {
     /**
+     * A unique identifier for a Moov resource. Supports UUID format (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx) or typed format with base32-encoded UUID and type suffix (e.g., kuoaydiojf7uszaokc2ggnaaaa_xfer).
      *
      * @var string $invoiceID
      */
@@ -26,6 +27,7 @@ class Invoice
     public string $invoiceNumber;
 
     /**
+     * A unique identifier for a Moov resource. Supports UUID format (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx) or typed format with base32-encoded UUID and type suffix (e.g., kuoaydiojf7uszaokc2ggnaaaa_xfer).
      *
      * @var string $customerAccountID
      */
@@ -33,6 +35,7 @@ class Invoice
     public string $customerAccountID;
 
     /**
+     * A unique identifier for a Moov resource. Supports UUID format (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx) or typed format with base32-encoded UUID and type suffix (e.g., kuoaydiojf7uszaokc2ggnaaaa_xfer).
      *
      * @var string $partnerAccountID
      */

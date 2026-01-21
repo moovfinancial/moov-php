@@ -12,6 +12,7 @@ namespace Moov\MoovPhp\Models\Components;
 class InvoiceTransferPayment
 {
     /**
+     * A unique identifier for a Moov resource. Supports UUID format (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx) or typed format with base32-encoded UUID and type suffix (e.g., kuoaydiojf7uszaokc2ggnaaaa_xfer).
      *
      * @var string $transferID
      */
