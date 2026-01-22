@@ -29,6 +29,38 @@ class ListInvoicesValidationError
 
     /**
      *
+     * @var ?string $createdStartDateTime
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('createdStartDateTime')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $createdStartDateTime = null;
+
+    /**
+     *
+     * @var ?string $createdEndDateTime
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('createdEndDateTime')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $createdEndDateTime = null;
+
+    /**
+     *
+     * @var ?string $dueStartDateTime
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('dueStartDateTime')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $dueStartDateTime = null;
+
+    /**
+     *
+     * @var ?string $dueEndDateTime
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('dueEndDateTime')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $dueEndDateTime = null;
+
+    /**
+     *
      * @var ?string $skip
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('skip')]
@@ -46,14 +78,22 @@ class ListInvoicesValidationError
     /**
      * @param  ?string  $status
      * @param  ?string  $customerAccountID
+     * @param  ?string  $createdStartDateTime
+     * @param  ?string  $createdEndDateTime
+     * @param  ?string  $dueStartDateTime
+     * @param  ?string  $dueEndDateTime
      * @param  ?string  $skip
      * @param  ?string  $count
      * @phpstan-pure
      */
-    public function __construct(?string $status = null, ?string $customerAccountID = null, ?string $skip = null, ?string $count = null)
+    public function __construct(?string $status = null, ?string $customerAccountID = null, ?string $createdStartDateTime = null, ?string $createdEndDateTime = null, ?string $dueStartDateTime = null, ?string $dueEndDateTime = null, ?string $skip = null, ?string $count = null)
     {
         $this->status = $status;
         $this->customerAccountID = $customerAccountID;
+        $this->createdStartDateTime = $createdStartDateTime;
+        $this->createdEndDateTime = $createdEndDateTime;
+        $this->dueStartDateTime = $dueStartDateTime;
+        $this->dueEndDateTime = $dueEndDateTime;
         $this->skip = $skip;
         $this->count = $count;
     }

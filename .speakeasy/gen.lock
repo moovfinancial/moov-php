@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 6027694a1ad482ebb82c85d0351212fe
+  docChecksum: c7d9e42106fb75dcc7417ba08cb958d3
   docVersion: latest
-  speakeasyVersion: 1.691.0
+  speakeasyVersion: 1.692.0
   generationVersion: 2.797.1
-  releaseVersion: 0.7.34
-  configChecksum: ccf388c11517bf03ae99f53f9b3e8ca6
+  releaseVersion: 0.7.35
+  configChecksum: 161a2a32b4a5e020c330b64fb1e3e19f
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
 persistentEdits:
-  generation_id: 339afa03-dc15-45be-9ecb-2bfd7d9b9389
-  pristine_commit_hash: d5637ea5587d4b2a7293359efb05d4ad23616dbb
-  pristine_tree_hash: d4666e6f8e2fe71f8937c53baada20ee22105110
+  generation_id: 1feed1e5-c00f-4e00-bdb9-7bfb241da765
+  pristine_commit_hash: 9f8d92943a8905f10b2c988d588db6572a913820
+  pristine_tree_hash: 60eb2af5210ddb30628d694e879b36f8007a9269
 features:
   php:
     constsAndDefaults: 0.2.0
@@ -2586,8 +2586,8 @@ trackedFiles:
     pristine_git_object: 824276a8fb492bb4d3104e5d7566cff53027c82c
   docs/Models/Errors/ListInvoicesValidationError.md:
     id: c208077917f1
-    last_write_checksum: sha1:07c8e6df2582ee2b8e8f767c84a441c3bdb2cd15
-    pristine_git_object: 8014c9172cfd08c696c7b8f47fba0a62deefd6ab
+    last_write_checksum: sha1:cc8e09d48b1aba86cb6a436350f6bbfbfc3c34ee
+    pristine_git_object: f0b6c3a5c952b9aacef5efa0106a63e901f58922
   docs/Models/Errors/ListTransfersValidationError.md:
     id: 09ddf12fc690
     last_write_checksum: sha1:525ae98cfa955cf52c30cd88e50f945d75cc8035
@@ -3638,8 +3638,8 @@ trackedFiles:
     pristine_git_object: 743a021888ad9cb193f17df391178417c76be0c4
   docs/Models/Operations/ListInvoicesRequest.md:
     id: ca636d005698
-    last_write_checksum: sha1:64654b431ed5b2f56b8cca05353f472970a2dc91
-    pristine_git_object: 053c0729d4d76ca77a8c40e5c5f24bbe9fb3911e
+    last_write_checksum: sha1:5a7f87c3aa593bd075804eb6e5c4e983fc682009
+    pristine_git_object: 8501e8a82e3ab795f0089dc9d5fa5332ce27c7eb
   docs/Models/Operations/ListInvoicesResponse.md:
     id: ad6eabf34a54
     last_write_checksum: sha1:c0e50fff501e7add7d7255e6916eb8c786b3457d
@@ -7102,8 +7102,8 @@ trackedFiles:
     pristine_git_object: 5f13e53c8d2514d037c0c66dbd1f0a0097e7bbf4
   src/Models/Errors/ListInvoicesValidationError.php:
     id: 2d70f296f433
-    last_write_checksum: sha1:450084bf4450e76a12f11d57528ab49c5df0dcdc
-    pristine_git_object: 265e1026edac696d2ca058ac62abc3d25fa7691b
+    last_write_checksum: sha1:51efa4c5b0da886cc3c1ca3e481eb2fac2c19e53
+    pristine_git_object: df31a2f8ef10d369dcd91f6028e233df0f2c8853
   src/Models/Errors/ListInvoicesValidationErrorThrowable.php:
     id: 0f66e4fadaf1
     last_write_checksum: sha1:1ac53add668eb743d6e7ecfaedd7f40baa69edd4
@@ -8270,8 +8270,8 @@ trackedFiles:
     pristine_git_object: d5f1097dcac6fac212a619b12396117cf2e7f1c8
   src/Models/Operations/ListInvoicesRequest.php:
     id: 277460660a77
-    last_write_checksum: sha1:5b77d8f47329255fa5f0415b2f47707a23ea73ab
-    pristine_git_object: 4770342566729fc654735b74efff47398fdb8acb
+    last_write_checksum: sha1:13561f775d79d6a182baf37d4623f320f0d681e1
+    pristine_git_object: 538ff77a6dfd6666be7fe20bf25369141bdb67dd
   src/Models/Operations/ListInvoicesResponse.php:
     id: d6421c5cc164
     last_write_checksum: sha1:830f2e189bc9f7b3552737d424860a6163f329d9
@@ -8810,8 +8810,8 @@ trackedFiles:
     pristine_git_object: fc925901fa92bb1be68f28f6006d4a58337b1e07
   src/SDKConfiguration.php:
     id: 9d60ab0bec0b
-    last_write_checksum: sha1:c160420dabca4d31bfbd12b60068ca08670e6c70
-    pristine_git_object: 022164e95be450185806710ae589bdca8b5c542f
+    last_write_checksum: sha1:c6bc2ae6a7bd8a5c19d086dce09a41d3a1d586c8
+    pristine_git_object: 4f12dd5f25bb12d3337130234cfa5d42b2fe546e
   src/Schedules.php:
     id: 8dbe56d2d033
     last_write_checksum: sha1:d28a0cf731c5291df4052da79bd90d035d4fca38
@@ -11691,6 +11691,7 @@ examples:
           application/json: {"secret": "<value>"}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: "## Php SDK Changes:\n* `moov->invoices->listInvoices()`: \n  *  `request` **Changed**\n  *  `error` **Changed**\n"
 generatedFiles:
   - .gitattributes
   - USAGE.md

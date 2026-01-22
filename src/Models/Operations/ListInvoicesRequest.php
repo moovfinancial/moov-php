@@ -66,15 +66,47 @@ class ListInvoicesRequest
     public ?string $customerAccountID = null;
 
     /**
+     *
+     * @var ?\DateTime $createdStartDateTime
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=createdStartDateTime,dateTimeFormat=Y-m-d\TH:i:s.up')]
+    public ?\DateTime $createdStartDateTime = null;
+
+    /**
+     *
+     * @var ?\DateTime $createdEndDateTime
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=createdEndDateTime,dateTimeFormat=Y-m-d\TH:i:s.up')]
+    public ?\DateTime $createdEndDateTime = null;
+
+    /**
+     *
+     * @var ?\DateTime $dueStartDateTime
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=dueStartDateTime,dateTimeFormat=Y-m-d\TH:i:s.up')]
+    public ?\DateTime $dueStartDateTime = null;
+
+    /**
+     *
+     * @var ?\DateTime $dueEndDateTime
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=dueEndDateTime,dateTimeFormat=Y-m-d\TH:i:s.up')]
+    public ?\DateTime $dueEndDateTime = null;
+
+    /**
      * @param  string  $accountID
      * @param  ?string  $xMoovVersion
      * @param  ?int  $skip
      * @param  ?int  $count
      * @param  ?Components\InvoiceStatus  $status
      * @param  ?string  $customerAccountID
+     * @param  ?\DateTime  $createdStartDateTime
+     * @param  ?\DateTime  $createdEndDateTime
+     * @param  ?\DateTime  $dueStartDateTime
+     * @param  ?\DateTime  $dueEndDateTime
      * @phpstan-pure
      */
-    public function __construct(string $accountID, ?string $xMoovVersion = null, ?int $skip = null, ?int $count = null, ?Components\InvoiceStatus $status = null, ?string $customerAccountID = null)
+    public function __construct(string $accountID, ?string $xMoovVersion = null, ?int $skip = null, ?int $count = null, ?Components\InvoiceStatus $status = null, ?string $customerAccountID = null, ?\DateTime $createdStartDateTime = null, ?\DateTime $createdEndDateTime = null, ?\DateTime $dueStartDateTime = null, ?\DateTime $dueEndDateTime = null)
     {
         $this->accountID = $accountID;
         $this->xMoovVersion = $xMoovVersion;
@@ -82,5 +114,9 @@ class ListInvoicesRequest
         $this->count = $count;
         $this->status = $status;
         $this->customerAccountID = $customerAccountID;
+        $this->createdStartDateTime = $createdStartDateTime;
+        $this->createdEndDateTime = $createdEndDateTime;
+        $this->dueStartDateTime = $dueStartDateTime;
+        $this->dueEndDateTime = $dueEndDateTime;
     }
 }
