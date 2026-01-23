@@ -48,7 +48,7 @@ class Invoices
     /**
      * Create an invoice for a Moov account.
      *
-     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
      * you'll need to specify the `/accounts/{accountID}/invoices.write` scope.
      *
      * @param  Components\CreateInvoice  $createInvoice
@@ -154,7 +154,7 @@ class Invoices
      * Creates a payment resource to represent that an invoice was paid outside of the Moov platform.
      * If a payment link was created for the invoice, the corresponding payment link is canceled, but a receipt is still sent.
      *
-     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
      * you'll need to specify the `/accounts/{accountID}/invoices.write` scope.
      *
      * @param  Components\CreateInvoicePayment  $createInvoicePayment
@@ -261,7 +261,7 @@ class Invoices
     /**
      * Retrieve an invoice by ID.
      *
-     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
      * you'll need to specify the `/accounts/{accountID}/invoices.read` scope.
      *
      * @param  string  $accountID
@@ -339,7 +339,7 @@ class Invoices
     /**
      * List all the payments made towards an invoice.
      *
-     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
      * you'll need to specify the `/accounts/{accountID}/invoices.read` scope.
      *
      * @param  string  $accountID
@@ -417,7 +417,7 @@ class Invoices
     /**
      * List all the invoices created under a Moov account.
      *
-     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
      * you'll need to specify the `/accounts/{accountID}/invoices.read` scope.
      *
      * @param  Operations\ListInvoicesRequest  $request
@@ -502,7 +502,7 @@ class Invoices
     /**
      * Updates an invoice.
      *
-     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
      * you'll need to specify the `/accounts/{accountID}/invoices.write` scope.
      *
      * @param  Components\UpdateInvoice  $updateInvoice

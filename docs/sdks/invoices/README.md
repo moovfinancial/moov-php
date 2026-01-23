@@ -6,35 +6,35 @@
 
 * [createInvoice](#createinvoice) - Create an invoice for a Moov account.
 
-To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
 you'll need to specify the `/accounts/{accountID}/invoices.write` scope.
 * [listInvoices](#listinvoices) - List all the invoices created under a Moov account.
 
-To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
 you'll need to specify the `/accounts/{accountID}/invoices.read` scope.
 * [getInvoice](#getinvoice) - Retrieve an invoice by ID.
 
-To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
 you'll need to specify the `/accounts/{accountID}/invoices.read` scope.
 * [updateInvoice](#updateinvoice) - Updates an invoice.
 
-To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
 you'll need to specify the `/accounts/{accountID}/invoices.write` scope.
 * [createInvoicePayment](#createinvoicepayment) - Creates a payment resource to represent that an invoice was paid outside of the Moov platform.
 If a payment link was created for the invoice, the corresponding payment link is canceled, but a receipt is still sent.
 
-To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
 you'll need to specify the `/accounts/{accountID}/invoices.write` scope.
 * [listInvoicePayments](#listinvoicepayments) - List all the payments made towards an invoice.
 
-To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
 you'll need to specify the `/accounts/{accountID}/invoices.read` scope.
 
 ## createInvoice
 
 Create an invoice for a Moov account.
 
-To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
 you'll need to specify the `/accounts/{accountID}/invoices.write` scope.
 
 ### Example Usage
@@ -47,6 +47,7 @@ require 'vendor/autoload.php';
 
 use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
+use Moov\MoovPhp\Utils;
 
 $sdk = MoovPhp\Moov::builder()
     ->setXMoovVersion('<value>')
@@ -59,13 +60,25 @@ $sdk = MoovPhp\Moov::builder()
     ->build();
 
 $createInvoice = new Components\CreateInvoice(
-    customerAccountID: '<id>',
+    customerAccountID: '3dfff852-927d-47e8-822c-2fffc57ff6b9',
+    description: 'Professional services for Q1 2026',
     lineItems: new Components\CreateInvoiceLineItems(
-        items: [],
+        items: [
+            new Components\CreateInvoiceLineItem(
+                name: 'Professional Services',
+                basePrice: new Components\AmountDecimal(
+                    currency: 'USD',
+                    valueDecimal: '1000.00',
+                ),
+                quantity: 1,
+            ),
+        ],
     ),
+    invoiceDate: Utils\Utils::parseDateTime('2026-01-15T00:00:00Z'),
+    dueDate: Utils\Utils::parseDateTime('2026-02-15T00:00:00Z'),
     taxAmount: new Components\AmountDecimal(
         currency: 'USD',
-        valueDecimal: '12.987654321',
+        valueDecimal: '80.00',
     ),
 );
 
@@ -104,7 +117,7 @@ if ($response->invoice !== null) {
 
 List all the invoices created under a Moov account.
 
-To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
 you'll need to specify the `/accounts/{accountID}/invoices.read` scope.
 
 ### Example Usage
@@ -165,7 +178,7 @@ if ($response->invoices !== null) {
 
 Retrieve an invoice by ID.
 
-To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
 you'll need to specify the `/accounts/{accountID}/invoices.read` scope.
 
 ### Example Usage
@@ -224,7 +237,7 @@ if ($response->invoice !== null) {
 
 Updates an invoice.
 
-To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
 you'll need to specify the `/accounts/{accountID}/invoices.write` scope.
 
 ### Example Usage
@@ -237,6 +250,7 @@ require 'vendor/autoload.php';
 
 use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
+use Moov\MoovPhp\Utils;
 
 $sdk = MoovPhp\Moov::builder()
     ->setXMoovVersion('<value>')
@@ -249,32 +263,21 @@ $sdk = MoovPhp\Moov::builder()
     ->build();
 
 $updateInvoice = new Components\UpdateInvoice(
+    description: 'Updated professional services for Q1 2026',
     lineItems: new Components\CreateInvoiceLineItemsUpdate(
         items: [
             new Components\CreateInvoiceLineItem(
-                name: '<value>',
+                name: 'Professional Services',
                 basePrice: new Components\AmountDecimal(
                     currency: 'USD',
-                    valueDecimal: '12.987654321',
+                    valueDecimal: '1000.00',
                 ),
-                quantity: 984515,
-                options: [
-                    new Components\CreateInvoiceLineItemOption(
-                        name: '<value>',
-                        quantity: 761923,
-                        priceModifier: new Components\AmountDecimal(
-                            currency: 'USD',
-                            valueDecimal: '12.987654321',
-                        ),
-                    ),
-                ],
+                quantity: 1,
             ),
         ],
     ),
-    taxAmount: new Components\AmountDecimalUpdate(
-        currency: 'USD',
-        valueDecimal: '12.987654321',
-    ),
+    invoiceDate: Utils\Utils::parseDateTime('2026-01-16T00:00:00Z'),
+    dueDate: Utils\Utils::parseDateTime('2026-02-16T00:00:00Z'),
 );
 
 $response = $sdk->invoices->updateInvoice(
@@ -315,7 +318,7 @@ if ($response->invoice !== null) {
 Creates a payment resource to represent that an invoice was paid outside of the Moov platform.
 If a payment link was created for the invoice, the corresponding payment link is canceled, but a receipt is still sent.
 
-To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
 you'll need to specify the `/accounts/{accountID}/invoices.write` scope.
 
 ### Example Usage
@@ -328,6 +331,7 @@ require 'vendor/autoload.php';
 
 use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
+use Moov\MoovPhp\Utils;
 
 $sdk = MoovPhp\Moov::builder()
     ->setXMoovVersion('<value>')
@@ -340,10 +344,13 @@ $sdk = MoovPhp\Moov::builder()
     ->build();
 
 $createInvoicePayment = new Components\CreateInvoicePayment(
+    foreignID: 'EXT-PAY-12345',
     amount: new Components\AmountDecimal(
         currency: 'USD',
-        valueDecimal: '12.987654321',
+        valueDecimal: '500.00',
     ),
+    description: 'Payment received via wire transfer',
+    paymentDate: Utils\Utils::parseDateTime('2026-01-20T14:45:00Z'),
 );
 
 $response = $sdk->invoices->createInvoicePayment(
@@ -383,7 +390,7 @@ if ($response->invoicePayment !== null) {
 
 List all the payments made towards an invoice.
 
-To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
 you'll need to specify the `/accounts/{accountID}/invoices.read` scope.
 
 ### Example Usage

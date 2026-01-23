@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: c7d9e42106fb75dcc7417ba08cb958d3
+  docChecksum: 78c159601b1fd4e8fe74e4dbb7ebf50a
   docVersion: latest
-  speakeasyVersion: 1.692.0
-  generationVersion: 2.797.1
-  releaseVersion: 0.7.35
-  configChecksum: 161a2a32b4a5e020c330b64fb1e3e19f
+  speakeasyVersion: 1.695.0
+  generationVersion: 2.799.0
+  releaseVersion: 0.7.36
+  configChecksum: 0da8fa4bb3315330360f5696d3351ff2
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
 persistentEdits:
-  generation_id: 1feed1e5-c00f-4e00-bdb9-7bfb241da765
-  pristine_commit_hash: 9f8d92943a8905f10b2c988d588db6572a913820
-  pristine_tree_hash: 60eb2af5210ddb30628d694e879b36f8007a9269
+  generation_id: eaa95283-d905-4308-ac18-3de62d54fd40
+  pristine_commit_hash: 3ef5d062eb12eb47f901c3137b165173f8723244
+  pristine_tree_hash: b89e932d79663fa26f128d56d1afe42e8b0f838e
 features:
   php:
     constsAndDefaults: 0.2.0
@@ -4218,8 +4218,8 @@ trackedFiles:
     pristine_git_object: 77a587909367e2d3a5a8f9f99382099e536e0083
   docs/sdks/invoices/README.md:
     id: a3f76a06eded
-    last_write_checksum: sha1:b80d2ed6a62f5cb764b53369d88f5366bfb8f89c
-    pristine_git_object: d498111c6c7d81055984dfea662fb5dec738716e
+    last_write_checksum: sha1:1a594f353cfd05de1b28a980358d915c5efe13cd
+    pristine_git_object: d0ea99155954f3d3674716ea088bc3ca53c56066
   docs/sdks/issuedcards/README.md:
     id: f35fa274afe3
     last_write_checksum: sha1:3a3fe50e2b048c4fb7e33984036085e9aa3ffda8
@@ -4470,8 +4470,8 @@ trackedFiles:
     pristine_git_object: 0614cafa281bd3ab9c5003f9f5cb394aafe4b546
   src/Invoices.php:
     id: 60340ce922ba
-    last_write_checksum: sha1:55d7b697cefebbbd6602f49d6a579dd38b06ee87
-    pristine_git_object: 6d40be7f874b53cca75a7005ec0ea41b818b65cc
+    last_write_checksum: sha1:87eaf5c8b501ecf8eb99133dc6aa1b4009f46dda
+    pristine_git_object: 74bd5112e4401a153c06eed9dc915e08ffb67497
   src/IssuedCards.php:
     id: d750a7392e69
     last_write_checksum: sha1:fe7b363d676d663264e8fbb2bfd1e73ee26c20ac
@@ -8810,8 +8810,8 @@ trackedFiles:
     pristine_git_object: fc925901fa92bb1be68f28f6006d4a58337b1e07
   src/SDKConfiguration.php:
     id: 9d60ab0bec0b
-    last_write_checksum: sha1:c6bc2ae6a7bd8a5c19d086dce09a41d3a1d586c8
-    pristine_git_object: 4f12dd5f25bb12d3337130234cfa5d42b2fe546e
+    last_write_checksum: sha1:06f2c26eb7f8b370735c82547561db0669d204ee
+    pristine_git_object: 32e75a3e98756dac400d689f451c0efe88d140d0
   src/Schedules.php:
     id: 8dbe56d2d033
     last_write_checksum: sha1:d28a0cf731c5291df4052da79bd90d035d4fca38
@@ -11523,6 +11523,15 @@ examples:
           application/json: {"error": "<value>"}
         "422":
           application/json: {}
+    Created invoice:
+      parameters:
+        path:
+          accountID: "c463fb80-6410-48b7-9e2e-6e9ec58a654f"
+      requestBody:
+        application/json: {"customerAccountID": "3dfff852-927d-47e8-822c-2fffc57ff6b9", "description": "Professional services for Q1 2026", "lineItems": {"items": [{"name": "Professional Services", "basePrice": {"currency": "USD", "valueDecimal": "1000.00"}, "quantity": 1}]}, "invoiceDate": "2026-01-15T00:00:00Z", "dueDate": "2026-02-15T00:00:00Z", "taxAmount": {"currency": "USD", "valueDecimal": "80.00"}}
+      responses:
+        "201":
+          application/json: {"invoiceID": "ec7e1848-dc80-4ab0-8827-dd7fc0737b43", "invoiceNumber": "INV-1001", "description": "Professional services for Q1 2026", "customerAccountID": "3dfff852-927d-47e8-822c-2fffc57ff6b9", "partnerAccountID": "5dfff852-927d-47e8-822c-2fffc57ff6b8", "status": "unpaid", "lineItems": {"items": [{"name": "Professional Services", "basePrice": {"currency": "USD", "valueDecimal": "1000.00"}, "quantity": 1}]}, "subtotalAmount": {"currency": "USD", "valueDecimal": "1000.00"}, "taxAmount": {"currency": "USD", "valueDecimal": "80.00"}, "totalAmount": {"currency": "USD", "valueDecimal": "1080.00"}, "pendingAmount": {"currency": "USD", "valueDecimal": "0.00"}, "paidAmount": {"currency": "USD", "valueDecimal": "0.00"}, "refundedAmount": {"currency": "USD", "valueDecimal": "0.00"}, "disputedAmount": {"currency": "USD", "valueDecimal": "0.00"}, "createdOn": "2024-05-06T12:20:38.184Z", "invoiceDate": "2026-01-15T00:00:00Z", "dueDate": "2026-02-15T00:00:00Z"}
   listInvoices:
     speakeasy-default-list-invoices:
       parameters:
@@ -11536,6 +11545,16 @@ examples:
           application/json: [{"invoiceID": "4ea1aef6-c3b1-4b1b-a992-2daf3b2f232a", "invoiceNumber": "INV-1001", "description": "pave hunt bouncy whereas briefly", "customerAccountID": "9cee1f88-2b2a-4265-9d7d-3192ed44f4f8", "partnerAccountID": "78c0d2bb-ff83-409d-8f3e-e52b7a2a05a2", "status": "payment-pending", "lineItems": {"items": []}, "subtotalAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "taxAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "totalAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "pendingAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "paidAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "refundedAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "disputedAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "createdOn": "2023-02-27T11:12:32.243Z"}]
         "422":
           application/json: {}
+    Invoices:
+      parameters:
+        path:
+          accountID: "114b02db-e4ca-47de-acc9-5624f4afccb5"
+        query:
+          skip: 60
+          count: 20
+      responses:
+        "200":
+          application/json: [{"invoiceID": "ec7e1848-dc80-4ab0-8827-dd7fc0737b43", "invoiceNumber": "INV-1001", "description": "Professional services for Q1 2026", "customerAccountID": "3dfff852-927d-47e8-822c-2fffc57ff6b9", "partnerAccountID": "5dfff852-927d-47e8-822c-2fffc57ff6b8", "status": "unpaid", "lineItems": {"items": [{"name": "Professional Services", "basePrice": {"currency": "USD", "valueDecimal": "1000.00"}, "quantity": 1}]}, "subtotalAmount": {"currency": "USD", "valueDecimal": "1000.00"}, "taxAmount": {"currency": "USD", "valueDecimal": "80.00"}, "totalAmount": {"currency": "USD", "valueDecimal": "1080.00"}, "pendingAmount": {"currency": "USD", "valueDecimal": "0.00"}, "paidAmount": {"currency": "USD", "valueDecimal": "0.00"}, "refundedAmount": {"currency": "USD", "valueDecimal": "0.00"}, "disputedAmount": {"currency": "USD", "valueDecimal": "0.00"}, "createdOn": "2024-05-06T12:20:38.184Z", "invoiceDate": "2026-01-15T00:00:00Z", "dueDate": "2026-02-15T00:00:00Z"}, {"invoiceID": "ec7e1848-dc80-4ab0-8827-dd7fc0737b43", "invoiceNumber": "INV-1001", "description": "Professional services for Q1 2026", "customerAccountID": "3dfff852-927d-47e8-822c-2fffc57ff6b9", "partnerAccountID": "5dfff852-927d-47e8-822c-2fffc57ff6b8", "status": "paid", "lineItems": {"items": [{"name": "Professional Services", "basePrice": {"currency": "USD", "valueDecimal": "1000.00"}, "quantity": 1}]}, "subtotalAmount": {"currency": "USD", "valueDecimal": "1000.00"}, "taxAmount": {"currency": "USD", "valueDecimal": "80.00"}, "totalAmount": {"currency": "USD", "valueDecimal": "1080.00"}, "pendingAmount": {"currency": "USD", "valueDecimal": "0.00"}, "paidAmount": {"currency": "USD", "valueDecimal": "1080.00"}, "refundedAmount": {"currency": "USD", "valueDecimal": "0.00"}, "disputedAmount": {"currency": "USD", "valueDecimal": "0.00"}, "invoicePayments": [{"invoicePaymentID": "a1b2c3d4-e5f6-7890-abcd-ef1234567890", "invoicePaymentType": "transfer", "amount": {"currency": "USD", "valueDecimal": "1080.00"}, "transfer": {"transferID": "ec7e1848-dc80-4ab0-8827-dd7fc0737b43"}}], "createdOn": "2024-05-06T12:20:38.184Z", "invoiceDate": "2026-01-15T00:00:00Z", "dueDate": "2026-02-15T00:00:00Z", "sentOn": "2026-01-15T10:30:00Z", "paidOn": "2026-01-20T14:45:00Z"}]
   getInvoice:
     speakeasy-default-get-invoice:
       parameters:
@@ -11545,6 +11564,14 @@ examples:
       responses:
         "200":
           application/json: {"invoiceID": "5fcf112b-06b3-4f44-8394-a461504011f7", "invoiceNumber": "INV-1001", "customerAccountID": "4e393a28-a21b-4f47-b394-1fd5db5066a0", "partnerAccountID": "7e715f6d-8253-42ee-b960-d0681d232b1a", "status": "payment-pending", "lineItems": {"items": [{"name": "<value>", "basePrice": {"currency": "USD", "valueDecimal": "12.987654321"}, "quantity": 786047, "options": [{"name": "<value>", "quantity": 272007, "priceModifier": {"currency": "USD", "valueDecimal": "12.987654321"}}]}]}, "subtotalAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "taxAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "totalAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "pendingAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "paidAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "refundedAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "disputedAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "invoicePayments": [{"invoicePaymentID": "3ecce96f-a052-4c96-b389-98e880af1ab4", "invoicePaymentType": "external", "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}], "createdOn": "2023-09-25T12:40:16.566Z"}
+    Invoice:
+      parameters:
+        path:
+          accountID: "3ecce96f-a052-4c96-b389-98e880af1ab4"
+          invoiceID: "fc90d016-39ea-4110-b77a-2e1c95827f46"
+      responses:
+        "200":
+          application/json: {"invoiceID": "ec7e1848-dc80-4ab0-8827-dd7fc0737b43", "invoiceNumber": "INV-1001", "description": "Professional services for Q1 2026", "customerAccountID": "3dfff852-927d-47e8-822c-2fffc57ff6b9", "partnerAccountID": "5dfff852-927d-47e8-822c-2fffc57ff6b8", "status": "paid", "lineItems": {"items": [{"name": "Professional Services", "basePrice": {"currency": "USD", "valueDecimal": "1000.00"}, "quantity": 1}]}, "subtotalAmount": {"currency": "USD", "valueDecimal": "1000.00"}, "taxAmount": {"currency": "USD", "valueDecimal": "80.00"}, "totalAmount": {"currency": "USD", "valueDecimal": "1080.00"}, "pendingAmount": {"currency": "USD", "valueDecimal": "0.00"}, "paidAmount": {"currency": "USD", "valueDecimal": "1080.00"}, "refundedAmount": {"currency": "USD", "valueDecimal": "0.00"}, "disputedAmount": {"currency": "USD", "valueDecimal": "0.00"}, "invoicePayments": [{"invoicePaymentID": "a1b2c3d4-e5f6-7890-abcd-ef1234567890", "invoicePaymentType": "transfer", "amount": {"currency": "USD", "valueDecimal": "1080.00"}, "transfer": {"transferID": "ec7e1848-dc80-4ab0-8827-dd7fc0737b43"}}], "createdOn": "2024-05-06T12:20:38.184Z", "invoiceDate": "2026-01-15T00:00:00Z", "dueDate": "2026-02-15T00:00:00Z", "sentOn": "2026-01-15T10:30:00Z", "paidOn": "2026-01-20T14:45:00Z"}
   updateInvoice:
     speakeasy-default-update-invoice:
       parameters:
@@ -11560,6 +11587,16 @@ examples:
           application/json: {"error": "<value>"}
         "422":
           application/json: {}
+    Updated invoice:
+      parameters:
+        path:
+          accountID: "fcce46d6-5a85-404a-afa3-f7303401bd08"
+          invoiceID: "3eef5109-9937-40a3-b507-d5bc81fc02a2"
+      requestBody:
+        application/json: {"description": "Updated professional services for Q1 2026", "lineItems": {"items": [{"name": "Professional Services", "basePrice": {"currency": "USD", "valueDecimal": "1000.00"}, "quantity": 1}]}, "invoiceDate": "2026-01-16T00:00:00Z", "dueDate": "2026-02-16T00:00:00Z"}
+      responses:
+        "200":
+          application/json: {"invoiceID": "ec7e1848-dc80-4ab0-8827-dd7fc0737b43", "invoiceNumber": "INV-1001", "description": "Professional services for Q1 2026", "customerAccountID": "3dfff852-927d-47e8-822c-2fffc57ff6b9", "partnerAccountID": "5dfff852-927d-47e8-822c-2fffc57ff6b8", "status": "unpaid", "lineItems": {"items": [{"name": "Professional Services", "basePrice": {"currency": "USD", "valueDecimal": "1000.00"}, "quantity": 1}]}, "subtotalAmount": {"currency": "USD", "valueDecimal": "1000.00"}, "taxAmount": {"currency": "USD", "valueDecimal": "80.00"}, "totalAmount": {"currency": "USD", "valueDecimal": "1080.00"}, "pendingAmount": {"currency": "USD", "valueDecimal": "0.00"}, "paidAmount": {"currency": "USD", "valueDecimal": "0.00"}, "refundedAmount": {"currency": "USD", "valueDecimal": "0.00"}, "disputedAmount": {"currency": "USD", "valueDecimal": "0.00"}, "createdOn": "2024-05-06T12:20:38.184Z", "invoiceDate": "2026-01-15T00:00:00Z", "dueDate": "2026-02-15T00:00:00Z"}
   markPaidInvoice:
     speakeasy-default-mark-paid-invoice:
       parameters:
@@ -11613,6 +11650,16 @@ examples:
           application/json: {"error": "<value>"}
         "422":
           application/json: {}
+    External payment:
+      parameters:
+        path:
+          accountID: "e02333e4-a835-46d1-8d02-9af7a405e65f"
+          invoiceID: "99e7ebb0-9996-49b2-98f0-304c7332ece6"
+      requestBody:
+        application/json: {"foreignID": "EXT-PAY-12345", "amount": {"currency": "USD", "valueDecimal": "500.00"}, "description": "Payment received via wire transfer", "paymentDate": "2026-01-20T14:45:00Z"}
+      responses:
+        "200":
+          application/json: {"invoicePaymentID": "a1b2c3d4-e5f6-7890-abcd-ef1234567890", "invoicePaymentType": "external", "amount": {"currency": "USD", "valueDecimal": "500.00"}, "external": {"description": "Payment via external system", "foreignID": "EXT-PAY-12345", "paymentDate": "2026-01-20T14:45:00Z"}}
   listInvoicePayments:
     speakeasy-default-list-invoice-payments:
       parameters:
@@ -11622,6 +11669,14 @@ examples:
       responses:
         "200":
           application/json: [{"invoicePaymentID": "e3464d9b-6593-40ff-9017-a557c2433e58", "invoicePaymentType": "transfer", "amount": {"currency": "USD", "valueDecimal": "12.987654321"}, "external": {"description": "juggernaut posh biodegradable cleverly likewise verbally"}}]
+    Payments:
+      parameters:
+        path:
+          accountID: "dcfbb04d-465e-4dbc-ad14-420961d94d21"
+          invoiceID: "d25d8b7f-bb29-420c-8185-4ed9df60ba13"
+      responses:
+        "200":
+          application/json: [{"invoicePaymentID": "a1b2c3d4-e5f6-7890-abcd-ef1234567890", "invoicePaymentType": "transfer", "amount": {"currency": "USD", "valueDecimal": "500.00"}, "transfer": {"transferID": "ec7e1848-dc80-4ab0-8827-dd7fc0737b43"}}, {"invoicePaymentID": "a1b2c3d4-e5f6-7890-abcd-ef1234567890", "invoicePaymentType": "external", "amount": {"currency": "USD", "valueDecimal": "500.00"}, "external": {"description": "Payment via external system", "foreignID": "EXT-PAY-12345", "paymentDate": "2026-01-20T14:45:00Z"}}]
   listEventTypes:
     speakeasy-default-list-event-types:
       responses:
@@ -11691,7 +11746,6 @@ examples:
           application/json: {"secret": "<value>"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Php SDK Changes:\n* `moov->invoices->listInvoices()`: \n  *  `request` **Changed**\n  *  `error` **Changed**\n"
 generatedFiles:
   - .gitattributes
   - USAGE.md
