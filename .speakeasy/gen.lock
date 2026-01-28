@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 78c159601b1fd4e8fe74e4dbb7ebf50a
+  docChecksum: e88b29cfb294581711e7af625ced2d3a
   docVersion: latest
-  speakeasyVersion: 1.695.0
-  generationVersion: 2.799.0
-  releaseVersion: 0.7.36
-  configChecksum: 0da8fa4bb3315330360f5696d3351ff2
+  speakeasyVersion: 1.700.1
+  generationVersion: 2.801.0
+  releaseVersion: 0.7.37
+  configChecksum: 226ceb8810ea7898a22f18a88eded302
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
 persistentEdits:
-  generation_id: eaa95283-d905-4308-ac18-3de62d54fd40
-  pristine_commit_hash: 3ef5d062eb12eb47f901c3137b165173f8723244
-  pristine_tree_hash: b89e932d79663fa26f128d56d1afe42e8b0f838e
+  generation_id: 82635d37-f461-46a3-a213-f25db7d4cc8f
+  pristine_commit_hash: db22838304939ab006b05b2cd56f7bdc6e721ec7
+  pristine_tree_hash: e5439bf77ac0f196229a5f5ef8d8a48950ced1d8
 features:
   php:
     constsAndDefaults: 0.2.0
@@ -1470,12 +1470,12 @@ trackedFiles:
     pristine_git_object: 1fc903c701e71ebc2c46c33e097bee602c28e213
   docs/Models/Components/OnboardingInvite.md:
     id: 94eafb195bca
-    last_write_checksum: sha1:5187fe9128a93efec7e261cd217d42b02984d6a2
-    pristine_git_object: e6fd95a684fea9e7b35c457af2990bd84f1a89d8
+    last_write_checksum: sha1:764cfe7bdcb248af66af12e7717d95c0f64ab1f5
+    pristine_git_object: 6e73eec22963b005f783fa1146b4a82be2f76bb9
   docs/Models/Components/OnboardingInviteRequest.md:
     id: 9c0a5800e782
-    last_write_checksum: sha1:fbe09f088d52692c76cbd2f4f8c3b26764780f4f
-    pristine_git_object: 08a5ea0ade13959537b847fd2b782555173066ad
+    last_write_checksum: sha1:89b01aaaba611c6c1748dd7c277d743f2440a6e9
+    pristine_git_object: d1739c82031e1af471a8b6ab189ee68acb419782
   docs/Models/Components/OnboardingPartnerAccount.md:
     id: 6c29bcef2de5
     last_write_checksum: sha1:5e0836dc8752c4b412d5e03d7cdc06cce9fa0554
@@ -4234,8 +4234,8 @@ trackedFiles:
     pristine_git_object: 239a384656332124bb69f2e5baa02f52ca503f40
   docs/sdks/onboardinginvites/README.md:
     id: f3d71e9fb782
-    last_write_checksum: sha1:780274baf419475f063d2cc0822b1c67497f2c39
-    pristine_git_object: 8768c3f2c5eb4fcec086fab043e56d9c06988bcc
+    last_write_checksum: sha1:a8175f23582e913af0f73ca9efd424befa2d2d5d
+    pristine_git_object: e68137d62f14bb0e46aa28adfd2aa45972ad8007
   docs/sdks/paymentlinks/README.md:
     id: 35777159619c
     last_write_checksum: sha1:b7aee0ce76f29a4cbef77188f58487305bc4a293
@@ -5898,12 +5898,12 @@ trackedFiles:
     pristine_git_object: 4da0622b3860e44bfbe148aec31a578a9cf0ddfa
   src/Models/Components/OnboardingInvite.php:
     id: 8d7c7278f1f0
-    last_write_checksum: sha1:dcf42e21753025d001ca05e21f9d3ff146e086c5
-    pristine_git_object: 44f5520073951d5b90c70bd51c981bb81e0dcb73
+    last_write_checksum: sha1:c41e73ef85b0a1d0bc22205eb5ce447a57e90f43
+    pristine_git_object: 68c57f4e1e181e1fb4236804b5c94d9c3b689b7f
   src/Models/Components/OnboardingInviteRequest.php:
     id: a1930e59667e
-    last_write_checksum: sha1:5c86cb373273f1c98348270bc7454a74444cc0ab
-    pristine_git_object: 5ffd900eed1c231991261882edf0714782ff41c6
+    last_write_checksum: sha1:1440f9506f23e7aa940b05955ef333012e693d2e
+    pristine_git_object: fca610abb2ceb0ce4fcdfc1553eb2ec0a6bb29e3
   src/Models/Components/OnboardingPartnerAccount.php:
     id: bec53b9ce39f
     last_write_checksum: sha1:a3a76fbed25af5e651377324ce7fd4f0540773e9
@@ -8810,8 +8810,8 @@ trackedFiles:
     pristine_git_object: fc925901fa92bb1be68f28f6006d4a58337b1e07
   src/SDKConfiguration.php:
     id: 9d60ab0bec0b
-    last_write_checksum: sha1:06f2c26eb7f8b370735c82547561db0669d204ee
-    pristine_git_object: 32e75a3e98756dac400d689f451c0efe88d140d0
+    last_write_checksum: sha1:22dd2f99a1323a767d19e40c69100b07519e14d9
+    pristine_git_object: fbcd0411d9ea342f348ef0069b821a52c53ecd60
   src/Schedules.php:
     id: 8dbe56d2d033
     last_write_checksum: sha1:d28a0cf731c5291df4052da79bd90d035d4fca38
@@ -10974,10 +10974,10 @@ examples:
           x-moov-version: "v2024.01.00"
           X-Moov-Version: "v2024.01.00"
       requestBody:
-        application/json: {"scopes": ["accounts.read"], "capabilities": ["transfers"], "feePlanCodes": ["merchant-direct"], "prefill": {"accountType": "business", "profile": {"business": {"legalBusinessName": "Whole Body Fitness LLC"}}}}
+        application/json: {"scopes": ["accounts.read"], "grantScopes": ["transfers.write"], "capabilities": ["transfers"], "feePlanCodes": ["merchant-direct"], "prefill": {"accountType": "business", "profile": {"business": {"legalBusinessName": "Whole Body Fitness LLC"}}}}
       responses:
         "200":
-          application/json: {"code": "N1IA5eWYNh", "link": "https://failing-wasabi.com", "scopes": ["accounts.read"], "capabilities": ["transfers"], "feePlanCodes": ["merchant-direct"], "prefill": {"accountType": "business", "profile": {"business": {"legalBusinessName": "Whole Body Fitness LLC"}}}, "partner": {"accountID": "ee73fe4c-8ea3-4469-a841-92278013c9ea", "accountMode": "production", "displayName": "Bob's Widgets"}, "createdOn": "2024-05-08T22:53:24.634Z"}
+          application/json: {"code": "N1IA5eWYNh", "link": "https://failing-wasabi.com", "scopes": ["accounts.read"], "grantScopes": ["transfers.write"], "capabilities": ["transfers"], "feePlanCodes": ["merchant-direct"], "prefill": {"accountType": "business", "profile": {"business": {"legalBusinessName": "Whole Body Fitness LLC"}}}, "partner": {"accountID": "ee73fe4c-8ea3-4469-a841-92278013c9ea", "accountMode": "production", "displayName": "Bob's Widgets"}, "createdOn": "2024-05-08T22:53:24.634Z"}
         "400":
           application/json: {"error": "<value>"}
         "422":
@@ -11001,7 +11001,7 @@ examples:
           X-Moov-Version: "v2024.01.00"
       responses:
         "200":
-          application/json: {"code": "N1IA5eWYNh", "link": "https://austere-cappelletti.com", "scopes": ["accounts.read"], "capabilities": ["transfers"], "feePlanCodes": ["merchant-direct"], "prefill": {"accountType": "business", "profile": {"business": {"legalBusinessName": "Whole Body Fitness LLC"}}}, "partner": {"accountID": "056b20bf-2d5d-4e89-9317-29958a4e4a82", "accountMode": "production", "displayName": "Bob's Widgets"}, "createdOn": "2025-08-08T10:05:08.362Z"}
+          application/json: {"code": "N1IA5eWYNh", "link": "https://austere-cappelletti.com", "scopes": ["accounts.read"], "grantScopes": ["transfers.write"], "capabilities": ["transfers"], "feePlanCodes": ["merchant-direct"], "prefill": {"accountType": "business", "profile": {"business": {"legalBusinessName": "Whole Body Fitness LLC"}}}, "partner": {"accountID": "056b20bf-2d5d-4e89-9317-29958a4e4a82", "accountMode": "production", "displayName": "Bob's Widgets"}, "createdOn": "2025-08-08T10:05:08.362Z"}
   revokeOnboardingInvite:
     speakeasy-default-revoke-onboarding-invite:
       parameters:
@@ -11746,6 +11746,7 @@ examples:
           application/json: {"secret": "<value>"}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: "## Php SDK Changes:\n* `moov->onboardinginvites->create()`: \n  *  `request.onboardingInviteRequest->grantScopes` **Added**\n  *  `response.grantScopes` **Added**\n* `moov->onboarding->listInvites()`:  `response.[]->grantScopes` **Added**\n* `moov->onboarding->getInvite()`:  `response.grantScopes` **Added**\n"
 generatedFiles:
   - .gitattributes
   - USAGE.md

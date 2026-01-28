@@ -84,6 +84,18 @@ class OnboardingInvite
     public ?string $termsOfServiceURL = null;
 
     /**
+     *   List of [scopes](https://docs.moov.io/api/authentication/scopes/) you grant to allow being used 
+     *
+     *   by the new account on yourself. These values are used to determine what the account onboarded can do.
+     *
+     * @var ?array<ApplicationScope> $grantScopes
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('grantScopes')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\ApplicationScope>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $grantScopes = null;
+
+    /**
      * The account ID of the account that redeemed the invite.
      *
      * @var ?string $redeemedAccountID
@@ -136,6 +148,7 @@ class OnboardingInvite
      * @param  \DateTime  $createdOn
      * @param  ?string  $returnURL
      * @param  ?string  $termsOfServiceURL
+     * @param  ?array<ApplicationScope>  $grantScopes
      * @param  ?string  $redeemedAccountID
      * @param  ?CreateAccount  $prefill
      * @param  ?OnboardingPartnerAccount  $partner
@@ -143,7 +156,7 @@ class OnboardingInvite
      * @param  ?\DateTime  $redeemedOn
      * @phpstan-pure
      */
-    public function __construct(string $code, string $link, array $scopes, array $capabilities, array $feePlanCodes, \DateTime $createdOn, ?string $returnURL = null, ?string $termsOfServiceURL = null, ?string $redeemedAccountID = null, ?CreateAccount $prefill = null, ?OnboardingPartnerAccount $partner = null, ?\DateTime $revokedOn = null, ?\DateTime $redeemedOn = null)
+    public function __construct(string $code, string $link, array $scopes, array $capabilities, array $feePlanCodes, \DateTime $createdOn, ?string $returnURL = null, ?string $termsOfServiceURL = null, ?array $grantScopes = null, ?string $redeemedAccountID = null, ?CreateAccount $prefill = null, ?OnboardingPartnerAccount $partner = null, ?\DateTime $revokedOn = null, ?\DateTime $redeemedOn = null)
     {
         $this->code = $code;
         $this->link = $link;
@@ -153,6 +166,7 @@ class OnboardingInvite
         $this->createdOn = $createdOn;
         $this->returnURL = $returnURL;
         $this->termsOfServiceURL = $termsOfServiceURL;
+        $this->grantScopes = $grantScopes;
         $this->redeemedAccountID = $redeemedAccountID;
         $this->prefill = $prefill;
         $this->partner = $partner;

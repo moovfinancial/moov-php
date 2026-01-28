@@ -62,6 +62,18 @@ class OnboardingInviteRequest
     public ?string $termsOfServiceURL = null;
 
     /**
+     *   List of [scopes](https://docs.moov.io/api/authentication/scopes/) you grant to allow being used 
+     *
+     *   by the new account on yourself. These values are used to determine what the account onboarded can do.
+     *
+     * @var ?array<ApplicationScope> $grantScopes
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('grantScopes')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\ApplicationScope>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $grantScopes = null;
+
+    /**
      *
      * @var ?CreateAccount $prefill
      */
@@ -76,16 +88,18 @@ class OnboardingInviteRequest
      * @param  array<string>  $feePlanCodes
      * @param  ?string  $returnURL
      * @param  ?string  $termsOfServiceURL
+     * @param  ?array<ApplicationScope>  $grantScopes
      * @param  ?CreateAccount  $prefill
      * @phpstan-pure
      */
-    public function __construct(array $scopes, array $capabilities, array $feePlanCodes, ?string $returnURL = null, ?string $termsOfServiceURL = null, ?CreateAccount $prefill = null)
+    public function __construct(array $scopes, array $capabilities, array $feePlanCodes, ?string $returnURL = null, ?string $termsOfServiceURL = null, ?array $grantScopes = null, ?CreateAccount $prefill = null)
     {
         $this->scopes = $scopes;
         $this->capabilities = $capabilities;
         $this->feePlanCodes = $feePlanCodes;
         $this->returnURL = $returnURL;
         $this->termsOfServiceURL = $termsOfServiceURL;
+        $this->grantScopes = $grantScopes;
         $this->prefill = $prefill;
     }
 }

@@ -41,6 +41,9 @@ $onboardingInviteRequest = new Components\OnboardingInviteRequest(
     scopes: [
         Components\ApplicationScope::AccountsRead,
     ],
+    grantScopes: [
+        Components\ApplicationScope::TransfersWrite,
+    ],
     capabilities: [
         Components\CapabilityID::Transfers,
     ],
