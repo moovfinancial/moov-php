@@ -1,0 +1,24 @@
+workflowVersion: 1.0.0
+speakeasyVersion: latest
+sources:
+    latest:
+        inputs:
+            - location: registry.speakeasyapi.dev/moov/moov/api-{{API_VERSION}}
+        overlays:
+            - location: .speakeasy/speakeasy-modifications-overlay.yaml
+        registry:
+            location: registry.speakeasyapi.dev/moov/moov/php-{{API_VERSION}}
+targets:
+    latest:
+        target: php
+        source: latest
+        publish:
+            packagist:
+                username: moov
+                token: $packagist_token
+        codeSamples:
+            registry:
+                location: registry.speakeasyapi.dev/moov/moov/{{API_VERSION}}--php-code-samples
+            labelOverride:
+                fixedValue: Php (SDK)
+            blocking: false
