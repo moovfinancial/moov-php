@@ -12,6 +12,7 @@ namespace Moov\MoovPhp\Models\Components;
 class Residual
 {
     /**
+     * Unique identifier for this residual payment calculation.
      *
      * @var string $residualID
      */
@@ -19,6 +20,7 @@ class Residual
     public string $residualID;
 
     /**
+     * The partner account ID this residual belongs to.
      *
      * @var string $partnerAccountID
      */
@@ -26,6 +28,7 @@ class Residual
     public string $partnerAccountID;
 
     /**
+     * Start date and time of the residual calculation period.
      *
      * @var \DateTime $periodStart
      */
@@ -33,6 +36,7 @@ class Residual
     public \DateTime $periodStart;
 
     /**
+     * End date and time of the residual calculation period.
      *
      * @var \DateTime $periodEnd
      */
@@ -40,6 +44,7 @@ class Residual
     public \DateTime $periodEnd;
 
     /**
+     * Total amount of merchant fees collected during the period. This represents the partner's revenue from merchant fees.
      *
      * @var AmountDecimal $merchantFees
      */
@@ -48,6 +53,7 @@ class Residual
     public AmountDecimal $merchantFees;
 
     /**
+     * Partner's total cost (buy rate) during the period.
      *
      * @var AmountDecimal $partnerCost
      */
@@ -56,6 +62,7 @@ class Residual
     public AmountDecimal $partnerCost;
 
     /**
+     * Net income calculated as merchant fee revenue minus partner costs.
      *
      * @var AmountDecimal $netIncome
      */
@@ -64,10 +71,7 @@ class Residual
     public AmountDecimal $netIncome;
 
     /**
-     *   The decimal-formatted numerical string of the revenue split for partner.
-     *
-     *   
-     *   For example, 2.25% is '2.25'.
+     * The revenue share percentage the partner receives, expressed as a decimal string (e.g., "25.00" for 25%).
      *
      * @var string $revenueShare
      */
@@ -75,6 +79,7 @@ class Residual
     public string $revenueShare;
 
     /**
+     * The amount the partner receives as their share of the net income (netIncome × revenueShare).
      *
      * @var AmountDecimal $residualAmount
      */
@@ -83,14 +88,7 @@ class Residual
     public AmountDecimal $residualAmount;
 
     /**
-     *
-     * @var AmountDecimal $moovShare
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('moovShare')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
-    public AmountDecimal $moovShare;
-
-    /**
+     * Timestamp when the residual was created.
      *
      * @var \DateTime $createdOn
      */
@@ -98,6 +96,7 @@ class Residual
     public \DateTime $createdOn;
 
     /**
+     * Timestamp when the residual was last updated.
      *
      * @var \DateTime $updatedOn
      */
@@ -114,12 +113,11 @@ class Residual
      * @param  AmountDecimal  $netIncome
      * @param  string  $revenueShare
      * @param  AmountDecimal  $residualAmount
-     * @param  AmountDecimal  $moovShare
      * @param  \DateTime  $createdOn
      * @param  \DateTime  $updatedOn
      * @phpstan-pure
      */
-    public function __construct(string $residualID, string $partnerAccountID, \DateTime $periodStart, \DateTime $periodEnd, AmountDecimal $merchantFees, AmountDecimal $partnerCost, AmountDecimal $netIncome, string $revenueShare, AmountDecimal $residualAmount, AmountDecimal $moovShare, \DateTime $createdOn, \DateTime $updatedOn)
+    public function __construct(string $residualID, string $partnerAccountID, \DateTime $periodStart, \DateTime $periodEnd, AmountDecimal $merchantFees, AmountDecimal $partnerCost, AmountDecimal $netIncome, string $revenueShare, AmountDecimal $residualAmount, \DateTime $createdOn, \DateTime $updatedOn)
     {
         $this->residualID = $residualID;
         $this->partnerAccountID = $partnerAccountID;
@@ -130,7 +128,6 @@ class Residual
         $this->netIncome = $netIncome;
         $this->revenueShare = $revenueShare;
         $this->residualAmount = $residualAmount;
-        $this->moovShare = $moovShare;
         $this->createdOn = $createdOn;
         $this->updatedOn = $updatedOn;
     }

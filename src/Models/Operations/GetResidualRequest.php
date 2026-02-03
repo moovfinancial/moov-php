@@ -19,6 +19,7 @@ class GetResidualRequest
     public string $accountID;
 
     /**
+     * Unique identifier for this residual payment calculation.
      *
      * @var string $residualID
      */

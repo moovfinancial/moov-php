@@ -21,6 +21,7 @@ class IncurredFee
     public ?string $feeID = null;
 
     /**
+     * Account ID the fee belongs to.
      *
      * @var ?string $accountID
      */
@@ -29,6 +30,7 @@ class IncurredFee
     public ?string $accountID = null;
 
     /**
+     * Wallet ID associated with the fee.
      *
      * @var ?string $walletID
      */
@@ -37,6 +39,7 @@ class IncurredFee
     public ?string $walletID = null;
 
     /**
+     * Timestamp when the fee was created.
      *
      * @var ?\DateTime $createdOn
      */
@@ -45,6 +48,7 @@ class IncurredFee
     public ?\DateTime $createdOn = null;
 
     /**
+     * Name of the fee.
      *
      * @var ?string $feeName
      */
@@ -53,6 +57,7 @@ class IncurredFee
     public ?string $feeName = null;
 
     /**
+     * The fee amount.
      *
      * @var ?AmountDecimal $amount
      */
@@ -62,7 +67,7 @@ class IncurredFee
     public ?AmountDecimal $amount = null;
 
     /**
-     * The entity that generated the fee.
+     * Object indicating what generated the fee (TransferID, CardID, DisputeID, AccountID, or BankAccountID).
      *
      * @var ?GeneratedBy $generatedBy
      */
@@ -72,6 +77,7 @@ class IncurredFee
     public ?GeneratedBy $generatedBy = null;
 
     /**
+     * Describes the source of the fee, such as a Moov-set processing fee, a network pass-through fee, or an interchange or discount fee.
      *
      * @var ?string $feeGroup
      */
@@ -80,6 +86,7 @@ class IncurredFee
     public ?string $feeGroup = null;
 
     /**
+     * Unique identifier for this residual payment calculation.
      *
      * @var ?string $residualID
      */
