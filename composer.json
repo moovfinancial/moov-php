@@ -1,6 +1,5 @@
 {
   "name": "moov/moov-php",
-  "version": "25.1.0-dev.2",
   "type": "library",
   "autoload": {
     "psr-4": {
