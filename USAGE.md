@@ -18,7 +18,7 @@ $sdk = MoovPhp\Moov::builder()
     ->build();
 
 $createAccount = new Components\CreateAccount(
-    accountType: Components\CreateAccountType::Business,
+    accountType: Components\AccountType::Business,
     profile: new Components\CreateProfile(
         business: new Components\CreateBusinessProfile(
             legalBusinessName: 'Whole Body Fitness LLC',

@@ -33,25 +33,13 @@ class Profile
     public ?BusinessProfile $business = null;
 
     /**
-     * Describes a guest account profile.
-     *
-     * @var ?GuestProfile $guest
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('guest')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\GuestProfile|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?GuestProfile $guest = null;
-
-    /**
      * @param  ?IndividualProfile  $individual
      * @param  ?BusinessProfile  $business
-     * @param  ?GuestProfile  $guest
      * @phpstan-pure
      */
-    public function __construct(?IndividualProfile $individual = null, ?BusinessProfile $business = null, ?GuestProfile $guest = null)
+    public function __construct(?IndividualProfile $individual = null, ?BusinessProfile $business = null)
     {
         $this->individual = $individual;
         $this->business = $business;
-        $this->guest = $guest;
     }
 }

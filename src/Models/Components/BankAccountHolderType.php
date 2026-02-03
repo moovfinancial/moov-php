@@ -14,5 +14,4 @@ enum BankAccountHolderType: string
 {
     case Individual = 'individual';
     case Business = 'business';
-    case Guest = 'guest';
 }
