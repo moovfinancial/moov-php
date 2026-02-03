@@ -42,19 +42,19 @@ class GetPaymentMethodResponse
     /**
      * The request completed successfully.
      *
-     * @var Components\MoovWalletPaymentMethod|Components\AchDebitFundPaymentMethod|Components\AchDebitCollectPaymentMethod|Components\AchCreditStandardPaymentMethod|Components\AchCreditSameDayPaymentMethod|Components\RtpCreditPaymentMethod|Components\CardPaymentPaymentMethod|Components\PushToCardPaymentMethod|Components\PullFromCardPaymentMethod|Components\ApplePayPaymentMethod|Components\CardPresentPaymentPaymentMethod|Components\InstantBankCreditPaymentMethod|null $paymentMethod
+     * @var Components\MoovWalletPaymentMethod|Components\AchDebitFundPaymentMethod|Components\AchDebitCollectPaymentMethod|Components\AchCreditStandardPaymentMethod|Components\AchCreditSameDayPaymentMethod|Components\RtpCreditPaymentMethod|Components\CardPaymentPaymentMethod|Components\PushToCardPaymentMethod|Components\PullFromCardPaymentMethod|Components\ApplePayPaymentMethod|null $paymentMethod
      */
-    public Components\MoovWalletPaymentMethod|Components\AchDebitFundPaymentMethod|Components\AchDebitCollectPaymentMethod|Components\AchCreditStandardPaymentMethod|Components\AchCreditSameDayPaymentMethod|Components\RtpCreditPaymentMethod|Components\CardPaymentPaymentMethod|Components\PushToCardPaymentMethod|Components\PullFromCardPaymentMethod|Components\ApplePayPaymentMethod|Components\CardPresentPaymentPaymentMethod|Components\InstantBankCreditPaymentMethod|null $paymentMethod = null;
+    public Components\MoovWalletPaymentMethod|Components\AchDebitFundPaymentMethod|Components\AchDebitCollectPaymentMethod|Components\AchCreditStandardPaymentMethod|Components\AchCreditSameDayPaymentMethod|Components\RtpCreditPaymentMethod|Components\CardPaymentPaymentMethod|Components\PushToCardPaymentMethod|Components\PullFromCardPaymentMethod|Components\ApplePayPaymentMethod|null $paymentMethod = null;
 
     /**
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  Components\MoovWalletPaymentMethod|Components\AchDebitFundPaymentMethod|Components\AchDebitCollectPaymentMethod|Components\AchCreditStandardPaymentMethod|Components\AchCreditSameDayPaymentMethod|Components\RtpCreditPaymentMethod|Components\CardPaymentPaymentMethod|Components\PushToCardPaymentMethod|Components\PullFromCardPaymentMethod|Components\ApplePayPaymentMethod|Components\CardPresentPaymentPaymentMethod|Components\InstantBankCreditPaymentMethod|null  $paymentMethod
+     * @param  Components\MoovWalletPaymentMethod|Components\AchDebitFundPaymentMethod|Components\AchDebitCollectPaymentMethod|Components\AchCreditStandardPaymentMethod|Components\AchCreditSameDayPaymentMethod|Components\RtpCreditPaymentMethod|Components\CardPaymentPaymentMethod|Components\PushToCardPaymentMethod|Components\PullFromCardPaymentMethod|Components\ApplePayPaymentMethod|null  $paymentMethod
      * @phpstan-pure
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, Components\MoovWalletPaymentMethod|Components\AchDebitFundPaymentMethod|Components\AchDebitCollectPaymentMethod|Components\AchCreditStandardPaymentMethod|Components\AchCreditSameDayPaymentMethod|Components\RtpCreditPaymentMethod|Components\CardPaymentPaymentMethod|Components\PushToCardPaymentMethod|Components\PullFromCardPaymentMethod|Components\ApplePayPaymentMethod|Components\CardPresentPaymentPaymentMethod|Components\InstantBankCreditPaymentMethod|null $paymentMethod = null, ?array $headers = [])
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, Components\MoovWalletPaymentMethod|Components\AchDebitFundPaymentMethod|Components\AchDebitCollectPaymentMethod|Components\AchCreditStandardPaymentMethod|Components\AchCreditSameDayPaymentMethod|Components\RtpCreditPaymentMethod|Components\CardPaymentPaymentMethod|Components\PushToCardPaymentMethod|Components\PullFromCardPaymentMethod|Components\ApplePayPaymentMethod|null $paymentMethod = null, ?array $headers = [])
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;

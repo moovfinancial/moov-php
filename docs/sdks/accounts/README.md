@@ -127,7 +127,7 @@ $sdk = MoovPhp\Moov::builder()
     ->build();
 
 $createAccount = new Components\CreateAccount(
-    accountType: Components\CreateAccountType::Business,
+    accountType: Components\AccountType::Business,
     profile: new Components\CreateProfile(
         business: new Components\CreateBusinessProfile(
             legalBusinessName: 'Whole Body Fitness LLC',
@@ -197,7 +197,7 @@ $sdk = MoovPhp\Moov::builder()
     ->build();
 
 $request = new Operations\ListAccountsRequest(
-    type: Components\CreateAccountType::Business,
+    type: Components\AccountType::Business,
     skip: 60,
     count: 20,
 );
@@ -526,6 +526,7 @@ $sdk = MoovPhp\Moov::builder()
 
 $request = new Operations\ListConnectedAccountsForAccountRequest(
     accountID: '7e09ffc8-e508-4fd4-a54e-21cff90a1824',
+    type: Components\AccountType::Business,
     skip: 60,
     count: 20,
 );
