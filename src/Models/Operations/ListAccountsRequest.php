@@ -69,10 +69,10 @@ class ListAccountsRequest
      *
      *   Filtering by `type=guest` is not currently supported.
      *
-     * @var ?Components\CreateAccountType $type
+     * @var ?Components\AccountType $type
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=type')]
-    public ?Components\CreateAccountType $type = null;
+    public ?Components\AccountType $type = null;
 
     /**
      *   Serves as an optional alias from a foreign/external system which can be used to reference this resource.
@@ -127,7 +127,7 @@ class ListAccountsRequest
      * @param  ?string  $xMoovVersion
      * @param  ?string  $name
      * @param  ?string  $email
-     * @param  ?Components\CreateAccountType  $type
+     * @param  ?Components\AccountType  $type
      * @param  ?string  $foreignID
      * @param  ?bool  $includeDisconnected
      * @param  ?Components\CapabilityID  $capability
@@ -136,7 +136,7 @@ class ListAccountsRequest
      * @param  ?int  $count
      * @phpstan-pure
      */
-    public function __construct(?string $xMoovVersion = null, ?string $name = null, ?string $email = null, ?Components\CreateAccountType $type = null, ?string $foreignID = null, ?bool $includeDisconnected = null, ?Components\CapabilityID $capability = null, ?Components\CapabilityStatus $capabilityStatus = null, ?int $skip = null, ?int $count = null)
+    public function __construct(?string $xMoovVersion = null, ?string $name = null, ?string $email = null, ?Components\AccountType $type = null, ?string $foreignID = null, ?bool $includeDisconnected = null, ?Components\CapabilityID $capability = null, ?Components\CapabilityStatus $capabilityStatus = null, ?int $skip = null, ?int $count = null)
     {
         $this->xMoovVersion = $xMoovVersion;
         $this->name = $name;

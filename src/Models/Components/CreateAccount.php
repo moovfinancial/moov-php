@@ -12,12 +12,13 @@ namespace Moov\MoovPhp\Models\Components;
 class CreateAccount
 {
     /**
+     * The type of entity represented by this account.
      *
-     * @var CreateAccountType $accountType
+     * @var AccountType $accountType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('accountType')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateAccountType')]
-    public CreateAccountType $accountType;
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AccountType')]
+    public AccountType $accountType;
 
     /**
      *
@@ -98,7 +99,7 @@ class CreateAccount
     public ?Mode $mode = null;
 
     /**
-     * @param  CreateAccountType  $accountType
+     * @param  AccountType  $accountType
      * @param  CreateProfile  $profile
      * @param  ?array<string, string>  $metadata
      * @param  ?TermsOfServicePayload  $termsOfService
@@ -109,7 +110,7 @@ class CreateAccount
      * @param  ?Mode  $mode
      * @phpstan-pure
      */
-    public function __construct(CreateAccountType $accountType, CreateProfile $profile, ?array $metadata = null, ?TermsOfServicePayload $termsOfService = null, ?string $foreignID = null, ?CustomerSupport $customerSupport = null, ?Settings $settings = null, ?array $capabilities = null, ?Mode $mode = null)
+    public function __construct(AccountType $accountType, CreateProfile $profile, ?array $metadata = null, ?TermsOfServicePayload $termsOfService = null, ?string $foreignID = null, ?CustomerSupport $customerSupport = null, ?Settings $settings = null, ?array $capabilities = null, ?Mode $mode = null)
     {
         $this->accountType = $accountType;
         $this->profile = $profile;

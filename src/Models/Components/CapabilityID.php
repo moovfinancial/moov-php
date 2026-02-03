@@ -19,19 +19,8 @@ enum CapabilityID: string
 {
     case Transfers = 'transfers';
     case SendFunds = 'send-funds';
-    case SendFundsPushToCard = 'send-funds.push-to-card';
-    case MoneyTransferPushToCard = 'money-transfer.push-to-card';
-    case SendFundsAch = 'send-funds.ach';
-    case SendFundsRtp = 'send-funds.rtp';
-    case SendFundsInstantBank = 'send-funds.instant-bank';
     case CollectFunds = 'collect-funds';
-    case CollectFundsCardPayments = 'collect-funds.card-payments';
-    case MoneyTransferPullFromCard = 'money-transfer.pull-from-card';
-    case CollectFundsAch = 'collect-funds.ach';
     case Wallet = 'wallet';
-    case WalletBalance = 'wallet.balance';
     case CardIssuing = 'card-issuing';
     case ProductionApp = 'production-app';
-    case PlatformProductionApp = 'platform.production-app';
-    case PlatformWalletTransfers = 'platform.wallet-transfers';
 }
