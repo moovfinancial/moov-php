@@ -49,8 +49,6 @@ class Moov
 
     public Images $images;
 
-    public Invoices $invoices;
-
     public PaymentLinks $paymentLinks;
 
     public PaymentMethods $paymentMethods;
@@ -68,8 +66,6 @@ class Moov
     public Sweeps $sweeps;
 
     public AccountTerminalApplications $accountTerminalApplications;
-
-    public Support $support;
 
     public Transfers $transfers;
 
@@ -140,7 +136,6 @@ class Moov
         $this->feePlans = new FeePlans($this->sdkConfiguration);
         $this->files = new Files($this->sdkConfiguration);
         $this->images = new Images($this->sdkConfiguration);
-        $this->invoices = new Invoices($this->sdkConfiguration);
         $this->paymentLinks = new PaymentLinks($this->sdkConfiguration);
         $this->paymentMethods = new PaymentMethods($this->sdkConfiguration);
         $this->products = new Products($this->sdkConfiguration);
@@ -150,7 +145,6 @@ class Moov
         $this->statements = new Statements($this->sdkConfiguration);
         $this->sweeps = new Sweeps($this->sdkConfiguration);
         $this->accountTerminalApplications = new AccountTerminalApplications($this->sdkConfiguration);
-        $this->support = new Support($this->sdkConfiguration);
         $this->transfers = new Transfers($this->sdkConfiguration);
         $this->underwriting = new Underwriting($this->sdkConfiguration);
         $this->wallets = new Wallets($this->sdkConfiguration);

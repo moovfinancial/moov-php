@@ -42,7 +42,7 @@ class ListPaymentMethodsResponse
     /**
      * The request completed successfully.
      *
-     * @var ?array<Components\MoovWalletPaymentMethod|Components\AchDebitFundPaymentMethod|Components\AchDebitCollectPaymentMethod|Components\AchCreditStandardPaymentMethod|Components\AchCreditSameDayPaymentMethod|Components\RtpCreditPaymentMethod|Components\CardPaymentPaymentMethod|Components\PushToCardPaymentMethod|Components\PullFromCardPaymentMethod|Components\ApplePayPaymentMethod|Components\CardPresentPaymentPaymentMethod|Components\InstantBankCreditPaymentMethod> $paymentMethods
+     * @var ?array<Components\MoovWalletPaymentMethod|Components\AchDebitFundPaymentMethod|Components\AchDebitCollectPaymentMethod|Components\AchCreditStandardPaymentMethod|Components\AchCreditSameDayPaymentMethod|Components\RtpCreditPaymentMethod|Components\CardPaymentPaymentMethod|Components\PushToCardPaymentMethod|Components\PullFromCardPaymentMethod|Components\ApplePayPaymentMethod> $paymentMethods
      */
     public ?array $paymentMethods = null;
 
@@ -51,7 +51,7 @@ class ListPaymentMethodsResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?array<Components\MoovWalletPaymentMethod|Components\AchDebitFundPaymentMethod|Components\AchDebitCollectPaymentMethod|Components\AchCreditStandardPaymentMethod|Components\AchCreditSameDayPaymentMethod|Components\RtpCreditPaymentMethod|Components\CardPaymentPaymentMethod|Components\PushToCardPaymentMethod|Components\PullFromCardPaymentMethod|Components\ApplePayPaymentMethod|Components\CardPresentPaymentPaymentMethod|Components\InstantBankCreditPaymentMethod>  $paymentMethods
+     * @param  ?array<Components\MoovWalletPaymentMethod|Components\AchDebitFundPaymentMethod|Components\AchDebitCollectPaymentMethod|Components\AchCreditStandardPaymentMethod|Components\AchCreditSameDayPaymentMethod|Components\RtpCreditPaymentMethod|Components\CardPaymentPaymentMethod|Components\PushToCardPaymentMethod|Components\PullFromCardPaymentMethod|Components\ApplePayPaymentMethod>  $paymentMethods
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?array $paymentMethods = null, ?array $headers = [])

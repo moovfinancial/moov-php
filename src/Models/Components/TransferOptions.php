@@ -14,26 +14,26 @@ class TransferOptions
     /**
      * $sourceOptions
      *
-     * @var ?array<MoovWalletPaymentMethod|AchDebitFundPaymentMethod|AchDebitCollectPaymentMethod|AchCreditStandardPaymentMethod|AchCreditSameDayPaymentMethod|RtpCreditPaymentMethod|CardPaymentPaymentMethod|PushToCardPaymentMethod|PullFromCardPaymentMethod|ApplePayPaymentMethod|CardPresentPaymentPaymentMethod|InstantBankCreditPaymentMethod> $sourceOptions
+     * @var ?array<MoovWalletPaymentMethod|AchDebitFundPaymentMethod|AchDebitCollectPaymentMethod|AchCreditStandardPaymentMethod|AchCreditSameDayPaymentMethod|RtpCreditPaymentMethod|CardPaymentPaymentMethod|PushToCardPaymentMethod|PullFromCardPaymentMethod|ApplePayPaymentMethod> $sourceOptions
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('sourceOptions')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\MoovWalletPaymentMethod|\Moov\MoovPhp\Models\Components\AchDebitFundPaymentMethod|\Moov\MoovPhp\Models\Components\AchDebitCollectPaymentMethod|\Moov\MoovPhp\Models\Components\AchCreditStandardPaymentMethod|\Moov\MoovPhp\Models\Components\AchCreditSameDayPaymentMethod|\Moov\MoovPhp\Models\Components\RtpCreditPaymentMethod|\Moov\MoovPhp\Models\Components\CardPaymentPaymentMethod|\Moov\MoovPhp\Models\Components\PushToCardPaymentMethod|\Moov\MoovPhp\Models\Components\PullFromCardPaymentMethod|\Moov\MoovPhp\Models\Components\ApplePayPaymentMethod|\Moov\MoovPhp\Models\Components\CardPresentPaymentPaymentMethod|\Moov\MoovPhp\Models\Components\InstantBankCreditPaymentMethod>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\MoovWalletPaymentMethod|\Moov\MoovPhp\Models\Components\AchDebitFundPaymentMethod|\Moov\MoovPhp\Models\Components\AchDebitCollectPaymentMethod|\Moov\MoovPhp\Models\Components\AchCreditStandardPaymentMethod|\Moov\MoovPhp\Models\Components\AchCreditSameDayPaymentMethod|\Moov\MoovPhp\Models\Components\RtpCreditPaymentMethod|\Moov\MoovPhp\Models\Components\CardPaymentPaymentMethod|\Moov\MoovPhp\Models\Components\PushToCardPaymentMethod|\Moov\MoovPhp\Models\Components\PullFromCardPaymentMethod|\Moov\MoovPhp\Models\Components\ApplePayPaymentMethod>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $sourceOptions = null;
 
     /**
      * $destinationOptions
      *
-     * @var ?array<MoovWalletPaymentMethod|AchDebitFundPaymentMethod|AchDebitCollectPaymentMethod|AchCreditStandardPaymentMethod|AchCreditSameDayPaymentMethod|RtpCreditPaymentMethod|CardPaymentPaymentMethod|PushToCardPaymentMethod|PullFromCardPaymentMethod|ApplePayPaymentMethod|CardPresentPaymentPaymentMethod|InstantBankCreditPaymentMethod> $destinationOptions
+     * @var ?array<MoovWalletPaymentMethod|AchDebitFundPaymentMethod|AchDebitCollectPaymentMethod|AchCreditStandardPaymentMethod|AchCreditSameDayPaymentMethod|RtpCreditPaymentMethod|CardPaymentPaymentMethod|PushToCardPaymentMethod|PullFromCardPaymentMethod|ApplePayPaymentMethod> $destinationOptions
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('destinationOptions')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\MoovWalletPaymentMethod|\Moov\MoovPhp\Models\Components\AchDebitFundPaymentMethod|\Moov\MoovPhp\Models\Components\AchDebitCollectPaymentMethod|\Moov\MoovPhp\Models\Components\AchCreditStandardPaymentMethod|\Moov\MoovPhp\Models\Components\AchCreditSameDayPaymentMethod|\Moov\MoovPhp\Models\Components\RtpCreditPaymentMethod|\Moov\MoovPhp\Models\Components\CardPaymentPaymentMethod|\Moov\MoovPhp\Models\Components\PushToCardPaymentMethod|\Moov\MoovPhp\Models\Components\PullFromCardPaymentMethod|\Moov\MoovPhp\Models\Components\ApplePayPaymentMethod|\Moov\MoovPhp\Models\Components\CardPresentPaymentPaymentMethod|\Moov\MoovPhp\Models\Components\InstantBankCreditPaymentMethod>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\MoovWalletPaymentMethod|\Moov\MoovPhp\Models\Components\AchDebitFundPaymentMethod|\Moov\MoovPhp\Models\Components\AchDebitCollectPaymentMethod|\Moov\MoovPhp\Models\Components\AchCreditStandardPaymentMethod|\Moov\MoovPhp\Models\Components\AchCreditSameDayPaymentMethod|\Moov\MoovPhp\Models\Components\RtpCreditPaymentMethod|\Moov\MoovPhp\Models\Components\CardPaymentPaymentMethod|\Moov\MoovPhp\Models\Components\PushToCardPaymentMethod|\Moov\MoovPhp\Models\Components\PullFromCardPaymentMethod|\Moov\MoovPhp\Models\Components\ApplePayPaymentMethod>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $destinationOptions = null;
 
     /**
-     * @param  ?array<MoovWalletPaymentMethod|AchDebitFundPaymentMethod|AchDebitCollectPaymentMethod|AchCreditStandardPaymentMethod|AchCreditSameDayPaymentMethod|RtpCreditPaymentMethod|CardPaymentPaymentMethod|PushToCardPaymentMethod|PullFromCardPaymentMethod|ApplePayPaymentMethod|CardPresentPaymentPaymentMethod|InstantBankCreditPaymentMethod>  $sourceOptions
-     * @param  ?array<MoovWalletPaymentMethod|AchDebitFundPaymentMethod|AchDebitCollectPaymentMethod|AchCreditStandardPaymentMethod|AchCreditSameDayPaymentMethod|RtpCreditPaymentMethod|CardPaymentPaymentMethod|PushToCardPaymentMethod|PullFromCardPaymentMethod|ApplePayPaymentMethod|CardPresentPaymentPaymentMethod|InstantBankCreditPaymentMethod>  $destinationOptions
+     * @param  ?array<MoovWalletPaymentMethod|AchDebitFundPaymentMethod|AchDebitCollectPaymentMethod|AchCreditStandardPaymentMethod|AchCreditSameDayPaymentMethod|RtpCreditPaymentMethod|CardPaymentPaymentMethod|PushToCardPaymentMethod|PullFromCardPaymentMethod|ApplePayPaymentMethod>  $sourceOptions
+     * @param  ?array<MoovWalletPaymentMethod|AchDebitFundPaymentMethod|AchDebitCollectPaymentMethod|AchCreditStandardPaymentMethod|AchCreditSameDayPaymentMethod|RtpCreditPaymentMethod|CardPaymentPaymentMethod|PushToCardPaymentMethod|PullFromCardPaymentMethod|ApplePayPaymentMethod>  $destinationOptions
      * @phpstan-pure
      */
     public function __construct(?array $sourceOptions = null, ?array $destinationOptions = null)
