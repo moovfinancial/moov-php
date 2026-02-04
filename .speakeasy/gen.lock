@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: ca6ff6a736d3841700425da368f82a1a
+  docChecksum: 6738d0c926e36a23d0cf63bf1360a2b4
   docVersion: v2025.01.00
-  speakeasyVersion: 1.700.2
-  generationVersion: 2.801.2
-  releaseVersion: 25.1.0
-  configChecksum: be89d105b9aa6c5954862e0795a69d8b
+  speakeasyVersion: 1.703.0
+  generationVersion: 2.803.3
+  releaseVersion: 25.1.1
+  configChecksum: f28aac6211cee2fca7b35ecc1690414c
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
 persistentEdits:
-  generation_id: 62ea089e-a89a-47bf-ab0a-cd1c47570c0f
-  pristine_commit_hash: 24743b73e4425d0fdcf65022e8c3077f27071f1e
-  pristine_tree_hash: e84b1b4fc262e495da0d8ecc7422f09987b7654b
+  generation_id: c8e56fc5-49f9-4934-b0c6-5d4e6dd54968
+  pristine_commit_hash: e0518a270d0990d6925771936ab3a22a220cdbbf
+  pristine_tree_hash: 0c973ebb200df34e419a63d251f99db82643a2eb
 features:
   php:
     constsAndDefaults: 0.2.0
@@ -1276,10 +1276,6 @@ trackedFiles:
     id: a339633962fd
     last_write_checksum: sha1:d3d39f2b8c0035f2eb42b28bdcd9639e70c43e9b
     pristine_git_object: 8c415da80ccf024a130a2bff195851626f3959be
-  docs/Models/Components/PartnerPricing.md:
-    id: 32a5081ca191
-    last_write_checksum: sha1:bb35e260005012d633ae2a479555ca5be87e0eda
-    pristine_git_object: 24fa2ee4b4c939ec7033780c27adf7dc1bf4cf11
   docs/Models/Components/PartnerPricingAgreement.md:
     id: a69345dd3412
     last_write_checksum: sha1:9a4d41f8c2f6141a3b1a590fccddb6f9d761c282
@@ -3296,14 +3292,6 @@ trackedFiles:
     id: 14db56c507aa
     last_write_checksum: sha1:dc9469f8923b404abe4e4838fc04b84f9f3d56b1
     pristine_git_object: 99d3c13ea2ea849e341938f91afdbfe7490678e7
-  docs/Models/Operations/ListPartnerPricingRequest.md:
-    id: 7c812457412f
-    last_write_checksum: sha1:9c7eb18550363bcd9a59d45b1823a9c328e7ea6b
-    pristine_git_object: 17dd248af9cc26d1b148f90bcced426471ca6f84
-  docs/Models/Operations/ListPartnerPricingResponse.md:
-    id: 27b2b861e5f0
-    last_write_checksum: sha1:f87ad124164f16b06495fcdc894ebcbd3805d406
-    pristine_git_object: 304375344d840aa15244bc2d376550397ad280c9
   docs/Models/Operations/ListPaymentLinksRequest.md:
     id: 9bb9129ca6d3
     last_write_checksum: sha1:2d3cbf5440218b603cef60b28e0e7621de4e47d7
@@ -3758,8 +3746,8 @@ trackedFiles:
     pristine_git_object: 6f4e18e9b9f0e0366049d1efeff2ef8ead7d1f1b
   docs/sdks/feeplans/README.md:
     id: 76d23b0feb7b
-    last_write_checksum: sha1:38dcd3895fe64e5f2d1b8570bf09a7e1e9d25757
-    pristine_git_object: 7a6100283f6f191c2a4de562fba6056ed29ae0ef
+    last_write_checksum: sha1:ceafd7e43b7de22aad527d6dc2c42634fc2aff62
+    pristine_git_object: 42ac8cf86a717d8eebb9f8f86b2bfe07f3f8a37b
   docs/sdks/files/README.md:
     id: e576d7a117f0
     last_write_checksum: sha1:bdb7de38ef7a272b530274c4cda97f886ac181a8
@@ -3942,8 +3930,8 @@ trackedFiles:
     pristine_git_object: 4104f807888ee2be41356acde95492f1e3e3556e
   src/FeePlans.php:
     id: 953c25d9fb2b
-    last_write_checksum: sha1:12795a512439a8ba1db0f8fa34a9b7c5678113b6
-    pristine_git_object: 0c80a10fe02aa15a9dd7b85d61531c0476f11a1d
+    last_write_checksum: sha1:59b4e9023e9896cb28f98f53ffee941552e704b1
+    pristine_git_object: 8fa1dcf6a4261670d4030d78416beb768e40567f
   src/Files.php:
     id: ad1a49e101d7
     last_write_checksum: sha1:5bc0fe91a773e4b303f2cd36452bc5bc668c712d
@@ -5252,10 +5240,6 @@ trackedFiles:
     id: e39ea9a4d74a
     last_write_checksum: sha1:6f1fe31e574dc4e12d4df31ad58fe9cfbb2991e8
     pristine_git_object: 14c67d6ed034902a31f60354019a698ac632b648
-  src/Models/Components/PartnerPricing.php:
-    id: 140d409a72a6
-    last_write_checksum: sha1:580ee8a4a4405f45bdcff8e5c4c92d1de8265579
-    pristine_git_object: cbe1945053a97cd3a7cebabe29b06f8806f1eca8
   src/Models/Components/PartnerPricingAgreement.php:
     id: d62ccd166ce5
     last_write_checksum: sha1:81eb694992f8d17732553411cb77d4e8e2fadfea
@@ -7448,14 +7432,6 @@ trackedFiles:
     id: 1133738ce91a
     last_write_checksum: sha1:d00e5ddce9a711fd776c3ff87cca5f5913287821
     pristine_git_object: 4c668e3d484a08581167b3a26f80991cea4f23e6
-  src/Models/Operations/ListPartnerPricingRequest.php:
-    id: 858d2c851df6
-    last_write_checksum: sha1:b31a8a811baa5aa413cf95a4034dfa1dd72614be
-    pristine_git_object: a5dd5a957b452c3de21e7dc7e6ebc0bc7a0a73fb
-  src/Models/Operations/ListPartnerPricingResponse.php:
-    id: 94813e56489d
-    last_write_checksum: sha1:ac5a900166c8222606f24ae685f01c0c0515551b
-    pristine_git_object: 6d8f9f88badd6575a79ffd14d47413d4bb90047a
   src/Models/Operations/ListPaymentLinksRequest.php:
     id: de65f7d9617b
     last_write_checksum: sha1:bbc3d7a61fbcd599b69cdaa70b75a9d36e779769
@@ -7890,8 +7866,8 @@ trackedFiles:
     pristine_git_object: fc925901fa92bb1be68f28f6006d4a58337b1e07
   src/SDKConfiguration.php:
     id: 9d60ab0bec0b
-    last_write_checksum: sha1:6855d0af1a0dd56ca14e4dd2d27f5493cf979f84
-    pristine_git_object: 07dce5fb70bb3ee58fa3e3005d9bee789b81e256
+    last_write_checksum: sha1:01b4462d112b9a4d592916e09bde28b3fd38f27c
+    pristine_git_object: ebb668e76047f579b233ac7dd296871ccda1ce6b
   src/Schedules.php:
     id: 8dbe56d2d033
     last_write_checksum: sha1:d28a0cf731c5291df4052da79bd90d035d4fca38
@@ -10823,7 +10799,7 @@ examples:
           application/json: {"secret": "<value>"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Php SDK Changes:\n* `moov->paymentmethods->get()`:  `response` **Changed** **Breaking** ⚠️\n* `moov->transfers->generateOptions()`:  `response.sourceOptions[]` **Changed** **Breaking** ⚠️\n* `moov->capabilities->request()`: \n  *  `request.addCapabilities->capabilities[]` **Changed** **Breaking** ⚠️\n  *  `response.[]` **Changed** **Breaking** ⚠️\n* `moov->onboarding->getInvite()`:  `response.capabilities[]` **Changed** **Breaking** ⚠️\n* `moov->onboarding->listInvites()`:  `response.[]->capabilities[]` **Changed** **Breaking** ⚠️\n* `moov->onboardinginvites->create()`: \n  *  `request.onboardingInviteRequest->capabilities[]` **Changed** **Breaking** ⚠️\n  *  `response.capabilities[]` **Changed** **Breaking** ⚠️\n* `moov->industries->list()`:  `response.industries[]` **Changed** **Breaking** ⚠️\n* `moov->underwriting->upsert()`:  `response` **Changed** **Breaking** ⚠️\n* `moov->underwriting->get()`:  `response` **Changed** **Breaking** ⚠️\n* `moov->transfers->update()`:  `response` **Changed** **Breaking** ⚠️\n* `moov->transfers->get()`:  `response` **Changed** **Breaking** ⚠️\n* `moov->transfers->list()`:  `response.[]` **Changed** **Breaking** ⚠️\n* `moov->accounts->create()`: \n  *  `request.createAccount->capabilities[]` **Changed** **Breaking** ⚠️\n  *  `response` **Changed** **Breaking** ⚠️\n* `moov->accounts->list()`: \n  *  `request->capability` **Changed** **Breaking** ⚠️\n  *  `response.[]` **Changed** **Breaking** ⚠️\n* `moov->accounts->get()`:  `response` **Changed** **Breaking** ⚠️\n* `moov->accounts->updateProfile()`:  `response` **Changed** **Breaking** ⚠️\n* `moov->accounts->listConnected()`: \n  *  `request->capability` **Changed** **Breaking** ⚠️\n  *  `response.[]` **Changed** **Breaking** ⚠️\n* `moov->applepay->linkToken()`:  `response.paymentMethodType` **Changed** **Breaking** ⚠️\n* `moov->bankaccounts->link()`: \n  *  `request.linkBankAccount->union(BankAccountPayload)->account->holderType->enum(guest)` **Removed** **Breaking** ⚠️\n  *  `response` **Changed** **Breaking** ⚠️\n* `moov->bankaccounts->list()`:  `response.[]` **Changed** **Breaking** ⚠️\n* `moov->transfers->create()`: \n  *  `response` **Changed** **Breaking** ⚠️\n  *  `error` **Changed** **Breaking** ⚠️\n* `moov->capabilities->list()`:  `response.[]` **Changed** **Breaking** ⚠️\n* `moov->bankaccounts->get()`:  `response` **Changed** **Breaking** ⚠️\n* `moov->capabilities->get()`: \n  *  `request.capabilityId` **Changed** **Breaking** ⚠️\n  *  `response` **Changed** **Breaking** ⚠️\n* `moov->capabilities->disable()`:  `request.capabilityId` **Changed** **Breaking** ⚠️\n* `moov->cards->link()`:  `response.paymentMethods[]->paymentMethodType` **Changed** **Breaking** ⚠️\n* `moov->cards->list()`:  `response.[]->paymentMethods[]->paymentMethodType` **Changed** **Breaking** ⚠️\n* `moov->cards->get()`:  `response.paymentMethods[]->paymentMethodType` **Changed** **Breaking** ⚠️\n* `moov->cards->update()`:  `response.paymentMethods[]->paymentMethodType` **Changed** **Breaking** ⚠️\n* `moov->paymentmethods->list()`: \n  *  `request.paymentMethodType` **Changed** **Breaking** ⚠️\n  *  `response.[]` **Changed** **Breaking** ⚠️\n* `moov->invoices->createInvoice()`: **Removed** **Breaking** ⚠️\n* `moov->invoices->getInvoice()`: **Removed** **Breaking** ⚠️\n* `moov->invoices->listInvoices()`: **Removed** **Breaking** ⚠️\n* `moov->underwriting->save()`: **Removed** **Breaking** ⚠️\n* `moov->support->listTicketMessages()`: **Removed** **Breaking** ⚠️\n* `moov->support->updateTicket()`: **Removed** **Breaking** ⚠️\n* `moov->support->getTicket()`: **Removed** **Breaking** ⚠️\n* `moov->support->listTickets()`: **Removed** **Breaking** ⚠️\n* `moov->support->createTicket()`: **Removed** **Breaking** ⚠️\n* `moov->invoices->listInvoicePayments()`: **Removed** **Breaking** ⚠️\n* `moov->invoices->createInvoicePayment()`: **Removed** **Breaking** ⚠️\n* `moov->invoices->updateInvoice()`: **Removed** **Breaking** ⚠️\n"
+releaseNotes: "## Php SDK Changes:\n* `moov->paymentmethods->list()`: \n  *  `request.paymentMethodType` **Changed** **Breaking** ⚠️\n  *  `response.[]` **Changed** **Breaking** ⚠️\n* `moov->paymentmethods->get()`:  `response` **Changed** **Breaking** ⚠️\n* `moov->onboarding->getInvite()`:  `response.capabilities[]` **Changed** **Breaking** ⚠️\n* `moov->onboarding->listInvites()`:  `response.[]->capabilities[]` **Changed** **Breaking** ⚠️\n* `moov->onboardinginvites->create()`: \n  *  `request.onboardingInviteRequest->capabilities[]` **Changed** **Breaking** ⚠️\n  *  `response.capabilities[]` **Changed** **Breaking** ⚠️\n* `moov->industries->list()`:  `response.industries[]` **Changed** **Breaking** ⚠️\n* `moov->underwriting->upsert()`:  `response` **Changed** **Breaking** ⚠️\n* `moov->underwriting->get()`:  `response` **Changed** **Breaking** ⚠️\n* `moov->transfers->update()`:  `response` **Changed** **Breaking** ⚠️\n* `moov->transfers->get()`:  `response` **Changed** **Breaking** ⚠️\n* `moov->transfers->list()`:  `response.[]` **Changed** **Breaking** ⚠️\n* `moov->transfers->create()`: \n  *  `response` **Changed** **Breaking** ⚠️\n  *  `error` **Changed** **Breaking** ⚠️\n* `moov->transfers->generateOptions()`:  `response.sourceOptions[]` **Changed** **Breaking** ⚠️\n* `moov->accounts->create()`: \n  *  `request.createAccount->capabilities[]` **Changed** **Breaking** ⚠️\n  *  `response` **Changed** **Breaking** ⚠️\n* `moov->accounts->list()`: \n  *  `request->capability` **Changed** **Breaking** ⚠️\n  *  `response.[]` **Changed** **Breaking** ⚠️\n* `moov->accounts->get()`:  `response` **Changed** **Breaking** ⚠️\n* `moov->accounts->updateProfile()`:  `response` **Changed** **Breaking** ⚠️\n* `moov->bankaccounts->get()`:  `response` **Changed** **Breaking** ⚠️\n* `moov->applepay->linkToken()`:  `response.paymentMethodType` **Changed** **Breaking** ⚠️\n* `moov->bankaccounts->link()`: \n  *  `request.linkBankAccount->union(BankAccountPayload)->account->holderType->enum(guest)` **Removed** **Breaking** ⚠️\n  *  `response` **Changed** **Breaking** ⚠️\n* `moov->bankaccounts->list()`:  `response.[]` **Changed** **Breaking** ⚠️\n* `moov->capabilities->list()`:  `response.[]` **Changed** **Breaking** ⚠️\n* `moov->accounts->listConnected()`: \n  *  `request->capability` **Changed** **Breaking** ⚠️\n  *  `response.[]` **Changed** **Breaking** ⚠️\n* `moov->capabilities->request()`: \n  *  `request.addCapabilities->capabilities[]` **Changed** **Breaking** ⚠️\n  *  `response.[]` **Changed** **Breaking** ⚠️\n* `moov->capabilities->get()`: \n  *  `request.capabilityId` **Changed** **Breaking** ⚠️\n  *  `response` **Changed** **Breaking** ⚠️\n* `moov->capabilities->disable()`:  `request.capabilityId` **Changed** **Breaking** ⚠️\n* `moov->cards->link()`:  `response.paymentMethods[]->paymentMethodType` **Changed** **Breaking** ⚠️\n* `moov->cards->list()`:  `response.[]->paymentMethods[]->paymentMethodType` **Changed** **Breaking** ⚠️\n* `moov->cards->get()`:  `response.paymentMethods[]->paymentMethodType` **Changed** **Breaking** ⚠️\n* `moov->cards->update()`:  `response.paymentMethods[]->paymentMethodType` **Changed** **Breaking** ⚠️\n* `moov->invoices->getInvoice()`: **Removed** **Breaking** ⚠️\n* `moov->invoices->createInvoice()`: **Removed** **Breaking** ⚠️\n* `moov->underwriting->save()`: **Removed** **Breaking** ⚠️\n* `moov->support->listTicketMessages()`: **Removed** **Breaking** ⚠️\n* `moov->support->updateTicket()`: **Removed** **Breaking** ⚠️\n* `moov->support->createTicket()`: **Removed** **Breaking** ⚠️\n* `moov->support->getTicket()`: **Removed** **Breaking** ⚠️\n* `moov->feeplans->listPartnerPricing()`: **Removed** **Breaking** ⚠️\n* `moov->invoices->listInvoicePayments()`: **Removed** **Breaking** ⚠️\n* `moov->invoices->createInvoicePayment()`: **Removed** **Breaking** ⚠️\n* `moov->invoices->updateInvoice()`: **Removed** **Breaking** ⚠️\n* `moov->support->listTickets()`: **Removed** **Breaking** ⚠️\n* `moov->invoices->listInvoices()`: **Removed** **Breaking** ⚠️\n"
 generatedFiles:
   - .gitattributes
   - USAGE.md

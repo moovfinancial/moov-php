@@ -1,4 +1,4 @@
-speakeasyVersion: 1.700.2
+speakeasyVersion: 1.703.0
 sources:
     latest:
         sourceNamespace: latest
@@ -15,7 +15,7 @@ targets:
         sourceRevisionDigest: sha256:e4a9593e2a951f0ac2480a86e3fac9a02fe78a16f441923827a93cb776443f5f
         sourceBlobDigest: sha256:f703818f74471333c2abe0ebc49a392e6a7d8f32660c3c439524b83bfee03023
         codeSamplesNamespace: v2025.01.00--php-code-samples
-        codeSamplesRevisionDigest: sha256:f015bc51f2a2ff8a4aafc27106f7de2245548da934d642f5c55ebc7b31e877b2
+        codeSamplesRevisionDigest: sha256:9cb9926e05fe4c690419f623a82db7d93becd05ad26437f32e58c9e9de13e0fe
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
