@@ -3,11 +3,11 @@ speakeasyVersion: latest
 sources:
     latest:
         inputs:
-            - location: registry.speakeasyapi.dev/moov/moov/api-latest
+            - location: registry.speakeasyapi.dev/moov/moov/api-v2024.01.00
         overlays:
             - location: .speakeasy/speakeasy-modifications-overlay.yaml
         registry:
-            location: registry.speakeasyapi.dev/moov/moov/latest
+            location: registry.speakeasyapi.dev/moov/moov/php-v2024.01.00
 targets:
     latest:
         target: php
@@ -18,7 +18,7 @@ targets:
                 token: $packagist_token
         codeSamples:
             registry:
-                location: registry.speakeasyapi.dev/moov/moov/latest-php-code-samples
+                location: registry.speakeasyapi.dev/moov/moov/v2024.01.00--php-code-samples
             labelOverride:
                 fixedValue: Php (SDK)
             blocking: false
