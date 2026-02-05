@@ -22,13 +22,14 @@ generation:
   schemas:
     allOfMergeStrategy: shallowMerge
   requestBodyFieldName: ""
+  versioningStrategy: automatic
   persistentEdits: {}
   tests:
     generateTests: true
     generateNewTests: false
     skipResponseBodyAssertions: false
 php:
-  version: 0.7.38
+  version: 0.7.39
   additionalDependencies:
     autoload: {}
     autoload-dev: {}
