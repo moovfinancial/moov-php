@@ -155,9 +155,60 @@ Read our [transfers overview guide](https://docs.moov.io/guides/money-movement/o
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
 
-### Example Usage
+### Example Usage: Created async transfer
 
-<!-- UsageSnippet language="php" operationID="createTransfer" method="post" path="/accounts/{accountID}/transfers" -->
+<!-- UsageSnippet language="php" operationID="createTransfer" method="post" path="/accounts/{accountID}/transfers" example="Created async transfer" -->
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
+use Moov\MoovPhp\Models\Operations;
+
+$sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
+
+$request = new Operations\CreateTransferRequest(
+    xIdempotencyKey: '6de5561f-5a9f-4bd3-a458-ce0baacae20d',
+    accountID: 'd5696c5b-7106-4093-8a7d-faa71dda002c',
+    createTransfer: new Components\CreateTransfer(
+        source: new Components\CreateTransferSource(
+            paymentMethodID: '9506dbf6-4208-44c3-ad8a-e4431660e1f2',
+        ),
+        destination: new Components\CreateTransferDestination(
+            paymentMethodID: '3f9969cf-a1f3-4d83-8ddc-229a506651cf',
+        ),
+        amount: new Components\Amount(
+            currency: 'USD',
+            value: 32945,
+        ),
+        description: 'Transfer from card to wallet',
+        metadata: [
+            'optional' => 'metadata',
+        ],
+    ),
+);
+
+$response = $sdk->transfers->create(
+    request: $request
+);
+
+if ($response->createdTransfer !== null) {
+    // handle response
+}
+```
+### Example Usage: Created synchronous transfer
+
+<!-- UsageSnippet language="php" operationID="createTransfer" method="post" path="/accounts/{accountID}/transfers" example="Created synchronous transfer" -->
 ```php
 declare(strict_types=1);
 
@@ -433,7 +484,7 @@ if ($response->transfer !== null) {
 
 ### Example Usage
 
-<!-- UsageSnippet language="php" operationID="createCancellation" method="post" path="/accounts/{accountID}/transfers/{transferID}/cancellations" -->
+<!-- UsageSnippet language="php" operationID="createCancellation" method="post" path="/accounts/{accountID}/transfers/{transferID}/cancellations" example="Created cancellation" -->
 ```php
 declare(strict_types=1);
 
@@ -491,9 +542,43 @@ if ($response->cancellation !== null) {
   To access this endpoint using a [token](https://docs.moov.io/api/authentication/access-tokens/) you'll need 
   to specify the `/accounts/{accountID}/transfers.read` scope.
 
-### Example Usage
+### Example Usage: Cancellation
 
-<!-- UsageSnippet language="php" operationID="getCancellation" method="get" path="/accounts/{accountID}/transfers/{transferID}/cancellations/{cancellationID}" -->
+<!-- UsageSnippet language="php" operationID="getCancellation" method="get" path="/accounts/{accountID}/transfers/{transferID}/cancellations/{cancellationID}" example="Cancellation" -->
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
+
+$sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
+
+
+
+$response = $sdk->transfers->getCancellation(
+    accountID: '55cb62c2-22e4-4a36-bd53-3b9adc77ee81',
+    transferID: 'bc13b680-bac3-432e-bf44-e9aa6426cbb2',
+    cancellationID: '770cb4b5-d5b0-4e8b-995b-86b790296ba5'
+
+);
+
+if ($response->cancellation !== null) {
+    // handle response
+}
+```
+### Example Usage: Got cancellation
+
+<!-- UsageSnippet language="php" operationID="getCancellation" method="get" path="/accounts/{accountID}/transfers/{transferID}/cancellations/{cancellationID}" example="Got cancellation" -->
 ```php
 declare(strict_types=1);
 
@@ -555,9 +640,9 @@ See the [reversals](https://docs.moov.io/guides/money-movement/accept-payments/c
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
 
-### Example Usage
+### Example Usage: Successful async refund
 
-<!-- UsageSnippet language="php" operationID="initiateRefund" method="post" path="/accounts/{accountID}/transfers/{transferID}/refunds" -->
+<!-- UsageSnippet language="php" operationID="initiateRefund" method="post" path="/accounts/{accountID}/transfers/{transferID}/refunds" example="Successful async refund" -->
 ```php
 declare(strict_types=1);
 
@@ -581,6 +666,45 @@ $request = new Operations\InitiateRefundRequest(
     xIdempotencyKey: '8d9af6b8-67e1-4efa-8188-68039f34097d',
     accountID: 'cb6ae9f9-afab-4f06-9eb0-8abf54a3ada2',
     transferID: '04022119-95be-4ef4-9dd4-b3782f6aa7b9',
+    createRefund: new Components\CreateRefund(
+        amount: 1000,
+    ),
+);
+
+$response = $sdk->transfers->initiateRefund(
+    request: $request
+);
+
+if ($response->createRefundResponse !== null) {
+    // handle response
+}
+```
+### Example Usage: Successful sync refund
+
+<!-- UsageSnippet language="php" operationID="initiateRefund" method="post" path="/accounts/{accountID}/transfers/{transferID}/refunds" example="Successful sync refund" -->
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
+use Moov\MoovPhp\Models\Operations;
+
+$sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
+
+$request = new Operations\InitiateRefundRequest(
+    xIdempotencyKey: '4e7a906a-e6d1-4bca-9cc5-6246295ef93c',
+    accountID: 'd12ddb6e-0ed9-44e8-92a7-1716ae7cc759',
+    transferID: 'd73be489-9da4-4be7-bc04-147d8552279d',
     createRefund: new Components\CreateRefund(
         amount: 1000,
     ),
@@ -743,9 +867,48 @@ to learn more.
 To access this endpoint using a [token](https://docs.moov.io/api/authentication/access-tokens/) you'll need 
 to specify the `/accounts/{accountID}/transfers.write` scope.
 
-### Example Usage
+### Example Usage: Reversed by cancellation
 
-<!-- UsageSnippet language="php" operationID="createReversal" method="post" path="/accounts/{accountID}/transfers/{transferID}/reversals" -->
+<!-- UsageSnippet language="php" operationID="createReversal" method="post" path="/accounts/{accountID}/transfers/{transferID}/reversals" example="Reversed by cancellation" -->
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
+use Moov\MoovPhp\Models\Operations;
+
+$sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('v2024.01.00')
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
+
+$request = new Operations\CreateReversalRequest(
+    xIdempotencyKey: '93d03831-45c4-49ec-a9b2-88cbd41dfca7',
+    accountID: 'c5fade57-7e5a-4380-ac7b-4abf8b3c24cf',
+    transferID: '82c6eae7-b7e5-4b20-b24e-5116a4d70bde',
+    createReversal: new Components\CreateReversal(
+        amount: 1000,
+    ),
+);
+
+$response = $sdk->transfers->createReversal(
+    request: $request
+);
+
+if ($response->reversal !== null) {
+    // handle response
+}
+```
+### Example Usage: Reversed by refund
+
+<!-- UsageSnippet language="php" operationID="createReversal" method="post" path="/accounts/{accountID}/transfers/{transferID}/reversals" example="Reversed by refund" -->
 ```php
 declare(strict_types=1);
 
