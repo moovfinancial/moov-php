@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 37f4573206b69d4e8deb2983cab4466c
+  docChecksum: 6c945ab8f6fa2bc75a1627abc66f9d23
   docVersion: latest
-  speakeasyVersion: 1.704.0
-  generationVersion: 2.806.4
-  releaseVersion: 0.7.39
-  configChecksum: 63c736262ebcbb28f18b1158b50d42b2
+  speakeasyVersion: 1.706.1
+  generationVersion: 2.809.2
+  releaseVersion: 0.7.40
+  configChecksum: 84f1e8c1a18d46ed17776526884fac3d
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
 persistentEdits:
-  generation_id: de1934d5-6de5-4964-bbb8-e9cfd8e5aa77
-  pristine_commit_hash: f4caa8fa3dbf02285eba96205852623f1efe4952
-  pristine_tree_hash: da4d193c2f8299c880f15186adf4239c47316318
+  generation_id: e416076a-1ee0-429f-8ea9-4cbf5b900704
+  pristine_commit_hash: 577d3d43cb971f1d92c210d957155818cfdb8d51
+  pristine_tree_hash: e7d966d083628dbff0743f20333fe6c0bee57c96
 features:
   php:
     constsAndDefaults: 0.2.1
@@ -21,7 +21,7 @@ features:
     decimal: 0.1.1
     deprecations: 2.81.1
     flattening: 2.81.1
-    globalSecurity: 2.81.9
+    globalSecurity: 2.81.10
     globalServerURLs: 2.83.0
     globals: 2.82.2
     groups: 2.81.3
@@ -730,12 +730,12 @@ trackedFiles:
     pristine_git_object: fb25d06fccc78078fe017d7aa94a8add0ef1e2b3
   docs/Models/Components/CreatePaymentLinkLineItem.md:
     id: 4b9b4bf88faa
-    last_write_checksum: sha1:c89ea68cb89155c6358f0c531db88fa235cc3df5
-    pristine_git_object: 3c25cd74d6856d32c1084bf3da6151d03448209b
+    last_write_checksum: sha1:6dd5fe99b172e6ad16c9194ee6d7d97161addcb3
+    pristine_git_object: 661a56b7f4f368894228ebddffde399a89ad8d0f
   docs/Models/Components/CreatePaymentLinkLineItemOption.md:
     id: a116837602fc
-    last_write_checksum: sha1:e69119bd3ae96b0cbb7e21260f28105936f5a861
-    pristine_git_object: b6755caf51dbcfb60025f3a60043f3f5f9ed2261
+    last_write_checksum: sha1:df8b27e27f2d9e70814fff07c265a9bacead3954
+    pristine_git_object: 9465f0720bf17fe2051c001d71c7f0fb04763121
   docs/Models/Components/CreatePaymentLinkLineItemOptionValidationError.md:
     id: 5456f84b1e93
     last_write_checksum: sha1:d3fc93c18dafc4f9c9341b03374babae2680b3bc
@@ -5154,12 +5154,12 @@ trackedFiles:
     pristine_git_object: d30477ee125904e6eb2897385ff216cde3fd113e
   src/Models/Components/CreatePaymentLinkLineItem.php:
     id: 3f4d9b4552ee
-    last_write_checksum: sha1:56ae9b225515b87ecdc7cdc50528bb6d6911f0f3
-    pristine_git_object: f8e147121d061f65dceebc94353624fd24f2ff24
+    last_write_checksum: sha1:8295036c6baf4d56f983832c7b661594287c0648
+    pristine_git_object: 6a107da29635e8fc3071eb0fe32959c69435a718
   src/Models/Components/CreatePaymentLinkLineItemOption.php:
     id: 1db47d85e0fc
-    last_write_checksum: sha1:1704f0b16c4c4726cf4770abda9e333ac0e06064
-    pristine_git_object: 30e006157de5e3412efafaea1dc26b6b8e267142
+    last_write_checksum: sha1:740af9a3773f4b0fda9c24ce5f3da5fd1755998e
+    pristine_git_object: ffcdec8b5e63f2a982fe99597c18e7078db49fa6
   src/Models/Components/CreatePaymentLinkLineItemOptionValidationError.php:
     id: a536c8f3039f
     last_write_checksum: sha1:fecf3376b4fcaeb83bda29823053b8586bdb16d2
@@ -8786,8 +8786,8 @@ trackedFiles:
     pristine_git_object: fc925901fa92bb1be68f28f6006d4a58337b1e07
   src/SDKConfiguration.php:
     id: 9d60ab0bec0b
-    last_write_checksum: sha1:d1c3cb1a6df96813db5d72fd6a945602a88a5a38
-    pristine_git_object: 2373f0128a1268f6aaa4a1157c00d36ac89e62be
+    last_write_checksum: sha1:c9743c8ab936f3db839138dc08c02e4b0046a06e
+    pristine_git_object: 45c55ac5ae47ad74cf748fd31edfd6e9d394344a
   src/Schedules.php:
     id: 8dbe56d2d033
     last_write_checksum: sha1:d28a0cf731c5291df4052da79bd90d035d4fca38
@@ -11722,9 +11722,6 @@ examples:
           application/json: {"secret": "<value>"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Php SDK Changes:
-  * `moov->feeplans->listPartnerPricing()`: **Removed** (Breaking ⚠️)
 generatedFiles:
   - .gitattributes
   - USAGE.md
