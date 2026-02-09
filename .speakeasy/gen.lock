@@ -3,17 +3,17 @@ id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
   docChecksum: c951350e5110bfbb3c29f112ef59c38d
   docVersion: v2024.01.00
-  speakeasyVersion: 1.708.0
-  generationVersion: 2.811.2
-  releaseVersion: 24.1.2
-  configChecksum: 066e3ce01b96b546bdeda1419e1d4df4
+  speakeasyVersion: 1.709.1
+  generationVersion: 2.812.2
+  releaseVersion: 24.1.3
+  configChecksum: 7017c6db9776470e4e0c715d12ec0f9f
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
 persistentEdits:
-  generation_id: d179084f-ee16-404b-919b-b2adabe1c65c
-  pristine_commit_hash: b72f4061ea7ec571df5119a4ac9f90fe2af31ffe
-  pristine_tree_hash: a8b62fd4d20d6cd321f234a08b5327f623a87d71
+  generation_id: 7d8f9305-c961-4662-817e-55656a1f09f7
+  pristine_commit_hash: f6da4e4fa06990f05f0f06ae3439ddabf6ba87eb
+  pristine_tree_hash: 8dda0013ee1e9514f5870fe7b2d951f9c227e21b
 features:
   php:
     constsAndDefaults: 0.2.1
@@ -7866,8 +7866,8 @@ trackedFiles:
     pristine_git_object: fc925901fa92bb1be68f28f6006d4a58337b1e07
   src/SDKConfiguration.php:
     id: 9d60ab0bec0b
-    last_write_checksum: sha1:47f7cd931fc58e8ac7c8ce61f175b4749392b5e0
-    pristine_git_object: 228462c8c712d4bb2aba26649691d04d63f9ef73
+    last_write_checksum: sha1:8140d0808edc39f0089188f8587128d825c1e9af
+    pristine_git_object: e92103675541e01203a5b28b18da40232494d8a0
   src/Schedules.php:
     id: 8dbe56d2d033
     last_write_checksum: sha1:d28a0cf731c5291df4052da79bd90d035d4fca38
