@@ -39,7 +39,7 @@ you'll need to specify the `/accounts/{accountID}/invoices.write` scope.
 
 ### Example Usage
 
-<!-- UsageSnippet language="php" operationID="createInvoice" method="post" path="/accounts/{accountID}/invoices" -->
+<!-- UsageSnippet language="php" operationID="createInvoice" method="post" path="/accounts/{accountID}/invoices" example="Created invoice" -->
 ```php
 declare(strict_types=1);
 
@@ -83,7 +83,7 @@ $createInvoice = new Components\CreateInvoice(
 );
 
 $response = $sdk->invoices->createInvoice(
-    accountID: '241bf524-e777-4941-a5e4-d7f3f34d7a00',
+    accountID: 'c463fb80-6410-48b7-9e2e-6e9ec58a654f',
     createInvoice: $createInvoice
 
 );
@@ -122,7 +122,7 @@ you'll need to specify the `/accounts/{accountID}/invoices.read` scope.
 
 ### Example Usage
 
-<!-- UsageSnippet language="php" operationID="listInvoices" method="get" path="/accounts/{accountID}/invoices" -->
+<!-- UsageSnippet language="php" operationID="listInvoices" method="get" path="/accounts/{accountID}/invoices" example="Invoices" -->
 ```php
 declare(strict_types=1);
 
@@ -183,7 +183,7 @@ you'll need to specify the `/accounts/{accountID}/invoices.read` scope.
 
 ### Example Usage
 
-<!-- UsageSnippet language="php" operationID="getInvoice" method="get" path="/accounts/{accountID}/invoices/{invoiceID}" -->
+<!-- UsageSnippet language="php" operationID="getInvoice" method="get" path="/accounts/{accountID}/invoices/{invoiceID}" example="Invoice" -->
 ```php
 declare(strict_types=1);
 
@@ -242,7 +242,7 @@ you'll need to specify the `/accounts/{accountID}/invoices.write` scope.
 
 ### Example Usage
 
-<!-- UsageSnippet language="php" operationID="updateInvoice" method="patch" path="/accounts/{accountID}/invoices/{invoiceID}" -->
+<!-- UsageSnippet language="php" operationID="updateInvoice" method="patch" path="/accounts/{accountID}/invoices/{invoiceID}" example="Updated invoice" -->
 ```php
 declare(strict_types=1);
 
@@ -281,8 +281,8 @@ $updateInvoice = new Components\UpdateInvoice(
 );
 
 $response = $sdk->invoices->updateInvoice(
-    accountID: 'ce46d65a-8504-4afa-b3f7-303401bd08b3',
-    invoiceID: 'ef510999-370a-4350-87d5-bc81fc02a2ea',
+    accountID: 'fcce46d6-5a85-404a-afa3-f7303401bd08',
+    invoiceID: '3eef5109-9937-40a3-b507-d5bc81fc02a2',
     updateInvoice: $updateInvoice
 
 );
@@ -323,7 +323,7 @@ you'll need to specify the `/accounts/{accountID}/invoices.write` scope.
 
 ### Example Usage
 
-<!-- UsageSnippet language="php" operationID="createInvoicePayment" method="post" path="/accounts/{accountID}/invoices/{invoiceID}/payments" -->
+<!-- UsageSnippet language="php" operationID="createInvoicePayment" method="post" path="/accounts/{accountID}/invoices/{invoiceID}/payments" example="External payment" -->
 ```php
 declare(strict_types=1);
 
@@ -395,7 +395,7 @@ you'll need to specify the `/accounts/{accountID}/invoices.read` scope.
 
 ### Example Usage
 
-<!-- UsageSnippet language="php" operationID="listInvoicePayments" method="get" path="/accounts/{accountID}/invoices/{invoiceID}/payments" -->
+<!-- UsageSnippet language="php" operationID="listInvoicePayments" method="get" path="/accounts/{accountID}/invoices/{invoiceID}/payments" example="Payments" -->
 ```php
 declare(strict_types=1);
 

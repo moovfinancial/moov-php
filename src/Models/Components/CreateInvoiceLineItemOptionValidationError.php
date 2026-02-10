@@ -45,17 +45,29 @@ class CreateInvoiceLineItemOptionValidationError
     public ?string $quantity = null;
 
     /**
+     * $images
+     *
+     * @var ?array<string, CreateInvoiceLineItemImageValidationError> $images
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('images')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string, \Moov\MoovPhp\Models\Components\CreateInvoiceLineItemImageValidationError>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $images = null;
+
+    /**
      * @param  ?string  $name
      * @param  ?string  $group
      * @param  ?AmountDecimalValidationError  $priceModifier
      * @param  ?string  $quantity
+     * @param  ?array<string, CreateInvoiceLineItemImageValidationError>  $images
      * @phpstan-pure
      */
-    public function __construct(?string $name = null, ?string $group = null, ?AmountDecimalValidationError $priceModifier = null, ?string $quantity = null)
+    public function __construct(?string $name = null, ?string $group = null, ?AmountDecimalValidationError $priceModifier = null, ?string $quantity = null, ?array $images = null)
     {
         $this->name = $name;
         $this->group = $group;
         $this->priceModifier = $priceModifier;
         $this->quantity = $quantity;
+        $this->images = $images;
     }
 }
