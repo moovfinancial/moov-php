@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: b4096c3c9f1f4de5bdf5c4b6b93a6ea5
+  docChecksum: 4624a98b17f72ff95dfd7795fb26c68b
   docVersion: v2026.04.00
-  speakeasyVersion: 1.709.3
-  generationVersion: 2.814.0
-  releaseVersion: 26.4.0-beta.4
-  configChecksum: 8ba88321f0595d9ea09f973e52ec914c
+  speakeasyVersion: 1.709.4
+  generationVersion: 2.816.0
+  releaseVersion: 26.4.0-beta.5
+  configChecksum: fc3b467b4bbdbecceca6daaf771c5f63
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
 persistentEdits:
-  generation_id: 1c25c76a-3483-48e7-936b-4ddc5be90368
-  pristine_commit_hash: bdeae9082557e950dfa100efd1074136b173e2c1
-  pristine_tree_hash: ede3ae98f8f6993dbdcbdee0c7780a801be40e88
+  generation_id: c492e217-3b81-418d-8d20-30989938b64f
+  pristine_commit_hash: 81193d9471ab455be81d15f6b896addd77c4d15e
+  pristine_tree_hash: dfeddb3902ff4b6f2bebd0887f4748565012c118
 features:
   php:
     constsAndDefaults: 0.2.1
@@ -2786,8 +2786,8 @@ trackedFiles:
     pristine_git_object: 151796540d60b96de9fe99a483778e3c6f96d300
   docs/Models/Operations/CreateTransferRequest.md:
     id: 4fb6423f0c05
-    last_write_checksum: sha1:c3932bfe353ccb2dab2c0fb0c87e485e7cf89a82
-    pristine_git_object: 316a6dc2fdb14fb569af84f941444a161750e7d1
+    last_write_checksum: sha1:78fb443436bba3362c2e86a8a1c3f23b4d51181c
+    pristine_git_object: 70b7207103c5cff50d81c971da94c7cb4ca25a77
   docs/Models/Operations/CreateTransferResponse.md:
     id: 714c8e729d7d
     last_write_checksum: sha1:e8434b15a4b2d24d5f6ca5d11cd574910b8e0fed
@@ -3170,8 +3170,8 @@ trackedFiles:
     pristine_git_object: 1a064077f10ecfc016d066ad153a681c77e98fe8
   docs/Models/Operations/GetScheduledOccurrenceRequest.md:
     id: 16586925c171
-    last_write_checksum: sha1:ec295ec5fd92a71878babc7cd44e4a19ad9e9db7
-    pristine_git_object: aad3f82497030503ca9837512934e3e6b1b393f3
+    last_write_checksum: sha1:3ba901fa48f12b8d5eb9b716a8dc4a8fb143b563
+    pristine_git_object: 7afeb8dbf38acd98e82ea3fbbcf00105b9bd5580
   docs/Models/Operations/GetScheduledOccurrenceResponse.md:
     id: af5df0ed729e
     last_write_checksum: sha1:97396114cfc10896d6c9517badbcce0d00dfbad8
@@ -4094,8 +4094,8 @@ trackedFiles:
     pristine_git_object: 215856273e5c1e17149a7212bdad8e61c1f692a6
   docs/sdks/scheduling/README.md:
     id: 0508024015b4
-    last_write_checksum: sha1:c3ee4736cd86dc7f6bb538d36f2ef55410bc728f
-    pristine_git_object: 960c51c4bf99e224dc0cfc7b1d8fe256be932907
+    last_write_checksum: sha1:ca84b0f37d9da2eb9c5a6a2c399d534287c79106
+    pristine_git_object: 0c8eb8112c2892fd6151d9a6fdff2c3078556540
   docs/sdks/statements/README.md:
     id: 077d45e19c3c
     last_write_checksum: sha1:dc9f4cfa370660e2399bb53977ed123a26a756f3
@@ -7226,8 +7226,8 @@ trackedFiles:
     pristine_git_object: 8ab346d28d255d7b554607dbdf29670cc6e4918a
   src/Models/Operations/CreateTransferRequest.php:
     id: 7f2f11c3a98d
-    last_write_checksum: sha1:7b81f26d5c309441c7299723e448230d94ddaefc
-    pristine_git_object: 756035f9515ab2464c6c71e4d1abe45b59301ace
+    last_write_checksum: sha1:2df413aad4d9a13aaa597f01099c418c110c808b
+    pristine_git_object: 53caf8a84501301ceba172ce8b971e65c3f7be6e
   src/Models/Operations/CreateTransferResponse.php:
     id: 9e09fd5ebeca
     last_write_checksum: sha1:8b82ae502bf72c4f2c6c76dde13aa4bdd225ea38
@@ -7610,8 +7610,8 @@ trackedFiles:
     pristine_git_object: 29672809e6f2511732b6ffd2c3d4f4fb9835b841
   src/Models/Operations/GetScheduledOccurrenceRequest.php:
     id: b3ebb93a37e9
-    last_write_checksum: sha1:f6a5576c6d1780af51b02bf744298d2bec58b366
-    pristine_git_object: 0899a295fe96b6f78fc7d99d79be47ae7c1dad42
+    last_write_checksum: sha1:95e6c1e9b7f4ce8e6e999f8f7d700a30384d2276
+    pristine_git_object: 30e49ffad1c79a84a84c76fdc21eb575b4ea4da5
   src/Models/Operations/GetScheduledOccurrenceResponse.php:
     id: 97de204b55c3
     last_write_checksum: sha1:bb3b287667872f071a07b83ffcf645e912aec349
@@ -8450,8 +8450,8 @@ trackedFiles:
     pristine_git_object: fc925901fa92bb1be68f28f6006d4a58337b1e07
   src/SDKConfiguration.php:
     id: 9d60ab0bec0b
-    last_write_checksum: sha1:5e583a9872b6013f8dfa9eb9cbda6f6519a21f9e
-    pristine_git_object: 07cfca0258cef7dea05736e2971037eeb5d239b0
+    last_write_checksum: sha1:1b10773a4202750ca2b4e61152d6b033cd4f5afe
+    pristine_git_object: 23ad149cdf309200541f6f90f69f1460828bc868
   src/Schedules.php:
     id: 8dbe56d2d033
     last_write_checksum: sha1:d28a0cf731c5291df4052da79bd90d035d4fca38
@@ -11386,7 +11386,6 @@ examples:
           application/json: {"secret": "<value>"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Php SDK Changes:\n* `moov->transfers->create()`: \n  *  `response.invoiceId` **Removed** (Breaking ⚠️)\n  *  `error.invoiceId` **Removed** (Breaking ⚠️)\n* `moov->transfers->list()`:  `response.[]->invoiceId` **Removed** (Breaking ⚠️)\n* `moov->transfers->get()`:  `response.invoiceId` **Removed** (Breaking ⚠️)\n* `moov->transfers->update()`:  `response.invoiceId` **Removed** (Breaking ⚠️)\n* `moov->feeplans->listPartnerPricing()`: **Removed** (Breaking ⚠️)\n* `moov->invoices->createInvoice()`: **Removed** (Breaking ⚠️)\n* `moov->invoices->listInvoices()`: **Removed** (Breaking ⚠️)\n* `moov->invoices->getInvoice()`: **Removed** (Breaking ⚠️)\n* `moov->invoices->updateInvoice()`: **Removed** (Breaking ⚠️)\n* `moov->invoices->createInvoicePayment()`: **Removed** (Breaking ⚠️)\n* `moov->invoices->listInvoicePayments()`: **Removed** (Breaking ⚠️)\n"
 generatedFiles:
   - .gitattributes
   - USAGE.md
