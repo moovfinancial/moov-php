@@ -36,7 +36,7 @@ class TransferSource
     public TransferAccount $account;
 
     /**
-     * UUID present only if the transfer is part of a transfer group.
+     * String present only if the transfer is part of a transfer group.
      *
      * @var ?string $transferID
      */
