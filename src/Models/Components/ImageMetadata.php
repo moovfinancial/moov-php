@@ -13,6 +13,7 @@ namespace Moov\MoovPhp\Models\Components;
 class ImageMetadata
 {
     /**
+     * Unique identifier for a image resource.
      *
      * @var string $imageID
      */
