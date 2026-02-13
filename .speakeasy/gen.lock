@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 1c3c25711b3b15859482b9952f4e85d5
+  docChecksum: e853690f9914c58d2e459a4300276e3a
   docVersion: v2025.07.00
-  speakeasyVersion: 1.711.0
-  generationVersion: 2.818.4
-  releaseVersion: 25.7.6
-  configChecksum: f89775bfff8d65bec76f60c93652c034
+  speakeasyVersion: 1.713.3
+  generationVersion: 2.821.8
+  releaseVersion: 25.7.7
+  configChecksum: a8778d05b5ccd4c9c7365c1014ba2ea9
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php
   published: true
 persistentEdits:
-  generation_id: e9ebcc2d-4322-4f46-8098-cfcedfae17db
-  pristine_commit_hash: a3341e5cd20659dcafa192dcf94c9cb07017db12
-  pristine_tree_hash: b1447c3bb3396184378fee49b7f28ab8104ce859
+  generation_id: 87d97b66-b0e3-48ef-b8cb-f875e8347ad3
+  pristine_commit_hash: 240af41ed9a21a918cebd1e19f33695ea57ebc51
+  pristine_tree_hash: 3ecbd302dc357314adf08481119b5766116f9068
 features:
   php:
     constsAndDefaults: 0.2.1
@@ -1070,8 +1070,8 @@ trackedFiles:
     pristine_git_object: a45881a69d57c8386a421ec9e8bcad1143ca1a2d
   docs/Models/Components/GeneratedBy.md:
     id: 87da9b82fd9f
-    last_write_checksum: sha1:fa19672cef3db6e3649f153e7b4563e2bf39242c
-    pristine_git_object: 49c964b62931acb1361194b5bf9a85b7256d7cbc
+    last_write_checksum: sha1:792b8fb884366113038af165b333f07b99a9d3cf
+    pristine_git_object: 3aae1c9330ca29815ce22fc6529ac18884801935
   docs/Models/Components/GeographicReach.md:
     id: 4b2cfae01c56
     last_write_checksum: sha1:d3efe15a8d2229ed46f9ab6569ef3c27df027d7a
@@ -5318,8 +5318,8 @@ trackedFiles:
     pristine_git_object: 8a7a57f8bb1562293b46927741a6149e982364fc
   src/Models/Components/GeneratedBy.php:
     id: a4d96cc8255d
-    last_write_checksum: sha1:7ddf841324b3b61228c8c96107cabc7a4215c316
-    pristine_git_object: ffde5ee754fd420e0edede0782aa9b82b9f2bdb3
+    last_write_checksum: sha1:cc3c892b13f36ce04562dc87b36b595b094240dc
+    pristine_git_object: 41587d2d90c8bbae9bcae9b7690c4614de0be4b7
   src/Models/Components/GeographicReach.php:
     id: 9657a8a7d3b8
     last_write_checksum: sha1:c39daeda1cfe7e5e0eab1df7ca09edae43dda560
@@ -8434,8 +8434,8 @@ trackedFiles:
     pristine_git_object: fc925901fa92bb1be68f28f6006d4a58337b1e07
   src/SDKConfiguration.php:
     id: 9d60ab0bec0b
-    last_write_checksum: sha1:048a0d99fa1cdbd335173c7a8d6941b55307ab99
-    pristine_git_object: 36476a04c61ddd2e5076ade17907d92a378563bb
+    last_write_checksum: sha1:9bba861b75e5398c70aa4f1906d6d60fb47c05ce
+    pristine_git_object: eb34b3ed15d9e9acc32ccfa6d94f7c906cc9c3b9
   src/Schedules.php:
     id: 8dbe56d2d033
     last_write_checksum: sha1:d28a0cf731c5291df4052da79bd90d035d4fca38
@@ -11370,6 +11370,12 @@ examples:
           application/json: {"secret": "<value>"}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: |
+  ## Php SDK Changes:
+  * `moov->accounts->getFees()`:  `response.[]->generatedBy->invoiceId` **Added**
+  * `moov->feeplans->fetchFees()`:  `response.[]->generatedBy->invoiceId` **Added**
+  * `moov->feeplans->listFeeRevenue()`:  `response.[]->generatedBy->invoiceId` **Added**
+  * `moov->feeplans->listResidualFees()`:  `response.[]->generatedBy->invoiceId` **Added**
 generatedFiles:
   - .gitattributes
   - USAGE.md
