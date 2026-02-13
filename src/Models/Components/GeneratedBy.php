@@ -53,19 +53,29 @@ class GeneratedBy
     public ?string $bankAccountID = null;
 
     /**
+     *
+     * @var ?string $invoiceID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('invoiceID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $invoiceID = null;
+
+    /**
      * @param  ?string  $transferID
      * @param  ?string  $cardID
      * @param  ?string  $disputeID
      * @param  ?string  $accountID
      * @param  ?string  $bankAccountID
+     * @param  ?string  $invoiceID
      * @phpstan-pure
      */
-    public function __construct(?string $transferID = null, ?string $cardID = null, ?string $disputeID = null, ?string $accountID = null, ?string $bankAccountID = null)
+    public function __construct(?string $transferID = null, ?string $cardID = null, ?string $disputeID = null, ?string $accountID = null, ?string $bankAccountID = null, ?string $invoiceID = null)
     {
         $this->transferID = $transferID;
         $this->cardID = $cardID;
         $this->disputeID = $disputeID;
         $this->accountID = $accountID;
         $this->bankAccountID = $bankAccountID;
+        $this->invoiceID = $invoiceID;
     }
 }
