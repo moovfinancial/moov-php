@@ -24,11 +24,11 @@ class SDKConfiguration
 
     public string $openapiDocVersion = 'latest';
 
-    public string $sdkVersion = '0.7.44';
+    public string $sdkVersion = '0.7.45';
 
-    public string $genVersion = '2.821.6';
+    public string $genVersion = '2.823.1';
 
-    public string $userAgent = 'speakeasy-sdk/php 0.7.44 2.821.6 latest moov/moov-php';
+    public string $userAgent = 'speakeasy-sdk/php 0.7.45 2.823.1 latest moov/moov-php';
     /** @var array<string, array<string, array<string, mixed>>> */
     public ?array $globals = [
         'parameters' => [],
