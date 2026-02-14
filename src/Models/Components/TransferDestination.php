@@ -21,11 +21,11 @@ class TransferDestination
     /**
      * The payment method type that represents a payment rail and directionality
      *
-     * @var PaymentMethodType $paymentMethodType
+     * @var TransferPaymentMethodType $paymentMethodType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('paymentMethodType')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentMethodType')]
-    public PaymentMethodType $paymentMethodType;
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferPaymentMethodType')]
+    public TransferPaymentMethodType $paymentMethodType;
 
     /**
      *
@@ -38,31 +38,31 @@ class TransferDestination
     /**
      * A bank account as contained within a payment method.
      *
-     * @var ?PaymentMethodsBankAccount $bankAccount
+     * @var ?TransferPaymentMethodsBankAccount $bankAccount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('bankAccount')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentMethodsBankAccount|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferPaymentMethodsBankAccount|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?PaymentMethodsBankAccount $bankAccount = null;
+    public ?TransferPaymentMethodsBankAccount $bankAccount = null;
 
     /**
      *
-     * @var ?PaymentMethodsWallet $wallet
+     * @var ?TransferPaymentMethodsWallet $wallet
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('wallet')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentMethodsWallet|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferPaymentMethodsWallet|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?PaymentMethodsWallet $wallet = null;
+    public ?TransferPaymentMethodsWallet $wallet = null;
 
     /**
      * A card as contained within a payment method.
      *
-     * @var ?PaymentMethodsCard $card
+     * @var ?TransferPaymentMethodsCard $card
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('card')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentMethodsCard|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferPaymentMethodsCard|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?PaymentMethodsCard $card = null;
+    public ?TransferPaymentMethodsCard $card = null;
 
     /**
      * ACH specific details about the transaction.
@@ -106,18 +106,18 @@ class TransferDestination
 
     /**
      * @param  string  $paymentMethodID
-     * @param  PaymentMethodType  $paymentMethodType
+     * @param  TransferPaymentMethodType  $paymentMethodType
      * @param  TransferAccount  $account
-     * @param  ?PaymentMethodsBankAccount  $bankAccount
-     * @param  ?PaymentMethodsWallet  $wallet
-     * @param  ?PaymentMethodsCard  $card
+     * @param  ?TransferPaymentMethodsBankAccount  $bankAccount
+     * @param  ?TransferPaymentMethodsWallet  $wallet
+     * @param  ?TransferPaymentMethodsCard  $card
      * @param  ?ACHTransactionDetails  $achDetails
      * @param  ?ApplePayResponse  $applePay
      * @param  ?CardTransactionDetails  $cardDetails
      * @param  ?RTPTransactionDetails  $rtpDetails
      * @phpstan-pure
      */
-    public function __construct(string $paymentMethodID, PaymentMethodType $paymentMethodType, TransferAccount $account, ?PaymentMethodsBankAccount $bankAccount = null, ?PaymentMethodsWallet $wallet = null, ?PaymentMethodsCard $card = null, ?ACHTransactionDetails $achDetails = null, ?ApplePayResponse $applePay = null, ?CardTransactionDetails $cardDetails = null, ?RTPTransactionDetails $rtpDetails = null)
+    public function __construct(string $paymentMethodID, TransferPaymentMethodType $paymentMethodType, TransferAccount $account, ?TransferPaymentMethodsBankAccount $bankAccount = null, ?TransferPaymentMethodsWallet $wallet = null, ?TransferPaymentMethodsCard $card = null, ?ACHTransactionDetails $achDetails = null, ?ApplePayResponse $applePay = null, ?CardTransactionDetails $cardDetails = null, ?RTPTransactionDetails $rtpDetails = null)
     {
         $this->paymentMethodID = $paymentMethodID;
         $this->paymentMethodType = $paymentMethodType;
