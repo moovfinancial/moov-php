@@ -18,7 +18,7 @@ targets:
                 token: $packagist_token
         codeSamples:
             registry:
-                location: registry.speakeasyapi.dev/moov/moov/{{API_VERSION}}--php-code-samples
+                location: registry.speakeasyapi.dev/moov/moov/{{API_VERSION}}-php-code-samples
             labelOverride:
                 fixedValue: Php (SDK)
             blocking: false
