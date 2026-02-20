@@ -13,4 +13,5 @@ enum PaymentLinkType: string
 {
     case Payment = 'payment';
     case Payout = 'payout';
+    case InvoicePayment = 'invoice-payment';
 }

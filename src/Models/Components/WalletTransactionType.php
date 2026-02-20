@@ -38,4 +38,5 @@ enum WalletTransactionType: string
     case Adjustment = 'adjustment';
     case FeeRevenue = 'fee-revenue';
     case Residual = 'residual';
+    case InstantBankFailure = 'instant-bank-failure';
 }
