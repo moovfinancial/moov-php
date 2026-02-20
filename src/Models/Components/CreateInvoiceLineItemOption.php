@@ -48,29 +48,17 @@ class CreateInvoiceLineItemOption
     public ?string $group = null;
 
     /**
-     * Optional list of images associated with this line item option.
-     *
-     * @var ?array<CreateInvoiceLineItemImage> $images
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('images')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\CreateInvoiceLineItemImage>|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?array $images = null;
-
-    /**
      * @param  string  $name
      * @param  int  $quantity
      * @param  ?AmountDecimal  $priceModifier
      * @param  ?string  $group
-     * @param  ?array<CreateInvoiceLineItemImage>  $images
      * @phpstan-pure
      */
-    public function __construct(string $name, int $quantity, ?AmountDecimal $priceModifier = null, ?string $group = null, ?array $images = null)
+    public function __construct(string $name, int $quantity, ?AmountDecimal $priceModifier = null, ?string $group = null)
     {
         $this->name = $name;
         $this->quantity = $quantity;
         $this->priceModifier = $priceModifier;
         $this->group = $group;
-        $this->images = $images;
     }
 }

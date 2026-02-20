@@ -105,6 +105,16 @@ class TransferDestination
     public ?RTPTransactionDetails $rtpDetails = null;
 
     /**
+     * Instant-bank specific details about the transaction.
+     *
+     * @var ?InstantBankTransactionDetails $instantBankDetails
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('instantBankDetails')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\InstantBankTransactionDetails|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?InstantBankTransactionDetails $instantBankDetails = null;
+
+    /**
      * @param  string  $paymentMethodID
      * @param  TransferPaymentMethodType  $paymentMethodType
      * @param  TransferAccount  $account
@@ -115,9 +125,10 @@ class TransferDestination
      * @param  ?ApplePayResponse  $applePay
      * @param  ?CardTransactionDetails  $cardDetails
      * @param  ?RTPTransactionDetails  $rtpDetails
+     * @param  ?InstantBankTransactionDetails  $instantBankDetails
      * @phpstan-pure
      */
-    public function __construct(string $paymentMethodID, TransferPaymentMethodType $paymentMethodType, TransferAccount $account, ?TransferPaymentMethodsBankAccount $bankAccount = null, ?TransferPaymentMethodsWallet $wallet = null, ?TransferPaymentMethodsCard $card = null, ?ACHTransactionDetails $achDetails = null, ?ApplePayResponse $applePay = null, ?CardTransactionDetails $cardDetails = null, ?RTPTransactionDetails $rtpDetails = null)
+    public function __construct(string $paymentMethodID, TransferPaymentMethodType $paymentMethodType, TransferAccount $account, ?TransferPaymentMethodsBankAccount $bankAccount = null, ?TransferPaymentMethodsWallet $wallet = null, ?TransferPaymentMethodsCard $card = null, ?ACHTransactionDetails $achDetails = null, ?ApplePayResponse $applePay = null, ?CardTransactionDetails $cardDetails = null, ?RTPTransactionDetails $rtpDetails = null, ?InstantBankTransactionDetails $instantBankDetails = null)
     {
         $this->paymentMethodID = $paymentMethodID;
         $this->paymentMethodType = $paymentMethodType;
@@ -129,5 +140,6 @@ class TransferDestination
         $this->applePay = $applePay;
         $this->cardDetails = $cardDetails;
         $this->rtpDetails = $rtpDetails;
+        $this->instantBankDetails = $instantBankDetails;
     }
 }
