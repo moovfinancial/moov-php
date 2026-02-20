@@ -1,21 +1,21 @@
-speakeasyVersion: 1.719.1
+speakeasyVersion: 1.722.7
 sources:
     latest:
         sourceNamespace: php-v2026.04.00
-        sourceRevisionDigest: sha256:a2094b7266a64a650c24a7d2402440150711bcca5943465637ae7f84c43b48a8
-        sourceBlobDigest: sha256:1d87a9e95d80dfbc889dbec9dd9052eaa5b0725c76bf1b244fa3784920d5a456
+        sourceRevisionDigest: sha256:fca7d224054b008fe024c91049ca5c5b5ba764c3adf6662d43cc0080f54b8a3d
+        sourceBlobDigest: sha256:848dcc220dbfe967d129a9be0ee3ff8e4e34fcd3a620f8d67f7fb1b52c5bb07f
         tags:
             - latest
-            - speakeasy-sdk-regen-versions-2026.04-1771296032
+            - speakeasy-sdk-regen-versions-2026.04-1771555191
             - v2026.04.00
 targets:
     latest:
         source: latest
         sourceNamespace: php-v2026.04.00
-        sourceRevisionDigest: sha256:a2094b7266a64a650c24a7d2402440150711bcca5943465637ae7f84c43b48a8
-        sourceBlobDigest: sha256:1d87a9e95d80dfbc889dbec9dd9052eaa5b0725c76bf1b244fa3784920d5a456
-        codeSamplesNamespace: v2026.04.00--php-code-samples
-        codeSamplesRevisionDigest: sha256:4d20892e505868761f3d3beb74b43c5d8596eaa76cd6732a90af26235a09d90f
+        sourceRevisionDigest: sha256:fca7d224054b008fe024c91049ca5c5b5ba764c3adf6662d43cc0080f54b8a3d
+        sourceBlobDigest: sha256:848dcc220dbfe967d129a9be0ee3ff8e4e34fcd3a620f8d67f7fb1b52c5bb07f
+        codeSamplesNamespace: v2026.04.00-php-code-samples
+        codeSamplesRevisionDigest: sha256:8257c4c0c8201891c406a9a545c759e650635d0b210157bc3abf045baf41fdb2
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -37,7 +37,7 @@ workflow:
                     token: $packagist_token
             codeSamples:
                 registry:
-                    location: registry.speakeasyapi.dev/moov/moov/v2026.04.00--php-code-samples
+                    location: registry.speakeasyapi.dev/moov/moov/v2026.04.00-php-code-samples
                 labelOverride:
                     fixedValue: Php (SDK)
                 blocking: false

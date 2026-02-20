@@ -30,7 +30,7 @@ class ListPaymentLinksRequest
      *   - `BB` is the build number, starting at `.01`, for subsequent builds in the same quarter. 
      *     - For example, `v2024.01.00` is the initial release of the first quarter of 2024.
      *
-     * The `latest` version represents the most recent development state. It may include breaking changes and should be treated as a beta release.
+     * The `dev` version represents the most recent development state. It may include breaking changes and should be treated as a beta release.
      * When no version is specified, the API defaults to `v2024.01.00`.
      *
      * @var ?string $xMoovVersion
@@ -53,35 +53,27 @@ class ListPaymentLinksRequest
     public ?int $count = null;
 
     /**
+     * A comma-separated list of payment link types to filter results.
      *
-     * @var ?Components\PaymentLinkType $type
+     * @var ?array<Components\PaymentLinkType> $types
      */
-    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=type')]
-    public ?Components\PaymentLinkType $type = null;
-
-    /**
-     *
-     * @var ?Components\PaymentLinkStatus $status
-     */
-    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=status')]
-    public ?Components\PaymentLinkStatus $status = null;
+    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=types')]
+    public ?array $types = null;
 
     /**
      * @param  string  $accountID
      * @param  ?string  $xMoovVersion
      * @param  ?int  $skip
      * @param  ?int  $count
-     * @param  ?Components\PaymentLinkType  $type
-     * @param  ?Components\PaymentLinkStatus  $status
+     * @param  ?array<Components\PaymentLinkType>  $types
      * @phpstan-pure
      */
-    public function __construct(string $accountID, ?string $xMoovVersion = null, ?int $skip = null, ?int $count = null, ?Components\PaymentLinkType $type = null, ?Components\PaymentLinkStatus $status = null)
+    public function __construct(string $accountID, ?string $xMoovVersion = null, ?int $skip = null, ?int $count = null, ?array $types = null)
     {
         $this->accountID = $accountID;
         $this->xMoovVersion = $xMoovVersion;
         $this->skip = $skip;
         $this->count = $count;
-        $this->type = $type;
-        $this->status = $status;
+        $this->types = $types;
     }
 }
