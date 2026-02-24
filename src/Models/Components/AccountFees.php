@@ -31,6 +31,15 @@ class AccountFees
     public AmountDecimal $merchantPCIFee;
 
     /**
+     * Fees for invoice payments.
+     *
+     * @var AmountDecimal $invoicePaymentFee
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('invoicePaymentFee')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
+    public AmountDecimal $invoicePaymentFee;
+
+    /**
      * Total platform fees.
      *
      * @var AmountDecimal $total
@@ -72,16 +81,18 @@ class AccountFees
     /**
      * @param  AmountDecimal  $walletFee
      * @param  AmountDecimal  $merchantPCIFee
+     * @param  AmountDecimal  $invoicePaymentFee
      * @param  AmountDecimal  $total
      * @param  ?AmountDecimal  $kybFee
      * @param  ?AmountDecimal  $kycFee
      * @param  ?AmountDecimal  $transactionMonitoringFee
      * @phpstan-pure
      */
-    public function __construct(AmountDecimal $walletFee, AmountDecimal $merchantPCIFee, AmountDecimal $total, ?AmountDecimal $kybFee = null, ?AmountDecimal $kycFee = null, ?AmountDecimal $transactionMonitoringFee = null)
+    public function __construct(AmountDecimal $walletFee, AmountDecimal $merchantPCIFee, AmountDecimal $invoicePaymentFee, AmountDecimal $total, ?AmountDecimal $kybFee = null, ?AmountDecimal $kycFee = null, ?AmountDecimal $transactionMonitoringFee = null)
     {
         $this->walletFee = $walletFee;
         $this->merchantPCIFee = $merchantPCIFee;
+        $this->invoicePaymentFee = $invoicePaymentFee;
         $this->total = $total;
         $this->kybFee = $kybFee;
         $this->kycFee = $kycFee;
