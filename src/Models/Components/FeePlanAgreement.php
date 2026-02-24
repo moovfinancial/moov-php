@@ -12,6 +12,7 @@ namespace Moov\MoovPhp\Models\Components;
 class FeePlanAgreement
 {
     /**
+     * A unique identifier for a Moov resource. Supports UUID format (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx) or typed format with base32-encoded UUID and type suffix (e.g., kuoaydiojf7uszaokc2ggnaaaa_xfer).
      *
      * @var string $agreementID
      */
@@ -19,6 +20,7 @@ class FeePlanAgreement
     public string $agreementID;
 
     /**
+     * A unique identifier for a Moov resource. Supports UUID format (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx) or typed format with base32-encoded UUID and type suffix (e.g., kuoaydiojf7uszaokc2ggnaaaa_xfer).
      *
      * @var string $planID
      */
@@ -85,6 +87,7 @@ class FeePlanAgreement
     public MonthlyPlatformFee $monthlyPlatformFee;
 
     /**
+     * A unique identifier for a Moov resource. Supports UUID format (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx) or typed format with base32-encoded UUID and type suffix (e.g., kuoaydiojf7uszaokc2ggnaaaa_xfer).
      *
      * @var ?string $accountID
      */
