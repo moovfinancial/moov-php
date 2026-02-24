@@ -13,6 +13,7 @@ namespace Moov\MoovPhp\Models\Components;
 class GeneratedBy
 {
     /**
+     * A unique identifier for a Moov resource. Supports UUID format (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx) or typed format with base32-encoded UUID and type suffix (e.g., kuoaydiojf7uszaokc2ggnaaaa_xfer).
      *
      * @var ?string $transferID
      */
@@ -21,6 +22,7 @@ class GeneratedBy
     public ?string $transferID = null;
 
     /**
+     * A unique identifier for a Moov resource. Supports UUID format (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx) or typed format with base32-encoded UUID and type suffix (e.g., kuoaydiojf7uszaokc2ggnaaaa_xfer).
      *
      * @var ?string $cardID
      */
@@ -29,6 +31,7 @@ class GeneratedBy
     public ?string $cardID = null;
 
     /**
+     * A unique identifier for a Moov resource. Supports UUID format (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx) or typed format with base32-encoded UUID and type suffix (e.g., kuoaydiojf7uszaokc2ggnaaaa_xfer).
      *
      * @var ?string $disputeID
      */
@@ -37,6 +40,7 @@ class GeneratedBy
     public ?string $disputeID = null;
 
     /**
+     * A unique identifier for a Moov resource. Supports UUID format (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx) or typed format with base32-encoded UUID and type suffix (e.g., kuoaydiojf7uszaokc2ggnaaaa_xfer).
      *
      * @var ?string $accountID
      */
@@ -45,6 +49,7 @@ class GeneratedBy
     public ?string $accountID = null;
 
     /**
+     * A unique identifier for a Moov resource. Supports UUID format (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx) or typed format with base32-encoded UUID and type suffix (e.g., kuoaydiojf7uszaokc2ggnaaaa_xfer).
      *
      * @var ?string $bankAccountID
      */
@@ -53,6 +58,7 @@ class GeneratedBy
     public ?string $bankAccountID = null;
 
     /**
+     * A unique identifier for a Moov resource. Supports UUID format (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx) or typed format with base32-encoded UUID and type suffix (e.g., kuoaydiojf7uszaokc2ggnaaaa_xfer).
      *
      * @var ?string $invoiceID
      */
