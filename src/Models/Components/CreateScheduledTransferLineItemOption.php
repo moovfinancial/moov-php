@@ -48,9 +48,12 @@ class CreateScheduledTransferLineItemOption
     public ?string $group = null;
 
     /**
-     * Optional list of images associated with this line item.
+     *   Optional list of images associated with this line item option.
+     *
+     *   This field is being deprecated in favor using the images associated with a productID and will soon be unsupported.
      *
      * @var ?array<string> $imageIDs
+     * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('imageIDs')]
     #[\Speakeasy\Serializer\Annotation\Type('array<string>|null')]
