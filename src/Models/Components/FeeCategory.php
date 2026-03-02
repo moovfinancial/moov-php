@@ -16,6 +16,7 @@ enum FeeCategory: string
     case CardOther = 'card-other';
     case CardPull = 'card-pull';
     case CardPush = 'card-push';
+    case InstantBank = 'instant-bank';
     case MonthlyPlatform = 'monthly-platform';
     case NetworkPassthrough = 'network-passthrough';
     case Other = 'other';

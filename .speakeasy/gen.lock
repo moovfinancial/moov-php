@@ -1,28 +1,28 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: d412c6c0e844e87c01c05459f5043600
+  docChecksum: abd8b982f996dc13f799cd75a59d8e04
   docVersion: dev
-  speakeasyVersion: 1.725.0
-  generationVersion: 2.836.5
-  releaseVersion: 0.0.0-dev.2
-  configChecksum: 879fc6e378199bacdfbb63ab1077f8d2
+  speakeasyVersion: 1.736.3
+  generationVersion: 2.845.15
+  releaseVersion: 0.0.0-dev.3
+  configChecksum: 20ad656404877102f22728bbbe60b80d
   repoURL: https://github.com/moovfinancial/moov-php.git
-  installationURL: https://github.com/moovfinancial/moov-php
+  installationURL: https://github.com/moovfinancial/moov-php.git
   published: true
 persistentEdits:
-  generation_id: a4034ef5-ed80-4224-96d0-bf871c0707de
-  pristine_commit_hash: 544d776687f8024aa79441eaaed96755266b221e
-  pristine_tree_hash: 6216685160f89deb95603c05e61ce82dfba31452
+  generation_id: 65290e2d-b679-42ae-b514-9fa99e0f06e3
+  pristine_commit_hash: 1848dffaac6b418c648fe9a72ddb99126df4f9b8
+  pristine_tree_hash: 0da7a618ff254a902b126c211219b5ed369c60c4
 features:
   php:
-    constsAndDefaults: 0.2.1
-    core: 3.9.14
+    constsAndDefaults: 0.2.2
+    core: 3.9.17
     decimal: 0.1.1
     deprecations: 2.81.1
     flattening: 2.81.1
     globalSecurity: 2.81.10
-    globalServerURLs: 2.83.0
+    globalServerURLs: 2.83.1
     globals: 2.82.2
     groups: 2.81.3
     includes: 2.81.1
@@ -1086,8 +1086,8 @@ trackedFiles:
     pristine_git_object: c3c267eb8542d72a42fbd59263c6aec644a5fa03
   docs/Models/Components/FeeCategory.md:
     id: d99c8c18d66a
-    last_write_checksum: sha1:5de999ee8af25bbc49da6f9309a336047d746374
-    pristine_git_object: 71b1fe37b6dd82e15d6d16c4bfc910a483b00483
+    last_write_checksum: sha1:13ec2f5ae8a50585846db5aeef96c5a58d7762d6
+    pristine_git_object: abc0daf1d7d6a6793c86cc9db78e597035311e87
   docs/Models/Components/FeeModel.md:
     id: 02c11bbdbd91
     last_write_checksum: sha1:f1c1385ee397ab7149bf891c5b102e24f5b0bda9
@@ -5650,8 +5650,8 @@ trackedFiles:
     pristine_git_object: 1831a5f595e066e6d1f5bcfc500871238ff32210
   src/Models/Components/FeeCategory.php:
     id: f590210d35bf
-    last_write_checksum: sha1:3cc524e84d0f96896d17deb992b15f1a490b8f65
-    pristine_git_object: 10d099e5191b5c5ca6dc33fdc877561da22eb922
+    last_write_checksum: sha1:012bfa54626de28d6aaf2c6018683068625074b5
+    pristine_git_object: 46dda3a3f28111b24bb8d2b5ba31d2799c51d132
   src/Models/Components/FeeModel.php:
     id: cb44ad60b735
     last_write_checksum: sha1:ab43d67b56e0ca8117e9d8b1766d0ff7c4959749
@@ -9074,8 +9074,8 @@ trackedFiles:
     pristine_git_object: fc925901fa92bb1be68f28f6006d4a58337b1e07
   src/SDKConfiguration.php:
     id: 9d60ab0bec0b
-    last_write_checksum: sha1:e82915044e320efb6db403fe7a3d54b0b221539d
-    pristine_git_object: 53c5d96e3cfefe8552c087ce08be377152214641
+    last_write_checksum: sha1:04fc0bcf805070db3c73811c86271d6624eeb814
+    pristine_git_object: 49dac17741cdbdac65dfbc99c8c0e9e595875eee
   src/Schedules.php:
     id: 8dbe56d2d033
     last_write_checksum: sha1:d28a0cf731c5291df4052da79bd90d035d4fca38
@@ -9114,8 +9114,8 @@ trackedFiles:
     pristine_git_object: 3aac73b71081e7a73ba10bf34ac98668c6833ce9
   src/Utils/BigDecimalHandler.php:
     id: cdcca3718e2e
-    last_write_checksum: sha1:ee9eb0f973fdcfd9329798620fce8599693a00dc
-    pristine_git_object: 8faaccce693182ec43cc9cd4d60e8886bfeed40f
+    last_write_checksum: sha1:a20651db00be4203eb802198c9a8c3c8a201677a
+    pristine_git_object: 716662d8f79bf260c03d3a88b404b0f7b2c9dedb
   src/Utils/BigIntHandler.php:
     id: 190c4d16fa85
     last_write_checksum: sha1:ffc281552da6c0be6353836cc54d95aa00df29b9
@@ -12014,8 +12014,10 @@ examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## Php SDK Changes:
-  * `moov->statements->list()`:  `response.[]->accountFees->invoicePaymentFee` **Added**
-  * `moov->statements->get()`:  `response.accountFees->invoicePaymentFee` **Added**
+  * `moov->feeplans->list()`:  `response.[]->billableFees[]->feeCategory->enum(instantBank)` **Added** (Breaking ⚠️)
+  * `moov->feeplans->createAgreements()`:  `response.billableFees[]->feeCategory->enum(instantBank)` **Added** (Breaking ⚠️)
+  * `moov->feeplans->listByAccount()`:  `response.[]->billableFees[]->feeCategory->enum(instantBank)` **Added** (Breaking ⚠️)
+  * `moov->feeplans->listPartnerPricingAgreements()`:  `response.[]->billableFees[]->feeCategory->enum(instantBank)` **Added** (Breaking ⚠️)
 generatedFiles:
   - .gitattributes
   - USAGE.md
