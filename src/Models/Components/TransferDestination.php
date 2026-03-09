@@ -95,14 +95,14 @@ class TransferDestination
     public ?CardTransactionDetails $cardDetails = null;
 
     /**
-     * RTP specific details about the transaction.
      *
-     * @var ?RTPTransactionDetails $rtpDetails
+     * @var ?RtpDetails $rtpDetails
+     * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('rtpDetails')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RTPTransactionDetails|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RtpDetails|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?RTPTransactionDetails $rtpDetails = null;
+    public ?RtpDetails $rtpDetails = null;
 
     /**
      * @param  string  $paymentMethodID
@@ -114,10 +114,10 @@ class TransferDestination
      * @param  ?ACHTransactionDetails  $achDetails
      * @param  ?ApplePayResponse  $applePay
      * @param  ?CardTransactionDetails  $cardDetails
-     * @param  ?RTPTransactionDetails  $rtpDetails
+     * @param  ?RtpDetails  $rtpDetails
      * @phpstan-pure
      */
-    public function __construct(string $paymentMethodID, TransferPaymentMethodType $paymentMethodType, TransferAccount $account, ?TransferPaymentMethodsBankAccount $bankAccount = null, ?TransferPaymentMethodsWallet $wallet = null, ?TransferPaymentMethodsCard $card = null, ?ACHTransactionDetails $achDetails = null, ?ApplePayResponse $applePay = null, ?CardTransactionDetails $cardDetails = null, ?RTPTransactionDetails $rtpDetails = null)
+    public function __construct(string $paymentMethodID, TransferPaymentMethodType $paymentMethodType, TransferAccount $account, ?TransferPaymentMethodsBankAccount $bankAccount = null, ?TransferPaymentMethodsWallet $wallet = null, ?TransferPaymentMethodsCard $card = null, ?ACHTransactionDetails $achDetails = null, ?ApplePayResponse $applePay = null, ?CardTransactionDetails $cardDetails = null, ?RtpDetails $rtpDetails = null)
     {
         $this->paymentMethodID = $paymentMethodID;
         $this->paymentMethodType = $paymentMethodType;
