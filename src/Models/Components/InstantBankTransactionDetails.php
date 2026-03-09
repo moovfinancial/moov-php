@@ -9,18 +9,26 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-/** RTPTransactionDetails - RTP specific details about the transaction. */
-class RTPTransactionDetails
+/** InstantBankTransactionDetails - Instant-bank specific details about the transaction. */
+class InstantBankTransactionDetails
 {
     /**
-     * Status of a transaction within the RTP lifecycle.
+     * The network that the transaction was processed on.
      *
-     * @var ?RTPTransactionStatus $status
+     * @var InstantBankNetwork $network
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('network')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\InstantBankNetwork')]
+    public InstantBankNetwork $network;
+
+    /**
+     * Status of a transaction within the instant-bank lifecycle.
+     *
+     * @var InstantBankTransactionStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RTPTransactionStatus|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?RTPTransactionStatus $status = null;
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\InstantBankTransactionStatus')]
+    public InstantBankTransactionStatus $status;
 
     /**
      * Response code returned by network on failure.
@@ -32,14 +40,22 @@ class RTPTransactionDetails
     public ?string $networkResponseCode = null;
 
     /**
-     * Status codes for RTP failures.
+     * Status codes for instant-bank failures.
      *
-     * @var ?RTPFailureCode $failureCode
+     * @var ?InstantBankFailureCode $failureCode
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('failureCode')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RTPFailureCode|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\InstantBankFailureCode|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?RTPFailureCode $failureCode = null;
+    public ?InstantBankFailureCode $failureCode = null;
+
+    /**
+     *
+     * @var ?string $endToEndID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('endToEndID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $endToEndID = null;
 
     /**
      *
@@ -74,20 +90,24 @@ class RTPTransactionDetails
     public ?\DateTime $acceptedWithoutPostingOn = null;
 
     /**
-     * @param  ?RTPTransactionStatus  $status
+     * @param  InstantBankNetwork  $network
+     * @param  InstantBankTransactionStatus  $status
      * @param  ?string  $networkResponseCode
-     * @param  ?RTPFailureCode  $failureCode
+     * @param  ?InstantBankFailureCode  $failureCode
+     * @param  ?string  $endToEndID
      * @param  ?\DateTime  $initiatedOn
      * @param  ?\DateTime  $completedOn
      * @param  ?\DateTime  $failedOn
      * @param  ?\DateTime  $acceptedWithoutPostingOn
      * @phpstan-pure
      */
-    public function __construct(?RTPTransactionStatus $status = null, ?string $networkResponseCode = null, ?RTPFailureCode $failureCode = null, ?\DateTime $initiatedOn = null, ?\DateTime $completedOn = null, ?\DateTime $failedOn = null, ?\DateTime $acceptedWithoutPostingOn = null)
+    public function __construct(InstantBankNetwork $network, InstantBankTransactionStatus $status, ?string $networkResponseCode = null, ?InstantBankFailureCode $failureCode = null, ?string $endToEndID = null, ?\DateTime $initiatedOn = null, ?\DateTime $completedOn = null, ?\DateTime $failedOn = null, ?\DateTime $acceptedWithoutPostingOn = null)
     {
+        $this->network = $network;
         $this->status = $status;
         $this->networkResponseCode = $networkResponseCode;
         $this->failureCode = $failureCode;
+        $this->endToEndID = $endToEndID;
         $this->initiatedOn = $initiatedOn;
         $this->completedOn = $completedOn;
         $this->failedOn = $failedOn;

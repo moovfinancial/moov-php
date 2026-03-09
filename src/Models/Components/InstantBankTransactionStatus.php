@@ -9,8 +9,8 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-/** Status of a transaction within the RTP lifecycle. */
-enum RTPTransactionStatus: string
+/** Status of a transaction within the instant-bank lifecycle. */
+enum InstantBankTransactionStatus: string
 {
     case Initiated = 'initiated';
     case Completed = 'completed';

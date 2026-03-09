@@ -20,6 +20,16 @@ you'll need to specify the `/accounts/{accountID}/invoices.read` scope.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
 you'll need to specify the `/accounts/{accountID}/invoices.write` scope.
+* [delete](#delete) - Delete an invoice. Only invoices in `draft` status can be deleted.
+
+Deleting an invoice indicates it was created by mistake and should be completely disregarded.
+Deleted invoices are hidden from list results by default, but can still be retrieved
+individually through the get invoice endpoint. If you need to void an invoice that was
+already sent or is otherwise part of the invoice history, cancel it instead by updating
+its status to `canceled`.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
+you'll need to specify the `/accounts/{accountID}/invoices.write` scope.
 * [createInvoicePayment](#createinvoicepayment) - Creates a payment resource to represent that an invoice was paid outside of the Moov platform.
 If a payment link was created for the invoice, the corresponding payment link is canceled, but a receipt is still sent.
 
@@ -312,6 +322,72 @@ if ($response->invoice !== null) {
 | Errors\GenericError       | 400, 409                  | application/json          |
 | Errors\UpdateInvoiceError | 422                       | application/json          |
 | Errors\APIException       | 4XX, 5XX                  | \*/\*                     |
+
+## delete
+
+Delete an invoice. Only invoices in `draft` status can be deleted.
+
+Deleting an invoice indicates it was created by mistake and should be completely disregarded.
+Deleted invoices are hidden from list results by default, but can still be retrieved
+individually through the get invoice endpoint. If you need to void an invoice that was
+already sent or is otherwise part of the invoice history, cancel it instead by updating
+its status to `canceled`.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
+you'll need to specify the `/accounts/{accountID}/invoices.write` scope.
+
+### Example Usage
+
+<!-- UsageSnippet language="php" operationID="deleteInvoice" method="delete" path="/accounts/{accountID}/invoices/{invoiceID}" -->
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
+
+$sdk = MoovPhp\Moov::builder()
+    ->setXMoovVersion('<value>')
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
+
+
+
+$response = $sdk->invoices->delete(
+    accountID: '<id>',
+    invoiceID: '<id>'
+
+);
+
+if ($response->statusCode === 200) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Required                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `accountID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `invoiceID`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `xMoovVersion`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | *?string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Specify an API version.<br/><br/>API versioning follows the format `vYYYY.QQ.BB`, where <br/>  - `YYYY` is the year<br/>  - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)<br/>  - `BB` is the build number, starting at `.01`, for subsequent builds in the same quarter. <br/>    - For example, `v2024.01.00` is the initial release of the first quarter of 2024.<br/><br/>The `dev` version represents the most recent development state. It may include breaking changes and should be treated as a beta release.<br/>When no version is specified, the API defaults to `v2024.01.00`. |
+
+### Response
+
+**[?Operations\DeleteInvoiceResponse](../../Models/Operations/DeleteInvoiceResponse.md)**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| Errors\GenericError | 400, 409            | application/json    |
+| Errors\APIException | 4XX, 5XX            | \*/\*               |
 
 ## createInvoicePayment
 

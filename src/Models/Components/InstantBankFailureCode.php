@@ -9,8 +9,8 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-/** Status codes for RTP failures. */
-enum RTPFailureCode: string
+/** Status codes for instant-bank failures. */
+enum InstantBankFailureCode: string
 {
     case ProcessingError = 'processing-error';
     case InvalidAccount = 'invalid-account';
@@ -21,5 +21,6 @@ enum RTPFailureCode: string
     case LimitExceeded = 'limit-exceeded';
     case InvalidAmount = 'invalid-amount';
     case CustomerDeceased = 'customer-deceased';
+    case ParticipantNotAvailable = 'participant-not-available';
     case Other = 'other';
 }

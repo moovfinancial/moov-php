@@ -1,6 +1,6 @@
-# RTPTransactionStatus
+# InstantBankTransactionStatus
 
-Status of a transaction within the RTP lifecycle.
+Status of a transaction within the instant-bank lifecycle.
 
 
 ## Values

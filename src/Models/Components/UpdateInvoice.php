@@ -32,7 +32,10 @@ class UpdateInvoice
     /**
      * The status can be updated to one of the following values under specific conditions:
      *
-     * - `canceled`: Can only be set if the current status is `draft`, `unpaid`, or `overdue`.
+     * - `canceled`: Can only be set if the current status is `draft`, `unpaid`, or `overdue`. Canceling an invoice
+     *   indicates the invoice is no longer expected to be paid (e.g., the charge was waived or terms changed).
+     *   Canceled invoices still appear in list results by default and remain part of the invoice history.
+     *   To completely discard an invoice created by mistake, use the delete endpoint instead.
      * - `unpaid`: Can only be set if the current status is `draft`. Setting the status to `unpaid` finalizes the invoice and sends an email with a payment link to the customer.
      *
      * @var ?InvoiceStatus $status

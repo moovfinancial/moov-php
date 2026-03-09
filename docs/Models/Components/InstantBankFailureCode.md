@@ -1,6 +1,6 @@
-# RTPFailureCode
+# InstantBankFailureCode
 
-Status codes for RTP failures.
+Status codes for instant-bank failures.
 
 
 ## Values
@@ -16,4 +16,5 @@ Status codes for RTP failures.
 | `LimitExceeded`           | limit-exceeded            |
 | `InvalidAmount`           | invalid-amount            |
 | `CustomerDeceased`        | customer-deceased         |
+| `ParticipantNotAvailable` | participant-not-available |
 | `Other`                   | other                     |
