@@ -9,8 +9,12 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-/** RTPTransactionDetails - RTP specific details about the transaction. */
-class RTPTransactionDetails
+/**
+ * RtpDetails - DEPRECATED: use `InstantBankTransactionDetails` instead (v2026.04.00 or later). RTP specific details about the transaction.
+ *
+ * @deprecated  class: This will be removed in a future release, please migrate away from it as soon as possible.
+ */
+class RtpDetails
 {
     /**
      * Status of a transaction within the RTP lifecycle.
