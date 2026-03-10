@@ -35,6 +35,22 @@ class Invoice
     public string $customerAccountID;
 
     /**
+     * Display name of the customer account.
+     *
+     * @var string $customerDisplayName
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('customerDisplayName')]
+    public string $customerDisplayName;
+
+    /**
+     * Email address of the customer account.
+     *
+     * @var string $customerEmail
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('customerEmail')]
+    public string $customerEmail;
+
+    /**
      * A unique identifier for a Moov resource. Supports UUID format (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx) or typed format with base32-encoded UUID and type suffix (e.g., kuoaydiojf7uszaokc2ggnaaaa_xfer).
      *
      * @var string $partnerAccountID
@@ -194,9 +210,19 @@ class Invoice
     public ?\DateTime $canceledOn = null;
 
     /**
+     *
+     * @var ?\DateTime $disabledOn
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('disabledOn')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?\DateTime $disabledOn = null;
+
+    /**
      * @param  string  $invoiceID
      * @param  string  $invoiceNumber
      * @param  string  $customerAccountID
+     * @param  string  $customerDisplayName
+     * @param  string  $customerEmail
      * @param  string  $partnerAccountID
      * @param  InvoiceStatus  $status
      * @param  InvoiceLineItems  $lineItems
@@ -216,13 +242,16 @@ class Invoice
      * @param  ?\DateTime  $sentOn
      * @param  ?\DateTime  $paidOn
      * @param  ?\DateTime  $canceledOn
+     * @param  ?\DateTime  $disabledOn
      * @phpstan-pure
      */
-    public function __construct(string $invoiceID, string $invoiceNumber, string $customerAccountID, string $partnerAccountID, InvoiceStatus $status, InvoiceLineItems $lineItems, AmountDecimal $subtotalAmount, AmountDecimal $taxAmount, AmountDecimal $totalAmount, AmountDecimal $pendingAmount, AmountDecimal $paidAmount, AmountDecimal $refundedAmount, AmountDecimal $disputedAmount, \DateTime $createdOn, ?string $description = null, ?string $paymentLinkCode = null, ?array $invoicePayments = null, ?\DateTime $invoiceDate = null, ?\DateTime $dueDate = null, ?\DateTime $sentOn = null, ?\DateTime $paidOn = null, ?\DateTime $canceledOn = null)
+    public function __construct(string $invoiceID, string $invoiceNumber, string $customerAccountID, string $customerDisplayName, string $customerEmail, string $partnerAccountID, InvoiceStatus $status, InvoiceLineItems $lineItems, AmountDecimal $subtotalAmount, AmountDecimal $taxAmount, AmountDecimal $totalAmount, AmountDecimal $pendingAmount, AmountDecimal $paidAmount, AmountDecimal $refundedAmount, AmountDecimal $disputedAmount, \DateTime $createdOn, ?string $description = null, ?string $paymentLinkCode = null, ?array $invoicePayments = null, ?\DateTime $invoiceDate = null, ?\DateTime $dueDate = null, ?\DateTime $sentOn = null, ?\DateTime $paidOn = null, ?\DateTime $canceledOn = null, ?\DateTime $disabledOn = null)
     {
         $this->invoiceID = $invoiceID;
         $this->invoiceNumber = $invoiceNumber;
         $this->customerAccountID = $customerAccountID;
+        $this->customerDisplayName = $customerDisplayName;
+        $this->customerEmail = $customerEmail;
         $this->partnerAccountID = $partnerAccountID;
         $this->status = $status;
         $this->lineItems = $lineItems;
@@ -242,5 +271,6 @@ class Invoice
         $this->sentOn = $sentOn;
         $this->paidOn = $paidOn;
         $this->canceledOn = $canceledOn;
+        $this->disabledOn = $disabledOn;
     }
 }
