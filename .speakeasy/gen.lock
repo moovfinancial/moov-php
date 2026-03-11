@@ -3,21 +3,21 @@ id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
   docChecksum: 0f26e63ce5d45007ccc3e0548f9f9512
   docVersion: v2024.01.00
-  speakeasyVersion: 1.750.0
-  generationVersion: 2.856.1
-  releaseVersion: 24.1.12
-  configChecksum: 22be2326f21c945a81ffd57897da5e8d
+  speakeasyVersion: 1.752.0
+  generationVersion: 2.859.2
+  releaseVersion: 24.1.13
+  configChecksum: ea3474b347e60fd19d5584141a63dcb3
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php.git
   published: true
 persistentEdits:
-  generation_id: 68d3b1ce-b49d-4e98-9cb1-3716060598e3
-  pristine_commit_hash: b07942f2a257c6d0e2cef6136afe77046f95a1e7
-  pristine_tree_hash: dd2b0ff4230514a6fbbd3d32ae6eae4e77dea634
+  generation_id: 55450e8a-ea4f-42b2-afd0-6bb233c96bea
+  pristine_commit_hash: 2d60b2db1c65f3fd3a0012da6ef1eb80803bee04
+  pristine_tree_hash: 0359029e9d8aa9c824c2660db5078d5383ae33df
 features:
   php:
     constsAndDefaults: 0.2.2
-    core: 3.9.18
+    core: 3.9.20
     decimal: 0.1.1
     deprecations: 2.81.1
     flattening: 2.81.1
@@ -42,8 +42,8 @@ trackedFiles:
     pristine_git_object: bf125879955877a84c232607e8dcf62cf2934e05
   composer.json:
     id: 3957b91a0d84
-    last_write_checksum: sha1:08b592925fa4b2b20e24c6181323071adf9f45f7
-    pristine_git_object: 3dc7e72b23c4b0d9194b110f2a93ace6182f4d74
+    last_write_checksum: sha1:231e2036eb49fdec6450798b5a61b4a16c2c0a2b
+    pristine_git_object: f50e32d226ee06e8304d161bd88676af6292c917
   docs/Models/Components/ACHException.md:
     id: 01e00b0b4068
     last_write_checksum: sha1:8751bb4babb38470627056f636437eda3a0998b6
@@ -4082,8 +4082,8 @@ trackedFiles:
     pristine_git_object: a60649af3f395c201e41577fcfdfc7801c73f5e9
   src/Hooks/Hooks.php:
     id: 6cf174b736b4
-    last_write_checksum: sha1:1c6e5f634006e1ce82a64895fe241a0898d29d74
-    pristine_git_object: 8691ae97dad0205b71981500bf0a22cb241a36fd
+    last_write_checksum: sha1:9a6ef1a3f8c4d97999e9c2aed431c6fc86097507
+    pristine_git_object: 9c30b62e2e8b7f6f7a03c43cfe5d0877a27b91c8
   src/Hooks/SDKHooks.php:
     id: d31b27b84f0b
     last_write_checksum: sha1:e789333bed37e193bcc4438d2b43d22f390dcc6b
@@ -8074,8 +8074,8 @@ trackedFiles:
     pristine_git_object: fc925901fa92bb1be68f28f6006d4a58337b1e07
   src/SDKConfiguration.php:
     id: 9d60ab0bec0b
-    last_write_checksum: sha1:332f6b671e87ea605e3a82ead5563f38c1a648d5
-    pristine_git_object: 97b268770087be806c842ff5a2245f55f1a45977
+    last_write_checksum: sha1:add01b19925062386d3919b7f8ee716db80ef7da
+    pristine_git_object: 9e15c6b800a262e61962a93481f65a29b1c8ecdd
   src/Schedules.php:
     id: 8dbe56d2d033
     last_write_checksum: sha1:d28a0cf731c5291df4052da79bd90d035d4fca38
