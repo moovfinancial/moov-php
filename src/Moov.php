@@ -59,6 +59,8 @@ class Moov
 
     public Representatives $representatives;
 
+    public ResolutionLinks $resolutionLinks;
+
     public Scheduling $scheduling;
 
     public Schedules $schedules;
@@ -145,6 +147,7 @@ class Moov
         $this->paymentMethods = new PaymentMethods($this->sdkConfiguration);
         $this->products = new Products($this->sdkConfiguration);
         $this->representatives = new Representatives($this->sdkConfiguration);
+        $this->resolutionLinks = new ResolutionLinks($this->sdkConfiguration);
         $this->scheduling = new Scheduling($this->sdkConfiguration);
         $this->schedules = new Schedules($this->sdkConfiguration);
         $this->statements = new Statements($this->sdkConfiguration);

@@ -893,6 +893,27 @@ If you need to update information in a locked state, please contact Moov support
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
 you'll need to specify the `/accounts/{accountID}/representatives.write` scope.
 
+### [ResolutionLinks](docs/sdks/resolutionlinks/README.md)
+
+* [create](docs/sdks/resolutionlinks/README.md#create) - Create a resolution link for the specified account. Resolution links are temporary, secure links
+sent to merchants to resolve account requirements such as KYC verification or document uploads.  Only one active resolution link
+is allowed per connected account. 
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
+you'll need to specify the `/accounts/{accountID}/profile.write`, `/accounts/{accountID}/representatives.write` and `/accounts/{accountID}/files.write` scopes.
+* [list](docs/sdks/resolutionlinks/README.md#list) - List resolution links for the specified account.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
+you'll need to specify the `/accounts/{accountID}/profile.read` scope.
+* [get](docs/sdks/resolutionlinks/README.md#get) - Get a resolution link by code.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
+you'll need to specify the `/accounts/{accountID}/profile.read` scope.
+* [disable](docs/sdks/resolutionlinks/README.md#disable) - Disable a resolution link. Disabled resolution links can no longer be used by merchants.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
+you'll need to specify the `/accounts/{accountID}/profile.write` scope.
+
 ### [Schedules](docs/sdks/schedules/README.md)
 
 * [cancel](docs/sdks/schedules/README.md#cancel) - Describes the schedule to cancel.
