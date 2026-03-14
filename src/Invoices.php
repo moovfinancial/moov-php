@@ -53,19 +53,17 @@ class Invoices
      *
      * @param  Components\CreateInvoice  $createInvoice
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\CreateInvoiceResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function createInvoice(Components\CreateInvoice $createInvoice, string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\CreateInvoiceResponse
+    public function createInvoice(Components\CreateInvoice $createInvoice, string $accountID, ?Options $options = null): Operations\CreateInvoiceResponse
     {
         $request = new Operations\CreateInvoiceRequest(
             accountID: $accountID,
             createInvoice: $createInvoice,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/invoices', Operations\CreateInvoiceRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/invoices', Operations\CreateInvoiceRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'createInvoice', 'json');
@@ -73,10 +71,6 @@ class Invoices
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
@@ -160,20 +154,18 @@ class Invoices
      * @param  Components\CreateInvoicePayment  $createInvoicePayment
      * @param  string  $accountID
      * @param  string  $invoiceID
-     * @param  ?string  $xMoovVersion
      * @return Operations\CreateInvoicePaymentResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function createInvoicePayment(Components\CreateInvoicePayment $createInvoicePayment, string $accountID, string $invoiceID, ?string $xMoovVersion = null, ?Options $options = null): Operations\CreateInvoicePaymentResponse
+    public function createInvoicePayment(Components\CreateInvoicePayment $createInvoicePayment, string $accountID, string $invoiceID, ?Options $options = null): Operations\CreateInvoicePaymentResponse
     {
         $request = new Operations\CreateInvoicePaymentRequest(
             accountID: $accountID,
             invoiceID: $invoiceID,
             createInvoicePayment: $createInvoicePayment,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/invoices/{invoiceID}/payments', Operations\CreateInvoicePaymentRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/invoices/{invoiceID}/payments', Operations\CreateInvoicePaymentRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'createInvoicePayment', 'json');
@@ -181,10 +173,6 @@ class Invoices
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
@@ -272,25 +260,19 @@ class Invoices
      *
      * @param  string  $accountID
      * @param  string  $invoiceID
-     * @param  ?string  $xMoovVersion
      * @return Operations\DeleteInvoiceResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function delete(string $accountID, string $invoiceID, ?string $xMoovVersion = null, ?Options $options = null): Operations\DeleteInvoiceResponse
+    public function delete(string $accountID, string $invoiceID, ?Options $options = null): Operations\DeleteInvoiceResponse
     {
         $request = new Operations\DeleteInvoiceRequest(
             accountID: $accountID,
             invoiceID: $invoiceID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/invoices/{invoiceID}', Operations\DeleteInvoiceRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/invoices/{invoiceID}', Operations\DeleteInvoiceRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('DELETE', $url);
@@ -351,25 +333,19 @@ class Invoices
      *
      * @param  string  $accountID
      * @param  string  $invoiceID
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetInvoiceResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function getInvoice(string $accountID, string $invoiceID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetInvoiceResponse
+    public function getInvoice(string $accountID, string $invoiceID, ?Options $options = null): Operations\GetInvoiceResponse
     {
         $request = new Operations\GetInvoiceRequest(
             accountID: $accountID,
             invoiceID: $invoiceID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/invoices/{invoiceID}', Operations\GetInvoiceRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/invoices/{invoiceID}', Operations\GetInvoiceRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -429,25 +405,19 @@ class Invoices
      *
      * @param  string  $accountID
      * @param  string  $invoiceID
-     * @param  ?string  $xMoovVersion
      * @return Operations\ListInvoicePaymentsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function listInvoicePayments(string $accountID, string $invoiceID, ?string $xMoovVersion = null, ?Options $options = null): Operations\ListInvoicePaymentsResponse
+    public function listInvoicePayments(string $accountID, string $invoiceID, ?Options $options = null): Operations\ListInvoicePaymentsResponse
     {
         $request = new Operations\ListInvoicePaymentsRequest(
             accountID: $accountID,
             invoiceID: $invoiceID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/invoices/{invoiceID}/payments', Operations\ListInvoicePaymentsRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/invoices/{invoiceID}/payments', Operations\ListInvoicePaymentsRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -512,15 +482,11 @@ class Invoices
     public function listInvoices(Operations\ListInvoicesRequest $request, ?Options $options = null): Operations\ListInvoicesResponse
     {
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/invoices', Operations\ListInvoicesRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/invoices', Operations\ListInvoicesRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
 
-        $qp = Utils\Utils::getQueryParams(Operations\ListInvoicesRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
+        $qp = Utils\Utils::getQueryParams(Operations\ListInvoicesRequest::class, $request, $urlOverride);
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -593,20 +559,18 @@ class Invoices
      * @param  Components\UpdateInvoice  $updateInvoice
      * @param  string  $accountID
      * @param  string  $invoiceID
-     * @param  ?string  $xMoovVersion
      * @return Operations\UpdateInvoiceResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function updateInvoice(Components\UpdateInvoice $updateInvoice, string $accountID, string $invoiceID, ?string $xMoovVersion = null, ?Options $options = null): Operations\UpdateInvoiceResponse
+    public function updateInvoice(Components\UpdateInvoice $updateInvoice, string $accountID, string $invoiceID, ?Options $options = null): Operations\UpdateInvoiceResponse
     {
         $request = new Operations\UpdateInvoiceRequest(
             accountID: $accountID,
             invoiceID: $invoiceID,
             updateInvoice: $updateInvoice,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/invoices/{invoiceID}', Operations\UpdateInvoiceRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/invoices/{invoiceID}', Operations\UpdateInvoiceRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'updateInvoice', 'json');
@@ -614,10 +578,6 @@ class Invoices
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('PATCH', $url);

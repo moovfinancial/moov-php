@@ -52,25 +52,19 @@ class IssuingTransactions
      *
      * @param  string  $accountID
      * @param  string  $authorizationID
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetIssuedCardAuthorizationResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function getAuthorization(string $accountID, string $authorizationID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetIssuedCardAuthorizationResponse
+    public function getAuthorization(string $accountID, string $authorizationID, ?Options $options = null): Operations\GetIssuedCardAuthorizationResponse
     {
         $request = new Operations\GetIssuedCardAuthorizationRequest(
             accountID: $accountID,
             authorizationID: $authorizationID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/issuing/{accountID}/authorizations/{authorizationID}', Operations\GetIssuedCardAuthorizationRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/issuing/{accountID}/authorizations/{authorizationID}', Operations\GetIssuedCardAuthorizationRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -128,22 +122,27 @@ class IssuingTransactions
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/issued-cards.read` scope.
      *
-     * @param  Operations\ListIssuedCardAuthorizationEventsRequest  $request
+     * @param  string  $accountID
+     * @param  string  $authorizationID
+     * @param  ?int  $skip
+     * @param  ?int  $count
      * @return Operations\ListIssuedCardAuthorizationEventsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function listAuthorizationEvents(Operations\ListIssuedCardAuthorizationEventsRequest $request, ?Options $options = null): Operations\ListIssuedCardAuthorizationEventsResponse
+    public function listAuthorizationEvents(string $accountID, string $authorizationID, ?int $skip = null, ?int $count = null, ?Options $options = null): Operations\ListIssuedCardAuthorizationEventsResponse
     {
+        $request = new Operations\ListIssuedCardAuthorizationEventsRequest(
+            accountID: $accountID,
+            authorizationID: $authorizationID,
+            skip: $skip,
+            count: $count,
+        );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/issuing/{accountID}/authorizations/{authorizationID}/events', Operations\ListIssuedCardAuthorizationEventsRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/issuing/{accountID}/authorizations/{authorizationID}/events', Operations\ListIssuedCardAuthorizationEventsRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
 
-        $qp = Utils\Utils::getQueryParams(Operations\ListIssuedCardAuthorizationEventsRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
+        $qp = Utils\Utils::getQueryParams(Operations\ListIssuedCardAuthorizationEventsRequest::class, $request, $urlOverride);
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -209,15 +208,11 @@ class IssuingTransactions
     public function listAuthorizations(Operations\ListIssuedCardAuthorizationsRequest $request, ?Options $options = null): Operations\ListIssuedCardAuthorizationsResponse
     {
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/issuing/{accountID}/authorizations', Operations\ListIssuedCardAuthorizationsRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/issuing/{accountID}/authorizations', Operations\ListIssuedCardAuthorizationsRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
 
-        $qp = Utils\Utils::getQueryParams(Operations\ListIssuedCardAuthorizationsRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
+        $qp = Utils\Utils::getQueryParams(Operations\ListIssuedCardAuthorizationsRequest::class, $request, $urlOverride);
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -283,15 +278,11 @@ class IssuingTransactions
     public function list(Operations\ListIssuedCardTransactionsRequest $request, ?Options $options = null): Operations\ListIssuedCardTransactionsResponse
     {
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/issuing/{accountID}/card-transactions', Operations\ListIssuedCardTransactionsRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/issuing/{accountID}/card-transactions', Operations\ListIssuedCardTransactionsRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
 
-        $qp = Utils\Utils::getQueryParams(Operations\ListIssuedCardTransactionsRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
+        $qp = Utils\Utils::getQueryParams(Operations\ListIssuedCardTransactionsRequest::class, $request, $urlOverride);
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);

@@ -61,20 +61,18 @@ class BankAccounts
      * @param  Components\CompleteBankAccountVerification  $completeBankAccountVerification
      * @param  string  $accountID
      * @param  string  $bankAccountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\CompleteBankAccountVerificationResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function completeVerification(Components\CompleteBankAccountVerification $completeBankAccountVerification, string $accountID, string $bankAccountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\CompleteBankAccountVerificationResponse
+    public function completeVerification(Components\CompleteBankAccountVerification $completeBankAccountVerification, string $accountID, string $bankAccountID, ?Options $options = null): Operations\CompleteBankAccountVerificationResponse
     {
         $request = new Operations\CompleteBankAccountVerificationRequest(
             accountID: $accountID,
             bankAccountID: $bankAccountID,
             completeBankAccountVerification: $completeBankAccountVerification,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/bank-accounts/{bankAccountID}/verify', Operations\CompleteBankAccountVerificationRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/bank-accounts/{bankAccountID}/verify', Operations\CompleteBankAccountVerificationRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'completeBankAccountVerification', 'json');
@@ -82,10 +80,6 @@ class BankAccounts
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('PUT', $url);
@@ -157,20 +151,18 @@ class BankAccounts
      * @param  Components\CompleteMicroDeposits  $completeMicroDeposits
      * @param  string  $accountID
      * @param  string  $bankAccountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\CompleteMicroDepositsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function completeMicroDeposits(Components\CompleteMicroDeposits $completeMicroDeposits, string $accountID, string $bankAccountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\CompleteMicroDepositsResponse
+    public function completeMicroDeposits(Components\CompleteMicroDeposits $completeMicroDeposits, string $accountID, string $bankAccountID, ?Options $options = null): Operations\CompleteMicroDepositsResponse
     {
         $request = new Operations\CompleteMicroDepositsRequest(
             accountID: $accountID,
             bankAccountID: $bankAccountID,
             completeMicroDeposits: $completeMicroDeposits,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/bank-accounts/{bankAccountID}/micro-deposits', Operations\CompleteMicroDepositsRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/bank-accounts/{bankAccountID}/micro-deposits', Operations\CompleteMicroDepositsRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'completeMicroDeposits', 'json');
@@ -178,10 +170,6 @@ class BankAccounts
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('PUT', $url);
@@ -263,25 +251,19 @@ class BankAccounts
      *
      * @param  string  $accountID
      * @param  string  $bankAccountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\DisableBankAccountResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function disable(string $accountID, string $bankAccountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\DisableBankAccountResponse
+    public function disable(string $accountID, string $bankAccountID, ?Options $options = null): Operations\DisableBankAccountResponse
     {
         $request = new Operations\DisableBankAccountRequest(
             accountID: $accountID,
             bankAccountID: $bankAccountID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/bank-accounts/{bankAccountID}', Operations\DisableBankAccountRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/bank-accounts/{bankAccountID}', Operations\DisableBankAccountRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('DELETE', $url);
@@ -344,25 +326,19 @@ class BankAccounts
      *
      * @param  string  $accountID
      * @param  string  $bankAccountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetBankAccountResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function get(string $accountID, string $bankAccountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetBankAccountResponse
+    public function get(string $accountID, string $bankAccountID, ?Options $options = null): Operations\GetBankAccountResponse
     {
         $request = new Operations\GetBankAccountRequest(
             accountID: $accountID,
             bankAccountID: $bankAccountID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/bank-accounts/{bankAccountID}', Operations\GetBankAccountRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/bank-accounts/{bankAccountID}', Operations\GetBankAccountRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -431,25 +407,19 @@ class BankAccounts
      *
      * @param  string  $accountID
      * @param  string  $bankAccountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetBankAccountVerificationResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function getVerification(string $accountID, string $bankAccountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetBankAccountVerificationResponse
+    public function getVerification(string $accountID, string $bankAccountID, ?Options $options = null): Operations\GetBankAccountVerificationResponse
     {
         $request = new Operations\GetBankAccountVerificationRequest(
             accountID: $accountID,
             bankAccountID: $bankAccountID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/bank-accounts/{bankAccountID}/verify', Operations\GetBankAccountVerificationRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/bank-accounts/{bankAccountID}/verify', Operations\GetBankAccountVerificationRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -524,24 +494,22 @@ class BankAccounts
      *
      * @param  string  $accountID
      * @param  string  $bankAccountID
-     * @param  ?string  $xMoovVersion
      * @param  ?Components\BankAccountWaitFor  $xWaitFor
      * @return Operations\InitiateBankAccountVerificationResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function initiateVerification(string $accountID, string $bankAccountID, ?string $xMoovVersion = null, ?Components\BankAccountWaitFor $xWaitFor = null, ?Options $options = null): Operations\InitiateBankAccountVerificationResponse
+    public function initiateVerification(string $accountID, string $bankAccountID, ?Components\BankAccountWaitFor $xWaitFor = null, ?Options $options = null): Operations\InitiateBankAccountVerificationResponse
     {
         $request = new Operations\InitiateBankAccountVerificationRequest(
             accountID: $accountID,
             bankAccountID: $bankAccountID,
-            xMoovVersion: $xMoovVersion,
             xWaitFor: $xWaitFor,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/bank-accounts/{bankAccountID}/verify', Operations\InitiateBankAccountVerificationRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/bank-accounts/{bankAccountID}/verify', Operations\InitiateBankAccountVerificationRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
+        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
         }
@@ -626,25 +594,19 @@ class BankAccounts
      *
      * @param  string  $accountID
      * @param  string  $bankAccountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\InitiateMicroDepositsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function initiateMicroDeposits(string $accountID, string $bankAccountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\InitiateMicroDepositsResponse
+    public function initiateMicroDeposits(string $accountID, string $bankAccountID, ?Options $options = null): Operations\InitiateMicroDepositsResponse
     {
         $request = new Operations\InitiateMicroDepositsRequest(
             accountID: $accountID,
             bankAccountID: $bankAccountID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/bank-accounts/{bankAccountID}/micro-deposits', Operations\InitiateMicroDepositsRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/bank-accounts/{bankAccountID}/micro-deposits', Operations\InitiateMicroDepositsRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
@@ -710,21 +672,19 @@ class BankAccounts
      *
      * @param  Components\BankAccountPayload|Components\PlaidPayload|Components\PlaidLinkPayload|Components\MxPayload  $linkBankAccount
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @param  ?Components\BankAccountWaitFor  $xWaitFor
      * @return Operations\LinkBankAccountResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function link(Components\BankAccountPayload|Components\PlaidPayload|Components\PlaidLinkPayload|Components\MxPayload $linkBankAccount, string $accountID, ?string $xMoovVersion = null, ?Components\BankAccountWaitFor $xWaitFor = null, ?Options $options = null): Operations\LinkBankAccountResponse
+    public function link(Components\BankAccountPayload|Components\PlaidPayload|Components\PlaidLinkPayload|Components\MxPayload $linkBankAccount, string $accountID, ?Components\BankAccountWaitFor $xWaitFor = null, ?Options $options = null): Operations\LinkBankAccountResponse
     {
         $request = new Operations\LinkBankAccountRequest(
             accountID: $accountID,
             linkBankAccount: $linkBankAccount,
-            xMoovVersion: $xMoovVersion,
             xWaitFor: $xWaitFor,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/bank-accounts', Operations\LinkBankAccountRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/bank-accounts', Operations\LinkBankAccountRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'linkBankAccount', 'json');
@@ -732,7 +692,7 @@ class BankAccounts
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
+        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
         }
@@ -818,24 +778,18 @@ class BankAccounts
      * you'll need to specify the `/accounts/{accountID}/bank-accounts.read` scope.
      *
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\ListBankAccountsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function list(string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\ListBankAccountsResponse
+    public function list(string $accountID, ?Options $options = null): Operations\ListBankAccountsResponse
     {
         $request = new Operations\ListBankAccountsRequest(
             accountID: $accountID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/bank-accounts', Operations\ListBankAccountsRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/bank-accounts', Operations\ListBankAccountsRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);

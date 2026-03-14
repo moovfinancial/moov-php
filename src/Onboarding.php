@@ -51,24 +51,18 @@ class Onboarding
      * you'll need to specify the `/accounts.read` scope.
      *
      * @param  string  $code
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetOnboardingInviteResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function getInvite(string $code, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetOnboardingInviteResponse
+    public function getInvite(string $code, ?Options $options = null): Operations\GetOnboardingInviteResponse
     {
         $request = new Operations\GetOnboardingInviteRequest(
             code: $code,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/onboarding-invites/{code}', Operations\GetOnboardingInviteRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/onboarding-invites/{code}', Operations\GetOnboardingInviteRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -126,23 +120,15 @@ class Onboarding
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts.read` scope.
      *
-     * @param  ?string  $xMoovVersion
      * @return Operations\ListOnboardingInvitesResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function listInvites(?string $xMoovVersion = null, ?Options $options = null): Operations\ListOnboardingInvitesResponse
+    public function listInvites(?Options $options = null): Operations\ListOnboardingInvitesResponse
     {
-        $request = new Operations\ListOnboardingInvitesRequest(
-            xMoovVersion: $xMoovVersion,
-        );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/onboarding-invites');
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -201,24 +187,18 @@ class Onboarding
      * you'll need to specify the `/accounts.write` scope.
      *
      * @param  string  $code
-     * @param  ?string  $xMoovVersion
      * @return Operations\RevokeOnboardingInviteResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function revokeInvite(string $code, ?string $xMoovVersion = null, ?Options $options = null): Operations\RevokeOnboardingInviteResponse
+    public function revokeInvite(string $code, ?Options $options = null): Operations\RevokeOnboardingInviteResponse
     {
         $request = new Operations\RevokeOnboardingInviteRequest(
             code: $code,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/onboarding-invites/{code}', Operations\RevokeOnboardingInviteRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/onboarding-invites/{code}', Operations\RevokeOnboardingInviteRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = '*/*';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('DELETE', $url);

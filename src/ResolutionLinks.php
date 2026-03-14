@@ -55,19 +55,17 @@ class ResolutionLinks
      *
      * @param  Components\CreateResolutionLink  $createResolutionLink
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\CreateResolutionLinkResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function create(Components\CreateResolutionLink $createResolutionLink, string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\CreateResolutionLinkResponse
+    public function create(Components\CreateResolutionLink $createResolutionLink, string $accountID, ?Options $options = null): Operations\CreateResolutionLinkResponse
     {
         $request = new Operations\CreateResolutionLinkRequest(
             accountID: $accountID,
             createResolutionLink: $createResolutionLink,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/resolution-links', Operations\CreateResolutionLinkRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/resolution-links', Operations\CreateResolutionLinkRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'createResolutionLink', 'json');
@@ -75,10 +73,6 @@ class ResolutionLinks
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
@@ -160,25 +154,19 @@ class ResolutionLinks
      *
      * @param  string  $accountID
      * @param  string  $resolutionLinkCode
-     * @param  ?string  $xMoovVersion
      * @return Operations\DisableResolutionLinkResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function disable(string $accountID, string $resolutionLinkCode, ?string $xMoovVersion = null, ?Options $options = null): Operations\DisableResolutionLinkResponse
+    public function disable(string $accountID, string $resolutionLinkCode, ?Options $options = null): Operations\DisableResolutionLinkResponse
     {
         $request = new Operations\DisableResolutionLinkRequest(
             accountID: $accountID,
             resolutionLinkCode: $resolutionLinkCode,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/resolution-links/{resolutionLinkCode}', Operations\DisableResolutionLinkRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/resolution-links/{resolutionLinkCode}', Operations\DisableResolutionLinkRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('DELETE', $url);
@@ -239,25 +227,19 @@ class ResolutionLinks
      *
      * @param  string  $accountID
      * @param  string  $resolutionLinkCode
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetResolutionLinkResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function get(string $accountID, string $resolutionLinkCode, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetResolutionLinkResponse
+    public function get(string $accountID, string $resolutionLinkCode, ?Options $options = null): Operations\GetResolutionLinkResponse
     {
         $request = new Operations\GetResolutionLinkRequest(
             accountID: $accountID,
             resolutionLinkCode: $resolutionLinkCode,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/resolution-links/{resolutionLinkCode}', Operations\GetResolutionLinkRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/resolution-links/{resolutionLinkCode}', Operations\GetResolutionLinkRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -316,24 +298,18 @@ class ResolutionLinks
      * you'll need to specify the `/accounts/{accountID}/profile.read` scope.
      *
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\ListResolutionLinksResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function list(string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\ListResolutionLinksResponse
+    public function list(string $accountID, ?Options $options = null): Operations\ListResolutionLinksResponse
     {
         $request = new Operations\ListResolutionLinksRequest(
             accountID: $accountID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/resolution-links', Operations\ListResolutionLinksRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/resolution-links', Operations\ListResolutionLinksRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
