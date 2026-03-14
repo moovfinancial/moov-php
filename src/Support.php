@@ -56,19 +56,17 @@ class Support
      *
      * @param  Components\CreateTicket  $createTicket
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\CreateTicketResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function createTicket(Components\CreateTicket $createTicket, string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\CreateTicketResponse
+    public function createTicket(Components\CreateTicket $createTicket, string $accountID, ?Options $options = null): Operations\CreateTicketResponse
     {
         $request = new Operations\CreateTicketRequest(
             accountID: $accountID,
             createTicket: $createTicket,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/tickets', Operations\CreateTicketRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/tickets', Operations\CreateTicketRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'createTicket', 'json');
@@ -76,10 +74,6 @@ class Support
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
@@ -164,25 +158,19 @@ class Support
      *
      * @param  string  $accountID
      * @param  string  $ticketID
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetTicketResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function getTicket(string $accountID, string $ticketID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetTicketResponse
+    public function getTicket(string $accountID, string $ticketID, ?Options $options = null): Operations\GetTicketResponse
     {
         $request = new Operations\GetTicketRequest(
             accountID: $accountID,
             ticketID: $ticketID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/tickets/{ticketID}', Operations\GetTicketRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/tickets/{ticketID}', Operations\GetTicketRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -245,25 +233,19 @@ class Support
      *
      * @param  string  $accountID
      * @param  string  $ticketID
-     * @param  ?string  $xMoovVersion
      * @return Operations\ListTicketMessagesResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function listTicketMessages(string $accountID, string $ticketID, ?string $xMoovVersion = null, ?Options $options = null): Operations\ListTicketMessagesResponse
+    public function listTicketMessages(string $accountID, string $ticketID, ?Options $options = null): Operations\ListTicketMessagesResponse
     {
         $request = new Operations\ListTicketMessagesRequest(
             accountID: $accountID,
             ticketID: $ticketID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/tickets/{ticketID}/messages', Operations\ListTicketMessagesRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/tickets/{ticketID}/messages', Operations\ListTicketMessagesRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -331,15 +313,11 @@ class Support
     public function listTickets(Operations\ListTicketsRequest $request, ?Options $options = null): Operations\ListTicketsResponse
     {
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/tickets', Operations\ListTicketsRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/tickets', Operations\ListTicketsRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
 
-        $qp = Utils\Utils::getQueryParams(Operations\ListTicketsRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
+        $qp = Utils\Utils::getQueryParams(Operations\ListTicketsRequest::class, $request, $urlOverride);
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -404,20 +382,18 @@ class Support
      * @param  Components\UpdateTicket  $updateTicket
      * @param  string  $accountID
      * @param  string  $ticketID
-     * @param  ?string  $xMoovVersion
      * @return Operations\UpdateTicketResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function updateTicket(Components\UpdateTicket $updateTicket, string $accountID, string $ticketID, ?string $xMoovVersion = null, ?Options $options = null): Operations\UpdateTicketResponse
+    public function updateTicket(Components\UpdateTicket $updateTicket, string $accountID, string $ticketID, ?Options $options = null): Operations\UpdateTicketResponse
     {
         $request = new Operations\UpdateTicketRequest(
             accountID: $accountID,
             ticketID: $ticketID,
             updateTicket: $updateTicket,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/tickets/{ticketID}', Operations\UpdateTicketRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/tickets/{ticketID}', Operations\UpdateTicketRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'updateTicket', 'json');
@@ -425,10 +401,6 @@ class Support
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('PATCH', $url);

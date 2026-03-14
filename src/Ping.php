@@ -49,23 +49,15 @@ class Ping
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/ping.read` scope.
      *
-     * @param  ?string  $xMoovVersion
      * @return Operations\PingResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function get(?string $xMoovVersion = null, ?Options $options = null): Operations\PingResponse
+    public function get(?Options $options = null): Operations\PingResponse
     {
-        $request = new Operations\PingRequest(
-            xMoovVersion: $xMoovVersion,
-        );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/ping');
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = '*/*';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
