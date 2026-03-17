@@ -13,6 +13,7 @@ namespace Moov\MoovPhp\Models\Components;
 class CardExpiration
 {
     /**
+     * Two-digit month the card expires.
      *
      * @var string $month
      */
@@ -20,6 +21,7 @@ class CardExpiration
     public string $month;
 
     /**
+     * Two-digit year the card expires.
      *
      * @var string $year
      */

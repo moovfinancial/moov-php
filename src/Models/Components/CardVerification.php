@@ -13,6 +13,7 @@ namespace Moov\MoovPhp\Models\Components;
 class CardVerification
 {
     /**
+     * Verification result of the card's CVV.
      *
      * @var CardVerificationResult $cvv
      */
@@ -21,6 +22,9 @@ class CardVerification
     public CardVerificationResult $cvv;
 
     /**
+     * Verification result of the billing address line 1.
+     *
+     * Derived from the same AVS code as `postalCode`; the card network returns a single code covering both address fields.
      *
      * @var CardVerificationResult $addressLine1
      */
@@ -29,6 +33,9 @@ class CardVerification
     public CardVerificationResult $addressLine1;
 
     /**
+     * Verification result of the billing address postal code.
+     *
+     * Derived from the same AVS code as `addressLine1`; the card network returns a single code covering both address fields.
      *
      * @var CardVerificationResult $postalCode
      */
@@ -37,7 +44,7 @@ class CardVerification
     public CardVerificationResult $postalCode;
 
     /**
-     * The results of submitting cardholder name to a card network for verification.
+     * Verification results of the cardholder's name, broken down by name component.
      *
      * @var ?AccountNameVerification $accountName
      */
