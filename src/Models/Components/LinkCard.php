@@ -12,6 +12,7 @@ namespace Moov\MoovPhp\Models\Components;
 class LinkCard
 {
     /**
+     * The full card number (PAN).
      *
      * @var string $cardNumber
      */
@@ -19,6 +20,7 @@ class LinkCard
     public string $cardNumber;
 
     /**
+     * The card's 3- or 4-digit card verification value.
      *
      * @var string $cardCvv
      */
@@ -35,6 +37,7 @@ class LinkCard
     public CardExpiration $expiration;
 
     /**
+     * The billing address associated with the card.
      *
      * @var CardAddress $billingAddress
      */
@@ -56,6 +59,7 @@ class LinkCard
     public ?E2EEToken $e2ee = null;
 
     /**
+     * The name of the cardholder as it appears on the card.
      *
      * @var ?string $holderName
      */
@@ -64,6 +68,9 @@ class LinkCard
     public ?string $holderName = null;
 
     /**
+     * Indicates cardholder has authorized card to be stored for future payments. (e.g., recurring payments).
+     *
+     * If true and no `merchantAccountID` is provided, the partner account's ID is used as the merchant account for verification.
      *
      * @var ?bool $cardOnFile
      */
@@ -72,6 +79,9 @@ class LinkCard
     public ?bool $cardOnFile = null;
 
     /**
+     * Merchant account whose details (statement descriptor, address, etc.) are used for the card verification authorization.
+     *
+     * If omitted, the partner account's details are used instead.
      *
      * @var ?string $merchantAccountID
      */
@@ -80,6 +90,9 @@ class LinkCard
     public ?string $merchantAccountID = null;
 
     /**
+     * If true, submits the cardholder's name to the card network for verification as part of the $0 authorization.
+     *
+     * Only supported for Visa and Mastercard; requesting name verification for American Express or Discover will return an error.
      *
      * @var ?bool $verifyName
      */

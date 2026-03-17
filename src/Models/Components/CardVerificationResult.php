@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
+/** The result of a card verification check. */
 enum CardVerificationResult: string
 {
     case NoMatch = 'noMatch';
