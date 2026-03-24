@@ -53,25 +53,19 @@ class AccountTerminalApplications
      *
      * @param  string  $accountID
      * @param  string  $terminalApplicationID
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetAccountTerminalApplicationResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function get(string $accountID, string $terminalApplicationID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetAccountTerminalApplicationResponse
+    public function get(string $accountID, string $terminalApplicationID, ?Options $options = null): Operations\GetAccountTerminalApplicationResponse
     {
         $request = new Operations\GetAccountTerminalApplicationRequest(
             accountID: $accountID,
             terminalApplicationID: $terminalApplicationID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/terminal-applications/{terminalApplicationID}', Operations\GetAccountTerminalApplicationRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/terminal-applications/{terminalApplicationID}', Operations\GetAccountTerminalApplicationRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -131,25 +125,19 @@ class AccountTerminalApplications
      *
      * @param  string  $accountID
      * @param  string  $terminalApplicationID
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetTerminalConfigurationResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function getConfiguration(string $accountID, string $terminalApplicationID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetTerminalConfigurationResponse
+    public function getConfiguration(string $accountID, string $terminalApplicationID, ?Options $options = null): Operations\GetTerminalConfigurationResponse
     {
         $request = new Operations\GetTerminalConfigurationRequest(
             accountID: $accountID,
             terminalApplicationID: $terminalApplicationID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/terminal-applications/{terminalApplicationID}/configuration', Operations\GetTerminalConfigurationRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/terminal-applications/{terminalApplicationID}/configuration', Operations\GetTerminalConfigurationRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -209,19 +197,17 @@ class AccountTerminalApplications
      *
      * @param  Components\LinkAccountTerminalApplication  $linkAccountTerminalApplication
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\LinkAccountTerminalApplicationResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function link(Components\LinkAccountTerminalApplication $linkAccountTerminalApplication, string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\LinkAccountTerminalApplicationResponse
+    public function link(Components\LinkAccountTerminalApplication $linkAccountTerminalApplication, string $accountID, ?Options $options = null): Operations\LinkAccountTerminalApplicationResponse
     {
         $request = new Operations\LinkAccountTerminalApplicationRequest(
             accountID: $accountID,
             linkAccountTerminalApplication: $linkAccountTerminalApplication,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/terminal-applications', Operations\LinkAccountTerminalApplicationRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/terminal-applications', Operations\LinkAccountTerminalApplicationRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'linkAccountTerminalApplication', 'json');
@@ -229,10 +215,6 @@ class AccountTerminalApplications
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
@@ -313,24 +295,18 @@ class AccountTerminalApplications
      * you'll need to specify the `/accounts/{accountID}/terminal-applications.read` scope.
      *
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\ListAccountTerminalApplicationsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function list(string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\ListAccountTerminalApplicationsResponse
+    public function list(string $accountID, ?Options $options = null): Operations\ListAccountTerminalApplicationsResponse
     {
         $request = new Operations\ListAccountTerminalApplicationsRequest(
             accountID: $accountID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/terminal-applications', Operations\ListAccountTerminalApplicationsRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/terminal-applications', Operations\ListAccountTerminalApplicationsRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);

@@ -25,6 +25,7 @@ class UpdateCard
     public ?E2EETokenUpdate $e2ee = null;
 
     /**
+     * Updated billing address to store on file for the card.
      *
      * @var ?UpdateCardAddress $billingAddress
      */
@@ -43,6 +44,7 @@ class UpdateCard
     public ?UpdateCardExpiration $expiration = null;
 
     /**
+     * The card's 3- or 4-digit card verification value. Providing this triggers a new $0 verification authorization, which performs both CVV and address verification.
      *
      * @var ?string $cardCvv
      */
@@ -51,6 +53,9 @@ class UpdateCard
     public ?string $cardCvv = null;
 
     /**
+     * Indicates cardholder has authorized card to be stored for future payments (e.g., recurring payments).
+     *
+     * If true and no `merchantAccountID` is provided, the partner account's ID is automatically used as the merchant account for verification.
      *
      * @var ?bool $cardOnFile
      */
@@ -59,6 +64,9 @@ class UpdateCard
     public ?bool $cardOnFile = null;
 
     /**
+     * Merchant account whose details (statement descriptor, address, etc.) are used for the card verification authorization.
+     *
+     * If omitted, the partner account's details are used instead.
      *
      * @var ?string $merchantAccountID
      */
@@ -67,6 +75,9 @@ class UpdateCard
     public ?string $merchantAccountID = null;
 
     /**
+     * If true, submits the cardholder's name to the card network for verification as part of the $0 authorization.
+     *
+     * Only supported for Visa and Mastercard; requesting name verification for American Express or Discover will return an error.
      *
      * @var ?bool $verifyName
      */
@@ -75,6 +86,7 @@ class UpdateCard
     public ?bool $verifyName = null;
 
     /**
+     * Updated name of the cardholder as it appears on the card.
      *
      * @var ?string $holderName
      */

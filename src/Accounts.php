@@ -55,19 +55,17 @@ class Accounts
      *
      * @param  Components\AccountCountries  $accountCountries
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\AssignAccountCountriesResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function assignCountries(Components\AccountCountries $accountCountries, string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\AssignAccountCountriesResponse
+    public function assignCountries(Components\AccountCountries $accountCountries, string $accountID, ?Options $options = null): Operations\AssignAccountCountriesResponse
     {
         $request = new Operations\AssignAccountCountriesRequest(
             accountID: $accountID,
             accountCountries: $accountCountries,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/countries', Operations\AssignAccountCountriesRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/countries', Operations\AssignAccountCountriesRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'accountCountries', 'json');
@@ -75,10 +73,6 @@ class Accounts
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('PUT', $url);
@@ -158,19 +152,17 @@ class Accounts
      *
      * @param  Components\ShareScopes  $shareScopes
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\ConnectAccountResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function connect(Components\ShareScopes $shareScopes, string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\ConnectAccountResponse
+    public function connect(Components\ShareScopes $shareScopes, string $accountID, ?Options $options = null): Operations\ConnectAccountResponse
     {
         $request = new Operations\ConnectAccountRequest(
             accountID: $accountID,
             shareScopes: $shareScopes,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/connections', Operations\ConnectAccountRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/connections', Operations\ConnectAccountRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'shareScopes', 'json');
@@ -178,10 +170,6 @@ class Accounts
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
@@ -262,30 +250,21 @@ class Accounts
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) you'll need 
      * to specify the `/accounts.write` scope.
      *
-     * @param  Components\CreateAccount  $createAccount
-     * @param  ?string  $xMoovVersion
+     * @param  Components\CreateAccount  $request
      * @return Operations\CreateAccountResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function create(Components\CreateAccount $createAccount, ?string $xMoovVersion = null, ?Options $options = null): Operations\CreateAccountResponse
+    public function create(Components\CreateAccount $request, ?Options $options = null): Operations\CreateAccountResponse
     {
-        $request = new Operations\CreateAccountRequest(
-            createAccount: $createAccount,
-            xMoovVersion: $xMoovVersion,
-        );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/accounts');
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request, 'createAccount', 'json');
+        $body = Utils\Utils::serializeRequestBody($request, 'request', 'json');
         if ($body === null) {
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
@@ -368,24 +347,18 @@ class Accounts
      * you'll need to specify the `/accounts/{accountID}/profile.disconnect` scope.
      *
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\DisconnectAccountResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function disconnect(string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\DisconnectAccountResponse
+    public function disconnect(string $accountID, ?Options $options = null): Operations\DisconnectAccountResponse
     {
         $request = new Operations\DisconnectAccountRequest(
             accountID: $accountID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}', Operations\DisconnectAccountRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}', Operations\DisconnectAccountRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('DELETE', $url);
@@ -445,24 +418,18 @@ class Accounts
      * to specify the `/accounts/{accountID}/profile.read` scope.
      *
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetAccountResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function get(string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetAccountResponse
+    public function get(string $accountID, ?Options $options = null): Operations\GetAccountResponse
     {
         $request = new Operations\GetAccountRequest(
             accountID: $accountID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}', Operations\GetAccountRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}', Operations\GetAccountRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -521,24 +488,18 @@ class Accounts
      * you'll need to specify the `/accounts/{accountID}/profile.read` scope.
      *
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetAccountCountriesResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function getCountries(string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetAccountCountriesResponse
+    public function getCountries(string $accountID, ?Options $options = null): Operations\GetAccountCountriesResponse
     {
         $request = new Operations\GetAccountCountriesRequest(
             accountID: $accountID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/countries', Operations\GetAccountCountriesRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/countries', Operations\GetAccountCountriesRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -598,25 +559,19 @@ class Accounts
      *
      * @param  string  $accountID
      * @param  string  $fileID
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetFileDetailsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function getFile(string $accountID, string $fileID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetFileDetailsResponse
+    public function getFile(string $accountID, string $fileID, ?Options $options = null): Operations\GetFileDetailsResponse
     {
         $request = new Operations\GetFileDetailsRequest(
             accountID: $accountID,
             fileID: $fileID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/files/{fileID}', Operations\GetFileDetailsRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/files/{fileID}', Operations\GetFileDetailsRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -675,24 +630,18 @@ class Accounts
      * you'll need to specify the `/accounts/{accountID}/profile.read` scope.
      *
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetMerchantProcessingAgreementResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function getMerchantAgreement(string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetMerchantProcessingAgreementResponse
+    public function getMerchantAgreement(string $accountID, ?Options $options = null): Operations\GetMerchantProcessingAgreementResponse
     {
         $request = new Operations\GetMerchantProcessingAgreementRequest(
             accountID: $accountID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/merchant-agreement', Operations\GetMerchantProcessingAgreementRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/merchant-agreement', Operations\GetMerchantProcessingAgreementRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/pdf';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -748,16 +697,14 @@ class Accounts
      * or card issuing capabilities must accept Moov's terms of service, then have the generated terms of service 
      * token patched to the account. Read more in our [documentation](https://docs.moov.io/guides/accounts/requirements/platform-agreement/).
      *
-     * @param  ?string  $xMoovVersion
      * @param  ?string  $origin
      * @param  ?string  $referer
      * @return Operations\GetTermsOfServiceTokenResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function getTermsOfServiceToken(?string $xMoovVersion = null, ?string $origin = null, ?string $referer = null, ?Options $options = null): Operations\GetTermsOfServiceTokenResponse
+    public function getTermsOfServiceToken(?string $origin = null, ?string $referer = null, ?Options $options = null): Operations\GetTermsOfServiceTokenResponse
     {
         $request = new Operations\GetTermsOfServiceTokenRequest(
-            xMoovVersion: $xMoovVersion,
             origin: $origin,
             referer: $referer,
         );
@@ -765,7 +712,7 @@ class Accounts
         $url = Utils\Utils::generateUrl($baseUrl, '/tos-token');
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
+        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
         }
@@ -841,11 +788,7 @@ class Accounts
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
 
-        $qp = Utils\Utils::getQueryParams(Operations\ListAccountsRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
+        $qp = Utils\Utils::getQueryParams(Operations\ListAccountsRequest::class, $request, $urlOverride);
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -915,15 +858,11 @@ class Accounts
     public function listConnected(Operations\ListConnectedAccountsForAccountRequest $request, ?Options $options = null): Operations\ListConnectedAccountsForAccountResponse
     {
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/connected-accounts', Operations\ListConnectedAccountsForAccountRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/connected-accounts', Operations\ListConnectedAccountsForAccountRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
 
-        $qp = Utils\Utils::getQueryParams(Operations\ListConnectedAccountsForAccountRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
+        $qp = Utils\Utils::getQueryParams(Operations\ListConnectedAccountsForAccountRequest::class, $request, $urlOverride);
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -989,15 +928,11 @@ class Accounts
     public function getFees(Operations\RetrieveFeesRequest $request, ?Options $options = null): Operations\RetrieveFeesResponse
     {
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/fees', Operations\RetrieveFeesRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/fees', Operations\RetrieveFeesRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
 
-        $qp = Utils\Utils::getQueryParams(Operations\RetrieveFeesRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
+        $qp = Utils\Utils::getQueryParams(Operations\RetrieveFeesRequest::class, $request, $urlOverride);
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -1066,19 +1001,17 @@ class Accounts
      *
      * @param  Components\PatchAccount  $patchAccount
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\UpdateAccountResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function updateProfile(Components\PatchAccount $patchAccount, string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\UpdateAccountResponse
+    public function updateProfile(Components\PatchAccount $patchAccount, string $accountID, ?Options $options = null): Operations\UpdateAccountResponse
     {
         $request = new Operations\UpdateAccountRequest(
             accountID: $accountID,
             patchAccount: $patchAccount,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}', Operations\UpdateAccountRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}', Operations\UpdateAccountRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'patchAccount', 'json');
@@ -1086,10 +1019,6 @@ class Accounts
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('PATCH', $url);

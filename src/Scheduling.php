@@ -53,19 +53,17 @@ class Scheduling
      *
      * @param  Components\UpsertSchedule  $upsertSchedule
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\CreateScheduleResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function create(Components\UpsertSchedule $upsertSchedule, string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\CreateScheduleResponse
+    public function create(Components\UpsertSchedule $upsertSchedule, string $accountID, ?Options $options = null): Operations\CreateScheduleResponse
     {
         $request = new Operations\CreateScheduleRequest(
             accountID: $accountID,
             upsertSchedule: $upsertSchedule,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/schedules', Operations\CreateScheduleRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/schedules', Operations\CreateScheduleRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'upsertSchedule', 'json');
@@ -73,10 +71,6 @@ class Scheduling
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
@@ -159,26 +153,20 @@ class Scheduling
      * @param  string  $accountID
      * @param  string  $scheduleID
      * @param  string  $occurrenceFilter
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetScheduledOccurrenceResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function getOccurrence(string $accountID, string $scheduleID, string $occurrenceFilter, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetScheduledOccurrenceResponse
+    public function getOccurrence(string $accountID, string $scheduleID, string $occurrenceFilter, ?Options $options = null): Operations\GetScheduledOccurrenceResponse
     {
         $request = new Operations\GetScheduledOccurrenceRequest(
             accountID: $accountID,
             scheduleID: $scheduleID,
             occurrenceFilter: $occurrenceFilter,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/schedules/{scheduleID}/occurrences/{occurrenceFilter}', Operations\GetScheduledOccurrenceRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/schedules/{scheduleID}/occurrences/{occurrenceFilter}', Operations\GetScheduledOccurrenceRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -238,25 +226,19 @@ class Scheduling
      *
      * @param  string  $accountID
      * @param  string  $scheduleID
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetSchedulesResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function get(string $accountID, string $scheduleID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetSchedulesResponse
+    public function get(string $accountID, string $scheduleID, ?Options $options = null): Operations\GetSchedulesResponse
     {
         $request = new Operations\GetSchedulesRequest(
             accountID: $accountID,
             scheduleID: $scheduleID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/schedules/{scheduleID}', Operations\GetSchedulesRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/schedules/{scheduleID}', Operations\GetSchedulesRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -314,22 +296,27 @@ class Scheduling
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
      *
-     * @param  Operations\ListSchedulesRequest  $request
+     * @param  string  $accountID
+     * @param  ?int  $skip
+     * @param  ?int  $count
+     * @param  ?Operations\Hydrate  $hydrate
      * @return Operations\ListSchedulesResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function list(Operations\ListSchedulesRequest $request, ?Options $options = null): Operations\ListSchedulesResponse
+    public function list(string $accountID, ?int $skip = null, ?int $count = null, ?Operations\Hydrate $hydrate = null, ?Options $options = null): Operations\ListSchedulesResponse
     {
+        $request = new Operations\ListSchedulesRequest(
+            accountID: $accountID,
+            skip: $skip,
+            count: $count,
+            hydrate: $hydrate,
+        );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/schedules', Operations\ListSchedulesRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/schedules', Operations\ListSchedulesRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
 
-        $qp = Utils\Utils::getQueryParams(Operations\ListSchedulesRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
+        $qp = Utils\Utils::getQueryParams(Operations\ListSchedulesRequest::class, $request, $urlOverride);
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -391,20 +378,18 @@ class Scheduling
      * @param  Components\UpsertSchedule  $upsertSchedule
      * @param  string  $accountID
      * @param  string  $scheduleID
-     * @param  ?string  $xMoovVersion
      * @return Operations\UpdateScheduleResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function update(Components\UpsertSchedule $upsertSchedule, string $accountID, string $scheduleID, ?string $xMoovVersion = null, ?Options $options = null): Operations\UpdateScheduleResponse
+    public function update(Components\UpsertSchedule $upsertSchedule, string $accountID, string $scheduleID, ?Options $options = null): Operations\UpdateScheduleResponse
     {
         $request = new Operations\UpdateScheduleRequest(
             accountID: $accountID,
             scheduleID: $scheduleID,
             upsertSchedule: $upsertSchedule,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/schedules/{scheduleID}', Operations\UpdateScheduleRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/schedules/{scheduleID}', Operations\UpdateScheduleRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'upsertSchedule', 'json');
@@ -412,10 +397,6 @@ class Scheduling
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('PUT', $url);

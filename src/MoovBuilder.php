@@ -86,22 +86,6 @@ class MoovBuilder
 
         return $this;
     }
-    /**
-     * setXMoovVersion is used to configure the X-Moov-Version parameter for the SDK.
-     *
-     * @param  string  $xMoovVersion
-     * @return MoovBuilder
-     */
-    public function setXMoovVersion(string $xMoovVersion): MoovBuilder
-    {
-        if (! array_key_exists('header', $this->sdkConfig->globals['parameters'])) {
-            $this->sdkConfig->globals['parameters']['header'] = [];
-        }
-
-        $this->sdkConfig->globals['parameters']['header']['xMoovVersion'] = $xMoovVersion;
-
-        return $this;
-    }
 
     public function setRetryConfig(Retry\RetryConfig $config): MoovBuilder
     {

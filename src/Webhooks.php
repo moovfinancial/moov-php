@@ -48,30 +48,21 @@ class Webhooks
     /**
      * Create a new webhook for the account.
      *
-     * @param  Components\CreateWebhook  $createWebhook
-     * @param  ?string  $xMoovVersion
+     * @param  Components\CreateWebhook  $request
      * @return Operations\CreateWebhookResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function create(Components\CreateWebhook $createWebhook, ?string $xMoovVersion = null, ?Options $options = null): Operations\CreateWebhookResponse
+    public function create(Components\CreateWebhook $request, ?Options $options = null): Operations\CreateWebhookResponse
     {
-        $request = new Operations\CreateWebhookRequest(
-            createWebhook: $createWebhook,
-            xMoovVersion: $xMoovVersion,
-        );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/webhooks');
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request, 'createWebhook', 'json');
+        $body = Utils\Utils::serializeRequestBody($request, 'request', 'json');
         if ($body === null) {
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
@@ -149,24 +140,18 @@ class Webhooks
      * Disable a webhook. Disabled webhooks will no longer receive events.
      *
      * @param  string  $webhookID
-     * @param  ?string  $xMoovVersion
      * @return Operations\DisableWebhookResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function disable(string $webhookID, ?string $xMoovVersion = null, ?Options $options = null): Operations\DisableWebhookResponse
+    public function disable(string $webhookID, ?Options $options = null): Operations\DisableWebhookResponse
     {
         $request = new Operations\DisableWebhookRequest(
             webhookID: $webhookID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/webhooks/{webhookID}', Operations\DisableWebhookRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/webhooks/{webhookID}', Operations\DisableWebhookRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('DELETE', $url);
@@ -223,24 +208,18 @@ class Webhooks
      * Get details of a specific webhook.
      *
      * @param  string  $webhookID
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetWebhookResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function get(string $webhookID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetWebhookResponse
+    public function get(string $webhookID, ?Options $options = null): Operations\GetWebhookResponse
     {
         $request = new Operations\GetWebhookRequest(
             webhookID: $webhookID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/webhooks/{webhookID}', Operations\GetWebhookRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/webhooks/{webhookID}', Operations\GetWebhookRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -296,24 +275,18 @@ class Webhooks
      * Get the secret key for verifying webhook payloads.
      *
      * @param  string  $webhookID
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetWebhookSecretResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function getSecret(string $webhookID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetWebhookSecretResponse
+    public function getSecret(string $webhookID, ?Options $options = null): Operations\GetWebhookSecretResponse
     {
         $request = new Operations\GetWebhookSecretRequest(
             webhookID: $webhookID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/webhooks/{webhookID}/secret', Operations\GetWebhookSecretRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/webhooks/{webhookID}/secret', Operations\GetWebhookSecretRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -368,23 +341,15 @@ class Webhooks
     /**
      * List all available event types that can be subscribed to.
      *
-     * @param  ?string  $xMoovVersion
      * @return Operations\ListEventTypesResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function listEventTypes(?string $xMoovVersion = null, ?Options $options = null): Operations\ListEventTypesResponse
+    public function listEventTypes(?Options $options = null): Operations\ListEventTypesResponse
     {
-        $request = new Operations\ListEventTypesRequest(
-            xMoovVersion: $xMoovVersion,
-        );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/event-types');
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -439,23 +404,15 @@ class Webhooks
     /**
      * List all webhooks configured for the account.
      *
-     * @param  ?string  $xMoovVersion
      * @return Operations\ListWebhooksResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function list(?string $xMoovVersion = null, ?Options $options = null): Operations\ListWebhooksResponse
+    public function list(?Options $options = null): Operations\ListWebhooksResponse
     {
-        $request = new Operations\ListWebhooksRequest(
-            xMoovVersion: $xMoovVersion,
-        );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/webhooks');
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -511,24 +468,18 @@ class Webhooks
      * Send a test ping to a webhook to verify it is configured correctly.
      *
      * @param  string  $webhookID
-     * @param  ?string  $xMoovVersion
      * @return Operations\PingWebhookResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function ping(string $webhookID, ?string $xMoovVersion = null, ?Options $options = null): Operations\PingWebhookResponse
+    public function ping(string $webhookID, ?Options $options = null): Operations\PingWebhookResponse
     {
         $request = new Operations\PingWebhookRequest(
             webhookID: $webhookID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/webhooks/{webhookID}/ping', Operations\PingWebhookRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/webhooks/{webhookID}/ping', Operations\PingWebhookRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
@@ -585,19 +536,17 @@ class Webhooks
      *
      * @param  Components\UpdateWebhook  $updateWebhook
      * @param  string  $webhookID
-     * @param  ?string  $xMoovVersion
      * @return Operations\UpdateWebhookResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function update(Components\UpdateWebhook $updateWebhook, string $webhookID, ?string $xMoovVersion = null, ?Options $options = null): Operations\UpdateWebhookResponse
+    public function update(Components\UpdateWebhook $updateWebhook, string $webhookID, ?Options $options = null): Operations\UpdateWebhookResponse
     {
         $request = new Operations\UpdateWebhookRequest(
             webhookID: $webhookID,
             updateWebhook: $updateWebhook,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/webhooks/{webhookID}', Operations\UpdateWebhookRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/webhooks/{webhookID}', Operations\UpdateWebhookRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'updateWebhook', 'json');
@@ -605,10 +554,6 @@ class Webhooks
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('PUT', $url);

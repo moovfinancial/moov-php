@@ -48,23 +48,15 @@ class EndToEndEncryption
     /**
      * Generates a public key used to create a JWE token for passing secure authentication data through non-PCI compliant intermediaries.
      *
-     * @param  ?string  $xMoovVersion
      * @return Operations\GenerateEndToEndKeyResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function generateKey(?string $xMoovVersion = null, ?Options $options = null): Operations\GenerateEndToEndKeyResponse
+    public function generateKey(?Options $options = null): Operations\GenerateEndToEndKeyResponse
     {
-        $request = new Operations\GenerateEndToEndKeyRequest(
-            xMoovVersion: $xMoovVersion,
-        );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/end-to-end-keys');
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
@@ -120,30 +112,21 @@ class EndToEndEncryption
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/ping.read` scope.
      *
-     * @param  Components\E2EEToken  $e2EEToken
-     * @param  ?string  $xMoovVersion
+     * @param  Components\E2EEToken  $request
      * @return Operations\TestEndToEndTokenResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function testToken(Components\E2EEToken $e2EEToken, ?string $xMoovVersion = null, ?Options $options = null): Operations\TestEndToEndTokenResponse
+    public function testToken(Components\E2EEToken $request, ?Options $options = null): Operations\TestEndToEndTokenResponse
     {
-        $request = new Operations\TestEndToEndTokenRequest(
-            e2EEToken: $e2EEToken,
-            xMoovVersion: $xMoovVersion,
-        );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/debug/end-to-end-token');
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request, 'e2EEToken', 'json');
+        $body = Utils\Utils::serializeRequestBody($request, 'request', 'json');
         if ($body === null) {
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
