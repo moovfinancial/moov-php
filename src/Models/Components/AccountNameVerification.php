@@ -13,6 +13,7 @@ namespace Moov\MoovPhp\Models\Components;
 class AccountNameVerification
 {
     /**
+     * Verification result of the cardholder's first name.
      *
      * @var ?CardVerificationResult $firstName
      */
@@ -22,6 +23,7 @@ class AccountNameVerification
     public ?CardVerificationResult $firstName = null;
 
     /**
+     * Verification result of the cardholder's last name.
      *
      * @var ?CardVerificationResult $lastName
      */
@@ -31,6 +33,7 @@ class AccountNameVerification
     public ?CardVerificationResult $lastName = null;
 
     /**
+     * Verification result of the cardholder's middle name.
      *
      * @var ?CardVerificationResult $middleName
      */
@@ -40,6 +43,7 @@ class AccountNameVerification
     public ?CardVerificationResult $middleName = null;
 
     /**
+     * Verification result of the cardholder's full name.
      *
      * @var ?CardVerificationResult $fullName
      */

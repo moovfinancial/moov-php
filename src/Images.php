@@ -53,25 +53,19 @@ class Images
      *
      * @param  string  $accountID
      * @param  string  $imageID
-     * @param  ?string  $xMoovVersion
      * @return Operations\DeleteImageResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function delete(string $accountID, string $imageID, ?string $xMoovVersion = null, ?Options $options = null): Operations\DeleteImageResponse
+    public function delete(string $accountID, string $imageID, ?Options $options = null): Operations\DeleteImageResponse
     {
         $request = new Operations\DeleteImageRequest(
             accountID: $accountID,
             imageID: $imageID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/images/{imageID}', Operations\DeleteImageRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/images/{imageID}', Operations\DeleteImageRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('DELETE', $url);
@@ -129,25 +123,19 @@ class Images
      *
      * @param  string  $accountID
      * @param  string  $imageID
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetImageMetadataResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function getMetadata(string $accountID, string $imageID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetImageMetadataResponse
+    public function getMetadata(string $accountID, string $imageID, ?Options $options = null): Operations\GetImageMetadataResponse
     {
         $request = new Operations\GetImageMetadataRequest(
             accountID: $accountID,
             imageID: $imageID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/images/{imageID}', Operations\GetImageMetadataRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/images/{imageID}', Operations\GetImageMetadataRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -216,12 +204,12 @@ class Images
             size: $size,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/images/{publicID}', Operations\GetPublicImageRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/images/{publicID}', Operations\GetPublicImageRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
 
-        $qp = Utils\Utils::getQueryParams(Operations\GetPublicImageRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
+        $qp = Utils\Utils::getQueryParams(Operations\GetPublicImageRequest::class, $request, $urlOverride);
+        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
         }
@@ -308,30 +296,24 @@ class Images
      * List metadata for all images in the specified account.
      *
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @param  ?int  $skip
      * @param  ?int  $count
      * @return Operations\ListImageMetadataResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function list(string $accountID, ?string $xMoovVersion = null, ?int $skip = null, ?int $count = null, ?Options $options = null): Operations\ListImageMetadataResponse
+    public function list(string $accountID, ?int $skip = null, ?int $count = null, ?Options $options = null): Operations\ListImageMetadataResponse
     {
         $request = new Operations\ListImageMetadataRequest(
             accountID: $accountID,
-            xMoovVersion: $xMoovVersion,
             skip: $skip,
             count: $count,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/images', Operations\ListImageMetadataRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/images', Operations\ListImageMetadataRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
 
-        $qp = Utils\Utils::getQueryParams(Operations\ListImageMetadataRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
+        $qp = Utils\Utils::getQueryParams(Operations\ListImageMetadataRequest::class, $request, $urlOverride);
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -393,20 +375,18 @@ class Images
      * @param  Components\ImageUploadRequestMultiPart  $imageUploadRequestMultiPart
      * @param  string  $accountID
      * @param  string  $imageID
-     * @param  ?string  $xMoovVersion
      * @return Operations\UpdateImageResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function update(Components\ImageUploadRequestMultiPart $imageUploadRequestMultiPart, string $accountID, string $imageID, ?string $xMoovVersion = null, ?Options $options = null): Operations\UpdateImageResponse
+    public function update(Components\ImageUploadRequestMultiPart $imageUploadRequestMultiPart, string $accountID, string $imageID, ?Options $options = null): Operations\UpdateImageResponse
     {
         $request = new Operations\UpdateImageRequest(
             accountID: $accountID,
             imageID: $imageID,
             imageUploadRequestMultiPart: $imageUploadRequestMultiPart,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/images/{imageID}', Operations\UpdateImageRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/images/{imageID}', Operations\UpdateImageRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'imageUploadRequestMultiPart', 'multipart');
@@ -414,10 +394,6 @@ class Images
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('PUT', $url);
@@ -497,20 +473,18 @@ class Images
      * @param  Components\ImageMetadataRequest  $imageMetadataRequest
      * @param  string  $accountID
      * @param  string  $imageID
-     * @param  ?string  $xMoovVersion
      * @return Operations\UpdateImageMetadataResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function updateMetadata(Components\ImageMetadataRequest $imageMetadataRequest, string $accountID, string $imageID, ?string $xMoovVersion = null, ?Options $options = null): Operations\UpdateImageMetadataResponse
+    public function updateMetadata(Components\ImageMetadataRequest $imageMetadataRequest, string $accountID, string $imageID, ?Options $options = null): Operations\UpdateImageMetadataResponse
     {
         $request = new Operations\UpdateImageMetadataRequest(
             accountID: $accountID,
             imageID: $imageID,
             imageMetadataRequest: $imageMetadataRequest,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/images/{imageID}/metadata', Operations\UpdateImageMetadataRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/images/{imageID}/metadata', Operations\UpdateImageMetadataRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'imageMetadataRequest', 'json');
@@ -518,10 +492,6 @@ class Images
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('PUT', $url);
@@ -601,19 +571,17 @@ class Images
      *
      * @param  Components\ImageUploadRequestMultiPart  $imageUploadRequestMultiPart
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\UploadImageResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function upload(Components\ImageUploadRequestMultiPart $imageUploadRequestMultiPart, string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\UploadImageResponse
+    public function upload(Components\ImageUploadRequestMultiPart $imageUploadRequestMultiPart, string $accountID, ?Options $options = null): Operations\UploadImageResponse
     {
         $request = new Operations\UploadImageRequest(
             accountID: $accountID,
             imageUploadRequestMultiPart: $imageUploadRequestMultiPart,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/images', Operations\UploadImageRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/images', Operations\UploadImageRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'imageUploadRequestMultiPart', 'multipart');
@@ -621,10 +589,6 @@ class Images
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);

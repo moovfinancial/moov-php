@@ -53,25 +53,19 @@ class Transfers
      *
      * @param  string  $accountID
      * @param  string  $transferID
-     * @param  ?string  $xMoovVersion
      * @return Operations\CreateCancellationResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function createCancellation(string $accountID, string $transferID, ?string $xMoovVersion = null, ?Options $options = null): Operations\CreateCancellationResponse
+    public function createCancellation(string $accountID, string $transferID, ?Options $options = null): Operations\CreateCancellationResponse
     {
         $request = new Operations\CreateCancellationRequest(
             accountID: $accountID,
             transferID: $transferID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/transfers/{transferID}/cancellations', Operations\CreateCancellationRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/transfers/{transferID}/cancellations', Operations\CreateCancellationRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
@@ -142,21 +136,30 @@ class Transfers
      * To access this endpoint using a [token](https://docs.moov.io/api/authentication/access-tokens/) you'll need 
      * to specify the `/accounts/{accountID}/transfers.write` scope.
      *
-     * @param  Operations\CreateReversalRequest  $request
+     * @param  string  $xIdempotencyKey
+     * @param  string  $accountID
+     * @param  string  $transferID
+     * @param  ?Components\CreateReversal  $createReversal
      * @return Operations\CreateReversalResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function createReversal(Operations\CreateReversalRequest $request, ?Options $options = null): Operations\CreateReversalResponse
+    public function createReversal(string $xIdempotencyKey, string $accountID, string $transferID, ?Components\CreateReversal $createReversal = null, ?Options $options = null): Operations\CreateReversalResponse
     {
+        $request = new Operations\CreateReversalRequest(
+            xIdempotencyKey: $xIdempotencyKey,
+            accountID: $accountID,
+            transferID: $transferID,
+            createReversal: $createReversal,
+        );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/transfers/{transferID}/reversals', Operations\CreateReversalRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/transfers/{transferID}/reversals', Operations\CreateReversalRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'createReversal', 'json');
         if ($body !== null) {
             $httpOptions = array_merge_recursive($httpOptions, $body);
         }
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
+        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
         }
@@ -241,14 +244,23 @@ class Transfers
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
      *
-     * @param  Operations\CreateTransferRequest  $request
+     * @param  Components\CreateTransfer  $createTransfer
+     * @param  string  $xIdempotencyKey
+     * @param  string  $accountID
+     * @param  ?Components\TransferWaitFor  $xWaitFor
      * @return Operations\CreateTransferResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function create(Operations\CreateTransferRequest $request, ?Options $options = null): Operations\CreateTransferResponse
+    public function create(Components\CreateTransfer $createTransfer, string $xIdempotencyKey, string $accountID, ?Components\TransferWaitFor $xWaitFor = null, ?Options $options = null): Operations\CreateTransferResponse
     {
+        $request = new Operations\CreateTransferRequest(
+            xIdempotencyKey: $xIdempotencyKey,
+            accountID: $accountID,
+            createTransfer: $createTransfer,
+            xWaitFor: $xWaitFor,
+        );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/transfers', Operations\CreateTransferRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/transfers', Operations\CreateTransferRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'createTransfer', 'json');
@@ -256,7 +268,7 @@ class Transfers
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
+        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
         }
@@ -393,19 +405,17 @@ class Transfers
      *
      * @param  Components\CreateTransferOptions  $createTransferOptions
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\CreateTransferOptionsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function generateOptions(Components\CreateTransferOptions $createTransferOptions, string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\CreateTransferOptionsResponse
+    public function generateOptions(Components\CreateTransferOptions $createTransferOptions, string $accountID, ?Options $options = null): Operations\CreateTransferOptionsResponse
     {
         $request = new Operations\CreateTransferOptionsRequest(
             accountID: $accountID,
             createTransferOptions: $createTransferOptions,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/transfer-options', Operations\CreateTransferOptionsRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/transfer-options', Operations\CreateTransferOptionsRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'createTransferOptions', 'json');
@@ -413,10 +423,6 @@ class Transfers
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
@@ -499,26 +505,20 @@ class Transfers
      * @param  string  $accountID
      * @param  string  $transferID
      * @param  string  $cancellationID
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetCancellationResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function getCancellation(string $accountID, string $transferID, string $cancellationID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetCancellationResponse
+    public function getCancellation(string $accountID, string $transferID, string $cancellationID, ?Options $options = null): Operations\GetCancellationResponse
     {
         $request = new Operations\GetCancellationRequest(
             accountID: $accountID,
             transferID: $transferID,
             cancellationID: $cancellationID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/transfers/{transferID}/cancellations/{cancellationID}', Operations\GetCancellationRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/transfers/{transferID}/cancellations/{cancellationID}', Operations\GetCancellationRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -579,26 +579,20 @@ class Transfers
      * @param  string  $transferID
      * @param  string  $accountID
      * @param  string  $refundID
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetRefundResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function getRefund(string $transferID, string $accountID, string $refundID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetRefundResponse
+    public function getRefund(string $transferID, string $accountID, string $refundID, ?Options $options = null): Operations\GetRefundResponse
     {
         $request = new Operations\GetRefundRequest(
             transferID: $transferID,
             accountID: $accountID,
             refundID: $refundID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/transfers/{transferID}/refunds/{refundID}', Operations\GetRefundRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/transfers/{transferID}/refunds/{refundID}', Operations\GetRefundRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -661,25 +655,19 @@ class Transfers
      *
      * @param  string  $transferID
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetTransferResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function get(string $transferID, string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetTransferResponse
+    public function get(string $transferID, string $accountID, ?Options $options = null): Operations\GetTransferResponse
     {
         $request = new Operations\GetTransferRequest(
             transferID: $transferID,
             accountID: $accountID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/transfers/{transferID}', Operations\GetTransferRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/transfers/{transferID}', Operations\GetTransferRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -747,14 +735,14 @@ class Transfers
     public function initiateRefund(Operations\InitiateRefundRequest $request, ?Options $options = null): Operations\InitiateRefundResponse
     {
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/transfers/{transferID}/refunds', Operations\InitiateRefundRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/transfers/{transferID}/refunds', Operations\InitiateRefundRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'createRefund', 'json');
         if ($body !== null) {
             $httpOptions = array_merge_recursive($httpOptions, $body);
         }
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
+        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
         }
@@ -868,25 +856,19 @@ class Transfers
      *
      * @param  string  $accountID
      * @param  string  $transferID
-     * @param  ?string  $xMoovVersion
      * @return Operations\ListRefundsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function listRefunds(string $accountID, string $transferID, ?string $xMoovVersion = null, ?Options $options = null): Operations\ListRefundsResponse
+    public function listRefunds(string $accountID, string $transferID, ?Options $options = null): Operations\ListRefundsResponse
     {
         $request = new Operations\ListRefundsRequest(
             accountID: $accountID,
             transferID: $transferID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/transfers/{transferID}/refunds', Operations\ListRefundsRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/transfers/{transferID}/refunds', Operations\ListRefundsRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -958,15 +940,11 @@ class Transfers
     public function list(Operations\ListTransfersRequest $request, ?Options $options = null): Operations\ListTransfersResponse
     {
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/transfers', Operations\ListTransfersRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/transfers', Operations\ListTransfersRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
 
-        $qp = Utils\Utils::getQueryParams(Operations\ListTransfersRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
+        $qp = Utils\Utils::getQueryParams(Operations\ListTransfersRequest::class, $request, $urlOverride);
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -1041,20 +1019,18 @@ class Transfers
      * @param  Components\PatchTransfer  $patchTransfer
      * @param  string  $transferID
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\UpdateTransferResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function update(Components\PatchTransfer $patchTransfer, string $transferID, string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\UpdateTransferResponse
+    public function update(Components\PatchTransfer $patchTransfer, string $transferID, string $accountID, ?Options $options = null): Operations\UpdateTransferResponse
     {
         $request = new Operations\UpdateTransferRequest(
             transferID: $transferID,
             accountID: $accountID,
             patchTransfer: $patchTransfer,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/transfers/{transferID}', Operations\UpdateTransferRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/transfers/{transferID}', Operations\UpdateTransferRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'patchTransfer', 'json');
@@ -1062,10 +1038,6 @@ class Transfers
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('PATCH', $url);

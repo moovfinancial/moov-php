@@ -3,11 +3,11 @@
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `addressLine1`     | *?string*          | :heavy_minus_sign: | N/A                |
-| `addressLine2`     | *?string*          | :heavy_minus_sign: | N/A                |
-| `city`             | *?string*          | :heavy_minus_sign: | N/A                |
-| `stateOrProvince`  | *?string*          | :heavy_minus_sign: | N/A                |
-| `postalCode`       | *string*           | :heavy_check_mark: | N/A                |
-| `country`          | *?string*          | :heavy_minus_sign: | N/A                |
+| Field                                                    | Type                                                     | Required                                                 | Description                                              |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `addressLine1`                                           | *?string*                                                | :heavy_minus_sign:                                       | Street address line 1.                                   |
+| `addressLine2`                                           | *?string*                                                | :heavy_minus_sign:                                       | Street address line 2 (e.g., apartment or suite number). |
+| `city`                                                   | *?string*                                                | :heavy_minus_sign:                                       | City name.                                               |
+| `stateOrProvince`                                        | *?string*                                                | :heavy_minus_sign:                                       | Two-letter state or province code.                       |
+| `postalCode`                                             | *string*                                                 | :heavy_check_mark:                                       | Postal or ZIP code.                                      |
+| `country`                                                | *?string*                                                | :heavy_minus_sign:                                       | Two-letter ISO 3166-1 country code.                      |

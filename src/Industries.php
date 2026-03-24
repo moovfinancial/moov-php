@@ -50,23 +50,15 @@ class Industries
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/),
      * you'll need to specify the `/profile-enrichment.read` scope.
      *
-     * @param  ?string  $xMoovVersion
      * @return Operations\ListIndustriesResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function list(?string $xMoovVersion = null, ?Options $options = null): Operations\ListIndustriesResponse
+    public function list(?Options $options = null): Operations\ListIndustriesResponse
     {
-        $request = new Operations\ListIndustriesRequest(
-            xMoovVersion: $xMoovVersion,
-        );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/industries');
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);

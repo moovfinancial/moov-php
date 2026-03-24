@@ -51,30 +51,21 @@ class Receipts
      *  To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      *  you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
      *
-     * @param  array<Components\ReceiptRequest>  $requestBody
-     * @param  ?string  $xMoovVersion
+     * @param  array<Components\ReceiptRequest>  $request
      * @return Operations\CreateReceiptsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function create(array $requestBody, ?string $xMoovVersion = null, ?Options $options = null): Operations\CreateReceiptsResponse
+    public function create(array $request, ?Options $options = null): Operations\CreateReceiptsResponse
     {
-        $request = new Operations\CreateReceiptsRequest(
-            requestBody: $requestBody,
-            xMoovVersion: $xMoovVersion,
-        );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/receipts');
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request, 'requestBody', 'json');
+        $body = Utils\Utils::serializeRequestBody($request, 'request', 'json');
         if ($body === null) {
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
@@ -144,26 +135,20 @@ class Receipts
      * you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
      *
      * @param  string  $id
-     * @param  ?string  $xMoovVersion
      * @return Operations\ListReceiptsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function list(string $id, ?string $xMoovVersion = null, ?Options $options = null): Operations\ListReceiptsResponse
+    public function list(string $id, ?Options $options = null): Operations\ListReceiptsResponse
     {
         $request = new Operations\ListReceiptsRequest(
             id: $id,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/receipts');
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
 
-        $qp = Utils\Utils::getQueryParams(Operations\ListReceiptsRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
+        $qp = Utils\Utils::getQueryParams(Operations\ListReceiptsRequest::class, $request, $urlOverride);
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);

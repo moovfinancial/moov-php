@@ -38,24 +38,6 @@ class CreateTransferRequest
     public Components\CreateTransfer $createTransfer;
 
     /**
-     * Specify an API version.
-     *
-     *
-     * API versioning follows the format `vYYYY.QQ.BB`, where 
-     *   - `YYYY` is the year
-     *   - `QQ` is the two-digit month for the first month of the quarter (e.g., 01, 04, 07, 10)
-     *   - `BB` is the build number, starting at `.01`, for subsequent builds in the same quarter. 
-     *     - For example, `v2024.01.00` is the initial release of the first quarter of 2024.
-     *
-     * The `dev` version represents the most recent development state. It may include breaking changes and should be treated as a beta release.
-     * When no version is specified, the API defaults to `v2024.01.00`.
-     *
-     * @var ?string $xMoovVersion
-     */
-    #[SpeakeasyMetadata('header:style=simple,explode=false,name=X-Moov-Version')]
-    public ?string $xMoovVersion = null;
-
-    /**
      * Optional header that indicates whether to return a synchronous response that includes full transfer and rail-specific details or an 
      *
      * asynchronous response indicating the transfer was created (this is the default response if the header is omitted). A timeout will occur after 15 seconds.
@@ -69,16 +51,14 @@ class CreateTransferRequest
      * @param  string  $xIdempotencyKey
      * @param  string  $accountID
      * @param  Components\CreateTransfer  $createTransfer
-     * @param  ?string  $xMoovVersion
      * @param  ?Components\TransferWaitFor  $xWaitFor
      * @phpstan-pure
      */
-    public function __construct(string $xIdempotencyKey, string $accountID, Components\CreateTransfer $createTransfer, ?string $xMoovVersion = null, ?Components\TransferWaitFor $xWaitFor = null)
+    public function __construct(string $xIdempotencyKey, string $accountID, Components\CreateTransfer $createTransfer, ?Components\TransferWaitFor $xWaitFor = null)
     {
         $this->xIdempotencyKey = $xIdempotencyKey;
         $this->accountID = $accountID;
         $this->createTransfer = $createTransfer;
-        $this->xMoovVersion = $xMoovVersion;
         $this->xWaitFor = $xWaitFor;
     }
 }

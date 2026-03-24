@@ -51,26 +51,20 @@ class EnrichedProfile
      * you'll need to specify the `/profile-enrichment.read` scope.
      *
      * @param  string  $email
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetEnrichmentProfileResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function get(string $email, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetEnrichmentProfileResponse
+    public function get(string $email, ?Options $options = null): Operations\GetEnrichmentProfileResponse
     {
         $request = new Operations\GetEnrichmentProfileRequest(
             email: $email,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/enrichment/profile');
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
 
-        $qp = Utils\Utils::getQueryParams(Operations\GetEnrichmentProfileRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
+        $qp = Utils\Utils::getQueryParams(Operations\GetEnrichmentProfileRequest::class, $request, $urlOverride);
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);

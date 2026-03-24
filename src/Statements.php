@@ -54,25 +54,19 @@ class Statements
      *
      * @param  string  $accountID
      * @param  string  $statementID
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetStatementResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function get(string $accountID, string $statementID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetStatementResponse
+    public function get(string $accountID, string $statementID, ?Options $options = null): Operations\GetStatementResponse
     {
         $request = new Operations\GetStatementRequest(
             accountID: $accountID,
             statementID: $statementID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/statements/{statementID}', Operations\GetStatementRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/statements/{statementID}', Operations\GetStatementRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json;q=1, application/pdf;q=0';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -148,15 +142,11 @@ class Statements
     public function list(Operations\ListStatementsRequest $request, ?Options $options = null): Operations\ListStatementsResponse
     {
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/statements', Operations\ListStatementsRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/statements', Operations\ListStatementsRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
 
-        $qp = Utils\Utils::getQueryParams(Operations\ListStatementsRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
+        $qp = Utils\Utils::getQueryParams(Operations\ListStatementsRequest::class, $request, $urlOverride);
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);

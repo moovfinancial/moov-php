@@ -13,6 +13,7 @@ namespace Moov\MoovPhp\Models\Components;
 class CardAccountUpdater
 {
     /**
+     * Timestamp from the card network indicating when the card update was processed.
      *
      * @var ?\DateTime $updatedOn
      */
