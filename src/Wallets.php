@@ -55,19 +55,17 @@ class Wallets
      *
      * @param  Components\CreateWallet  $createWallet
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\CreateWalletResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function create(Components\CreateWallet $createWallet, string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\CreateWalletResponse
+    public function create(Components\CreateWallet $createWallet, string $accountID, ?Options $options = null): Operations\CreateWalletResponse
     {
         $request = new Operations\CreateWalletRequest(
             accountID: $accountID,
             createWallet: $createWallet,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/wallets', Operations\CreateWalletRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/wallets', Operations\CreateWalletRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'createWallet', 'json');
@@ -75,10 +73,6 @@ class Wallets
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
@@ -162,25 +156,19 @@ class Wallets
      *
      * @param  string  $accountID
      * @param  string  $walletID
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetWalletResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function get(string $accountID, string $walletID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetWalletResponse
+    public function get(string $accountID, string $walletID, ?Options $options = null): Operations\GetWalletResponse
     {
         $request = new Operations\GetWalletRequest(
             accountID: $accountID,
             walletID: $walletID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/wallets/{walletID}', Operations\GetWalletRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/wallets/{walletID}', Operations\GetWalletRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -247,15 +235,11 @@ class Wallets
     public function listTransactions(Operations\ListWalletTransactionsRequest $request, ?Options $options = null): Operations\ListWalletTransactionsResponse
     {
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/wallets/{walletID}/transactions', Operations\ListWalletTransactionsRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/wallets/{walletID}/transactions', Operations\ListWalletTransactionsRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
 
-        $qp = Utils\Utils::getQueryParams(Operations\ListWalletTransactionsRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
+        $qp = Utils\Utils::getQueryParams(Operations\ListWalletTransactionsRequest::class, $request, $urlOverride);
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -334,15 +318,11 @@ class Wallets
     public function list(Operations\ListWalletsRequest $request, ?Options $options = null): Operations\ListWalletsResponse
     {
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/wallets', Operations\ListWalletsRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/wallets', Operations\ListWalletsRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
 
-        $qp = Utils\Utils::getQueryParams(Operations\ListWalletsRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
+        $qp = Utils\Utils::getQueryParams(Operations\ListWalletsRequest::class, $request, $urlOverride);
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -417,20 +397,18 @@ class Wallets
      * @param  Components\PatchWallet  $patchWallet
      * @param  string  $walletID
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\UpdateWalletResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function update(Components\PatchWallet $patchWallet, string $walletID, string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\UpdateWalletResponse
+    public function update(Components\PatchWallet $patchWallet, string $walletID, string $accountID, ?Options $options = null): Operations\UpdateWalletResponse
     {
         $request = new Operations\UpdateWalletRequest(
             walletID: $walletID,
             accountID: $accountID,
             patchWallet: $patchWallet,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/wallets/{walletID}', Operations\UpdateWalletRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/wallets/{walletID}', Operations\UpdateWalletRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'patchWallet', 'json');
@@ -438,10 +416,6 @@ class Wallets
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('PATCH', $url);

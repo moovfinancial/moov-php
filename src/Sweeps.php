@@ -53,19 +53,17 @@ class Sweeps
      *
      * @param  Components\CreateSweepConfig  $createSweepConfig
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\CreateSweepConfigResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function createConfig(Components\CreateSweepConfig $createSweepConfig, string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\CreateSweepConfigResponse
+    public function createConfig(Components\CreateSweepConfig $createSweepConfig, string $accountID, ?Options $options = null): Operations\CreateSweepConfigResponse
     {
         $request = new Operations\CreateSweepConfigRequest(
             accountID: $accountID,
             createSweepConfig: $createSweepConfig,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/sweep-configs', Operations\CreateSweepConfigRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/sweep-configs', Operations\CreateSweepConfigRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'createSweepConfig', 'json');
@@ -73,10 +71,6 @@ class Sweeps
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
@@ -159,26 +153,20 @@ class Sweeps
      * @param  string  $accountID
      * @param  string  $walletID
      * @param  string  $sweepID
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetSweepResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function get(string $accountID, string $walletID, string $sweepID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetSweepResponse
+    public function get(string $accountID, string $walletID, string $sweepID, ?Options $options = null): Operations\GetSweepResponse
     {
         $request = new Operations\GetSweepRequest(
             accountID: $accountID,
             walletID: $walletID,
             sweepID: $sweepID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/wallets/{walletID}/sweeps/{sweepID}', Operations\GetSweepRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/wallets/{walletID}/sweeps/{sweepID}', Operations\GetSweepRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -238,25 +226,19 @@ class Sweeps
      *
      * @param  string  $accountID
      * @param  string  $sweepConfigID
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetSweepConfigResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function getConfig(string $accountID, string $sweepConfigID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetSweepConfigResponse
+    public function getConfig(string $accountID, string $sweepConfigID, ?Options $options = null): Operations\GetSweepConfigResponse
     {
         $request = new Operations\GetSweepConfigRequest(
             accountID: $accountID,
             sweepConfigID: $sweepConfigID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/sweep-configs/{sweepConfigID}', Operations\GetSweepConfigRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/sweep-configs/{sweepConfigID}', Operations\GetSweepConfigRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -315,24 +297,18 @@ class Sweeps
      * you'll need to specify the `/accounts/{accountID}/wallets.read` scope.
      *
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\ListSweepConfigsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function listConfigs(string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\ListSweepConfigsResponse
+    public function listConfigs(string $accountID, ?Options $options = null): Operations\ListSweepConfigsResponse
     {
         $request = new Operations\ListSweepConfigsRequest(
             accountID: $accountID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/sweep-configs', Operations\ListSweepConfigsRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/sweep-configs', Operations\ListSweepConfigsRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -397,15 +373,11 @@ class Sweeps
     public function list(Operations\ListSweepsRequest $request, ?Options $options = null): Operations\ListSweepsResponse
     {
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/wallets/{walletID}/sweeps', Operations\ListSweepsRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/wallets/{walletID}/sweeps', Operations\ListSweepsRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
 
-        $qp = Utils\Utils::getQueryParams(Operations\ListSweepsRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
+        $qp = Utils\Utils::getQueryParams(Operations\ListSweepsRequest::class, $request, $urlOverride);
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -467,20 +439,18 @@ class Sweeps
      * @param  Components\PatchSweepConfig  $patchSweepConfig
      * @param  string  $accountID
      * @param  string  $sweepConfigID
-     * @param  ?string  $xMoovVersion
      * @return Operations\UpdateSweepConfigResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function updateConfig(Components\PatchSweepConfig $patchSweepConfig, string $accountID, string $sweepConfigID, ?string $xMoovVersion = null, ?Options $options = null): Operations\UpdateSweepConfigResponse
+    public function updateConfig(Components\PatchSweepConfig $patchSweepConfig, string $accountID, string $sweepConfigID, ?Options $options = null): Operations\UpdateSweepConfigResponse
     {
         $request = new Operations\UpdateSweepConfigRequest(
             accountID: $accountID,
             sweepConfigID: $sweepConfigID,
             patchSweepConfig: $patchSweepConfig,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/sweep-configs/{sweepConfigID}', Operations\UpdateSweepConfigRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/sweep-configs/{sweepConfigID}', Operations\UpdateSweepConfigRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'patchSweepConfig', 'json');
@@ -488,10 +458,6 @@ class Sweeps
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('PATCH', $url);

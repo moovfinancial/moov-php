@@ -12,6 +12,7 @@ namespace Moov\MoovPhp\Models\Components;
 class UpdateCardAddress
 {
     /**
+     * Street address line 1.
      *
      * @var ?string $addressLine1
      */
@@ -20,6 +21,7 @@ class UpdateCardAddress
     public ?string $addressLine1 = null;
 
     /**
+     * Street address line 2 (e.g., apartment or suite number).
      *
      * @var ?string $addressLine2
      */
@@ -28,6 +30,7 @@ class UpdateCardAddress
     public ?string $addressLine2 = null;
 
     /**
+     * City name.
      *
      * @var ?string $city
      */
@@ -36,6 +39,7 @@ class UpdateCardAddress
     public ?string $city = null;
 
     /**
+     * Two-letter state or province code.
      *
      * @var ?string $stateOrProvince
      */
@@ -44,6 +48,7 @@ class UpdateCardAddress
     public ?string $stateOrProvince = null;
 
     /**
+     * Postal or ZIP code.
      *
      * @var ?string $postalCode
      */
@@ -52,6 +57,7 @@ class UpdateCardAddress
     public ?string $postalCode = null;
 
     /**
+     * Two-letter ISO 3166-1 country code.
      *
      * @var ?string $country
      */

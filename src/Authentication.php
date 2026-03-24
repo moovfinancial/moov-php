@@ -48,30 +48,21 @@ class Authentication
     /**
      * Create or refresh an access token.
      *
-     * @param  Components\AuthTokenRequest  $authTokenRequest
-     * @param  ?string  $xMoovVersion
+     * @param  Components\AuthTokenRequest  $request
      * @return Operations\CreateAccessTokenResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function createToken(Components\AuthTokenRequest $authTokenRequest, ?string $xMoovVersion = null, ?Options $options = null): Operations\CreateAccessTokenResponse
+    public function createToken(Components\AuthTokenRequest $request, ?Options $options = null): Operations\CreateAccessTokenResponse
     {
-        $request = new Operations\CreateAccessTokenRequest(
-            authTokenRequest: $authTokenRequest,
-            xMoovVersion: $xMoovVersion,
-        );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/oauth2/token');
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request, 'authTokenRequest', 'json');
+        $body = Utils\Utils::serializeRequestBody($request, 'request', 'json');
         if ($body === null) {
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
@@ -150,30 +141,21 @@ class Authentication
      *
      * Allows clients to notify the authorization server that a previously obtained refresh or access token is no longer needed.
      *
-     * @param  Components\RevokeTokenRequest  $revokeTokenRequest
-     * @param  ?string  $xMoovVersion
+     * @param  Components\RevokeTokenRequest  $request
      * @return Operations\RevokeAccessTokenResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function revokeToken(Components\RevokeTokenRequest $revokeTokenRequest, ?string $xMoovVersion = null, ?Options $options = null): Operations\RevokeAccessTokenResponse
+    public function revokeToken(Components\RevokeTokenRequest $request, ?Options $options = null): Operations\RevokeAccessTokenResponse
     {
-        $request = new Operations\RevokeAccessTokenRequest(
-            revokeTokenRequest: $revokeTokenRequest,
-            xMoovVersion: $xMoovVersion,
-        );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/oauth2/revoke');
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request, 'revokeTokenRequest', 'json');
+        $body = Utils\Utils::serializeRequestBody($request, 'request', 'json');
         if ($body === null) {
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);

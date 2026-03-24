@@ -53,25 +53,19 @@ class Cards
      *
      * @param  string  $accountID
      * @param  string  $cardID
-     * @param  ?string  $xMoovVersion
      * @return Operations\DisableCardResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function disable(string $accountID, string $cardID, ?string $xMoovVersion = null, ?Options $options = null): Operations\DisableCardResponse
+    public function disable(string $accountID, string $cardID, ?Options $options = null): Operations\DisableCardResponse
     {
         $request = new Operations\DisableCardRequest(
             accountID: $accountID,
             cardID: $cardID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/cards/{cardID}', Operations\DisableCardRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/cards/{cardID}', Operations\DisableCardRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('DELETE', $url);
@@ -134,25 +128,19 @@ class Cards
      *
      * @param  string  $accountID
      * @param  string  $cardID
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetCardResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function get(string $accountID, string $cardID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetCardResponse
+    public function get(string $accountID, string $cardID, ?Options $options = null): Operations\GetCardResponse
     {
         $request = new Operations\GetCardRequest(
             accountID: $accountID,
             cardID: $cardID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/cards/{cardID}', Operations\GetCardRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/cards/{cardID}', Operations\GetCardRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -226,21 +214,19 @@ class Cards
      *
      * @param  Components\LinkCard  $linkCard
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @param  ?Components\LinkCardWaitFor  $xWaitFor
      * @return Operations\LinkCardResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function link(Components\LinkCard $linkCard, string $accountID, ?string $xMoovVersion = null, ?Components\LinkCardWaitFor $xWaitFor = null, ?Options $options = null): Operations\LinkCardResponse
+    public function link(Components\LinkCard $linkCard, string $accountID, ?Components\LinkCardWaitFor $xWaitFor = null, ?Options $options = null): Operations\LinkCardResponse
     {
         $request = new Operations\LinkCardRequest(
             accountID: $accountID,
             linkCard: $linkCard,
-            xMoovVersion: $xMoovVersion,
             xWaitFor: $xWaitFor,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/cards', Operations\LinkCardRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/cards', Operations\LinkCardRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'linkCard', 'json');
@@ -248,7 +234,7 @@ class Cards
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
+        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
         }
@@ -345,24 +331,18 @@ class Cards
      * you'll need to specify the `/accounts/{accountID}/cards.read` scope.
      *
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\ListCardsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function list(string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\ListCardsResponse
+    public function list(string $accountID, ?Options $options = null): Operations\ListCardsResponse
     {
         $request = new Operations\ListCardsRequest(
             accountID: $accountID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/cards', Operations\ListCardsRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/cards', Operations\ListCardsRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -432,20 +412,18 @@ class Cards
      * @param  Components\UpdateCard  $updateCard
      * @param  string  $accountID
      * @param  string  $cardID
-     * @param  ?string  $xMoovVersion
      * @return Operations\UpdateCardResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function update(Components\UpdateCard $updateCard, string $accountID, string $cardID, ?string $xMoovVersion = null, ?Options $options = null): Operations\UpdateCardResponse
+    public function update(Components\UpdateCard $updateCard, string $accountID, string $cardID, ?Options $options = null): Operations\UpdateCardResponse
     {
         $request = new Operations\UpdateCardRequest(
             accountID: $accountID,
             cardID: $cardID,
             updateCard: $updateCard,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/cards/{cardID}', Operations\UpdateCardRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/cards/{cardID}', Operations\UpdateCardRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'updateCard', 'json');
@@ -453,10 +431,6 @@ class Cards
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('PATCH', $url);

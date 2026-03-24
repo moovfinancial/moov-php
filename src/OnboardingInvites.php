@@ -51,30 +51,21 @@ class OnboardingInvites
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts.write` scope.
      *
-     * @param  Components\OnboardingInviteRequest  $onboardingInviteRequest
-     * @param  ?string  $xMoovVersion
+     * @param  Components\OnboardingInviteRequest  $request
      * @return Operations\CreateOnboardingInviteResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function create(Components\OnboardingInviteRequest $onboardingInviteRequest, ?string $xMoovVersion = null, ?Options $options = null): Operations\CreateOnboardingInviteResponse
+    public function create(Components\OnboardingInviteRequest $request, ?Options $options = null): Operations\CreateOnboardingInviteResponse
     {
-        $request = new Operations\CreateOnboardingInviteRequest(
-            onboardingInviteRequest: $onboardingInviteRequest,
-            xMoovVersion: $xMoovVersion,
-        );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/onboarding-invites');
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request, 'onboardingInviteRequest', 'json');
+        $body = Utils\Utils::serializeRequestBody($request, 'request', 'json');
         if ($body === null) {
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);

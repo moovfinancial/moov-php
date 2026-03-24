@@ -53,19 +53,17 @@ class FeePlans
      *
      * @param  Components\CreateFeePlanAgreement  $createFeePlanAgreement
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\CreateFeePlanAgreementsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function createAgreements(Components\CreateFeePlanAgreement $createFeePlanAgreement, string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\CreateFeePlanAgreementsResponse
+    public function createAgreements(Components\CreateFeePlanAgreement $createFeePlanAgreement, string $accountID, ?Options $options = null): Operations\CreateFeePlanAgreementsResponse
     {
         $request = new Operations\CreateFeePlanAgreementsRequest(
             accountID: $accountID,
             createFeePlanAgreement: $createFeePlanAgreement,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/fee-plan-agreements', Operations\CreateFeePlanAgreementsRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/fee-plan-agreements', Operations\CreateFeePlanAgreementsRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'createFeePlanAgreement', 'json');
@@ -73,10 +71,6 @@ class FeePlans
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
@@ -158,25 +152,19 @@ class FeePlans
      *
      * @param  string  $accountID
      * @param  string  $residualID
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetResidualResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function getResidual(string $accountID, string $residualID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetResidualResponse
+    public function getResidual(string $accountID, string $residualID, ?Options $options = null): Operations\GetResidualResponse
     {
         $request = new Operations\GetResidualRequest(
             accountID: $accountID,
             residualID: $residualID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/residuals/{residualID}', Operations\GetResidualRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/residuals/{residualID}', Operations\GetResidualRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -241,15 +229,11 @@ class FeePlans
     public function list(Operations\ListFeePlanAgreementsRequest $request, ?Options $options = null): Operations\ListFeePlanAgreementsResponse
     {
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/fee-plan-agreements', Operations\ListFeePlanAgreementsRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/fee-plan-agreements', Operations\ListFeePlanAgreementsRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
 
-        $qp = Utils\Utils::getQueryParams(Operations\ListFeePlanAgreementsRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
+        $qp = Utils\Utils::getQueryParams(Operations\ListFeePlanAgreementsRequest::class, $request, $urlOverride);
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -310,28 +294,22 @@ class FeePlans
      * you'll need to specify the `/accounts/{accountID}/profile.read` scope.
      *
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @param  ?array<string>  $planIDs
      * @return Operations\ListFeePlansResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function listByAccount(string $accountID, ?string $xMoovVersion = null, ?array $planIDs = null, ?Options $options = null): Operations\ListFeePlansResponse
+    public function listByAccount(string $accountID, ?array $planIDs = null, ?Options $options = null): Operations\ListFeePlansResponse
     {
         $request = new Operations\ListFeePlansRequest(
             accountID: $accountID,
-            xMoovVersion: $xMoovVersion,
             planIDs: $planIDs,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/fee-plans', Operations\ListFeePlansRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/fee-plans', Operations\ListFeePlansRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
 
-        $qp = Utils\Utils::getQueryParams(Operations\ListFeePlansRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
+        $qp = Utils\Utils::getQueryParams(Operations\ListFeePlansRequest::class, $request, $urlOverride);
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -397,15 +375,11 @@ class FeePlans
     public function listFeeRevenue(Operations\ListFeeRevenueRequest $request, ?Options $options = null): Operations\ListFeeRevenueResponse
     {
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/fee-revenue', Operations\ListFeeRevenueRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/fee-revenue', Operations\ListFeeRevenueRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
 
-        $qp = Utils\Utils::getQueryParams(Operations\ListFeeRevenueRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
+        $qp = Utils\Utils::getQueryParams(Operations\ListFeeRevenueRequest::class, $request, $urlOverride);
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -466,28 +440,22 @@ class FeePlans
      *
      * @param  string  $accountID
      * @param  ?Components\ListFeesFetchRequest  $listFeesFetchRequest
-     * @param  ?string  $xMoovVersion
      * @return Operations\ListFeesFetchResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function fetchFees(string $accountID, ?Components\ListFeesFetchRequest $listFeesFetchRequest = null, ?string $xMoovVersion = null, ?Options $options = null): Operations\ListFeesFetchResponse
+    public function fetchFees(string $accountID, ?Components\ListFeesFetchRequest $listFeesFetchRequest = null, ?Options $options = null): Operations\ListFeesFetchResponse
     {
         $request = new Operations\ListFeesFetchRequest(
             accountID: $accountID,
-            xMoovVersion: $xMoovVersion,
             listFeesFetchRequest: $listFeesFetchRequest,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/fees/.fetch', Operations\ListFeesFetchRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/fees/.fetch', Operations\ListFeesFetchRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'listFeesFetchRequest', 'json');
         if ($body !== null) {
             $httpOptions = array_merge_recursive($httpOptions, $body);
-        }
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
         }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
@@ -553,15 +521,11 @@ class FeePlans
     public function listPartnerPricingAgreements(Operations\ListPartnerPricingAgreementsRequest $request, ?Options $options = null): Operations\ListPartnerPricingAgreementsResponse
     {
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/partner-pricing-agreements', Operations\ListPartnerPricingAgreementsRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/partner-pricing-agreements', Operations\ListPartnerPricingAgreementsRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
 
-        $qp = Utils\Utils::getQueryParams(Operations\ListPartnerPricingAgreementsRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
+        $qp = Utils\Utils::getQueryParams(Operations\ListPartnerPricingAgreementsRequest::class, $request, $urlOverride);
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -627,15 +591,11 @@ class FeePlans
     public function listResidualFees(Operations\ListResidualFeesRequest $request, ?Options $options = null): Operations\ListResidualFeesResponse
     {
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/residuals/{residualID}/fees', Operations\ListResidualFeesRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/residuals/{residualID}/fees', Operations\ListResidualFeesRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
 
-        $qp = Utils\Utils::getQueryParams(Operations\ListResidualFeesRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
+        $qp = Utils\Utils::getQueryParams(Operations\ListResidualFeesRequest::class, $request, $urlOverride);
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -701,15 +661,11 @@ class FeePlans
     public function listResiduals(Operations\ListResidualsRequest $request, ?Options $options = null): Operations\ListResidualsResponse
     {
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/residuals', Operations\ListResidualsRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/residuals', Operations\ListResidualsRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
 
-        $qp = Utils\Utils::getQueryParams(Operations\ListResidualsRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
+        $qp = Utils\Utils::getQueryParams(Operations\ListResidualsRequest::class, $request, $urlOverride);
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
