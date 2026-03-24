@@ -26,10 +26,8 @@ require 'vendor/autoload.php';
 
 use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
-use Moov\MoovPhp\Models\Operations;
 
 $sdk = MoovPhp\Moov::builder()
-    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -38,14 +36,13 @@ $sdk = MoovPhp\Moov::builder()
     )
     ->build();
 
-$request = new Operations\ListIssuedCardsRequest(
-    accountID: '17c958e0-3abe-46e5-8afb-98742f1fb8ac',
-    skip: 60,
-    count: 20,
-);
+
 
 $response = $sdk->issuedCards->list(
-    request: $request
+    accountID: '17c958e0-3abe-46e5-8afb-98742f1fb8ac',
+    skip: 60,
+    count: 20
+
 );
 
 if ($response->issuedCards !== null) {
@@ -55,9 +52,12 @@ if ($response->issuedCards !== null) {
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `$request`                                                                             | [Operations\ListIssuedCardsRequest](../../Models/Operations/ListIssuedCardsRequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| Parameter                                                                                                                 | Type                                                                                                                      | Required                                                                                                                  | Description                                                                                                               | Example                                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `accountID`                                                                                                               | *string*                                                                                                                  | :heavy_check_mark:                                                                                                        | The Moov business account for which the cards have been issued.                                                           |                                                                                                                           |
+| `skip`                                                                                                                    | *?int*                                                                                                                    | :heavy_minus_sign:                                                                                                        | N/A                                                                                                                       | 60                                                                                                                        |
+| `count`                                                                                                                   | *?int*                                                                                                                    | :heavy_minus_sign:                                                                                                        | N/A                                                                                                                       | 20                                                                                                                        |
+| `states`                                                                                                                  | array<[Components\IssuedCardState](../../Models/Components/IssuedCardState.md)>                                           | :heavy_minus_sign:                                                                                                        | Optional, comma-separated states to filter the Moov list issued cards response. For example `active,pending-verification` |                                                                                                                           |
 
 ### Response
 

@@ -75,6 +75,7 @@ class TransferPaymentMethodsCard
     public CardExpiration $expiration;
 
     /**
+     * The billing address associated with the card.
      *
      * @var CardAddress $billingAddress
      */
@@ -128,6 +129,9 @@ class TransferPaymentMethodsCard
     public ?bool $cardOnFile = null;
 
     /**
+     * Merchant account whose details (statement descriptor, address, etc.) are used for the card verification authorization.
+     *
+     * If omitted, the partner account's details are used instead.
      *
      * @var ?string $merchantAccountID
      */

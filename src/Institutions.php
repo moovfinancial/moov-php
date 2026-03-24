@@ -52,24 +52,29 @@ class Institutions
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/fed.read` scope.
      *
-     * @param  ?Operations\ListInstitutionsRequest  $request
+     * @param  ?string  $name
+     * @param  ?string  $routingNumber
+     * @param  ?string  $state
+     * @param  ?int  $limit
      * @return Operations\ListInstitutionsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      * @deprecated  method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
-    public function search(?Operations\ListInstitutionsRequest $request = null, ?Options $options = null): Operations\ListInstitutionsResponse
+    public function search(?string $name = null, ?string $routingNumber = null, ?string $state = null, ?int $limit = null, ?Options $options = null): Operations\ListInstitutionsResponse
     {
         trigger_error('Method '.__METHOD__.' is deprecated', E_USER_DEPRECATED);
+        $request = new Operations\ListInstitutionsRequest(
+            name: $name,
+            routingNumber: $routingNumber,
+            state: $state,
+            limit: $limit,
+        );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/institutions/ach/search');
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
 
-        $qp = Utils\Utils::getQueryParams(Operations\ListInstitutionsRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
+        $qp = Utils\Utils::getQueryParams(Operations\ListInstitutionsRequest::class, $request, $urlOverride);
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -143,17 +148,15 @@ class Institutions
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
      * you'll need to specify the `/institutions.read` scope.
      *
-     * @param  ?string  $xMoovVersion
      * @param  ?string  $name
      * @param  ?string  $routingNumber
      * @param  ?int  $limit
      * @return Operations\SearchInstitutionsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function searchInstitutions(?string $xMoovVersion = null, ?string $name = null, ?string $routingNumber = null, ?int $limit = null, ?Options $options = null): Operations\SearchInstitutionsResponse
+    public function searchInstitutions(?string $name = null, ?string $routingNumber = null, ?int $limit = null, ?Options $options = null): Operations\SearchInstitutionsResponse
     {
         $request = new Operations\SearchInstitutionsRequest(
-            xMoovVersion: $xMoovVersion,
             name: $name,
             routingNumber: $routingNumber,
             limit: $limit,
@@ -163,11 +166,7 @@ class Institutions
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
 
-        $qp = Utils\Utils::getQueryParams(Operations\SearchInstitutionsRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
+        $qp = Utils\Utils::getQueryParams(Operations\SearchInstitutionsRequest::class, $request, $urlOverride);
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);

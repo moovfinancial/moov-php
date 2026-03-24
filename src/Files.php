@@ -52,24 +52,18 @@ class Files
      * you'll need to specify the `/accounts/{accountID}/files.read` scope.
      *
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\ListFilesResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function list(string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\ListFilesResponse
+    public function list(string $accountID, ?Options $options = null): Operations\ListFilesResponse
     {
         $request = new Operations\ListFilesRequest(
             accountID: $accountID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/files', Operations\ListFilesRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/files', Operations\ListFilesRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -132,19 +126,17 @@ class Files
      *
      * @param  Components\FileUploadRequestMultiPart  $fileUploadRequestMultiPart
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\UploadFileResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function upload(Components\FileUploadRequestMultiPart $fileUploadRequestMultiPart, string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\UploadFileResponse
+    public function upload(Components\FileUploadRequestMultiPart $fileUploadRequestMultiPart, string $accountID, ?Options $options = null): Operations\UploadFileResponse
     {
         $request = new Operations\UploadFileRequest(
             accountID: $accountID,
             fileUploadRequestMultiPart: $fileUploadRequestMultiPart,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/files', Operations\UploadFileRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/files', Operations\UploadFileRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'fileUploadRequestMultiPart', 'multipart');
@@ -152,10 +144,6 @@ class Files
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);

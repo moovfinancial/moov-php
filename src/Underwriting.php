@@ -54,24 +54,18 @@ class Underwriting
      * you'll need to specify the `/accounts/{accountID}/profile.read` scope.
      *
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetUnderwritingResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function get(string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetUnderwritingResponse
+    public function get(string $accountID, ?Options $options = null): Operations\GetUnderwritingResponse
     {
         $request = new Operations\GetUnderwritingRequest(
             accountID: $accountID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/underwriting', Operations\GetUnderwritingRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/underwriting', Operations\GetUnderwritingRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -133,19 +127,17 @@ class Underwriting
      *
      * @param  Components\UpdateUnderwriting  $updateUnderwriting
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\UpsertUnderwritingResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function upsert(Components\UpdateUnderwriting $updateUnderwriting, string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\UpsertUnderwritingResponse
+    public function upsert(Components\UpdateUnderwriting $updateUnderwriting, string $accountID, ?Options $options = null): Operations\UpsertUnderwritingResponse
     {
         $request = new Operations\UpsertUnderwritingRequest(
             accountID: $accountID,
             updateUnderwriting: $updateUnderwriting,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/underwriting', Operations\UpsertUnderwritingRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/underwriting', Operations\UpsertUnderwritingRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'updateUnderwriting', 'json');
@@ -153,10 +145,6 @@ class Underwriting
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('PUT', $url);

@@ -52,25 +52,19 @@ class Schedules
      *
      * @param  string  $accountID
      * @param  string  $scheduleID
-     * @param  ?string  $xMoovVersion
      * @return Operations\CancelScheduleResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function cancel(string $accountID, string $scheduleID, ?string $xMoovVersion = null, ?Options $options = null): Operations\CancelScheduleResponse
+    public function cancel(string $accountID, string $scheduleID, ?Options $options = null): Operations\CancelScheduleResponse
     {
         $request = new Operations\CancelScheduleRequest(
             accountID: $accountID,
             scheduleID: $scheduleID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/schedules/{scheduleID}', Operations\CancelScheduleRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/schedules/{scheduleID}', Operations\CancelScheduleRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('DELETE', $url);

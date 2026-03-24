@@ -53,25 +53,19 @@ class PaymentMethods
      *
      * @param  string  $accountID
      * @param  string  $paymentMethodID
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetPaymentMethodResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function get(string $accountID, string $paymentMethodID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetPaymentMethodResponse
+    public function get(string $accountID, string $paymentMethodID, ?Options $options = null): Operations\GetPaymentMethodResponse
     {
         $request = new Operations\GetPaymentMethodRequest(
             accountID: $accountID,
             paymentMethodID: $paymentMethodID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/payment-methods/{paymentMethodID}', Operations\GetPaymentMethodRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/payment-methods/{paymentMethodID}', Operations\GetPaymentMethodRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -131,30 +125,24 @@ class PaymentMethods
      * you'll need to specify the `/accounts/{accountID}/payment-methods.read` scope.
      *
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @param  ?string  $sourceID
      * @param  ?Components\PaymentMethodType  $paymentMethodType
      * @return Operations\ListPaymentMethodsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function list(string $accountID, ?string $xMoovVersion = null, ?string $sourceID = null, ?Components\PaymentMethodType $paymentMethodType = null, ?Options $options = null): Operations\ListPaymentMethodsResponse
+    public function list(string $accountID, ?string $sourceID = null, ?Components\PaymentMethodType $paymentMethodType = null, ?Options $options = null): Operations\ListPaymentMethodsResponse
     {
         $request = new Operations\ListPaymentMethodsRequest(
             accountID: $accountID,
-            xMoovVersion: $xMoovVersion,
             sourceID: $sourceID,
             paymentMethodType: $paymentMethodType,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/payment-methods', Operations\ListPaymentMethodsRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/payment-methods', Operations\ListPaymentMethodsRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
 
-        $qp = Utils\Utils::getQueryParams(Operations\ListPaymentMethodsRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
+        $qp = Utils\Utils::getQueryParams(Operations\ListPaymentMethodsRequest::class, $request, $urlOverride);
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);

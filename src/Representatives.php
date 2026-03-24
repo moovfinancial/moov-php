@@ -55,19 +55,17 @@ class Representatives
      *
      * @param  Components\CreateRepresentative  $createRepresentative
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\CreateRepresentativeResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function create(Components\CreateRepresentative $createRepresentative, string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\CreateRepresentativeResponse
+    public function create(Components\CreateRepresentative $createRepresentative, string $accountID, ?Options $options = null): Operations\CreateRepresentativeResponse
     {
         $request = new Operations\CreateRepresentativeRequest(
             accountID: $accountID,
             createRepresentative: $createRepresentative,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/representatives', Operations\CreateRepresentativeRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/representatives', Operations\CreateRepresentativeRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'createRepresentative', 'json');
@@ -75,10 +73,6 @@ class Representatives
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
@@ -160,25 +154,19 @@ class Representatives
      *
      * @param  string  $accountID
      * @param  string  $representativeID
-     * @param  ?string  $xMoovVersion
      * @return Operations\DeleteRepresentativeResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function delete(string $accountID, string $representativeID, ?string $xMoovVersion = null, ?Options $options = null): Operations\DeleteRepresentativeResponse
+    public function delete(string $accountID, string $representativeID, ?Options $options = null): Operations\DeleteRepresentativeResponse
     {
         $request = new Operations\DeleteRepresentativeRequest(
             accountID: $accountID,
             representativeID: $representativeID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/representatives/{representativeID}', Operations\DeleteRepresentativeRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/representatives/{representativeID}', Operations\DeleteRepresentativeRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('DELETE', $url);
@@ -239,25 +227,19 @@ class Representatives
      *
      * @param  string  $accountID
      * @param  string  $representativeID
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetRepresentativeResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function get(string $accountID, string $representativeID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetRepresentativeResponse
+    public function get(string $accountID, string $representativeID, ?Options $options = null): Operations\GetRepresentativeResponse
     {
         $request = new Operations\GetRepresentativeRequest(
             accountID: $accountID,
             representativeID: $representativeID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/representatives/{representativeID}', Operations\GetRepresentativeRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/representatives/{representativeID}', Operations\GetRepresentativeRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -319,24 +301,18 @@ class Representatives
      * you'll need to specify the `/accounts/{accountID}/representatives.read` scope.
      *
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\ListRepresentativesResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function list(string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\ListRepresentativesResponse
+    public function list(string $accountID, ?Options $options = null): Operations\ListRepresentativesResponse
     {
         $request = new Operations\ListRepresentativesRequest(
             accountID: $accountID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/representatives', Operations\ListRepresentativesRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/representatives', Operations\ListRepresentativesRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -410,20 +386,18 @@ class Representatives
      * @param  Components\UpdateRepresentative  $updateRepresentative
      * @param  string  $accountID
      * @param  string  $representativeID
-     * @param  ?string  $xMoovVersion
      * @return Operations\UpdateRepresentativeResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function update(Components\UpdateRepresentative $updateRepresentative, string $accountID, string $representativeID, ?string $xMoovVersion = null, ?Options $options = null): Operations\UpdateRepresentativeResponse
+    public function update(Components\UpdateRepresentative $updateRepresentative, string $accountID, string $representativeID, ?Options $options = null): Operations\UpdateRepresentativeResponse
     {
         $request = new Operations\UpdateRepresentativeRequest(
             accountID: $accountID,
             representativeID: $representativeID,
             updateRepresentative: $updateRepresentative,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/representatives/{representativeID}', Operations\UpdateRepresentativeRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/representatives/{representativeID}', Operations\UpdateRepresentativeRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'updateRepresentative', 'json');
@@ -431,10 +405,6 @@ class Representatives
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('PATCH', $url);

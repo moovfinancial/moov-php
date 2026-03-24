@@ -55,25 +55,19 @@ class Disputes
      *
      * @param  string  $accountID
      * @param  string  $disputeID
-     * @param  ?string  $xMoovVersion
      * @return Operations\AcceptDisputeResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function accept(string $accountID, string $disputeID, ?string $xMoovVersion = null, ?Options $options = null): Operations\AcceptDisputeResponse
+    public function accept(string $accountID, string $disputeID, ?Options $options = null): Operations\AcceptDisputeResponse
     {
         $request = new Operations\AcceptDisputeRequest(
             accountID: $accountID,
             disputeID: $disputeID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes/{disputeID}/accept', Operations\AcceptDisputeRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes/{disputeID}/accept', Operations\AcceptDisputeRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
@@ -147,26 +141,20 @@ class Disputes
      * @param  string  $accountID
      * @param  string  $disputeID
      * @param  string  $evidenceID
-     * @param  ?string  $xMoovVersion
      * @return Operations\DeleteDisputeEvidenceFileResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function deleteEvidence(string $accountID, string $disputeID, string $evidenceID, ?string $xMoovVersion = null, ?Options $options = null): Operations\DeleteDisputeEvidenceFileResponse
+    public function deleteEvidence(string $accountID, string $disputeID, string $evidenceID, ?Options $options = null): Operations\DeleteDisputeEvidenceFileResponse
     {
         $request = new Operations\DeleteDisputeEvidenceFileRequest(
             accountID: $accountID,
             disputeID: $disputeID,
             evidenceID: $evidenceID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes/{disputeID}/evidence/{evidenceID}', Operations\DeleteDisputeEvidenceFileRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes/{disputeID}/evidence/{evidenceID}', Operations\DeleteDisputeEvidenceFileRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('DELETE', $url);
@@ -229,25 +217,19 @@ class Disputes
      *
      * @param  string  $accountID
      * @param  string  $disputeID
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetDisputeResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function get(string $accountID, string $disputeID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetDisputeResponse
+    public function get(string $accountID, string $disputeID, ?Options $options = null): Operations\GetDisputeResponse
     {
         $request = new Operations\GetDisputeRequest(
             accountID: $accountID,
             disputeID: $disputeID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes/{disputeID}', Operations\GetDisputeRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes/{disputeID}', Operations\GetDisputeRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -310,26 +292,20 @@ class Disputes
      * @param  string  $accountID
      * @param  string  $disputeID
      * @param  string  $evidenceID
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetDisputeEvidenceResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function getEvidence(string $accountID, string $disputeID, string $evidenceID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetDisputeEvidenceResponse
+    public function getEvidence(string $accountID, string $disputeID, string $evidenceID, ?Options $options = null): Operations\GetDisputeEvidenceResponse
     {
         $request = new Operations\GetDisputeEvidenceRequest(
             accountID: $accountID,
             disputeID: $disputeID,
             evidenceID: $evidenceID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes/{disputeID}/evidence/{evidenceID}', Operations\GetDisputeEvidenceRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes/{disputeID}/evidence/{evidenceID}', Operations\GetDisputeEvidenceRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -392,26 +368,20 @@ class Disputes
      * @param  string  $accountID
      * @param  string  $disputeID
      * @param  string  $evidenceID
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetDisputeEvidenceDataResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function getEvidenceData(string $accountID, string $disputeID, string $evidenceID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetDisputeEvidenceDataResponse
+    public function getEvidenceData(string $accountID, string $disputeID, string $evidenceID, ?Options $options = null): Operations\GetDisputeEvidenceDataResponse
     {
         $request = new Operations\GetDisputeEvidenceDataRequest(
             accountID: $accountID,
             disputeID: $disputeID,
             evidenceID: $evidenceID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes/{disputeID}/evidence/{evidenceID}/data', Operations\GetDisputeEvidenceDataRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes/{disputeID}/evidence/{evidenceID}/data', Operations\GetDisputeEvidenceDataRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/pdf;q=1, image/jpeg;q=0.7, image/tiff;q=0';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -492,25 +462,19 @@ class Disputes
      *
      * @param  string  $accountID
      * @param  string  $disputeID
-     * @param  ?string  $xMoovVersion
      * @return Operations\ListDisputeEvidenceResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function listEvidence(string $accountID, string $disputeID, ?string $xMoovVersion = null, ?Options $options = null): Operations\ListDisputeEvidenceResponse
+    public function listEvidence(string $accountID, string $disputeID, ?Options $options = null): Operations\ListDisputeEvidenceResponse
     {
         $request = new Operations\ListDisputeEvidenceRequest(
             accountID: $accountID,
             disputeID: $disputeID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes/{disputeID}/evidence', Operations\ListDisputeEvidenceRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes/{disputeID}/evidence', Operations\ListDisputeEvidenceRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -577,15 +541,11 @@ class Disputes
     public function list(Operations\ListDisputesRequest $request, ?Options $options = null): Operations\ListDisputesResponse
     {
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes', Operations\ListDisputesRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes', Operations\ListDisputesRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
 
-        $qp = Utils\Utils::getQueryParams(Operations\ListDisputesRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
+        $qp = Utils\Utils::getQueryParams(Operations\ListDisputesRequest::class, $request, $urlOverride);
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -662,25 +622,19 @@ class Disputes
      *
      * @param  string  $accountID
      * @param  string  $disputeID
-     * @param  ?string  $xMoovVersion
      * @return Operations\SubmitDisputeEvidenceResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function submitEvidence(string $accountID, string $disputeID, ?string $xMoovVersion = null, ?Options $options = null): Operations\SubmitDisputeEvidenceResponse
+    public function submitEvidence(string $accountID, string $disputeID, ?Options $options = null): Operations\SubmitDisputeEvidenceResponse
     {
         $request = new Operations\SubmitDisputeEvidenceRequest(
             accountID: $accountID,
             disputeID: $disputeID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes/{disputeID}/evidence/submit', Operations\SubmitDisputeEvidenceRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes/{disputeID}/evidence/submit', Operations\SubmitDisputeEvidenceRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
@@ -751,14 +705,23 @@ class Disputes
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
      *
-     * @param  Operations\UpdateDisputeEvidenceRequest  $request
+     * @param  Components\UpdateEvidence  $updateEvidence
+     * @param  string  $accountID
+     * @param  string  $disputeID
+     * @param  string  $evidenceID
      * @return Operations\UpdateDisputeEvidenceResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function updateEvidence(Operations\UpdateDisputeEvidenceRequest $request, ?Options $options = null): Operations\UpdateDisputeEvidenceResponse
+    public function updateEvidence(Components\UpdateEvidence $updateEvidence, string $accountID, string $disputeID, string $evidenceID, ?Options $options = null): Operations\UpdateDisputeEvidenceResponse
     {
+        $request = new Operations\UpdateDisputeEvidenceRequest(
+            accountID: $accountID,
+            disputeID: $disputeID,
+            evidenceID: $evidenceID,
+            updateEvidence: $updateEvidence,
+        );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes/{disputeID}/evidence/{evidenceID}', Operations\UpdateDisputeEvidenceRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes/{disputeID}/evidence/{evidenceID}', Operations\UpdateDisputeEvidenceRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'updateEvidence', 'json');
@@ -766,10 +729,6 @@ class Disputes
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('PATCH', $url);
@@ -843,20 +802,18 @@ class Disputes
      * @param  Components\CreateEvidenceFileMultiPart  $createEvidenceFileMultiPart
      * @param  string  $accountID
      * @param  string  $disputeID
-     * @param  ?string  $xMoovVersion
      * @return Operations\UploadDisputeEvidenceFileResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function uploadEvidenceFile(Components\CreateEvidenceFileMultiPart $createEvidenceFileMultiPart, string $accountID, string $disputeID, ?string $xMoovVersion = null, ?Options $options = null): Operations\UploadDisputeEvidenceFileResponse
+    public function uploadEvidenceFile(Components\CreateEvidenceFileMultiPart $createEvidenceFileMultiPart, string $accountID, string $disputeID, ?Options $options = null): Operations\UploadDisputeEvidenceFileResponse
     {
         $request = new Operations\UploadDisputeEvidenceFileRequest(
             accountID: $accountID,
             disputeID: $disputeID,
             createEvidenceFileMultiPart: $createEvidenceFileMultiPart,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes/{disputeID}/evidence-file', Operations\UploadDisputeEvidenceFileRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes/{disputeID}/evidence-file', Operations\UploadDisputeEvidenceFileRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'createEvidenceFileMultiPart', 'multipart');
@@ -864,10 +821,6 @@ class Disputes
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
@@ -952,20 +905,18 @@ class Disputes
      * @param  Components\CreateEvidenceText  $createEvidenceText
      * @param  string  $accountID
      * @param  string  $disputeID
-     * @param  ?string  $xMoovVersion
      * @return Operations\UploadDisputeEvidenceTextResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function uploadEvidenceText(Components\CreateEvidenceText $createEvidenceText, string $accountID, string $disputeID, ?string $xMoovVersion = null, ?Options $options = null): Operations\UploadDisputeEvidenceTextResponse
+    public function uploadEvidenceText(Components\CreateEvidenceText $createEvidenceText, string $accountID, string $disputeID, ?Options $options = null): Operations\UploadDisputeEvidenceTextResponse
     {
         $request = new Operations\UploadDisputeEvidenceTextRequest(
             accountID: $accountID,
             disputeID: $disputeID,
             createEvidenceText: $createEvidenceText,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes/{disputeID}/evidence-text', Operations\UploadDisputeEvidenceTextRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/disputes/{disputeID}/evidence-text', Operations\UploadDisputeEvidenceTextRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'createEvidenceText', 'json');
@@ -973,10 +924,6 @@ class Disputes
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
