@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: e6ba28b03c31dd993b0c9979bd73bdea
+  docChecksum: f963b3be34ded0d6c0cee9a4c6e47d47
   docVersion: v2026.04.00
-  speakeasyVersion: 1.757.0
-  generationVersion: 2.866.0
-  releaseVersion: 26.4.0-beta.17
-  configChecksum: e09ed33621d8897752e3e58843806af0
+  speakeasyVersion: 1.759.1
+  generationVersion: 2.869.10
+  releaseVersion: 26.4.0-beta.18
+  configChecksum: f5e961dbacde401851fc5a74a7a9ee46
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php.git
   published: true
 persistentEdits:
-  generation_id: 110ca6ac-3126-4cc0-b2a0-5f685af099d7
-  pristine_commit_hash: 865cfc37c215529ec91f905de3dc58984355415c
-  pristine_tree_hash: 851441e4afd3e6b1373f7d29d9de328b0aadd898
+  generation_id: 7eb94b18-5f95-4b9e-b864-31cdf309bb6b
+  pristine_commit_hash: 93095c87aaa3ffc1e38d55e4c7983179156fd755
+  pristine_tree_hash: 1f7eaaa4d67b72df4b50a8536512209977aa2015
 features:
   php:
     constsAndDefaults: 0.2.2
@@ -2422,8 +2422,8 @@ trackedFiles:
     pristine_git_object: 6ff834e68a6b060a124ddfa319a1d4c5c769d346
   docs/Models/Components/WalletTransactionType.md:
     id: 6ade4e0f94b3
-    last_write_checksum: sha1:8ba94e339ee45ff8bfbd1e81db9c63bb3bd7380f
-    pristine_git_object: fd730e564e09124a8303f9df4775d542d3655d4b
+    last_write_checksum: sha1:fa107a99591178f970f2daeaa550b4979d4caf13
+    pristine_git_object: 7ac7162df32c7b98f788f5d815b909d5153d967b
   docs/Models/Components/WalletType.md:
     id: 3df41e467fd3
     last_write_checksum: sha1:6eac626cb8c0d5d119eaeef21def1e797c75d62b
@@ -6958,8 +6958,8 @@ trackedFiles:
     pristine_git_object: 352f5f59353332f92e7bf79b4e0a9ea4d714a666
   src/Models/Components/WalletTransactionType.php:
     id: 207ea370ccd1
-    last_write_checksum: sha1:f2ec6ce76fa7c5d770c0186c2c0d8cbae5554039
-    pristine_git_object: 64a3f152d0cebf0aa7c24de79842a43e51ef9d2b
+    last_write_checksum: sha1:20cd602d59044c18c7ff6dd43b46fb0948fd09ee
+    pristine_git_object: 2fa89ea7cf3ad3d261429613c624e466ea9de622
   src/Models/Components/WalletType.php:
     id: ba83df17bcc6
     last_write_checksum: sha1:eba27d05bfaec7efb648fee71e726ba46e71bfd9
@@ -9054,8 +9054,8 @@ trackedFiles:
     pristine_git_object: 5b72f6c6fdce6a650673e497315874718cd0d33c
   src/SDKConfiguration.php:
     id: 9d60ab0bec0b
-    last_write_checksum: sha1:f3d03783ab2c5167841db91f6ac538f7745c99ac
-    pristine_git_object: 541fa5d91ce5448bddf94d984eb61a35d707710e
+    last_write_checksum: sha1:f65b6bf1903c176f62181e383ea6b19fe0c3f2fb
+    pristine_git_object: c33f52b38ffd548672db4daa1716ad7497144033
   src/Schedules.php:
     id: 8dbe56d2d033
     last_write_checksum: sha1:2e8b7b1ab4e641ed8411b56028ef8bf253ee7973
@@ -12041,6 +12041,7 @@ examples:
           application/json: {"error": "<value>"}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: "## Php SDK Changes:\n* `moov->sweeps->list()`:  `response.[]->subtotals[]->type->enum(instantBankFailure)` **Added** (Breaking ⚠️)\n* `moov->sweeps->get()`:  `response.subtotals[]->type->enum(instantBankFailure)` **Added** (Breaking ⚠️)\n* `moov->wallets->listTransactions()`: \n  *  `request` **Changed**\n  *  `response.[]->transactionType->enum(instantBankFailure)` **Added** (Breaking ⚠️)\n* `moov->wallettransactions->get()`:  `response.transactionType->enum(instantBankFailure)` **Added** (Breaking ⚠️)\n"
 generatedFiles:
   - .gitattributes
   - USAGE.md
