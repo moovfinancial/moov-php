@@ -53,19 +53,17 @@ class PaymentLinks
      *
      * @param  Components\CreatePaymentLink  $createPaymentLink
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\CreatePaymentLinkResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function create(Components\CreatePaymentLink $createPaymentLink, string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\CreatePaymentLinkResponse
+    public function create(Components\CreatePaymentLink $createPaymentLink, string $accountID, ?Options $options = null): Operations\CreatePaymentLinkResponse
     {
         $request = new Operations\CreatePaymentLinkRequest(
             accountID: $accountID,
             createPaymentLink: $createPaymentLink,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/payment-links', Operations\CreatePaymentLinkRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/payment-links', Operations\CreatePaymentLinkRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'createPaymentLink', 'json');
@@ -73,10 +71,6 @@ class PaymentLinks
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
@@ -158,25 +152,19 @@ class PaymentLinks
      *
      * @param  string  $accountID
      * @param  string  $paymentLinkCode
-     * @param  ?string  $xMoovVersion
      * @return Operations\DisablePaymentLinkResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function disable(string $accountID, string $paymentLinkCode, ?string $xMoovVersion = null, ?Options $options = null): Operations\DisablePaymentLinkResponse
+    public function disable(string $accountID, string $paymentLinkCode, ?Options $options = null): Operations\DisablePaymentLinkResponse
     {
         $request = new Operations\DisablePaymentLinkRequest(
             accountID: $accountID,
             paymentLinkCode: $paymentLinkCode,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/payment-links/{paymentLinkCode}', Operations\DisablePaymentLinkRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/payment-links/{paymentLinkCode}', Operations\DisablePaymentLinkRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = '*/*';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('DELETE', $url);
@@ -226,25 +214,19 @@ class PaymentLinks
      *
      * @param  string  $accountID
      * @param  string  $paymentLinkCode
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetPaymentLinkResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function get(string $accountID, string $paymentLinkCode, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetPaymentLinkResponse
+    public function get(string $accountID, string $paymentLinkCode, ?Options $options = null): Operations\GetPaymentLinkResponse
     {
         $request = new Operations\GetPaymentLinkRequest(
             accountID: $accountID,
             paymentLinkCode: $paymentLinkCode,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/payment-links/{paymentLinkCode}', Operations\GetPaymentLinkRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/payment-links/{paymentLinkCode}', Operations\GetPaymentLinkRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -306,25 +288,19 @@ class PaymentLinks
      *
      * @param  string  $accountID
      * @param  string  $paymentLinkCode
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetPaymentLinkQRCodeResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function getQrCode(string $accountID, string $paymentLinkCode, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetPaymentLinkQRCodeResponse
+    public function getQrCode(string $accountID, string $paymentLinkCode, ?Options $options = null): Operations\GetPaymentLinkQRCodeResponse
     {
         $request = new Operations\GetPaymentLinkQRCodeRequest(
             accountID: $accountID,
             paymentLinkCode: $paymentLinkCode,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/payment-links/{paymentLinkCode}/qrcode', Operations\GetPaymentLinkQRCodeRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/payment-links/{paymentLinkCode}/qrcode', Operations\GetPaymentLinkQRCodeRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json;q=1, image/png;q=0';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -393,22 +369,27 @@ class PaymentLinks
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
      *
-     * @param  Operations\ListPaymentLinksRequest  $request
+     * @param  string  $accountID
+     * @param  ?int  $skip
+     * @param  ?int  $count
+     * @param  ?array<Components\PaymentLinkType>  $types
      * @return Operations\ListPaymentLinksResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function list(Operations\ListPaymentLinksRequest $request, ?Options $options = null): Operations\ListPaymentLinksResponse
+    public function list(string $accountID, ?int $skip = null, ?int $count = null, ?array $types = null, ?Options $options = null): Operations\ListPaymentLinksResponse
     {
+        $request = new Operations\ListPaymentLinksRequest(
+            accountID: $accountID,
+            skip: $skip,
+            count: $count,
+            types: $types,
+        );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/payment-links', Operations\ListPaymentLinksRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/payment-links', Operations\ListPaymentLinksRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
 
-        $qp = Utils\Utils::getQueryParams(Operations\ListPaymentLinksRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
+        $qp = Utils\Utils::getQueryParams(Operations\ListPaymentLinksRequest::class, $request, $urlOverride);
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -470,20 +451,18 @@ class PaymentLinks
      * @param  Components\UpdatePaymentLink  $updatePaymentLink
      * @param  string  $accountID
      * @param  string  $paymentLinkCode
-     * @param  ?string  $xMoovVersion
      * @return Operations\UpdatePaymentLinkResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function update(Components\UpdatePaymentLink $updatePaymentLink, string $accountID, string $paymentLinkCode, ?string $xMoovVersion = null, ?Options $options = null): Operations\UpdatePaymentLinkResponse
+    public function update(Components\UpdatePaymentLink $updatePaymentLink, string $accountID, string $paymentLinkCode, ?Options $options = null): Operations\UpdatePaymentLinkResponse
     {
         $request = new Operations\UpdatePaymentLinkRequest(
             accountID: $accountID,
             paymentLinkCode: $paymentLinkCode,
             updatePaymentLink: $updatePaymentLink,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/payment-links/{paymentLinkCode}', Operations\UpdatePaymentLinkRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/payment-links/{paymentLinkCode}', Operations\UpdatePaymentLinkRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'updatePaymentLink', 'json');
@@ -491,10 +470,6 @@ class PaymentLinks
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('PATCH', $url);

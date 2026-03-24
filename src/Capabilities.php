@@ -53,25 +53,19 @@ class Capabilities
      *
      * @param  string  $accountID
      * @param  Components\CapabilityID  $capabilityID
-     * @param  ?string  $xMoovVersion
      * @return Operations\DisableCapabilityResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function disable(string $accountID, Components\CapabilityID $capabilityID, ?string $xMoovVersion = null, ?Options $options = null): Operations\DisableCapabilityResponse
+    public function disable(string $accountID, Components\CapabilityID $capabilityID, ?Options $options = null): Operations\DisableCapabilityResponse
     {
         $request = new Operations\DisableCapabilityRequest(
             accountID: $accountID,
             capabilityID: $capabilityID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/capabilities/{capabilityID}', Operations\DisableCapabilityRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/capabilities/{capabilityID}', Operations\DisableCapabilityRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('DELETE', $url);
@@ -132,25 +126,19 @@ class Capabilities
      *
      * @param  string  $accountID
      * @param  Components\CapabilityID  $capabilityID
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetCapabilityResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function get(string $accountID, Components\CapabilityID $capabilityID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetCapabilityResponse
+    public function get(string $accountID, Components\CapabilityID $capabilityID, ?Options $options = null): Operations\GetCapabilityResponse
     {
         $request = new Operations\GetCapabilityRequest(
             accountID: $accountID,
             capabilityID: $capabilityID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/capabilities/{capabilityID}', Operations\GetCapabilityRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/capabilities/{capabilityID}', Operations\GetCapabilityRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -211,24 +199,18 @@ class Capabilities
      * you'll need to specify the `/accounts/{accountID}/capabilities.read` scope.
      *
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\ListCapabilitiesResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function list(string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\ListCapabilitiesResponse
+    public function list(string $accountID, ?Options $options = null): Operations\ListCapabilitiesResponse
     {
         $request = new Operations\ListCapabilitiesRequest(
             accountID: $accountID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/capabilities', Operations\ListCapabilitiesRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/capabilities', Operations\ListCapabilitiesRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -288,19 +270,17 @@ class Capabilities
      *
      * @param  Components\AddCapabilities  $addCapabilities
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\RequestCapabilitiesResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function request(Components\AddCapabilities $addCapabilities, string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\RequestCapabilitiesResponse
+    public function request(Components\AddCapabilities $addCapabilities, string $accountID, ?Options $options = null): Operations\RequestCapabilitiesResponse
     {
         $request = new Operations\RequestCapabilitiesRequest(
             accountID: $accountID,
             addCapabilities: $addCapabilities,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/capabilities', Operations\RequestCapabilitiesRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/capabilities', Operations\RequestCapabilitiesRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'addCapabilities', 'json');
@@ -308,10 +288,6 @@ class Capabilities
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);

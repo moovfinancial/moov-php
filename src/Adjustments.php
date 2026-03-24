@@ -52,25 +52,19 @@ class Adjustments
      *
      * @param  string  $accountID
      * @param  string  $adjustmentID
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetAdjustmentResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function get(string $accountID, string $adjustmentID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetAdjustmentResponse
+    public function get(string $accountID, string $adjustmentID, ?Options $options = null): Operations\GetAdjustmentResponse
     {
         $request = new Operations\GetAdjustmentRequest(
             accountID: $accountID,
             adjustmentID: $adjustmentID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/adjustments/{adjustmentID}', Operations\GetAdjustmentRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/adjustments/{adjustmentID}', Operations\GetAdjustmentRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -129,28 +123,22 @@ class Adjustments
      * you'll need to specify the `/accounts/{accountID}/wallets.read` scope.
      *
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @param  ?string  $walletID
      * @return Operations\ListAdjustmentsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function list(string $accountID, ?string $xMoovVersion = null, ?string $walletID = null, ?Options $options = null): Operations\ListAdjustmentsResponse
+    public function list(string $accountID, ?string $walletID = null, ?Options $options = null): Operations\ListAdjustmentsResponse
     {
         $request = new Operations\ListAdjustmentsRequest(
             accountID: $accountID,
-            xMoovVersion: $xMoovVersion,
             walletID: $walletID,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/adjustments', Operations\ListAdjustmentsRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/adjustments', Operations\ListAdjustmentsRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
 
-        $qp = Utils\Utils::getQueryParams(Operations\ListAdjustmentsRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
+        $qp = Utils\Utils::getQueryParams(Operations\ListAdjustmentsRequest::class, $request, $urlOverride);
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);

@@ -56,19 +56,17 @@ class ApplePay
      *
      * @param  Components\CreateApplePaySession  $createApplePaySession
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\CreateApplePaySessionResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function createSession(Components\CreateApplePaySession $createApplePaySession, string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\CreateApplePaySessionResponse
+    public function createSession(Components\CreateApplePaySession $createApplePaySession, string $accountID, ?Options $options = null): Operations\CreateApplePaySessionResponse
     {
         $request = new Operations\CreateApplePaySessionRequest(
             accountID: $accountID,
             createApplePaySession: $createApplePaySession,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/apple-pay/sessions', Operations\CreateApplePaySessionRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/apple-pay/sessions', Operations\CreateApplePaySessionRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'createApplePaySession', 'json');
@@ -76,10 +74,6 @@ class ApplePay
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
@@ -151,24 +145,18 @@ class ApplePay
      * you'll need to specify the `/accounts/{accountID}/apple-pay.read` scope.
      *
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetApplePayMerchantDomainsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function getDomains(string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetApplePayMerchantDomainsResponse
+    public function getDomains(string $accountID, ?Options $options = null): Operations\GetApplePayMerchantDomainsResponse
     {
         $request = new Operations\GetApplePayMerchantDomainsRequest(
             accountID: $accountID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/apple-pay/domains', Operations\GetApplePayMerchantDomainsRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/apple-pay/domains', Operations\GetApplePayMerchantDomainsRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -231,19 +219,17 @@ class ApplePay
      *
      * @param  Components\LinkApplePay  $linkApplePay
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\LinkApplePayTokenResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function linkToken(Components\LinkApplePay $linkApplePay, string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\LinkApplePayTokenResponse
+    public function linkToken(Components\LinkApplePay $linkApplePay, string $accountID, ?Options $options = null): Operations\LinkApplePayTokenResponse
     {
         $request = new Operations\LinkApplePayTokenRequest(
             accountID: $accountID,
             linkApplePay: $linkApplePay,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/apple-pay/tokens', Operations\LinkApplePayTokenRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/apple-pay/tokens', Operations\LinkApplePayTokenRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'linkApplePay', 'json');
@@ -251,10 +237,6 @@ class ApplePay
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
@@ -339,19 +321,17 @@ class ApplePay
      *
      * @param  Components\RegisterApplePayMerchantDomains  $registerApplePayMerchantDomains
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\RegisterApplePayMerchantDomainsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function registerDomains(Components\RegisterApplePayMerchantDomains $registerApplePayMerchantDomains, string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\RegisterApplePayMerchantDomainsResponse
+    public function registerDomains(Components\RegisterApplePayMerchantDomains $registerApplePayMerchantDomains, string $accountID, ?Options $options = null): Operations\RegisterApplePayMerchantDomainsResponse
     {
         $request = new Operations\RegisterApplePayMerchantDomainsRequest(
             accountID: $accountID,
             registerApplePayMerchantDomains: $registerApplePayMerchantDomains,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/apple-pay/domains', Operations\RegisterApplePayMerchantDomainsRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/apple-pay/domains', Operations\RegisterApplePayMerchantDomainsRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'registerApplePayMerchantDomains', 'json');
@@ -359,10 +339,6 @@ class ApplePay
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
@@ -436,19 +412,17 @@ class ApplePay
      *
      * @param  Components\UpdateApplePayMerchantDomains  $updateApplePayMerchantDomains
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\UpdateApplePayMerchantDomainsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function updateDomains(Components\UpdateApplePayMerchantDomains $updateApplePayMerchantDomains, string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\UpdateApplePayMerchantDomainsResponse
+    public function updateDomains(Components\UpdateApplePayMerchantDomains $updateApplePayMerchantDomains, string $accountID, ?Options $options = null): Operations\UpdateApplePayMerchantDomainsResponse
     {
         $request = new Operations\UpdateApplePayMerchantDomainsRequest(
             accountID: $accountID,
             updateApplePayMerchantDomains: $updateApplePayMerchantDomains,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/apple-pay/domains', Operations\UpdateApplePayMerchantDomainsRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/apple-pay/domains', Operations\UpdateApplePayMerchantDomainsRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'updateApplePayMerchantDomains', 'json');
@@ -456,10 +430,6 @@ class ApplePay
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('PATCH', $url);
