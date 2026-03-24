@@ -53,19 +53,17 @@ class Branding
      *
      * @param  Components\BrandProperties  $brandProperties
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\CreateBrandResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function create(Components\BrandProperties $brandProperties, string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\CreateBrandResponse
+    public function create(Components\BrandProperties $brandProperties, string $accountID, ?Options $options = null): Operations\CreateBrandResponse
     {
         $request = new Operations\CreateBrandRequest(
             accountID: $accountID,
             brandProperties: $brandProperties,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/branding', Operations\CreateBrandRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/branding', Operations\CreateBrandRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'brandProperties', 'json');
@@ -73,10 +71,6 @@ class Branding
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
@@ -157,24 +151,18 @@ class Branding
      * you'll need to specify the `/accounts/{accountID}/branding.read` scope.
      *
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetBrandResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function get(string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetBrandResponse
+    public function get(string $accountID, ?Options $options = null): Operations\GetBrandResponse
     {
         $request = new Operations\GetBrandRequest(
             accountID: $accountID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/branding', Operations\GetBrandRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/branding', Operations\GetBrandRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -234,19 +222,17 @@ class Branding
      *
      * @param  Components\BrandProperties  $brandProperties
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\UpsertBrandResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function upsert(Components\BrandProperties $brandProperties, string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\UpsertBrandResponse
+    public function upsert(Components\BrandProperties $brandProperties, string $accountID, ?Options $options = null): Operations\UpsertBrandResponse
     {
         $request = new Operations\UpsertBrandRequest(
             accountID: $accountID,
             brandProperties: $brandProperties,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/branding', Operations\UpsertBrandRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/branding', Operations\UpsertBrandRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'brandProperties', 'json');
@@ -254,10 +240,6 @@ class Branding
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('PUT', $url);

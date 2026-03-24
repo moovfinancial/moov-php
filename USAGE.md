@@ -8,7 +8,6 @@ use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
 
 $sdk = MoovPhp\Moov::builder()
-    ->setXMoovVersion('v2024.01.00')
     ->setSecurity(
         new Components\Security(
             username: '',
@@ -17,7 +16,7 @@ $sdk = MoovPhp\Moov::builder()
     )
     ->build();
 
-$createAccount = new Components\CreateAccount(
+$request = new Components\CreateAccount(
     accountType: Components\AccountType::Business,
     profile: new Components\CreateProfile(
         business: new Components\CreateBusinessProfile(
@@ -27,7 +26,7 @@ $createAccount = new Components\CreateAccount(
 );
 
 $response = $sdk->accounts->create(
-    createAccount: $createAccount
+    request: $request
 );
 
 if ($response->account !== null) {

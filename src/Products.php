@@ -50,19 +50,17 @@ class Products
      *
      * @param  Components\ProductRequest  $productRequest
      * @param  string  $accountID
-     * @param  ?string  $xMoovVersion
      * @return Operations\CreateProductResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function create(Components\ProductRequest $productRequest, string $accountID, ?string $xMoovVersion = null, ?Options $options = null): Operations\CreateProductResponse
+    public function create(Components\ProductRequest $productRequest, string $accountID, ?Options $options = null): Operations\CreateProductResponse
     {
         $request = new Operations\CreateProductRequest(
             accountID: $accountID,
             productRequest: $productRequest,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/products', Operations\CreateProductRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/products', Operations\CreateProductRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'productRequest', 'json');
@@ -70,10 +68,6 @@ class Products
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
@@ -154,25 +148,19 @@ class Products
      *
      * @param  string  $accountID
      * @param  string  $productID
-     * @param  ?string  $xMoovVersion
      * @return Operations\DisableProductResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function disable(string $accountID, string $productID, ?string $xMoovVersion = null, ?Options $options = null): Operations\DisableProductResponse
+    public function disable(string $accountID, string $productID, ?Options $options = null): Operations\DisableProductResponse
     {
         $request = new Operations\DisableProductRequest(
             accountID: $accountID,
             productID: $productID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/products/{productID}', Operations\DisableProductRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/products/{productID}', Operations\DisableProductRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('DELETE', $url);
@@ -230,25 +218,19 @@ class Products
      *
      * @param  string  $accountID
      * @param  string  $productID
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetProductResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function get(string $accountID, string $productID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetProductResponse
+    public function get(string $accountID, string $productID, ?Options $options = null): Operations\GetProductResponse
     {
         $request = new Operations\GetProductRequest(
             accountID: $accountID,
             productID: $productID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/products/{productID}', Operations\GetProductRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/products/{productID}', Operations\GetProductRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -303,22 +285,27 @@ class Products
     /**
      * List active (non-disabled) products for an account.
      *
-     * @param  Operations\ListProductsRequest  $request
+     * @param  string  $accountID
+     * @param  ?string  $title
+     * @param  ?int  $skip
+     * @param  ?int  $count
      * @return Operations\ListProductsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function list(Operations\ListProductsRequest $request, ?Options $options = null): Operations\ListProductsResponse
+    public function list(string $accountID, ?string $title = null, ?int $skip = null, ?int $count = null, ?Options $options = null): Operations\ListProductsResponse
     {
+        $request = new Operations\ListProductsRequest(
+            accountID: $accountID,
+            title: $title,
+            skip: $skip,
+            count: $count,
+        );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/products', Operations\ListProductsRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/products', Operations\ListProductsRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
 
-        $qp = Utils\Utils::getQueryParams(Operations\ListProductsRequest::class, $request, $urlOverride, $this->sdkConfiguration->globals);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
+        $qp = Utils\Utils::getQueryParams(Operations\ListProductsRequest::class, $request, $urlOverride);
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -377,20 +364,18 @@ class Products
      * @param  Components\ProductRequest  $productRequest
      * @param  string  $accountID
      * @param  string  $productID
-     * @param  ?string  $xMoovVersion
      * @return Operations\UpdateProductResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function update(Components\ProductRequest $productRequest, string $accountID, string $productID, ?string $xMoovVersion = null, ?Options $options = null): Operations\UpdateProductResponse
+    public function update(Components\ProductRequest $productRequest, string $accountID, string $productID, ?Options $options = null): Operations\UpdateProductResponse
     {
         $request = new Operations\UpdateProductRequest(
             accountID: $accountID,
             productID: $productID,
             productRequest: $productRequest,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/products/{productID}', Operations\UpdateProductRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/products/{productID}', Operations\UpdateProductRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'productRequest', 'json');
@@ -398,10 +383,6 @@ class Products
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('PUT', $url);

@@ -52,25 +52,19 @@ class Transactions
      *
      * @param  string  $accountID
      * @param  string  $cardTransactionID
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetIssuedCardTransactionResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function get(string $accountID, string $cardTransactionID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetIssuedCardTransactionResponse
+    public function get(string $accountID, string $cardTransactionID, ?Options $options = null): Operations\GetIssuedCardTransactionResponse
     {
         $request = new Operations\GetIssuedCardTransactionRequest(
             accountID: $accountID,
             cardTransactionID: $cardTransactionID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/issuing/{accountID}/card-transactions/{cardTransactionID}', Operations\GetIssuedCardTransactionRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/issuing/{accountID}/card-transactions/{cardTransactionID}', Operations\GetIssuedCardTransactionRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);

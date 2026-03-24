@@ -51,30 +51,21 @@ class TerminalApplications
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/terminal-applications.write` scope.
      *
-     * @param  Components\CreateTerminalApplication  $createTerminalApplication
-     * @param  ?string  $xMoovVersion
+     * @param  Components\CreateTerminalApplication  $request
      * @return Operations\CreateTerminalApplicationResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function create(Components\CreateTerminalApplication $createTerminalApplication, ?string $xMoovVersion = null, ?Options $options = null): Operations\CreateTerminalApplicationResponse
+    public function create(Components\CreateTerminalApplication $request, ?Options $options = null): Operations\CreateTerminalApplicationResponse
     {
-        $request = new Operations\CreateTerminalApplicationRequest(
-            createTerminalApplication: $createTerminalApplication,
-            xMoovVersion: $xMoovVersion,
-        );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/terminal-applications');
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request, 'createTerminalApplication', 'json');
+        $body = Utils\Utils::serializeRequestBody($request, 'request', 'json');
         if ($body === null) {
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
@@ -156,19 +147,17 @@ class TerminalApplications
      *
      * @param  Components\TerminalApplicationVersion  $terminalApplicationVersion
      * @param  string  $terminalApplicationID
-     * @param  ?string  $xMoovVersion
      * @return Operations\CreateTerminalApplicationVersionResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function createVersion(Components\TerminalApplicationVersion $terminalApplicationVersion, string $terminalApplicationID, ?string $xMoovVersion = null, ?Options $options = null): Operations\CreateTerminalApplicationVersionResponse
+    public function createVersion(Components\TerminalApplicationVersion $terminalApplicationVersion, string $terminalApplicationID, ?Options $options = null): Operations\CreateTerminalApplicationVersionResponse
     {
         $request = new Operations\CreateTerminalApplicationVersionRequest(
             terminalApplicationID: $terminalApplicationID,
             terminalApplicationVersion: $terminalApplicationVersion,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/terminal-applications/{terminalApplicationID}/versions', Operations\CreateTerminalApplicationVersionRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/terminal-applications/{terminalApplicationID}/versions', Operations\CreateTerminalApplicationVersionRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'terminalApplicationVersion', 'json');
@@ -176,10 +165,6 @@ class TerminalApplications
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
@@ -260,24 +245,18 @@ class TerminalApplications
      * you'll need to specify the `/terminal-applications.write` scope.
      *
      * @param  string  $terminalApplicationID
-     * @param  ?string  $xMoovVersion
      * @return Operations\DeleteTerminalApplicationResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function delete(string $terminalApplicationID, ?string $xMoovVersion = null, ?Options $options = null): Operations\DeleteTerminalApplicationResponse
+    public function delete(string $terminalApplicationID, ?Options $options = null): Operations\DeleteTerminalApplicationResponse
     {
         $request = new Operations\DeleteTerminalApplicationRequest(
             terminalApplicationID: $terminalApplicationID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/terminal-applications/{terminalApplicationID}', Operations\DeleteTerminalApplicationRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/terminal-applications/{terminalApplicationID}', Operations\DeleteTerminalApplicationRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('DELETE', $url);
@@ -337,24 +316,18 @@ class TerminalApplications
      * you'll need to specify the `/terminal-applications.read` scope.
      *
      * @param  string  $terminalApplicationID
-     * @param  ?string  $xMoovVersion
      * @return Operations\GetTerminalApplicationResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function get(string $terminalApplicationID, ?string $xMoovVersion = null, ?Options $options = null): Operations\GetTerminalApplicationResponse
+    public function get(string $terminalApplicationID, ?Options $options = null): Operations\GetTerminalApplicationResponse
     {
         $request = new Operations\GetTerminalApplicationRequest(
             terminalApplicationID: $terminalApplicationID,
-            xMoovVersion: $xMoovVersion,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/terminal-applications/{terminalApplicationID}', Operations\GetTerminalApplicationRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/terminal-applications/{terminalApplicationID}', Operations\GetTerminalApplicationRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -412,23 +385,15 @@ class TerminalApplications
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/terminal-applications.read` scope.
      *
-     * @param  ?string  $xMoovVersion
      * @return Operations\ListTerminalApplicationsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function list(?string $xMoovVersion = null, ?Options $options = null): Operations\ListTerminalApplicationsResponse
+    public function list(?Options $options = null): Operations\ListTerminalApplicationsResponse
     {
-        $request = new Operations\ListTerminalApplicationsRequest(
-            xMoovVersion: $xMoovVersion,
-        );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/terminal-applications');
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $httpOptions)) {
-            $httpOptions['headers'] = [];
-        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
