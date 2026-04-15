@@ -13,7 +13,7 @@ class CustomerSupportError
 {
     /**
      *
-     * @var ?PhoneNumberError $phone
+     * @var ?\Moov\MoovPhp\Models\Components\PhoneNumberError $phone
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('phone')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PhoneNumberError|null')]
@@ -30,7 +30,7 @@ class CustomerSupportError
 
     /**
      *
-     * @var ?AddressError $address
+     * @var ?\Moov\MoovPhp\Models\Components\AddressError $address
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('address')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AddressError|null')]
@@ -46,9 +46,9 @@ class CustomerSupportError
     public ?string $website = null;
 
     /**
-     * @param  ?PhoneNumberError  $phone
+     * @param  ?\Moov\MoovPhp\Models\Components\PhoneNumberError  $phone
      * @param  ?string  $email
-     * @param  ?AddressError  $address
+     * @param  ?\Moov\MoovPhp\Models\Components\AddressError  $address
      * @param  ?string  $website
      * @phpstan-pure
      */

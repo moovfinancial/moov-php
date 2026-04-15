@@ -21,7 +21,7 @@ class ApplePayTransferPaymentMethod
 
     /**
      *
-     * @var ApplePayTransferPaymentMethodPaymentMethodType $paymentMethodType
+     * @var \Moov\MoovPhp\Models\Components\ApplePayTransferPaymentMethodPaymentMethodType $paymentMethodType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('paymentMethodType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ApplePayTransferPaymentMethodPaymentMethodType')]
@@ -30,7 +30,7 @@ class ApplePayTransferPaymentMethod
     /**
      * Describes an Apple Pay token on a Moov account.
      *
-     * @var ApplePayResponse $applePay
+     * @var \Moov\MoovPhp\Models\Components\ApplePayResponse $applePay
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('applePay')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ApplePayResponse')]
@@ -38,8 +38,8 @@ class ApplePayTransferPaymentMethod
 
     /**
      * @param  string  $paymentMethodID
-     * @param  ApplePayTransferPaymentMethodPaymentMethodType  $paymentMethodType
-     * @param  ApplePayResponse  $applePay
+     * @param  \Moov\MoovPhp\Models\Components\ApplePayTransferPaymentMethodPaymentMethodType  $paymentMethodType
+     * @param  \Moov\MoovPhp\Models\Components\ApplePayResponse  $applePay
      * @phpstan-pure
      */
     public function __construct(string $paymentMethodID, ApplePayTransferPaymentMethodPaymentMethodType $paymentMethodType, ApplePayResponse $applePay)

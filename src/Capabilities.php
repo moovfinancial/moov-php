@@ -52,8 +52,8 @@ class Capabilities
      * you'll need to specify the `/accounts/{accountID}/capabilities.write` scope.
      *
      * @param  string  $accountID
-     * @param  Components\CapabilityID  $capabilityID
-     * @return Operations\DisableCapabilityResponse
+     * @param  \Moov\MoovPhp\Models\Components\CapabilityID  $capabilityID
+     * @return \Moov\MoovPhp\Models\Operations\DisableCapabilityResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function disable(string $accountID, Components\CapabilityID $capabilityID, ?Options $options = null): Operations\DisableCapabilityResponse
@@ -125,8 +125,8 @@ class Capabilities
      * you'll need to specify the `/accounts/{accountID}/capabilities.read` scope.
      *
      * @param  string  $accountID
-     * @param  Components\CapabilityID  $capabilityID
-     * @return Operations\GetCapabilityResponse
+     * @param  \Moov\MoovPhp\Models\Components\CapabilityID  $capabilityID
+     * @return \Moov\MoovPhp\Models\Operations\GetCapabilityResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function get(string $accountID, Components\CapabilityID $capabilityID, ?Options $options = null): Operations\GetCapabilityResponse
@@ -199,7 +199,7 @@ class Capabilities
      * you'll need to specify the `/accounts/{accountID}/capabilities.read` scope.
      *
      * @param  string  $accountID
-     * @return Operations\ListCapabilitiesResponse
+     * @return \Moov\MoovPhp\Models\Operations\ListCapabilitiesResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function list(string $accountID, ?Options $options = null): Operations\ListCapabilitiesResponse
@@ -268,9 +268,9 @@ class Capabilities
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/capabilities.write` scope.
      *
-     * @param  Components\AddCapabilities  $addCapabilities
+     * @param  \Moov\MoovPhp\Models\Components\AddCapabilities  $addCapabilities
      * @param  string  $accountID
-     * @return Operations\RequestCapabilitiesResponse
+     * @return \Moov\MoovPhp\Models\Operations\RequestCapabilitiesResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function request(Components\AddCapabilities $addCapabilities, string $accountID, ?Options $options = null): Operations\RequestCapabilitiesResponse

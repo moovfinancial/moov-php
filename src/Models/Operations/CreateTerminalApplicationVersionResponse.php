@@ -42,7 +42,7 @@ class CreateTerminalApplicationVersionResponse
     /**
      * The request completed successfully.
      *
-     * @var ?Components\TerminalApplicationVersion $terminalApplicationVersion
+     * @var ?\Moov\MoovPhp\Models\Components\TerminalApplicationVersion $terminalApplicationVersion
      */
     public ?Components\TerminalApplicationVersion $terminalApplicationVersion = null;
 
@@ -51,7 +51,7 @@ class CreateTerminalApplicationVersionResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\TerminalApplicationVersion  $terminalApplicationVersion
+     * @param  ?\Moov\MoovPhp\Models\Components\TerminalApplicationVersion  $terminalApplicationVersion
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\TerminalApplicationVersion $terminalApplicationVersion = null, ?array $headers = [])

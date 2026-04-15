@@ -42,7 +42,7 @@ class ListTicketsResponse
     /**
      * The request completed successfully.
      *
-     * @var ?ListTicketsResponseBody $object
+     * @var ?\Moov\MoovPhp\Models\Operations\ListTicketsResponseBody $object
      */
     public ?ListTicketsResponseBody $object = null;
 
@@ -51,7 +51,7 @@ class ListTicketsResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?ListTicketsResponseBody  $object
+     * @param  ?\Moov\MoovPhp\Models\Operations\ListTicketsResponseBody  $object
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?ListTicketsResponseBody $object = null, ?array $headers = [])

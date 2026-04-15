@@ -14,7 +14,7 @@ class IndividualProfile
 {
     /**
      *
-     * @var IndividualName $name
+     * @var \Moov\MoovPhp\Models\Components\IndividualName $name
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('name')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IndividualName')]
@@ -22,7 +22,7 @@ class IndividualProfile
 
     /**
      *
-     * @var ?PhoneNumber $phone
+     * @var ?\Moov\MoovPhp\Models\Components\PhoneNumber $phone
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('phone')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PhoneNumber|null')]
@@ -39,7 +39,7 @@ class IndividualProfile
 
     /**
      *
-     * @var ?Address $address
+     * @var ?\Moov\MoovPhp\Models\Components\Address $address
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('address')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Address|null')]
@@ -65,10 +65,10 @@ class IndividualProfile
     public ?bool $governmentIDProvided = null;
 
     /**
-     * @param  IndividualName  $name
-     * @param  ?PhoneNumber  $phone
+     * @param  \Moov\MoovPhp\Models\Components\IndividualName  $name
+     * @param  ?\Moov\MoovPhp\Models\Components\PhoneNumber  $phone
      * @param  ?string  $email
-     * @param  ?Address  $address
+     * @param  ?\Moov\MoovPhp\Models\Components\Address  $address
      * @param  ?bool  $birthDateProvided
      * @param  ?bool  $governmentIDProvided
      * @phpstan-pure

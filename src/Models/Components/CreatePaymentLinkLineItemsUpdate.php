@@ -19,7 +19,7 @@ class CreatePaymentLinkLineItemsUpdate
     /**
      * The list of line items.
      *
-     * @var ?array<CreatePaymentLinkLineItem> $items
+     * @var ?array<\Moov\MoovPhp\Models\Components\CreatePaymentLinkLineItem> $items
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('items')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\CreatePaymentLinkLineItem>|null')]
@@ -27,7 +27,7 @@ class CreatePaymentLinkLineItemsUpdate
     public ?array $items = null;
 
     /**
-     * @param  ?array<CreatePaymentLinkLineItem>  $items
+     * @param  ?array<\Moov\MoovPhp\Models\Components\CreatePaymentLinkLineItem>  $items
      * @phpstan-pure
      */
     public function __construct(?array $items = null)

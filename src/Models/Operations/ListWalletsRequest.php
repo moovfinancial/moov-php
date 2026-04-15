@@ -22,7 +22,7 @@ class ListWalletsRequest
     /**
      * Optional parameter for filtering wallets by status.
      *
-     * @var ?Components\WalletStatus $status
+     * @var ?\Moov\MoovPhp\Models\Components\WalletStatus $status
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=status')]
     public ?Components\WalletStatus $status = null;
@@ -30,7 +30,7 @@ class ListWalletsRequest
     /**
      * Optional parameter for filtering wallets by type.
      *
-     * @var ?Components\WalletType $walletType
+     * @var ?\Moov\MoovPhp\Models\Components\WalletType $walletType
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=walletType')]
     public ?Components\WalletType $walletType = null;
@@ -51,8 +51,8 @@ class ListWalletsRequest
 
     /**
      * @param  string  $accountID
-     * @param  ?Components\WalletStatus  $status
-     * @param  ?Components\WalletType  $walletType
+     * @param  ?\Moov\MoovPhp\Models\Components\WalletStatus  $status
+     * @param  ?\Moov\MoovPhp\Models\Components\WalletType  $walletType
      * @param  ?int  $skip
      * @param  ?int  $count
      * @phpstan-pure

@@ -13,7 +13,7 @@ class SendFundsAch
 {
     /**
      *
-     * @var ?EstimatedActivity $estimatedActivity
+     * @var ?\Moov\MoovPhp\Models\Components\EstimatedActivity $estimatedActivity
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('estimatedActivity')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\EstimatedActivity|null')]
@@ -21,7 +21,7 @@ class SendFundsAch
     public ?EstimatedActivity $estimatedActivity = null;
 
     /**
-     * @param  ?EstimatedActivity  $estimatedActivity
+     * @param  ?\Moov\MoovPhp\Models\Components\EstimatedActivity  $estimatedActivity
      * @phpstan-pure
      */
     public function __construct(?EstimatedActivity $estimatedActivity = null)

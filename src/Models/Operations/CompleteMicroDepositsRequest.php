@@ -28,7 +28,7 @@ class CompleteMicroDepositsRequest
 
     /**
      *
-     * @var Components\CompleteMicroDeposits $completeMicroDeposits
+     * @var \Moov\MoovPhp\Models\Components\CompleteMicroDeposits $completeMicroDeposits
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\CompleteMicroDeposits $completeMicroDeposits;
@@ -36,7 +36,7 @@ class CompleteMicroDepositsRequest
     /**
      * @param  string  $accountID
      * @param  string  $bankAccountID
-     * @param  Components\CompleteMicroDeposits  $completeMicroDeposits
+     * @param  \Moov\MoovPhp\Models\Components\CompleteMicroDeposits  $completeMicroDeposits
      * @phpstan-pure
      */
     public function __construct(string $accountID, string $bankAccountID, Components\CompleteMicroDeposits $completeMicroDeposits)

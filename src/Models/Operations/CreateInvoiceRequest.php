@@ -21,14 +21,14 @@ class CreateInvoiceRequest
 
     /**
      *
-     * @var Components\CreateInvoice $createInvoice
+     * @var \Moov\MoovPhp\Models\Components\CreateInvoice $createInvoice
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\CreateInvoice $createInvoice;
 
     /**
      * @param  string  $accountID
-     * @param  Components\CreateInvoice  $createInvoice
+     * @param  \Moov\MoovPhp\Models\Components\CreateInvoice  $createInvoice
      * @phpstan-pure
      */
     public function __construct(string $accountID, Components\CreateInvoice $createInvoice)

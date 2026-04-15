@@ -21,7 +21,7 @@ class ScheduleListResponse
     /**
      * The operating mode for an account.
      *
-     * @var Mode $mode
+     * @var \Moov\MoovPhp\Models\Components\Mode $mode
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('mode')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Mode')]
@@ -81,7 +81,7 @@ class ScheduleListResponse
     /**
      * $occurrences
      *
-     * @var ?array<OccurrencesResponse> $occurrences
+     * @var ?array<\Moov\MoovPhp\Models\Components\OccurrencesResponse> $occurrences
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('occurrences')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\OccurrencesResponse>|null')]
@@ -90,7 +90,7 @@ class ScheduleListResponse
 
     /**
      *
-     * @var ?RecurResponse $recur
+     * @var ?\Moov\MoovPhp\Models\Components\RecurResponse $recur
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('recur')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RecurResponse|null')]
@@ -107,7 +107,7 @@ class ScheduleListResponse
 
     /**
      *
-     * @var ?PartialScheduleAccount $sourceAccount
+     * @var ?\Moov\MoovPhp\Models\Components\PartialScheduleAccount $sourceAccount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('sourceAccount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PartialScheduleAccount|null')]
@@ -116,7 +116,7 @@ class ScheduleListResponse
 
     /**
      *
-     * @var ?PartialScheduleAccount $destinationAccount
+     * @var ?\Moov\MoovPhp\Models\Components\PartialScheduleAccount $destinationAccount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('destinationAccount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PartialScheduleAccount|null')]
@@ -125,7 +125,7 @@ class ScheduleListResponse
 
     /**
      *
-     * @var ?PartialScheduleAccount $partnerAccount
+     * @var ?\Moov\MoovPhp\Models\Components\PartialScheduleAccount $partnerAccount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('partnerAccount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PartialScheduleAccount|null')]
@@ -134,7 +134,7 @@ class ScheduleListResponse
 
     /**
      * @param  string  $destinationAccountID
-     * @param  Mode  $mode
+     * @param  \Moov\MoovPhp\Models\Components\Mode  $mode
      * @param  string  $ownerAccountID
      * @param  string  $partnerAccountID
      * @param  string  $scheduleID
@@ -142,12 +142,12 @@ class ScheduleListResponse
      * @param  \DateTime  $createdOn
      * @param  \DateTime  $updatedOn
      * @param  ?string  $description
-     * @param  ?array<OccurrencesResponse>  $occurrences
-     * @param  ?RecurResponse  $recur
+     * @param  ?array<\Moov\MoovPhp\Models\Components\OccurrencesResponse>  $occurrences
+     * @param  ?\Moov\MoovPhp\Models\Components\RecurResponse  $recur
      * @param  ?\DateTime  $disabledOn
-     * @param  ?PartialScheduleAccount  $sourceAccount
-     * @param  ?PartialScheduleAccount  $destinationAccount
-     * @param  ?PartialScheduleAccount  $partnerAccount
+     * @param  ?\Moov\MoovPhp\Models\Components\PartialScheduleAccount  $sourceAccount
+     * @param  ?\Moov\MoovPhp\Models\Components\PartialScheduleAccount  $destinationAccount
+     * @param  ?\Moov\MoovPhp\Models\Components\PartialScheduleAccount  $partnerAccount
      * @phpstan-pure
      */
     public function __construct(string $destinationAccountID, Mode $mode, string $ownerAccountID, string $partnerAccountID, string $scheduleID, string $sourceAccountID, \DateTime $createdOn, \DateTime $updatedOn, ?string $description = null, ?array $occurrences = null, ?RecurResponse $recur = null, ?\DateTime $disabledOn = null, ?PartialScheduleAccount $sourceAccount = null, ?PartialScheduleAccount $destinationAccount = null, ?PartialScheduleAccount $partnerAccount = null)

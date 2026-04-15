@@ -53,9 +53,9 @@ class Accounts
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/profile.write` scope.
      *
-     * @param  Components\AccountCountries  $accountCountries
+     * @param  \Moov\MoovPhp\Models\Components\AccountCountries  $accountCountries
      * @param  string  $accountID
-     * @return Operations\AssignAccountCountriesResponse
+     * @return \Moov\MoovPhp\Models\Operations\AssignAccountCountriesResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function assignCountries(Components\AccountCountries $accountCountries, string $accountID, ?Options $options = null): Operations\AssignAccountCountriesResponse
@@ -150,9 +150,9 @@ class Accounts
      * Shares access scopes from the account specified to the caller, establishing a connection 
      * between the two accounts with the specified permissions.
      *
-     * @param  Components\ShareScopes  $shareScopes
+     * @param  \Moov\MoovPhp\Models\Components\ShareScopes  $shareScopes
      * @param  string  $accountID
-     * @return Operations\ConnectAccountResponse
+     * @return \Moov\MoovPhp\Models\Operations\ConnectAccountResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function connect(Components\ShareScopes $shareScopes, string $accountID, ?Options $options = null): Operations\ConnectAccountResponse
@@ -250,8 +250,8 @@ class Accounts
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) you'll need 
      * to specify the `/accounts.write` scope.
      *
-     * @param  Components\CreateAccount  $request
-     * @return Operations\CreateAccountResponse
+     * @param  \Moov\MoovPhp\Models\Components\CreateAccount  $request
+     * @return \Moov\MoovPhp\Models\Operations\CreateAccountResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function create(Components\CreateAccount $request, ?Options $options = null): Operations\CreateAccountResponse
@@ -347,7 +347,7 @@ class Accounts
      * you'll need to specify the `/accounts/{accountID}/profile.disconnect` scope.
      *
      * @param  string  $accountID
-     * @return Operations\DisconnectAccountResponse
+     * @return \Moov\MoovPhp\Models\Operations\DisconnectAccountResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function disconnect(string $accountID, ?Options $options = null): Operations\DisconnectAccountResponse
@@ -418,7 +418,7 @@ class Accounts
      * to specify the `/accounts/{accountID}/profile.read` scope.
      *
      * @param  string  $accountID
-     * @return Operations\GetAccountResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetAccountResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function get(string $accountID, ?Options $options = null): Operations\GetAccountResponse
@@ -488,7 +488,7 @@ class Accounts
      * you'll need to specify the `/accounts/{accountID}/profile.read` scope.
      *
      * @param  string  $accountID
-     * @return Operations\GetAccountCountriesResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetAccountCountriesResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function getCountries(string $accountID, ?Options $options = null): Operations\GetAccountCountriesResponse
@@ -559,7 +559,7 @@ class Accounts
      *
      * @param  string  $accountID
      * @param  string  $fileID
-     * @return Operations\GetFileDetailsResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetFileDetailsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function getFile(string $accountID, string $fileID, ?Options $options = null): Operations\GetFileDetailsResponse
@@ -630,7 +630,7 @@ class Accounts
      * you'll need to specify the `/accounts/{accountID}/profile.read` scope.
      *
      * @param  string  $accountID
-     * @return Operations\GetMerchantProcessingAgreementResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetMerchantProcessingAgreementResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function getMerchantAgreement(string $accountID, ?Options $options = null): Operations\GetMerchantProcessingAgreementResponse
@@ -699,7 +699,7 @@ class Accounts
      *
      * @param  ?string  $origin
      * @param  ?string  $referer
-     * @return Operations\GetTermsOfServiceTokenResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetTermsOfServiceTokenResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function getTermsOfServiceToken(?string $origin = null, ?string $referer = null, ?Options $options = null): Operations\GetTermsOfServiceTokenResponse
@@ -777,8 +777,8 @@ class Accounts
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) you'll need 
      * to specify the `/accounts.read` scope.
      *
-     * @param  ?Operations\ListAccountsRequest  $request
-     * @return Operations\ListAccountsResponse
+     * @param  ?\Moov\MoovPhp\Models\Operations\ListAccountsRequest  $request
+     * @return \Moov\MoovPhp\Models\Operations\ListAccountsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function list(?Operations\ListAccountsRequest $request = null, ?Options $options = null): Operations\ListAccountsResponse
@@ -851,8 +851,8 @@ class Accounts
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) you'll need 
      * to specify the `/accounts.read` scope.
      *
-     * @param  Operations\ListConnectedAccountsForAccountRequest  $request
-     * @return Operations\ListConnectedAccountsForAccountResponse
+     * @param  \Moov\MoovPhp\Models\Operations\ListConnectedAccountsForAccountRequest  $request
+     * @return \Moov\MoovPhp\Models\Operations\ListConnectedAccountsForAccountResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function listConnected(Operations\ListConnectedAccountsForAccountRequest $request, ?Options $options = null): Operations\ListConnectedAccountsForAccountResponse
@@ -921,8 +921,8 @@ class Accounts
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
      *
-     * @param  Operations\RetrieveFeesRequest  $request
-     * @return Operations\RetrieveFeesResponse
+     * @param  \Moov\MoovPhp\Models\Operations\RetrieveFeesRequest  $request
+     * @return \Moov\MoovPhp\Models\Operations\RetrieveFeesResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function getFees(Operations\RetrieveFeesRequest $request, ?Options $options = null): Operations\RetrieveFeesResponse
@@ -999,9 +999,9 @@ class Accounts
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) you'll need
      * to specify the `/accounts/{accountID}/profile.write` scope.
      *
-     * @param  Components\PatchAccount  $patchAccount
+     * @param  \Moov\MoovPhp\Models\Components\PatchAccount  $patchAccount
      * @param  string  $accountID
-     * @return Operations\UpdateAccountResponse
+     * @return \Moov\MoovPhp\Models\Operations\UpdateAccountResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function updateProfile(Components\PatchAccount $patchAccount, string $accountID, ?Options $options = null): Operations\UpdateAccountResponse

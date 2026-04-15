@@ -14,7 +14,7 @@ class CollectFundsCardPayments
     /**
      * Describes the distribution of card transactions by payment method.
      *
-     * @var ?CardAcceptanceMethods $cardAcceptanceMethods
+     * @var ?\Moov\MoovPhp\Models\Components\CardAcceptanceMethods $cardAcceptanceMethods
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardAcceptanceMethods')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardAcceptanceMethods|null')]
@@ -31,7 +31,7 @@ class CollectFundsCardPayments
 
     /**
      *
-     * @var ?EstimatedActivity $estimatedActivity
+     * @var ?\Moov\MoovPhp\Models\Components\EstimatedActivity $estimatedActivity
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('estimatedActivity')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\EstimatedActivity|null')]
@@ -40,7 +40,7 @@ class CollectFundsCardPayments
 
     /**
      *
-     * @var ?Fulfillment $fulfillment
+     * @var ?\Moov\MoovPhp\Models\Components\Fulfillment $fulfillment
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('fulfillment')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Fulfillment|null')]
@@ -49,7 +49,7 @@ class CollectFundsCardPayments
 
     /**
      *
-     * @var ?RefundPolicy $refundPolicy
+     * @var ?\Moov\MoovPhp\Models\Components\RefundPolicy $refundPolicy
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('refundPolicy')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RefundPolicy|null')]
@@ -57,11 +57,11 @@ class CollectFundsCardPayments
     public ?RefundPolicy $refundPolicy = null;
 
     /**
-     * @param  ?CardAcceptanceMethods  $cardAcceptanceMethods
+     * @param  ?\Moov\MoovPhp\Models\Components\CardAcceptanceMethods  $cardAcceptanceMethods
      * @param  ?bool  $currentlyAcceptsCards
-     * @param  ?EstimatedActivity  $estimatedActivity
-     * @param  ?Fulfillment  $fulfillment
-     * @param  ?RefundPolicy  $refundPolicy
+     * @param  ?\Moov\MoovPhp\Models\Components\EstimatedActivity  $estimatedActivity
+     * @param  ?\Moov\MoovPhp\Models\Components\Fulfillment  $fulfillment
+     * @param  ?\Moov\MoovPhp\Models\Components\RefundPolicy  $refundPolicy
      * @phpstan-pure
      */
     public function __construct(?CardAcceptanceMethods $cardAcceptanceMethods = null, ?bool $currentlyAcceptsCards = null, ?EstimatedActivity $estimatedActivity = null, ?Fulfillment $fulfillment = null, ?RefundPolicy $refundPolicy = null)

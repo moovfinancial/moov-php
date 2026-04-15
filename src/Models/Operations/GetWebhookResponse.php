@@ -42,7 +42,7 @@ class GetWebhookResponse
     /**
      * The request completed successfully.
      *
-     * @var ?Components\Webhook $webhook
+     * @var ?\Moov\MoovPhp\Models\Components\Webhook $webhook
      */
     public ?Components\Webhook $webhook = null;
 
@@ -51,7 +51,7 @@ class GetWebhookResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\Webhook  $webhook
+     * @param  ?\Moov\MoovPhp\Models\Components\Webhook  $webhook
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\Webhook $webhook = null, ?array $headers = [])

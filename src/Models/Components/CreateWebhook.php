@@ -23,7 +23,7 @@ class CreateWebhook
     /**
      * The status of the webhook.
      *
-     * @var WebhookStatus $status
+     * @var \Moov\MoovPhp\Models\Components\WebhookStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\WebhookStatus')]
@@ -32,7 +32,7 @@ class CreateWebhook
     /**
      * The list of event types this webhook should subscribe to.
      *
-     * @var array<WebhookEventType> $eventTypes
+     * @var array<\Moov\MoovPhp\Models\Components\WebhookEventType> $eventTypes
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('eventTypes')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\WebhookEventType>')]
@@ -48,8 +48,8 @@ class CreateWebhook
 
     /**
      * @param  string  $url
-     * @param  WebhookStatus  $status
-     * @param  array<WebhookEventType>  $eventTypes
+     * @param  \Moov\MoovPhp\Models\Components\WebhookStatus  $status
+     * @param  array<\Moov\MoovPhp\Models\Components\WebhookEventType>  $eventTypes
      * @param  string  $description
      * @phpstan-pure
      */

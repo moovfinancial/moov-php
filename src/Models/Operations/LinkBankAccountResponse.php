@@ -42,7 +42,7 @@ class LinkBankAccountResponse
     /**
      * The request completed successfully.
      *
-     * @var ?Components\BankAccount $bankAccount
+     * @var ?\Moov\MoovPhp\Models\Components\BankAccount $bankAccount
      */
     public ?Components\BankAccount $bankAccount = null;
 
@@ -51,7 +51,7 @@ class LinkBankAccountResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\BankAccount  $bankAccount
+     * @param  ?\Moov\MoovPhp\Models\Components\BankAccount  $bankAccount
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\BankAccount $bankAccount = null, ?array $headers = [])

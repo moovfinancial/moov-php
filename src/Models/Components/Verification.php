@@ -15,7 +15,7 @@ class Verification
     /**
      * Possible states an account verification can be in.
      *
-     * @var VerificationStatus $status
+     * @var \Moov\MoovPhp\Models\Components\VerificationStatus $status
      * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
@@ -25,7 +25,7 @@ class Verification
     /**
      * Possible states an account verification can be in.
      *
-     * @var ?AccountVerificationStatus $verificationStatus
+     * @var ?\Moov\MoovPhp\Models\Components\AccountVerificationStatus $verificationStatus
      * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('verificationStatus')]
@@ -36,7 +36,7 @@ class Verification
     /**
      * Additional detail for a verification status.
      *
-     * @var ?VerificationStatusDetail $details
+     * @var ?\Moov\MoovPhp\Models\Components\VerificationStatusDetail $details
      * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('details')]
@@ -47,7 +47,7 @@ class Verification
     /**
      * $documents
      *
-     * @var ?array<Document> $documents
+     * @var ?array<\Moov\MoovPhp\Models\Components\Document> $documents
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('documents')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\Document>|null')]
@@ -55,10 +55,10 @@ class Verification
     public ?array $documents = null;
 
     /**
-     * @param  VerificationStatus  $status
-     * @param  ?AccountVerificationStatus  $verificationStatus
-     * @param  ?VerificationStatusDetail  $details
-     * @param  ?array<Document>  $documents
+     * @param  \Moov\MoovPhp\Models\Components\VerificationStatus  $status
+     * @param  ?\Moov\MoovPhp\Models\Components\AccountVerificationStatus  $verificationStatus
+     * @param  ?\Moov\MoovPhp\Models\Components\VerificationStatusDetail  $details
+     * @param  ?array<\Moov\MoovPhp\Models\Components\Document>  $documents
      * @phpstan-pure
      */
     public function __construct(VerificationStatus $status, ?AccountVerificationStatus $verificationStatus = null, ?VerificationStatusDetail $details = null, ?array $documents = null)

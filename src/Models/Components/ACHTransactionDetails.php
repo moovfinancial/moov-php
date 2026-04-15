@@ -15,7 +15,7 @@ class ACHTransactionDetails
     /**
      * Status of a transaction within the ACH lifecycle.
      *
-     * @var ?ACHTransactionStatus $status
+     * @var ?\Moov\MoovPhp\Models\Components\ACHTransactionStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ACHTransactionStatus|null')]
@@ -32,7 +32,7 @@ class ACHTransactionDetails
 
     /**
      *
-     * @var ?ACHException $return
+     * @var ?\Moov\MoovPhp\Models\Components\ACHException $return
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('return')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ACHException|null')]
@@ -41,7 +41,7 @@ class ACHTransactionDetails
 
     /**
      *
-     * @var ?ACHException $correction
+     * @var ?\Moov\MoovPhp\Models\Components\ACHException $correction
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('correction')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ACHException|null')]
@@ -69,7 +69,7 @@ class ACHTransactionDetails
     /**
      * Code used to identify the ACH authorization method.
      *
-     * @var ?SECCode $secCode
+     * @var ?\Moov\MoovPhp\Models\Components\SECCode $secCode
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('secCode')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\SECCode|null')]
@@ -135,7 +135,7 @@ class ACHTransactionDetails
     /**
      * An optional override of your default ACH hold period in banking days. The hold period must be longer than or equal to your default setting.
      *
-     * @var ?DebitHoldPeriod $debitHoldPeriod
+     * @var ?\Moov\MoovPhp\Models\Components\DebitHoldPeriod $debitHoldPeriod
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('debitHoldPeriod')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\DebitHoldPeriod|null')]
@@ -145,7 +145,7 @@ class ACHTransactionDetails
     /**
      * $addenda
      *
-     * @var ?array<TransferACHAddendaRecord> $addenda
+     * @var ?array<\Moov\MoovPhp\Models\Components\TransferACHAddendaRecord> $addenda
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('addenda')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\TransferACHAddendaRecord>|null')]
@@ -153,13 +153,13 @@ class ACHTransactionDetails
     public ?array $addenda = null;
 
     /**
-     * @param  ?ACHTransactionStatus  $status
+     * @param  ?\Moov\MoovPhp\Models\Components\ACHTransactionStatus  $status
      * @param  ?string  $traceNumber
-     * @param  ?ACHException  $return
-     * @param  ?ACHException  $correction
+     * @param  ?\Moov\MoovPhp\Models\Components\ACHException  $return
+     * @param  ?\Moov\MoovPhp\Models\Components\ACHException  $correction
      * @param  ?string  $companyEntryDescription
      * @param  ?string  $originatingCompanyName
-     * @param  ?SECCode  $secCode
+     * @param  ?\Moov\MoovPhp\Models\Components\SECCode  $secCode
      * @param  ?\DateTime  $canceledOn
      * @param  ?\DateTime  $initiatedOn
      * @param  ?\DateTime  $originatedOn
@@ -167,8 +167,8 @@ class ACHTransactionDetails
      * @param  ?\DateTime  $returnedOn
      * @param  ?\DateTime  $failedOn
      * @param  ?\DateTime  $completedOn
-     * @param  ?DebitHoldPeriod  $debitHoldPeriod
-     * @param  ?array<TransferACHAddendaRecord>  $addenda
+     * @param  ?\Moov\MoovPhp\Models\Components\DebitHoldPeriod  $debitHoldPeriod
+     * @param  ?array<\Moov\MoovPhp\Models\Components\TransferACHAddendaRecord>  $addenda
      * @phpstan-pure
      */
     public function __construct(?ACHTransactionStatus $status = null, ?string $traceNumber = null, ?ACHException $return = null, ?ACHException $correction = null, ?string $companyEntryDescription = null, ?string $originatingCompanyName = null, ?SECCode $secCode = null, ?\DateTime $canceledOn = null, ?\DateTime $initiatedOn = null, ?\DateTime $originatedOn = null, ?\DateTime $correctedOn = null, ?\DateTime $returnedOn = null, ?\DateTime $failedOn = null, ?\DateTime $completedOn = null, ?DebitHoldPeriod $debitHoldPeriod = null, ?array $addenda = null)

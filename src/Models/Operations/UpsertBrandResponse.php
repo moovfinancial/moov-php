@@ -42,7 +42,7 @@ class UpsertBrandResponse
     /**
      * The request completed successfully.
      *
-     * @var ?Components\BrandProperties $brandProperties
+     * @var ?\Moov\MoovPhp\Models\Components\BrandProperties $brandProperties
      */
     public ?Components\BrandProperties $brandProperties = null;
 
@@ -51,7 +51,7 @@ class UpsertBrandResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\BrandProperties  $brandProperties
+     * @param  ?\Moov\MoovPhp\Models\Components\BrandProperties  $brandProperties
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\BrandProperties $brandProperties = null, ?array $headers = [])

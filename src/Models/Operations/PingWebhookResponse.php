@@ -42,7 +42,7 @@ class PingWebhookResponse
     /**
      * The request completed successfully.
      *
-     * @var ?Components\PingResponse $pingResponse
+     * @var ?\Moov\MoovPhp\Models\Components\PingResponse $pingResponse
      */
     public ?Components\PingResponse $pingResponse = null;
 
@@ -51,7 +51,7 @@ class PingWebhookResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\PingResponse  $pingResponse
+     * @param  ?\Moov\MoovPhp\Models\Components\PingResponse  $pingResponse
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\PingResponse $pingResponse = null, ?array $headers = [])

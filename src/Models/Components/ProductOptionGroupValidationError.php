@@ -46,7 +46,7 @@ class ProductOptionGroupValidationError
     /**
      * $options
      *
-     * @var ?array<string, ProductOptionValidationError> $options
+     * @var ?array<string, \Moov\MoovPhp\Models\Components\ProductOptionValidationError> $options
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('options')]
     #[\Speakeasy\Serializer\Annotation\Type('array<string, \Moov\MoovPhp\Models\Components\ProductOptionValidationError>|null')]
@@ -58,7 +58,7 @@ class ProductOptionGroupValidationError
      * @param  ?string  $description
      * @param  ?string  $minSelect
      * @param  ?string  $maxSelect
-     * @param  ?array<string, ProductOptionValidationError>  $options
+     * @param  ?array<string, \Moov\MoovPhp\Models\Components\ProductOptionValidationError>  $options
      * @phpstan-pure
      */
     public function __construct(?string $name = null, ?string $description = null, ?string $minSelect = null, ?string $maxSelect = null, ?array $options = null)

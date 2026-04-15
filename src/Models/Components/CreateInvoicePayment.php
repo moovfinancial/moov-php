@@ -13,7 +13,7 @@ class CreateInvoicePayment
 {
     /**
      *
-     * @var AmountDecimal $amount
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $amount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
@@ -44,7 +44,7 @@ class CreateInvoicePayment
     public ?\DateTime $paymentDate = null;
 
     /**
-     * @param  AmountDecimal  $amount
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $amount
      * @param  ?string  $foreignID
      * @param  ?string  $description
      * @param  ?\DateTime  $paymentDate

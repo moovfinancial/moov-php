@@ -15,14 +15,14 @@ class InvoiceLineItems
     /**
      * The list of line items.
      *
-     * @var array<InvoiceLineItem> $items
+     * @var array<\Moov\MoovPhp\Models\Components\InvoiceLineItem> $items
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('items')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\InvoiceLineItem>')]
     public array $items;
 
     /**
-     * @param  array<InvoiceLineItem>  $items
+     * @param  array<\Moov\MoovPhp\Models\Components\InvoiceLineItem>  $items
      * @phpstan-pure
      */
     public function __construct(array $items)

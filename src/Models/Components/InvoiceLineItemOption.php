@@ -31,7 +31,7 @@ class InvoiceLineItemOption
     /**
      * Optional price modification applied by this option. Can be positive, negative, or zero.
      *
-     * @var ?AmountDecimal $priceModifier
+     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimal $priceModifier
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('priceModifier')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
@@ -50,7 +50,7 @@ class InvoiceLineItemOption
     /**
      * Optional list of images associated with this line item option.
      *
-     * @var ?array<InvoiceLineItemImageMetadata> $images
+     * @var ?array<\Moov\MoovPhp\Models\Components\InvoiceLineItemImageMetadata> $images
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('images')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\InvoiceLineItemImageMetadata>|null')]
@@ -60,9 +60,9 @@ class InvoiceLineItemOption
     /**
      * @param  string  $name
      * @param  int  $quantity
-     * @param  ?AmountDecimal  $priceModifier
+     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimal  $priceModifier
      * @param  ?string  $group
-     * @param  ?array<InvoiceLineItemImageMetadata>  $images
+     * @param  ?array<\Moov\MoovPhp\Models\Components\InvoiceLineItemImageMetadata>  $images
      * @phpstan-pure
      */
     public function __construct(string $name, int $quantity, ?AmountDecimal $priceModifier = null, ?string $group = null, ?array $images = null)

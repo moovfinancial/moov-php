@@ -29,7 +29,7 @@ class UpdateIssuedCardRequest
 
     /**
      *
-     * @var Components\UpdateIssuedCard $updateIssuedCard
+     * @var \Moov\MoovPhp\Models\Components\UpdateIssuedCard $updateIssuedCard
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\UpdateIssuedCard $updateIssuedCard;
@@ -37,7 +37,7 @@ class UpdateIssuedCardRequest
     /**
      * @param  string  $accountID
      * @param  string  $issuedCardID
-     * @param  Components\UpdateIssuedCard  $updateIssuedCard
+     * @param  \Moov\MoovPhp\Models\Components\UpdateIssuedCard  $updateIssuedCard
      * @phpstan-pure
      */
     public function __construct(string $accountID, string $issuedCardID, Components\UpdateIssuedCard $updateIssuedCard)

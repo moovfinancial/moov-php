@@ -21,11 +21,23 @@ class CreateTransferDestinationCard
     public ?string $dynamicDescriptor = null;
 
     /**
+     * An optional field to specify the type of card payout, used to route the transfer with the appropriate business application identifier (BAI).
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\CardPayoutType $payoutType
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('payoutType')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardPayoutType|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?CardPayoutType $payoutType = null;
+
+    /**
      * @param  ?string  $dynamicDescriptor
+     * @param  ?\Moov\MoovPhp\Models\Components\CardPayoutType  $payoutType
      * @phpstan-pure
      */
-    public function __construct(?string $dynamicDescriptor = null)
+    public function __construct(?string $dynamicDescriptor = null, ?CardPayoutType $payoutType = null)
     {
         $this->dynamicDescriptor = $dynamicDescriptor;
+        $this->payoutType = $payoutType;
     }
 }

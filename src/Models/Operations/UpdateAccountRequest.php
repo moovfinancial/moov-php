@@ -21,14 +21,14 @@ class UpdateAccountRequest
 
     /**
      *
-     * @var Components\PatchAccount $patchAccount
+     * @var \Moov\MoovPhp\Models\Components\PatchAccount $patchAccount
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\PatchAccount $patchAccount;
 
     /**
      * @param  string  $accountID
-     * @param  Components\PatchAccount  $patchAccount
+     * @param  \Moov\MoovPhp\Models\Components\PatchAccount  $patchAccount
      * @phpstan-pure
      */
     public function __construct(string $accountID, Components\PatchAccount $patchAccount)

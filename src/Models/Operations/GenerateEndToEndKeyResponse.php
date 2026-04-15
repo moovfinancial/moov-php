@@ -42,7 +42,7 @@ class GenerateEndToEndKeyResponse
     /**
      * The request completed successfully.
      *
-     * @var ?Components\JSONWebKey $jsonWebKey
+     * @var ?\Moov\MoovPhp\Models\Components\JSONWebKey $jsonWebKey
      */
     public ?Components\JSONWebKey $jsonWebKey = null;
 
@@ -51,7 +51,7 @@ class GenerateEndToEndKeyResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\JSONWebKey  $jsonWebKey
+     * @param  ?\Moov\MoovPhp\Models\Components\JSONWebKey  $jsonWebKey
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\JSONWebKey $jsonWebKey = null, ?array $headers = [])

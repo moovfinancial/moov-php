@@ -52,7 +52,7 @@ class Files
      * you'll need to specify the `/accounts/{accountID}/files.read` scope.
      *
      * @param  string  $accountID
-     * @return Operations\ListFilesResponse
+     * @return \Moov\MoovPhp\Models\Operations\ListFilesResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function list(string $accountID, ?Options $options = null): Operations\ListFilesResponse
@@ -124,9 +124,9 @@ class Files
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/files.write` scope.
      *
-     * @param  Components\FileUploadRequestMultiPart  $fileUploadRequestMultiPart
+     * @param  \Moov\MoovPhp\Models\Components\FileUploadRequestMultiPart  $fileUploadRequestMultiPart
      * @param  string  $accountID
-     * @return Operations\UploadFileResponse
+     * @return \Moov\MoovPhp\Models\Operations\UploadFileResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function upload(Components\FileUploadRequestMultiPart $fileUploadRequestMultiPart, string $accountID, ?Options $options = null): Operations\UploadFileResponse

@@ -27,7 +27,7 @@ class SweepConfig
 
     /**
      *
-     * @var SweepConfigStatus $status
+     * @var \Moov\MoovPhp\Models\Components\SweepConfigStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\SweepConfigStatus')]
@@ -38,7 +38,7 @@ class SweepConfig
      *
      * The push payment method can only be ach-credit-standard, ach-credit-same-day, or rtp-credit. The pull payment method can only be ach-debit-fund.
      *
-     * @var SweepConfigPaymentMethod $pushPaymentMethod
+     * @var \Moov\MoovPhp\Models\Components\SweepConfigPaymentMethod $pushPaymentMethod
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('pushPaymentMethod')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\SweepConfigPaymentMethod')]
@@ -49,7 +49,7 @@ class SweepConfig
      *
      * The push payment method can only be ach-credit-standard, ach-credit-same-day, or rtp-credit. The pull payment method can only be ach-debit-fund.
      *
-     * @var SweepConfigPaymentMethod $pullPaymentMethod
+     * @var \Moov\MoovPhp\Models\Components\SweepConfigPaymentMethod $pullPaymentMethod
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('pullPaymentMethod')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\SweepConfigPaymentMethod')]
@@ -100,9 +100,9 @@ class SweepConfig
     /**
      * @param  string  $sweepConfigID
      * @param  string  $walletID
-     * @param  SweepConfigStatus  $status
-     * @param  SweepConfigPaymentMethod  $pushPaymentMethod
-     * @param  SweepConfigPaymentMethod  $pullPaymentMethod
+     * @param  \Moov\MoovPhp\Models\Components\SweepConfigStatus  $status
+     * @param  \Moov\MoovPhp\Models\Components\SweepConfigPaymentMethod  $pushPaymentMethod
+     * @param  \Moov\MoovPhp\Models\Components\SweepConfigPaymentMethod  $pullPaymentMethod
      * @param  \DateTime  $createdOn
      * @param  \DateTime  $updatedOn
      * @param  ?string  $minimumBalance

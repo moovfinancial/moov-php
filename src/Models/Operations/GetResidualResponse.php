@@ -42,7 +42,7 @@ class GetResidualResponse
     /**
      * The request completed successfully.
      *
-     * @var ?Components\Residual $residual
+     * @var ?\Moov\MoovPhp\Models\Components\Residual $residual
      */
     public ?Components\Residual $residual = null;
 
@@ -51,7 +51,7 @@ class GetResidualResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\Residual  $residual
+     * @param  ?\Moov\MoovPhp\Models\Components\Residual  $residual
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\Residual $residual = null, ?array $headers = [])

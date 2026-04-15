@@ -1599,3 +1599,13 @@ Based on:
 - [php v26.4.0-beta.18] .
 ### Releases
 - [Composer v26.4.0-beta.18] https://packagist.org/packages/moov/moov-php#v26.4.0-beta.18 - .
+
+## 2026-04-15 13:23:45
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.761.5 (2.879.13) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [php v26.4.0-beta.19] .
+### Releases
+- [Composer v26.4.0-beta.19] https://packagist.org/packages/moov/moov-php#v26.4.0-beta.19 - .

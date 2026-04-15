@@ -14,7 +14,7 @@ class PatchIndividual
 {
     /**
      *
-     * @var ?IndividualNameUpdate $name
+     * @var ?\Moov\MoovPhp\Models\Components\IndividualNameUpdate $name
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('name')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IndividualNameUpdate|null')]
@@ -23,7 +23,7 @@ class PatchIndividual
 
     /**
      *
-     * @var ?PhoneNumber $phone
+     * @var ?\Moov\MoovPhp\Models\Components\PhoneNumber $phone
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('phone')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PhoneNumber|null')]
@@ -40,7 +40,7 @@ class PatchIndividual
 
     /**
      *
-     * @var ?AddressUpdate $address
+     * @var ?\Moov\MoovPhp\Models\Components\AddressUpdate $address
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('address')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AddressUpdate|null')]
@@ -49,7 +49,7 @@ class PatchIndividual
 
     /**
      *
-     * @var ?BirthDateUpdate $birthDate
+     * @var ?\Moov\MoovPhp\Models\Components\BirthDateUpdate $birthDate
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('birthDate')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BirthDateUpdate|null')]
@@ -58,7 +58,7 @@ class PatchIndividual
 
     /**
      *
-     * @var ?GovernmentID $governmentID
+     * @var ?\Moov\MoovPhp\Models\Components\GovernmentID $governmentID
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('governmentID')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\GovernmentID|null')]
@@ -66,12 +66,12 @@ class PatchIndividual
     public ?GovernmentID $governmentID = null;
 
     /**
-     * @param  ?IndividualNameUpdate  $name
-     * @param  ?PhoneNumber  $phone
+     * @param  ?\Moov\MoovPhp\Models\Components\IndividualNameUpdate  $name
+     * @param  ?\Moov\MoovPhp\Models\Components\PhoneNumber  $phone
      * @param  ?string  $email
-     * @param  ?AddressUpdate  $address
-     * @param  ?BirthDateUpdate  $birthDate
-     * @param  ?GovernmentID  $governmentID
+     * @param  ?\Moov\MoovPhp\Models\Components\AddressUpdate  $address
+     * @param  ?\Moov\MoovPhp\Models\Components\BirthDateUpdate  $birthDate
+     * @param  ?\Moov\MoovPhp\Models\Components\GovernmentID  $governmentID
      * @phpstan-pure
      */
     public function __construct(?IndividualNameUpdate $name = null, ?PhoneNumber $phone = null, ?string $email = null, ?AddressUpdate $address = null, ?BirthDateUpdate $birthDate = null, ?GovernmentID $governmentID = null)

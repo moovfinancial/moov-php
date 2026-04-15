@@ -22,14 +22,14 @@ class RegisterApplePayMerchantDomainsRequest
 
     /**
      *
-     * @var Components\RegisterApplePayMerchantDomains $registerApplePayMerchantDomains
+     * @var \Moov\MoovPhp\Models\Components\RegisterApplePayMerchantDomains $registerApplePayMerchantDomains
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\RegisterApplePayMerchantDomains $registerApplePayMerchantDomains;
 
     /**
      * @param  string  $accountID
-     * @param  Components\RegisterApplePayMerchantDomains  $registerApplePayMerchantDomains
+     * @param  \Moov\MoovPhp\Models\Components\RegisterApplePayMerchantDomains  $registerApplePayMerchantDomains
      * @phpstan-pure
      */
     public function __construct(string $accountID, Components\RegisterApplePayMerchantDomains $registerApplePayMerchantDomains)

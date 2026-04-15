@@ -14,7 +14,7 @@ class CreateInvoiceLineItemsValidationError
     /**
      * $items
      *
-     * @var ?array<string, CreateInvoiceLineItemValidationError> $items
+     * @var ?array<string, \Moov\MoovPhp\Models\Components\CreateInvoiceLineItemValidationError> $items
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('items')]
     #[\Speakeasy\Serializer\Annotation\Type('array<string, \Moov\MoovPhp\Models\Components\CreateInvoiceLineItemValidationError>|null')]
@@ -22,7 +22,7 @@ class CreateInvoiceLineItemsValidationError
     public ?array $items = null;
 
     /**
-     * @param  ?array<string, CreateInvoiceLineItemValidationError>  $items
+     * @param  ?array<string, \Moov\MoovPhp\Models\Components\CreateInvoiceLineItemValidationError>  $items
      * @phpstan-pure
      */
     public function __construct(?array $items = null)

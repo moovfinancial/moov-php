@@ -14,7 +14,7 @@ class BillableFee
     /**
      * Specifies the pricing model used for the calculation of the final fee.
      *
-     * @var FeeModel $feeModel
+     * @var \Moov\MoovPhp\Models\Components\FeeModel $feeModel
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('feeModel')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\FeeModel')]
@@ -22,7 +22,7 @@ class BillableFee
 
     /**
      *
-     * @var FeeCategory $feeCategory
+     * @var \Moov\MoovPhp\Models\Components\FeeCategory $feeCategory
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('feeCategory')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\FeeCategory')]
@@ -58,7 +58,7 @@ class BillableFee
     /**
      * Defines the specific parameters used for fee calculation.
      *
-     * @var ?FeeProperties $feeProperties
+     * @var ?\Moov\MoovPhp\Models\Components\FeeProperties $feeProperties
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('feeProperties')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\FeeProperties|null')]
@@ -76,12 +76,12 @@ class BillableFee
     public ?array $feeConditions = null;
 
     /**
-     * @param  FeeModel  $feeModel
-     * @param  FeeCategory  $feeCategory
+     * @param  \Moov\MoovPhp\Models\Components\FeeModel  $feeModel
+     * @param  \Moov\MoovPhp\Models\Components\FeeCategory  $feeCategory
      * @param  ?string  $billableFeeID
      * @param  ?string  $billableEvent
      * @param  ?string  $feeName
-     * @param  ?FeeProperties  $feeProperties
+     * @param  ?\Moov\MoovPhp\Models\Components\FeeProperties  $feeProperties
      * @param  ?array<string, mixed>  $feeConditions
      * @phpstan-pure
      */

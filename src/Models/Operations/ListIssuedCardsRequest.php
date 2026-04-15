@@ -37,7 +37,7 @@ class ListIssuedCardsRequest
     /**
      * Optional, comma-separated states to filter the Moov list issued cards response. For example `active,pending-verification`
      *
-     * @var ?array<Components\IssuedCardState> $states
+     * @var ?array<\Moov\MoovPhp\Models\Components\IssuedCardState> $states
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=states')]
     public ?array $states = null;
@@ -46,7 +46,7 @@ class ListIssuedCardsRequest
      * @param  string  $accountID
      * @param  ?int  $skip
      * @param  ?int  $count
-     * @param  ?array<Components\IssuedCardState>  $states
+     * @param  ?array<\Moov\MoovPhp\Models\Components\IssuedCardState>  $states
      * @phpstan-pure
      */
     public function __construct(string $accountID, ?int $skip = null, ?int $count = null, ?array $states = null)

@@ -42,7 +42,7 @@ class CreateAccessTokenResponse
     /**
      * The request completed successfully.
      *
-     * @var ?Components\AuthToken $authToken
+     * @var ?\Moov\MoovPhp\Models\Components\AuthToken $authToken
      */
     public ?Components\AuthToken $authToken = null;
 
@@ -51,7 +51,7 @@ class CreateAccessTokenResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\AuthToken  $authToken
+     * @param  ?\Moov\MoovPhp\Models\Components\AuthToken  $authToken
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\AuthToken $authToken = null, ?array $headers = [])

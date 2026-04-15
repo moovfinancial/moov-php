@@ -35,7 +35,7 @@ class ListInvoicesRequest
 
     /**
      *
-     * @var ?Components\InvoiceStatus $status
+     * @var ?\Moov\MoovPhp\Models\Components\InvoiceStatus $status
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=status')]
     public ?Components\InvoiceStatus $status = null;
@@ -79,7 +79,7 @@ class ListInvoicesRequest
      * @param  string  $accountID
      * @param  ?int  $skip
      * @param  ?int  $count
-     * @param  ?Components\InvoiceStatus  $status
+     * @param  ?\Moov\MoovPhp\Models\Components\InvoiceStatus  $status
      * @param  ?string  $customerAccountID
      * @param  ?\DateTime  $createdStartDateTime
      * @param  ?\DateTime  $createdEndDateTime

@@ -42,7 +42,7 @@ class GetScheduledOccurrenceResponse
     /**
      * The request completed successfully.
      *
-     * @var ?Components\OccurrencesResponse $occurrencesResponse
+     * @var ?\Moov\MoovPhp\Models\Components\OccurrencesResponse $occurrencesResponse
      */
     public ?Components\OccurrencesResponse $occurrencesResponse = null;
 
@@ -51,7 +51,7 @@ class GetScheduledOccurrenceResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\OccurrencesResponse  $occurrencesResponse
+     * @param  ?\Moov\MoovPhp\Models\Components\OccurrencesResponse  $occurrencesResponse
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\OccurrencesResponse $occurrencesResponse = null, ?array $headers = [])

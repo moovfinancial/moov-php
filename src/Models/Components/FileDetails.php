@@ -36,7 +36,7 @@ class FileDetails
     /**
      * The file's purpose.
      *
-     * @var FilePurpose $filePurpose
+     * @var \Moov\MoovPhp\Models\Components\FilePurpose $filePurpose
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('filePurpose')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\FilePurpose')]
@@ -45,7 +45,7 @@ class FileDetails
     /**
      * The file's status.
      *
-     * @var FileStatus $fileStatus
+     * @var \Moov\MoovPhp\Models\Components\FileStatus $fileStatus
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('fileStatus')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\FileStatus')]
@@ -91,8 +91,8 @@ class FileDetails
      * @param  string  $fileID
      * @param  string  $fileName
      * @param  string  $accountID
-     * @param  FilePurpose  $filePurpose
-     * @param  FileStatus  $fileStatus
+     * @param  \Moov\MoovPhp\Models\Components\FilePurpose  $filePurpose
+     * @param  \Moov\MoovPhp\Models\Components\FileStatus  $fileStatus
      * @param  string  $metadata
      * @param  int  $fileSizeBytes
      * @param  \DateTime  $createdOn

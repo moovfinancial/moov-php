@@ -28,7 +28,7 @@ class AsyncCreatedRefund
 
     /**
      *
-     * @var Amount $amount
+     * @var \Moov\MoovPhp\Models\Components\Amount $amount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Amount')]
@@ -37,7 +37,7 @@ class AsyncCreatedRefund
     /**
      * @param  string  $refundID
      * @param  \DateTime  $createdOn
-     * @param  Amount  $amount
+     * @param  \Moov\MoovPhp\Models\Components\Amount  $amount
      * @phpstan-pure
      */
     public function __construct(string $refundID, \DateTime $createdOn, Amount $amount)

@@ -28,7 +28,7 @@ class CompleteBankAccountVerificationRequest
 
     /**
      *
-     * @var Components\CompleteBankAccountVerification $completeBankAccountVerification
+     * @var \Moov\MoovPhp\Models\Components\CompleteBankAccountVerification $completeBankAccountVerification
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\CompleteBankAccountVerification $completeBankAccountVerification;
@@ -36,7 +36,7 @@ class CompleteBankAccountVerificationRequest
     /**
      * @param  string  $accountID
      * @param  string  $bankAccountID
-     * @param  Components\CompleteBankAccountVerification  $completeBankAccountVerification
+     * @param  \Moov\MoovPhp\Models\Components\CompleteBankAccountVerification  $completeBankAccountVerification
      * @phpstan-pure
      */
     public function __construct(string $accountID, string $bankAccountID, Components\CompleteBankAccountVerification $completeBankAccountVerification)

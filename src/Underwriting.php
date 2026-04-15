@@ -54,7 +54,7 @@ class Underwriting
      * you'll need to specify the `/accounts/{accountID}/profile.read` scope.
      *
      * @param  string  $accountID
-     * @return Operations\GetUnderwritingResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetUnderwritingResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function get(string $accountID, ?Options $options = null): Operations\GetUnderwritingResponse
@@ -125,9 +125,9 @@ class Underwriting
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/profile.write` scope.
      *
-     * @param  Components\UpsertUnderwriting  $upsertUnderwriting
+     * @param  \Moov\MoovPhp\Models\Components\UpsertUnderwriting  $upsertUnderwriting
      * @param  string  $accountID
-     * @return Operations\SaveUnderwritingResponse
+     * @return \Moov\MoovPhp\Models\Operations\SaveUnderwritingResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function save(Components\UpsertUnderwriting $upsertUnderwriting, string $accountID, ?Options $options = null): Operations\SaveUnderwritingResponse
@@ -226,9 +226,9 @@ class Underwriting
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/profile.write` scope.
      *
-     * @param  Components\UpdateUnderwriting  $updateUnderwriting
+     * @param  \Moov\MoovPhp\Models\Components\UpdateUnderwriting  $updateUnderwriting
      * @param  string  $accountID
-     * @return Operations\UpsertUnderwritingResponse
+     * @return \Moov\MoovPhp\Models\Operations\UpsertUnderwritingResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function upsert(Components\UpdateUnderwriting $updateUnderwriting, string $accountID, ?Options $options = null): Operations\UpsertUnderwritingResponse

@@ -19,3 +19,5 @@ The payment method type that represents a payment rail and directionality
 | `ApplePay`           | apple-pay            |
 | `CardPresentPayment` | card-present-payment |
 | `InstantBankCredit`  | instant-bank-credit  |
+| `PushToApplePay`     | push-to-apple-pay    |
+| `PullFromApplePay`   | pull-from-apple-pay  |

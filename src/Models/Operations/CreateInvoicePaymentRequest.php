@@ -28,7 +28,7 @@ class CreateInvoicePaymentRequest
 
     /**
      *
-     * @var Components\CreateInvoicePayment $createInvoicePayment
+     * @var \Moov\MoovPhp\Models\Components\CreateInvoicePayment $createInvoicePayment
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\CreateInvoicePayment $createInvoicePayment;
@@ -36,7 +36,7 @@ class CreateInvoicePaymentRequest
     /**
      * @param  string  $accountID
      * @param  string  $invoiceID
-     * @param  Components\CreateInvoicePayment  $createInvoicePayment
+     * @param  \Moov\MoovPhp\Models\Components\CreateInvoicePayment  $createInvoicePayment
      * @phpstan-pure
      */
     public function __construct(string $accountID, string $invoiceID, Components\CreateInvoicePayment $createInvoicePayment)

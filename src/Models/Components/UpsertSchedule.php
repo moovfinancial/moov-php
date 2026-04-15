@@ -23,7 +23,7 @@ class UpsertSchedule
     /**
      * $occurrences
      *
-     * @var ?array<Occurrence> $occurrences
+     * @var ?array<\Moov\MoovPhp\Models\Components\Occurrence> $occurrences
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('occurrences')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\Occurrence>|null')]
@@ -33,7 +33,7 @@ class UpsertSchedule
     /**
      * Defines configuration for recurring transfers.
      *
-     * @var ?Recur $recur
+     * @var ?\Moov\MoovPhp\Models\Components\Recur $recur
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('recur')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Recur|null')]
@@ -42,8 +42,8 @@ class UpsertSchedule
 
     /**
      * @param  ?string  $description
-     * @param  ?array<Occurrence>  $occurrences
-     * @param  ?Recur  $recur
+     * @param  ?array<\Moov\MoovPhp\Models\Components\Occurrence>  $occurrences
+     * @param  ?\Moov\MoovPhp\Models\Components\Recur  $recur
      * @phpstan-pure
      */
     public function __construct(?string $description = null, ?array $occurrences = null, ?Recur $recur = null)

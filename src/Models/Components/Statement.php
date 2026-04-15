@@ -72,7 +72,7 @@ class Statement
     /**
      * A summary of all fees included in a statement.
      *
-     * @var BillingSummary $summary
+     * @var \Moov\MoovPhp\Models\Components\BillingSummary $summary
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('summary')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingSummary')]
@@ -97,7 +97,7 @@ class Statement
     /**
      * A detailed breakdown of card acquiring fees by card brand.
      *
-     * @var ?CardAcquiringFees $cardAcquiringFees
+     * @var ?\Moov\MoovPhp\Models\Components\CardAcquiringFees $cardAcquiringFees
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardAcquiringFees')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardAcquiringFees|null')]
@@ -107,7 +107,7 @@ class Statement
     /**
      * A detailed breakdown of ACH fees.
      *
-     * @var ?ACHFees $achFees
+     * @var ?\Moov\MoovPhp\Models\Components\ACHFees $achFees
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('achFees')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ACHFees|null')]
@@ -117,7 +117,7 @@ class Statement
     /**
      * A detailed breakdown of instant payment fees.
      *
-     * @var ?InstantPaymentFees $instantPaymentFees
+     * @var ?\Moov\MoovPhp\Models\Components\InstantPaymentFees $instantPaymentFees
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('instantPaymentFees')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\InstantPaymentFees|null')]
@@ -127,7 +127,7 @@ class Statement
     /**
      * A detailed breakdown of platform fees. This field is deprecated and will be removed in a future release. Use accountFees.
      *
-     * @var ?PlatformFees $platformFees
+     * @var ?\Moov\MoovPhp\Models\Components\PlatformFees $platformFees
      * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('platformFees')]
@@ -138,7 +138,7 @@ class Statement
     /**
      * A detailed breakdown of account fees.
      *
-     * @var ?AccountFees $accountFees
+     * @var ?\Moov\MoovPhp\Models\Components\AccountFees $accountFees
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('accountFees')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AccountFees|null')]
@@ -148,7 +148,7 @@ class Statement
     /**
      * A detailed breakdown of other card-related fees.
      *
-     * @var ?OtherCardFees $otherCardFees
+     * @var ?\Moov\MoovPhp\Models\Components\OtherCardFees $otherCardFees
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('otherCardFees')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\OtherCardFees|null')]
@@ -158,7 +158,7 @@ class Statement
     /**
      * Monthly partner costs that are charged separately and not included in residual subtotal (e.g. platform fees, minimums).
      *
-     * @var ?PartnerFees $partnerFees
+     * @var ?\Moov\MoovPhp\Models\Components\PartnerFees $partnerFees
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('partnerFees')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PartnerFees|null')]
@@ -173,16 +173,16 @@ class Statement
      * @param  \DateTime  $billingPeriodStartDateTime
      * @param  \DateTime  $billingPeriodEndDateTime
      * @param  array<string>  $subscriptionIDs
-     * @param  BillingSummary  $summary
+     * @param  \Moov\MoovPhp\Models\Components\BillingSummary  $summary
      * @param  \DateTime  $createdOn
      * @param  \DateTime  $updatedOn
-     * @param  ?CardAcquiringFees  $cardAcquiringFees
-     * @param  ?ACHFees  $achFees
-     * @param  ?InstantPaymentFees  $instantPaymentFees
-     * @param  ?PlatformFees  $platformFees
-     * @param  ?AccountFees  $accountFees
-     * @param  ?OtherCardFees  $otherCardFees
-     * @param  ?PartnerFees  $partnerFees
+     * @param  ?\Moov\MoovPhp\Models\Components\CardAcquiringFees  $cardAcquiringFees
+     * @param  ?\Moov\MoovPhp\Models\Components\ACHFees  $achFees
+     * @param  ?\Moov\MoovPhp\Models\Components\InstantPaymentFees  $instantPaymentFees
+     * @param  ?\Moov\MoovPhp\Models\Components\PlatformFees  $platformFees
+     * @param  ?\Moov\MoovPhp\Models\Components\AccountFees  $accountFees
+     * @param  ?\Moov\MoovPhp\Models\Components\OtherCardFees  $otherCardFees
+     * @param  ?\Moov\MoovPhp\Models\Components\PartnerFees  $partnerFees
      * @phpstan-pure
      */
     public function __construct(string $statementID, string $statementName, string $fileName, int $fileSize, \DateTime $billingPeriodStartDateTime, \DateTime $billingPeriodEndDateTime, array $subscriptionIDs, BillingSummary $summary, \DateTime $createdOn, \DateTime $updatedOn, ?CardAcquiringFees $cardAcquiringFees = null, ?ACHFees $achFees = null, ?InstantPaymentFees $instantPaymentFees = null, ?PlatformFees $platformFees = null, ?AccountFees $accountFees = null, ?OtherCardFees $otherCardFees = null, ?PartnerFees $partnerFees = null)

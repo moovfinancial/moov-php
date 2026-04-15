@@ -15,7 +15,7 @@ class InstantBankTransactionDetails
     /**
      * The network that the transaction was processed on.
      *
-     * @var InstantBankNetwork $network
+     * @var \Moov\MoovPhp\Models\Components\InstantBankNetwork $network
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('network')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\InstantBankNetwork')]
@@ -24,7 +24,7 @@ class InstantBankTransactionDetails
     /**
      * Status of a transaction within the instant-bank lifecycle.
      *
-     * @var InstantBankTransactionStatus $status
+     * @var \Moov\MoovPhp\Models\Components\InstantBankTransactionStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\InstantBankTransactionStatus')]
@@ -42,7 +42,7 @@ class InstantBankTransactionDetails
     /**
      * Status codes for instant-bank failures.
      *
-     * @var ?InstantBankFailureCode $failureCode
+     * @var ?\Moov\MoovPhp\Models\Components\InstantBankFailureCode $failureCode
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('failureCode')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\InstantBankFailureCode|null')]
@@ -90,10 +90,10 @@ class InstantBankTransactionDetails
     public ?\DateTime $acceptedWithoutPostingOn = null;
 
     /**
-     * @param  InstantBankNetwork  $network
-     * @param  InstantBankTransactionStatus  $status
+     * @param  \Moov\MoovPhp\Models\Components\InstantBankNetwork  $network
+     * @param  \Moov\MoovPhp\Models\Components\InstantBankTransactionStatus  $status
      * @param  ?string  $networkResponseCode
-     * @param  ?InstantBankFailureCode  $failureCode
+     * @param  ?\Moov\MoovPhp\Models\Components\InstantBankFailureCode  $failureCode
      * @param  ?string  $endToEndID
      * @param  ?\DateTime  $initiatedOn
      * @param  ?\DateTime  $completedOn

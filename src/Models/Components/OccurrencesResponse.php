@@ -20,7 +20,7 @@ class OccurrencesResponse
 
     /**
      *
-     * @var RunTransfer $runTransfer
+     * @var \Moov\MoovPhp\Models\Components\RunTransfer $runTransfer
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('runTransfer')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RunTransfer')]
@@ -45,7 +45,7 @@ class OccurrencesResponse
     /**
      * Sandbox or production account mode of this schedule.
      *
-     * @var ?Mode $mode
+     * @var ?\Moov\MoovPhp\Models\Components\Mode $mode
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('mode')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Mode|null')]
@@ -97,7 +97,7 @@ class OccurrencesResponse
     /**
      * Status of the completed occurrence.
      *
-     * @var ?OccurrenceStatus $status
+     * @var ?\Moov\MoovPhp\Models\Components\OccurrenceStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\OccurrenceStatus|null')]
@@ -107,7 +107,7 @@ class OccurrencesResponse
     /**
      * Contains details on why the occurrence errored.
      *
-     * @var ?Error $error
+     * @var ?\Moov\MoovPhp\Models\Components\Error $error
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('error')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Error|null')]
@@ -116,17 +116,17 @@ class OccurrencesResponse
 
     /**
      * @param  \DateTime  $runOn
-     * @param  RunTransfer  $runTransfer
+     * @param  \Moov\MoovPhp\Models\Components\RunTransfer  $runTransfer
      * @param  ?string  $scheduleID
      * @param  ?string  $occurrenceID
-     * @param  ?Mode  $mode
+     * @param  ?\Moov\MoovPhp\Models\Components\Mode  $mode
      * @param  ?bool  $generated
      * @param  ?bool  $indefinite
      * @param  ?\DateTime  $canceledOn
      * @param  ?\DateTime  $ranOn
      * @param  ?string  $ranTransferID
-     * @param  ?OccurrenceStatus  $status
-     * @param  ?Error  $error
+     * @param  ?\Moov\MoovPhp\Models\Components\OccurrenceStatus  $status
+     * @param  ?\Moov\MoovPhp\Models\Components\Error  $error
      * @phpstan-pure
      */
     public function __construct(\DateTime $runOn, RunTransfer $runTransfer, ?string $scheduleID = null, ?string $occurrenceID = null, ?Mode $mode = null, ?bool $generated = null, ?bool $indefinite = null, ?\DateTime $canceledOn = null, ?\DateTime $ranOn = null, ?string $ranTransferID = null, ?OccurrenceStatus $status = null, ?Error $error = null)

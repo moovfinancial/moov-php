@@ -15,14 +15,14 @@ class CreateResolutionLink
     /**
      * The recipient contact information for the resolution link.
      *
-     * @var ResolutionLinkRecipient $recipient
+     * @var \Moov\MoovPhp\Models\Components\ResolutionLinkRecipient $recipient
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('recipient')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ResolutionLinkRecipient')]
     public ResolutionLinkRecipient $recipient;
 
     /**
-     * @param  ResolutionLinkRecipient  $recipient
+     * @param  \Moov\MoovPhp\Models\Components\ResolutionLinkRecipient  $recipient
      * @phpstan-pure
      */
     public function __construct(ResolutionLinkRecipient $recipient)

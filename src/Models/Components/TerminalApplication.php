@@ -23,7 +23,7 @@ class TerminalApplication
     /**
      * Status of the terminal application.
      *
-     * @var TerminalApplicationStatus $status
+     * @var \Moov\MoovPhp\Models\Components\TerminalApplicationStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TerminalApplicationStatus')]
@@ -32,7 +32,7 @@ class TerminalApplication
     /**
      * Platform of the terminal application.
      *
-     * @var TerminalApplicationPlatform $platform
+     * @var \Moov\MoovPhp\Models\Components\TerminalApplicationPlatform $platform
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('platform')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TerminalApplicationPlatform')]
@@ -76,8 +76,8 @@ class TerminalApplication
 
     /**
      * @param  string  $terminalApplicationID
-     * @param  TerminalApplicationStatus  $status
-     * @param  TerminalApplicationPlatform  $platform
+     * @param  \Moov\MoovPhp\Models\Components\TerminalApplicationStatus  $status
+     * @param  \Moov\MoovPhp\Models\Components\TerminalApplicationPlatform  $platform
      * @param  ?string  $appBundleID
      * @param  ?string  $packageName
      * @param  ?string  $sha256Digest

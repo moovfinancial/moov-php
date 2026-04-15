@@ -22,7 +22,7 @@ class UpdateInvoice
     /**
      * A collection of line items for an invoice.
      *
-     * @var ?CreateInvoiceLineItemsUpdate $lineItems
+     * @var ?\Moov\MoovPhp\Models\Components\CreateInvoiceLineItemsUpdate $lineItems
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('lineItems')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateInvoiceLineItemsUpdate|null')]
@@ -38,7 +38,7 @@ class UpdateInvoice
      *   To completely discard an invoice created by mistake, use the delete endpoint instead.
      * - `unpaid`: Can only be set if the current status is `draft`. Setting the status to `unpaid` finalizes the invoice and sends an email with a payment link to the customer.
      *
-     * @var ?InvoiceStatus $status
+     * @var ?\Moov\MoovPhp\Models\Components\InvoiceStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\InvoiceStatus|null')]
@@ -47,7 +47,7 @@ class UpdateInvoice
 
     /**
      *
-     * @var ?AmountDecimalUpdate $taxAmount
+     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimalUpdate $taxAmount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('taxAmount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimalUpdate|null')]
@@ -72,9 +72,9 @@ class UpdateInvoice
 
     /**
      * @param  ?string  $description
-     * @param  ?CreateInvoiceLineItemsUpdate  $lineItems
-     * @param  ?InvoiceStatus  $status
-     * @param  ?AmountDecimalUpdate  $taxAmount
+     * @param  ?\Moov\MoovPhp\Models\Components\CreateInvoiceLineItemsUpdate  $lineItems
+     * @param  ?\Moov\MoovPhp\Models\Components\InvoiceStatus  $status
+     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimalUpdate  $taxAmount
      * @param  ?\DateTime  $invoiceDate
      * @param  ?\DateTime  $dueDate
      * @phpstan-pure

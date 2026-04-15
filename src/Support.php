@@ -54,9 +54,9 @@ class Support
      * If you're creating the ticket on behalf of another account, then you'll need to
      * specify the `/accounts/{partnerAccountID}/tickets.write` and `/accounts/{accountID}/profile.read` scopes.
      *
-     * @param  Components\CreateTicket  $createTicket
+     * @param  \Moov\MoovPhp\Models\Components\CreateTicket  $createTicket
      * @param  string  $accountID
-     * @return Operations\CreateTicketResponse
+     * @return \Moov\MoovPhp\Models\Operations\CreateTicketResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function createTicket(Components\CreateTicket $createTicket, string $accountID, ?Options $options = null): Operations\CreateTicketResponse
@@ -158,7 +158,7 @@ class Support
      *
      * @param  string  $accountID
      * @param  string  $ticketID
-     * @return Operations\GetTicketResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetTicketResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function getTicket(string $accountID, string $ticketID, ?Options $options = null): Operations\GetTicketResponse
@@ -233,7 +233,7 @@ class Support
      *
      * @param  string  $accountID
      * @param  string  $ticketID
-     * @return Operations\ListTicketMessagesResponse
+     * @return \Moov\MoovPhp\Models\Operations\ListTicketMessagesResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function listTicketMessages(string $accountID, string $ticketID, ?Options $options = null): Operations\ListTicketMessagesResponse
@@ -306,8 +306,8 @@ class Support
      * If you're listing another account's tickets, then you'll need to
      * specify the `/accounts/{partnerAccountID}/tickets.read` and `/accounts/{accountID}/profile.read` scopes.
      *
-     * @param  Operations\ListTicketsRequest  $request
-     * @return Operations\ListTicketsResponse
+     * @param  \Moov\MoovPhp\Models\Operations\ListTicketsRequest  $request
+     * @return \Moov\MoovPhp\Models\Operations\ListTicketsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function listTickets(Operations\ListTicketsRequest $request, ?Options $options = null): Operations\ListTicketsResponse
@@ -379,10 +379,10 @@ class Support
      * If you're updating the ticket on behalf of another account, then you'll need to
      * specify the `/accounts/{partnerAccountID}/tickets.write` and `/accounts/{accountID}/profile.read` scopes.
      *
-     * @param  Components\UpdateTicket  $updateTicket
+     * @param  \Moov\MoovPhp\Models\Components\UpdateTicket  $updateTicket
      * @param  string  $accountID
      * @param  string  $ticketID
-     * @return Operations\UpdateTicketResponse
+     * @return \Moov\MoovPhp\Models\Operations\UpdateTicketResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function updateTicket(Components\UpdateTicket $updateTicket, string $accountID, string $ticketID, ?Options $options = null): Operations\UpdateTicketResponse

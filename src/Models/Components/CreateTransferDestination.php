@@ -21,7 +21,7 @@ class CreateTransferDestination
 
     /**
      *
-     * @var ?CreateTransferDestinationCard $cardDetails
+     * @var ?\Moov\MoovPhp\Models\Components\CreateTransferDestinationCard $cardDetails
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardDetails')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateTransferDestinationCard|null')]
@@ -30,7 +30,7 @@ class CreateTransferDestination
 
     /**
      *
-     * @var ?CreateTransferDestinationACH $achDetails
+     * @var ?\Moov\MoovPhp\Models\Components\CreateTransferDestinationACH $achDetails
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('achDetails')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateTransferDestinationACH|null')]
@@ -39,8 +39,8 @@ class CreateTransferDestination
 
     /**
      * @param  string  $paymentMethodID
-     * @param  ?CreateTransferDestinationCard  $cardDetails
-     * @param  ?CreateTransferDestinationACH  $achDetails
+     * @param  ?\Moov\MoovPhp\Models\Components\CreateTransferDestinationCard  $cardDetails
+     * @param  ?\Moov\MoovPhp\Models\Components\CreateTransferDestinationACH  $achDetails
      * @phpstan-pure
      */
     public function __construct(string $paymentMethodID, ?CreateTransferDestinationCard $cardDetails = null, ?CreateTransferDestinationACH $achDetails = null)

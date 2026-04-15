@@ -15,7 +15,7 @@ class Settings
     /**
      * User provided settings to manage card payments. This data is only allowed on a business account.
      *
-     * @var ?CardPaymentSettings $cardPayment
+     * @var ?\Moov\MoovPhp\Models\Components\CardPaymentSettings $cardPayment
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardPayment')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardPaymentSettings|null')]
@@ -24,7 +24,7 @@ class Settings
 
     /**
      *
-     * @var ?ACHPaymentSettings $achPayment
+     * @var ?\Moov\MoovPhp\Models\Components\ACHPaymentSettings $achPayment
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('achPayment')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ACHPaymentSettings|null')]
@@ -32,8 +32,8 @@ class Settings
     public ?ACHPaymentSettings $achPayment = null;
 
     /**
-     * @param  ?CardPaymentSettings  $cardPayment
-     * @param  ?ACHPaymentSettings  $achPayment
+     * @param  ?\Moov\MoovPhp\Models\Components\CardPaymentSettings  $cardPayment
+     * @param  ?\Moov\MoovPhp\Models\Components\ACHPaymentSettings  $achPayment
      * @phpstan-pure
      */
     public function __construct(?CardPaymentSettings $cardPayment = null, ?ACHPaymentSettings $achPayment = null)

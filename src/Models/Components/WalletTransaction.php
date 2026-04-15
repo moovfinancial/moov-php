@@ -28,7 +28,7 @@ class WalletTransaction
 
     /**
      *
-     * @var WalletTransactionType $transactionType
+     * @var \Moov\MoovPhp\Models\Components\WalletTransactionType $transactionType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('transactionType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\WalletTransactionType')]
@@ -36,7 +36,7 @@ class WalletTransaction
 
     /**
      *
-     * @var WalletTransactionSourceType $sourceType
+     * @var \Moov\MoovPhp\Models\Components\WalletTransactionSourceType $sourceType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('sourceType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\WalletTransactionSourceType')]
@@ -52,7 +52,7 @@ class WalletTransaction
 
     /**
      *
-     * @var WalletTransactionStatus $status
+     * @var \Moov\MoovPhp\Models\Components\WalletTransactionStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\WalletTransactionStatus')]
@@ -177,10 +177,10 @@ class WalletTransaction
     /**
      * @param  string  $walletID
      * @param  string  $transactionID
-     * @param  WalletTransactionType  $transactionType
-     * @param  WalletTransactionSourceType  $sourceType
+     * @param  \Moov\MoovPhp\Models\Components\WalletTransactionType  $transactionType
+     * @param  \Moov\MoovPhp\Models\Components\WalletTransactionSourceType  $sourceType
      * @param  string  $sourceID
-     * @param  WalletTransactionStatus  $status
+     * @param  \Moov\MoovPhp\Models\Components\WalletTransactionStatus  $status
      * @param  string  $memo
      * @param  \DateTime  $createdOn
      * @param  string  $currency

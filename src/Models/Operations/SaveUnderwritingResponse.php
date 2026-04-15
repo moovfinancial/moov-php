@@ -42,7 +42,7 @@ class SaveUnderwritingResponse
     /**
      * The request completed successfully.
      *
-     * @var ?Components\Underwriting $underwriting
+     * @var ?\Moov\MoovPhp\Models\Components\Underwriting $underwriting
      */
     public ?Components\Underwriting $underwriting = null;
 
@@ -51,7 +51,7 @@ class SaveUnderwritingResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\Underwriting  $underwriting
+     * @param  ?\Moov\MoovPhp\Models\Components\Underwriting  $underwriting
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\Underwriting $underwriting = null, ?array $headers = [])

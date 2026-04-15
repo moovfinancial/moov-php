@@ -35,7 +35,7 @@ class PaymentLinkDisplayOptions
      * If set to "auto" the UI will automatically select between 
      * "pay" and "confirm" for payments and payouts respectively.
      *
-     * @var CallToAction $callToAction
+     * @var \Moov\MoovPhp\Models\Components\CallToAction $callToAction
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('callToAction')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CallToAction')]
@@ -44,7 +44,7 @@ class PaymentLinkDisplayOptions
     /**
      * @param  string  $title
      * @param  string  $description
-     * @param  CallToAction  $callToAction
+     * @param  \Moov\MoovPhp\Models\Components\CallToAction  $callToAction
      * @phpstan-pure
      */
     public function __construct(string $title, string $description, CallToAction $callToAction)

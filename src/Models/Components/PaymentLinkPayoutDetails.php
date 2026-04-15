@@ -14,7 +14,7 @@ class PaymentLinkPayoutDetails
     /**
      * A list of payment methods that should be supported for this payment link.
      *
-     * @var array<DisbursementPaymentMethodType> $allowedMethods
+     * @var array<\Moov\MoovPhp\Models\Components\DisbursementPaymentMethodType> $allowedMethods
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('allowedMethods')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\DisbursementPaymentMethodType>')]
@@ -27,7 +27,7 @@ class PaymentLinkPayoutDetails
      *
      * This information will be used to authenticate the end user when they follow the payment link.
      *
-     * @var PayoutRecipient $recipient
+     * @var \Moov\MoovPhp\Models\Components\PayoutRecipient $recipient
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('recipient')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PayoutRecipient')]
@@ -44,8 +44,8 @@ class PaymentLinkPayoutDetails
     public ?array $metadata = null;
 
     /**
-     * @param  array<DisbursementPaymentMethodType>  $allowedMethods
-     * @param  PayoutRecipient  $recipient
+     * @param  array<\Moov\MoovPhp\Models\Components\DisbursementPaymentMethodType>  $allowedMethods
+     * @param  \Moov\MoovPhp\Models\Components\PayoutRecipient  $recipient
      * @param  ?array<string, string>  $metadata
      * @phpstan-pure
      */

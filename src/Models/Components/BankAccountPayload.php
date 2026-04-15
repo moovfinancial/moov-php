@@ -14,14 +14,14 @@ class BankAccountPayload
 {
     /**
      *
-     * @var BankAccountIntegration $account
+     * @var \Moov\MoovPhp\Models\Components\BankAccountIntegration $account
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('account')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BankAccountIntegration')]
     public BankAccountIntegration $account;
 
     /**
-     * @param  BankAccountIntegration  $account
+     * @param  \Moov\MoovPhp\Models\Components\BankAccountIntegration  $account
      * @phpstan-pure
      */
     public function __construct(BankAccountIntegration $account)

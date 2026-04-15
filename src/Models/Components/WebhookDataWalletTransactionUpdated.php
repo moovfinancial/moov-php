@@ -34,7 +34,7 @@ class WebhookDataWalletTransactionUpdated
 
     /**
      *
-     * @var WalletTransactionStatus $status
+     * @var \Moov\MoovPhp\Models\Components\WalletTransactionStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\WalletTransactionStatus')]
@@ -42,7 +42,7 @@ class WebhookDataWalletTransactionUpdated
 
     /**
      *
-     * @var ?WalletAvailableBalance $availableBalance
+     * @var ?\Moov\MoovPhp\Models\Components\WalletAvailableBalance $availableBalance
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('availableBalance')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\WalletAvailableBalance|null')]
@@ -53,8 +53,8 @@ class WebhookDataWalletTransactionUpdated
      * @param  string  $accountID
      * @param  string  $walletID
      * @param  string  $transactionID
-     * @param  WalletTransactionStatus  $status
-     * @param  ?WalletAvailableBalance  $availableBalance
+     * @param  \Moov\MoovPhp\Models\Components\WalletTransactionStatus  $status
+     * @param  ?\Moov\MoovPhp\Models\Components\WalletAvailableBalance  $availableBalance
      * @phpstan-pure
      */
     public function __construct(string $accountID, string $walletID, string $transactionID, WalletTransactionStatus $status, ?WalletAvailableBalance $availableBalance = null)

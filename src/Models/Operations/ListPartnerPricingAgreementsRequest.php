@@ -44,7 +44,7 @@ class ListPartnerPricingAgreementsRequest
     /**
      * A comma-separated list of statuses to filter the results by.
      *
-     * @var ?array<Components\FeePlanAgreementStatus> $status
+     * @var ?array<\Moov\MoovPhp\Models\Components\FeePlanAgreementStatus> $status
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=status')]
     public ?array $status = null;
@@ -54,7 +54,7 @@ class ListPartnerPricingAgreementsRequest
      * @param  ?int  $skip
      * @param  ?int  $count
      * @param  ?array<string>  $agreementID
-     * @param  ?array<Components\FeePlanAgreementStatus>  $status
+     * @param  ?array<\Moov\MoovPhp\Models\Components\FeePlanAgreementStatus>  $status
      * @phpstan-pure
      */
     public function __construct(string $accountID, ?int $skip = null, ?int $count = null, ?array $agreementID = null, ?array $status = null)

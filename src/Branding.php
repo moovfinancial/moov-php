@@ -51,9 +51,9 @@ class Branding
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/branding.write` scope.
      *
-     * @param  Components\BrandProperties  $brandProperties
+     * @param  \Moov\MoovPhp\Models\Components\BrandProperties  $brandProperties
      * @param  string  $accountID
-     * @return Operations\CreateBrandResponse
+     * @return \Moov\MoovPhp\Models\Operations\CreateBrandResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function create(Components\BrandProperties $brandProperties, string $accountID, ?Options $options = null): Operations\CreateBrandResponse
@@ -151,7 +151,7 @@ class Branding
      * you'll need to specify the `/accounts/{accountID}/branding.read` scope.
      *
      * @param  string  $accountID
-     * @return Operations\GetBrandResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetBrandResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function get(string $accountID, ?Options $options = null): Operations\GetBrandResponse
@@ -220,9 +220,9 @@ class Branding
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/branding.write` scope.
      *
-     * @param  Components\BrandProperties  $brandProperties
+     * @param  \Moov\MoovPhp\Models\Components\BrandProperties  $brandProperties
      * @param  string  $accountID
-     * @return Operations\UpsertBrandResponse
+     * @return \Moov\MoovPhp\Models\Operations\UpsertBrandResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function upsert(Components\BrandProperties $brandProperties, string $accountID, ?Options $options = null): Operations\UpsertBrandResponse

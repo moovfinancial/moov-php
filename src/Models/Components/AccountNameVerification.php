@@ -15,7 +15,7 @@ class AccountNameVerification
     /**
      * Verification result of the cardholder's first name.
      *
-     * @var ?CardVerificationResult $firstName
+     * @var ?\Moov\MoovPhp\Models\Components\CardVerificationResult $firstName
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('firstName')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardVerificationResult|null')]
@@ -25,7 +25,7 @@ class AccountNameVerification
     /**
      * Verification result of the cardholder's last name.
      *
-     * @var ?CardVerificationResult $lastName
+     * @var ?\Moov\MoovPhp\Models\Components\CardVerificationResult $lastName
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('lastName')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardVerificationResult|null')]
@@ -35,7 +35,7 @@ class AccountNameVerification
     /**
      * Verification result of the cardholder's middle name.
      *
-     * @var ?CardVerificationResult $middleName
+     * @var ?\Moov\MoovPhp\Models\Components\CardVerificationResult $middleName
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('middleName')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardVerificationResult|null')]
@@ -45,7 +45,7 @@ class AccountNameVerification
     /**
      * Verification result of the cardholder's full name.
      *
-     * @var ?CardVerificationResult $fullName
+     * @var ?\Moov\MoovPhp\Models\Components\CardVerificationResult $fullName
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('fullName')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardVerificationResult|null')]
@@ -53,10 +53,10 @@ class AccountNameVerification
     public ?CardVerificationResult $fullName = null;
 
     /**
-     * @param  ?CardVerificationResult  $firstName
-     * @param  ?CardVerificationResult  $lastName
-     * @param  ?CardVerificationResult  $middleName
-     * @param  ?CardVerificationResult  $fullName
+     * @param  ?\Moov\MoovPhp\Models\Components\CardVerificationResult  $firstName
+     * @param  ?\Moov\MoovPhp\Models\Components\CardVerificationResult  $lastName
+     * @param  ?\Moov\MoovPhp\Models\Components\CardVerificationResult  $middleName
+     * @param  ?\Moov\MoovPhp\Models\Components\CardVerificationResult  $fullName
      * @phpstan-pure
      */
     public function __construct(?CardVerificationResult $firstName = null, ?CardVerificationResult $lastName = null, ?CardVerificationResult $middleName = null, ?CardVerificationResult $fullName = null)

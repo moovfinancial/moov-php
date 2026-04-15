@@ -20,7 +20,7 @@ class Sweep
 
     /**
      *
-     * @var SweepStatus $status
+     * @var \Moov\MoovPhp\Models\Components\SweepStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\SweepStatus')]
@@ -115,7 +115,7 @@ class Sweep
     /**
      * The subtotal of each transaction type contributing to the sweep's accrued amount.
      *
-     * @var ?array<SweepSubtotal> $subtotals
+     * @var ?array<\Moov\MoovPhp\Models\Components\SweepSubtotal> $subtotals
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('subtotals')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\SweepSubtotal>|null')]
@@ -124,7 +124,7 @@ class Sweep
 
     /**
      * @param  string  $sweepID
-     * @param  SweepStatus  $status
+     * @param  \Moov\MoovPhp\Models\Components\SweepStatus  $status
      * @param  string  $accruedAmount
      * @param  string  $currency
      * @param  \DateTime  $accrualStartedOn
@@ -135,7 +135,7 @@ class Sweep
      * @param  ?string  $transferID
      * @param  ?string  $transferAmount
      * @param  ?string  $statementDescriptor
-     * @param  ?array<SweepSubtotal>  $subtotals
+     * @param  ?array<\Moov\MoovPhp\Models\Components\SweepSubtotal>  $subtotals
      * @phpstan-pure
      */
     public function __construct(string $sweepID, SweepStatus $status, string $accruedAmount, string $currency, \DateTime $accrualStartedOn, ?string $residualBalance = null, ?\DateTime $accrualEndedOn = null, ?string $pushPaymentMethodID = null, ?string $pullPaymentMethodID = null, ?string $transferID = null, ?string $transferAmount = null, ?string $statementDescriptor = null, ?array $subtotals = null)

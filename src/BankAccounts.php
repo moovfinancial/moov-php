@@ -58,10 +58,10 @@ class BankAccounts
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/bank-accounts.write` scope.
      *
-     * @param  Components\CompleteBankAccountVerification  $completeBankAccountVerification
+     * @param  \Moov\MoovPhp\Models\Components\CompleteBankAccountVerification  $completeBankAccountVerification
      * @param  string  $accountID
      * @param  string  $bankAccountID
-     * @return Operations\CompleteBankAccountVerificationResponse
+     * @return \Moov\MoovPhp\Models\Operations\CompleteBankAccountVerificationResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function completeVerification(Components\CompleteBankAccountVerification $completeBankAccountVerification, string $accountID, string $bankAccountID, ?Options $options = null): Operations\CompleteBankAccountVerificationResponse
@@ -148,10 +148,10 @@ class BankAccounts
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/bank-accounts.write` scope.
      *
-     * @param  Components\CompleteMicroDeposits  $completeMicroDeposits
+     * @param  \Moov\MoovPhp\Models\Components\CompleteMicroDeposits  $completeMicroDeposits
      * @param  string  $accountID
      * @param  string  $bankAccountID
-     * @return Operations\CompleteMicroDepositsResponse
+     * @return \Moov\MoovPhp\Models\Operations\CompleteMicroDepositsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function completeMicroDeposits(Components\CompleteMicroDeposits $completeMicroDeposits, string $accountID, string $bankAccountID, ?Options $options = null): Operations\CompleteMicroDepositsResponse
@@ -251,7 +251,7 @@ class BankAccounts
      *
      * @param  string  $accountID
      * @param  string  $bankAccountID
-     * @return Operations\DisableBankAccountResponse
+     * @return \Moov\MoovPhp\Models\Operations\DisableBankAccountResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function disable(string $accountID, string $bankAccountID, ?Options $options = null): Operations\DisableBankAccountResponse
@@ -326,7 +326,7 @@ class BankAccounts
      *
      * @param  string  $accountID
      * @param  string  $bankAccountID
-     * @return Operations\GetBankAccountResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetBankAccountResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function get(string $accountID, string $bankAccountID, ?Options $options = null): Operations\GetBankAccountResponse
@@ -407,7 +407,7 @@ class BankAccounts
      *
      * @param  string  $accountID
      * @param  string  $bankAccountID
-     * @return Operations\GetBankAccountVerificationResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetBankAccountVerificationResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function getVerification(string $accountID, string $bankAccountID, ?Options $options = null): Operations\GetBankAccountVerificationResponse
@@ -494,8 +494,8 @@ class BankAccounts
      *
      * @param  string  $accountID
      * @param  string  $bankAccountID
-     * @param  ?Components\BankAccountWaitFor  $xWaitFor
-     * @return Operations\InitiateBankAccountVerificationResponse
+     * @param  ?\Moov\MoovPhp\Models\Components\BankAccountWaitFor  $xWaitFor
+     * @return \Moov\MoovPhp\Models\Operations\InitiateBankAccountVerificationResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function initiateVerification(string $accountID, string $bankAccountID, ?Components\BankAccountWaitFor $xWaitFor = null, ?Options $options = null): Operations\InitiateBankAccountVerificationResponse
@@ -594,7 +594,7 @@ class BankAccounts
      *
      * @param  string  $accountID
      * @param  string  $bankAccountID
-     * @return Operations\InitiateMicroDepositsResponse
+     * @return \Moov\MoovPhp\Models\Operations\InitiateMicroDepositsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function initiateMicroDeposits(string $accountID, string $bankAccountID, ?Options $options = null): Operations\InitiateMicroDepositsResponse
@@ -670,10 +670,10 @@ class BankAccounts
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/bank-accounts.write` scope.
      *
-     * @param  Components\BankAccountPayload|Components\PlaidPayload|Components\PlaidLinkPayload|Components\MxPayload  $linkBankAccount
+     * @param  \Moov\MoovPhp\Models\Components\BankAccountPayload|\Moov\MoovPhp\Models\Components\PlaidPayload|\Moov\MoovPhp\Models\Components\PlaidLinkPayload|\Moov\MoovPhp\Models\Components\MxPayload  $linkBankAccount
      * @param  string  $accountID
-     * @param  ?Components\BankAccountWaitFor  $xWaitFor
-     * @return Operations\LinkBankAccountResponse
+     * @param  ?\Moov\MoovPhp\Models\Components\BankAccountWaitFor  $xWaitFor
+     * @return \Moov\MoovPhp\Models\Operations\LinkBankAccountResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function link(Components\BankAccountPayload|Components\PlaidPayload|Components\PlaidLinkPayload|Components\MxPayload $linkBankAccount, string $accountID, ?Components\BankAccountWaitFor $xWaitFor = null, ?Options $options = null): Operations\LinkBankAccountResponse
@@ -778,7 +778,7 @@ class BankAccounts
      * you'll need to specify the `/accounts/{accountID}/bank-accounts.read` scope.
      *
      * @param  string  $accountID
-     * @return Operations\ListBankAccountsResponse
+     * @return \Moov\MoovPhp\Models\Operations\ListBankAccountsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function list(string $accountID, ?Options $options = null): Operations\ListBankAccountsResponse

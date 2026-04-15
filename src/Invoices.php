@@ -51,9 +51,9 @@ class Invoices
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
      * you'll need to specify the `/accounts/{accountID}/invoices.write` scope.
      *
-     * @param  Components\CreateInvoice  $createInvoice
+     * @param  \Moov\MoovPhp\Models\Components\CreateInvoice  $createInvoice
      * @param  string  $accountID
-     * @return Operations\CreateInvoiceResponse
+     * @return \Moov\MoovPhp\Models\Operations\CreateInvoiceResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function createInvoice(Components\CreateInvoice $createInvoice, string $accountID, ?Options $options = null): Operations\CreateInvoiceResponse
@@ -151,10 +151,10 @@ class Invoices
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
      * you'll need to specify the `/accounts/{accountID}/invoices.write` scope.
      *
-     * @param  Components\CreateInvoicePayment  $createInvoicePayment
+     * @param  \Moov\MoovPhp\Models\Components\CreateInvoicePayment  $createInvoicePayment
      * @param  string  $accountID
      * @param  string  $invoiceID
-     * @return Operations\CreateInvoicePaymentResponse
+     * @return \Moov\MoovPhp\Models\Operations\CreateInvoicePaymentResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function createInvoicePayment(Components\CreateInvoicePayment $createInvoicePayment, string $accountID, string $invoiceID, ?Options $options = null): Operations\CreateInvoicePaymentResponse
@@ -260,7 +260,7 @@ class Invoices
      *
      * @param  string  $accountID
      * @param  string  $invoiceID
-     * @return Operations\DeleteInvoiceResponse
+     * @return \Moov\MoovPhp\Models\Operations\DeleteInvoiceResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function delete(string $accountID, string $invoiceID, ?Options $options = null): Operations\DeleteInvoiceResponse
@@ -333,7 +333,7 @@ class Invoices
      *
      * @param  string  $accountID
      * @param  string  $invoiceID
-     * @return Operations\GetInvoiceResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetInvoiceResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function getInvoice(string $accountID, string $invoiceID, ?Options $options = null): Operations\GetInvoiceResponse
@@ -405,7 +405,7 @@ class Invoices
      *
      * @param  string  $accountID
      * @param  string  $invoiceID
-     * @return Operations\ListInvoicePaymentsResponse
+     * @return \Moov\MoovPhp\Models\Operations\ListInvoicePaymentsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function listInvoicePayments(string $accountID, string $invoiceID, ?Options $options = null): Operations\ListInvoicePaymentsResponse
@@ -475,8 +475,8 @@ class Invoices
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
      * you'll need to specify the `/accounts/{accountID}/invoices.read` scope.
      *
-     * @param  Operations\ListInvoicesRequest  $request
-     * @return Operations\ListInvoicesResponse
+     * @param  \Moov\MoovPhp\Models\Operations\ListInvoicesRequest  $request
+     * @return \Moov\MoovPhp\Models\Operations\ListInvoicesResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function listInvoices(Operations\ListInvoicesRequest $request, ?Options $options = null): Operations\ListInvoicesResponse
@@ -556,10 +556,10 @@ class Invoices
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
      * you'll need to specify the `/accounts/{accountID}/invoices.write` scope.
      *
-     * @param  Components\UpdateInvoice  $updateInvoice
+     * @param  \Moov\MoovPhp\Models\Components\UpdateInvoice  $updateInvoice
      * @param  string  $accountID
      * @param  string  $invoiceID
-     * @return Operations\UpdateInvoiceResponse
+     * @return \Moov\MoovPhp\Models\Operations\UpdateInvoiceResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function updateInvoice(Components\UpdateInvoice $updateInvoice, string $accountID, string $invoiceID, ?Options $options = null): Operations\UpdateInvoiceResponse

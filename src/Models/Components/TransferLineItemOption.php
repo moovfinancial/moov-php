@@ -31,7 +31,7 @@ class TransferLineItemOption
     /**
      * Optional price modification applied by this option. Can be positive, negative, or zero.
      *
-     * @var ?AmountDecimal $priceModifier
+     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimal $priceModifier
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('priceModifier')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
@@ -41,7 +41,7 @@ class TransferLineItemOption
     /**
      * Optional list of images associated with this line item option.
      *
-     * @var ?array<TransferLineItemImageMetadata> $images
+     * @var ?array<\Moov\MoovPhp\Models\Components\TransferLineItemImageMetadata> $images
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('images')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\TransferLineItemImageMetadata>|null')]
@@ -60,8 +60,8 @@ class TransferLineItemOption
     /**
      * @param  string  $name
      * @param  int  $quantity
-     * @param  ?AmountDecimal  $priceModifier
-     * @param  ?array<TransferLineItemImageMetadata>  $images
+     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimal  $priceModifier
+     * @param  ?array<\Moov\MoovPhp\Models\Components\TransferLineItemImageMetadata>  $images
      * @param  ?string  $group
      * @phpstan-pure
      */

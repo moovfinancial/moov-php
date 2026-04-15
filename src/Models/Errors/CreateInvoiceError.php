@@ -30,7 +30,7 @@ class CreateInvoiceError
 
     /**
      *
-     * @var ?Components\CreateInvoiceLineItemsValidationError $lineItems
+     * @var ?\Moov\MoovPhp\Models\Components\CreateInvoiceLineItemsValidationError $lineItems
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('lineItems')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateInvoiceLineItemsValidationError|null')]
@@ -55,7 +55,7 @@ class CreateInvoiceError
 
     /**
      *
-     * @var ?Components\AmountDecimalValidationError $taxAmount
+     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimalValidationError $taxAmount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('taxAmount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimalValidationError|null')]
@@ -65,10 +65,10 @@ class CreateInvoiceError
     /**
      * @param  ?string  $customerAccountID
      * @param  ?string  $description
-     * @param  ?Components\CreateInvoiceLineItemsValidationError  $lineItems
+     * @param  ?\Moov\MoovPhp\Models\Components\CreateInvoiceLineItemsValidationError  $lineItems
      * @param  ?string  $invoiceDate
      * @param  ?string  $dueDate
-     * @param  ?Components\AmountDecimalValidationError  $taxAmount
+     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimalValidationError  $taxAmount
      * @phpstan-pure
      */
     public function __construct(?string $customerAccountID = null, ?string $description = null, ?Components\CreateInvoiceLineItemsValidationError $lineItems = null, ?string $invoiceDate = null, ?string $dueDate = null, ?Components\AmountDecimalValidationError $taxAmount = null)

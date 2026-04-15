@@ -27,7 +27,7 @@ class CreateTransferSourceCard
      * Crucial for recurring and merchant-initiated transactions as per card scheme rules. 
      * Omit for customer-initiated e-commerce transactions.
      *
-     * @var ?TransactionSource $transactionSource
+     * @var ?\Moov\MoovPhp\Models\Components\TransactionSource $transactionSource
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('transactionSource')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransactionSource|null')]
@@ -36,7 +36,7 @@ class CreateTransferSourceCard
 
     /**
      * @param  ?string  $dynamicDescriptor
-     * @param  ?TransactionSource  $transactionSource
+     * @param  ?\Moov\MoovPhp\Models\Components\TransactionSource  $transactionSource
      * @phpstan-pure
      */
     public function __construct(?string $dynamicDescriptor = null, ?TransactionSource $transactionSource = null)

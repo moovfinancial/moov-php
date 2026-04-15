@@ -42,7 +42,7 @@ class ListConnectedAccountsForAccountResponse
     /**
      * The request completed successfully.
      *
-     * @var ?array<Components\Account> $accounts
+     * @var ?array<\Moov\MoovPhp\Models\Components\Account> $accounts
      */
     public ?array $accounts = null;
 
@@ -51,7 +51,7 @@ class ListConnectedAccountsForAccountResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?array<Components\Account>  $accounts
+     * @param  ?array<\Moov\MoovPhp\Models\Components\Account>  $accounts
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?array $accounts = null, ?array $headers = [])
