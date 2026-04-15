@@ -14,7 +14,7 @@ class UpdateTicket
 {
     /**
      *
-     * @var ?UpdateTicketStatus $status
+     * @var ?\Moov\MoovPhp\Models\Components\UpdateTicketStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\UpdateTicketStatus|null')]
@@ -22,7 +22,7 @@ class UpdateTicket
     public ?UpdateTicketStatus $status = null;
 
     /**
-     * @param  ?UpdateTicketStatus  $status
+     * @param  ?\Moov\MoovPhp\Models\Components\UpdateTicketStatus  $status
      * @phpstan-pure
      */
     public function __construct(?UpdateTicketStatus $status = null)

@@ -28,7 +28,7 @@ class UpdateTicketRequest
 
     /**
      *
-     * @var Components\UpdateTicket $updateTicket
+     * @var \Moov\MoovPhp\Models\Components\UpdateTicket $updateTicket
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\UpdateTicket $updateTicket;
@@ -36,7 +36,7 @@ class UpdateTicketRequest
     /**
      * @param  string  $accountID
      * @param  string  $ticketID
-     * @param  Components\UpdateTicket  $updateTicket
+     * @param  \Moov\MoovPhp\Models\Components\UpdateTicket  $updateTicket
      * @phpstan-pure
      */
     public function __construct(string $accountID, string $ticketID, Components\UpdateTicket $updateTicket)

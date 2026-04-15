@@ -22,14 +22,14 @@ class RequestCardRequest
 
     /**
      *
-     * @var Components\RequestCard $requestCard
+     * @var \Moov\MoovPhp\Models\Components\RequestCard $requestCard
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\RequestCard $requestCard;
 
     /**
      * @param  string  $accountID
-     * @param  Components\RequestCard  $requestCard
+     * @param  \Moov\MoovPhp\Models\Components\RequestCard  $requestCard
      * @phpstan-pure
      */
     public function __construct(string $accountID, Components\RequestCard $requestCard)

@@ -14,7 +14,7 @@ class FileUploadRequestMultiPart
     /**
      * The file to be added. Valid types are `csv`, `png`, `jpeg`, `pdf`.
      *
-     * @var FileUploadRequestMultiPartFile $file
+     * @var \Moov\MoovPhp\Models\Components\FileUploadRequestMultiPartFile $file
      */
     #[SpeakeasyMetadata('multipartForm:file=true,name=file')]
     public FileUploadRequestMultiPartFile $file;
@@ -22,7 +22,7 @@ class FileUploadRequestMultiPart
     /**
      * The purpose of the file being uploaded.
      *
-     * @var FilePurpose $filePurpose
+     * @var \Moov\MoovPhp\Models\Components\FilePurpose $filePurpose
      */
     #[SpeakeasyMetadata('multipartForm:name=filePurpose')]
     public FilePurpose $filePurpose;
@@ -39,8 +39,8 @@ class FileUploadRequestMultiPart
     public ?string $metadata = null;
 
     /**
-     * @param  FileUploadRequestMultiPartFile  $file
-     * @param  FilePurpose  $filePurpose
+     * @param  \Moov\MoovPhp\Models\Components\FileUploadRequestMultiPartFile  $file
+     * @param  \Moov\MoovPhp\Models\Components\FilePurpose  $filePurpose
      * @param  ?string  $metadata
      * @phpstan-pure
      */

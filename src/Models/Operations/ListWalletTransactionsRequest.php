@@ -43,7 +43,7 @@ class ListWalletTransactionsRequest
     /**
      * Optional parameter to filter by transaction type.
      *
-     * @var ?Components\WalletTransactionType $transactionType
+     * @var ?\Moov\MoovPhp\Models\Components\WalletTransactionType $transactionType
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=transactionType')]
     public ?Components\WalletTransactionType $transactionType = null;
@@ -51,7 +51,7 @@ class ListWalletTransactionsRequest
     /**
      * Optional, comma-separated parameter to filter by transaction types.
      *
-     * @var ?array<Components\WalletTransactionType> $transactionTypes
+     * @var ?array<\Moov\MoovPhp\Models\Components\WalletTransactionType> $transactionTypes
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=transactionTypes')]
     public ?array $transactionTypes = null;
@@ -59,7 +59,7 @@ class ListWalletTransactionsRequest
     /**
      * Optional parameter to filter by source type (i.e. transfer, dispute, issuing-transaction).
      *
-     * @var ?Components\WalletTransactionSourceType $sourceType
+     * @var ?\Moov\MoovPhp\Models\Components\WalletTransactionSourceType $sourceType
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=sourceType')]
     public ?Components\WalletTransactionSourceType $sourceType = null;
@@ -75,7 +75,7 @@ class ListWalletTransactionsRequest
     /**
      * Optional parameter to filter by status (`pending` or `completed`).
      *
-     * @var ?Components\WalletTransactionStatus $status
+     * @var ?\Moov\MoovPhp\Models\Components\WalletTransactionStatus $status
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=status')]
     public ?Components\WalletTransactionStatus $status = null;
@@ -125,11 +125,11 @@ class ListWalletTransactionsRequest
      * @param  string  $walletID
      * @param  ?int  $skip
      * @param  ?int  $count
-     * @param  ?Components\WalletTransactionType  $transactionType
-     * @param  ?array<Components\WalletTransactionType>  $transactionTypes
-     * @param  ?Components\WalletTransactionSourceType  $sourceType
+     * @param  ?\Moov\MoovPhp\Models\Components\WalletTransactionType  $transactionType
+     * @param  ?array<\Moov\MoovPhp\Models\Components\WalletTransactionType>  $transactionTypes
+     * @param  ?\Moov\MoovPhp\Models\Components\WalletTransactionSourceType  $sourceType
      * @param  ?string  $sourceID
-     * @param  ?Components\WalletTransactionStatus  $status
+     * @param  ?\Moov\MoovPhp\Models\Components\WalletTransactionStatus  $status
      * @param  ?\DateTime  $createdStartDateTime
      * @param  ?\DateTime  $createdEndDateTime
      * @param  ?\DateTime  $completedStartDateTime

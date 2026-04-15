@@ -42,7 +42,7 @@ class ListWebhooksResponse
     /**
      * The request completed successfully.
      *
-     * @var ?array<Components\Webhook> $webhooks
+     * @var ?array<\Moov\MoovPhp\Models\Components\Webhook> $webhooks
      */
     public ?array $webhooks = null;
 
@@ -51,7 +51,7 @@ class ListWebhooksResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?array<Components\Webhook>  $webhooks
+     * @param  ?array<\Moov\MoovPhp\Models\Components\Webhook>  $webhooks
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?array $webhooks = null, ?array $headers = [])

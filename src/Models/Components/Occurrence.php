@@ -44,7 +44,7 @@ class Occurrence
     /**
      * Defines the attributes of a transfer.
      *
-     * @var ?CreateRunTransfer $runTransfer
+     * @var ?\Moov\MoovPhp\Models\Components\CreateRunTransfer $runTransfer
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('runTransfer')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateRunTransfer|null')]
@@ -55,7 +55,7 @@ class Occurrence
      * @param  ?bool  $canceled
      * @param  ?string  $occurrenceID
      * @param  ?\DateTime  $runOn
-     * @param  ?CreateRunTransfer  $runTransfer
+     * @param  ?\Moov\MoovPhp\Models\Components\CreateRunTransfer  $runTransfer
      * @phpstan-pure
      */
     public function __construct(?bool $canceled = null, ?string $occurrenceID = null, ?\DateTime $runOn = null, ?CreateRunTransfer $runTransfer = null)

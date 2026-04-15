@@ -15,7 +15,7 @@ class TransferTerminalCard
     /**
      * How the card information was entered into the point of sale terminal.
      *
-     * @var ?TransferEntryMode $entryMode
+     * @var ?\Moov\MoovPhp\Models\Components\TransferEntryMode $entryMode
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('entryMode')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferEntryMode|null')]
@@ -25,7 +25,7 @@ class TransferTerminalCard
     /**
      * The card brand.
      *
-     * @var ?CardBrand $brand
+     * @var ?\Moov\MoovPhp\Models\Components\CardBrand $brand
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('brand')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardBrand|null')]
@@ -43,7 +43,7 @@ class TransferTerminalCard
     /**
      * The type of the card.
      *
-     * @var ?CardType $cardType
+     * @var ?\Moov\MoovPhp\Models\Components\CardType $cardType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardType|null')]
@@ -53,7 +53,7 @@ class TransferTerminalCard
     /**
      * The expiration date of the card or token.
      *
-     * @var ?CardExpiration $expiration
+     * @var ?\Moov\MoovPhp\Models\Components\CardExpiration $expiration
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('expiration')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardExpiration|null')]
@@ -127,11 +127,11 @@ class TransferTerminalCard
     public ?string $applicationName = null;
 
     /**
-     * @param  ?TransferEntryMode  $entryMode
-     * @param  ?CardBrand  $brand
+     * @param  ?\Moov\MoovPhp\Models\Components\TransferEntryMode  $entryMode
+     * @param  ?\Moov\MoovPhp\Models\Components\CardBrand  $brand
      * @param  ?string  $bin
-     * @param  ?CardType  $cardType
-     * @param  ?CardExpiration  $expiration
+     * @param  ?\Moov\MoovPhp\Models\Components\CardType  $cardType
+     * @param  ?\Moov\MoovPhp\Models\Components\CardExpiration  $expiration
      * @param  ?string  $fingerprint
      * @param  ?string  $holderName
      * @param  ?string  $issuer

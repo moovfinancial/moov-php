@@ -28,7 +28,7 @@ class UploadDisputeEvidenceFileRequest
 
     /**
      *
-     * @var Components\CreateEvidenceFileMultiPart $createEvidenceFileMultiPart
+     * @var \Moov\MoovPhp\Models\Components\CreateEvidenceFileMultiPart $createEvidenceFileMultiPart
      */
     #[SpeakeasyMetadata('request:mediaType=multipart/form-data')]
     public Components\CreateEvidenceFileMultiPart $createEvidenceFileMultiPart;
@@ -36,7 +36,7 @@ class UploadDisputeEvidenceFileRequest
     /**
      * @param  string  $accountID
      * @param  string  $disputeID
-     * @param  Components\CreateEvidenceFileMultiPart  $createEvidenceFileMultiPart
+     * @param  \Moov\MoovPhp\Models\Components\CreateEvidenceFileMultiPart  $createEvidenceFileMultiPart
      * @phpstan-pure
      */
     public function __construct(string $accountID, string $disputeID, Components\CreateEvidenceFileMultiPart $createEvidenceFileMultiPart)

@@ -28,7 +28,7 @@ class WireInstitution
 
     /**
      *
-     * @var WireServices $services
+     * @var \Moov\MoovPhp\Models\Components\WireServices $services
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('services')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\WireServices')]
@@ -36,7 +36,7 @@ class WireInstitution
 
     /**
      *
-     * @var ?Address $address
+     * @var ?\Moov\MoovPhp\Models\Components\Address $address
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('address')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Address|null')]
@@ -46,8 +46,8 @@ class WireInstitution
     /**
      * @param  string  $name
      * @param  string  $routingNumber
-     * @param  WireServices  $services
-     * @param  ?Address  $address
+     * @param  \Moov\MoovPhp\Models\Components\WireServices  $services
+     * @param  ?\Moov\MoovPhp\Models\Components\Address  $address
      * @phpstan-pure
      */
     public function __construct(string $name, string $routingNumber, WireServices $services, ?Address $address = null)

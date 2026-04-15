@@ -13,7 +13,7 @@ class CollectFunds
 {
     /**
      *
-     * @var ?CollectFundsAch $ach
+     * @var ?\Moov\MoovPhp\Models\Components\CollectFundsAch $ach
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('ach')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CollectFundsAch|null')]
@@ -22,7 +22,7 @@ class CollectFunds
 
     /**
      *
-     * @var ?CollectFundsCardPayments $cardPayments
+     * @var ?\Moov\MoovPhp\Models\Components\CollectFundsCardPayments $cardPayments
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardPayments')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CollectFundsCardPayments|null')]
@@ -30,8 +30,8 @@ class CollectFunds
     public ?CollectFundsCardPayments $cardPayments = null;
 
     /**
-     * @param  ?CollectFundsAch  $ach
-     * @param  ?CollectFundsCardPayments  $cardPayments
+     * @param  ?\Moov\MoovPhp\Models\Components\CollectFundsAch  $ach
+     * @param  ?\Moov\MoovPhp\Models\Components\CollectFundsCardPayments  $cardPayments
      * @phpstan-pure
      */
     public function __construct(?CollectFundsAch $ach = null, ?CollectFundsCardPayments $cardPayments = null)

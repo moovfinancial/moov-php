@@ -51,9 +51,9 @@ class Sweeps
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/wallets.write` scope.
      *
-     * @param  Components\CreateSweepConfig  $createSweepConfig
+     * @param  \Moov\MoovPhp\Models\Components\CreateSweepConfig  $createSweepConfig
      * @param  string  $accountID
-     * @return Operations\CreateSweepConfigResponse
+     * @return \Moov\MoovPhp\Models\Operations\CreateSweepConfigResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function createConfig(Components\CreateSweepConfig $createSweepConfig, string $accountID, ?Options $options = null): Operations\CreateSweepConfigResponse
@@ -153,7 +153,7 @@ class Sweeps
      * @param  string  $accountID
      * @param  string  $walletID
      * @param  string  $sweepID
-     * @return Operations\GetSweepResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetSweepResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function get(string $accountID, string $walletID, string $sweepID, ?Options $options = null): Operations\GetSweepResponse
@@ -226,7 +226,7 @@ class Sweeps
      *
      * @param  string  $accountID
      * @param  string  $sweepConfigID
-     * @return Operations\GetSweepConfigResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetSweepConfigResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function getConfig(string $accountID, string $sweepConfigID, ?Options $options = null): Operations\GetSweepConfigResponse
@@ -297,7 +297,7 @@ class Sweeps
      * you'll need to specify the `/accounts/{accountID}/wallets.read` scope.
      *
      * @param  string  $accountID
-     * @return Operations\ListSweepConfigsResponse
+     * @return \Moov\MoovPhp\Models\Operations\ListSweepConfigsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function listConfigs(string $accountID, ?Options $options = null): Operations\ListSweepConfigsResponse
@@ -366,8 +366,8 @@ class Sweeps
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/wallets.read` scope.
      *
-     * @param  Operations\ListSweepsRequest  $request
-     * @return Operations\ListSweepsResponse
+     * @param  \Moov\MoovPhp\Models\Operations\ListSweepsRequest  $request
+     * @return \Moov\MoovPhp\Models\Operations\ListSweepsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function list(Operations\ListSweepsRequest $request, ?Options $options = null): Operations\ListSweepsResponse
@@ -436,10 +436,10 @@ class Sweeps
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
      * you'll need to specify the `/accounts/{accountID}/wallets.write` scope.
      *
-     * @param  Components\PatchSweepConfig  $patchSweepConfig
+     * @param  \Moov\MoovPhp\Models\Components\PatchSweepConfig  $patchSweepConfig
      * @param  string  $accountID
      * @param  string  $sweepConfigID
-     * @return Operations\UpdateSweepConfigResponse
+     * @return \Moov\MoovPhp\Models\Operations\UpdateSweepConfigResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function updateConfig(Components\PatchSweepConfig $patchSweepConfig, string $accountID, string $sweepConfigID, ?Options $options = null): Operations\UpdateSweepConfigResponse

@@ -25,7 +25,7 @@ class Recur
     /**
      * Defines the attributes of a transfer.
      *
-     * @var CreateRunTransfer $runTransfer
+     * @var \Moov\MoovPhp\Models\Components\CreateRunTransfer $runTransfer
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('runTransfer')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateRunTransfer')]
@@ -50,7 +50,7 @@ class Recur
 
     /**
      * @param  string  $recurrenceRule
-     * @param  CreateRunTransfer  $runTransfer
+     * @param  \Moov\MoovPhp\Models\Components\CreateRunTransfer  $runTransfer
      * @param  ?bool  $indefinite
      * @param  ?\DateTime  $start
      * @phpstan-pure

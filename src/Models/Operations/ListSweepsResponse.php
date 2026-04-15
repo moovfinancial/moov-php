@@ -42,7 +42,7 @@ class ListSweepsResponse
     /**
      * The request completed successfully.
      *
-     * @var ?array<Components\Sweep> $sweeps
+     * @var ?array<\Moov\MoovPhp\Models\Components\Sweep> $sweeps
      */
     public ?array $sweeps = null;
 
@@ -51,7 +51,7 @@ class ListSweepsResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?array<Components\Sweep>  $sweeps
+     * @param  ?array<\Moov\MoovPhp\Models\Components\Sweep>  $sweeps
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?array $sweeps = null, ?array $headers = [])

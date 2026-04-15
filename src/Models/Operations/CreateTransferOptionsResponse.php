@@ -42,7 +42,7 @@ class CreateTransferOptionsResponse
     /**
      * The request completed successfully.
      *
-     * @var ?Components\TransferOptions $transferOptions
+     * @var ?\Moov\MoovPhp\Models\Components\TransferOptions $transferOptions
      */
     public ?Components\TransferOptions $transferOptions = null;
 
@@ -51,7 +51,7 @@ class CreateTransferOptionsResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\TransferOptions  $transferOptions
+     * @param  ?\Moov\MoovPhp\Models\Components\TransferOptions  $transferOptions
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\TransferOptions $transferOptions = null, ?array $headers = [])

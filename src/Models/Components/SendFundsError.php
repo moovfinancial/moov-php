@@ -13,7 +13,7 @@ class SendFundsError
 {
     /**
      *
-     * @var ?SendFundsAchError $ach
+     * @var ?\Moov\MoovPhp\Models\Components\SendFundsAchError $ach
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('ach')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\SendFundsAchError|null')]
@@ -22,7 +22,7 @@ class SendFundsError
 
     /**
      *
-     * @var ?SendFundsPushToCardError $pushToCard
+     * @var ?\Moov\MoovPhp\Models\Components\SendFundsPushToCardError $pushToCard
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('pushToCard')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\SendFundsPushToCardError|null')]
@@ -31,7 +31,7 @@ class SendFundsError
 
     /**
      *
-     * @var ?SendFundsRtpError $rtp
+     * @var ?\Moov\MoovPhp\Models\Components\SendFundsRtpError $rtp
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('rtp')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\SendFundsRtpError|null')]
@@ -40,7 +40,7 @@ class SendFundsError
 
     /**
      *
-     * @var ?SendFundsInstantBankError $instantBank
+     * @var ?\Moov\MoovPhp\Models\Components\SendFundsInstantBankError $instantBank
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('instantBank')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\SendFundsInstantBankError|null')]
@@ -48,10 +48,10 @@ class SendFundsError
     public ?SendFundsInstantBankError $instantBank = null;
 
     /**
-     * @param  ?SendFundsAchError  $ach
-     * @param  ?SendFundsPushToCardError  $pushToCard
-     * @param  ?SendFundsRtpError  $rtp
-     * @param  ?SendFundsInstantBankError  $instantBank
+     * @param  ?\Moov\MoovPhp\Models\Components\SendFundsAchError  $ach
+     * @param  ?\Moov\MoovPhp\Models\Components\SendFundsPushToCardError  $pushToCard
+     * @param  ?\Moov\MoovPhp\Models\Components\SendFundsRtpError  $rtp
+     * @param  ?\Moov\MoovPhp\Models\Components\SendFundsInstantBankError  $instantBank
      * @phpstan-pure
      */
     public function __construct(?SendFundsAchError $ach = null, ?SendFundsPushToCardError $pushToCard = null, ?SendFundsRtpError $rtp = null, ?SendFundsInstantBankError $instantBank = null)

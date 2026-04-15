@@ -52,7 +52,7 @@ class Adjustments
      *
      * @param  string  $accountID
      * @param  string  $adjustmentID
-     * @return Operations\GetAdjustmentResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetAdjustmentResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function get(string $accountID, string $adjustmentID, ?Options $options = null): Operations\GetAdjustmentResponse
@@ -124,7 +124,7 @@ class Adjustments
      *
      * @param  string  $accountID
      * @param  ?string  $walletID
-     * @return Operations\ListAdjustmentsResponse
+     * @return \Moov\MoovPhp\Models\Operations\ListAdjustmentsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function list(string $accountID, ?string $walletID = null, ?Options $options = null): Operations\ListAdjustmentsResponse

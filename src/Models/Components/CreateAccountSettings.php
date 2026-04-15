@@ -13,7 +13,7 @@ class CreateAccountSettings
 {
     /**
      *
-     * @var ?CardPayment $cardPayment
+     * @var ?\Moov\MoovPhp\Models\Components\CardPayment $cardPayment
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardPayment')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardPayment|null')]
@@ -22,7 +22,7 @@ class CreateAccountSettings
 
     /**
      *
-     * @var ?AchPayment $achPayment
+     * @var ?\Moov\MoovPhp\Models\Components\AchPayment $achPayment
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('achPayment')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AchPayment|null')]
@@ -30,8 +30,8 @@ class CreateAccountSettings
     public ?AchPayment $achPayment = null;
 
     /**
-     * @param  ?CardPayment  $cardPayment
-     * @param  ?AchPayment  $achPayment
+     * @param  ?\Moov\MoovPhp\Models\Components\CardPayment  $cardPayment
+     * @param  ?\Moov\MoovPhp\Models\Components\AchPayment  $achPayment
      * @phpstan-pure
      */
     public function __construct(?CardPayment $cardPayment = null, ?AchPayment $achPayment = null)

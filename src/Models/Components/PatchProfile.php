@@ -19,7 +19,7 @@ class PatchProfile
     /**
      * Describes the fields available when patching an individual.
      *
-     * @var ?PatchIndividual $individual
+     * @var ?\Moov\MoovPhp\Models\Components\PatchIndividual $individual
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('individual')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PatchIndividual|null')]
@@ -28,7 +28,7 @@ class PatchProfile
 
     /**
      *
-     * @var ?PatchBusiness $business
+     * @var ?\Moov\MoovPhp\Models\Components\PatchBusiness $business
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('business')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PatchBusiness|null')]
@@ -36,8 +36,8 @@ class PatchProfile
     public ?PatchBusiness $business = null;
 
     /**
-     * @param  ?PatchIndividual  $individual
-     * @param  ?PatchBusiness  $business
+     * @param  ?\Moov\MoovPhp\Models\Components\PatchIndividual  $individual
+     * @param  ?\Moov\MoovPhp\Models\Components\PatchBusiness  $business
      * @phpstan-pure
      */
     public function __construct(?PatchIndividual $individual = null, ?PatchBusiness $business = null)

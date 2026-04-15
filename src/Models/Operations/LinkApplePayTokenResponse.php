@@ -42,7 +42,7 @@ class LinkApplePayTokenResponse
     /**
      * The request completed successfully.
      *
-     * @var ?Components\LinkedApplePayPaymentMethod $linkedApplePayPaymentMethod
+     * @var ?\Moov\MoovPhp\Models\Components\LinkedApplePayPaymentMethod $linkedApplePayPaymentMethod
      */
     public ?Components\LinkedApplePayPaymentMethod $linkedApplePayPaymentMethod = null;
 
@@ -51,7 +51,7 @@ class LinkApplePayTokenResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\LinkedApplePayPaymentMethod  $linkedApplePayPaymentMethod
+     * @param  ?\Moov\MoovPhp\Models\Components\LinkedApplePayPaymentMethod  $linkedApplePayPaymentMethod
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\LinkedApplePayPaymentMethod $linkedApplePayPaymentMethod = null, ?array $headers = [])

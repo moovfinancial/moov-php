@@ -28,7 +28,7 @@ class CreateAuthorizedUser
 
     /**
      *
-     * @var ?BirthDate $birthDate
+     * @var ?\Moov\MoovPhp\Models\Components\BirthDate $birthDate
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('birthDate')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BirthDate|null')]
@@ -38,7 +38,7 @@ class CreateAuthorizedUser
     /**
      * @param  string  $firstName
      * @param  string  $lastName
-     * @param  ?BirthDate  $birthDate
+     * @param  ?\Moov\MoovPhp\Models\Components\BirthDate  $birthDate
      * @phpstan-pure
      */
     public function __construct(string $firstName, string $lastName, ?BirthDate $birthDate = null)

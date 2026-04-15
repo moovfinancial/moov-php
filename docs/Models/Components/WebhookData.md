@@ -9,7 +9,7 @@ The data for the webhook event. The contents are based on the event type.
 
 ```php
 /**
-* @var Components\WebhookDataAccountCreated
+* @var \Moov\MoovPhp\Models\Components\WebhookDataAccountCreated
 */
 Components\WebhookDataAccountCreated $value = /* values here */
 ```
@@ -18,7 +18,7 @@ Components\WebhookDataAccountCreated $value = /* values here */
 
 ```php
 /**
-* @var Components\WebhookDataAccountUpdated
+* @var \Moov\MoovPhp\Models\Components\WebhookDataAccountUpdated
 */
 Components\WebhookDataAccountUpdated $value = /* values here */
 ```
@@ -27,7 +27,7 @@ Components\WebhookDataAccountUpdated $value = /* values here */
 
 ```php
 /**
-* @var Components\WebhookDataAccountDisconnected
+* @var \Moov\MoovPhp\Models\Components\WebhookDataAccountDisconnected
 */
 Components\WebhookDataAccountDisconnected $value = /* values here */
 ```
@@ -36,7 +36,7 @@ Components\WebhookDataAccountDisconnected $value = /* values here */
 
 ```php
 /**
-* @var Components\WebhookDataBalanceUpdated
+* @var \Moov\MoovPhp\Models\Components\WebhookDataBalanceUpdated
 */
 Components\WebhookDataBalanceUpdated $value = /* values here */
 ```
@@ -45,7 +45,7 @@ Components\WebhookDataBalanceUpdated $value = /* values here */
 
 ```php
 /**
-* @var Components\WebhookDataBankAccountCreated
+* @var \Moov\MoovPhp\Models\Components\WebhookDataBankAccountCreated
 */
 Components\WebhookDataBankAccountCreated $value = /* values here */
 ```
@@ -54,7 +54,7 @@ Components\WebhookDataBankAccountCreated $value = /* values here */
 
 ```php
 /**
-* @var Components\WebhookDataBankAccountUpdated
+* @var \Moov\MoovPhp\Models\Components\WebhookDataBankAccountUpdated
 */
 Components\WebhookDataBankAccountUpdated $value = /* values here */
 ```
@@ -63,7 +63,7 @@ Components\WebhookDataBankAccountUpdated $value = /* values here */
 
 ```php
 /**
-* @var Components\WebhookDataBankAccountDeleted
+* @var \Moov\MoovPhp\Models\Components\WebhookDataBankAccountDeleted
 */
 Components\WebhookDataBankAccountDeleted $value = /* values here */
 ```
@@ -72,7 +72,7 @@ Components\WebhookDataBankAccountDeleted $value = /* values here */
 
 ```php
 /**
-* @var Components\WebhookDataCancellationCreated
+* @var \Moov\MoovPhp\Models\Components\WebhookDataCancellationCreated
 */
 Components\WebhookDataCancellationCreated $value = /* values here */
 ```
@@ -81,7 +81,7 @@ Components\WebhookDataCancellationCreated $value = /* values here */
 
 ```php
 /**
-* @var Components\WebhookDataCancellationUpdated
+* @var \Moov\MoovPhp\Models\Components\WebhookDataCancellationUpdated
 */
 Components\WebhookDataCancellationUpdated $value = /* values here */
 ```
@@ -90,7 +90,7 @@ Components\WebhookDataCancellationUpdated $value = /* values here */
 
 ```php
 /**
-* @var Components\WebhookDataCardAutoUpdated
+* @var \Moov\MoovPhp\Models\Components\WebhookDataCardAutoUpdated
 */
 Components\WebhookDataCardAutoUpdated $value = /* values here */
 ```
@@ -99,7 +99,7 @@ Components\WebhookDataCardAutoUpdated $value = /* values here */
 
 ```php
 /**
-* @var Components\WebhookDataCapabilityRequested
+* @var \Moov\MoovPhp\Models\Components\WebhookDataCapabilityRequested
 */
 Components\WebhookDataCapabilityRequested $value = /* values here */
 ```
@@ -108,7 +108,7 @@ Components\WebhookDataCapabilityRequested $value = /* values here */
 
 ```php
 /**
-* @var Components\WebhookDataCapabilityUpdated
+* @var \Moov\MoovPhp\Models\Components\WebhookDataCapabilityUpdated
 */
 Components\WebhookDataCapabilityUpdated $value = /* values here */
 ```
@@ -117,7 +117,7 @@ Components\WebhookDataCapabilityUpdated $value = /* values here */
 
 ```php
 /**
-* @var Components\WebhookDataDisputeCreated
+* @var \Moov\MoovPhp\Models\Components\WebhookDataDisputeCreated
 */
 Components\WebhookDataDisputeCreated $value = /* values here */
 ```
@@ -126,7 +126,7 @@ Components\WebhookDataDisputeCreated $value = /* values here */
 
 ```php
 /**
-* @var Components\WebhookDataDisputeUpdated
+* @var \Moov\MoovPhp\Models\Components\WebhookDataDisputeUpdated
 */
 Components\WebhookDataDisputeUpdated $value = /* values here */
 ```
@@ -135,7 +135,7 @@ Components\WebhookDataDisputeUpdated $value = /* values here */
 
 ```php
 /**
-* @var Components\WebhookDataInvoiceCreated
+* @var \Moov\MoovPhp\Models\Components\WebhookDataInvoiceCreated
 */
 Components\WebhookDataInvoiceCreated $value = /* values here */
 ```
@@ -144,7 +144,7 @@ Components\WebhookDataInvoiceCreated $value = /* values here */
 
 ```php
 /**
-* @var Components\WebhookDataInvoiceUpdated
+* @var \Moov\MoovPhp\Models\Components\WebhookDataInvoiceUpdated
 */
 Components\WebhookDataInvoiceUpdated $value = /* values here */
 ```
@@ -153,7 +153,7 @@ Components\WebhookDataInvoiceUpdated $value = /* values here */
 
 ```php
 /**
-* @var Components\WebhookDataNetworkIDUpdated
+* @var \Moov\MoovPhp\Models\Components\WebhookDataNetworkIDUpdated
 */
 Components\WebhookDataNetworkIDUpdated $value = /* values here */
 ```
@@ -162,7 +162,7 @@ Components\WebhookDataNetworkIDUpdated $value = /* values here */
 
 ```php
 /**
-* @var Components\WebhookDataPaymentMethodEnabled
+* @var \Moov\MoovPhp\Models\Components\WebhookDataPaymentMethodEnabled
 */
 Components\WebhookDataPaymentMethodEnabled $value = /* values here */
 ```
@@ -171,7 +171,7 @@ Components\WebhookDataPaymentMethodEnabled $value = /* values here */
 
 ```php
 /**
-* @var Components\WebhookDataPaymentMethodDisabled
+* @var \Moov\MoovPhp\Models\Components\WebhookDataPaymentMethodDisabled
 */
 Components\WebhookDataPaymentMethodDisabled $value = /* values here */
 ```
@@ -180,7 +180,7 @@ Components\WebhookDataPaymentMethodDisabled $value = /* values here */
 
 ```php
 /**
-* @var Components\WebhookDataRefundCreated
+* @var \Moov\MoovPhp\Models\Components\WebhookDataRefundCreated
 */
 Components\WebhookDataRefundCreated $value = /* values here */
 ```
@@ -189,7 +189,7 @@ Components\WebhookDataRefundCreated $value = /* values here */
 
 ```php
 /**
-* @var Components\WebhookDataRefundUpdated
+* @var \Moov\MoovPhp\Models\Components\WebhookDataRefundUpdated
 */
 Components\WebhookDataRefundUpdated $value = /* values here */
 ```
@@ -198,7 +198,7 @@ Components\WebhookDataRefundUpdated $value = /* values here */
 
 ```php
 /**
-* @var Components\WebhookDataRepresentativeCreated
+* @var \Moov\MoovPhp\Models\Components\WebhookDataRepresentativeCreated
 */
 Components\WebhookDataRepresentativeCreated $value = /* values here */
 ```
@@ -207,7 +207,7 @@ Components\WebhookDataRepresentativeCreated $value = /* values here */
 
 ```php
 /**
-* @var Components\WebhookDataRepresentativeUpdated
+* @var \Moov\MoovPhp\Models\Components\WebhookDataRepresentativeUpdated
 */
 Components\WebhookDataRepresentativeUpdated $value = /* values here */
 ```
@@ -216,7 +216,7 @@ Components\WebhookDataRepresentativeUpdated $value = /* values here */
 
 ```php
 /**
-* @var Components\WebhookDataRepresentativeDisabled
+* @var \Moov\MoovPhp\Models\Components\WebhookDataRepresentativeDisabled
 */
 Components\WebhookDataRepresentativeDisabled $value = /* values here */
 ```
@@ -225,7 +225,7 @@ Components\WebhookDataRepresentativeDisabled $value = /* values here */
 
 ```php
 /**
-* @var Components\WebhookDataSweepCreated
+* @var \Moov\MoovPhp\Models\Components\WebhookDataSweepCreated
 */
 Components\WebhookDataSweepCreated $value = /* values here */
 ```
@@ -234,7 +234,7 @@ Components\WebhookDataSweepCreated $value = /* values here */
 
 ```php
 /**
-* @var Components\WebhookDataSweepUpdated
+* @var \Moov\MoovPhp\Models\Components\WebhookDataSweepUpdated
 */
 Components\WebhookDataSweepUpdated $value = /* values here */
 ```
@@ -243,7 +243,7 @@ Components\WebhookDataSweepUpdated $value = /* values here */
 
 ```php
 /**
-* @var Components\WebhookDataTerminalApplicationCreated
+* @var \Moov\MoovPhp\Models\Components\WebhookDataTerminalApplicationCreated
 */
 Components\WebhookDataTerminalApplicationCreated $value = /* values here */
 ```
@@ -252,7 +252,7 @@ Components\WebhookDataTerminalApplicationCreated $value = /* values here */
 
 ```php
 /**
-* @var Components\WebhookDataTerminalApplicationUpdated
+* @var \Moov\MoovPhp\Models\Components\WebhookDataTerminalApplicationUpdated
 */
 Components\WebhookDataTerminalApplicationUpdated $value = /* values here */
 ```
@@ -261,7 +261,7 @@ Components\WebhookDataTerminalApplicationUpdated $value = /* values here */
 
 ```php
 /**
-* @var Components\WebhookDataTicketCreated
+* @var \Moov\MoovPhp\Models\Components\WebhookDataTicketCreated
 */
 Components\WebhookDataTicketCreated $value = /* values here */
 ```
@@ -270,7 +270,7 @@ Components\WebhookDataTicketCreated $value = /* values here */
 
 ```php
 /**
-* @var Components\WebhookDataTicketUpdated
+* @var \Moov\MoovPhp\Models\Components\WebhookDataTicketUpdated
 */
 Components\WebhookDataTicketUpdated $value = /* values here */
 ```
@@ -279,7 +279,7 @@ Components\WebhookDataTicketUpdated $value = /* values here */
 
 ```php
 /**
-* @var Components\WebhookDataTicketMessageAdded
+* @var \Moov\MoovPhp\Models\Components\WebhookDataTicketMessageAdded
 */
 Components\WebhookDataTicketMessageAdded $value = /* values here */
 ```
@@ -288,7 +288,7 @@ Components\WebhookDataTicketMessageAdded $value = /* values here */
 
 ```php
 /**
-* @var Components\WebhookDataTransferCreated
+* @var \Moov\MoovPhp\Models\Components\WebhookDataTransferCreated
 */
 Components\WebhookDataTransferCreated $value = /* values here */
 ```
@@ -297,7 +297,7 @@ Components\WebhookDataTransferCreated $value = /* values here */
 
 ```php
 /**
-* @var Components\WebhookDataTransferUpdated
+* @var \Moov\MoovPhp\Models\Components\WebhookDataTransferUpdated
 */
 Components\WebhookDataTransferUpdated $value = /* values here */
 ```
@@ -306,7 +306,7 @@ Components\WebhookDataTransferUpdated $value = /* values here */
 
 ```php
 /**
-* @var Components\WebhookDataWalletCreated
+* @var \Moov\MoovPhp\Models\Components\WebhookDataWalletCreated
 */
 Components\WebhookDataWalletCreated $value = /* values here */
 ```
@@ -315,7 +315,7 @@ Components\WebhookDataWalletCreated $value = /* values here */
 
 ```php
 /**
-* @var Components\WebhookDataWalletUpdated
+* @var \Moov\MoovPhp\Models\Components\WebhookDataWalletUpdated
 */
 Components\WebhookDataWalletUpdated $value = /* values here */
 ```
@@ -324,7 +324,7 @@ Components\WebhookDataWalletUpdated $value = /* values here */
 
 ```php
 /**
-* @var Components\WebhookDataWalletTransactionUpdated
+* @var \Moov\MoovPhp\Models\Components\WebhookDataWalletTransactionUpdated
 */
 Components\WebhookDataWalletTransactionUpdated $value = /* values here */
 ```
@@ -333,7 +333,7 @@ Components\WebhookDataWalletTransactionUpdated $value = /* values here */
 
 ```php
 /**
-* @var Components\WebhookBillingStatementCreated
+* @var \Moov\MoovPhp\Models\Components\WebhookBillingStatementCreated
 */
 Components\WebhookBillingStatementCreated $value = /* values here */
 ```

@@ -28,7 +28,7 @@ class WebhookDataTransferCreated
 
     /**
      *
-     * @var WebhookDataTransferStatus $status
+     * @var \Moov\MoovPhp\Models\Components\WebhookDataTransferStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\WebhookDataTransferStatus')]
@@ -45,7 +45,7 @@ class WebhookDataTransferCreated
     /**
      * @param  string  $accountID
      * @param  string  $transferID
-     * @param  WebhookDataTransferStatus  $status
+     * @param  \Moov\MoovPhp\Models\Components\WebhookDataTransferStatus  $status
      * @param  ?string  $foreignID
      * @phpstan-pure
      */

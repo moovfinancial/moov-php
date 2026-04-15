@@ -29,7 +29,7 @@ class UpdateTransferRequest
 
     /**
      *
-     * @var Components\PatchTransfer $patchTransfer
+     * @var \Moov\MoovPhp\Models\Components\PatchTransfer $patchTransfer
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\PatchTransfer $patchTransfer;
@@ -37,7 +37,7 @@ class UpdateTransferRequest
     /**
      * @param  string  $transferID
      * @param  string  $accountID
-     * @param  Components\PatchTransfer  $patchTransfer
+     * @param  \Moov\MoovPhp\Models\Components\PatchTransfer  $patchTransfer
      * @phpstan-pure
      */
     public function __construct(string $transferID, string $accountID, Components\PatchTransfer $patchTransfer)

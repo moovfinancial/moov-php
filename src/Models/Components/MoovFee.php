@@ -23,7 +23,7 @@ class MoovFee
     /**
      * Indicates whether the account charged was the partner, source, or destination of the transfer.
      *
-     * @var TransferParty $transferParty
+     * @var \Moov\MoovPhp\Models\Components\TransferParty $transferParty
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('transferParty')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferParty')]
@@ -32,7 +32,7 @@ class MoovFee
     /**
      * The total amount of fees charged to the account.
      *
-     * @var AmountDecimal $totalAmount
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $totalAmount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('totalAmount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
@@ -49,8 +49,8 @@ class MoovFee
 
     /**
      * @param  string  $accountID
-     * @param  TransferParty  $transferParty
-     * @param  AmountDecimal  $totalAmount
+     * @param  \Moov\MoovPhp\Models\Components\TransferParty  $transferParty
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $totalAmount
      * @param  array<string>  $feeIDs
      * @phpstan-pure
      */

@@ -20,7 +20,7 @@ class Cancellation
 
     /**
      *
-     * @var CancellationStatus $status
+     * @var \Moov\MoovPhp\Models\Components\CancellationStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CancellationStatus')]
@@ -35,7 +35,7 @@ class Cancellation
 
     /**
      * @param  string  $cancellationID
-     * @param  CancellationStatus  $status
+     * @param  \Moov\MoovPhp\Models\Components\CancellationStatus  $status
      * @param  \DateTime  $createdOn
      * @phpstan-pure
      */

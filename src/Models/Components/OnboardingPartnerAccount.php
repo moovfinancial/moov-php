@@ -23,7 +23,7 @@ class OnboardingPartnerAccount
     /**
      * The operating mode for an account.
      *
-     * @var Mode $accountMode
+     * @var \Moov\MoovPhp\Models\Components\Mode $accountMode
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('accountMode')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Mode')]
@@ -39,7 +39,7 @@ class OnboardingPartnerAccount
 
     /**
      * @param  string  $accountID
-     * @param  Mode  $accountMode
+     * @param  \Moov\MoovPhp\Models\Components\Mode  $accountMode
      * @param  string  $displayName
      * @phpstan-pure
      */

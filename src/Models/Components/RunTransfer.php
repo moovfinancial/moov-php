@@ -13,7 +13,7 @@ class RunTransfer
 {
     /**
      *
-     * @var Amount $amount
+     * @var \Moov\MoovPhp\Models\Components\Amount $amount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Amount')]
@@ -21,7 +21,7 @@ class RunTransfer
 
     /**
      *
-     * @var SchedulePaymentMethod $destination
+     * @var \Moov\MoovPhp\Models\Components\SchedulePaymentMethod $destination
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('destination')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\SchedulePaymentMethod')]
@@ -36,7 +36,7 @@ class RunTransfer
 
     /**
      *
-     * @var SchedulePaymentMethod $source
+     * @var \Moov\MoovPhp\Models\Components\SchedulePaymentMethod $source
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('source')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\SchedulePaymentMethod')]
@@ -53,7 +53,7 @@ class RunTransfer
     /**
      * Optional sales tax amount. This amount is included in the total transfer amount.
      *
-     * @var ?Amount $salesTaxAmount
+     * @var ?\Moov\MoovPhp\Models\Components\Amount $salesTaxAmount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('salesTaxAmount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Amount|null')]
@@ -63,7 +63,7 @@ class RunTransfer
     /**
      * Line items for a scheduled transfer.
      *
-     * @var ?ScheduledTransferLineItems $lineItems
+     * @var ?\Moov\MoovPhp\Models\Components\ScheduledTransferLineItems $lineItems
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('lineItems')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ScheduledTransferLineItems|null')]
@@ -71,13 +71,13 @@ class RunTransfer
     public ?ScheduledTransferLineItems $lineItems = null;
 
     /**
-     * @param  Amount  $amount
-     * @param  SchedulePaymentMethod  $destination
+     * @param  \Moov\MoovPhp\Models\Components\Amount  $amount
+     * @param  \Moov\MoovPhp\Models\Components\SchedulePaymentMethod  $destination
      * @param  string  $partnerAccountID
-     * @param  SchedulePaymentMethod  $source
+     * @param  \Moov\MoovPhp\Models\Components\SchedulePaymentMethod  $source
      * @param  string  $description
-     * @param  ?Amount  $salesTaxAmount
-     * @param  ?ScheduledTransferLineItems  $lineItems
+     * @param  ?\Moov\MoovPhp\Models\Components\Amount  $salesTaxAmount
+     * @param  ?\Moov\MoovPhp\Models\Components\ScheduledTransferLineItems  $lineItems
      * @phpstan-pure
      */
     public function __construct(Amount $amount, SchedulePaymentMethod $destination, string $partnerAccountID, SchedulePaymentMethod $source, string $description, ?Amount $salesTaxAmount = null, ?ScheduledTransferLineItems $lineItems = null)

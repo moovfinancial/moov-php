@@ -42,7 +42,7 @@ class GetAccountCountriesResponse
     /**
      * The request completed successfully.
      *
-     * @var ?Components\AccountCountries $accountCountries
+     * @var ?\Moov\MoovPhp\Models\Components\AccountCountries $accountCountries
      */
     public ?Components\AccountCountries $accountCountries = null;
 
@@ -51,7 +51,7 @@ class GetAccountCountriesResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\AccountCountries  $accountCountries
+     * @param  ?\Moov\MoovPhp\Models\Components\AccountCountries  $accountCountries
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\AccountCountries $accountCountries = null, ?array $headers = [])

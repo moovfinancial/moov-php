@@ -41,7 +41,7 @@ class CreateTransferSource
 
     /**
      *
-     * @var ?CreateTransferSourceCard $cardDetails
+     * @var ?\Moov\MoovPhp\Models\Components\CreateTransferSourceCard $cardDetails
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardDetails')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateTransferSourceCard|null')]
@@ -50,7 +50,7 @@ class CreateTransferSource
 
     /**
      *
-     * @var ?CreateTransferSourceACH $achDetails
+     * @var ?\Moov\MoovPhp\Models\Components\CreateTransferSourceACH $achDetails
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('achDetails')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateTransferSourceACH|null')]
@@ -61,8 +61,8 @@ class CreateTransferSource
      * @param  ?string  $transferID
      * @param  ?string  $paymentMethodID
      * @param  ?string  $paymentToken
-     * @param  ?CreateTransferSourceCard  $cardDetails
-     * @param  ?CreateTransferSourceACH  $achDetails
+     * @param  ?\Moov\MoovPhp\Models\Components\CreateTransferSourceCard  $cardDetails
+     * @param  ?\Moov\MoovPhp\Models\Components\CreateTransferSourceACH  $achDetails
      * @phpstan-pure
      */
     public function __construct(?string $transferID = null, ?string $paymentMethodID = null, ?string $paymentToken = null, ?CreateTransferSourceCard $cardDetails = null, ?CreateTransferSourceACH $achDetails = null)

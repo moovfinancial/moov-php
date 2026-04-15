@@ -14,7 +14,7 @@ class TaxIDUpdate
 {
     /**
      *
-     * @var ?TaxIDUpdateEin $ein
+     * @var ?\Moov\MoovPhp\Models\Components\TaxIDUpdateEin $ein
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('ein')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TaxIDUpdateEin|null')]
@@ -22,7 +22,7 @@ class TaxIDUpdate
     public ?TaxIDUpdateEin $ein = null;
 
     /**
-     * @param  ?TaxIDUpdateEin  $ein
+     * @param  ?\Moov\MoovPhp\Models\Components\TaxIDUpdateEin  $ein
      * @phpstan-pure
      */
     public function __construct(?TaxIDUpdateEin $ein = null)

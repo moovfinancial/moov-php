@@ -23,7 +23,7 @@ class ShareScopes
     /**
      * The list of scopes to share with the principal account. If none are provided, all intersecting scopes are added.
      *
-     * @var ?array<ApplicationScope> $allowScopes
+     * @var ?array<\Moov\MoovPhp\Models\Components\ApplicationScope> $allowScopes
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('allowScopes')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\ApplicationScope>|null')]
@@ -32,7 +32,7 @@ class ShareScopes
 
     /**
      * @param  string  $principalAccountID
-     * @param  ?array<ApplicationScope>  $allowScopes
+     * @param  ?array<\Moov\MoovPhp\Models\Components\ApplicationScope>  $allowScopes
      * @phpstan-pure
      */
     public function __construct(string $principalAccountID, ?array $allowScopes = null)

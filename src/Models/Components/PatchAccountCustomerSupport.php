@@ -18,7 +18,7 @@ class PatchAccountCustomerSupport
 {
     /**
      *
-     * @var ?PhoneNumber $phone
+     * @var ?\Moov\MoovPhp\Models\Components\PhoneNumber $phone
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('phone')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PhoneNumber|null')]
@@ -35,7 +35,7 @@ class PatchAccountCustomerSupport
 
     /**
      *
-     * @var ?AddressUpdate $address
+     * @var ?\Moov\MoovPhp\Models\Components\AddressUpdate $address
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('address')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AddressUpdate|null')]
@@ -51,9 +51,9 @@ class PatchAccountCustomerSupport
     public ?string $website = null;
 
     /**
-     * @param  ?PhoneNumber  $phone
+     * @param  ?\Moov\MoovPhp\Models\Components\PhoneNumber  $phone
      * @param  ?string  $email
-     * @param  ?AddressUpdate  $address
+     * @param  ?\Moov\MoovPhp\Models\Components\AddressUpdate  $address
      * @param  ?string  $website
      * @phpstan-pure
      */

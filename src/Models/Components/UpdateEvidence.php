@@ -13,7 +13,7 @@ class UpdateEvidence
 {
     /**
      *
-     * @var ?EvidenceType $evidenceType
+     * @var ?\Moov\MoovPhp\Models\Components\EvidenceType $evidenceType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('evidenceType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\EvidenceType|null')]
@@ -30,7 +30,7 @@ class UpdateEvidence
     public ?string $text = null;
 
     /**
-     * @param  ?EvidenceType  $evidenceType
+     * @param  ?\Moov\MoovPhp\Models\Components\EvidenceType  $evidenceType
      * @param  ?string  $text
      * @phpstan-pure
      */

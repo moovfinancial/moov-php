@@ -42,7 +42,7 @@ class CompleteBankAccountVerificationResponse
     /**
      * The request completed successfully.
      *
-     * @var ?Components\BankAccountVerification $bankAccountVerification
+     * @var ?\Moov\MoovPhp\Models\Components\BankAccountVerification $bankAccountVerification
      */
     public ?Components\BankAccountVerification $bankAccountVerification = null;
 
@@ -51,7 +51,7 @@ class CompleteBankAccountVerificationResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\BankAccountVerification  $bankAccountVerification
+     * @param  ?\Moov\MoovPhp\Models\Components\BankAccountVerification  $bankAccountVerification
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\BankAccountVerification $bankAccountVerification = null, ?array $headers = [])

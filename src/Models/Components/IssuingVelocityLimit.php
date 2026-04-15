@@ -22,7 +22,7 @@ class IssuingVelocityLimit
     /**
      * Specifies the time frame for the velocity limit. Currently supports only per-transaction limits.
      *
-     * @var IssuingIntervalLimit $interval
+     * @var \Moov\MoovPhp\Models\Components\IssuingIntervalLimit $interval
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('interval')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IssuingIntervalLimit')]
@@ -30,7 +30,7 @@ class IssuingVelocityLimit
 
     /**
      * @param  int  $amount
-     * @param  IssuingIntervalLimit  $interval
+     * @param  \Moov\MoovPhp\Models\Components\IssuingIntervalLimit  $interval
      * @phpstan-pure
      */
     public function __construct(int $amount, IssuingIntervalLimit $interval)

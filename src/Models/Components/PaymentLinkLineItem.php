@@ -23,7 +23,7 @@ class PaymentLinkLineItem
     /**
      * The base price of the item before applying option modifiers.
      *
-     * @var AmountDecimal $basePrice
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $basePrice
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('basePrice')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
@@ -40,7 +40,7 @@ class PaymentLinkLineItem
     /**
      * Optional list of modifiers applied to this item (e.g., toppings, upgrades, customizations).
      *
-     * @var ?array<PaymentLinkLineItemOption> $options
+     * @var ?array<\Moov\MoovPhp\Models\Components\PaymentLinkLineItemOption> $options
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('options')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\PaymentLinkLineItemOption>|null')]
@@ -50,7 +50,7 @@ class PaymentLinkLineItem
     /**
      * Optional list of images associated with this line item.
      *
-     * @var ?array<PaymentLinkLineItemImageMetadata> $images
+     * @var ?array<\Moov\MoovPhp\Models\Components\PaymentLinkLineItemImageMetadata> $images
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('images')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\PaymentLinkLineItemImageMetadata>|null')]
@@ -68,10 +68,10 @@ class PaymentLinkLineItem
 
     /**
      * @param  string  $name
-     * @param  AmountDecimal  $basePrice
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $basePrice
      * @param  int  $quantity
-     * @param  ?array<PaymentLinkLineItemOption>  $options
-     * @param  ?array<PaymentLinkLineItemImageMetadata>  $images
+     * @param  ?array<\Moov\MoovPhp\Models\Components\PaymentLinkLineItemOption>  $options
+     * @param  ?array<\Moov\MoovPhp\Models\Components\PaymentLinkLineItemImageMetadata>  $images
      * @param  ?string  $productID
      * @phpstan-pure
      */

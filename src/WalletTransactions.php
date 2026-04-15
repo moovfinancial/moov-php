@@ -55,7 +55,7 @@ class WalletTransactions
      * @param  string  $accountID
      * @param  string  $walletID
      * @param  string  $transactionID
-     * @return Operations\GetWalletTransactionResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetWalletTransactionResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function get(string $accountID, string $walletID, string $transactionID, ?Options $options = null): Operations\GetWalletTransactionResponse

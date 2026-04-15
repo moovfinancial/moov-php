@@ -42,7 +42,7 @@ class GetStatementResponse
     /**
      * The request has succeeded.
      *
-     * @var ?Components\Statement $statement
+     * @var ?\Moov\MoovPhp\Models\Components\Statement $statement
      */
     public ?Components\Statement $statement = null;
 
@@ -58,7 +58,7 @@ class GetStatementResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\Statement  $statement
+     * @param  ?\Moov\MoovPhp\Models\Components\Statement  $statement
      * @param  ?string  $bytes
      * @phpstan-pure
      */
