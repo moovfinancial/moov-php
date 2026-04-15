@@ -51,9 +51,9 @@ class PaymentLinks
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
      *
-     * @param  Components\CreatePaymentLink  $createPaymentLink
+     * @param  \Moov\MoovPhp\Models\Components\CreatePaymentLink  $createPaymentLink
      * @param  string  $accountID
-     * @return Operations\CreatePaymentLinkResponse
+     * @return \Moov\MoovPhp\Models\Operations\CreatePaymentLinkResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function create(Components\CreatePaymentLink $createPaymentLink, string $accountID, ?Options $options = null): Operations\CreatePaymentLinkResponse
@@ -152,7 +152,7 @@ class PaymentLinks
      *
      * @param  string  $accountID
      * @param  string  $paymentLinkCode
-     * @return Operations\DisablePaymentLinkResponse
+     * @return \Moov\MoovPhp\Models\Operations\DisablePaymentLinkResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function disable(string $accountID, string $paymentLinkCode, ?Options $options = null): Operations\DisablePaymentLinkResponse
@@ -214,7 +214,7 @@ class PaymentLinks
      *
      * @param  string  $accountID
      * @param  string  $paymentLinkCode
-     * @return Operations\GetPaymentLinkResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetPaymentLinkResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function get(string $accountID, string $paymentLinkCode, ?Options $options = null): Operations\GetPaymentLinkResponse
@@ -288,7 +288,7 @@ class PaymentLinks
      *
      * @param  string  $accountID
      * @param  string  $paymentLinkCode
-     * @return Operations\GetPaymentLinkQRCodeResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetPaymentLinkQRCodeResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function getQrCode(string $accountID, string $paymentLinkCode, ?Options $options = null): Operations\GetPaymentLinkQRCodeResponse
@@ -372,8 +372,8 @@ class PaymentLinks
      * @param  string  $accountID
      * @param  ?int  $skip
      * @param  ?int  $count
-     * @param  ?array<Components\PaymentLinkType>  $types
-     * @return Operations\ListPaymentLinksResponse
+     * @param  ?array<\Moov\MoovPhp\Models\Components\PaymentLinkType>  $types
+     * @return \Moov\MoovPhp\Models\Operations\ListPaymentLinksResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function list(string $accountID, ?int $skip = null, ?int $count = null, ?array $types = null, ?Options $options = null): Operations\ListPaymentLinksResponse
@@ -448,10 +448,10 @@ class PaymentLinks
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
      * you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
      *
-     * @param  Components\UpdatePaymentLink  $updatePaymentLink
+     * @param  \Moov\MoovPhp\Models\Components\UpdatePaymentLink  $updatePaymentLink
      * @param  string  $accountID
      * @param  string  $paymentLinkCode
-     * @return Operations\UpdatePaymentLinkResponse
+     * @return \Moov\MoovPhp\Models\Operations\UpdatePaymentLinkResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function update(Components\UpdatePaymentLink $updatePaymentLink, string $accountID, string $paymentLinkCode, ?Options $options = null): Operations\UpdatePaymentLinkResponse

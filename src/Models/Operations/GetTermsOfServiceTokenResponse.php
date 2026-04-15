@@ -42,7 +42,7 @@ class GetTermsOfServiceTokenResponse
     /**
      * The request completed successfully.
      *
-     * @var ?Components\TermsOfServiceToken $termsOfServiceToken
+     * @var ?\Moov\MoovPhp\Models\Components\TermsOfServiceToken $termsOfServiceToken
      */
     public ?Components\TermsOfServiceToken $termsOfServiceToken = null;
 
@@ -51,7 +51,7 @@ class GetTermsOfServiceTokenResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\TermsOfServiceToken  $termsOfServiceToken
+     * @param  ?\Moov\MoovPhp\Models\Components\TermsOfServiceToken  $termsOfServiceToken
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\TermsOfServiceToken $termsOfServiceToken = null, ?array $headers = [])

@@ -9,7 +9,7 @@ A method of moving money
 
 ```php
 /**
-* @var Components\MoovWalletPaymentMethod
+* @var \Moov\MoovPhp\Models\Components\MoovWalletPaymentMethod
 */
 Components\MoovWalletPaymentMethod $value = /* values here */
 ```
@@ -18,7 +18,7 @@ Components\MoovWalletPaymentMethod $value = /* values here */
 
 ```php
 /**
-* @var Components\AchDebitFundPaymentMethod
+* @var \Moov\MoovPhp\Models\Components\AchDebitFundPaymentMethod
 */
 Components\AchDebitFundPaymentMethod $value = /* values here */
 ```
@@ -27,7 +27,7 @@ Components\AchDebitFundPaymentMethod $value = /* values here */
 
 ```php
 /**
-* @var Components\AchDebitCollectPaymentMethod
+* @var \Moov\MoovPhp\Models\Components\AchDebitCollectPaymentMethod
 */
 Components\AchDebitCollectPaymentMethod $value = /* values here */
 ```
@@ -36,7 +36,7 @@ Components\AchDebitCollectPaymentMethod $value = /* values here */
 
 ```php
 /**
-* @var Components\AchCreditStandardPaymentMethod
+* @var \Moov\MoovPhp\Models\Components\AchCreditStandardPaymentMethod
 */
 Components\AchCreditStandardPaymentMethod $value = /* values here */
 ```
@@ -45,7 +45,7 @@ Components\AchCreditStandardPaymentMethod $value = /* values here */
 
 ```php
 /**
-* @var Components\AchCreditSameDayPaymentMethod
+* @var \Moov\MoovPhp\Models\Components\AchCreditSameDayPaymentMethod
 */
 Components\AchCreditSameDayPaymentMethod $value = /* values here */
 ```
@@ -54,7 +54,7 @@ Components\AchCreditSameDayPaymentMethod $value = /* values here */
 
 ```php
 /**
-* @var Components\RtpCreditPaymentMethod
+* @var \Moov\MoovPhp\Models\Components\RtpCreditPaymentMethod
 */
 Components\RtpCreditPaymentMethod $value = /* values here */
 ```
@@ -63,7 +63,7 @@ Components\RtpCreditPaymentMethod $value = /* values here */
 
 ```php
 /**
-* @var Components\CardPaymentPaymentMethod
+* @var \Moov\MoovPhp\Models\Components\CardPaymentPaymentMethod
 */
 Components\CardPaymentPaymentMethod $value = /* values here */
 ```
@@ -72,7 +72,7 @@ Components\CardPaymentPaymentMethod $value = /* values here */
 
 ```php
 /**
-* @var Components\PushToCardPaymentMethod
+* @var \Moov\MoovPhp\Models\Components\PushToCardPaymentMethod
 */
 Components\PushToCardPaymentMethod $value = /* values here */
 ```
@@ -81,7 +81,7 @@ Components\PushToCardPaymentMethod $value = /* values here */
 
 ```php
 /**
-* @var Components\PullFromCardPaymentMethod
+* @var \Moov\MoovPhp\Models\Components\PullFromCardPaymentMethod
 */
 Components\PullFromCardPaymentMethod $value = /* values here */
 ```
@@ -90,7 +90,7 @@ Components\PullFromCardPaymentMethod $value = /* values here */
 
 ```php
 /**
-* @var Components\ApplePayPaymentMethod
+* @var \Moov\MoovPhp\Models\Components\ApplePayPaymentMethod
 */
 Components\ApplePayPaymentMethod $value = /* values here */
 ```
@@ -99,7 +99,7 @@ Components\ApplePayPaymentMethod $value = /* values here */
 
 ```php
 /**
-* @var Components\CardPresentPaymentPaymentMethod
+* @var \Moov\MoovPhp\Models\Components\CardPresentPaymentPaymentMethod
 */
 Components\CardPresentPaymentPaymentMethod $value = /* values here */
 ```

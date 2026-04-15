@@ -21,7 +21,7 @@ class AchDebitCollectPaymentMethod
 
     /**
      *
-     * @var AchDebitCollectPaymentMethodPaymentMethodType $paymentMethodType
+     * @var \Moov\MoovPhp\Models\Components\AchDebitCollectPaymentMethodPaymentMethodType $paymentMethodType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('paymentMethodType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AchDebitCollectPaymentMethodPaymentMethodType')]
@@ -30,7 +30,7 @@ class AchDebitCollectPaymentMethod
     /**
      * A bank account as contained within a payment method.
      *
-     * @var PaymentMethodsBankAccount $bankAccount
+     * @var \Moov\MoovPhp\Models\Components\PaymentMethodsBankAccount $bankAccount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('bankAccount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentMethodsBankAccount')]
@@ -38,8 +38,8 @@ class AchDebitCollectPaymentMethod
 
     /**
      * @param  string  $paymentMethodID
-     * @param  AchDebitCollectPaymentMethodPaymentMethodType  $paymentMethodType
-     * @param  PaymentMethodsBankAccount  $bankAccount
+     * @param  \Moov\MoovPhp\Models\Components\AchDebitCollectPaymentMethodPaymentMethodType  $paymentMethodType
+     * @param  \Moov\MoovPhp\Models\Components\PaymentMethodsBankAccount  $bankAccount
      * @phpstan-pure
      */
     public function __construct(string $paymentMethodID, AchDebitCollectPaymentMethodPaymentMethodType $paymentMethodType, PaymentMethodsBankAccount $bankAccount)

@@ -22,14 +22,14 @@ class CreateRepresentativeRequest
 
     /**
      *
-     * @var Components\CreateRepresentative $createRepresentative
+     * @var \Moov\MoovPhp\Models\Components\CreateRepresentative $createRepresentative
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\CreateRepresentative $createRepresentative;
 
     /**
      * @param  string  $accountID
-     * @param  Components\CreateRepresentative  $createRepresentative
+     * @param  \Moov\MoovPhp\Models\Components\CreateRepresentative  $createRepresentative
      * @phpstan-pure
      */
     public function __construct(string $accountID, Components\CreateRepresentative $createRepresentative)

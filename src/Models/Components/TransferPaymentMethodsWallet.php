@@ -31,7 +31,7 @@ class TransferPaymentMethodsWallet
      *   - `default`: The system-generated wallet automatically created when an account is granted the wallet capability.
      *   - `general`: An additional, user-defined wallet created via API or Dashboard.
      *
-     * @var WalletType $walletType
+     * @var \Moov\MoovPhp\Models\Components\WalletType $walletType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('walletType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\WalletType')]
@@ -40,7 +40,7 @@ class TransferPaymentMethodsWallet
     /**
      * @param  string  $walletID
      * @param  string  $partnerAccountID
-     * @param  WalletType  $walletType
+     * @param  \Moov\MoovPhp\Models\Components\WalletType  $walletType
      * @phpstan-pure
      */
     public function __construct(string $walletID, string $partnerAccountID, WalletType $walletType)

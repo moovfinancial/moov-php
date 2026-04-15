@@ -22,7 +22,7 @@ class CreateAccountError
 
     /**
      *
-     * @var ?Components\CreateProfileError $profile
+     * @var ?\Moov\MoovPhp\Models\Components\CreateProfileError $profile
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('profile')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateProfileError|null')]
@@ -39,7 +39,7 @@ class CreateAccountError
 
     /**
      *
-     * @var ?Components\TermsOfServiceError $termsOfService
+     * @var ?\Moov\MoovPhp\Models\Components\TermsOfServiceError $termsOfService
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('termsOfService')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TermsOfServiceError|null')]
@@ -56,7 +56,7 @@ class CreateAccountError
 
     /**
      *
-     * @var ?Components\CustomerSupportError $customerSupport
+     * @var ?\Moov\MoovPhp\Models\Components\CustomerSupportError $customerSupport
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('customerSupport')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CustomerSupportError|null')]
@@ -65,7 +65,7 @@ class CreateAccountError
 
     /**
      *
-     * @var ?Components\CreateAccountSettings $settings
+     * @var ?\Moov\MoovPhp\Models\Components\CreateAccountSettings $settings
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('settings')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateAccountSettings|null')]
@@ -84,12 +84,12 @@ class CreateAccountError
 
     /**
      * @param  ?string  $accountType
-     * @param  ?Components\CreateProfileError  $profile
+     * @param  ?\Moov\MoovPhp\Models\Components\CreateProfileError  $profile
      * @param  ?string  $metadata
-     * @param  ?Components\TermsOfServiceError  $termsOfService
+     * @param  ?\Moov\MoovPhp\Models\Components\TermsOfServiceError  $termsOfService
      * @param  ?string  $foreignID
-     * @param  ?Components\CustomerSupportError  $customerSupport
-     * @param  ?Components\CreateAccountSettings  $settings
+     * @param  ?\Moov\MoovPhp\Models\Components\CustomerSupportError  $customerSupport
+     * @param  ?\Moov\MoovPhp\Models\Components\CreateAccountSettings  $settings
      * @param  ?array<string, string>  $capabilities
      * @phpstan-pure
      */

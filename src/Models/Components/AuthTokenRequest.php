@@ -18,7 +18,7 @@ class AuthTokenRequest
      *   - `client_credentials`: A grant type used by clients to obtain an access token
      *   - `refresh_token`: A grant type used by clients to obtain a new access token using a refresh token
      *
-     * @var GrantType $grantType
+     * @var \Moov\MoovPhp\Models\Components\GrantType $grantType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('grant_type')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\GrantType')]
@@ -66,7 +66,7 @@ class AuthTokenRequest
     public ?string $refreshToken = null;
 
     /**
-     * @param  GrantType  $grantType
+     * @param  \Moov\MoovPhp\Models\Components\GrantType  $grantType
      * @param  ?string  $clientId
      * @param  ?string  $clientSecret
      * @param  ?string  $scope

@@ -29,7 +29,7 @@ class ProductOptionValidationError
 
     /**
      *
-     * @var ?AmountDecimalValidationError $priceModifier
+     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimalValidationError $priceModifier
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('priceModifier')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimalValidationError|null')]
@@ -39,7 +39,7 @@ class ProductOptionValidationError
     /**
      * $images
      *
-     * @var ?array<string, AssignProductImageValidationError> $images
+     * @var ?array<string, \Moov\MoovPhp\Models\Components\AssignProductImageValidationError> $images
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('images')]
     #[\Speakeasy\Serializer\Annotation\Type('array<string, \Moov\MoovPhp\Models\Components\AssignProductImageValidationError>|null')]
@@ -49,8 +49,8 @@ class ProductOptionValidationError
     /**
      * @param  ?string  $name
      * @param  ?string  $description
-     * @param  ?AmountDecimalValidationError  $priceModifier
-     * @param  ?array<string, AssignProductImageValidationError>  $images
+     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimalValidationError  $priceModifier
+     * @param  ?array<string, \Moov\MoovPhp\Models\Components\AssignProductImageValidationError>  $images
      * @phpstan-pure
      */
     public function __construct(?string $name = null, ?string $description = null, ?AmountDecimalValidationError $priceModifier = null, ?array $images = null)

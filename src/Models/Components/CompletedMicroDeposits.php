@@ -13,14 +13,14 @@ class CompletedMicroDeposits
 {
     /**
      *
-     * @var MicroDepositStatus $status
+     * @var \Moov\MoovPhp\Models\Components\MicroDepositStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\MicroDepositStatus')]
     public MicroDepositStatus $status;
 
     /**
-     * @param  MicroDepositStatus  $status
+     * @param  \Moov\MoovPhp\Models\Components\MicroDepositStatus  $status
      * @phpstan-pure
      */
     public function __construct(MicroDepositStatus $status)

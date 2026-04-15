@@ -15,7 +15,7 @@ class OtherCardFees
     /**
      * Fees for disputes.
      *
-     * @var BillingCountAndAmount $disputes
+     * @var \Moov\MoovPhp\Models\Components\BillingCountAndAmount $disputes
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('disputes')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingCountAndAmount')]
@@ -24,7 +24,7 @@ class OtherCardFees
     /**
      * Fees for card account updater services.
      *
-     * @var BillingCountAndAmount $cardAccountUpdater
+     * @var \Moov\MoovPhp\Models\Components\BillingCountAndAmount $cardAccountUpdater
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardAccountUpdater')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingCountAndAmount')]
@@ -33,7 +33,7 @@ class OtherCardFees
     /**
      * Fees for card verification.
      *
-     * @var BillingCountAndAmount $cardVerification
+     * @var \Moov\MoovPhp\Models\Components\BillingCountAndAmount $cardVerification
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardVerification')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingCountAndAmount')]
@@ -42,7 +42,7 @@ class OtherCardFees
     /**
      * Fees for name verification.
      *
-     * @var BillingCountAndAmount $nameVerification
+     * @var \Moov\MoovPhp\Models\Components\BillingCountAndAmount $nameVerification
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('nameVerification')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingCountAndAmount')]
@@ -51,18 +51,18 @@ class OtherCardFees
     /**
      * Total other card fees.
      *
-     * @var BillingCountAndAmount $total
+     * @var \Moov\MoovPhp\Models\Components\BillingCountAndAmount $total
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('total')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingCountAndAmount')]
     public BillingCountAndAmount $total;
 
     /**
-     * @param  BillingCountAndAmount  $disputes
-     * @param  BillingCountAndAmount  $cardAccountUpdater
-     * @param  BillingCountAndAmount  $cardVerification
-     * @param  BillingCountAndAmount  $nameVerification
-     * @param  BillingCountAndAmount  $total
+     * @param  \Moov\MoovPhp\Models\Components\BillingCountAndAmount  $disputes
+     * @param  \Moov\MoovPhp\Models\Components\BillingCountAndAmount  $cardAccountUpdater
+     * @param  \Moov\MoovPhp\Models\Components\BillingCountAndAmount  $cardVerification
+     * @param  \Moov\MoovPhp\Models\Components\BillingCountAndAmount  $nameVerification
+     * @param  \Moov\MoovPhp\Models\Components\BillingCountAndAmount  $total
      * @phpstan-pure
      */
     public function __construct(BillingCountAndAmount $disputes, BillingCountAndAmount $cardAccountUpdater, BillingCountAndAmount $cardVerification, BillingCountAndAmount $nameVerification, BillingCountAndAmount $total)

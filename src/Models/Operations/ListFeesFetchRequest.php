@@ -21,14 +21,14 @@ class ListFeesFetchRequest
 
     /**
      *
-     * @var ?Components\ListFeesFetchRequest $listFeesFetchRequest
+     * @var ?\Moov\MoovPhp\Models\Components\ListFeesFetchRequest $listFeesFetchRequest
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public ?Components\ListFeesFetchRequest $listFeesFetchRequest = null;
 
     /**
      * @param  string  $accountID
-     * @param  ?Components\ListFeesFetchRequest  $listFeesFetchRequest
+     * @param  ?\Moov\MoovPhp\Models\Components\ListFeesFetchRequest  $listFeesFetchRequest
      * @phpstan-pure
      */
     public function __construct(string $accountID, ?Components\ListFeesFetchRequest $listFeesFetchRequest = null)

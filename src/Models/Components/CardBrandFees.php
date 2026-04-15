@@ -14,7 +14,7 @@ class CardBrandFees
     /**
      * Total fees for this card brand.
      *
-     * @var BillingCountAndAmount $total
+     * @var \Moov\MoovPhp\Models\Components\BillingCountAndAmount $total
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('total')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingCountAndAmount')]
@@ -23,7 +23,7 @@ class CardBrandFees
     /**
      * Details of interchange fees.
      *
-     * @var ?BillingCountAndAmount $interchange
+     * @var ?\Moov\MoovPhp\Models\Components\BillingCountAndAmount $interchange
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('interchange')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingCountAndAmount|null')]
@@ -33,7 +33,7 @@ class CardBrandFees
     /**
      * A list of interchange program fees.
      *
-     * @var ?array<BillingInterchangeProgramFee> $interchangePrograms
+     * @var ?array<\Moov\MoovPhp\Models\Components\BillingInterchangeProgramFee> $interchangePrograms
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('interchangePrograms')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\BillingInterchangeProgramFee>|null')]
@@ -43,7 +43,7 @@ class CardBrandFees
     /**
      * Details of network passthrough fees.
      *
-     * @var ?BillingCountAndAmount $networkPassthrough
+     * @var ?\Moov\MoovPhp\Models\Components\BillingCountAndAmount $networkPassthrough
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('networkPassthrough')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingCountAndAmount|null')]
@@ -53,7 +53,7 @@ class CardBrandFees
     /**
      * Details of completed domestic online transactions.
      *
-     * @var ?BillingCountAndAmount $completedDomesticOnline
+     * @var ?\Moov\MoovPhp\Models\Components\BillingCountAndAmount $completedDomesticOnline
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('completedDomesticOnline')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingCountAndAmount|null')]
@@ -63,7 +63,7 @@ class CardBrandFees
     /**
      * Details of completed domestic in-person transactions.
      *
-     * @var ?BillingCountAndAmount $completedDomesticInPerson
+     * @var ?\Moov\MoovPhp\Models\Components\BillingCountAndAmount $completedDomesticInPerson
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('completedDomesticInPerson')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingCountAndAmount|null')]
@@ -73,7 +73,7 @@ class CardBrandFees
     /**
      * Details of completed international online transactions.
      *
-     * @var ?BillingCountAndAmount $completedInternationalOnline
+     * @var ?\Moov\MoovPhp\Models\Components\BillingCountAndAmount $completedInternationalOnline
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('completedInternationalOnline')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingCountAndAmount|null')]
@@ -83,7 +83,7 @@ class CardBrandFees
     /**
      * Details of completed international in-person transactions.
      *
-     * @var ?BillingCountAndAmount $completedInternationalInPerson
+     * @var ?\Moov\MoovPhp\Models\Components\BillingCountAndAmount $completedInternationalInPerson
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('completedInternationalInPerson')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingCountAndAmount|null')]
@@ -93,7 +93,7 @@ class CardBrandFees
     /**
      * Details of declined transactions.
      *
-     * @var ?BillingCountAndAmount $declines
+     * @var ?\Moov\MoovPhp\Models\Components\BillingCountAndAmount $declines
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('declines')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingCountAndAmount|null')]
@@ -103,7 +103,7 @@ class CardBrandFees
     /**
      * Details of refunded transactions.
      *
-     * @var ?BillingCountAndAmount $refunds
+     * @var ?\Moov\MoovPhp\Models\Components\BillingCountAndAmount $refunds
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('refunds')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingCountAndAmount|null')]
@@ -111,16 +111,16 @@ class CardBrandFees
     public ?BillingCountAndAmount $refunds = null;
 
     /**
-     * @param  BillingCountAndAmount  $total
-     * @param  ?BillingCountAndAmount  $interchange
-     * @param  ?array<BillingInterchangeProgramFee>  $interchangePrograms
-     * @param  ?BillingCountAndAmount  $networkPassthrough
-     * @param  ?BillingCountAndAmount  $completedDomesticOnline
-     * @param  ?BillingCountAndAmount  $completedDomesticInPerson
-     * @param  ?BillingCountAndAmount  $completedInternationalOnline
-     * @param  ?BillingCountAndAmount  $completedInternationalInPerson
-     * @param  ?BillingCountAndAmount  $declines
-     * @param  ?BillingCountAndAmount  $refunds
+     * @param  \Moov\MoovPhp\Models\Components\BillingCountAndAmount  $total
+     * @param  ?\Moov\MoovPhp\Models\Components\BillingCountAndAmount  $interchange
+     * @param  ?array<\Moov\MoovPhp\Models\Components\BillingInterchangeProgramFee>  $interchangePrograms
+     * @param  ?\Moov\MoovPhp\Models\Components\BillingCountAndAmount  $networkPassthrough
+     * @param  ?\Moov\MoovPhp\Models\Components\BillingCountAndAmount  $completedDomesticOnline
+     * @param  ?\Moov\MoovPhp\Models\Components\BillingCountAndAmount  $completedDomesticInPerson
+     * @param  ?\Moov\MoovPhp\Models\Components\BillingCountAndAmount  $completedInternationalOnline
+     * @param  ?\Moov\MoovPhp\Models\Components\BillingCountAndAmount  $completedInternationalInPerson
+     * @param  ?\Moov\MoovPhp\Models\Components\BillingCountAndAmount  $declines
+     * @param  ?\Moov\MoovPhp\Models\Components\BillingCountAndAmount  $refunds
      * @phpstan-pure
      */
     public function __construct(BillingCountAndAmount $total, ?BillingCountAndAmount $interchange = null, ?array $interchangePrograms = null, ?BillingCountAndAmount $networkPassthrough = null, ?BillingCountAndAmount $completedDomesticOnline = null, ?BillingCountAndAmount $completedDomesticInPerson = null, ?BillingCountAndAmount $completedInternationalOnline = null, ?BillingCountAndAmount $completedInternationalInPerson = null, ?BillingCountAndAmount $declines = null, ?BillingCountAndAmount $refunds = null)

@@ -46,6 +46,87 @@ class Transfers
     }
 
     /**
+     * Retrieve transfer details for multiple transfers in one request. The response is a map from each
+     * requested transfer ID to its full transfer details when available; IDs that are not found or not
+     * accessible under this account are omitted from the map.
+     *
+     * Read our [transfers overview guide](https://docs.moov.io/guides/money-movement/overview/) to learn more.
+     *
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
+     * you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
+     *
+     * @param  \Moov\MoovPhp\Models\Components\BatchGetTransfersRequest  $batchGetTransfersRequest
+     * @param  string  $accountID
+     * @return \Moov\MoovPhp\Models\Operations\BatchGetTransfersResponse
+     * @throws \Moov\MoovPhp\Models\Errors\APIException
+     */
+    public function batchGetTransfers(Components\BatchGetTransfersRequest $batchGetTransfersRequest, string $accountID, ?Options $options = null): Operations\BatchGetTransfersResponse
+    {
+        $request = new Operations\BatchGetTransfersRequest(
+            accountID: $accountID,
+            batchGetTransfersRequest: $batchGetTransfersRequest,
+        );
+        $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
+        $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/transfers/.fetch', Operations\BatchGetTransfersRequest::class, $request);
+        $urlOverride = null;
+        $httpOptions = ['http_errors' => false];
+        $body = Utils\Utils::serializeRequestBody($request, 'batchGetTransfersRequest', 'json');
+        if ($body === null) {
+            throw new \Exception('Request body is required');
+        }
+        $httpOptions = array_merge_recursive($httpOptions, $body);
+        $httpOptions['headers']['Accept'] = 'application/json';
+        $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
+        $hookContext = new HookContext($this->sdkConfiguration, $baseUrl, 'batchGetTransfers', null, $this->sdkConfiguration->securitySource);
+        $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
+        $httpOptions = Utils\Utils::convertHeadersToOptions($httpRequest, $httpOptions);
+        $httpRequest = Utils\Utils::removeHeaders($httpRequest);
+        try {
+            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $httpOptions);
+        } catch (\GuzzleHttp\Exception\GuzzleException $error) {
+            $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
+            $httpResponse = $res;
+        }
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $statusCode = $httpResponse->getStatusCode();
+        if (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '429', '4XX', '500', '504', '5XX'])) {
+            $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
+            $httpResponse = $res;
+        }
+        if (Utils\Utils::matchStatusCodes($statusCode, ['200'])) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
+
+                $serializer = Utils\JSON::createSerializer();
+                $responseData = (string) $httpResponse->getBody();
+                $obj = $serializer->deserialize($responseData, 'array<string, \Moov\MoovPhp\Models\Components\Transfer>', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\BatchGetTransfersResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    headers: $httpResponse->getHeaders(),
+                    object: $obj);
+
+                return $response;
+            } else {
+                throw new \Moov\MoovPhp\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '429'])) {
+            throw new \Moov\MoovPhp\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['500', '504'])) {
+            throw new \Moov\MoovPhp\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['4XX'])) {
+            throw new \Moov\MoovPhp\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['5XX'])) {
+            throw new \Moov\MoovPhp\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } else {
+            throw new \Moov\MoovPhp\Models\Errors\APIException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        }
+    }
+
+    /**
      *   Initiate a cancellation for a card, ACH, or queued transfer.
      *   
      *   To access this endpoint using a [token](https://docs.moov.io/api/authentication/access-tokens/) you'll need 
@@ -53,7 +134,7 @@ class Transfers
      *
      * @param  string  $accountID
      * @param  string  $transferID
-     * @return Operations\CreateCancellationResponse
+     * @return \Moov\MoovPhp\Models\Operations\CreateCancellationResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function createCancellation(string $accountID, string $transferID, ?Options $options = null): Operations\CreateCancellationResponse
@@ -139,8 +220,8 @@ class Transfers
      * @param  string  $xIdempotencyKey
      * @param  string  $accountID
      * @param  string  $transferID
-     * @param  ?Components\CreateReversal  $createReversal
-     * @return Operations\CreateReversalResponse
+     * @param  ?\Moov\MoovPhp\Models\Components\CreateReversal  $createReversal
+     * @return \Moov\MoovPhp\Models\Operations\CreateReversalResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function createReversal(string $xIdempotencyKey, string $accountID, string $transferID, ?Components\CreateReversal $createReversal = null, ?Options $options = null): Operations\CreateReversalResponse
@@ -244,11 +325,11 @@ class Transfers
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
      *
-     * @param  Components\CreateTransfer  $createTransfer
+     * @param  \Moov\MoovPhp\Models\Components\CreateTransfer  $createTransfer
      * @param  string  $xIdempotencyKey
      * @param  string  $accountID
-     * @param  ?Components\TransferWaitFor  $xWaitFor
-     * @return Operations\CreateTransferResponse
+     * @param  ?\Moov\MoovPhp\Models\Components\TransferWaitFor  $xWaitFor
+     * @return \Moov\MoovPhp\Models\Operations\CreateTransferResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function create(Components\CreateTransfer $createTransfer, string $xIdempotencyKey, string $accountID, ?Components\TransferWaitFor $xWaitFor = null, ?Options $options = null): Operations\CreateTransferResponse
@@ -403,9 +484,9 @@ class Transfers
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
      *
-     * @param  Components\CreateTransferOptions  $createTransferOptions
+     * @param  \Moov\MoovPhp\Models\Components\CreateTransferOptions  $createTransferOptions
      * @param  string  $accountID
-     * @return Operations\CreateTransferOptionsResponse
+     * @return \Moov\MoovPhp\Models\Operations\CreateTransferOptionsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function generateOptions(Components\CreateTransferOptions $createTransferOptions, string $accountID, ?Options $options = null): Operations\CreateTransferOptionsResponse
@@ -505,7 +586,7 @@ class Transfers
      * @param  string  $accountID
      * @param  string  $transferID
      * @param  string  $cancellationID
-     * @return Operations\GetCancellationResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetCancellationResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function getCancellation(string $accountID, string $transferID, string $cancellationID, ?Options $options = null): Operations\GetCancellationResponse
@@ -579,7 +660,7 @@ class Transfers
      * @param  string  $transferID
      * @param  string  $accountID
      * @param  string  $refundID
-     * @return Operations\GetRefundResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetRefundResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function getRefund(string $transferID, string $accountID, string $refundID, ?Options $options = null): Operations\GetRefundResponse
@@ -655,7 +736,7 @@ class Transfers
      *
      * @param  string  $transferID
      * @param  string  $accountID
-     * @return Operations\GetTransferResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetTransferResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function get(string $transferID, string $accountID, ?Options $options = null): Operations\GetTransferResponse
@@ -728,8 +809,8 @@ class Transfers
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
      *
-     * @param  Operations\InitiateRefundRequest  $request
-     * @return Operations\InitiateRefundResponse
+     * @param  \Moov\MoovPhp\Models\Operations\InitiateRefundRequest  $request
+     * @return \Moov\MoovPhp\Models\Operations\InitiateRefundResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function initiateRefund(Operations\InitiateRefundRequest $request, ?Options $options = null): Operations\InitiateRefundResponse
@@ -856,7 +937,7 @@ class Transfers
      *
      * @param  string  $accountID
      * @param  string  $transferID
-     * @return Operations\ListRefundsResponse
+     * @return \Moov\MoovPhp\Models\Operations\ListRefundsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function listRefunds(string $accountID, string $transferID, ?Options $options = null): Operations\ListRefundsResponse
@@ -933,8 +1014,8 @@ class Transfers
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
      *
-     * @param  Operations\ListTransfersRequest  $request
-     * @return Operations\ListTransfersResponse
+     * @param  \Moov\MoovPhp\Models\Operations\ListTransfersRequest  $request
+     * @return \Moov\MoovPhp\Models\Operations\ListTransfersResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function list(Operations\ListTransfersRequest $request, ?Options $options = null): Operations\ListTransfersResponse
@@ -1016,10 +1097,10 @@ class Transfers
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
      * you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
      *
-     * @param  Components\PatchTransfer  $patchTransfer
+     * @param  \Moov\MoovPhp\Models\Components\PatchTransfer  $patchTransfer
      * @param  string  $transferID
      * @param  string  $accountID
-     * @return Operations\UpdateTransferResponse
+     * @return \Moov\MoovPhp\Models\Operations\UpdateTransferResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function update(Components\PatchTransfer $patchTransfer, string $transferID, string $accountID, ?Options $options = null): Operations\UpdateTransferResponse

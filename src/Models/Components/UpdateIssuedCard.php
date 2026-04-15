@@ -16,7 +16,7 @@ class UpdateIssuedCard
      *
      * - `closed`: The card is permanently deactivated and cannot approve authorizations. A card can be closed by request or when it expires.
      *
-     * @var ?UpdateIssuedCardState $state
+     * @var ?\Moov\MoovPhp\Models\Components\UpdateIssuedCardState $state
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('state')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\UpdateIssuedCardState|null')]
@@ -34,7 +34,7 @@ class UpdateIssuedCard
     /**
      * Fields for identifying an authorized individual.
      *
-     * @var ?CreateAuthorizedUserUpdate $authorizedUser
+     * @var ?\Moov\MoovPhp\Models\Components\CreateAuthorizedUserUpdate $authorizedUser
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('authorizedUser')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateAuthorizedUserUpdate|null')]
@@ -42,9 +42,9 @@ class UpdateIssuedCard
     public ?CreateAuthorizedUserUpdate $authorizedUser = null;
 
     /**
-     * @param  ?UpdateIssuedCardState  $state
+     * @param  ?\Moov\MoovPhp\Models\Components\UpdateIssuedCardState  $state
      * @param  ?string  $memo
-     * @param  ?CreateAuthorizedUserUpdate  $authorizedUser
+     * @param  ?\Moov\MoovPhp\Models\Components\CreateAuthorizedUserUpdate  $authorizedUser
      * @phpstan-pure
      */
     public function __construct(?UpdateIssuedCardState $state = null, ?string $memo = null, ?CreateAuthorizedUserUpdate $authorizedUser = null)

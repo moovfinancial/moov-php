@@ -42,7 +42,7 @@ class CreateRepresentativeResponse
     /**
      * The request completed successfully.
      *
-     * @var ?Components\Representative $representative
+     * @var ?\Moov\MoovPhp\Models\Components\Representative $representative
      */
     public ?Components\Representative $representative = null;
 
@@ -51,7 +51,7 @@ class CreateRepresentativeResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\Representative  $representative
+     * @param  ?\Moov\MoovPhp\Models\Components\Representative  $representative
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\Representative $representative = null, ?array $headers = [])

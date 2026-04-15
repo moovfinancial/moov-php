@@ -45,7 +45,7 @@ class WebhookDataDisputeCreated
      *
      * Read our [disputes guide](https://docs.moov.io/guides/money-movement/accept-payments/card-acceptance/disputes/#dispute-statuses) to learn what each status means.
      *
-     * @var DisputeStatus $status
+     * @var \Moov\MoovPhp\Models\Components\DisputeStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\DisputeStatus')]
@@ -54,7 +54,7 @@ class WebhookDataDisputeCreated
     /**
      * The phase of a dispute within the dispute lifecycle.
      *
-     * @var DisputePhase $phase
+     * @var \Moov\MoovPhp\Models\Components\DisputePhase $phase
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('phase')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\DisputePhase')]
@@ -65,8 +65,8 @@ class WebhookDataDisputeCreated
      * @param  string  $transferID
      * @param  string  $transactionID
      * @param  string  $disputeID
-     * @param  DisputeStatus  $status
-     * @param  DisputePhase  $phase
+     * @param  \Moov\MoovPhp\Models\Components\DisputeStatus  $status
+     * @param  \Moov\MoovPhp\Models\Components\DisputePhase  $phase
      * @phpstan-pure
      */
     public function __construct(string $accountID, string $transferID, string $transactionID, string $disputeID, DisputeStatus $status, DisputePhase $phase)

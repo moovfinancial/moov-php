@@ -15,7 +15,7 @@ class BillingSummaryInterchange
     /**
      * Total interchange fees for Visa.
      *
-     * @var AmountDecimal $visa
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $visa
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('visa')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
@@ -24,7 +24,7 @@ class BillingSummaryInterchange
     /**
      * Total interchange fees for Mastercard.
      *
-     * @var AmountDecimal $mastercard
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $mastercard
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('mastercard')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
@@ -33,7 +33,7 @@ class BillingSummaryInterchange
     /**
      * Total interchange fees for Discover.
      *
-     * @var AmountDecimal $discover
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $discover
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('discover')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
@@ -42,17 +42,17 @@ class BillingSummaryInterchange
     /**
      * Total interchange fees for American Express.
      *
-     * @var AmountDecimal $americanExpress
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $americanExpress
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('americanExpress')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
     public AmountDecimal $americanExpress;
 
     /**
-     * @param  AmountDecimal  $visa
-     * @param  AmountDecimal  $mastercard
-     * @param  AmountDecimal  $discover
-     * @param  AmountDecimal  $americanExpress
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $visa
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $mastercard
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $discover
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $americanExpress
      * @phpstan-pure
      */
     public function __construct(AmountDecimal $visa, AmountDecimal $mastercard, AmountDecimal $discover, AmountDecimal $americanExpress)

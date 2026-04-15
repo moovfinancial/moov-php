@@ -13,7 +13,7 @@ class BankAccountVerification
 {
     /**
      *
-     * @var BankAccountVerificationMethod $verificationMethod
+     * @var \Moov\MoovPhp\Models\Components\BankAccountVerificationMethod $verificationMethod
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('verificationMethod')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BankAccountVerificationMethod')]
@@ -21,7 +21,7 @@ class BankAccountVerification
 
     /**
      *
-     * @var BankAccountVerificationStatus $status
+     * @var \Moov\MoovPhp\Models\Components\BankAccountVerificationStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BankAccountVerificationStatus')]
@@ -30,7 +30,7 @@ class BankAccountVerification
     /**
      * Reason for, and details related to, an `errored` or `verificationFailed` bank account status.
      *
-     * @var ?BankAccountException $exceptionDetails
+     * @var ?\Moov\MoovPhp\Models\Components\BankAccountException $exceptionDetails
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('exceptionDetails')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BankAccountException|null')]
@@ -38,9 +38,9 @@ class BankAccountVerification
     public ?BankAccountException $exceptionDetails = null;
 
     /**
-     * @param  BankAccountVerificationMethod  $verificationMethod
-     * @param  BankAccountVerificationStatus  $status
-     * @param  ?BankAccountException  $exceptionDetails
+     * @param  \Moov\MoovPhp\Models\Components\BankAccountVerificationMethod  $verificationMethod
+     * @param  \Moov\MoovPhp\Models\Components\BankAccountVerificationStatus  $status
+     * @param  ?\Moov\MoovPhp\Models\Components\BankAccountException  $exceptionDetails
      * @phpstan-pure
      */
     public function __construct(BankAccountVerificationMethod $verificationMethod, BankAccountVerificationStatus $status, ?BankAccountException $exceptionDetails = null)

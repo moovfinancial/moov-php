@@ -42,7 +42,7 @@ class UpdateProductResponse
     /**
      * The request completed successfully.
      *
-     * @var ?Components\Product $product
+     * @var ?\Moov\MoovPhp\Models\Components\Product $product
      */
     public ?Components\Product $product = null;
 
@@ -51,7 +51,7 @@ class UpdateProductResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\Product  $product
+     * @param  ?\Moov\MoovPhp\Models\Components\Product  $product
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\Product $product = null, ?array $headers = [])

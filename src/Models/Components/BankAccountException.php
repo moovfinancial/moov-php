@@ -45,7 +45,7 @@ class BankAccountException
      * - R38: Stop Payment on Source Document (Adjustment Entry)
      * - R39: Improper Source Document
      *
-     * @var ?ACHReturnCode $achReturnCode
+     * @var ?\Moov\MoovPhp\Models\Components\ACHReturnCode $achReturnCode
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('achReturnCode')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ACHReturnCode|null')]
@@ -64,7 +64,7 @@ class BankAccountException
      * - AG03: Transaction Type Not Supported
      * - MD07: Customer Deceased
      *
-     * @var ?RTPRejectionCode $rtpRejectionCode
+     * @var ?\Moov\MoovPhp\Models\Components\RTPRejectionCode $rtpRejectionCode
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('rtpRejectionCode')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RTPRejectionCode|null')]
@@ -102,8 +102,8 @@ class BankAccountException
 
     /**
      * @param  string  $description
-     * @param  ?ACHReturnCode  $achReturnCode
-     * @param  ?RTPRejectionCode  $rtpRejectionCode
+     * @param  ?\Moov\MoovPhp\Models\Components\ACHReturnCode  $achReturnCode
+     * @param  ?\Moov\MoovPhp\Models\Components\RTPRejectionCode  $rtpRejectionCode
      * @param  ?string  $fednowRejectionCode
      * @phpstan-pure
      */

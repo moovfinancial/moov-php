@@ -28,7 +28,7 @@ class UpdateImageRequest
 
     /**
      *
-     * @var Components\ImageUploadRequestMultiPart $imageUploadRequestMultiPart
+     * @var \Moov\MoovPhp\Models\Components\ImageUploadRequestMultiPart $imageUploadRequestMultiPart
      */
     #[SpeakeasyMetadata('request:mediaType=multipart/form-data')]
     public Components\ImageUploadRequestMultiPart $imageUploadRequestMultiPart;
@@ -36,7 +36,7 @@ class UpdateImageRequest
     /**
      * @param  string  $accountID
      * @param  string  $imageID
-     * @param  Components\ImageUploadRequestMultiPart  $imageUploadRequestMultiPart
+     * @param  \Moov\MoovPhp\Models\Components\ImageUploadRequestMultiPart  $imageUploadRequestMultiPart
      * @phpstan-pure
      */
     public function __construct(string $accountID, string $imageID, Components\ImageUploadRequestMultiPart $imageUploadRequestMultiPart)

@@ -29,7 +29,7 @@ class UpdatePaymentLinkRequest
 
     /**
      *
-     * @var Components\UpdatePaymentLink $updatePaymentLink
+     * @var \Moov\MoovPhp\Models\Components\UpdatePaymentLink $updatePaymentLink
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\UpdatePaymentLink $updatePaymentLink;
@@ -37,7 +37,7 @@ class UpdatePaymentLinkRequest
     /**
      * @param  string  $accountID
      * @param  string  $paymentLinkCode
-     * @param  Components\UpdatePaymentLink  $updatePaymentLink
+     * @param  \Moov\MoovPhp\Models\Components\UpdatePaymentLink  $updatePaymentLink
      * @phpstan-pure
      */
     public function __construct(string $accountID, string $paymentLinkCode, Components\UpdatePaymentLink $updatePaymentLink)

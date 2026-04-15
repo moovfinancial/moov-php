@@ -30,7 +30,7 @@ class UpdateRepresentativeRequest
 
     /**
      *
-     * @var Components\UpdateRepresentative $updateRepresentative
+     * @var \Moov\MoovPhp\Models\Components\UpdateRepresentative $updateRepresentative
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\UpdateRepresentative $updateRepresentative;
@@ -38,7 +38,7 @@ class UpdateRepresentativeRequest
     /**
      * @param  string  $accountID
      * @param  string  $representativeID
-     * @param  Components\UpdateRepresentative  $updateRepresentative
+     * @param  \Moov\MoovPhp\Models\Components\UpdateRepresentative  $updateRepresentative
      * @phpstan-pure
      */
     public function __construct(string $accountID, string $representativeID, Components\UpdateRepresentative $updateRepresentative)

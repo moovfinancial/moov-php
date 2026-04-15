@@ -30,7 +30,7 @@ class EstimatedActivity
     /**
      * The low value in each range is included. The high value in each range is excluded.
      *
-     * @var ?MonthlyVolumeRange $monthlyVolumeRange
+     * @var ?\Moov\MoovPhp\Models\Components\MonthlyVolumeRange $monthlyVolumeRange
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('monthlyVolumeRange')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\MonthlyVolumeRange|null')]
@@ -40,7 +40,7 @@ class EstimatedActivity
     /**
      * @param  ?int  $averageTransactionAmount
      * @param  ?int  $maximumTransactionAmount
-     * @param  ?MonthlyVolumeRange  $monthlyVolumeRange
+     * @param  ?\Moov\MoovPhp\Models\Components\MonthlyVolumeRange  $monthlyVolumeRange
      * @phpstan-pure
      */
     public function __construct(?int $averageTransactionAmount = null, ?int $maximumTransactionAmount = null, ?MonthlyVolumeRange $monthlyVolumeRange = null)

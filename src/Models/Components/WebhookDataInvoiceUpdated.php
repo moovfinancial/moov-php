@@ -27,7 +27,7 @@ class WebhookDataInvoiceUpdated
 
     /**
      *
-     * @var InvoiceStatus $status
+     * @var \Moov\MoovPhp\Models\Components\InvoiceStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\InvoiceStatus')]
@@ -36,7 +36,7 @@ class WebhookDataInvoiceUpdated
     /**
      * @param  string  $accountID
      * @param  string  $invoiceID
-     * @param  InvoiceStatus  $status
+     * @param  \Moov\MoovPhp\Models\Components\InvoiceStatus  $status
      * @phpstan-pure
      */
     public function __construct(string $accountID, string $invoiceID, InvoiceStatus $status)

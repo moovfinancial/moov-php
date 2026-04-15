@@ -28,7 +28,7 @@ class WebhookDataCardAutoUpdated
     /**
      * The results of the card update request.
      *
-     * @var CardUpdateReason $updateType
+     * @var \Moov\MoovPhp\Models\Components\CardUpdateReason $updateType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('updateType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardUpdateReason')]
@@ -37,7 +37,7 @@ class WebhookDataCardAutoUpdated
     /**
      * @param  string  $cardID
      * @param  string  $accountID
-     * @param  CardUpdateReason  $updateType
+     * @param  \Moov\MoovPhp\Models\Components\CardUpdateReason  $updateType
      * @phpstan-pure
      */
     public function __construct(string $cardID, string $accountID, CardUpdateReason $updateType)

@@ -7,7 +7,7 @@
 
 ```php
 /**
-* @var Components\BankAccountPayload
+* @var \Moov\MoovPhp\Models\Components\BankAccountPayload
 */
 Components\BankAccountPayload $value = /* values here */
 ```
@@ -16,7 +16,7 @@ Components\BankAccountPayload $value = /* values here */
 
 ```php
 /**
-* @var Components\PlaidPayload
+* @var \Moov\MoovPhp\Models\Components\PlaidPayload
 */
 Components\PlaidPayload $value = /* values here */
 ```
@@ -25,7 +25,7 @@ Components\PlaidPayload $value = /* values here */
 
 ```php
 /**
-* @var Components\PlaidLinkPayload
+* @var \Moov\MoovPhp\Models\Components\PlaidLinkPayload
 */
 Components\PlaidLinkPayload $value = /* values here */
 ```
@@ -34,7 +34,7 @@ Components\PlaidLinkPayload $value = /* values here */
 
 ```php
 /**
-* @var Components\MxPayload
+* @var \Moov\MoovPhp\Models\Components\MxPayload
 */
 Components\MxPayload $value = /* values here */
 ```

@@ -25,7 +25,7 @@ class LinkApplePayToken
      *   Refer to [Apple's documentation](https://developer.apple.com/documentation/apple_pay_on_the_web/applepaypaymenttoken/1916115-paymentdata) 
      *   for more information.
      *
-     * @var LinkApplePaymentData $paymentData
+     * @var \Moov\MoovPhp\Models\Components\LinkApplePaymentData $paymentData
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('paymentData')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\LinkApplePaymentData')]
@@ -38,7 +38,7 @@ class LinkApplePayToken
      *   Refer to [Apple's documentation](https://developer.apple.com/documentation/apple_pay_on_the_web/applepaypaymenttoken/1916113-paymentmethod) 
      *   for more information.
      *
-     * @var LinkApplePaymentMethod $paymentMethod
+     * @var \Moov\MoovPhp\Models\Components\LinkApplePaymentMethod $paymentMethod
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('paymentMethod')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\LinkApplePaymentMethod')]
@@ -53,8 +53,8 @@ class LinkApplePayToken
     public string $transactionIdentifier;
 
     /**
-     * @param  LinkApplePaymentData  $paymentData
-     * @param  LinkApplePaymentMethod  $paymentMethod
+     * @param  \Moov\MoovPhp\Models\Components\LinkApplePaymentData  $paymentData
+     * @param  \Moov\MoovPhp\Models\Components\LinkApplePaymentMethod  $paymentMethod
      * @param  string  $transactionIdentifier
      * @phpstan-pure
      */

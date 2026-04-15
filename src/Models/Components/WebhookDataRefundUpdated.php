@@ -34,7 +34,7 @@ class WebhookDataRefundUpdated
 
     /**
      *
-     * @var RefundStatus $status
+     * @var \Moov\MoovPhp\Models\Components\RefundStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RefundStatus')]
@@ -44,7 +44,7 @@ class WebhookDataRefundUpdated
      * @param  string  $accountID
      * @param  string  $transferID
      * @param  string  $refundID
-     * @param  RefundStatus  $status
+     * @param  \Moov\MoovPhp\Models\Components\RefundStatus  $status
      * @phpstan-pure
      */
     public function __construct(string $accountID, string $transferID, string $refundID, RefundStatus $status)

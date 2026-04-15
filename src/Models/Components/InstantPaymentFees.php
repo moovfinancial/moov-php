@@ -15,7 +15,7 @@ class InstantPaymentFees
     /**
      * Fees for RTP credit transactions.
      *
-     * @var BillingCountAndAmount $rtpCreditTransaction
+     * @var \Moov\MoovPhp\Models\Components\BillingCountAndAmount $rtpCreditTransaction
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('rtpCreditTransaction')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingCountAndAmount')]
@@ -24,7 +24,7 @@ class InstantPaymentFees
     /**
      * Fees for push-to-card transactions.
      *
-     * @var BillingCountAndAmount $pushToCardTransaction
+     * @var \Moov\MoovPhp\Models\Components\BillingCountAndAmount $pushToCardTransaction
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('pushToCardTransaction')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingCountAndAmount')]
@@ -33,7 +33,7 @@ class InstantPaymentFees
     /**
      * Fees for pull-from-card transactions.
      *
-     * @var BillingCountAndAmount $pullFromCardTransaction
+     * @var \Moov\MoovPhp\Models\Components\BillingCountAndAmount $pullFromCardTransaction
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('pullFromCardTransaction')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingCountAndAmount')]
@@ -42,7 +42,7 @@ class InstantPaymentFees
     /**
      * Fees for instant payment verifications.
      *
-     * @var BillingCountAndAmount $instantVerification
+     * @var \Moov\MoovPhp\Models\Components\BillingCountAndAmount $instantVerification
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('instantVerification')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingCountAndAmount')]
@@ -51,7 +51,7 @@ class InstantPaymentFees
     /**
      * Total instant payment fees.
      *
-     * @var BillingCountAndAmount $total
+     * @var \Moov\MoovPhp\Models\Components\BillingCountAndAmount $total
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('total')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingCountAndAmount')]
@@ -60,7 +60,7 @@ class InstantPaymentFees
     /**
      * Fees for RTP declines.
      *
-     * @var ?BillingCountAndAmount $rtpDecline
+     * @var ?\Moov\MoovPhp\Models\Components\BillingCountAndAmount $rtpDecline
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('rtpDecline')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingCountAndAmount|null')]
@@ -70,7 +70,7 @@ class InstantPaymentFees
     /**
      * Fees for push-to-card declines.
      *
-     * @var ?BillingCountAndAmount $pushToCardDecline
+     * @var ?\Moov\MoovPhp\Models\Components\BillingCountAndAmount $pushToCardDecline
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('pushToCardDecline')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingCountAndAmount|null')]
@@ -80,7 +80,7 @@ class InstantPaymentFees
     /**
      * Fees for pull-from-card declines.
      *
-     * @var ?BillingCountAndAmount $pullFromCardDecline
+     * @var ?\Moov\MoovPhp\Models\Components\BillingCountAndAmount $pullFromCardDecline
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('pullFromCardDecline')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingCountAndAmount|null')]
@@ -90,7 +90,7 @@ class InstantPaymentFees
     /**
      * Fees for pull-from-card refunds.
      *
-     * @var ?BillingCountAndAmount $pullFromCardRefund
+     * @var ?\Moov\MoovPhp\Models\Components\BillingCountAndAmount $pullFromCardRefund
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('pullFromCardRefund')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingCountAndAmount|null')]
@@ -98,15 +98,15 @@ class InstantPaymentFees
     public ?BillingCountAndAmount $pullFromCardRefund = null;
 
     /**
-     * @param  BillingCountAndAmount  $rtpCreditTransaction
-     * @param  BillingCountAndAmount  $pushToCardTransaction
-     * @param  BillingCountAndAmount  $pullFromCardTransaction
-     * @param  BillingCountAndAmount  $instantVerification
-     * @param  BillingCountAndAmount  $total
-     * @param  ?BillingCountAndAmount  $rtpDecline
-     * @param  ?BillingCountAndAmount  $pushToCardDecline
-     * @param  ?BillingCountAndAmount  $pullFromCardDecline
-     * @param  ?BillingCountAndAmount  $pullFromCardRefund
+     * @param  \Moov\MoovPhp\Models\Components\BillingCountAndAmount  $rtpCreditTransaction
+     * @param  \Moov\MoovPhp\Models\Components\BillingCountAndAmount  $pushToCardTransaction
+     * @param  \Moov\MoovPhp\Models\Components\BillingCountAndAmount  $pullFromCardTransaction
+     * @param  \Moov\MoovPhp\Models\Components\BillingCountAndAmount  $instantVerification
+     * @param  \Moov\MoovPhp\Models\Components\BillingCountAndAmount  $total
+     * @param  ?\Moov\MoovPhp\Models\Components\BillingCountAndAmount  $rtpDecline
+     * @param  ?\Moov\MoovPhp\Models\Components\BillingCountAndAmount  $pushToCardDecline
+     * @param  ?\Moov\MoovPhp\Models\Components\BillingCountAndAmount  $pullFromCardDecline
+     * @param  ?\Moov\MoovPhp\Models\Components\BillingCountAndAmount  $pullFromCardRefund
      * @phpstan-pure
      */
     public function __construct(BillingCountAndAmount $rtpCreditTransaction, BillingCountAndAmount $pushToCardTransaction, BillingCountAndAmount $pullFromCardTransaction, BillingCountAndAmount $instantVerification, BillingCountAndAmount $total, ?BillingCountAndAmount $rtpDecline = null, ?BillingCountAndAmount $pushToCardDecline = null, ?BillingCountAndAmount $pullFromCardDecline = null, ?BillingCountAndAmount $pullFromCardRefund = null)

@@ -68,7 +68,7 @@ class ListDisputesRequest
     /**
      * Optional dispute status by which to filter the disputes.
      *
-     * @var ?Components\DisputeStatus $status
+     * @var ?\Moov\MoovPhp\Models\Components\DisputeStatus $status
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=status')]
     public ?Components\DisputeStatus $status = null;
@@ -120,7 +120,7 @@ class ListDisputesRequest
      * @param  ?\DateTime  $endDateTime
      * @param  ?\DateTime  $respondStartDateTime
      * @param  ?\DateTime  $respondEndDateTime
-     * @param  ?Components\DisputeStatus  $status
+     * @param  ?\Moov\MoovPhp\Models\Components\DisputeStatus  $status
      * @param  ?string  $merchantAccountID
      * @param  ?string  $cardholderAccountID
      * @param  ?array<string>  $disputeIDs

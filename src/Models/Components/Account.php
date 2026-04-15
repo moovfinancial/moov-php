@@ -22,7 +22,7 @@ class Account
     /**
      * The operating mode for an account.
      *
-     * @var Mode $mode
+     * @var \Moov\MoovPhp\Models\Components\Mode $mode
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('mode')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Mode')]
@@ -31,7 +31,7 @@ class Account
     /**
      * The type of entity represented by this account.
      *
-     * @var AccountType $accountType
+     * @var \Moov\MoovPhp\Models\Components\AccountType $accountType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('accountType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AccountType')]
@@ -47,7 +47,7 @@ class Account
     /**
      * Describes a Moov account profile. A profile will have a business, individual, or guest depending on the account's type.
      *
-     * @var Profile $profile
+     * @var \Moov\MoovPhp\Models\Components\Profile $profile
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('profile')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Profile')]
@@ -56,7 +56,7 @@ class Account
     /**
      * Describes identity verification status and relevant identity verification documents.
      *
-     * @var Verification $verification
+     * @var \Moov\MoovPhp\Models\Components\Verification $verification
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('verification')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Verification')]
@@ -89,7 +89,7 @@ class Account
     /**
      * Describes the acceptance of the Terms of Service.
      *
-     * @var ?TermsOfService $termsOfService
+     * @var ?\Moov\MoovPhp\Models\Components\TermsOfService $termsOfService
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('termsOfService')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TermsOfService|null')]
@@ -99,7 +99,7 @@ class Account
     /**
      * $capabilities
      *
-     * @var ?array<AccountCapability> $capabilities
+     * @var ?array<\Moov\MoovPhp\Models\Components\AccountCapability> $capabilities
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('capabilities')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\AccountCapability>|null')]
@@ -120,7 +120,7 @@ class Account
      *
      * contacting a customer support team. This data is only allowed on a business account.
      *
-     * @var ?CustomerSupport $customerSupport
+     * @var ?\Moov\MoovPhp\Models\Components\CustomerSupport $customerSupport
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('customerSupport')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CustomerSupport|null')]
@@ -130,7 +130,7 @@ class Account
     /**
      * User provided settings to manage an account.
      *
-     * @var ?Settings $settings
+     * @var ?\Moov\MoovPhp\Models\Components\Settings $settings
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('settings')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Settings|null')]
@@ -147,19 +147,19 @@ class Account
 
     /**
      * @param  string  $accountID
-     * @param  Mode  $mode
-     * @param  AccountType  $accountType
+     * @param  \Moov\MoovPhp\Models\Components\Mode  $mode
+     * @param  \Moov\MoovPhp\Models\Components\AccountType  $accountType
      * @param  string  $displayName
-     * @param  Profile  $profile
-     * @param  Verification  $verification
+     * @param  \Moov\MoovPhp\Models\Components\Profile  $profile
+     * @param  \Moov\MoovPhp\Models\Components\Verification  $verification
      * @param  \DateTime  $createdOn
      * @param  \DateTime  $updatedOn
      * @param  ?array<string, string>  $metadata
-     * @param  ?TermsOfService  $termsOfService
-     * @param  ?array<AccountCapability>  $capabilities
+     * @param  ?\Moov\MoovPhp\Models\Components\TermsOfService  $termsOfService
+     * @param  ?array<\Moov\MoovPhp\Models\Components\AccountCapability>  $capabilities
      * @param  ?string  $foreignID
-     * @param  ?CustomerSupport  $customerSupport
-     * @param  ?Settings  $settings
+     * @param  ?\Moov\MoovPhp\Models\Components\CustomerSupport  $customerSupport
+     * @param  ?\Moov\MoovPhp\Models\Components\Settings  $settings
      * @param  ?\DateTime  $disconnectedOn
      * @phpstan-pure
      */

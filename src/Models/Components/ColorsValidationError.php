@@ -13,7 +13,7 @@ class ColorsValidationError
 {
     /**
      *
-     * @var ?BrandColorValidationError $light
+     * @var ?\Moov\MoovPhp\Models\Components\BrandColorValidationError $light
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('light')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BrandColorValidationError|null')]
@@ -22,7 +22,7 @@ class ColorsValidationError
 
     /**
      *
-     * @var ?BrandColorValidationError $dark
+     * @var ?\Moov\MoovPhp\Models\Components\BrandColorValidationError $dark
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('dark')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BrandColorValidationError|null')]
@@ -30,8 +30,8 @@ class ColorsValidationError
     public ?BrandColorValidationError $dark = null;
 
     /**
-     * @param  ?BrandColorValidationError  $light
-     * @param  ?BrandColorValidationError  $dark
+     * @param  ?\Moov\MoovPhp\Models\Components\BrandColorValidationError  $light
+     * @param  ?\Moov\MoovPhp\Models\Components\BrandColorValidationError  $dark
      * @phpstan-pure
      */
     public function __construct(?BrandColorValidationError $light = null, ?BrandColorValidationError $dark = null)

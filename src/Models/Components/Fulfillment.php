@@ -13,7 +13,7 @@ class Fulfillment
 {
     /**
      *
-     * @var ?FulfillmentMethod $method
+     * @var ?\Moov\MoovPhp\Models\Components\FulfillmentMethod $method
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('method')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\FulfillmentMethod|null')]
@@ -22,7 +22,7 @@ class Fulfillment
 
     /**
      *
-     * @var ?FulfillmentTimeframe $timeframe
+     * @var ?\Moov\MoovPhp\Models\Components\FulfillmentTimeframe $timeframe
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('timeframe')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\FulfillmentTimeframe|null')]
@@ -30,8 +30,8 @@ class Fulfillment
     public ?FulfillmentTimeframe $timeframe = null;
 
     /**
-     * @param  ?FulfillmentMethod  $method
-     * @param  ?FulfillmentTimeframe  $timeframe
+     * @param  ?\Moov\MoovPhp\Models\Components\FulfillmentMethod  $method
+     * @param  ?\Moov\MoovPhp\Models\Components\FulfillmentTimeframe  $timeframe
      * @phpstan-pure
      */
     public function __construct(?FulfillmentMethod $method = null, ?FulfillmentTimeframe $timeframe = null)

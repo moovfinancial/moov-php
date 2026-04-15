@@ -19,7 +19,7 @@ class PlatformFees
     /**
      * Fees associated with wallet services.
      *
-     * @var AmountDecimal $walletFee
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $walletFee
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('walletFee')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
@@ -28,7 +28,7 @@ class PlatformFees
     /**
      * Fees for PCI compliance.
      *
-     * @var AmountDecimal $merchantPCIFee
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $merchantPCIFee
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('merchantPCIFee')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
@@ -37,16 +37,16 @@ class PlatformFees
     /**
      * Total platform fees.
      *
-     * @var AmountDecimal $total
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $total
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('total')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
     public AmountDecimal $total;
 
     /**
-     * @param  AmountDecimal  $walletFee
-     * @param  AmountDecimal  $merchantPCIFee
-     * @param  AmountDecimal  $total
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $walletFee
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $merchantPCIFee
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $total
      * @phpstan-pure
      */
     public function __construct(AmountDecimal $walletFee, AmountDecimal $merchantPCIFee, AmountDecimal $total)

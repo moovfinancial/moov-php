@@ -21,14 +21,14 @@ class UploadFileRequest
 
     /**
      *
-     * @var Components\FileUploadRequestMultiPart $fileUploadRequestMultiPart
+     * @var \Moov\MoovPhp\Models\Components\FileUploadRequestMultiPart $fileUploadRequestMultiPart
      */
     #[SpeakeasyMetadata('request:mediaType=multipart/form-data')]
     public Components\FileUploadRequestMultiPart $fileUploadRequestMultiPart;
 
     /**
      * @param  string  $accountID
-     * @param  Components\FileUploadRequestMultiPart  $fileUploadRequestMultiPart
+     * @param  \Moov\MoovPhp\Models\Components\FileUploadRequestMultiPart  $fileUploadRequestMultiPart
      * @phpstan-pure
      */
     public function __construct(string $accountID, Components\FileUploadRequestMultiPart $fileUploadRequestMultiPart)

@@ -48,8 +48,8 @@ class Webhooks
     /**
      * Create a new webhook for the account.
      *
-     * @param  Components\CreateWebhook  $request
-     * @return Operations\CreateWebhookResponse
+     * @param  \Moov\MoovPhp\Models\Components\CreateWebhook  $request
+     * @return \Moov\MoovPhp\Models\Operations\CreateWebhookResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function create(Components\CreateWebhook $request, ?Options $options = null): Operations\CreateWebhookResponse
@@ -140,7 +140,7 @@ class Webhooks
      * Disable a webhook. Disabled webhooks will no longer receive events.
      *
      * @param  string  $webhookID
-     * @return Operations\DisableWebhookResponse
+     * @return \Moov\MoovPhp\Models\Operations\DisableWebhookResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function disable(string $webhookID, ?Options $options = null): Operations\DisableWebhookResponse
@@ -208,7 +208,7 @@ class Webhooks
      * Get details of a specific webhook.
      *
      * @param  string  $webhookID
-     * @return Operations\GetWebhookResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetWebhookResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function get(string $webhookID, ?Options $options = null): Operations\GetWebhookResponse
@@ -275,7 +275,7 @@ class Webhooks
      * Get the secret key for verifying webhook payloads.
      *
      * @param  string  $webhookID
-     * @return Operations\GetWebhookSecretResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetWebhookSecretResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function getSecret(string $webhookID, ?Options $options = null): Operations\GetWebhookSecretResponse
@@ -341,7 +341,7 @@ class Webhooks
     /**
      * List all available event types that can be subscribed to.
      *
-     * @return Operations\ListEventTypesResponse
+     * @return \Moov\MoovPhp\Models\Operations\ListEventTypesResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function listEventTypes(?Options $options = null): Operations\ListEventTypesResponse
@@ -404,7 +404,7 @@ class Webhooks
     /**
      * List all webhooks configured for the account.
      *
-     * @return Operations\ListWebhooksResponse
+     * @return \Moov\MoovPhp\Models\Operations\ListWebhooksResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function list(?Options $options = null): Operations\ListWebhooksResponse
@@ -468,7 +468,7 @@ class Webhooks
      * Send a test ping to a webhook to verify it is configured correctly.
      *
      * @param  string  $webhookID
-     * @return Operations\PingWebhookResponse
+     * @return \Moov\MoovPhp\Models\Operations\PingWebhookResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function ping(string $webhookID, ?Options $options = null): Operations\PingWebhookResponse
@@ -534,9 +534,9 @@ class Webhooks
     /**
      * Update an existing webhook.
      *
-     * @param  Components\UpdateWebhook  $updateWebhook
+     * @param  \Moov\MoovPhp\Models\Components\UpdateWebhook  $updateWebhook
      * @param  string  $webhookID
-     * @return Operations\UpdateWebhookResponse
+     * @return \Moov\MoovPhp\Models\Operations\UpdateWebhookResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function update(Components\UpdateWebhook $updateWebhook, string $webhookID, ?Options $options = null): Operations\UpdateWebhookResponse

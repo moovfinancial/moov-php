@@ -42,7 +42,7 @@ class ListRefundsResponse
     /**
      * The request completed successfully.
      *
-     * @var ?array<Components\CardAcquiringRefund> $cardAcquiringRefunds
+     * @var ?array<\Moov\MoovPhp\Models\Components\CardAcquiringRefund> $cardAcquiringRefunds
      */
     public ?array $cardAcquiringRefunds = null;
 
@@ -51,7 +51,7 @@ class ListRefundsResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?array<Components\CardAcquiringRefund>  $cardAcquiringRefunds
+     * @param  ?array<\Moov\MoovPhp\Models\Components\CardAcquiringRefund>  $cardAcquiringRefunds
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?array $cardAcquiringRefunds = null, ?array $headers = [])

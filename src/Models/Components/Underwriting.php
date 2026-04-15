@@ -38,7 +38,7 @@ class Underwriting
 
     /**
      *
-     * @var ?UnderwritingStatus $status
+     * @var ?\Moov\MoovPhp\Models\Components\UnderwritingStatus $status
      * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
@@ -48,7 +48,7 @@ class Underwriting
 
     /**
      *
-     * @var ?VolumeByCustomerType $volumeByCustomerType
+     * @var ?\Moov\MoovPhp\Models\Components\VolumeByCustomerType $volumeByCustomerType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('volumeByCustomerType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\VolumeByCustomerType|null')]
@@ -57,7 +57,7 @@ class Underwriting
 
     /**
      *
-     * @var ?CardVolumeDistribution $cardVolumeDistribution
+     * @var ?\Moov\MoovPhp\Models\Components\CardVolumeDistribution $cardVolumeDistribution
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardVolumeDistribution')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardVolumeDistribution|null')]
@@ -66,7 +66,7 @@ class Underwriting
 
     /**
      *
-     * @var ?FulfillmentDetails $fulfillment
+     * @var ?\Moov\MoovPhp\Models\Components\FulfillmentDetails $fulfillment
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('fulfillment')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\FulfillmentDetails|null')]
@@ -75,7 +75,7 @@ class Underwriting
 
     /**
      *
-     * @var ?GeographicReach $geographicReach
+     * @var ?\Moov\MoovPhp\Models\Components\GeographicReach $geographicReach
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('geographicReach')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\GeographicReach|null')]
@@ -84,7 +84,7 @@ class Underwriting
 
     /**
      *
-     * @var ?BusinessPresence $businessPresence
+     * @var ?\Moov\MoovPhp\Models\Components\BusinessPresence $businessPresence
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('businessPresence')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BusinessPresence|null')]
@@ -93,7 +93,7 @@ class Underwriting
 
     /**
      *
-     * @var ?PendingLitigation $pendingLitigation
+     * @var ?\Moov\MoovPhp\Models\Components\PendingLitigation $pendingLitigation
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('pendingLitigation')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PendingLitigation|null')]
@@ -102,7 +102,7 @@ class Underwriting
 
     /**
      *
-     * @var ?VolumeShareByCustomerType $volumeShareByCustomerType
+     * @var ?\Moov\MoovPhp\Models\Components\VolumeShareByCustomerType $volumeShareByCustomerType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('volumeShareByCustomerType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\VolumeShareByCustomerType|null')]
@@ -111,7 +111,7 @@ class Underwriting
 
     /**
      *
-     * @var ?CollectFunds $collectFunds
+     * @var ?\Moov\MoovPhp\Models\Components\CollectFunds $collectFunds
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('collectFunds')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CollectFunds|null')]
@@ -120,7 +120,7 @@ class Underwriting
 
     /**
      *
-     * @var ?MoneyTransfer $moneyTransfer
+     * @var ?\Moov\MoovPhp\Models\Components\MoneyTransfer $moneyTransfer
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('moneyTransfer')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\MoneyTransfer|null')]
@@ -129,7 +129,7 @@ class Underwriting
 
     /**
      *
-     * @var ?SendFunds $sendFunds
+     * @var ?\Moov\MoovPhp\Models\Components\SendFunds $sendFunds
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('sendFunds')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\SendFunds|null')]
@@ -140,17 +140,17 @@ class Underwriting
      * @param  ?int  $averageTransactionSize
      * @param  ?int  $maxTransactionSize
      * @param  ?int  $averageMonthlyTransactionVolume
-     * @param  ?UnderwritingStatus  $status
-     * @param  ?VolumeByCustomerType  $volumeByCustomerType
-     * @param  ?CardVolumeDistribution  $cardVolumeDistribution
-     * @param  ?FulfillmentDetails  $fulfillment
-     * @param  ?GeographicReach  $geographicReach
-     * @param  ?BusinessPresence  $businessPresence
-     * @param  ?PendingLitigation  $pendingLitigation
-     * @param  ?VolumeShareByCustomerType  $volumeShareByCustomerType
-     * @param  ?CollectFunds  $collectFunds
-     * @param  ?MoneyTransfer  $moneyTransfer
-     * @param  ?SendFunds  $sendFunds
+     * @param  ?\Moov\MoovPhp\Models\Components\UnderwritingStatus  $status
+     * @param  ?\Moov\MoovPhp\Models\Components\VolumeByCustomerType  $volumeByCustomerType
+     * @param  ?\Moov\MoovPhp\Models\Components\CardVolumeDistribution  $cardVolumeDistribution
+     * @param  ?\Moov\MoovPhp\Models\Components\FulfillmentDetails  $fulfillment
+     * @param  ?\Moov\MoovPhp\Models\Components\GeographicReach  $geographicReach
+     * @param  ?\Moov\MoovPhp\Models\Components\BusinessPresence  $businessPresence
+     * @param  ?\Moov\MoovPhp\Models\Components\PendingLitigation  $pendingLitigation
+     * @param  ?\Moov\MoovPhp\Models\Components\VolumeShareByCustomerType  $volumeShareByCustomerType
+     * @param  ?\Moov\MoovPhp\Models\Components\CollectFunds  $collectFunds
+     * @param  ?\Moov\MoovPhp\Models\Components\MoneyTransfer  $moneyTransfer
+     * @param  ?\Moov\MoovPhp\Models\Components\SendFunds  $sendFunds
      * @phpstan-pure
      */
     public function __construct(?int $averageTransactionSize = null, ?int $maxTransactionSize = null, ?int $averageMonthlyTransactionVolume = null, ?UnderwritingStatus $status = null, ?VolumeByCustomerType $volumeByCustomerType = null, ?CardVolumeDistribution $cardVolumeDistribution = null, ?FulfillmentDetails $fulfillment = null, ?GeographicReach $geographicReach = null, ?BusinessPresence $businessPresence = null, ?PendingLitigation $pendingLitigation = null, ?VolumeShareByCustomerType $volumeShareByCustomerType = null, ?CollectFunds $collectFunds = null, ?MoneyTransfer $moneyTransfer = null, ?SendFunds $sendFunds = null)

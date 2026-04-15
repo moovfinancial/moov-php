@@ -42,7 +42,7 @@ class GetAccountResponse
     /**
      * The request completed successfully.
      *
-     * @var ?Components\Account $account
+     * @var ?\Moov\MoovPhp\Models\Components\Account $account
      */
     public ?Components\Account $account = null;
 
@@ -51,7 +51,7 @@ class GetAccountResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\Account  $account
+     * @param  ?\Moov\MoovPhp\Models\Components\Account  $account
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\Account $account = null, ?array $headers = [])

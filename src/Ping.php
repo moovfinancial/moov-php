@@ -49,7 +49,7 @@ class Ping
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/ping.read` scope.
      *
-     * @return Operations\PingResponse
+     * @return \Moov\MoovPhp\Models\Operations\PingResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function get(?Options $options = null): Operations\PingResponse

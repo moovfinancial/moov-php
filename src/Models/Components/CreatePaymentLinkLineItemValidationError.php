@@ -29,7 +29,7 @@ class CreatePaymentLinkLineItemValidationError
 
     /**
      *
-     * @var ?AmountDecimalValidationError $basePrice
+     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimalValidationError $basePrice
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('basePrice')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimalValidationError|null')]
@@ -39,7 +39,7 @@ class CreatePaymentLinkLineItemValidationError
     /**
      * $options
      *
-     * @var ?array<string, CreatePaymentLinkLineItemOptionValidationError> $options
+     * @var ?array<string, \Moov\MoovPhp\Models\Components\CreatePaymentLinkLineItemOptionValidationError> $options
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('options')]
     #[\Speakeasy\Serializer\Annotation\Type('array<string, \Moov\MoovPhp\Models\Components\CreatePaymentLinkLineItemOptionValidationError>|null')]
@@ -57,8 +57,8 @@ class CreatePaymentLinkLineItemValidationError
     /**
      * @param  ?string  $productID
      * @param  ?string  $name
-     * @param  ?AmountDecimalValidationError  $basePrice
-     * @param  ?array<string, CreatePaymentLinkLineItemOptionValidationError>  $options
+     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimalValidationError  $basePrice
+     * @param  ?array<string, \Moov\MoovPhp\Models\Components\CreatePaymentLinkLineItemOptionValidationError>  $options
      * @param  ?string  $quantity
      * @phpstan-pure
      */

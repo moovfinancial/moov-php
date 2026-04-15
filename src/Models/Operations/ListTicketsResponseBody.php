@@ -15,7 +15,7 @@ class ListTicketsResponseBody
     /**
      * $items
      *
-     * @var array<Components\Ticket> $items
+     * @var array<\Moov\MoovPhp\Models\Components\Ticket> $items
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('items')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\Ticket>')]
@@ -23,7 +23,7 @@ class ListTicketsResponseBody
 
     /**
      *
-     * @var ?Components\ItemListNextPage $nextPage
+     * @var ?\Moov\MoovPhp\Models\Components\ItemListNextPage $nextPage
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('nextPage')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ItemListNextPage|null')]
@@ -31,8 +31,8 @@ class ListTicketsResponseBody
     public ?Components\ItemListNextPage $nextPage = null;
 
     /**
-     * @param  array<Components\Ticket>  $items
-     * @param  ?Components\ItemListNextPage  $nextPage
+     * @param  array<\Moov\MoovPhp\Models\Components\Ticket>  $items
+     * @param  ?\Moov\MoovPhp\Models\Components\ItemListNextPage  $nextPage
      * @phpstan-pure
      */
     public function __construct(array $items, ?Components\ItemListNextPage $nextPage = null)

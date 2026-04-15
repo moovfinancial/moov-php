@@ -21,14 +21,14 @@ class ConnectAccountRequest
 
     /**
      *
-     * @var Components\ShareScopes $shareScopes
+     * @var \Moov\MoovPhp\Models\Components\ShareScopes $shareScopes
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\ShareScopes $shareScopes;
 
     /**
      * @param  string  $accountID
-     * @param  Components\ShareScopes  $shareScopes
+     * @param  \Moov\MoovPhp\Models\Components\ShareScopes  $shareScopes
      * @phpstan-pure
      */
     public function __construct(string $accountID, Components\ShareScopes $shareScopes)

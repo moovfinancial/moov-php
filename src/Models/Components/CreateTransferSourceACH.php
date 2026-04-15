@@ -32,7 +32,7 @@ class CreateTransferSourceACH
     /**
      * An optional override of your default ACH hold period in banking days. The hold period must be longer than or equal to your default setting.
      *
-     * @var ?DebitHoldPeriod $debitHoldPeriod
+     * @var ?\Moov\MoovPhp\Models\Components\DebitHoldPeriod $debitHoldPeriod
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('debitHoldPeriod')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\DebitHoldPeriod|null')]
@@ -42,7 +42,7 @@ class CreateTransferSourceACH
     /**
      * Code used to identify the ACH authorization method.
      *
-     * @var ?SECCode $secCode
+     * @var ?\Moov\MoovPhp\Models\Components\SECCode $secCode
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('secCode')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\SECCode|null')]
@@ -52,7 +52,7 @@ class CreateTransferSourceACH
     /**
      * $addenda
      *
-     * @var ?array<CreateTransferACHAddendaRecord> $addenda
+     * @var ?array<\Moov\MoovPhp\Models\Components\CreateTransferACHAddendaRecord> $addenda
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('addenda')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\CreateTransferACHAddendaRecord>|null')]
@@ -62,9 +62,9 @@ class CreateTransferSourceACH
     /**
      * @param  ?string  $companyEntryDescription
      * @param  ?string  $originatingCompanyName
-     * @param  ?DebitHoldPeriod  $debitHoldPeriod
-     * @param  ?SECCode  $secCode
-     * @param  ?array<CreateTransferACHAddendaRecord>  $addenda
+     * @param  ?\Moov\MoovPhp\Models\Components\DebitHoldPeriod  $debitHoldPeriod
+     * @param  ?\Moov\MoovPhp\Models\Components\SECCode  $secCode
+     * @param  ?array<\Moov\MoovPhp\Models\Components\CreateTransferACHAddendaRecord>  $addenda
      * @phpstan-pure
      */
     public function __construct(?string $companyEntryDescription = null, ?string $originatingCompanyName = null, ?DebitHoldPeriod $debitHoldPeriod = null, ?SECCode $secCode = null, ?array $addenda = null)

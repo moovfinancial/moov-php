@@ -13,7 +13,7 @@ class RefundCardDetails
 {
     /**
      *
-     * @var RefundCardStatus $status
+     * @var \Moov\MoovPhp\Models\Components\RefundCardStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RefundCardStatus')]
@@ -21,7 +21,7 @@ class RefundCardDetails
 
     /**
      *
-     * @var ?CardTransactionFailureCode $failureCode
+     * @var ?\Moov\MoovPhp\Models\Components\CardTransactionFailureCode $failureCode
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('failureCode')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardTransactionFailureCode|null')]
@@ -69,8 +69,8 @@ class RefundCardDetails
     public ?\DateTime $completedOn = null;
 
     /**
-     * @param  RefundCardStatus  $status
-     * @param  ?CardTransactionFailureCode  $failureCode
+     * @param  \Moov\MoovPhp\Models\Components\RefundCardStatus  $status
+     * @param  ?\Moov\MoovPhp\Models\Components\CardTransactionFailureCode  $failureCode
      * @param  ?\DateTime  $initiatedOn
      * @param  ?\DateTime  $confirmedOn
      * @param  ?\DateTime  $settledOn

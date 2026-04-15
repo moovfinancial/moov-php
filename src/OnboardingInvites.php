@@ -51,8 +51,8 @@ class OnboardingInvites
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts.write` scope.
      *
-     * @param  Components\OnboardingInviteRequest  $request
-     * @return Operations\CreateOnboardingInviteResponse
+     * @param  \Moov\MoovPhp\Models\Components\OnboardingInviteRequest  $request
+     * @return \Moov\MoovPhp\Models\Operations\CreateOnboardingInviteResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function create(Components\OnboardingInviteRequest $request, ?Options $options = null): Operations\CreateOnboardingInviteResponse

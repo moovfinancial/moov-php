@@ -30,7 +30,7 @@ class RequestCardError
 
     /**
      *
-     * @var ?Components\CreateAuthorizedUserError $authorizedUser
+     * @var ?\Moov\MoovPhp\Models\Components\CreateAuthorizedUserError $authorizedUser
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('authorizedUser')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateAuthorizedUserError|null')]
@@ -47,7 +47,7 @@ class RequestCardError
 
     /**
      *
-     * @var ?Components\CardExpirationError $expiration
+     * @var ?\Moov\MoovPhp\Models\Components\CardExpirationError $expiration
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('expiration')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardExpirationError|null')]
@@ -56,7 +56,7 @@ class RequestCardError
 
     /**
      *
-     * @var ?Components\IssuingControlsError $controls
+     * @var ?\Moov\MoovPhp\Models\Components\IssuingControlsError $controls
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('controls')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IssuingControlsError|null')]
@@ -66,10 +66,10 @@ class RequestCardError
     /**
      * @param  ?string  $fundingWalletID
      * @param  ?string  $formFactor
-     * @param  ?Components\CreateAuthorizedUserError  $authorizedUser
+     * @param  ?\Moov\MoovPhp\Models\Components\CreateAuthorizedUserError  $authorizedUser
      * @param  ?string  $memo
-     * @param  ?Components\CardExpirationError  $expiration
-     * @param  ?Components\IssuingControlsError  $controls
+     * @param  ?\Moov\MoovPhp\Models\Components\CardExpirationError  $expiration
+     * @param  ?\Moov\MoovPhp\Models\Components\IssuingControlsError  $controls
      * @phpstan-pure
      */
     public function __construct(?string $fundingWalletID = null, ?string $formFactor = null, ?Components\CreateAuthorizedUserError $authorizedUser = null, ?string $memo = null, ?Components\CardExpirationError $expiration = null, ?Components\IssuingControlsError $controls = null)

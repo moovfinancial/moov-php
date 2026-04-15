@@ -13,14 +13,14 @@ class UpdateUnderwritingError
 {
     /**
      *
-     * @var UpdateUnderwritingErrorError $error
+     * @var \Moov\MoovPhp\Models\Errors\UpdateUnderwritingErrorError $error
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('error')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Errors\UpdateUnderwritingErrorError')]
     public UpdateUnderwritingErrorError $error;
 
     /**
-     * @param  UpdateUnderwritingErrorError  $error
+     * @param  \Moov\MoovPhp\Models\Errors\UpdateUnderwritingErrorError  $error
      * @phpstan-pure
      */
     public function __construct(UpdateUnderwritingErrorError $error)

@@ -28,7 +28,7 @@ class UpdateImageMetadataRequest
 
     /**
      *
-     * @var Components\ImageMetadataRequest $imageMetadataRequest
+     * @var \Moov\MoovPhp\Models\Components\ImageMetadataRequest $imageMetadataRequest
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\ImageMetadataRequest $imageMetadataRequest;
@@ -36,7 +36,7 @@ class UpdateImageMetadataRequest
     /**
      * @param  string  $accountID
      * @param  string  $imageID
-     * @param  Components\ImageMetadataRequest  $imageMetadataRequest
+     * @param  \Moov\MoovPhp\Models\Components\ImageMetadataRequest  $imageMetadataRequest
      * @phpstan-pure
      */
     public function __construct(string $accountID, string $imageID, Components\ImageMetadataRequest $imageMetadataRequest)

@@ -28,7 +28,7 @@ class FedNowInstitution
 
     /**
      *
-     * @var FedNowServices $services
+     * @var \Moov\MoovPhp\Models\Components\FedNowServices $services
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('services')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\FedNowServices')]
@@ -37,7 +37,7 @@ class FedNowInstitution
     /**
      * @param  string  $name
      * @param  string  $routingNumber
-     * @param  FedNowServices  $services
+     * @param  \Moov\MoovPhp\Models\Components\FedNowServices  $services
      * @phpstan-pure
      */
     public function __construct(string $name, string $routingNumber, FedNowServices $services)

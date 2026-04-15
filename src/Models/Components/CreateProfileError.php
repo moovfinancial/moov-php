@@ -13,7 +13,7 @@ class CreateProfileError
 {
     /**
      *
-     * @var ?CreateIndividualError $individual
+     * @var ?\Moov\MoovPhp\Models\Components\CreateIndividualError $individual
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('individual')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateIndividualError|null')]
@@ -22,7 +22,7 @@ class CreateProfileError
 
     /**
      *
-     * @var ?CreateBusinessError $business
+     * @var ?\Moov\MoovPhp\Models\Components\CreateBusinessError $business
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('business')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateBusinessError|null')]
@@ -30,8 +30,8 @@ class CreateProfileError
     public ?CreateBusinessError $business = null;
 
     /**
-     * @param  ?CreateIndividualError  $individual
-     * @param  ?CreateBusinessError  $business
+     * @param  ?\Moov\MoovPhp\Models\Components\CreateIndividualError  $individual
+     * @param  ?\Moov\MoovPhp\Models\Components\CreateBusinessError  $business
      * @phpstan-pure
      */
     public function __construct(?CreateIndividualError $individual = null, ?CreateBusinessError $business = null)

@@ -14,14 +14,14 @@ class ReversedWithRefund
     /**
      * Details of a card refund.
      *
-     * @var CardAcquiringRefund $refund
+     * @var \Moov\MoovPhp\Models\Components\CardAcquiringRefund $refund
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('refund')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardAcquiringRefund')]
     public CardAcquiringRefund $refund;
 
     /**
-     * @param  CardAcquiringRefund  $refund
+     * @param  \Moov\MoovPhp\Models\Components\CardAcquiringRefund  $refund
      * @phpstan-pure
      */
     public function __construct(CardAcquiringRefund $refund)

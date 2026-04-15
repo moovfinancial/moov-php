@@ -31,7 +31,7 @@ class CreateBusinessProfile
     /**
      * The type of entity represented by this business.
      *
-     * @var ?BusinessType $businessType
+     * @var ?\Moov\MoovPhp\Models\Components\BusinessType $businessType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('businessType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BusinessType|null')]
@@ -40,7 +40,7 @@ class CreateBusinessProfile
 
     /**
      *
-     * @var ?Address $address
+     * @var ?\Moov\MoovPhp\Models\Components\Address $address
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('address')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Address|null')]
@@ -49,7 +49,7 @@ class CreateBusinessProfile
 
     /**
      *
-     * @var ?PhoneNumber $phone
+     * @var ?\Moov\MoovPhp\Models\Components\PhoneNumber $phone
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('phone')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PhoneNumber|null')]
@@ -83,7 +83,7 @@ class CreateBusinessProfile
     /**
      * An EIN (employer identification number) for the business. For sole proprietors, an SSN can be used as the EIN.
      *
-     * @var ?TaxID $taxID
+     * @var ?\Moov\MoovPhp\Models\Components\TaxID $taxID
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('taxID')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TaxID|null')]
@@ -92,7 +92,7 @@ class CreateBusinessProfile
 
     /**
      *
-     * @var ?IndustryCodes $industryCodes
+     * @var ?\Moov\MoovPhp\Models\Components\IndustryCodes $industryCodes
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('industryCodes')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IndustryCodes|null')]
@@ -111,7 +111,7 @@ class CreateBusinessProfile
     /**
      * If the business is a financial institution, this field describes its primary regulator.
      *
-     * @var ?PrimaryRegulator $primaryRegulator
+     * @var ?\Moov\MoovPhp\Models\Components\PrimaryRegulator $primaryRegulator
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('primaryRegulator')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PrimaryRegulator|null')]
@@ -121,16 +121,16 @@ class CreateBusinessProfile
     /**
      * @param  string  $legalBusinessName
      * @param  ?string  $doingBusinessAs
-     * @param  ?BusinessType  $businessType
-     * @param  ?Address  $address
-     * @param  ?PhoneNumber  $phone
+     * @param  ?\Moov\MoovPhp\Models\Components\BusinessType  $businessType
+     * @param  ?\Moov\MoovPhp\Models\Components\Address  $address
+     * @param  ?\Moov\MoovPhp\Models\Components\PhoneNumber  $phone
      * @param  ?string  $email
      * @param  ?string  $website
      * @param  ?string  $description
-     * @param  ?TaxID  $taxID
-     * @param  ?IndustryCodes  $industryCodes
+     * @param  ?\Moov\MoovPhp\Models\Components\TaxID  $taxID
+     * @param  ?\Moov\MoovPhp\Models\Components\IndustryCodes  $industryCodes
      * @param  ?string  $industry
-     * @param  ?PrimaryRegulator  $primaryRegulator
+     * @param  ?\Moov\MoovPhp\Models\Components\PrimaryRegulator  $primaryRegulator
      * @phpstan-pure
      */
     public function __construct(string $legalBusinessName, ?string $doingBusinessAs = null, ?BusinessType $businessType = null, ?Address $address = null, ?PhoneNumber $phone = null, ?string $email = null, ?string $website = null, ?string $description = null, ?TaxID $taxID = null, ?IndustryCodes $industryCodes = null, ?string $industry = null, ?PrimaryRegulator $primaryRegulator = null)

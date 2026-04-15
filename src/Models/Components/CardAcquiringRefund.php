@@ -36,7 +36,7 @@ class CardAcquiringRefund
 
     /**
      *
-     * @var RefundStatus $status
+     * @var \Moov\MoovPhp\Models\Components\RefundStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RefundStatus')]
@@ -44,7 +44,7 @@ class CardAcquiringRefund
 
     /**
      *
-     * @var Amount $amount
+     * @var \Moov\MoovPhp\Models\Components\Amount $amount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Amount')]
@@ -52,7 +52,7 @@ class CardAcquiringRefund
 
     /**
      *
-     * @var ?RefundCardDetails $cardDetails
+     * @var ?\Moov\MoovPhp\Models\Components\RefundCardDetails $cardDetails
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardDetails')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RefundCardDetails|null')]
@@ -63,9 +63,9 @@ class CardAcquiringRefund
      * @param  string  $refundID
      * @param  \DateTime  $createdOn
      * @param  \DateTime  $updatedOn
-     * @param  RefundStatus  $status
-     * @param  Amount  $amount
-     * @param  ?RefundCardDetails  $cardDetails
+     * @param  \Moov\MoovPhp\Models\Components\RefundStatus  $status
+     * @param  \Moov\MoovPhp\Models\Components\Amount  $amount
+     * @param  ?\Moov\MoovPhp\Models\Components\RefundCardDetails  $cardDetails
      * @phpstan-pure
      */
     public function __construct(string $refundID, \DateTime $createdOn, \DateTime $updatedOn, RefundStatus $status, Amount $amount, ?RefundCardDetails $cardDetails = null)

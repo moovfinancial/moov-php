@@ -21,7 +21,7 @@ class Document
     /**
      * Types of documents that can be uploaded.
      *
-     * @var DocumentType $type
+     * @var \Moov\MoovPhp\Models\Components\DocumentType $type
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\DocumentType')]
@@ -54,7 +54,7 @@ class Document
 
     /**
      * @param  string  $documentID
-     * @param  DocumentType  $type
+     * @param  \Moov\MoovPhp\Models\Components\DocumentType  $type
      * @param  string  $contentType
      * @param  \DateTime  $uploadedAt
      * @param  ?array<string>  $parseErrors

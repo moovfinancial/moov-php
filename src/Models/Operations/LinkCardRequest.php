@@ -21,7 +21,7 @@ class LinkCardRequest
 
     /**
      *
-     * @var Components\LinkCard $linkCard
+     * @var \Moov\MoovPhp\Models\Components\LinkCard $linkCard
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\LinkCard $linkCard;
@@ -33,15 +33,15 @@ class LinkCardRequest
      * When this header is set to `payment-method`, the response will include any payment methods that were created for the newly 
      * linked card in the `paymentMethods` field. Otherwise, the `paymentMethods` field will be omitted from the response.
      *
-     * @var ?Components\LinkCardWaitFor $xWaitFor
+     * @var ?\Moov\MoovPhp\Models\Components\LinkCardWaitFor $xWaitFor
      */
     #[SpeakeasyMetadata('header:style=simple,explode=false,name=x-wait-for')]
     public ?Components\LinkCardWaitFor $xWaitFor = null;
 
     /**
      * @param  string  $accountID
-     * @param  Components\LinkCard  $linkCard
-     * @param  ?Components\LinkCardWaitFor  $xWaitFor
+     * @param  \Moov\MoovPhp\Models\Components\LinkCard  $linkCard
+     * @param  ?\Moov\MoovPhp\Models\Components\LinkCardWaitFor  $xWaitFor
      * @phpstan-pure
      */
     public function __construct(string $accountID, Components\LinkCard $linkCard, ?Components\LinkCardWaitFor $xWaitFor = null)

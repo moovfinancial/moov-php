@@ -20,21 +20,21 @@ class CreateEvidenceFileMultiPart
      *   - `image/tiff`
      *   - `application/pdf`
      *
-     * @var File $file
+     * @var \Moov\MoovPhp\Models\Components\File $file
      */
     #[SpeakeasyMetadata('multipartForm:file=true,name=file')]
     public File $file;
 
     /**
      *
-     * @var EvidenceType $evidenceType
+     * @var \Moov\MoovPhp\Models\Components\EvidenceType $evidenceType
      */
     #[SpeakeasyMetadata('multipartForm:name=evidenceType')]
     public EvidenceType $evidenceType;
 
     /**
-     * @param  File  $file
-     * @param  EvidenceType  $evidenceType
+     * @param  \Moov\MoovPhp\Models\Components\File  $file
+     * @param  \Moov\MoovPhp\Models\Components\EvidenceType  $evidenceType
      * @phpstan-pure
      */
     public function __construct(File $file, EvidenceType $evidenceType)

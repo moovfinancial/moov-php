@@ -51,7 +51,7 @@ class EnrichedProfile
      * you'll need to specify the `/profile-enrichment.read` scope.
      *
      * @param  string  $email
-     * @return Operations\GetEnrichmentProfileResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetEnrichmentProfileResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function get(string $email, ?Options $options = null): Operations\GetEnrichmentProfileResponse

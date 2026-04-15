@@ -52,7 +52,7 @@ class Transactions
      *
      * @param  string  $accountID
      * @param  string  $cardTransactionID
-     * @return Operations\GetIssuedCardTransactionResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetIssuedCardTransactionResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function get(string $accountID, string $cardTransactionID, ?Options $options = null): Operations\GetIssuedCardTransactionResponse

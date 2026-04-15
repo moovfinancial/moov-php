@@ -42,14 +42,14 @@ class InitiateRefundResponse
     /**
      * The request completed successfully.
      *
-     * @var Components\CardAcquiringRefund|Components\AsyncCreatedRefund|null $createRefundResponse
+     * @var \Moov\MoovPhp\Models\Components\CardAcquiringRefund|\Moov\MoovPhp\Models\Components\AsyncCreatedRefund|null $createRefundResponse
      */
     public Components\CardAcquiringRefund|Components\AsyncCreatedRefund|null $createRefundResponse = null;
 
     /**
      * A refund was successfully created but an error occurred while waiting for a synchronous response.
      *
-     * @var ?Components\CardAcquiringRefund $cardAcquiringRefund
+     * @var ?\Moov\MoovPhp\Models\Components\CardAcquiringRefund $cardAcquiringRefund
      */
     public ?Components\CardAcquiringRefund $cardAcquiringRefund = null;
 
@@ -58,8 +58,8 @@ class InitiateRefundResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  Components\CardAcquiringRefund|Components\AsyncCreatedRefund|null  $createRefundResponse
-     * @param  ?Components\CardAcquiringRefund  $cardAcquiringRefund
+     * @param  \Moov\MoovPhp\Models\Components\CardAcquiringRefund|\Moov\MoovPhp\Models\Components\AsyncCreatedRefund|null  $createRefundResponse
+     * @param  ?\Moov\MoovPhp\Models\Components\CardAcquiringRefund  $cardAcquiringRefund
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, Components\CardAcquiringRefund|Components\AsyncCreatedRefund|null $createRefundResponse = null, ?Components\CardAcquiringRefund $cardAcquiringRefund = null, ?array $headers = [])

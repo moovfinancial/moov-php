@@ -35,7 +35,7 @@ class UpdateDisputeEvidenceRequest
 
     /**
      *
-     * @var Components\UpdateEvidence $updateEvidence
+     * @var \Moov\MoovPhp\Models\Components\UpdateEvidence $updateEvidence
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\UpdateEvidence $updateEvidence;
@@ -44,7 +44,7 @@ class UpdateDisputeEvidenceRequest
      * @param  string  $accountID
      * @param  string  $disputeID
      * @param  string  $evidenceID
-     * @param  Components\UpdateEvidence  $updateEvidence
+     * @param  \Moov\MoovPhp\Models\Components\UpdateEvidence  $updateEvidence
      * @phpstan-pure
      */
     public function __construct(string $accountID, string $disputeID, string $evidenceID, Components\UpdateEvidence $updateEvidence)
