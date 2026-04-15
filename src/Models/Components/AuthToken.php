@@ -14,7 +14,7 @@ class AuthToken
     /**
      * An [RFC 6750](https://www.rfc-editor.org/rfc/rfc6750#section-6.1) token type.
      *
-     * @var TokenType $tokenType
+     * @var \Moov\MoovPhp\Models\Components\TokenType $tokenType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('token_type')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TokenType')]
@@ -53,7 +53,7 @@ class AuthToken
     public string $scope;
 
     /**
-     * @param  TokenType  $tokenType
+     * @param  \Moov\MoovPhp\Models\Components\TokenType  $tokenType
      * @param  string  $accessToken
      * @param  string  $refreshToken
      * @param  int  $expiresIn

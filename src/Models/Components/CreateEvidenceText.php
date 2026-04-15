@@ -21,7 +21,7 @@ class CreateEvidenceText
 
     /**
      *
-     * @var EvidenceType $evidenceType
+     * @var \Moov\MoovPhp\Models\Components\EvidenceType $evidenceType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('evidenceType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\EvidenceType')]
@@ -29,7 +29,7 @@ class CreateEvidenceText
 
     /**
      * @param  string  $text
-     * @param  EvidenceType  $evidenceType
+     * @param  \Moov\MoovPhp\Models\Components\EvidenceType  $evidenceType
      * @phpstan-pure
      */
     public function __construct(string $text, EvidenceType $evidenceType)

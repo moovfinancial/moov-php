@@ -42,7 +42,7 @@ class UploadDisputeEvidenceTextResponse
     /**
      * The resource was successfully created.
      *
-     * @var ?Components\EvidenceTextResponse $evidenceTextResponse
+     * @var ?\Moov\MoovPhp\Models\Components\EvidenceTextResponse $evidenceTextResponse
      */
     public ?Components\EvidenceTextResponse $evidenceTextResponse = null;
 
@@ -51,7 +51,7 @@ class UploadDisputeEvidenceTextResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\EvidenceTextResponse  $evidenceTextResponse
+     * @param  ?\Moov\MoovPhp\Models\Components\EvidenceTextResponse  $evidenceTextResponse
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\EvidenceTextResponse $evidenceTextResponse = null, ?array $headers = [])

@@ -51,7 +51,7 @@ class Onboarding
      * you'll need to specify the `/accounts.read` scope.
      *
      * @param  string  $code
-     * @return Operations\GetOnboardingInviteResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetOnboardingInviteResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function getInvite(string $code, ?Options $options = null): Operations\GetOnboardingInviteResponse
@@ -120,7 +120,7 @@ class Onboarding
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts.read` scope.
      *
-     * @return Operations\ListOnboardingInvitesResponse
+     * @return \Moov\MoovPhp\Models\Operations\ListOnboardingInvitesResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function listInvites(?Options $options = null): Operations\ListOnboardingInvitesResponse
@@ -187,7 +187,7 @@ class Onboarding
      * you'll need to specify the `/accounts.write` scope.
      *
      * @param  string  $code
-     * @return Operations\RevokeOnboardingInviteResponse
+     * @return \Moov\MoovPhp\Models\Operations\RevokeOnboardingInviteResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function revokeInvite(string $code, ?Options $options = null): Operations\RevokeOnboardingInviteResponse

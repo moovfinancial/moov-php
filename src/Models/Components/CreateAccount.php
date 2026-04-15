@@ -14,7 +14,7 @@ class CreateAccount
     /**
      * The type of entity represented by this account.
      *
-     * @var AccountType $accountType
+     * @var \Moov\MoovPhp\Models\Components\AccountType $accountType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('accountType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AccountType')]
@@ -22,7 +22,7 @@ class CreateAccount
 
     /**
      *
-     * @var CreateProfile $profile
+     * @var \Moov\MoovPhp\Models\Components\CreateProfile $profile
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('profile')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateProfile')]
@@ -40,7 +40,7 @@ class CreateAccount
 
     /**
      *
-     * @var ?TermsOfServicePayload $termsOfService
+     * @var ?\Moov\MoovPhp\Models\Components\TermsOfServicePayload $termsOfService
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('termsOfService')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TermsOfServicePayload|null')]
@@ -61,7 +61,7 @@ class CreateAccount
      *
      * contacting a customer support team. This data is only allowed on a business account.
      *
-     * @var ?CustomerSupport $customerSupport
+     * @var ?\Moov\MoovPhp\Models\Components\CustomerSupport $customerSupport
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('customerSupport')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CustomerSupport|null')]
@@ -71,7 +71,7 @@ class CreateAccount
     /**
      * User provided settings to manage an account.
      *
-     * @var ?Settings $settings
+     * @var ?\Moov\MoovPhp\Models\Components\Settings $settings
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('settings')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Settings|null')]
@@ -81,7 +81,7 @@ class CreateAccount
     /**
      * $capabilities
      *
-     * @var ?array<CapabilityID> $capabilities
+     * @var ?array<\Moov\MoovPhp\Models\Components\CapabilityID> $capabilities
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('capabilities')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\CapabilityID>|null')]
@@ -91,7 +91,7 @@ class CreateAccount
     /**
      * The operating mode for an account.
      *
-     * @var ?Mode $mode
+     * @var ?\Moov\MoovPhp\Models\Components\Mode $mode
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('mode')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Mode|null')]
@@ -99,15 +99,15 @@ class CreateAccount
     public ?Mode $mode = null;
 
     /**
-     * @param  AccountType  $accountType
-     * @param  CreateProfile  $profile
+     * @param  \Moov\MoovPhp\Models\Components\AccountType  $accountType
+     * @param  \Moov\MoovPhp\Models\Components\CreateProfile  $profile
      * @param  ?array<string, string>  $metadata
-     * @param  ?TermsOfServicePayload  $termsOfService
+     * @param  ?\Moov\MoovPhp\Models\Components\TermsOfServicePayload  $termsOfService
      * @param  ?string  $foreignID
-     * @param  ?CustomerSupport  $customerSupport
-     * @param  ?Settings  $settings
-     * @param  ?array<CapabilityID>  $capabilities
-     * @param  ?Mode  $mode
+     * @param  ?\Moov\MoovPhp\Models\Components\CustomerSupport  $customerSupport
+     * @param  ?\Moov\MoovPhp\Models\Components\Settings  $settings
+     * @param  ?array<\Moov\MoovPhp\Models\Components\CapabilityID>  $capabilities
+     * @param  ?\Moov\MoovPhp\Models\Components\Mode  $mode
      * @phpstan-pure
      */
     public function __construct(AccountType $accountType, CreateProfile $profile, ?array $metadata = null, ?TermsOfServicePayload $termsOfService = null, ?string $foreignID = null, ?CustomerSupport $customerSupport = null, ?Settings $settings = null, ?array $capabilities = null, ?Mode $mode = null)

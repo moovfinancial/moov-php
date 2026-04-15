@@ -21,7 +21,7 @@ class FileUploadValidationError
 
     /**
      *
-     * @var ?File $file
+     * @var ?\Moov\MoovPhp\Models\Errors\File $file
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('file')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Errors\File|null')]
@@ -30,7 +30,7 @@ class FileUploadValidationError
 
     /**
      * @param  ?string  $evidenceType
-     * @param  ?File  $file
+     * @param  ?\Moov\MoovPhp\Models\Errors\File  $file
      * @phpstan-pure
      */
     public function __construct(?string $evidenceType = null, ?File $file = null)

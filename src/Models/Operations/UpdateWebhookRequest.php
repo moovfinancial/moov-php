@@ -21,14 +21,14 @@ class UpdateWebhookRequest
 
     /**
      *
-     * @var Components\UpdateWebhook $updateWebhook
+     * @var \Moov\MoovPhp\Models\Components\UpdateWebhook $updateWebhook
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\UpdateWebhook $updateWebhook;
 
     /**
      * @param  string  $webhookID
-     * @param  Components\UpdateWebhook  $updateWebhook
+     * @param  \Moov\MoovPhp\Models\Components\UpdateWebhook  $updateWebhook
      * @phpstan-pure
      */
     public function __construct(string $webhookID, Components\UpdateWebhook $updateWebhook)

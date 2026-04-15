@@ -14,7 +14,7 @@ class BrandValidationError
 {
     /**
      *
-     * @var ?Components\ColorsValidationError $colors
+     * @var ?\Moov\MoovPhp\Models\Components\ColorsValidationError $colors
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('colors')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ColorsValidationError|null')]
@@ -22,7 +22,7 @@ class BrandValidationError
     public ?Components\ColorsValidationError $colors = null;
 
     /**
-     * @param  ?Components\ColorsValidationError  $colors
+     * @param  ?\Moov\MoovPhp\Models\Components\ColorsValidationError  $colors
      * @phpstan-pure
      */
     public function __construct(?Components\ColorsValidationError $colors = null)

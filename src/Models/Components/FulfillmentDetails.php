@@ -34,7 +34,7 @@ class FulfillmentDetails
 
     /**
      *
-     * @var ReturnPolicyType $returnPolicy
+     * @var \Moov\MoovPhp\Models\Components\ReturnPolicyType $returnPolicy
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('returnPolicy')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ReturnPolicyType')]
@@ -44,7 +44,7 @@ class FulfillmentDetails
      * @param  bool  $hasPhysicalGoods
      * @param  bool  $isShippingProduct
      * @param  int  $shipmentDurationDays
-     * @param  ReturnPolicyType  $returnPolicy
+     * @param  \Moov\MoovPhp\Models\Components\ReturnPolicyType  $returnPolicy
      * @phpstan-pure
      */
     public function __construct(bool $hasPhysicalGoods, bool $isShippingProduct, int $shipmentDurationDays, ReturnPolicyType $returnPolicy)

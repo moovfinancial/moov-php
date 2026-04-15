@@ -42,7 +42,7 @@ class UpdateDisputeEvidenceResponse
     /**
      * The request completed successfully.
      *
-     * @var ?Components\DisputeEvidenceResponse $disputeEvidenceResponse
+     * @var ?\Moov\MoovPhp\Models\Components\DisputeEvidenceResponse $disputeEvidenceResponse
      */
     public ?Components\DisputeEvidenceResponse $disputeEvidenceResponse = null;
 
@@ -51,7 +51,7 @@ class UpdateDisputeEvidenceResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\DisputeEvidenceResponse  $disputeEvidenceResponse
+     * @param  ?\Moov\MoovPhp\Models\Components\DisputeEvidenceResponse  $disputeEvidenceResponse
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\DisputeEvidenceResponse $disputeEvidenceResponse = null, ?array $headers = [])

@@ -22,14 +22,14 @@ class CreateApplePaySessionRequest
 
     /**
      *
-     * @var Components\CreateApplePaySession $createApplePaySession
+     * @var \Moov\MoovPhp\Models\Components\CreateApplePaySession $createApplePaySession
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\CreateApplePaySession $createApplePaySession;
 
     /**
      * @param  string  $accountID
-     * @param  Components\CreateApplePaySession  $createApplePaySession
+     * @param  \Moov\MoovPhp\Models\Components\CreateApplePaySession  $createApplePaySession
      * @phpstan-pure
      */
     public function __construct(string $accountID, Components\CreateApplePaySession $createApplePaySession)

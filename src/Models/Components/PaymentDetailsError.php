@@ -21,7 +21,7 @@ class PaymentDetailsError
 
     /**
      *
-     * @var ?CardPaymentDetailsError $cardDetails
+     * @var ?\Moov\MoovPhp\Models\Components\CardPaymentDetailsError $cardDetails
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardDetails')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardPaymentDetailsError|null')]
@@ -30,7 +30,7 @@ class PaymentDetailsError
 
     /**
      *
-     * @var ?ACHPaymentDetailsError $achDetails
+     * @var ?\Moov\MoovPhp\Models\Components\ACHPaymentDetailsError $achDetails
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('achDetails')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ACHPaymentDetailsError|null')]
@@ -47,8 +47,8 @@ class PaymentDetailsError
 
     /**
      * @param  ?string  $allowedMethods
-     * @param  ?CardPaymentDetailsError  $cardDetails
-     * @param  ?ACHPaymentDetailsError  $achDetails
+     * @param  ?\Moov\MoovPhp\Models\Components\CardPaymentDetailsError  $cardDetails
+     * @param  ?\Moov\MoovPhp\Models\Components\ACHPaymentDetailsError  $achDetails
      * @param  ?string  $metadata
      * @phpstan-pure
      */

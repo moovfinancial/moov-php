@@ -22,7 +22,7 @@ class Representative
 
     /**
      *
-     * @var IndividualName $name
+     * @var \Moov\MoovPhp\Models\Components\IndividualName $name
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('name')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IndividualName')]
@@ -44,7 +44,7 @@ class Representative
 
     /**
      *
-     * @var ?PhoneNumber $phone
+     * @var ?\Moov\MoovPhp\Models\Components\PhoneNumber $phone
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('phone')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PhoneNumber|null')]
@@ -61,7 +61,7 @@ class Representative
 
     /**
      *
-     * @var ?Address $address
+     * @var ?\Moov\MoovPhp\Models\Components\Address $address
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('address')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Address|null')]
@@ -89,7 +89,7 @@ class Representative
     /**
      * Describes the job responsibilities of a business representative.
      *
-     * @var ?RepresentativeResponsibilities $responsibilities
+     * @var ?\Moov\MoovPhp\Models\Components\RepresentativeResponsibilities $responsibilities
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('responsibilities')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RepresentativeResponsibilities|null')]
@@ -106,15 +106,15 @@ class Representative
 
     /**
      * @param  string  $representativeID
-     * @param  IndividualName  $name
+     * @param  \Moov\MoovPhp\Models\Components\IndividualName  $name
      * @param  \DateTime  $createdOn
      * @param  \DateTime  $updatedOn
-     * @param  ?PhoneNumber  $phone
+     * @param  ?\Moov\MoovPhp\Models\Components\PhoneNumber  $phone
      * @param  ?string  $email
-     * @param  ?Address  $address
+     * @param  ?\Moov\MoovPhp\Models\Components\Address  $address
      * @param  ?bool  $birthDateProvided
      * @param  ?bool  $governmentIDProvided
-     * @param  ?RepresentativeResponsibilities  $responsibilities
+     * @param  ?\Moov\MoovPhp\Models\Components\RepresentativeResponsibilities  $responsibilities
      * @param  ?\DateTime  $disabledOn
      * @phpstan-pure
      */

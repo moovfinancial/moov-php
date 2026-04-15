@@ -32,7 +32,7 @@ class CreateTransferDestinationACH
     /**
      * $addenda
      *
-     * @var ?array<CreateTransferACHAddendaRecord> $addenda
+     * @var ?array<\Moov\MoovPhp\Models\Components\CreateTransferACHAddendaRecord> $addenda
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('addenda')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\CreateTransferACHAddendaRecord>|null')]
@@ -42,7 +42,7 @@ class CreateTransferDestinationACH
     /**
      * @param  ?string  $companyEntryDescription
      * @param  ?string  $originatingCompanyName
-     * @param  ?array<CreateTransferACHAddendaRecord>  $addenda
+     * @param  ?array<\Moov\MoovPhp\Models\Components\CreateTransferACHAddendaRecord>  $addenda
      * @phpstan-pure
      */
     public function __construct(?string $companyEntryDescription = null, ?string $originatingCompanyName = null, ?array $addenda = null)

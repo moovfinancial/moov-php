@@ -14,7 +14,7 @@ class CreateRepresentative
 {
     /**
      *
-     * @var IndividualName $name
+     * @var \Moov\MoovPhp\Models\Components\IndividualName $name
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('name')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IndividualName')]
@@ -22,7 +22,7 @@ class CreateRepresentative
 
     /**
      *
-     * @var ?PhoneNumber $phone
+     * @var ?\Moov\MoovPhp\Models\Components\PhoneNumber $phone
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('phone')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PhoneNumber|null')]
@@ -39,7 +39,7 @@ class CreateRepresentative
 
     /**
      *
-     * @var ?Address $address
+     * @var ?\Moov\MoovPhp\Models\Components\Address $address
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('address')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Address|null')]
@@ -48,7 +48,7 @@ class CreateRepresentative
 
     /**
      *
-     * @var ?BirthDate $birthDate
+     * @var ?\Moov\MoovPhp\Models\Components\BirthDate $birthDate
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('birthDate')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BirthDate|null')]
@@ -57,7 +57,7 @@ class CreateRepresentative
 
     /**
      *
-     * @var ?GovernmentID $governmentID
+     * @var ?\Moov\MoovPhp\Models\Components\GovernmentID $governmentID
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('governmentID')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\GovernmentID|null')]
@@ -67,7 +67,7 @@ class CreateRepresentative
     /**
      * Describes the job responsibilities of a business representative.
      *
-     * @var ?RepresentativeResponsibilities $responsibilities
+     * @var ?\Moov\MoovPhp\Models\Components\RepresentativeResponsibilities $responsibilities
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('responsibilities')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RepresentativeResponsibilities|null')]
@@ -75,13 +75,13 @@ class CreateRepresentative
     public ?RepresentativeResponsibilities $responsibilities = null;
 
     /**
-     * @param  IndividualName  $name
-     * @param  ?PhoneNumber  $phone
+     * @param  \Moov\MoovPhp\Models\Components\IndividualName  $name
+     * @param  ?\Moov\MoovPhp\Models\Components\PhoneNumber  $phone
      * @param  ?string  $email
-     * @param  ?Address  $address
-     * @param  ?BirthDate  $birthDate
-     * @param  ?GovernmentID  $governmentID
-     * @param  ?RepresentativeResponsibilities  $responsibilities
+     * @param  ?\Moov\MoovPhp\Models\Components\Address  $address
+     * @param  ?\Moov\MoovPhp\Models\Components\BirthDate  $birthDate
+     * @param  ?\Moov\MoovPhp\Models\Components\GovernmentID  $governmentID
+     * @param  ?\Moov\MoovPhp\Models\Components\RepresentativeResponsibilities  $responsibilities
      * @phpstan-pure
      */
     public function __construct(IndividualName $name, ?PhoneNumber $phone = null, ?string $email = null, ?Address $address = null, ?BirthDate $birthDate = null, ?GovernmentID $governmentID = null, ?RepresentativeResponsibilities $responsibilities = null)

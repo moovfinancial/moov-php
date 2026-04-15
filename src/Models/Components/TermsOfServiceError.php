@@ -21,7 +21,7 @@ class TermsOfServiceError
 
     /**
      *
-     * @var ?Manual $manual
+     * @var ?\Moov\MoovPhp\Models\Components\Manual $manual
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('manual')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Manual|null')]
@@ -30,7 +30,7 @@ class TermsOfServiceError
 
     /**
      * @param  ?string  $token
-     * @param  ?Manual  $manual
+     * @param  ?\Moov\MoovPhp\Models\Components\Manual  $manual
      * @phpstan-pure
      */
     public function __construct(?string $token = null, ?Manual $manual = null)

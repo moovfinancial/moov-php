@@ -34,7 +34,7 @@ class Card
     /**
      * The card brand.
      *
-     * @var CardBrand $brand
+     * @var \Moov\MoovPhp\Models\Components\CardBrand $brand
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('brand')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardBrand')]
@@ -43,7 +43,7 @@ class Card
     /**
      * The type of the card.
      *
-     * @var CardType $cardType
+     * @var \Moov\MoovPhp\Models\Components\CardType $cardType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardType')]
@@ -68,7 +68,7 @@ class Card
     /**
      * The expiration date of the card or token.
      *
-     * @var CardExpiration $expiration
+     * @var \Moov\MoovPhp\Models\Components\CardExpiration $expiration
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('expiration')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardExpiration')]
@@ -77,7 +77,7 @@ class Card
     /**
      * The billing address associated with the card.
      *
-     * @var CardAddress $billingAddress
+     * @var \Moov\MoovPhp\Models\Components\CardAddress $billingAddress
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('billingAddress')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardAddress')]
@@ -86,7 +86,7 @@ class Card
     /**
      * The results of submitting cardholder data to a card network for verification.
      *
-     * @var CardVerification $cardVerification
+     * @var \Moov\MoovPhp\Models\Components\CardVerification $cardVerification
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardVerification')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardVerification')]
@@ -193,7 +193,7 @@ class Card
     /**
      * The results of the most recent card update request.
      *
-     * @var ?CardAccountUpdater $cardAccountUpdater
+     * @var ?\Moov\MoovPhp\Models\Components\CardAccountUpdater $cardAccountUpdater
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardAccountUpdater')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardAccountUpdater|null')]
@@ -203,7 +203,7 @@ class Card
     /**
      * Indicates which level of domestic push-to-card transfer is supported by the card, if any.
      *
-     * @var ?DomesticPushToCard $domesticPushToCard
+     * @var ?\Moov\MoovPhp\Models\Components\DomesticPushToCard $domesticPushToCard
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('domesticPushToCard')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\DomesticPushToCard|null')]
@@ -213,7 +213,7 @@ class Card
     /**
      * Indicates if the card supports domestic pull-from-card transfer.
      *
-     * @var ?DomesticPullFromCard $domesticPullFromCard
+     * @var ?\Moov\MoovPhp\Models\Components\DomesticPullFromCard $domesticPullFromCard
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('domesticPullFromCard')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\DomesticPullFromCard|null')]
@@ -226,7 +226,7 @@ class Card
      *
      *   Only returned by the link card endpoint; not included when getting or listing cards.
      *
-     * @var ?array<BasicPaymentMethod> $paymentMethods
+     * @var ?array<\Moov\MoovPhp\Models\Components\BasicPaymentMethod> $paymentMethods
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('paymentMethods')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\BasicPaymentMethod>|null')]
@@ -236,13 +236,13 @@ class Card
     /**
      * @param  string  $cardID
      * @param  string  $fingerprint
-     * @param  CardBrand  $brand
-     * @param  CardType  $cardType
+     * @param  \Moov\MoovPhp\Models\Components\CardBrand  $brand
+     * @param  \Moov\MoovPhp\Models\Components\CardType  $cardType
      * @param  string  $lastFourCardNumber
      * @param  string  $bin
-     * @param  CardExpiration  $expiration
-     * @param  CardAddress  $billingAddress
-     * @param  CardVerification  $cardVerification
+     * @param  \Moov\MoovPhp\Models\Components\CardExpiration  $expiration
+     * @param  \Moov\MoovPhp\Models\Components\CardAddress  $billingAddress
+     * @param  \Moov\MoovPhp\Models\Components\CardVerification  $cardVerification
      * @param  ?string  $cardCategory
      * @param  ?string  $holderName
      * @param  ?string  $issuer
@@ -253,10 +253,10 @@ class Card
      * @param  ?bool  $regulated
      * @param  ?bool  $cardOnFile
      * @param  ?string  $merchantAccountID
-     * @param  ?CardAccountUpdater  $cardAccountUpdater
-     * @param  ?DomesticPushToCard  $domesticPushToCard
-     * @param  ?DomesticPullFromCard  $domesticPullFromCard
-     * @param  ?array<BasicPaymentMethod>  $paymentMethods
+     * @param  ?\Moov\MoovPhp\Models\Components\CardAccountUpdater  $cardAccountUpdater
+     * @param  ?\Moov\MoovPhp\Models\Components\DomesticPushToCard  $domesticPushToCard
+     * @param  ?\Moov\MoovPhp\Models\Components\DomesticPullFromCard  $domesticPullFromCard
+     * @param  ?array<\Moov\MoovPhp\Models\Components\BasicPaymentMethod>  $paymentMethods
      * @phpstan-pure
      */
     public function __construct(string $cardID, string $fingerprint, CardBrand $brand, CardType $cardType, string $lastFourCardNumber, string $bin, CardExpiration $expiration, CardAddress $billingAddress, CardVerification $cardVerification, ?string $cardCategory = null, ?string $holderName = null, ?string $issuer = null, ?string $issuerCountry = null, ?string $issuerURL = null, ?string $issuerPhone = null, ?bool $commercial = null, ?bool $regulated = null, ?bool $cardOnFile = null, ?string $merchantAccountID = null, ?CardAccountUpdater $cardAccountUpdater = null, ?DomesticPushToCard $domesticPushToCard = null, ?DomesticPullFromCard $domesticPullFromCard = null, ?array $paymentMethods = null)

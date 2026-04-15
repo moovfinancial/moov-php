@@ -38,7 +38,7 @@ class CreateReversalRequest
 
     /**
      *
-     * @var ?Components\CreateReversal $createReversal
+     * @var ?\Moov\MoovPhp\Models\Components\CreateReversal $createReversal
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public ?Components\CreateReversal $createReversal = null;
@@ -47,7 +47,7 @@ class CreateReversalRequest
      * @param  string  $xIdempotencyKey
      * @param  string  $accountID
      * @param  string  $transferID
-     * @param  ?Components\CreateReversal  $createReversal
+     * @param  ?\Moov\MoovPhp\Models\Components\CreateReversal  $createReversal
      * @phpstan-pure
      */
     public function __construct(string $xIdempotencyKey, string $accountID, string $transferID, ?Components\CreateReversal $createReversal = null)

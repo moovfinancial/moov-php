@@ -21,7 +21,7 @@ class BankAccountIntegration
     /**
      * The type of holder on a funding source.
      *
-     * @var BankAccountHolderType $holderType
+     * @var \Moov\MoovPhp\Models\Components\BankAccountHolderType $holderType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('holderType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BankAccountHolderType')]
@@ -37,7 +37,7 @@ class BankAccountIntegration
     /**
      * The bank account type.
      *
-     * @var BankAccountType $bankAccountType
+     * @var \Moov\MoovPhp\Models\Components\BankAccountType $bankAccountType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('bankAccountType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BankAccountType')]
@@ -52,9 +52,9 @@ class BankAccountIntegration
 
     /**
      * @param  string  $holderName
-     * @param  BankAccountHolderType  $holderType
+     * @param  \Moov\MoovPhp\Models\Components\BankAccountHolderType  $holderType
      * @param  string  $accountNumber
-     * @param  BankAccountType  $bankAccountType
+     * @param  \Moov\MoovPhp\Models\Components\BankAccountType  $bankAccountType
      * @param  string  $routingNumber
      * @phpstan-pure
      */

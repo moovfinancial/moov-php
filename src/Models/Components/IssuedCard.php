@@ -21,7 +21,7 @@ class IssuedCard
     /**
      * The card brand.
      *
-     * @var CardBrand $brand
+     * @var \Moov\MoovPhp\Models\Components\CardBrand $brand
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('brand')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardBrand')]
@@ -37,7 +37,7 @@ class IssuedCard
     /**
      * The expiration date of the card or token.
      *
-     * @var CardExpiration $expiration
+     * @var \Moov\MoovPhp\Models\Components\CardExpiration $expiration
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('expiration')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardExpiration')]
@@ -46,7 +46,7 @@ class IssuedCard
     /**
      * Fields for identifying an authorized individual.
      *
-     * @var AuthorizedUser $authorizedUser
+     * @var \Moov\MoovPhp\Models\Components\AuthorizedUser $authorizedUser
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('authorizedUser')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AuthorizedUser')]
@@ -69,7 +69,7 @@ class IssuedCard
      * - `closed`: The card is permanently deactivated and cannot approve authorizations. A card can be closed by request or when it expires.
      * - `pending-verification`: Awaiting additional authorized user verification before the card can be activated.
      *
-     * @var IssuedCardState $state
+     * @var \Moov\MoovPhp\Models\Components\IssuedCardState $state
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('state')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IssuedCardState')]
@@ -78,7 +78,7 @@ class IssuedCard
     /**
      * Specifies the type of spend card to be issued. Presently supports virtual only, providing a digital number without a physical card.
      *
-     * @var IssuedCardFormFactor $formFactor
+     * @var \Moov\MoovPhp\Models\Components\IssuedCardFormFactor $formFactor
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('formFactor')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IssuedCardFormFactor')]
@@ -102,7 +102,7 @@ class IssuedCard
 
     /**
      *
-     * @var ?IssuingControls $controls
+     * @var ?\Moov\MoovPhp\Models\Components\IssuingControls $controls
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('controls')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IssuingControls|null')]
@@ -111,16 +111,16 @@ class IssuedCard
 
     /**
      * @param  string  $issuedCardID
-     * @param  CardBrand  $brand
+     * @param  \Moov\MoovPhp\Models\Components\CardBrand  $brand
      * @param  string  $lastFourCardNumber
-     * @param  CardExpiration  $expiration
-     * @param  AuthorizedUser  $authorizedUser
+     * @param  \Moov\MoovPhp\Models\Components\CardExpiration  $expiration
+     * @param  \Moov\MoovPhp\Models\Components\AuthorizedUser  $authorizedUser
      * @param  string  $fundingWalletID
-     * @param  IssuedCardState  $state
-     * @param  IssuedCardFormFactor  $formFactor
+     * @param  \Moov\MoovPhp\Models\Components\IssuedCardState  $state
+     * @param  \Moov\MoovPhp\Models\Components\IssuedCardFormFactor  $formFactor
      * @param  \DateTime  $createdOn
      * @param  ?string  $memo
-     * @param  ?IssuingControls  $controls
+     * @param  ?\Moov\MoovPhp\Models\Components\IssuingControls  $controls
      * @phpstan-pure
      */
     public function __construct(string $issuedCardID, CardBrand $brand, string $lastFourCardNumber, CardExpiration $expiration, AuthorizedUser $authorizedUser, string $fundingWalletID, IssuedCardState $state, IssuedCardFormFactor $formFactor, \DateTime $createdOn, ?string $memo = null, ?IssuingControls $controls = null)

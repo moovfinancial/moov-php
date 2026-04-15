@@ -35,7 +35,7 @@ class Underwriting
 
     /**
      *
-     * @var UnderwritingStatus $status
+     * @var \Moov\MoovPhp\Models\Components\UnderwritingStatus $status
      * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
@@ -44,7 +44,7 @@ class Underwriting
 
     /**
      *
-     * @var VolumeByCustomerType $volumeByCustomerType
+     * @var \Moov\MoovPhp\Models\Components\VolumeByCustomerType $volumeByCustomerType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('volumeByCustomerType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\VolumeByCustomerType')]
@@ -52,7 +52,7 @@ class Underwriting
 
     /**
      *
-     * @var CardVolumeDistribution $cardVolumeDistribution
+     * @var \Moov\MoovPhp\Models\Components\CardVolumeDistribution $cardVolumeDistribution
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardVolumeDistribution')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardVolumeDistribution')]
@@ -60,7 +60,7 @@ class Underwriting
 
     /**
      *
-     * @var FulfillmentDetails $fulfillment
+     * @var \Moov\MoovPhp\Models\Components\FulfillmentDetails $fulfillment
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('fulfillment')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\FulfillmentDetails')]
@@ -70,10 +70,10 @@ class Underwriting
      * @param  int  $averageTransactionSize
      * @param  int  $maxTransactionSize
      * @param  int  $averageMonthlyTransactionVolume
-     * @param  UnderwritingStatus  $status
-     * @param  VolumeByCustomerType  $volumeByCustomerType
-     * @param  CardVolumeDistribution  $cardVolumeDistribution
-     * @param  FulfillmentDetails  $fulfillment
+     * @param  \Moov\MoovPhp\Models\Components\UnderwritingStatus  $status
+     * @param  \Moov\MoovPhp\Models\Components\VolumeByCustomerType  $volumeByCustomerType
+     * @param  \Moov\MoovPhp\Models\Components\CardVolumeDistribution  $cardVolumeDistribution
+     * @param  \Moov\MoovPhp\Models\Components\FulfillmentDetails  $fulfillment
      * @phpstan-pure
      */
     public function __construct(int $averageTransactionSize, int $maxTransactionSize, int $averageMonthlyTransactionVolume, UnderwritingStatus $status, VolumeByCustomerType $volumeByCustomerType, CardVolumeDistribution $cardVolumeDistribution, FulfillmentDetails $fulfillment)

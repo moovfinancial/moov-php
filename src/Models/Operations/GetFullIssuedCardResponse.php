@@ -42,7 +42,7 @@ class GetFullIssuedCardResponse
     /**
      * The request completed successfully.
      *
-     * @var ?Components\FullIssuedCard $fullIssuedCard
+     * @var ?\Moov\MoovPhp\Models\Components\FullIssuedCard $fullIssuedCard
      */
     public ?Components\FullIssuedCard $fullIssuedCard = null;
 
@@ -51,7 +51,7 @@ class GetFullIssuedCardResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\FullIssuedCard  $fullIssuedCard
+     * @param  ?\Moov\MoovPhp\Models\Components\FullIssuedCard  $fullIssuedCard
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\FullIssuedCard $fullIssuedCard = null, ?array $headers = [])

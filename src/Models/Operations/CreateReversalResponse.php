@@ -42,7 +42,7 @@ class CreateReversalResponse
     /**
      * Successfully initiated a reversal.
      *
-     * @var Components\ReversedWithCancellation|Components\ReversedWithRefund|null $reversal
+     * @var \Moov\MoovPhp\Models\Components\ReversedWithCancellation|\Moov\MoovPhp\Models\Components\ReversedWithRefund|null $reversal
      */
     public Components\ReversedWithCancellation|Components\ReversedWithRefund|null $reversal = null;
 
@@ -51,7 +51,7 @@ class CreateReversalResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  Components\ReversedWithCancellation|Components\ReversedWithRefund|null  $reversal
+     * @param  \Moov\MoovPhp\Models\Components\ReversedWithCancellation|\Moov\MoovPhp\Models\Components\ReversedWithRefund|null  $reversal
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, Components\ReversedWithCancellation|Components\ReversedWithRefund|null $reversal = null, ?array $headers = [])

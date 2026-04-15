@@ -18,7 +18,7 @@ class CustomerSupport
 {
     /**
      *
-     * @var ?PhoneNumber $phone
+     * @var ?\Moov\MoovPhp\Models\Components\PhoneNumber $phone
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('phone')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PhoneNumber|null')]
@@ -35,7 +35,7 @@ class CustomerSupport
 
     /**
      *
-     * @var ?Address $address
+     * @var ?\Moov\MoovPhp\Models\Components\Address $address
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('address')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Address|null')]
@@ -51,9 +51,9 @@ class CustomerSupport
     public ?string $website = null;
 
     /**
-     * @param  ?PhoneNumber  $phone
+     * @param  ?\Moov\MoovPhp\Models\Components\PhoneNumber  $phone
      * @param  ?string  $email
-     * @param  ?Address  $address
+     * @param  ?\Moov\MoovPhp\Models\Components\Address  $address
      * @param  ?string  $website
      * @phpstan-pure
      */

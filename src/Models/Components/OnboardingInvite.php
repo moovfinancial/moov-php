@@ -32,7 +32,7 @@ class OnboardingInvite
      *
      * account. These values are used to determine what can be done with the account onboarded.
      *
-     * @var array<ApplicationScope> $scopes
+     * @var array<\Moov\MoovPhp\Models\Components\ApplicationScope> $scopes
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('scopes')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\ApplicationScope>')]
@@ -43,7 +43,7 @@ class OnboardingInvite
      *
      *   account. These values are used to determine what information to collect from the user during onboarding.
      *
-     * @var array<CapabilityID> $capabilities
+     * @var array<\Moov\MoovPhp\Models\Components\CapabilityID> $capabilities
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('capabilities')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\CapabilityID>')]
@@ -88,7 +88,7 @@ class OnboardingInvite
      *
      *   by the new account on yourself. These values are used to determine what the account onboarded can do.
      *
-     * @var ?array<ApplicationScope> $grantScopes
+     * @var ?array<\Moov\MoovPhp\Models\Components\ApplicationScope> $grantScopes
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('grantScopes')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\ApplicationScope>|null')]
@@ -106,7 +106,7 @@ class OnboardingInvite
 
     /**
      *
-     * @var ?CreateAccount $prefill
+     * @var ?\Moov\MoovPhp\Models\Components\CreateAccount $prefill
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('prefill')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateAccount|null')]
@@ -116,7 +116,7 @@ class OnboardingInvite
     /**
      * The account that created the onboarding invite.
      *
-     * @var ?OnboardingPartnerAccount $partner
+     * @var ?\Moov\MoovPhp\Models\Components\OnboardingPartnerAccount $partner
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('partner')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\OnboardingPartnerAccount|null')]
@@ -142,16 +142,16 @@ class OnboardingInvite
     /**
      * @param  string  $code
      * @param  string  $link
-     * @param  array<ApplicationScope>  $scopes
-     * @param  array<CapabilityID>  $capabilities
+     * @param  array<\Moov\MoovPhp\Models\Components\ApplicationScope>  $scopes
+     * @param  array<\Moov\MoovPhp\Models\Components\CapabilityID>  $capabilities
      * @param  array<string>  $feePlanCodes
      * @param  \DateTime  $createdOn
      * @param  ?string  $returnURL
      * @param  ?string  $termsOfServiceURL
-     * @param  ?array<ApplicationScope>  $grantScopes
+     * @param  ?array<\Moov\MoovPhp\Models\Components\ApplicationScope>  $grantScopes
      * @param  ?string  $redeemedAccountID
-     * @param  ?CreateAccount  $prefill
-     * @param  ?OnboardingPartnerAccount  $partner
+     * @param  ?\Moov\MoovPhp\Models\Components\CreateAccount  $prefill
+     * @param  ?\Moov\MoovPhp\Models\Components\OnboardingPartnerAccount  $partner
      * @param  ?\DateTime  $revokedOn
      * @param  ?\DateTime  $redeemedOn
      * @phpstan-pure

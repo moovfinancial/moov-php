@@ -27,7 +27,7 @@ class WebhookDataTicketUpdated
 
     /**
      *
-     * @var TicketStatus $status
+     * @var \Moov\MoovPhp\Models\Components\TicketStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TicketStatus')]
@@ -44,7 +44,7 @@ class WebhookDataTicketUpdated
     /**
      * @param  string  $accountID
      * @param  string  $ticketID
-     * @param  TicketStatus  $status
+     * @param  \Moov\MoovPhp\Models\Components\TicketStatus  $status
      * @param  ?string  $foreignID
      * @phpstan-pure
      */

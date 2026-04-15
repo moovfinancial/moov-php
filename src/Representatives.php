@@ -53,9 +53,9 @@ class Representatives
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/representatives.write` scope.
      *
-     * @param  Components\CreateRepresentative  $createRepresentative
+     * @param  \Moov\MoovPhp\Models\Components\CreateRepresentative  $createRepresentative
      * @param  string  $accountID
-     * @return Operations\CreateRepresentativeResponse
+     * @return \Moov\MoovPhp\Models\Operations\CreateRepresentativeResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function create(Components\CreateRepresentative $createRepresentative, string $accountID, ?Options $options = null): Operations\CreateRepresentativeResponse
@@ -154,7 +154,7 @@ class Representatives
      *
      * @param  string  $accountID
      * @param  string  $representativeID
-     * @return Operations\DeleteRepresentativeResponse
+     * @return \Moov\MoovPhp\Models\Operations\DeleteRepresentativeResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function delete(string $accountID, string $representativeID, ?Options $options = null): Operations\DeleteRepresentativeResponse
@@ -227,7 +227,7 @@ class Representatives
      *
      * @param  string  $accountID
      * @param  string  $representativeID
-     * @return Operations\GetRepresentativeResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetRepresentativeResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function get(string $accountID, string $representativeID, ?Options $options = null): Operations\GetRepresentativeResponse
@@ -301,7 +301,7 @@ class Representatives
      * you'll need to specify the `/accounts/{accountID}/representatives.read` scope.
      *
      * @param  string  $accountID
-     * @return Operations\ListRepresentativesResponse
+     * @return \Moov\MoovPhp\Models\Operations\ListRepresentativesResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function list(string $accountID, ?Options $options = null): Operations\ListRepresentativesResponse
@@ -383,10 +383,10 @@ class Representatives
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
      * you'll need to specify the `/accounts/{accountID}/representatives.write` scope.
      *
-     * @param  Components\UpdateRepresentative  $updateRepresentative
+     * @param  \Moov\MoovPhp\Models\Components\UpdateRepresentative  $updateRepresentative
      * @param  string  $accountID
      * @param  string  $representativeID
-     * @return Operations\UpdateRepresentativeResponse
+     * @return \Moov\MoovPhp\Models\Operations\UpdateRepresentativeResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function update(Components\UpdateRepresentative $updateRepresentative, string $accountID, string $representativeID, ?Options $options = null): Operations\UpdateRepresentativeResponse

@@ -54,7 +54,7 @@ class EvidenceUploadResponse
 
     /**
      *
-     * @var EvidenceType $evidenceType
+     * @var \Moov\MoovPhp\Models\Components\EvidenceType $evidenceType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('evidenceType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\EvidenceType')]
@@ -74,7 +74,7 @@ class EvidenceUploadResponse
      * @param  string  $filename
      * @param  string  $mimeType
      * @param  int  $size
-     * @param  EvidenceType  $evidenceType
+     * @param  \Moov\MoovPhp\Models\Components\EvidenceType  $evidenceType
      * @param  \DateTime  $createdOn
      * @phpstan-pure
      */

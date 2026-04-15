@@ -49,7 +49,7 @@ class IssuedCardTransaction
 
     /**
      *
-     * @var IssuingMerchantData $merchantData
+     * @var \Moov\MoovPhp\Models\Components\IssuingMerchantData $merchantData
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('merchantData')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IssuingMerchantData')]
@@ -76,7 +76,7 @@ class IssuedCardTransaction
      * @param  string  $fundingWalletID
      * @param  string  $amount
      * @param  \DateTime  $authorizedOn
-     * @param  IssuingMerchantData  $merchantData
+     * @param  \Moov\MoovPhp\Models\Components\IssuingMerchantData  $merchantData
      * @param  \DateTime  $createdOn
      * @param  ?string  $authorizationID
      * @phpstan-pure

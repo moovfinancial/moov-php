@@ -34,7 +34,7 @@ class UpdateUnderwriting
 
     /**
      *
-     * @var VolumeByCustomerType $volumeByCustomerType
+     * @var \Moov\MoovPhp\Models\Components\VolumeByCustomerType $volumeByCustomerType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('volumeByCustomerType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\VolumeByCustomerType')]
@@ -42,7 +42,7 @@ class UpdateUnderwriting
 
     /**
      *
-     * @var CardVolumeDistribution $cardVolumeDistribution
+     * @var \Moov\MoovPhp\Models\Components\CardVolumeDistribution $cardVolumeDistribution
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardVolumeDistribution')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardVolumeDistribution')]
@@ -50,7 +50,7 @@ class UpdateUnderwriting
 
     /**
      *
-     * @var FulfillmentDetails $fulfillment
+     * @var \Moov\MoovPhp\Models\Components\FulfillmentDetails $fulfillment
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('fulfillment')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\FulfillmentDetails')]
@@ -60,9 +60,9 @@ class UpdateUnderwriting
      * @param  int  $averageTransactionSize
      * @param  int  $maxTransactionSize
      * @param  int  $averageMonthlyTransactionVolume
-     * @param  VolumeByCustomerType  $volumeByCustomerType
-     * @param  CardVolumeDistribution  $cardVolumeDistribution
-     * @param  FulfillmentDetails  $fulfillment
+     * @param  \Moov\MoovPhp\Models\Components\VolumeByCustomerType  $volumeByCustomerType
+     * @param  \Moov\MoovPhp\Models\Components\CardVolumeDistribution  $cardVolumeDistribution
+     * @param  \Moov\MoovPhp\Models\Components\FulfillmentDetails  $fulfillment
      * @phpstan-pure
      */
     public function __construct(int $averageTransactionSize, int $maxTransactionSize, int $averageMonthlyTransactionVolume, VolumeByCustomerType $volumeByCustomerType, CardVolumeDistribution $cardVolumeDistribution, FulfillmentDetails $fulfillment)

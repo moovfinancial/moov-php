@@ -35,7 +35,7 @@ class IssuedCardAuthorization
     /**
      * The name of the network a card transaction is routed through.
      *
-     * @var CardIssuingNetwork $network
+     * @var \Moov\MoovPhp\Models\Components\CardIssuingNetwork $network
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('network')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardIssuingNetwork')]
@@ -52,7 +52,7 @@ class IssuedCardAuthorization
     /**
      * Status of a card issuing authorization.
      *
-     * @var IssuingAuthorizationStatus $status
+     * @var \Moov\MoovPhp\Models\Components\IssuingAuthorizationStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IssuingAuthorizationStatus')]
@@ -60,7 +60,7 @@ class IssuedCardAuthorization
 
     /**
      *
-     * @var IssuingMerchantData $merchantData
+     * @var \Moov\MoovPhp\Models\Components\IssuingMerchantData $merchantData
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('merchantData')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IssuingMerchantData')]
@@ -87,10 +87,10 @@ class IssuedCardAuthorization
      * @param  string  $authorizationID
      * @param  string  $issuedCardID
      * @param  string  $fundingWalletID
-     * @param  CardIssuingNetwork  $network
+     * @param  \Moov\MoovPhp\Models\Components\CardIssuingNetwork  $network
      * @param  string  $authorizedAmount
-     * @param  IssuingAuthorizationStatus  $status
-     * @param  IssuingMerchantData  $merchantData
+     * @param  \Moov\MoovPhp\Models\Components\IssuingAuthorizationStatus  $status
+     * @param  \Moov\MoovPhp\Models\Components\IssuingMerchantData  $merchantData
      * @param  \DateTime  $createdOn
      * @param  ?array<string>  $cardTransactions
      * @phpstan-pure

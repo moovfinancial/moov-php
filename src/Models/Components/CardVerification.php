@@ -15,7 +15,7 @@ class CardVerification
     /**
      * Verification result of the card's CVV.
      *
-     * @var CardVerificationResult $cvv
+     * @var \Moov\MoovPhp\Models\Components\CardVerificationResult $cvv
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cvv')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardVerificationResult')]
@@ -26,7 +26,7 @@ class CardVerification
      *
      * Derived from the same AVS code as `postalCode`; the card network returns a single code covering both address fields.
      *
-     * @var CardVerificationResult $addressLine1
+     * @var \Moov\MoovPhp\Models\Components\CardVerificationResult $addressLine1
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('addressLine1')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardVerificationResult')]
@@ -37,7 +37,7 @@ class CardVerification
      *
      * Derived from the same AVS code as `addressLine1`; the card network returns a single code covering both address fields.
      *
-     * @var CardVerificationResult $postalCode
+     * @var \Moov\MoovPhp\Models\Components\CardVerificationResult $postalCode
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('postalCode')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardVerificationResult')]
@@ -46,7 +46,7 @@ class CardVerification
     /**
      * Verification results of the cardholder's name, broken down by name component.
      *
-     * @var ?AccountNameVerification $accountName
+     * @var ?\Moov\MoovPhp\Models\Components\AccountNameVerification $accountName
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('accountName')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AccountNameVerification|null')]
@@ -54,10 +54,10 @@ class CardVerification
     public ?AccountNameVerification $accountName = null;
 
     /**
-     * @param  CardVerificationResult  $cvv
-     * @param  CardVerificationResult  $addressLine1
-     * @param  CardVerificationResult  $postalCode
-     * @param  ?AccountNameVerification  $accountName
+     * @param  \Moov\MoovPhp\Models\Components\CardVerificationResult  $cvv
+     * @param  \Moov\MoovPhp\Models\Components\CardVerificationResult  $addressLine1
+     * @param  \Moov\MoovPhp\Models\Components\CardVerificationResult  $postalCode
+     * @param  ?\Moov\MoovPhp\Models\Components\AccountNameVerification  $accountName
      * @phpstan-pure
      */
     public function __construct(CardVerificationResult $cvv, CardVerificationResult $addressLine1, CardVerificationResult $postalCode, ?AccountNameVerification $accountName = null)

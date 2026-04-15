@@ -30,7 +30,7 @@ class PatchBusiness
     /**
      * The type of entity represented by this business.
      *
-     * @var ?BusinessType $businessType
+     * @var ?\Moov\MoovPhp\Models\Components\BusinessType $businessType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('businessType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BusinessType|null')]
@@ -39,7 +39,7 @@ class PatchBusiness
 
     /**
      *
-     * @var ?AddressUpdate $address
+     * @var ?\Moov\MoovPhp\Models\Components\AddressUpdate $address
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('address')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AddressUpdate|null')]
@@ -48,7 +48,7 @@ class PatchBusiness
 
     /**
      *
-     * @var ?PhoneNumber $phone
+     * @var ?\Moov\MoovPhp\Models\Components\PhoneNumber $phone
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('phone')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PhoneNumber|null')]
@@ -82,7 +82,7 @@ class PatchBusiness
     /**
      * An EIN (employer identification number) for the business. For sole proprietors, an SSN can be used as the EIN.
      *
-     * @var ?TaxIDUpdate $taxID
+     * @var ?\Moov\MoovPhp\Models\Components\TaxIDUpdate $taxID
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('taxID')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TaxIDUpdate|null')]
@@ -99,7 +99,7 @@ class PatchBusiness
 
     /**
      *
-     * @var ?IndustryCodes $industryCodes
+     * @var ?\Moov\MoovPhp\Models\Components\IndustryCodes $industryCodes
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('industryCodes')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IndustryCodes|null')]
@@ -118,7 +118,7 @@ class PatchBusiness
     /**
      * If the business is a financial institution, this field describes its primary regulator.
      *
-     * @var ?PrimaryRegulator $primaryRegulator
+     * @var ?\Moov\MoovPhp\Models\Components\PrimaryRegulator $primaryRegulator
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('primaryRegulator')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PrimaryRegulator|null')]
@@ -128,17 +128,17 @@ class PatchBusiness
     /**
      * @param  ?string  $legalBusinessName
      * @param  ?string  $doingBusinessAs
-     * @param  ?BusinessType  $businessType
-     * @param  ?AddressUpdate  $address
-     * @param  ?PhoneNumber  $phone
+     * @param  ?\Moov\MoovPhp\Models\Components\BusinessType  $businessType
+     * @param  ?\Moov\MoovPhp\Models\Components\AddressUpdate  $address
+     * @param  ?\Moov\MoovPhp\Models\Components\PhoneNumber  $phone
      * @param  ?string  $email
      * @param  ?string  $website
      * @param  ?string  $description
-     * @param  ?TaxIDUpdate  $taxID
+     * @param  ?\Moov\MoovPhp\Models\Components\TaxIDUpdate  $taxID
      * @param  ?bool  $ownersProvided
-     * @param  ?IndustryCodes  $industryCodes
+     * @param  ?\Moov\MoovPhp\Models\Components\IndustryCodes  $industryCodes
      * @param  ?string  $industry
-     * @param  ?PrimaryRegulator  $primaryRegulator
+     * @param  ?\Moov\MoovPhp\Models\Components\PrimaryRegulator  $primaryRegulator
      * @phpstan-pure
      */
     public function __construct(?string $legalBusinessName = null, ?string $doingBusinessAs = null, ?BusinessType $businessType = null, ?AddressUpdate $address = null, ?PhoneNumber $phone = null, ?string $email = null, ?string $website = null, ?string $description = null, ?TaxIDUpdate $taxID = null, ?bool $ownersProvided = null, ?IndustryCodes $industryCodes = null, ?string $industry = null, ?PrimaryRegulator $primaryRegulator = null)

@@ -23,7 +23,7 @@ class JSONWebKey
     /**
      * The intended use of the key. 'sig' for signature, 'enc' for encryption.
      *
-     * @var ?UseT $use
+     * @var ?\Moov\MoovPhp\Models\Components\UseT $use
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('use')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\UseT|null')]
@@ -120,7 +120,7 @@ class JSONWebKey
 
     /**
      * @param  string  $kty
-     * @param  ?UseT  $use
+     * @param  ?\Moov\MoovPhp\Models\Components\UseT  $use
      * @param  ?array<string>  $keyOps
      * @param  ?string  $alg
      * @param  ?string  $kid

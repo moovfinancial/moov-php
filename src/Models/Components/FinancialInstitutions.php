@@ -14,14 +14,14 @@ class FinancialInstitutions
     /**
      * $achParticipants
      *
-     * @var array<AchParticipant> $achParticipants
+     * @var array<\Moov\MoovPhp\Models\Components\AchParticipant> $achParticipants
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('achParticipants')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\AchParticipant>')]
     public array $achParticipants;
 
     /**
-     * @param  array<AchParticipant>  $achParticipants
+     * @param  array<\Moov\MoovPhp\Models\Components\AchParticipant>  $achParticipants
      * @phpstan-pure
      */
     public function __construct(array $achParticipants)

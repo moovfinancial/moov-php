@@ -28,7 +28,7 @@ class ACHInstitution
 
     /**
      *
-     * @var ?Address $address
+     * @var ?\Moov\MoovPhp\Models\Components\Address $address
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('address')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Address|null')]
@@ -37,7 +37,7 @@ class ACHInstitution
 
     /**
      *
-     * @var ?Contact $contact
+     * @var ?\Moov\MoovPhp\Models\Components\Contact $contact
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('contact')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Contact|null')]
@@ -47,8 +47,8 @@ class ACHInstitution
     /**
      * @param  string  $name
      * @param  string  $routingNumber
-     * @param  ?Address  $address
-     * @param  ?Contact  $contact
+     * @param  ?\Moov\MoovPhp\Models\Components\Address  $address
+     * @param  ?\Moov\MoovPhp\Models\Components\Contact  $contact
      * @phpstan-pure
      */
     public function __construct(string $name, string $routingNumber, ?Address $address = null, ?Contact $contact = null)

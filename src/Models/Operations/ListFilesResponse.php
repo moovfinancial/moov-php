@@ -42,7 +42,7 @@ class ListFilesResponse
     /**
      * The request completed successfully.
      *
-     * @var ?array<Components\FileDetails> $fileDetails
+     * @var ?array<\Moov\MoovPhp\Models\Components\FileDetails> $fileDetails
      */
     public ?array $fileDetails = null;
 
@@ -51,7 +51,7 @@ class ListFilesResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?array<Components\FileDetails>  $fileDetails
+     * @param  ?array<\Moov\MoovPhp\Models\Components\FileDetails>  $fileDetails
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?array $fileDetails = null, ?array $headers = [])

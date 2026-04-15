@@ -48,9 +48,9 @@ class Products
     /**
      * Creates a new product for the specified account.
      *
-     * @param  Components\ProductRequest  $productRequest
+     * @param  \Moov\MoovPhp\Models\Components\ProductRequest  $productRequest
      * @param  string  $accountID
-     * @return Operations\CreateProductResponse
+     * @return \Moov\MoovPhp\Models\Operations\CreateProductResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function create(Components\ProductRequest $productRequest, string $accountID, ?Options $options = null): Operations\CreateProductResponse
@@ -148,7 +148,7 @@ class Products
      *
      * @param  string  $accountID
      * @param  string  $productID
-     * @return Operations\DisableProductResponse
+     * @return \Moov\MoovPhp\Models\Operations\DisableProductResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function disable(string $accountID, string $productID, ?Options $options = null): Operations\DisableProductResponse
@@ -218,7 +218,7 @@ class Products
      *
      * @param  string  $accountID
      * @param  string  $productID
-     * @return Operations\GetProductResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetProductResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function get(string $accountID, string $productID, ?Options $options = null): Operations\GetProductResponse
@@ -289,7 +289,7 @@ class Products
      * @param  ?string  $title
      * @param  ?int  $skip
      * @param  ?int  $count
-     * @return Operations\ListProductsResponse
+     * @return \Moov\MoovPhp\Models\Operations\ListProductsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function list(string $accountID, ?string $title = null, ?int $skip = null, ?int $count = null, ?Options $options = null): Operations\ListProductsResponse
@@ -361,10 +361,10 @@ class Products
     /**
      * Update a product and its options.
      *
-     * @param  Components\ProductRequest  $productRequest
+     * @param  \Moov\MoovPhp\Models\Components\ProductRequest  $productRequest
      * @param  string  $accountID
      * @param  string  $productID
-     * @return Operations\UpdateProductResponse
+     * @return \Moov\MoovPhp\Models\Operations\UpdateProductResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function update(Components\ProductRequest $productRequest, string $accountID, string $productID, ?Options $options = null): Operations\UpdateProductResponse

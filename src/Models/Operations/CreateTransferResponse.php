@@ -42,21 +42,21 @@ class CreateTransferResponse
     /**
      * The request completed successfully.
      *
-     * @var ?Components\CreatedTransfer $createdTransfer
+     * @var ?\Moov\MoovPhp\Models\Components\CreatedTransfer $createdTransfer
      */
     public ?Components\CreatedTransfer $createdTransfer = null;
 
     /**
      * A transfer was successfully created but an error occurred while generating the synchronous response. The asynchronous response object will be returned.
      *
-     * @var ?Components\AsyncTransfer $asyncTransfer
+     * @var ?\Moov\MoovPhp\Models\Components\AsyncTransfer $asyncTransfer
      */
     public ?Components\AsyncTransfer $asyncTransfer = null;
 
     /**
      * The transfer was created, but rail-specific details may not be available within the 15 second timeout window.
      *
-     * @var ?Components\Transfer $transfer
+     * @var ?\Moov\MoovPhp\Models\Components\Transfer $transfer
      */
     public ?Components\Transfer $transfer = null;
 
@@ -65,9 +65,9 @@ class CreateTransferResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\CreatedTransfer  $createdTransfer
-     * @param  ?Components\AsyncTransfer  $asyncTransfer
-     * @param  ?Components\Transfer  $transfer
+     * @param  ?\Moov\MoovPhp\Models\Components\CreatedTransfer  $createdTransfer
+     * @param  ?\Moov\MoovPhp\Models\Components\AsyncTransfer  $asyncTransfer
+     * @param  ?\Moov\MoovPhp\Models\Components\Transfer  $transfer
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\CreatedTransfer $createdTransfer = null, ?Components\AsyncTransfer $asyncTransfer = null, ?Components\Transfer $transfer = null, ?array $headers = [])

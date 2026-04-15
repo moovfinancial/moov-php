@@ -51,8 +51,8 @@ class Receipts
      *  To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      *  you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
      *
-     * @param  array<Components\ReceiptRequest>  $request
-     * @return Operations\CreateReceiptsResponse
+     * @param  array<\Moov\MoovPhp\Models\Components\ReceiptRequest>  $request
+     * @return \Moov\MoovPhp\Models\Operations\CreateReceiptsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function create(array $request, ?Options $options = null): Operations\CreateReceiptsResponse
@@ -135,7 +135,7 @@ class Receipts
      * you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
      *
      * @param  string  $id
-     * @return Operations\ListReceiptsResponse
+     * @return \Moov\MoovPhp\Models\Operations\ListReceiptsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function list(string $id, ?Options $options = null): Operations\ListReceiptsResponse

@@ -32,7 +32,7 @@ class CreateTransferRequest
 
     /**
      *
-     * @var Components\CreateTransfer $createTransfer
+     * @var \Moov\MoovPhp\Models\Components\CreateTransfer $createTransfer
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\CreateTransfer $createTransfer;
@@ -42,7 +42,7 @@ class CreateTransferRequest
      *
      * asynchronous response indicating the transfer was created (this is the default response if the header is omitted). A timeout will occur after 15 seconds.
      *
-     * @var ?Components\TransferWaitFor $xWaitFor
+     * @var ?\Moov\MoovPhp\Models\Components\TransferWaitFor $xWaitFor
      */
     #[SpeakeasyMetadata('header:style=simple,explode=false,name=x-wait-for')]
     public ?Components\TransferWaitFor $xWaitFor = null;
@@ -50,8 +50,8 @@ class CreateTransferRequest
     /**
      * @param  string  $xIdempotencyKey
      * @param  string  $accountID
-     * @param  Components\CreateTransfer  $createTransfer
-     * @param  ?Components\TransferWaitFor  $xWaitFor
+     * @param  \Moov\MoovPhp\Models\Components\CreateTransfer  $createTransfer
+     * @param  ?\Moov\MoovPhp\Models\Components\TransferWaitFor  $xWaitFor
      * @phpstan-pure
      */
     public function __construct(string $xIdempotencyKey, string $accountID, Components\CreateTransfer $createTransfer, ?Components\TransferWaitFor $xWaitFor = null)

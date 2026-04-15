@@ -24,7 +24,7 @@ class CardAccountUpdater
     /**
      * The results of the card update request.
      *
-     * @var ?CardUpdateReason $updateType
+     * @var ?\Moov\MoovPhp\Models\Components\CardUpdateReason $updateType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('updateType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardUpdateReason|null')]
@@ -33,7 +33,7 @@ class CardAccountUpdater
 
     /**
      * @param  ?\DateTime  $updatedOn
-     * @param  ?CardUpdateReason  $updateType
+     * @param  ?\Moov\MoovPhp\Models\Components\CardUpdateReason  $updateType
      * @phpstan-pure
      */
     public function __construct(?\DateTime $updatedOn = null, ?CardUpdateReason $updateType = null)

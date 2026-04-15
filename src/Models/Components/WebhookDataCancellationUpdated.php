@@ -27,7 +27,7 @@ class WebhookDataCancellationUpdated
 
     /**
      *
-     * @var CancellationStatus $status
+     * @var \Moov\MoovPhp\Models\Components\CancellationStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CancellationStatus')]
@@ -36,7 +36,7 @@ class WebhookDataCancellationUpdated
     /**
      * @param  string  $cancellationID
      * @param  string  $transferID
-     * @param  CancellationStatus  $status
+     * @param  \Moov\MoovPhp\Models\Components\CancellationStatus  $status
      * @phpstan-pure
      */
     public function __construct(string $cancellationID, string $transferID, CancellationStatus $status)

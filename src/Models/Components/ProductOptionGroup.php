@@ -41,7 +41,7 @@ class ProductOptionGroup
     /**
      * The options available within this group.
      *
-     * @var array<ProductOption> $options
+     * @var array<\Moov\MoovPhp\Models\Components\ProductOption> $options
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('options')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\ProductOption>')]
@@ -65,7 +65,7 @@ class ProductOptionGroup
      * @param  string  $name
      * @param  int  $minSelect
      * @param  int  $maxSelect
-     * @param  array<ProductOption>  $options
+     * @param  array<\Moov\MoovPhp\Models\Components\ProductOption>  $options
      * @param  ?string  $description
      * @phpstan-pure
      */

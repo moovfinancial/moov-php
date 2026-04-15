@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Moov\MoovPhp\Models\Operations;
 
-
+use Moov\MoovPhp\Models\Components;
 class UpdateIssuedCardResponse
 {
     /**
@@ -40,17 +40,26 @@ class UpdateIssuedCardResponse
     public array $headers;
 
     /**
+     * The request completed successfully.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\IssuedCard $issuedCard
+     */
+    public ?Components\IssuedCard $issuedCard = null;
+
+    /**
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
+     * @param  ?\Moov\MoovPhp\Models\Components\IssuedCard  $issuedCard
      * @phpstan-pure
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?array $headers = [])
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\IssuedCard $issuedCard = null, ?array $headers = [])
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
         $this->headers = $headers;
+        $this->issuedCard = $issuedCard;
     }
 }

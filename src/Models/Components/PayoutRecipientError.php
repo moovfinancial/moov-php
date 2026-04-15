@@ -21,7 +21,7 @@ class PayoutRecipientError
 
     /**
      *
-     * @var ?PhoneNumberError $phone
+     * @var ?\Moov\MoovPhp\Models\Components\PhoneNumberError $phone
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('phone')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PhoneNumberError|null')]
@@ -30,7 +30,7 @@ class PayoutRecipientError
 
     /**
      * @param  ?string  $email
-     * @param  ?PhoneNumberError  $phone
+     * @param  ?\Moov\MoovPhp\Models\Components\PhoneNumberError  $phone
      * @phpstan-pure
      */
     public function __construct(?string $email = null, ?PhoneNumberError $phone = null)

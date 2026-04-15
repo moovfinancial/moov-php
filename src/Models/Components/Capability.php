@@ -17,7 +17,7 @@ class Capability
      *
      * The `production-app`, `platform.production-app`, and / or `platform.wallet-transfers` capabilities might appear in your list. These are read-only capabilities that Moov requests and uses for account verification purposes. These capabilities remains active with your account and require no additional action.
      *
-     * @var CapabilityID $capability
+     * @var \Moov\MoovPhp\Models\Components\CapabilityID $capability
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('capability')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CapabilityID')]
@@ -33,7 +33,7 @@ class Capability
     /**
      * The status of the capability requested for an account.
      *
-     * @var CapabilityStatus $status
+     * @var \Moov\MoovPhp\Models\Components\CapabilityStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CapabilityStatus')]
@@ -56,7 +56,7 @@ class Capability
     /**
      * Represents individual and business data necessary to facilitate the enabling of a capability for an account.
      *
-     * @var ?CapabilityRequirement $requirements
+     * @var ?\Moov\MoovPhp\Models\Components\CapabilityRequirement $requirements
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('requirements')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CapabilityRequirement|null')]
@@ -80,12 +80,12 @@ class Capability
     public ?\DateTime $disabledOn = null;
 
     /**
-     * @param  CapabilityID  $capability
+     * @param  \Moov\MoovPhp\Models\Components\CapabilityID  $capability
      * @param  string  $accountID
-     * @param  CapabilityStatus  $status
+     * @param  \Moov\MoovPhp\Models\Components\CapabilityStatus  $status
      * @param  \DateTime  $createdOn
      * @param  \DateTime  $updatedOn
-     * @param  ?CapabilityRequirement  $requirements
+     * @param  ?\Moov\MoovPhp\Models\Components\CapabilityRequirement  $requirements
      * @param  ?string  $disabledReason
      * @param  ?\DateTime  $disabledOn
      * @phpstan-pure
