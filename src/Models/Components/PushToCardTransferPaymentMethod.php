@@ -21,7 +21,7 @@ class PushToCardTransferPaymentMethod
 
     /**
      *
-     * @var PushToCardTransferPaymentMethodPaymentMethodType $paymentMethodType
+     * @var \Moov\MoovPhp\Models\Components\PushToCardTransferPaymentMethodPaymentMethodType $paymentMethodType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('paymentMethodType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PushToCardTransferPaymentMethodPaymentMethodType')]
@@ -30,7 +30,7 @@ class PushToCardTransferPaymentMethod
     /**
      * A card as contained within a payment method.
      *
-     * @var TransferPaymentMethodsCard $card
+     * @var \Moov\MoovPhp\Models\Components\TransferPaymentMethodsCard $card
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('card')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferPaymentMethodsCard')]
@@ -38,8 +38,8 @@ class PushToCardTransferPaymentMethod
 
     /**
      * @param  string  $paymentMethodID
-     * @param  PushToCardTransferPaymentMethodPaymentMethodType  $paymentMethodType
-     * @param  TransferPaymentMethodsCard  $card
+     * @param  \Moov\MoovPhp\Models\Components\PushToCardTransferPaymentMethodPaymentMethodType  $paymentMethodType
+     * @param  \Moov\MoovPhp\Models\Components\TransferPaymentMethodsCard  $card
      * @phpstan-pure
      */
     public function __construct(string $paymentMethodID, PushToCardTransferPaymentMethodPaymentMethodType $paymentMethodType, TransferPaymentMethodsCard $card)

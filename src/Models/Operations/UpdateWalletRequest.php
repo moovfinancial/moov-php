@@ -30,7 +30,7 @@ class UpdateWalletRequest
 
     /**
      *
-     * @var Components\PatchWallet $patchWallet
+     * @var \Moov\MoovPhp\Models\Components\PatchWallet $patchWallet
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\PatchWallet $patchWallet;
@@ -38,7 +38,7 @@ class UpdateWalletRequest
     /**
      * @param  string  $walletID
      * @param  string  $accountID
-     * @param  Components\PatchWallet  $patchWallet
+     * @param  \Moov\MoovPhp\Models\Components\PatchWallet  $patchWallet
      * @phpstan-pure
      */
     public function __construct(string $walletID, string $accountID, Components\PatchWallet $patchWallet)

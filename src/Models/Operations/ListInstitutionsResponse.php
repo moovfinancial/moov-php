@@ -42,7 +42,7 @@ class ListInstitutionsResponse
     /**
      * The request completed successfully.
      *
-     * @var ?Components\FinancialInstitutions $financialInstitutions
+     * @var ?\Moov\MoovPhp\Models\Components\FinancialInstitutions $financialInstitutions
      */
     public ?Components\FinancialInstitutions $financialInstitutions = null;
 
@@ -51,7 +51,7 @@ class ListInstitutionsResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\FinancialInstitutions  $financialInstitutions
+     * @param  ?\Moov\MoovPhp\Models\Components\FinancialInstitutions  $financialInstitutions
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\FinancialInstitutions $financialInstitutions = null, ?array $headers = [])

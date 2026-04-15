@@ -42,7 +42,7 @@ class ListPartnerPricingAgreementsResponse
     /**
      * The request completed successfully.
      *
-     * @var ?array<Components\PartnerPricingAgreement> $partnerPricingAgreements
+     * @var ?array<\Moov\MoovPhp\Models\Components\PartnerPricingAgreement> $partnerPricingAgreements
      */
     public ?array $partnerPricingAgreements = null;
 
@@ -51,7 +51,7 @@ class ListPartnerPricingAgreementsResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?array<Components\PartnerPricingAgreement>  $partnerPricingAgreements
+     * @param  ?array<\Moov\MoovPhp\Models\Components\PartnerPricingAgreement>  $partnerPricingAgreements
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?array $partnerPricingAgreements = null, ?array $headers = [])

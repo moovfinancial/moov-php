@@ -42,7 +42,7 @@ class GetPaymentLinkQRCodeResponse
     /**
      * The request has succeeded.
      *
-     * @var ?Components\QRCode $qrCode
+     * @var ?\Moov\MoovPhp\Models\Components\QRCode $qrCode
      */
     public ?Components\QRCode $qrCode = null;
 
@@ -58,7 +58,7 @@ class GetPaymentLinkQRCodeResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\QRCode  $qrCode
+     * @param  ?\Moov\MoovPhp\Models\Components\QRCode  $qrCode
      * @param  ?string  $bytes
      * @phpstan-pure
      */

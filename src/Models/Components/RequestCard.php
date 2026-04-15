@@ -21,7 +21,7 @@ class RequestCard
     /**
      * Fields for identifying an authorized individual.
      *
-     * @var CreateAuthorizedUser $authorizedUser
+     * @var \Moov\MoovPhp\Models\Components\CreateAuthorizedUser $authorizedUser
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('authorizedUser')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateAuthorizedUser')]
@@ -30,7 +30,7 @@ class RequestCard
     /**
      * Specifies the type of spend card to be issued. Presently supports virtual only, providing a digital number without a physical card.
      *
-     * @var IssuedCardFormFactor $formFactor
+     * @var \Moov\MoovPhp\Models\Components\IssuedCardFormFactor $formFactor
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('formFactor')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IssuedCardFormFactor')]
@@ -48,7 +48,7 @@ class RequestCard
     /**
      * The expiration date of the card or token.
      *
-     * @var ?CardExpiration $expiration
+     * @var ?\Moov\MoovPhp\Models\Components\CardExpiration $expiration
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('expiration')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardExpiration|null')]
@@ -57,7 +57,7 @@ class RequestCard
 
     /**
      *
-     * @var ?IssuingControls $controls
+     * @var ?\Moov\MoovPhp\Models\Components\IssuingControls $controls
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('controls')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IssuingControls|null')]
@@ -66,11 +66,11 @@ class RequestCard
 
     /**
      * @param  string  $fundingWalletID
-     * @param  CreateAuthorizedUser  $authorizedUser
-     * @param  IssuedCardFormFactor  $formFactor
+     * @param  \Moov\MoovPhp\Models\Components\CreateAuthorizedUser  $authorizedUser
+     * @param  \Moov\MoovPhp\Models\Components\IssuedCardFormFactor  $formFactor
      * @param  ?string  $memo
-     * @param  ?CardExpiration  $expiration
-     * @param  ?IssuingControls  $controls
+     * @param  ?\Moov\MoovPhp\Models\Components\CardExpiration  $expiration
+     * @param  ?\Moov\MoovPhp\Models\Components\IssuingControls  $controls
      * @phpstan-pure
      */
     public function __construct(string $fundingWalletID, CreateAuthorizedUser $authorizedUser, IssuedCardFormFactor $formFactor, ?string $memo = null, ?CardExpiration $expiration = null, ?IssuingControls $controls = null)

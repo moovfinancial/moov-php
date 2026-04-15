@@ -42,7 +42,7 @@ class GetTerminalConfigurationResponse
     /**
      * The request completed successfully.
      *
-     * @var ?Components\TerminalConfiguration $terminalConfiguration
+     * @var ?\Moov\MoovPhp\Models\Components\TerminalConfiguration $terminalConfiguration
      */
     public ?Components\TerminalConfiguration $terminalConfiguration = null;
 
@@ -51,7 +51,7 @@ class GetTerminalConfigurationResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\TerminalConfiguration  $terminalConfiguration
+     * @param  ?\Moov\MoovPhp\Models\Components\TerminalConfiguration  $terminalConfiguration
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\TerminalConfiguration $terminalConfiguration = null, ?array $headers = [])

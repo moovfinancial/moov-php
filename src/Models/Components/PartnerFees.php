@@ -15,7 +15,7 @@ class PartnerFees
     /**
      * The minimum spending amount that must be met in the billing period. If actual usage is below the minimum amount, account is charged the difference.
      *
-     * @var AmountDecimal $minimumCommitment
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $minimumCommitment
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('minimumCommitment')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
@@ -24,7 +24,7 @@ class PartnerFees
     /**
      * Fixed recurring fee for the billing period regardless of usage.
      *
-     * @var AmountDecimal $monthlyPlatform
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $monthlyPlatform
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('monthlyPlatform')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
@@ -33,16 +33,16 @@ class PartnerFees
     /**
      * Total partner fees.
      *
-     * @var AmountDecimal $total
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $total
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('total')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
     public AmountDecimal $total;
 
     /**
-     * @param  AmountDecimal  $minimumCommitment
-     * @param  AmountDecimal  $monthlyPlatform
-     * @param  AmountDecimal  $total
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $minimumCommitment
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $monthlyPlatform
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $total
      * @phpstan-pure
      */
     public function __construct(AmountDecimal $minimumCommitment, AmountDecimal $monthlyPlatform, AmountDecimal $total)

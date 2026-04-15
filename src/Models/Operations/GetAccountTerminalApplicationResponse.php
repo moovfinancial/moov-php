@@ -42,7 +42,7 @@ class GetAccountTerminalApplicationResponse
     /**
      * The request completed successfully.
      *
-     * @var ?Components\AccountTerminalApplication $accountTerminalApplication
+     * @var ?\Moov\MoovPhp\Models\Components\AccountTerminalApplication $accountTerminalApplication
      */
     public ?Components\AccountTerminalApplication $accountTerminalApplication = null;
 
@@ -51,7 +51,7 @@ class GetAccountTerminalApplicationResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\AccountTerminalApplication  $accountTerminalApplication
+     * @param  ?\Moov\MoovPhp\Models\Components\AccountTerminalApplication  $accountTerminalApplication
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\AccountTerminalApplication $accountTerminalApplication = null, ?array $headers = [])

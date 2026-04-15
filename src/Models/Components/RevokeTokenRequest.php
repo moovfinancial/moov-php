@@ -23,7 +23,7 @@ class RevokeTokenRequest
     /**
      * The type of token being revoked.
      *
-     * @var ?TokenTypeHint $tokenTypeHint
+     * @var ?\Moov\MoovPhp\Models\Components\TokenTypeHint $tokenTypeHint
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('token_type_hint')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TokenTypeHint|null')]
@@ -53,7 +53,7 @@ class RevokeTokenRequest
 
     /**
      * @param  string  $token
-     * @param  ?TokenTypeHint  $tokenTypeHint
+     * @param  ?\Moov\MoovPhp\Models\Components\TokenTypeHint  $tokenTypeHint
      * @param  ?string  $clientId
      * @param  ?string  $clientSecret
      * @phpstan-pure

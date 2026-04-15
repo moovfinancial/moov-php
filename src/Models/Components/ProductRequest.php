@@ -22,7 +22,7 @@ class ProductRequest
     /**
      * A product's starting price, before applying modifiers.
      *
-     * @var AmountDecimal $basePrice
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $basePrice
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('basePrice')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
@@ -45,7 +45,7 @@ class ProductRequest
     /**
      * Assign previously uploaded images to a product or option.
      *
-     * @var ?array<AssignProductImage> $images
+     * @var ?array<\Moov\MoovPhp\Models\Components\AssignProductImage> $images
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('images')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\AssignProductImage>|null')]
@@ -55,7 +55,7 @@ class ProductRequest
     /**
      * Optional configuration options for a product, such as size or color.
      *
-     * @var ?array<CreateProductOptionGroup> $optionGroups
+     * @var ?array<\Moov\MoovPhp\Models\Components\CreateProductOptionGroup> $optionGroups
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('optionGroups')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\CreateProductOptionGroup>|null')]
@@ -64,10 +64,10 @@ class ProductRequest
 
     /**
      * @param  string  $title
-     * @param  AmountDecimal  $basePrice
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $basePrice
      * @param  ?string  $description
-     * @param  ?array<AssignProductImage>  $images
-     * @param  ?array<CreateProductOptionGroup>  $optionGroups
+     * @param  ?array<\Moov\MoovPhp\Models\Components\AssignProductImage>  $images
+     * @param  ?array<\Moov\MoovPhp\Models\Components\CreateProductOptionGroup>  $optionGroups
      * @phpstan-pure
      */
     public function __construct(string $title, AmountDecimal $basePrice, ?string $description = null, ?array $images = null, ?array $optionGroups = null)

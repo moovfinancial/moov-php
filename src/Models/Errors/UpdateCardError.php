@@ -14,7 +14,7 @@ class UpdateCardError
 {
     /**
      *
-     * @var ?Components\End2EndEncryptionError $e2ee
+     * @var ?\Moov\MoovPhp\Models\Components\End2EndEncryptionError $e2ee
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('e2ee')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\End2EndEncryptionError|null')]
@@ -78,7 +78,7 @@ class UpdateCardError
     public ?string $holderName = null;
 
     /**
-     * @param  ?Components\End2EndEncryptionError  $e2ee
+     * @param  ?\Moov\MoovPhp\Models\Components\End2EndEncryptionError  $e2ee
      * @param  ?string  $billingAddress
      * @param  ?string  $expiration
      * @param  ?string  $cardCvv

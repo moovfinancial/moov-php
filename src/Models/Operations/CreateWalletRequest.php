@@ -22,14 +22,14 @@ class CreateWalletRequest
 
     /**
      *
-     * @var Components\CreateWallet $createWallet
+     * @var \Moov\MoovPhp\Models\Components\CreateWallet $createWallet
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\CreateWallet $createWallet;
 
     /**
      * @param  string  $accountID
-     * @param  Components\CreateWallet  $createWallet
+     * @param  \Moov\MoovPhp\Models\Components\CreateWallet  $createWallet
      * @phpstan-pure
      */
     public function __construct(string $accountID, Components\CreateWallet $createWallet)

@@ -42,7 +42,7 @@ class UploadFileResponse
     /**
      * The request completed successfully.
      *
-     * @var ?Components\FileDetails $fileDetails
+     * @var ?\Moov\MoovPhp\Models\Components\FileDetails $fileDetails
      */
     public ?Components\FileDetails $fileDetails = null;
 
@@ -51,7 +51,7 @@ class UploadFileResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\FileDetails  $fileDetails
+     * @param  ?\Moov\MoovPhp\Models\Components\FileDetails  $fileDetails
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\FileDetails $fileDetails = null, ?array $headers = [])

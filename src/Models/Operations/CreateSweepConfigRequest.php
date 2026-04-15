@@ -21,14 +21,14 @@ class CreateSweepConfigRequest
 
     /**
      *
-     * @var Components\CreateSweepConfig $createSweepConfig
+     * @var \Moov\MoovPhp\Models\Components\CreateSweepConfig $createSweepConfig
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\CreateSweepConfig $createSweepConfig;
 
     /**
      * @param  string  $accountID
-     * @param  Components\CreateSweepConfig  $createSweepConfig
+     * @param  \Moov\MoovPhp\Models\Components\CreateSweepConfig  $createSweepConfig
      * @phpstan-pure
      */
     public function __construct(string $accountID, Components\CreateSweepConfig $createSweepConfig)

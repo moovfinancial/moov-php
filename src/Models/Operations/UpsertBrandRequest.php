@@ -21,14 +21,14 @@ class UpsertBrandRequest
 
     /**
      *
-     * @var Components\BrandProperties $brandProperties
+     * @var \Moov\MoovPhp\Models\Components\BrandProperties $brandProperties
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\BrandProperties $brandProperties;
 
     /**
      * @param  string  $accountID
-     * @param  Components\BrandProperties  $brandProperties
+     * @param  \Moov\MoovPhp\Models\Components\BrandProperties  $brandProperties
      * @phpstan-pure
      */
     public function __construct(string $accountID, Components\BrandProperties $brandProperties)

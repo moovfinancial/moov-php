@@ -13,7 +13,7 @@ class EnrichedBusinessProfile
 {
     /**
      *
-     * @var ?Address $address
+     * @var ?\Moov\MoovPhp\Models\Components\Address $address
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('address')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Address|null')]
@@ -30,7 +30,7 @@ class EnrichedBusinessProfile
 
     /**
      *
-     * @var ?EnrichedIndustryCodes $industryCodes
+     * @var ?\Moov\MoovPhp\Models\Components\EnrichedIndustryCodes $industryCodes
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('industryCodes')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\EnrichedIndustryCodes|null')]
@@ -47,7 +47,7 @@ class EnrichedBusinessProfile
 
     /**
      *
-     * @var ?PhoneNumber $phone
+     * @var ?\Moov\MoovPhp\Models\Components\PhoneNumber $phone
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('phone')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PhoneNumber|null')]
@@ -63,11 +63,11 @@ class EnrichedBusinessProfile
     public ?string $website = null;
 
     /**
-     * @param  ?Address  $address
+     * @param  ?\Moov\MoovPhp\Models\Components\Address  $address
      * @param  ?string  $email
-     * @param  ?EnrichedIndustryCodes  $industryCodes
+     * @param  ?\Moov\MoovPhp\Models\Components\EnrichedIndustryCodes  $industryCodes
      * @param  ?string  $legalBusinessName
-     * @param  ?PhoneNumber  $phone
+     * @param  ?\Moov\MoovPhp\Models\Components\PhoneNumber  $phone
      * @param  ?string  $website
      * @phpstan-pure
      */

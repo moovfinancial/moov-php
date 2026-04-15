@@ -42,7 +42,7 @@ class ListSchedulesResponse
     /**
      * The request completed successfully.
      *
-     * @var ?array<Components\ScheduleListResponse> $scheduleListResponses
+     * @var ?array<\Moov\MoovPhp\Models\Components\ScheduleListResponse> $scheduleListResponses
      */
     public ?array $scheduleListResponses = null;
 
@@ -51,7 +51,7 @@ class ListSchedulesResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?array<Components\ScheduleListResponse>  $scheduleListResponses
+     * @param  ?array<\Moov\MoovPhp\Models\Components\ScheduleListResponse>  $scheduleListResponses
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?array $scheduleListResponses = null, ?array $headers = [])

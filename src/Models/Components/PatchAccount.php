@@ -17,7 +17,7 @@ class PatchAccount
      *
      * Each object can be patched independent of patching the other fields.
      *
-     * @var ?PatchProfile $profile
+     * @var ?\Moov\MoovPhp\Models\Components\PatchProfile $profile
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('profile')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PatchProfile|null')]
@@ -26,7 +26,7 @@ class PatchAccount
 
     /**
      *
-     * @var ?TermsOfServicePayloadUpdate $termsOfService
+     * @var ?\Moov\MoovPhp\Models\Components\TermsOfServicePayloadUpdate $termsOfService
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('termsOfService')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TermsOfServicePayloadUpdate|null')]
@@ -43,7 +43,7 @@ class PatchAccount
 
     /**
      *
-     * @var ?CreateAccountSettings $settings
+     * @var ?\Moov\MoovPhp\Models\Components\CreateAccountSettings $settings
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('settings')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateAccountSettings|null')]
@@ -62,7 +62,7 @@ class PatchAccount
 
     /**
      *
-     * @var ?PatchAccountCustomerSupport $customerSupport
+     * @var ?\Moov\MoovPhp\Models\Components\PatchAccountCustomerSupport $customerSupport
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('customerSupport')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PatchAccountCustomerSupport|null')]
@@ -70,12 +70,12 @@ class PatchAccount
     public ?PatchAccountCustomerSupport $customerSupport = null;
 
     /**
-     * @param  ?PatchProfile  $profile
-     * @param  ?TermsOfServicePayloadUpdate  $termsOfService
+     * @param  ?\Moov\MoovPhp\Models\Components\PatchProfile  $profile
+     * @param  ?\Moov\MoovPhp\Models\Components\TermsOfServicePayloadUpdate  $termsOfService
      * @param  ?string  $foreignID
-     * @param  ?CreateAccountSettings  $settings
+     * @param  ?\Moov\MoovPhp\Models\Components\CreateAccountSettings  $settings
      * @param  ?array<string, string>  $metadata
-     * @param  ?PatchAccountCustomerSupport  $customerSupport
+     * @param  ?\Moov\MoovPhp\Models\Components\PatchAccountCustomerSupport  $customerSupport
      * @phpstan-pure
      */
     public function __construct(?PatchProfile $profile = null, ?TermsOfServicePayloadUpdate $termsOfService = null, ?string $foreignID = null, ?CreateAccountSettings $settings = null, ?array $metadata = null, ?PatchAccountCustomerSupport $customerSupport = null)

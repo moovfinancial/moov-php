@@ -20,7 +20,7 @@ class CreateSweepConfig
 
     /**
      *
-     * @var SweepConfigStatus $status
+     * @var \Moov\MoovPhp\Models\Components\SweepConfigStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\SweepConfigStatus')]
@@ -61,7 +61,7 @@ class CreateSweepConfig
 
     /**
      * @param  string  $walletID
-     * @param  SweepConfigStatus  $status
+     * @param  \Moov\MoovPhp\Models\Components\SweepConfigStatus  $status
      * @param  string  $pushPaymentMethodID
      * @param  string  $pullPaymentMethodID
      * @param  ?string  $statementDescriptor

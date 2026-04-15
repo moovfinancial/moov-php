@@ -54,8 +54,8 @@ class IssuedCards
      * @param  string  $accountID
      * @param  ?int  $skip
      * @param  ?int  $count
-     * @param  ?array<Components\IssuedCardState>  $states
-     * @return Operations\ListIssuedCardsResponse
+     * @param  ?array<\Moov\MoovPhp\Models\Components\IssuedCardState>  $states
+     * @return \Moov\MoovPhp\Models\Operations\ListIssuedCardsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function list(string $accountID, ?int $skip = null, ?int $count = null, ?array $states = null, ?Options $options = null): Operations\ListIssuedCardsResponse

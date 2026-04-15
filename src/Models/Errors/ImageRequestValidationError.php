@@ -22,7 +22,7 @@ class ImageRequestValidationError
 
     /**
      *
-     * @var ?Components\ImageMetadataValidationError $metadata
+     * @var ?\Moov\MoovPhp\Models\Components\ImageMetadataValidationError $metadata
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('metadata')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ImageMetadataValidationError|null')]
@@ -31,7 +31,7 @@ class ImageRequestValidationError
 
     /**
      * @param  ?string  $image
-     * @param  ?Components\ImageMetadataValidationError  $metadata
+     * @param  ?\Moov\MoovPhp\Models\Components\ImageMetadataValidationError  $metadata
      * @phpstan-pure
      */
     public function __construct(?string $image = null, ?Components\ImageMetadataValidationError $metadata = null)

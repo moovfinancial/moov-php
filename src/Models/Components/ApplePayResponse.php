@@ -15,7 +15,7 @@ class ApplePayResponse
     /**
      * The card brand.
      *
-     * @var CardBrand $brand
+     * @var \Moov\MoovPhp\Models\Components\CardBrand $brand
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('brand')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardBrand')]
@@ -24,7 +24,7 @@ class ApplePayResponse
     /**
      * The type of the card.
      *
-     * @var CardType $cardType
+     * @var \Moov\MoovPhp\Models\Components\CardType $cardType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardType')]
@@ -56,7 +56,7 @@ class ApplePayResponse
     /**
      * The expiration date of the card or token.
      *
-     * @var CardExpiration $expiration
+     * @var \Moov\MoovPhp\Models\Components\CardExpiration $expiration
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('expiration')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardExpiration')]
@@ -80,11 +80,11 @@ class ApplePayResponse
     public ?string $issuerCountry = null;
 
     /**
-     * @param  CardBrand  $brand
-     * @param  CardType  $cardType
+     * @param  \Moov\MoovPhp\Models\Components\CardBrand  $brand
+     * @param  \Moov\MoovPhp\Models\Components\CardType  $cardType
      * @param  string  $cardDisplayName
      * @param  string  $fingerprint
-     * @param  CardExpiration  $expiration
+     * @param  \Moov\MoovPhp\Models\Components\CardExpiration  $expiration
      * @param  string  $dynamicLastFour
      * @param  ?string  $issuerCountry
      * @phpstan-pure

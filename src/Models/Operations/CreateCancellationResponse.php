@@ -42,7 +42,7 @@ class CreateCancellationResponse
     /**
      * The request completed successfully.
      *
-     * @var ?Components\Cancellation $cancellation
+     * @var ?\Moov\MoovPhp\Models\Components\Cancellation $cancellation
      */
     public ?Components\Cancellation $cancellation = null;
 
@@ -51,7 +51,7 @@ class CreateCancellationResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\Cancellation  $cancellation
+     * @param  ?\Moov\MoovPhp\Models\Components\Cancellation  $cancellation
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\Cancellation $cancellation = null, ?array $headers = [])

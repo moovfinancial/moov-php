@@ -37,7 +37,7 @@ class UpdateUnderwritingErrorError
 
     /**
      *
-     * @var ?Components\VolumeByCustomerTypeError $volumeByCustomerType
+     * @var ?\Moov\MoovPhp\Models\Components\VolumeByCustomerTypeError $volumeByCustomerType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('volumeByCustomerType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\VolumeByCustomerTypeError|null')]
@@ -46,7 +46,7 @@ class UpdateUnderwritingErrorError
 
     /**
      *
-     * @var ?Components\CardVolumeDistributionError $cardVolumeDistribution
+     * @var ?\Moov\MoovPhp\Models\Components\CardVolumeDistributionError $cardVolumeDistribution
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardVolumeDistribution')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardVolumeDistributionError|null')]
@@ -55,7 +55,7 @@ class UpdateUnderwritingErrorError
 
     /**
      *
-     * @var ?Components\FulfillmentDetailsError $fulfillment
+     * @var ?\Moov\MoovPhp\Models\Components\FulfillmentDetailsError $fulfillment
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('fulfillment')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\FulfillmentDetailsError|null')]
@@ -66,9 +66,9 @@ class UpdateUnderwritingErrorError
      * @param  ?string  $averageMonthlyTransactionVolume
      * @param  ?string  $averageTransactionSize
      * @param  ?string  $maxTransactionSize
-     * @param  ?Components\VolumeByCustomerTypeError  $volumeByCustomerType
-     * @param  ?Components\CardVolumeDistributionError  $cardVolumeDistribution
-     * @param  ?Components\FulfillmentDetailsError  $fulfillment
+     * @param  ?\Moov\MoovPhp\Models\Components\VolumeByCustomerTypeError  $volumeByCustomerType
+     * @param  ?\Moov\MoovPhp\Models\Components\CardVolumeDistributionError  $cardVolumeDistribution
+     * @param  ?\Moov\MoovPhp\Models\Components\FulfillmentDetailsError  $fulfillment
      * @phpstan-pure
      */
     public function __construct(?string $averageMonthlyTransactionVolume = null, ?string $averageTransactionSize = null, ?string $maxTransactionSize = null, ?Components\VolumeByCustomerTypeError $volumeByCustomerType = null, ?Components\CardVolumeDistributionError $cardVolumeDistribution = null, ?Components\FulfillmentDetailsError $fulfillment = null)

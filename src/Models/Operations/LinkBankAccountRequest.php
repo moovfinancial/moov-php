@@ -21,7 +21,7 @@ class LinkBankAccountRequest
 
     /**
      *
-     * @var Components\BankAccountPayload|Components\PlaidPayload|Components\PlaidLinkPayload|Components\MxPayload $linkBankAccount
+     * @var \Moov\MoovPhp\Models\Components\BankAccountPayload|\Moov\MoovPhp\Models\Components\PlaidPayload|\Moov\MoovPhp\Models\Components\PlaidLinkPayload|\Moov\MoovPhp\Models\Components\MxPayload $linkBankAccount
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\BankAccountPayload|Components\PlaidPayload|Components\PlaidLinkPayload|Components\MxPayload $linkBankAccount;
@@ -33,15 +33,15 @@ class LinkBankAccountRequest
      * When this header is set to `payment-method`, the response will include any payment methods that were created for the newly
      * linked card in the `paymentMethods` field. Otherwise, the `paymentMethods` field will be omitted from the response.
      *
-     * @var ?Components\BankAccountWaitFor $xWaitFor
+     * @var ?\Moov\MoovPhp\Models\Components\BankAccountWaitFor $xWaitFor
      */
     #[SpeakeasyMetadata('header:style=simple,explode=false,name=x-wait-for')]
     public ?Components\BankAccountWaitFor $xWaitFor = null;
 
     /**
      * @param  string  $accountID
-     * @param  Components\BankAccountPayload|Components\PlaidPayload|Components\PlaidLinkPayload|Components\MxPayload  $linkBankAccount
-     * @param  ?Components\BankAccountWaitFor  $xWaitFor
+     * @param  \Moov\MoovPhp\Models\Components\BankAccountPayload|\Moov\MoovPhp\Models\Components\PlaidPayload|\Moov\MoovPhp\Models\Components\PlaidLinkPayload|\Moov\MoovPhp\Models\Components\MxPayload  $linkBankAccount
+     * @param  ?\Moov\MoovPhp\Models\Components\BankAccountWaitFor  $xWaitFor
      * @phpstan-pure
      */
     public function __construct(string $accountID, Components\BankAccountPayload|Components\PlaidPayload|Components\PlaidLinkPayload|Components\MxPayload $linkBankAccount, ?Components\BankAccountWaitFor $xWaitFor = null)

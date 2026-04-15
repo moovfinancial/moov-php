@@ -14,7 +14,7 @@ class ImageUploadRequestMultiPart
     /**
      * A PNG, JPEG, or WebP image file to upload.
      *
-     * @var Image $image
+     * @var \Moov\MoovPhp\Models\Components\Image $image
      */
     #[SpeakeasyMetadata('multipartForm:file=true,name=image')]
     public Image $image;
@@ -22,14 +22,14 @@ class ImageUploadRequestMultiPart
     /**
      * Optional, json-encoded metadata to associate with the uploaded image.
      *
-     * @var ?ImageMetadataRequest $metadata
+     * @var ?\Moov\MoovPhp\Models\Components\ImageMetadataRequest $metadata
      */
     #[SpeakeasyMetadata('multipartForm:name=metadata,json=true')]
     public ?ImageMetadataRequest $metadata = null;
 
     /**
-     * @param  Image  $image
-     * @param  ?ImageMetadataRequest  $metadata
+     * @param  \Moov\MoovPhp\Models\Components\Image  $image
+     * @param  ?\Moov\MoovPhp\Models\Components\ImageMetadataRequest  $metadata
      * @phpstan-pure
      */
     public function __construct(Image $image, ?ImageMetadataRequest $metadata = null)

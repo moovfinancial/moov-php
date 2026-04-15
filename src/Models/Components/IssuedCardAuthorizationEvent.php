@@ -22,7 +22,7 @@ class IssuedCardAuthorizationEvent
     /**
      * The type of event that occurred on the card.
      *
-     * @var IssuedCardEventType $eventType
+     * @var \Moov\MoovPhp\Models\Components\IssuedCardEventType $eventType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('eventType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IssuedCardEventType')]
@@ -39,7 +39,7 @@ class IssuedCardAuthorizationEvent
     /**
      * The result of an event.
      *
-     * @var IssuedCardAuthorizationEventResult $result
+     * @var \Moov\MoovPhp\Models\Components\IssuedCardAuthorizationEventResult $result
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('result')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IssuedCardAuthorizationEventResult')]
@@ -54,9 +54,9 @@ class IssuedCardAuthorizationEvent
 
     /**
      * @param  string  $eventID
-     * @param  IssuedCardEventType  $eventType
+     * @param  \Moov\MoovPhp\Models\Components\IssuedCardEventType  $eventType
      * @param  string  $amount
-     * @param  IssuedCardAuthorizationEventResult  $result
+     * @param  \Moov\MoovPhp\Models\Components\IssuedCardAuthorizationEventResult  $result
      * @param  \DateTime  $createdOn
      * @phpstan-pure
      */

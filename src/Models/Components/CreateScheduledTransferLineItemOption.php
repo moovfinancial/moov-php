@@ -31,7 +31,7 @@ class CreateScheduledTransferLineItemOption
     /**
      * Optional price modification applied by this option. Can be positive, negative, or zero.
      *
-     * @var ?AmountDecimal $priceModifier
+     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimal $priceModifier
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('priceModifier')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
@@ -63,7 +63,7 @@ class CreateScheduledTransferLineItemOption
     /**
      * @param  string  $name
      * @param  int  $quantity
-     * @param  ?AmountDecimal  $priceModifier
+     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimal  $priceModifier
      * @param  ?string  $group
      * @param  ?array<string>  $imageIDs
      * @phpstan-pure

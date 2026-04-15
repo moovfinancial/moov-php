@@ -30,7 +30,7 @@ class LinkCard
     /**
      * The expiration date of the card or token.
      *
-     * @var CardExpiration $expiration
+     * @var \Moov\MoovPhp\Models\Components\CardExpiration $expiration
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('expiration')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardExpiration')]
@@ -39,7 +39,7 @@ class LinkCard
     /**
      * The billing address associated with the card.
      *
-     * @var CardAddress $billingAddress
+     * @var \Moov\MoovPhp\Models\Components\CardAddress $billingAddress
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('billingAddress')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardAddress')]
@@ -51,7 +51,7 @@ class LinkCard
      * This token is encrypted using the public key from /end-to-end-keys and wraps an AES key. For details and examples, refer to our 
      * [GitHub repository](https://github.com/moovfinancial/moov-go/blob/main/examples/e2ee/e2ee_test.go).
      *
-     * @var ?E2EEToken $e2ee
+     * @var ?\Moov\MoovPhp\Models\Components\E2EEToken $e2ee
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('e2ee')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\E2EEToken|null')]
@@ -103,9 +103,9 @@ class LinkCard
     /**
      * @param  string  $cardNumber
      * @param  string  $cardCvv
-     * @param  CardExpiration  $expiration
-     * @param  CardAddress  $billingAddress
-     * @param  ?E2EEToken  $e2ee
+     * @param  \Moov\MoovPhp\Models\Components\CardExpiration  $expiration
+     * @param  \Moov\MoovPhp\Models\Components\CardAddress  $billingAddress
+     * @param  ?\Moov\MoovPhp\Models\Components\E2EEToken  $e2ee
      * @param  ?string  $holderName
      * @param  ?bool  $cardOnFile
      * @param  ?string  $merchantAccountID

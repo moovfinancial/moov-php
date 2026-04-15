@@ -13,7 +13,7 @@ class GovernmentID
 {
     /**
      *
-     * @var ?Ssn $ssn
+     * @var ?\Moov\MoovPhp\Models\Components\Ssn $ssn
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('ssn')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Ssn|null')]
@@ -22,7 +22,7 @@ class GovernmentID
 
     /**
      *
-     * @var ?Itin $itin
+     * @var ?\Moov\MoovPhp\Models\Components\Itin $itin
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('itin')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Itin|null')]
@@ -30,8 +30,8 @@ class GovernmentID
     public ?Itin $itin = null;
 
     /**
-     * @param  ?Ssn  $ssn
-     * @param  ?Itin  $itin
+     * @param  ?\Moov\MoovPhp\Models\Components\Ssn  $ssn
+     * @param  ?\Moov\MoovPhp\Models\Components\Itin  $itin
      * @phpstan-pure
      */
     public function __construct(?Ssn $ssn = null, ?Itin $itin = null)

@@ -27,7 +27,7 @@ class DisputeEvidenceResponse
 
     /**
      *
-     * @var EvidenceType $evidenceType
+     * @var \Moov\MoovPhp\Models\Components\EvidenceType $evidenceType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('evidenceType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\EvidenceType')]
@@ -95,7 +95,7 @@ class DisputeEvidenceResponse
     /**
      * @param  string  $evidenceID
      * @param  string  $disputeID
-     * @param  EvidenceType  $evidenceType
+     * @param  \Moov\MoovPhp\Models\Components\EvidenceType  $evidenceType
      * @param  \DateTime  $createdOn
      * @param  \DateTime  $updatedOn
      * @param  ?string  $text

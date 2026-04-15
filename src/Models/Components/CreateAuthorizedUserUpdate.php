@@ -30,7 +30,7 @@ class CreateAuthorizedUserUpdate
 
     /**
      *
-     * @var ?BirthDateUpdate $birthDate
+     * @var ?\Moov\MoovPhp\Models\Components\BirthDateUpdate $birthDate
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('birthDate')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BirthDateUpdate|null')]
@@ -40,7 +40,7 @@ class CreateAuthorizedUserUpdate
     /**
      * @param  ?string  $firstName
      * @param  ?string  $lastName
-     * @param  ?BirthDateUpdate  $birthDate
+     * @param  ?\Moov\MoovPhp\Models\Components\BirthDateUpdate  $birthDate
      * @phpstan-pure
      */
     public function __construct(?string $firstName = null, ?string $lastName = null, ?BirthDateUpdate $birthDate = null)

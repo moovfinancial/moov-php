@@ -42,7 +42,7 @@ class GetPaymentLinkResponse
     /**
      * The request completed successfully.
      *
-     * @var ?Components\PaymentLink $paymentLink
+     * @var ?\Moov\MoovPhp\Models\Components\PaymentLink $paymentLink
      */
     public ?Components\PaymentLink $paymentLink = null;
 
@@ -51,7 +51,7 @@ class GetPaymentLinkResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\PaymentLink  $paymentLink
+     * @param  ?\Moov\MoovPhp\Models\Components\PaymentLink  $paymentLink
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\PaymentLink $paymentLink = null, ?array $headers = [])

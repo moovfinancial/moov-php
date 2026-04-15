@@ -21,7 +21,7 @@ class AchCreditSameDayPaymentMethod
 
     /**
      *
-     * @var AchCreditSameDayPaymentMethodPaymentMethodType $paymentMethodType
+     * @var \Moov\MoovPhp\Models\Components\AchCreditSameDayPaymentMethodPaymentMethodType $paymentMethodType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('paymentMethodType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AchCreditSameDayPaymentMethodPaymentMethodType')]
@@ -30,7 +30,7 @@ class AchCreditSameDayPaymentMethod
     /**
      * A bank account as contained within a payment method.
      *
-     * @var PaymentMethodsBankAccount $bankAccount
+     * @var \Moov\MoovPhp\Models\Components\PaymentMethodsBankAccount $bankAccount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('bankAccount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentMethodsBankAccount')]
@@ -38,8 +38,8 @@ class AchCreditSameDayPaymentMethod
 
     /**
      * @param  string  $paymentMethodID
-     * @param  AchCreditSameDayPaymentMethodPaymentMethodType  $paymentMethodType
-     * @param  PaymentMethodsBankAccount  $bankAccount
+     * @param  \Moov\MoovPhp\Models\Components\AchCreditSameDayPaymentMethodPaymentMethodType  $paymentMethodType
+     * @param  \Moov\MoovPhp\Models\Components\PaymentMethodsBankAccount  $bankAccount
      * @phpstan-pure
      */
     public function __construct(string $paymentMethodID, AchCreditSameDayPaymentMethodPaymentMethodType $paymentMethodType, PaymentMethodsBankAccount $bankAccount)

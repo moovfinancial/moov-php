@@ -22,7 +22,7 @@ class BasicPaymentMethod
     /**
      * The payment method type that represents a payment rail and directionality
      *
-     * @var PaymentMethodType $paymentMethodType
+     * @var \Moov\MoovPhp\Models\Components\PaymentMethodType $paymentMethodType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('paymentMethodType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentMethodType')]
@@ -30,7 +30,7 @@ class BasicPaymentMethod
 
     /**
      * @param  string  $paymentMethodID
-     * @param  PaymentMethodType  $paymentMethodType
+     * @param  \Moov\MoovPhp\Models\Components\PaymentMethodType  $paymentMethodType
      * @phpstan-pure
      */
     public function __construct(string $paymentMethodID, PaymentMethodType $paymentMethodType)

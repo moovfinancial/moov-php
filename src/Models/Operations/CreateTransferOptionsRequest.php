@@ -22,14 +22,14 @@ class CreateTransferOptionsRequest
 
     /**
      *
-     * @var Components\CreateTransferOptions $createTransferOptions
+     * @var \Moov\MoovPhp\Models\Components\CreateTransferOptions $createTransferOptions
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\CreateTransferOptions $createTransferOptions;
 
     /**
      * @param  string  $accountID
-     * @param  Components\CreateTransferOptions  $createTransferOptions
+     * @param  \Moov\MoovPhp\Models\Components\CreateTransferOptions  $createTransferOptions
      * @phpstan-pure
      */
     public function __construct(string $accountID, Components\CreateTransferOptions $createTransferOptions)

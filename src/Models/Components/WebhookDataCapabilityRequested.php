@@ -24,7 +24,7 @@ class WebhookDataCapabilityRequested
      *
      * The `production-app`, `platform.production-app`, and / or `platform.wallet-transfers` capabilities might appear in your list. These are read-only capabilities that Moov requests and uses for account verification purposes. These capabilities remains active with your account and require no additional action.
      *
-     * @var CapabilityID $capabilityID
+     * @var \Moov\MoovPhp\Models\Components\CapabilityID $capabilityID
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('capabilityID')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CapabilityID')]
@@ -40,7 +40,7 @@ class WebhookDataCapabilityRequested
 
     /**
      * @param  string  $accountID
-     * @param  CapabilityID  $capabilityID
+     * @param  \Moov\MoovPhp\Models\Components\CapabilityID  $capabilityID
      * @param  ?string  $foreignID
      * @phpstan-pure
      */

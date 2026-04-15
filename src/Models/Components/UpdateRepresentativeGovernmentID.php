@@ -13,7 +13,7 @@ class UpdateRepresentativeGovernmentID
 {
     /**
      *
-     * @var ?UpdateRepresentativeSsn $ssn
+     * @var ?\Moov\MoovPhp\Models\Components\UpdateRepresentativeSsn $ssn
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('ssn')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\UpdateRepresentativeSsn|null')]
@@ -22,7 +22,7 @@ class UpdateRepresentativeGovernmentID
 
     /**
      *
-     * @var ?UpdateRepresentativeItin $itin
+     * @var ?\Moov\MoovPhp\Models\Components\UpdateRepresentativeItin $itin
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('itin')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\UpdateRepresentativeItin|null')]
@@ -30,8 +30,8 @@ class UpdateRepresentativeGovernmentID
     public ?UpdateRepresentativeItin $itin = null;
 
     /**
-     * @param  ?UpdateRepresentativeSsn  $ssn
-     * @param  ?UpdateRepresentativeItin  $itin
+     * @param  ?\Moov\MoovPhp\Models\Components\UpdateRepresentativeSsn  $ssn
+     * @param  ?\Moov\MoovPhp\Models\Components\UpdateRepresentativeItin  $itin
      * @phpstan-pure
      */
     public function __construct(?UpdateRepresentativeSsn $ssn = null, ?UpdateRepresentativeItin $itin = null)

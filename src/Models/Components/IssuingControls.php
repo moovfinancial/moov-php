@@ -23,7 +23,7 @@ class IssuingControls
     /**
      * Sets the spending limit per time interval. Only one limit per interval is supported.
      *
-     * @var ?array<IssuingVelocityLimit> $velocityLimits
+     * @var ?array<\Moov\MoovPhp\Models\Components\IssuingVelocityLimit> $velocityLimits
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('velocityLimits')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\IssuingVelocityLimit>|null')]
@@ -32,7 +32,7 @@ class IssuingControls
 
     /**
      * @param  ?bool  $singleUse
-     * @param  ?array<IssuingVelocityLimit>  $velocityLimits
+     * @param  ?array<\Moov\MoovPhp\Models\Components\IssuingVelocityLimit>  $velocityLimits
      * @phpstan-pure
      */
     public function __construct(?bool $singleUse = null, ?array $velocityLimits = null)

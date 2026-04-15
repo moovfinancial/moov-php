@@ -13,7 +13,7 @@ class EnrichedBusinessResponse
 {
     /**
      *
-     * @var ?EnrichedBusinessProfile $business
+     * @var ?\Moov\MoovPhp\Models\Components\EnrichedBusinessProfile $business
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('business')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\EnrichedBusinessProfile|null')]
@@ -21,7 +21,7 @@ class EnrichedBusinessResponse
     public ?EnrichedBusinessProfile $business = null;
 
     /**
-     * @param  ?EnrichedBusinessProfile  $business
+     * @param  ?\Moov\MoovPhp\Models\Components\EnrichedBusinessProfile  $business
      * @phpstan-pure
      */
     public function __construct(?EnrichedBusinessProfile $business = null)

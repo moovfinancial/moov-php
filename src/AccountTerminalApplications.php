@@ -53,7 +53,7 @@ class AccountTerminalApplications
      *
      * @param  string  $accountID
      * @param  string  $terminalApplicationID
-     * @return Operations\GetAccountTerminalApplicationResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetAccountTerminalApplicationResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function get(string $accountID, string $terminalApplicationID, ?Options $options = null): Operations\GetAccountTerminalApplicationResponse
@@ -125,7 +125,7 @@ class AccountTerminalApplications
      *
      * @param  string  $accountID
      * @param  string  $terminalApplicationID
-     * @return Operations\GetTerminalConfigurationResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetTerminalConfigurationResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function getConfiguration(string $accountID, string $terminalApplicationID, ?Options $options = null): Operations\GetTerminalConfigurationResponse
@@ -195,9 +195,9 @@ class AccountTerminalApplications
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/terminal-applications.write` scope.
      *
-     * @param  Components\LinkAccountTerminalApplication  $linkAccountTerminalApplication
+     * @param  \Moov\MoovPhp\Models\Components\LinkAccountTerminalApplication  $linkAccountTerminalApplication
      * @param  string  $accountID
-     * @return Operations\LinkAccountTerminalApplicationResponse
+     * @return \Moov\MoovPhp\Models\Operations\LinkAccountTerminalApplicationResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function link(Components\LinkAccountTerminalApplication $linkAccountTerminalApplication, string $accountID, ?Options $options = null): Operations\LinkAccountTerminalApplicationResponse
@@ -295,7 +295,7 @@ class AccountTerminalApplications
      * you'll need to specify the `/accounts/{accountID}/terminal-applications.read` scope.
      *
      * @param  string  $accountID
-     * @return Operations\ListAccountTerminalApplicationsResponse
+     * @return \Moov\MoovPhp\Models\Operations\ListAccountTerminalApplicationsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function list(string $accountID, ?Options $options = null): Operations\ListAccountTerminalApplicationsResponse

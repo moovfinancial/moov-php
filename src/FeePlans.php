@@ -51,9 +51,9 @@ class FeePlans
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/profile.write` scope.
      *
-     * @param  Components\CreateFeePlanAgreement  $createFeePlanAgreement
+     * @param  \Moov\MoovPhp\Models\Components\CreateFeePlanAgreement  $createFeePlanAgreement
      * @param  string  $accountID
-     * @return Operations\CreateFeePlanAgreementsResponse
+     * @return \Moov\MoovPhp\Models\Operations\CreateFeePlanAgreementsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function createAgreements(Components\CreateFeePlanAgreement $createFeePlanAgreement, string $accountID, ?Options $options = null): Operations\CreateFeePlanAgreementsResponse
@@ -152,7 +152,7 @@ class FeePlans
      *
      * @param  string  $accountID
      * @param  string  $residualID
-     * @return Operations\GetResidualResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetResidualResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function getResidual(string $accountID, string $residualID, ?Options $options = null): Operations\GetResidualResponse
@@ -222,8 +222,8 @@ class FeePlans
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/profile.read` scope.
      *
-     * @param  Operations\ListFeePlanAgreementsRequest  $request
-     * @return Operations\ListFeePlanAgreementsResponse
+     * @param  \Moov\MoovPhp\Models\Operations\ListFeePlanAgreementsRequest  $request
+     * @return \Moov\MoovPhp\Models\Operations\ListFeePlanAgreementsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function list(Operations\ListFeePlanAgreementsRequest $request, ?Options $options = null): Operations\ListFeePlanAgreementsResponse
@@ -295,7 +295,7 @@ class FeePlans
      *
      * @param  string  $accountID
      * @param  ?array<string>  $planIDs
-     * @return Operations\ListFeePlansResponse
+     * @return \Moov\MoovPhp\Models\Operations\ListFeePlansResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function listByAccount(string $accountID, ?array $planIDs = null, ?Options $options = null): Operations\ListFeePlansResponse
@@ -368,8 +368,8 @@ class FeePlans
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/profile.read` scope.
      *
-     * @param  Operations\ListFeeRevenueRequest  $request
-     * @return Operations\ListFeeRevenueResponse
+     * @param  \Moov\MoovPhp\Models\Operations\ListFeeRevenueRequest  $request
+     * @return \Moov\MoovPhp\Models\Operations\ListFeeRevenueResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function listFeeRevenue(Operations\ListFeeRevenueRequest $request, ?Options $options = null): Operations\ListFeeRevenueResponse
@@ -439,8 +439,8 @@ class FeePlans
      * you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
      *
      * @param  string  $accountID
-     * @param  ?Components\ListFeesFetchRequest  $listFeesFetchRequest
-     * @return Operations\ListFeesFetchResponse
+     * @param  ?\Moov\MoovPhp\Models\Components\ListFeesFetchRequest  $listFeesFetchRequest
+     * @return \Moov\MoovPhp\Models\Operations\ListFeesFetchResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function fetchFees(string $accountID, ?Components\ListFeesFetchRequest $listFeesFetchRequest = null, ?Options $options = null): Operations\ListFeesFetchResponse
@@ -514,8 +514,8 @@ class FeePlans
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/profile.read` scope.
      *
-     * @param  Operations\ListPartnerPricingAgreementsRequest  $request
-     * @return Operations\ListPartnerPricingAgreementsResponse
+     * @param  \Moov\MoovPhp\Models\Operations\ListPartnerPricingAgreementsRequest  $request
+     * @return \Moov\MoovPhp\Models\Operations\ListPartnerPricingAgreementsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function listPartnerPricingAgreements(Operations\ListPartnerPricingAgreementsRequest $request, ?Options $options = null): Operations\ListPartnerPricingAgreementsResponse
@@ -584,8 +584,8 @@ class FeePlans
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/profile.read` scope.
      *
-     * @param  Operations\ListResidualFeesRequest  $request
-     * @return Operations\ListResidualFeesResponse
+     * @param  \Moov\MoovPhp\Models\Operations\ListResidualFeesRequest  $request
+     * @return \Moov\MoovPhp\Models\Operations\ListResidualFeesResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function listResidualFees(Operations\ListResidualFeesRequest $request, ?Options $options = null): Operations\ListResidualFeesResponse
@@ -654,8 +654,8 @@ class FeePlans
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/profile.read` scope.
      *
-     * @param  Operations\ListResidualsRequest  $request
-     * @return Operations\ListResidualsResponse
+     * @param  \Moov\MoovPhp\Models\Operations\ListResidualsRequest  $request
+     * @return \Moov\MoovPhp\Models\Operations\ListResidualsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function listResiduals(Operations\ListResidualsRequest $request, ?Options $options = null): Operations\ListResidualsResponse

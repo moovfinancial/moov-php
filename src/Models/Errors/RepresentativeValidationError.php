@@ -13,14 +13,14 @@ class RepresentativeValidationError
 {
     /**
      *
-     * @var Error $error
+     * @var \Moov\MoovPhp\Models\Errors\Error $error
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('error')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Errors\Error')]
     public Error $error;
 
     /**
-     * @param  Error  $error
+     * @param  \Moov\MoovPhp\Models\Errors\Error  $error
      * @phpstan-pure
      */
     public function __construct(Error $error)

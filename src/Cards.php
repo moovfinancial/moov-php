@@ -53,7 +53,7 @@ class Cards
      *
      * @param  string  $accountID
      * @param  string  $cardID
-     * @return Operations\DisableCardResponse
+     * @return \Moov\MoovPhp\Models\Operations\DisableCardResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function disable(string $accountID, string $cardID, ?Options $options = null): Operations\DisableCardResponse
@@ -128,7 +128,7 @@ class Cards
      *
      * @param  string  $accountID
      * @param  string  $cardID
-     * @return Operations\GetCardResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetCardResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function get(string $accountID, string $cardID, ?Options $options = null): Operations\GetCardResponse
@@ -212,10 +212,10 @@ class Cards
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/cards.write` scope.
      *
-     * @param  Components\LinkCard  $linkCard
+     * @param  \Moov\MoovPhp\Models\Components\LinkCard  $linkCard
      * @param  string  $accountID
-     * @param  ?Components\LinkCardWaitFor  $xWaitFor
-     * @return Operations\LinkCardResponse
+     * @param  ?\Moov\MoovPhp\Models\Components\LinkCardWaitFor  $xWaitFor
+     * @return \Moov\MoovPhp\Models\Operations\LinkCardResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function link(Components\LinkCard $linkCard, string $accountID, ?Components\LinkCardWaitFor $xWaitFor = null, ?Options $options = null): Operations\LinkCardResponse
@@ -331,7 +331,7 @@ class Cards
      * you'll need to specify the `/accounts/{accountID}/cards.read` scope.
      *
      * @param  string  $accountID
-     * @return Operations\ListCardsResponse
+     * @return \Moov\MoovPhp\Models\Operations\ListCardsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function list(string $accountID, ?Options $options = null): Operations\ListCardsResponse
@@ -409,10 +409,10 @@ class Cards
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
      * you'll need to specify the `/accounts/{accountID}/cards.write` scope.
      *
-     * @param  Components\UpdateCard  $updateCard
+     * @param  \Moov\MoovPhp\Models\Components\UpdateCard  $updateCard
      * @param  string  $accountID
      * @param  string  $cardID
-     * @return Operations\UpdateCardResponse
+     * @return \Moov\MoovPhp\Models\Operations\UpdateCardResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function update(Components\UpdateCard $updateCard, string $accountID, string $cardID, ?Options $options = null): Operations\UpdateCardResponse

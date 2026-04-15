@@ -14,7 +14,7 @@ class CreatePaymentLinkLineItemsValidationError
     /**
      * $items
      *
-     * @var ?array<string, CreatePaymentLinkLineItemValidationError> $items
+     * @var ?array<string, \Moov\MoovPhp\Models\Components\CreatePaymentLinkLineItemValidationError> $items
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('items')]
     #[\Speakeasy\Serializer\Annotation\Type('array<string, \Moov\MoovPhp\Models\Components\CreatePaymentLinkLineItemValidationError>|null')]
@@ -22,7 +22,7 @@ class CreatePaymentLinkLineItemsValidationError
     public ?array $items = null;
 
     /**
-     * @param  ?array<string, CreatePaymentLinkLineItemValidationError>  $items
+     * @param  ?array<string, \Moov\MoovPhp\Models\Components\CreatePaymentLinkLineItemValidationError>  $items
      * @phpstan-pure
      */
     public function __construct(?array $items = null)
