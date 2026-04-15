@@ -58,7 +58,7 @@ class ListConnectedAccountsForAccountRequest
      *
      *   Filtering by `type=guest` is not currently supported.
      *
-     * @var ?Components\AccountType $type
+     * @var ?\Moov\MoovPhp\Models\Components\AccountType $type
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=type')]
     public ?Components\AccountType $type = null;
@@ -85,7 +85,7 @@ class ListConnectedAccountsForAccountRequest
     /**
      *   Filter connected accounts by the capability.
      *
-     * @var ?Components\CapabilityID $capability
+     * @var ?\Moov\MoovPhp\Models\Components\CapabilityID $capability
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=capability')]
     public ?Components\CapabilityID $capability = null;
@@ -93,7 +93,7 @@ class ListConnectedAccountsForAccountRequest
     /**
      *   Filter connected accounts by the capability.
      *
-     * @var ?Components\CapabilityStatus $capabilityStatus
+     * @var ?\Moov\MoovPhp\Models\Components\CapabilityStatus $capabilityStatus
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=capabilityStatus')]
     public ?Components\CapabilityStatus $capabilityStatus = null;
@@ -116,11 +116,11 @@ class ListConnectedAccountsForAccountRequest
      * @param  string  $accountID
      * @param  ?string  $name
      * @param  ?string  $email
-     * @param  ?Components\AccountType  $type
+     * @param  ?\Moov\MoovPhp\Models\Components\AccountType  $type
      * @param  ?string  $foreignID
      * @param  ?bool  $includeDisconnected
-     * @param  ?Components\CapabilityID  $capability
-     * @param  ?Components\CapabilityStatus  $capabilityStatus
+     * @param  ?\Moov\MoovPhp\Models\Components\CapabilityID  $capability
+     * @param  ?\Moov\MoovPhp\Models\Components\CapabilityStatus  $capabilityStatus
      * @param  ?int  $skip
      * @param  ?int  $count
      * @phpstan-pure

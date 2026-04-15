@@ -13,7 +13,7 @@ class CreateTransferOptions
 {
     /**
      *
-     * @var SourceDestinationOptions $source
+     * @var \Moov\MoovPhp\Models\Components\SourceDestinationOptions $source
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('source')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\SourceDestinationOptions')]
@@ -21,7 +21,7 @@ class CreateTransferOptions
 
     /**
      *
-     * @var SourceDestinationOptions $destination
+     * @var \Moov\MoovPhp\Models\Components\SourceDestinationOptions $destination
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('destination')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\SourceDestinationOptions')]
@@ -29,16 +29,16 @@ class CreateTransferOptions
 
     /**
      *
-     * @var Amount $amount
+     * @var \Moov\MoovPhp\Models\Components\Amount $amount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Amount')]
     public Amount $amount;
 
     /**
-     * @param  SourceDestinationOptions  $source
-     * @param  SourceDestinationOptions  $destination
-     * @param  Amount  $amount
+     * @param  \Moov\MoovPhp\Models\Components\SourceDestinationOptions  $source
+     * @param  \Moov\MoovPhp\Models\Components\SourceDestinationOptions  $destination
+     * @param  \Moov\MoovPhp\Models\Components\Amount  $amount
      * @phpstan-pure
      */
     public function __construct(SourceDestinationOptions $source, SourceDestinationOptions $destination, Amount $amount)

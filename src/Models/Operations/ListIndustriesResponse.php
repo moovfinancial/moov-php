@@ -42,7 +42,7 @@ class ListIndustriesResponse
     /**
      * The request completed successfully.
      *
-     * @var ?Components\EnrichedIndustries $enrichedIndustries
+     * @var ?\Moov\MoovPhp\Models\Components\EnrichedIndustries $enrichedIndustries
      */
     public ?Components\EnrichedIndustries $enrichedIndustries = null;
 
@@ -51,7 +51,7 @@ class ListIndustriesResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\EnrichedIndustries  $enrichedIndustries
+     * @param  ?\Moov\MoovPhp\Models\Components\EnrichedIndustries  $enrichedIndustries
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\EnrichedIndustries $enrichedIndustries = null, ?array $headers = [])

@@ -15,7 +15,7 @@ class PaymentLinkPaymentDetailsUpdate
     /**
      * A list of payment methods that should be supported for this payment link.
      *
-     * @var ?array<CollectionPaymentMethodType> $allowedMethods
+     * @var ?array<\Moov\MoovPhp\Models\Components\CollectionPaymentMethodType> $allowedMethods
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('allowedMethods')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\CollectionPaymentMethodType>|null')]
@@ -25,7 +25,7 @@ class PaymentLinkPaymentDetailsUpdate
     /**
      * Options for payment links used to collect a card payment.
      *
-     * @var ?CardPaymentDetails $cardDetails
+     * @var ?\Moov\MoovPhp\Models\Components\CardPaymentDetails $cardDetails
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardDetails')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardPaymentDetails|null')]
@@ -35,7 +35,7 @@ class PaymentLinkPaymentDetailsUpdate
     /**
      * Options for payment links used to collect an ACH payment.
      *
-     * @var ?ACHPaymentDetails $achDetails
+     * @var ?\Moov\MoovPhp\Models\Components\ACHPaymentDetails $achDetails
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('achDetails')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ACHPaymentDetails|null')]
@@ -53,9 +53,9 @@ class PaymentLinkPaymentDetailsUpdate
     public ?array $metadata = null;
 
     /**
-     * @param  ?array<CollectionPaymentMethodType>  $allowedMethods
-     * @param  ?CardPaymentDetails  $cardDetails
-     * @param  ?ACHPaymentDetails  $achDetails
+     * @param  ?array<\Moov\MoovPhp\Models\Components\CollectionPaymentMethodType>  $allowedMethods
+     * @param  ?\Moov\MoovPhp\Models\Components\CardPaymentDetails  $cardDetails
+     * @param  ?\Moov\MoovPhp\Models\Components\ACHPaymentDetails  $achDetails
      * @param  ?array<string, string>  $metadata
      * @phpstan-pure
      */

@@ -61,7 +61,7 @@ class ListIssuedCardAuthorizationsRequest
     /**
      * Optional, comma-separated statuses of the authorization to filter results.
      *
-     * @var ?array<Components\IssuingAuthorizationStatus> $statuses
+     * @var ?array<\Moov\MoovPhp\Models\Components\IssuingAuthorizationStatus> $statuses
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=statuses')]
     public ?array $statuses = null;
@@ -73,7 +73,7 @@ class ListIssuedCardAuthorizationsRequest
      * @param  ?string  $issuedCardID
      * @param  ?\DateTime  $startDateTime
      * @param  ?\DateTime  $endDateTime
-     * @param  ?array<Components\IssuingAuthorizationStatus>  $statuses
+     * @param  ?array<\Moov\MoovPhp\Models\Components\IssuingAuthorizationStatus>  $statuses
      * @phpstan-pure
      */
     public function __construct(string $accountID, ?int $skip = null, ?int $count = null, ?string $issuedCardID = null, ?\DateTime $startDateTime = null, ?\DateTime $endDateTime = null, ?array $statuses = null)

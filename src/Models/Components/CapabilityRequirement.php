@@ -15,7 +15,7 @@ class CapabilityRequirement
     /**
      * $currentlyDue
      *
-     * @var ?array<RequirementID> $currentlyDue
+     * @var ?array<\Moov\MoovPhp\Models\Components\RequirementID> $currentlyDue
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('currentlyDue')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\RequirementID>|null')]
@@ -25,7 +25,7 @@ class CapabilityRequirement
     /**
      * $errors
      *
-     * @var ?array<RequirementError> $errors
+     * @var ?array<\Moov\MoovPhp\Models\Components\RequirementError> $errors
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('errors')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\RequirementError>|null')]
@@ -33,8 +33,8 @@ class CapabilityRequirement
     public ?array $errors = null;
 
     /**
-     * @param  ?array<RequirementID>  $currentlyDue
-     * @param  ?array<RequirementError>  $errors
+     * @param  ?array<\Moov\MoovPhp\Models\Components\RequirementID>  $currentlyDue
+     * @param  ?array<\Moov\MoovPhp\Models\Components\RequirementError>  $errors
      * @phpstan-pure
      */
     public function __construct(?array $currentlyDue = null, ?array $errors = null)

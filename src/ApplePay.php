@@ -54,9 +54,9 @@ class ApplePay
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/apple-pay.write` scope.
      *
-     * @param  Components\CreateApplePaySession  $createApplePaySession
+     * @param  \Moov\MoovPhp\Models\Components\CreateApplePaySession  $createApplePaySession
      * @param  string  $accountID
-     * @return Operations\CreateApplePaySessionResponse
+     * @return \Moov\MoovPhp\Models\Operations\CreateApplePaySessionResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function createSession(Components\CreateApplePaySession $createApplePaySession, string $accountID, ?Options $options = null): Operations\CreateApplePaySessionResponse
@@ -145,7 +145,7 @@ class ApplePay
      * you'll need to specify the `/accounts/{accountID}/apple-pay.read` scope.
      *
      * @param  string  $accountID
-     * @return Operations\GetApplePayMerchantDomainsResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetApplePayMerchantDomainsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function getDomains(string $accountID, ?Options $options = null): Operations\GetApplePayMerchantDomainsResponse
@@ -209,17 +209,17 @@ class ApplePay
     }
 
     /**
-     * Connect an Apple Pay token to the specified account. 
+     * Connect an Apple Pay token to the specified account.
      *
-     * Read our [Apple Pay tutorial](https://docs.moov.io/guides/sources/cards/apple-pay/#register-your-domains) to learn more. 
+     * Read our [Apple Pay tutorial](https://docs.moov.io/guides/sources/cards/apple-pay/#register-your-domains) to learn more.
      * The `token` data is defined by Apple Pay and should be passed through from Apple Pay's response unmodified.
      *
-     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
      * you'll need to specify the `/accounts/{accountID}/cards.write` scope.
      *
-     * @param  Components\LinkApplePay  $linkApplePay
+     * @param  \Moov\MoovPhp\Models\Components\LinkApplePay  $linkApplePay
      * @param  string  $accountID
-     * @return Operations\LinkApplePayTokenResponse
+     * @return \Moov\MoovPhp\Models\Operations\LinkApplePayTokenResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function linkToken(Components\LinkApplePay $linkApplePay, string $accountID, ?Options $options = null): Operations\LinkApplePayTokenResponse
@@ -319,9 +319,9 @@ class ApplePay
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/apple-pay.write` scope.
      *
-     * @param  Components\RegisterApplePayMerchantDomains  $registerApplePayMerchantDomains
+     * @param  \Moov\MoovPhp\Models\Components\RegisterApplePayMerchantDomains  $registerApplePayMerchantDomains
      * @param  string  $accountID
-     * @return Operations\RegisterApplePayMerchantDomainsResponse
+     * @return \Moov\MoovPhp\Models\Operations\RegisterApplePayMerchantDomainsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function registerDomains(Components\RegisterApplePayMerchantDomains $registerApplePayMerchantDomains, string $accountID, ?Options $options = null): Operations\RegisterApplePayMerchantDomainsResponse
@@ -410,9 +410,9 @@ class ApplePay
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
      * you'll need to specify the `/accounts/{accountID}/apple-pay.write` scope.
      *
-     * @param  Components\UpdateApplePayMerchantDomains  $updateApplePayMerchantDomains
+     * @param  \Moov\MoovPhp\Models\Components\UpdateApplePayMerchantDomains  $updateApplePayMerchantDomains
      * @param  string  $accountID
-     * @return Operations\UpdateApplePayMerchantDomainsResponse
+     * @return \Moov\MoovPhp\Models\Operations\UpdateApplePayMerchantDomainsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function updateDomains(Components\UpdateApplePayMerchantDomains $updateApplePayMerchantDomains, string $accountID, ?Options $options = null): Operations\UpdateApplePayMerchantDomainsResponse

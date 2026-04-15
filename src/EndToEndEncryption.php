@@ -48,7 +48,7 @@ class EndToEndEncryption
     /**
      * Generates a public key used to create a JWE token for passing secure authentication data through non-PCI compliant intermediaries.
      *
-     * @return Operations\GenerateEndToEndKeyResponse
+     * @return \Moov\MoovPhp\Models\Operations\GenerateEndToEndKeyResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function generateKey(?Options $options = null): Operations\GenerateEndToEndKeyResponse
@@ -112,8 +112,8 @@ class EndToEndEncryption
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/ping.read` scope.
      *
-     * @param  Components\E2EEToken  $request
-     * @return Operations\TestEndToEndTokenResponse
+     * @param  \Moov\MoovPhp\Models\Components\E2EEToken  $request
+     * @return \Moov\MoovPhp\Models\Operations\TestEndToEndTokenResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function testToken(Components\E2EEToken $request, ?Options $options = null): Operations\TestEndToEndTokenResponse

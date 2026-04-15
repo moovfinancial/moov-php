@@ -42,7 +42,7 @@ class UpdateImageResponse
     /**
      * The request completed successfully.
      *
-     * @var ?Components\ImageMetadata $imageMetadata
+     * @var ?\Moov\MoovPhp\Models\Components\ImageMetadata $imageMetadata
      */
     public ?Components\ImageMetadata $imageMetadata = null;
 
@@ -51,7 +51,7 @@ class UpdateImageResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\ImageMetadata  $imageMetadata
+     * @param  ?\Moov\MoovPhp\Models\Components\ImageMetadata  $imageMetadata
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\ImageMetadata $imageMetadata = null, ?array $headers = [])

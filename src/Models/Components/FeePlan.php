@@ -30,7 +30,7 @@ class FeePlan
     /**
      * Specifies the card processing pricing model
      *
-     * @var CardAcquiringModel $cardAcquiringModel
+     * @var \Moov\MoovPhp\Models\Components\CardAcquiringModel $cardAcquiringModel
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardAcquiringModel')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardAcquiringModel')]
@@ -39,7 +39,7 @@ class FeePlan
     /**
      * Additional usage-based fees for this plan.
      *
-     * @var array<BillableFee> $billableFees
+     * @var array<\Moov\MoovPhp\Models\Components\BillableFee> $billableFees
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('billableFees')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\BillableFee>')]
@@ -48,7 +48,7 @@ class FeePlan
     /**
      * The minimum spending amount that must be met in the billing period. If actual usage is below the minimum amount, account is charged the difference.
      *
-     * @var MinimumCommitment $minimumCommitment
+     * @var \Moov\MoovPhp\Models\Components\MinimumCommitment $minimumCommitment
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('minimumCommitment')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\MinimumCommitment')]
@@ -57,7 +57,7 @@ class FeePlan
     /**
      * Fixed recurring amount paid in the billing period regardless of usage.
      *
-     * @var MonthlyPlatformFee $monthlyPlatformFee
+     * @var \Moov\MoovPhp\Models\Components\MonthlyPlatformFee $monthlyPlatformFee
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('monthlyPlatformFee')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\MonthlyPlatformFee')]
@@ -82,10 +82,10 @@ class FeePlan
     /**
      * @param  string  $planID
      * @param  string  $name
-     * @param  CardAcquiringModel  $cardAcquiringModel
-     * @param  array<BillableFee>  $billableFees
-     * @param  MinimumCommitment  $minimumCommitment
-     * @param  MonthlyPlatformFee  $monthlyPlatformFee
+     * @param  \Moov\MoovPhp\Models\Components\CardAcquiringModel  $cardAcquiringModel
+     * @param  array<\Moov\MoovPhp\Models\Components\BillableFee>  $billableFees
+     * @param  \Moov\MoovPhp\Models\Components\MinimumCommitment  $minimumCommitment
+     * @param  \Moov\MoovPhp\Models\Components\MonthlyPlatformFee  $monthlyPlatformFee
      * @param  \DateTime  $createdAt
      * @param  ?string  $description
      * @phpstan-pure

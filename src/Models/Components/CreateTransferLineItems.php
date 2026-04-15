@@ -19,14 +19,14 @@ class CreateTransferLineItems
     /**
      * The list of line items.
      *
-     * @var array<CreateTransferLineItem> $items
+     * @var array<\Moov\MoovPhp\Models\Components\CreateTransferLineItem> $items
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('items')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\CreateTransferLineItem>')]
     public array $items;
 
     /**
-     * @param  array<CreateTransferLineItem>  $items
+     * @param  array<\Moov\MoovPhp\Models\Components\CreateTransferLineItem>  $items
      * @phpstan-pure
      */
     public function __construct(array $items)

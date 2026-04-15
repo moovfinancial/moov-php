@@ -21,7 +21,7 @@ class MoovWalletPaymentMethod
 
     /**
      *
-     * @var MoovWalletPaymentMethodPaymentMethodType $paymentMethodType
+     * @var \Moov\MoovPhp\Models\Components\MoovWalletPaymentMethodPaymentMethodType $paymentMethodType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('paymentMethodType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\MoovWalletPaymentMethodPaymentMethodType')]
@@ -29,7 +29,7 @@ class MoovWalletPaymentMethod
 
     /**
      *
-     * @var PaymentMethodsWallet $wallet
+     * @var \Moov\MoovPhp\Models\Components\PaymentMethodsWallet $wallet
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('wallet')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentMethodsWallet')]
@@ -37,8 +37,8 @@ class MoovWalletPaymentMethod
 
     /**
      * @param  string  $paymentMethodID
-     * @param  MoovWalletPaymentMethodPaymentMethodType  $paymentMethodType
-     * @param  PaymentMethodsWallet  $wallet
+     * @param  \Moov\MoovPhp\Models\Components\MoovWalletPaymentMethodPaymentMethodType  $paymentMethodType
+     * @param  \Moov\MoovPhp\Models\Components\PaymentMethodsWallet  $wallet
      * @phpstan-pure
      */
     public function __construct(string $paymentMethodID, MoovWalletPaymentMethodPaymentMethodType $paymentMethodType, PaymentMethodsWallet $wallet)

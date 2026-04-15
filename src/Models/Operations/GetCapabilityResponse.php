@@ -42,7 +42,7 @@ class GetCapabilityResponse
     /**
      * The request completed successfully.
      *
-     * @var ?Components\Capability $capability
+     * @var ?\Moov\MoovPhp\Models\Components\Capability $capability
      */
     public ?Components\Capability $capability = null;
 
@@ -51,7 +51,7 @@ class GetCapabilityResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\Capability  $capability
+     * @param  ?\Moov\MoovPhp\Models\Components\Capability  $capability
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\Capability $capability = null, ?array $headers = [])

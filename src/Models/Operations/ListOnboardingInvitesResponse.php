@@ -42,7 +42,7 @@ class ListOnboardingInvitesResponse
     /**
      * The request completed successfully.
      *
-     * @var ?array<Components\OnboardingInvite> $onboardingInvites
+     * @var ?array<\Moov\MoovPhp\Models\Components\OnboardingInvite> $onboardingInvites
      */
     public ?array $onboardingInvites = null;
 
@@ -51,7 +51,7 @@ class ListOnboardingInvitesResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?array<Components\OnboardingInvite>  $onboardingInvites
+     * @param  ?array<\Moov\MoovPhp\Models\Components\OnboardingInvite>  $onboardingInvites
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?array $onboardingInvites = null, ?array $headers = [])

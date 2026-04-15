@@ -19,14 +19,14 @@ class PaymentLinkLineItems
     /**
      * The list of line items.
      *
-     * @var array<PaymentLinkLineItem> $items
+     * @var array<\Moov\MoovPhp\Models\Components\PaymentLinkLineItem> $items
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('items')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\PaymentLinkLineItem>')]
     public array $items;
 
     /**
-     * @param  array<PaymentLinkLineItem>  $items
+     * @param  array<\Moov\MoovPhp\Models\Components\PaymentLinkLineItem>  $items
      * @phpstan-pure
      */
     public function __construct(array $items)

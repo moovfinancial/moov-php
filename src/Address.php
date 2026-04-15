@@ -50,8 +50,8 @@ class Address
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/profile-enrichment.read` scope.
      *
-     * @param  Operations\GetEnrichmentAddressRequest  $request
-     * @return Operations\GetEnrichmentAddressResponse
+     * @param  \Moov\MoovPhp\Models\Operations\GetEnrichmentAddressRequest  $request
+     * @return \Moov\MoovPhp\Models\Operations\GetEnrichmentAddressResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function get(Operations\GetEnrichmentAddressRequest $request, ?Options $options = null): Operations\GetEnrichmentAddressResponse

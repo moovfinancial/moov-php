@@ -30,7 +30,7 @@ class ProductRequestValidationError
 
     /**
      *
-     * @var ?Components\AmountDecimalValidationError $basePrice
+     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimalValidationError $basePrice
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('basePrice')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimalValidationError|null')]
@@ -40,7 +40,7 @@ class ProductRequestValidationError
     /**
      * $images
      *
-     * @var ?array<string, Components\AssignProductImageValidationError> $images
+     * @var ?array<string, \Moov\MoovPhp\Models\Components\AssignProductImageValidationError> $images
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('images')]
     #[\Speakeasy\Serializer\Annotation\Type('array<string, \Moov\MoovPhp\Models\Components\AssignProductImageValidationError>|null')]
@@ -50,7 +50,7 @@ class ProductRequestValidationError
     /**
      * $optionGroups
      *
-     * @var ?array<string, Components\ProductOptionGroupValidationError> $optionGroups
+     * @var ?array<string, \Moov\MoovPhp\Models\Components\ProductOptionGroupValidationError> $optionGroups
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('optionGroups')]
     #[\Speakeasy\Serializer\Annotation\Type('array<string, \Moov\MoovPhp\Models\Components\ProductOptionGroupValidationError>|null')]
@@ -60,9 +60,9 @@ class ProductRequestValidationError
     /**
      * @param  ?string  $title
      * @param  ?string  $description
-     * @param  ?Components\AmountDecimalValidationError  $basePrice
-     * @param  ?array<string, Components\AssignProductImageValidationError>  $images
-     * @param  ?array<string, Components\ProductOptionGroupValidationError>  $optionGroups
+     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimalValidationError  $basePrice
+     * @param  ?array<string, \Moov\MoovPhp\Models\Components\AssignProductImageValidationError>  $images
+     * @param  ?array<string, \Moov\MoovPhp\Models\Components\ProductOptionGroupValidationError>  $optionGroups
      * @phpstan-pure
      */
     public function __construct(?string $title = null, ?string $description = null, ?Components\AmountDecimalValidationError $basePrice = null, ?array $images = null, ?array $optionGroups = null)

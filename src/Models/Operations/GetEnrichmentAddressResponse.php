@@ -42,7 +42,7 @@ class GetEnrichmentAddressResponse
     /**
      * The request completed successfully.
      *
-     * @var ?Components\EnrichedAddressResponse $enrichedAddressResponse
+     * @var ?\Moov\MoovPhp\Models\Components\EnrichedAddressResponse $enrichedAddressResponse
      */
     public ?Components\EnrichedAddressResponse $enrichedAddressResponse = null;
 
@@ -51,7 +51,7 @@ class GetEnrichmentAddressResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\EnrichedAddressResponse  $enrichedAddressResponse
+     * @param  ?\Moov\MoovPhp\Models\Components\EnrichedAddressResponse  $enrichedAddressResponse
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\EnrichedAddressResponse $enrichedAddressResponse = null, ?array $headers = [])

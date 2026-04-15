@@ -22,7 +22,7 @@ class LinkCardError
 
     /**
      *
-     * @var ?Components\End2EndEncryptionError $e2ee
+     * @var ?\Moov\MoovPhp\Models\Components\End2EndEncryptionError $e2ee
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('e2ee')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\End2EndEncryptionError|null')]
@@ -95,7 +95,7 @@ class LinkCardError
 
     /**
      * @param  ?string  $error
-     * @param  ?Components\End2EndEncryptionError  $e2ee
+     * @param  ?\Moov\MoovPhp\Models\Components\End2EndEncryptionError  $e2ee
      * @param  ?string  $cardNumber
      * @param  ?string  $cardCvv
      * @param  ?string  $expiration

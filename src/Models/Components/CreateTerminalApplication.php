@@ -15,7 +15,7 @@ class CreateTerminalApplication
     /**
      * Platform of the terminal application.
      *
-     * @var TerminalApplicationPlatform $platform
+     * @var \Moov\MoovPhp\Models\Components\TerminalApplicationPlatform $platform
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('platform')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TerminalApplicationPlatform')]
@@ -58,7 +58,7 @@ class CreateTerminalApplication
     public ?string $versionCode = null;
 
     /**
-     * @param  TerminalApplicationPlatform  $platform
+     * @param  \Moov\MoovPhp\Models\Components\TerminalApplicationPlatform  $platform
      * @param  ?string  $appBundleID
      * @param  ?string  $packageName
      * @param  ?string  $sha256Digest

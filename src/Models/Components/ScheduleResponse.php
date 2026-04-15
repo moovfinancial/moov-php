@@ -21,7 +21,7 @@ class ScheduleResponse
     /**
      * The operating mode for an account.
      *
-     * @var Mode $mode
+     * @var \Moov\MoovPhp\Models\Components\Mode $mode
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('mode')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Mode')]
@@ -81,7 +81,7 @@ class ScheduleResponse
     /**
      * $occurrences
      *
-     * @var ?array<OccurrencesResponse> $occurrences
+     * @var ?array<\Moov\MoovPhp\Models\Components\OccurrencesResponse> $occurrences
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('occurrences')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\OccurrencesResponse>|null')]
@@ -90,7 +90,7 @@ class ScheduleResponse
 
     /**
      *
-     * @var ?RecurResponse $recur
+     * @var ?\Moov\MoovPhp\Models\Components\RecurResponse $recur
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('recur')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RecurResponse|null')]
@@ -107,7 +107,7 @@ class ScheduleResponse
 
     /**
      * @param  string  $destinationAccountID
-     * @param  Mode  $mode
+     * @param  \Moov\MoovPhp\Models\Components\Mode  $mode
      * @param  string  $ownerAccountID
      * @param  string  $partnerAccountID
      * @param  string  $scheduleID
@@ -115,8 +115,8 @@ class ScheduleResponse
      * @param  \DateTime  $createdOn
      * @param  \DateTime  $updatedOn
      * @param  ?string  $description
-     * @param  ?array<OccurrencesResponse>  $occurrences
-     * @param  ?RecurResponse  $recur
+     * @param  ?array<\Moov\MoovPhp\Models\Components\OccurrencesResponse>  $occurrences
+     * @param  ?\Moov\MoovPhp\Models\Components\RecurResponse  $recur
      * @param  ?\DateTime  $disabledOn
      * @phpstan-pure
      */

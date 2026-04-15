@@ -49,7 +49,7 @@ class LinkApplePaymentData
      * Refer to [Apple's documentation](https://developer.apple.com/documentation/passkit/payment-token-format-reference#Header-keys-and-values) 
      * for more information.
      *
-     * @var ApplePayHeader $header
+     * @var \Moov\MoovPhp\Models\Components\ApplePayHeader $header
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('header')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ApplePayHeader')]
@@ -59,7 +59,7 @@ class LinkApplePaymentData
      * @param  string  $version
      * @param  string  $data
      * @param  string  $signature
-     * @param  ApplePayHeader  $header
+     * @param  \Moov\MoovPhp\Models\Components\ApplePayHeader  $header
      * @phpstan-pure
      */
     public function __construct(string $version, string $data, string $signature, ApplePayHeader $header)

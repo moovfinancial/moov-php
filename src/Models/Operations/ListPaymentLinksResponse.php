@@ -42,7 +42,7 @@ class ListPaymentLinksResponse
     /**
      * The request completed successfully.
      *
-     * @var ?array<Components\PaymentLink> $paymentLinks
+     * @var ?array<\Moov\MoovPhp\Models\Components\PaymentLink> $paymentLinks
      */
     public ?array $paymentLinks = null;
 
@@ -51,7 +51,7 @@ class ListPaymentLinksResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?array<Components\PaymentLink>  $paymentLinks
+     * @param  ?array<\Moov\MoovPhp\Models\Components\PaymentLink>  $paymentLinks
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?array $paymentLinks = null, ?array $headers = [])

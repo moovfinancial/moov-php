@@ -55,7 +55,7 @@ class CardIssuing
      *
      * @param  string  $accountID
      * @param  string  $issuedCardID
-     * @return Operations\GetFullIssuedCardResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetFullIssuedCardResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function getFull(string $accountID, string $issuedCardID, ?Options $options = null): Operations\GetFullIssuedCardResponse
@@ -127,7 +127,7 @@ class CardIssuing
      *
      * @param  string  $accountID
      * @param  string  $issuedCardID
-     * @return Operations\GetIssuedCardResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetIssuedCardResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function getIssuedCard(string $accountID, string $issuedCardID, ?Options $options = null): Operations\GetIssuedCardResponse
@@ -197,9 +197,9 @@ class CardIssuing
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/issued-cards.write` scope.
      *
-     * @param  Components\RequestCard  $requestCard
+     * @param  \Moov\MoovPhp\Models\Components\RequestCard  $requestCard
      * @param  string  $accountID
-     * @return Operations\RequestCardResponse
+     * @return \Moov\MoovPhp\Models\Operations\RequestCardResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function request(Components\RequestCard $requestCard, string $accountID, ?Options $options = null): Operations\RequestCardResponse
@@ -296,10 +296,10 @@ class CardIssuing
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
      * you'll need to specify the `/accounts/{accountID}/issued-cards.write` scope.
      *
-     * @param  Components\UpdateIssuedCard  $updateIssuedCard
+     * @param  \Moov\MoovPhp\Models\Components\UpdateIssuedCard  $updateIssuedCard
      * @param  string  $accountID
      * @param  string  $issuedCardID
-     * @return Operations\UpdateIssuedCardResponse
+     * @return \Moov\MoovPhp\Models\Operations\UpdateIssuedCardResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function update(Components\UpdateIssuedCard $updateIssuedCard, string $accountID, string $issuedCardID, ?Options $options = null): Operations\UpdateIssuedCardResponse
@@ -338,14 +338,24 @@ class CardIssuing
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
             $httpResponse = $res;
         }
-        if (Utils\Utils::matchStatusCodes($statusCode, ['204'])) {
-            $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
+        if (Utils\Utils::matchStatusCodes($statusCode, ['200'])) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
-            return new Operations\UpdateIssuedCardResponse(
-                statusCode: $statusCode,
-                contentType: $contentType,
-                rawResponse: $httpResponse
-            );
+                $serializer = Utils\JSON::createSerializer();
+                $responseData = (string) $httpResponse->getBody();
+                $obj = $serializer->deserialize($responseData, '\Moov\MoovPhp\Models\Components\IssuedCard', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\UpdateIssuedCardResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    headers: $httpResponse->getHeaders(),
+                    issuedCard: $obj);
+
+                return $response;
+            } else {
+                throw new \Moov\MoovPhp\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
         } elseif (Utils\Utils::matchStatusCodes($statusCode, ['400', '409'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);

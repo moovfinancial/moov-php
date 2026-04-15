@@ -42,7 +42,7 @@ class ListDisputesResponse
     /**
      * The request completed successfully.
      *
-     * @var ?array<Components\Dispute> $disputes
+     * @var ?array<\Moov\MoovPhp\Models\Components\Dispute> $disputes
      */
     public ?array $disputes = null;
 
@@ -51,7 +51,7 @@ class ListDisputesResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?array<Components\Dispute>  $disputes
+     * @param  ?array<\Moov\MoovPhp\Models\Components\Dispute>  $disputes
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?array $disputes = null, ?array $headers = [])

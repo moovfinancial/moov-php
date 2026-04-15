@@ -30,14 +30,14 @@ class MxPayload
      * `sandbox` - When linking a bank account to a `sandbox` account using a MX authorization code it will utilize MX's sandbox environment. 
      * The MX authorization code provided must be generated from MX's sandbox environment.
      *
-     * @var MXAuthorizationCode $mx
+     * @var \Moov\MoovPhp\Models\Components\MXAuthorizationCode $mx
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('mx')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\MXAuthorizationCode')]
     public MXAuthorizationCode $mx;
 
     /**
-     * @param  MXAuthorizationCode  $mx
+     * @param  \Moov\MoovPhp\Models\Components\MXAuthorizationCode  $mx
      * @phpstan-pure
      */
     public function __construct(MXAuthorizationCode $mx)

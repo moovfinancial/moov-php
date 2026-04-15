@@ -32,7 +32,7 @@ class InitiateBankAccountVerificationRequest
      *
      * When this header is set to `rail-response`, the endpoint will wait for a sent-credit or failed status from the payment rail.
      *
-     * @var ?Components\BankAccountWaitFor $xWaitFor
+     * @var ?\Moov\MoovPhp\Models\Components\BankAccountWaitFor $xWaitFor
      */
     #[SpeakeasyMetadata('header:style=simple,explode=false,name=x-wait-for')]
     public ?Components\BankAccountWaitFor $xWaitFor = null;
@@ -40,7 +40,7 @@ class InitiateBankAccountVerificationRequest
     /**
      * @param  string  $accountID
      * @param  string  $bankAccountID
-     * @param  ?Components\BankAccountWaitFor  $xWaitFor
+     * @param  ?\Moov\MoovPhp\Models\Components\BankAccountWaitFor  $xWaitFor
      * @phpstan-pure
      */
     public function __construct(string $accountID, string $bankAccountID, ?Components\BankAccountWaitFor $xWaitFor = null)

@@ -27,7 +27,7 @@ class WebhookDataSweepUpdated
 
     /**
      *
-     * @var SweepStatus $status
+     * @var \Moov\MoovPhp\Models\Components\SweepStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\SweepStatus')]
@@ -44,7 +44,7 @@ class WebhookDataSweepUpdated
     /**
      * @param  string  $walletID
      * @param  string  $sweepID
-     * @param  SweepStatus  $status
+     * @param  \Moov\MoovPhp\Models\Components\SweepStatus  $status
      * @param  ?string  $transferID
      * @phpstan-pure
      */

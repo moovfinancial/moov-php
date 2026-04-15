@@ -21,14 +21,14 @@ class AssignAccountCountriesRequest
 
     /**
      *
-     * @var Components\AccountCountries $accountCountries
+     * @var \Moov\MoovPhp\Models\Components\AccountCountries $accountCountries
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\AccountCountries $accountCountries;
 
     /**
      * @param  string  $accountID
-     * @param  Components\AccountCountries  $accountCountries
+     * @param  \Moov\MoovPhp\Models\Components\AccountCountries  $accountCountries
      * @phpstan-pure
      */
     public function __construct(string $accountID, Components\AccountCountries $accountCountries)

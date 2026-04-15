@@ -21,14 +21,14 @@ class CreateProductRequest
 
     /**
      *
-     * @var Components\ProductRequest $productRequest
+     * @var \Moov\MoovPhp\Models\Components\ProductRequest $productRequest
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\ProductRequest $productRequest;
 
     /**
      * @param  string  $accountID
-     * @param  Components\ProductRequest  $productRequest
+     * @param  \Moov\MoovPhp\Models\Components\ProductRequest  $productRequest
      * @phpstan-pure
      */
     public function __construct(string $accountID, Components\ProductRequest $productRequest)

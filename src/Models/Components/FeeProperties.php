@@ -15,7 +15,7 @@ class FeeProperties
     /**
      * Defines the volume ranges for tiered pricing models.
      *
-     * @var array<VolumeRange> $volumeRanges
+     * @var array<\Moov\MoovPhp\Models\Components\VolumeRange> $volumeRanges
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('volumeRanges')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\VolumeRange>')]
@@ -24,7 +24,7 @@ class FeeProperties
     /**
      * A fixed fee that is applied to the amount of each transaction in the `fixed` and `blended` fee models.
      *
-     * @var ?AmountDecimal $fixedAmount
+     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimal $fixedAmount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('fixedAmount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
@@ -46,7 +46,7 @@ class FeeProperties
     /**
      * Specifies the minimum allowable spending for a single transaction, working as a transaction floor.
      *
-     * @var ?AmountDecimal $minPerTransaction
+     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimal $minPerTransaction
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('minPerTransaction')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
@@ -56,7 +56,7 @@ class FeeProperties
     /**
      * Specifies the maximum allowable spending for a single transaction, working as a transaction ceiling.
      *
-     * @var ?AmountDecimal $maxPerTransaction
+     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimal $maxPerTransaction
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('maxPerTransaction')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
@@ -64,11 +64,11 @@ class FeeProperties
     public ?AmountDecimal $maxPerTransaction = null;
 
     /**
-     * @param  array<VolumeRange>  $volumeRanges
-     * @param  ?AmountDecimal  $fixedAmount
+     * @param  array<\Moov\MoovPhp\Models\Components\VolumeRange>  $volumeRanges
+     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimal  $fixedAmount
      * @param  ?string  $variableRate
-     * @param  ?AmountDecimal  $minPerTransaction
-     * @param  ?AmountDecimal  $maxPerTransaction
+     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimal  $minPerTransaction
+     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimal  $maxPerTransaction
      * @phpstan-pure
      */
     public function __construct(array $volumeRanges, ?AmountDecimal $fixedAmount = null, ?string $variableRate = null, ?AmountDecimal $minPerTransaction = null, ?AmountDecimal $maxPerTransaction = null)

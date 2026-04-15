@@ -15,7 +15,7 @@ class PingResponse
     /**
      * The webhook that was pinged.
      *
-     * @var Webhook $webhook
+     * @var \Moov\MoovPhp\Models\Components\Webhook $webhook
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('webhook')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Webhook')]
@@ -39,7 +39,7 @@ class PingResponse
     public int $responseStatusCode;
 
     /**
-     * @param  Webhook  $webhook
+     * @param  \Moov\MoovPhp\Models\Components\Webhook  $webhook
      * @param  array<string, mixed>  $requestBodySent
      * @param  int  $responseStatusCode
      * @phpstan-pure

@@ -21,14 +21,14 @@ class LinkAccountTerminalApplicationRequest
 
     /**
      *
-     * @var Components\LinkAccountTerminalApplication $linkAccountTerminalApplication
+     * @var \Moov\MoovPhp\Models\Components\LinkAccountTerminalApplication $linkAccountTerminalApplication
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\LinkAccountTerminalApplication $linkAccountTerminalApplication;
 
     /**
      * @param  string  $accountID
-     * @param  Components\LinkAccountTerminalApplication  $linkAccountTerminalApplication
+     * @param  \Moov\MoovPhp\Models\Components\LinkAccountTerminalApplication  $linkAccountTerminalApplication
      * @phpstan-pure
      */
     public function __construct(string $accountID, Components\LinkAccountTerminalApplication $linkAccountTerminalApplication)

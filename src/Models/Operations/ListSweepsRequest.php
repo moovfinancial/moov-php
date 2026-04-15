@@ -43,7 +43,7 @@ class ListSweepsRequest
     /**
      * Optional parameter to filter by sweep status.
      *
-     * @var ?Components\SweepStatus $status
+     * @var ?\Moov\MoovPhp\Models\Components\SweepStatus $status
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=status')]
     public ?Components\SweepStatus $status = null;
@@ -61,7 +61,7 @@ class ListSweepsRequest
      * @param  string  $walletID
      * @param  ?int  $skip
      * @param  ?int  $count
-     * @param  ?Components\SweepStatus  $status
+     * @param  ?\Moov\MoovPhp\Models\Components\SweepStatus  $status
      * @param  ?string  $statementDescriptor
      * @phpstan-pure
      */

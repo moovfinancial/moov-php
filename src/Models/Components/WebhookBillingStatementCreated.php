@@ -13,17 +13,26 @@ class WebhookBillingStatementCreated
 {
     /**
      *
+     * @var string $accountID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('accountID')]
+    public string $accountID;
+
+    /**
+     *
      * @var string $statementID
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('statementID')]
     public string $statementID;
 
     /**
+     * @param  string  $accountID
      * @param  string  $statementID
      * @phpstan-pure
      */
-    public function __construct(string $statementID)
+    public function __construct(string $accountID, string $statementID)
     {
+        $this->accountID = $accountID;
         $this->statementID = $statementID;
     }
 }

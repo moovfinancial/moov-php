@@ -29,7 +29,7 @@ class CreateTransferLineItemOptionValidationError
 
     /**
      *
-     * @var ?AmountDecimalValidationError $priceModifier
+     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimalValidationError $priceModifier
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('priceModifier')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimalValidationError|null')]
@@ -55,7 +55,7 @@ class CreateTransferLineItemOptionValidationError
     /**
      * @param  ?string  $name
      * @param  ?string  $group
-     * @param  ?AmountDecimalValidationError  $priceModifier
+     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimalValidationError  $priceModifier
      * @param  ?string  $quantity
      * @param  ?string  $imageIDs
      * @phpstan-pure

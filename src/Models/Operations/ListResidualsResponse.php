@@ -42,7 +42,7 @@ class ListResidualsResponse
     /**
      * The request completed successfully.
      *
-     * @var ?array<Components\Residual> $residuals
+     * @var ?array<\Moov\MoovPhp\Models\Components\Residual> $residuals
      */
     public ?array $residuals = null;
 
@@ -51,7 +51,7 @@ class ListResidualsResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?array<Components\Residual>  $residuals
+     * @param  ?array<\Moov\MoovPhp\Models\Components\Residual>  $residuals
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?array $residuals = null, ?array $headers = [])

@@ -15,7 +15,7 @@ class CardAcquiringFees
     /**
      * Fees associated with Visa transactions.
      *
-     * @var CardBrandFees $visa
+     * @var \Moov\MoovPhp\Models\Components\CardBrandFees $visa
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('visa')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardBrandFees')]
@@ -24,7 +24,7 @@ class CardAcquiringFees
     /**
      * Fees associated with Mastercard transactions.
      *
-     * @var CardBrandFees $mastercard
+     * @var \Moov\MoovPhp\Models\Components\CardBrandFees $mastercard
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('mastercard')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardBrandFees')]
@@ -33,7 +33,7 @@ class CardAcquiringFees
     /**
      * Fees associated with Discover transactions.
      *
-     * @var CardBrandFees $discover
+     * @var \Moov\MoovPhp\Models\Components\CardBrandFees $discover
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('discover')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardBrandFees')]
@@ -42,17 +42,17 @@ class CardAcquiringFees
     /**
      * Fees associated with American Express transactions.
      *
-     * @var CardBrandFees $americanExpress
+     * @var \Moov\MoovPhp\Models\Components\CardBrandFees $americanExpress
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('americanExpress')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardBrandFees')]
     public CardBrandFees $americanExpress;
 
     /**
-     * @param  CardBrandFees  $visa
-     * @param  CardBrandFees  $mastercard
-     * @param  CardBrandFees  $discover
-     * @param  CardBrandFees  $americanExpress
+     * @param  \Moov\MoovPhp\Models\Components\CardBrandFees  $visa
+     * @param  \Moov\MoovPhp\Models\Components\CardBrandFees  $mastercard
+     * @param  \Moov\MoovPhp\Models\Components\CardBrandFees  $discover
+     * @param  \Moov\MoovPhp\Models\Components\CardBrandFees  $americanExpress
      * @phpstan-pure
      */
     public function __construct(CardBrandFees $visa, CardBrandFees $mastercard, CardBrandFees $discover, CardBrandFees $americanExpress)

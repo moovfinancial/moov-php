@@ -25,14 +25,14 @@ class GetCapabilityRequest
      *
      * The `production-app`, `platform.production-app`, and / or `platform.wallet-transfers` capabilities might appear in your list. These are read-only capabilities that Moov requests and uses for account verification purposes. These capabilities remains active with your account and require no additional action.
      *
-     * @var Components\CapabilityID $capabilityID
+     * @var \Moov\MoovPhp\Models\Components\CapabilityID $capabilityID
      */
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=capabilityID')]
     public Components\CapabilityID $capabilityID;
 
     /**
      * @param  string  $accountID
-     * @param  Components\CapabilityID  $capabilityID
+     * @param  \Moov\MoovPhp\Models\Components\CapabilityID  $capabilityID
      * @phpstan-pure
      */
     public function __construct(string $accountID, Components\CapabilityID $capabilityID)

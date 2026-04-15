@@ -53,7 +53,7 @@ class PaymentMethods
      *
      * @param  string  $accountID
      * @param  string  $paymentMethodID
-     * @return Operations\GetPaymentMethodResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetPaymentMethodResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function get(string $accountID, string $paymentMethodID, ?Options $options = null): Operations\GetPaymentMethodResponse
@@ -126,8 +126,8 @@ class PaymentMethods
      *
      * @param  string  $accountID
      * @param  ?string  $sourceID
-     * @param  ?Components\PaymentMethodType  $paymentMethodType
-     * @return Operations\ListPaymentMethodsResponse
+     * @param  ?\Moov\MoovPhp\Models\Components\PaymentMethodType  $paymentMethodType
+     * @return \Moov\MoovPhp\Models\Operations\ListPaymentMethodsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function list(string $accountID, ?string $sourceID = null, ?Components\PaymentMethodType $paymentMethodType = null, ?Options $options = null): Operations\ListPaymentMethodsResponse

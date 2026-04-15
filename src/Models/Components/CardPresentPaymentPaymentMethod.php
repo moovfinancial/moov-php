@@ -22,7 +22,7 @@ class CardPresentPaymentPaymentMethod
 
     /**
      *
-     * @var CardPresentPaymentPaymentMethodPaymentMethodType $paymentMethodType
+     * @var \Moov\MoovPhp\Models\Components\CardPresentPaymentPaymentMethodPaymentMethodType $paymentMethodType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('paymentMethodType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardPresentPaymentPaymentMethodPaymentMethodType')]
@@ -31,7 +31,7 @@ class CardPresentPaymentPaymentMethod
     /**
      * Describes payment card details captured with tap or in-person payment.
      *
-     * @var ?TerminalCard $terminalCard
+     * @var ?\Moov\MoovPhp\Models\Components\TerminalCard $terminalCard
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('terminalCard')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TerminalCard|null')]
@@ -40,8 +40,8 @@ class CardPresentPaymentPaymentMethod
 
     /**
      * @param  string  $paymentMethodID
-     * @param  CardPresentPaymentPaymentMethodPaymentMethodType  $paymentMethodType
-     * @param  ?TerminalCard  $terminalCard
+     * @param  \Moov\MoovPhp\Models\Components\CardPresentPaymentPaymentMethodPaymentMethodType  $paymentMethodType
+     * @param  ?\Moov\MoovPhp\Models\Components\TerminalCard  $terminalCard
      * @phpstan-pure
      */
     public function __construct(string $paymentMethodID, CardPresentPaymentPaymentMethodPaymentMethodType $paymentMethodType, ?TerminalCard $terminalCard = null)

@@ -14,7 +14,7 @@ class SweepSubtotal
     /**
      * The type of wallet transaction the subtotal is for.
      *
-     * @var WalletTransactionType $type
+     * @var \Moov\MoovPhp\Models\Components\WalletTransactionType $type
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\WalletTransactionType')]
@@ -31,16 +31,16 @@ class SweepSubtotal
     /**
      * The value of transactions of this type accrued in the sweep.
      *
-     * @var AmountDecimal $amount
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $amount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
     public AmountDecimal $amount;
 
     /**
-     * @param  WalletTransactionType  $type
+     * @param  \Moov\MoovPhp\Models\Components\WalletTransactionType  $type
      * @param  int  $count
-     * @param  AmountDecimal  $amount
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $amount
      * @phpstan-pure
      */
     public function __construct(WalletTransactionType $type, int $count, AmountDecimal $amount)

@@ -21,7 +21,7 @@ class AchCreditStandardTransferPaymentMethod
 
     /**
      *
-     * @var AchCreditStandardTransferPaymentMethodPaymentMethodType $paymentMethodType
+     * @var \Moov\MoovPhp\Models\Components\AchCreditStandardTransferPaymentMethodPaymentMethodType $paymentMethodType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('paymentMethodType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AchCreditStandardTransferPaymentMethodPaymentMethodType')]
@@ -30,7 +30,7 @@ class AchCreditStandardTransferPaymentMethod
     /**
      * A bank account as contained within a payment method.
      *
-     * @var TransferPaymentMethodsBankAccount $bankAccount
+     * @var \Moov\MoovPhp\Models\Components\TransferPaymentMethodsBankAccount $bankAccount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('bankAccount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferPaymentMethodsBankAccount')]
@@ -38,8 +38,8 @@ class AchCreditStandardTransferPaymentMethod
 
     /**
      * @param  string  $paymentMethodID
-     * @param  AchCreditStandardTransferPaymentMethodPaymentMethodType  $paymentMethodType
-     * @param  TransferPaymentMethodsBankAccount  $bankAccount
+     * @param  \Moov\MoovPhp\Models\Components\AchCreditStandardTransferPaymentMethodPaymentMethodType  $paymentMethodType
+     * @param  \Moov\MoovPhp\Models\Components\TransferPaymentMethodsBankAccount  $bankAccount
      * @phpstan-pure
      */
     public function __construct(string $paymentMethodID, AchCreditStandardTransferPaymentMethodPaymentMethodType $paymentMethodType, TransferPaymentMethodsBankAccount $bankAccount)

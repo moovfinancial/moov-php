@@ -15,7 +15,7 @@ class CardAcquiring
     /**
      * The total transaction volume amount. This field is deprecated and will be removed in a future release.
      *
-     * @var ?BillingSummaryVolumeAmount $volumeAmount
+     * @var ?\Moov\MoovPhp\Models\Components\BillingSummaryVolumeAmount $volumeAmount
      * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('volumeAmount')]
@@ -36,7 +36,7 @@ class CardAcquiring
     /**
      * The total fee amount.
      *
-     * @var ?AmountDecimal $feeAmount
+     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimal $feeAmount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('feeAmount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
@@ -46,7 +46,7 @@ class CardAcquiring
     /**
      * Total fee revenue collected from merchants.
      *
-     * @var ?AmountDecimal $merchantFeesCollected
+     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimal $merchantFeesCollected
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('merchantFeesCollected')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
@@ -56,7 +56,7 @@ class CardAcquiring
     /**
      * Total fee costs incurred by the partner.
      *
-     * @var ?AmountDecimal $partnerFeesAssessed
+     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimal $partnerFeesAssessed
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('partnerFeesAssessed')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
@@ -66,7 +66,7 @@ class CardAcquiring
     /**
      * Net revenue after deducting partner fee costs.
      *
-     * @var ?AmountDecimal $netIncome
+     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimal $netIncome
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('netIncome')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
@@ -76,7 +76,7 @@ class CardAcquiring
     /**
      * A summary of interchange fees by card brand.
      *
-     * @var ?BillingSummaryInterchange $interchangeFees
+     * @var ?\Moov\MoovPhp\Models\Components\BillingSummaryInterchange $interchangeFees
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('interchangeFees')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingSummaryInterchange|null')]
@@ -84,13 +84,13 @@ class CardAcquiring
     public ?BillingSummaryInterchange $interchangeFees = null;
 
     /**
-     * @param  ?BillingSummaryVolumeAmount  $volumeAmount
+     * @param  ?\Moov\MoovPhp\Models\Components\BillingSummaryVolumeAmount  $volumeAmount
      * @param  ?int  $volumeCount
-     * @param  ?AmountDecimal  $feeAmount
-     * @param  ?AmountDecimal  $merchantFeesCollected
-     * @param  ?AmountDecimal  $partnerFeesAssessed
-     * @param  ?AmountDecimal  $netIncome
-     * @param  ?BillingSummaryInterchange  $interchangeFees
+     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimal  $feeAmount
+     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimal  $merchantFeesCollected
+     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimal  $partnerFeesAssessed
+     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimal  $netIncome
+     * @param  ?\Moov\MoovPhp\Models\Components\BillingSummaryInterchange  $interchangeFees
      * @phpstan-pure
      */
     public function __construct(?BillingSummaryVolumeAmount $volumeAmount = null, ?int $volumeCount = null, ?AmountDecimal $feeAmount = null, ?AmountDecimal $merchantFeesCollected = null, ?AmountDecimal $partnerFeesAssessed = null, ?AmountDecimal $netIncome = null, ?BillingSummaryInterchange $interchangeFees = null)

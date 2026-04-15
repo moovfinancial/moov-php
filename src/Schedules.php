@@ -52,7 +52,7 @@ class Schedules
      *
      * @param  string  $accountID
      * @param  string  $scheduleID
-     * @return Operations\CancelScheduleResponse
+     * @return \Moov\MoovPhp\Models\Operations\CancelScheduleResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function cancel(string $accountID, string $scheduleID, ?Options $options = null): Operations\CancelScheduleResponse

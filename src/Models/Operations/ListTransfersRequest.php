@@ -30,7 +30,7 @@ class ListTransfersRequest
     /**
      * Optional parameter for filtering transfers by status.
      *
-     * @var ?Components\TransferStatus $status
+     * @var ?\Moov\MoovPhp\Models\Components\TransferStatus $status
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=status')]
     public ?Components\TransferStatus $status = null;
@@ -116,7 +116,7 @@ class ListTransfersRequest
     /**
      * @param  string  $accountID
      * @param  ?array<string>  $accountIDs
-     * @param  ?Components\TransferStatus  $status
+     * @param  ?\Moov\MoovPhp\Models\Components\TransferStatus  $status
      * @param  ?\DateTime  $startDateTime
      * @param  ?\DateTime  $endDateTime
      * @param  ?string  $groupID

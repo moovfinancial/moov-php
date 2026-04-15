@@ -28,7 +28,7 @@ class Adjustment
 
     /**
      *
-     * @var AmountDecimal $amount
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $amount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
@@ -44,7 +44,7 @@ class Adjustment
     /**
      * @param  string  $adjustmentID
      * @param  string  $walletID
-     * @param  AmountDecimal  $amount
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $amount
      * @param  \DateTime  $createdOn
      * @phpstan-pure
      */

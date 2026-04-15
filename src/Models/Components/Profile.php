@@ -15,7 +15,7 @@ class Profile
     /**
      * Describes an individual.
      *
-     * @var ?IndividualProfile $individual
+     * @var ?\Moov\MoovPhp\Models\Components\IndividualProfile $individual
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('individual')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IndividualProfile|null')]
@@ -25,7 +25,7 @@ class Profile
     /**
      * Describes a business.
      *
-     * @var ?BusinessProfile $business
+     * @var ?\Moov\MoovPhp\Models\Components\BusinessProfile $business
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('business')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BusinessProfile|null')]
@@ -33,8 +33,8 @@ class Profile
     public ?BusinessProfile $business = null;
 
     /**
-     * @param  ?IndividualProfile  $individual
-     * @param  ?BusinessProfile  $business
+     * @param  ?\Moov\MoovPhp\Models\Components\IndividualProfile  $individual
+     * @param  ?\Moov\MoovPhp\Models\Components\BusinessProfile  $business
      * @phpstan-pure
      */
     public function __construct(?IndividualProfile $individual = null, ?BusinessProfile $business = null)

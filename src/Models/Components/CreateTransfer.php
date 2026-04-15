@@ -14,7 +14,7 @@ class CreateTransfer
     /**
      * Where funds for a transfer originate. For the source, you must include either a `paymentMethodID` or a `transferID`.
      *
-     * @var CreateTransferSource $source
+     * @var \Moov\MoovPhp\Models\Components\CreateTransferSource $source
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('source')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateTransferSource')]
@@ -23,7 +23,7 @@ class CreateTransfer
     /**
      * The final stage of a transfer and the ultimate recipient of the funds.
      *
-     * @var CreateTransferDestination $destination
+     * @var \Moov\MoovPhp\Models\Components\CreateTransferDestination $destination
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('destination')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateTransferDestination')]
@@ -31,7 +31,7 @@ class CreateTransfer
 
     /**
      *
-     * @var Amount $amount
+     * @var \Moov\MoovPhp\Models\Components\Amount $amount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Amount')]
@@ -40,7 +40,7 @@ class CreateTransfer
     /**
      * Total or markup fee.
      *
-     * @var ?FacilitatorFee $facilitatorFee
+     * @var ?\Moov\MoovPhp\Models\Components\FacilitatorFee $facilitatorFee
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('facilitatorFee')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\FacilitatorFee|null')]
@@ -69,7 +69,7 @@ class CreateTransfer
     /**
      * Optional sales tax amount. `transfer.amount.value` should be inclusive of any sales tax and represents the total amount charged.
      *
-     * @var ?Amount $salesTaxAmount
+     * @var ?\Moov\MoovPhp\Models\Components\Amount $salesTaxAmount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('salesTaxAmount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Amount|null')]
@@ -90,7 +90,7 @@ class CreateTransfer
      *
      * When line items are provided, their total plus sales tax must equal the transfer amount.
      *
-     * @var ?CreateTransferLineItems $lineItems
+     * @var ?\Moov\MoovPhp\Models\Components\CreateTransferLineItems $lineItems
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('lineItems')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateTransferLineItems|null')]
@@ -98,15 +98,15 @@ class CreateTransfer
     public ?CreateTransferLineItems $lineItems = null;
 
     /**
-     * @param  CreateTransferSource  $source
-     * @param  CreateTransferDestination  $destination
-     * @param  Amount  $amount
-     * @param  ?FacilitatorFee  $facilitatorFee
+     * @param  \Moov\MoovPhp\Models\Components\CreateTransferSource  $source
+     * @param  \Moov\MoovPhp\Models\Components\CreateTransferDestination  $destination
+     * @param  \Moov\MoovPhp\Models\Components\Amount  $amount
+     * @param  ?\Moov\MoovPhp\Models\Components\FacilitatorFee  $facilitatorFee
      * @param  ?string  $description
      * @param  ?array<string, string>  $metadata
-     * @param  ?Amount  $salesTaxAmount
+     * @param  ?\Moov\MoovPhp\Models\Components\Amount  $salesTaxAmount
      * @param  ?string  $foreignID
-     * @param  ?CreateTransferLineItems  $lineItems
+     * @param  ?\Moov\MoovPhp\Models\Components\CreateTransferLineItems  $lineItems
      * @phpstan-pure
      */
     public function __construct(CreateTransferSource $source, CreateTransferDestination $destination, Amount $amount, ?FacilitatorFee $facilitatorFee = null, ?string $description = null, ?array $metadata = null, ?Amount $salesTaxAmount = null, ?string $foreignID = null, ?CreateTransferLineItems $lineItems = null)

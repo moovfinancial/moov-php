@@ -21,7 +21,7 @@ class WebhookDataTerminalApplicationUpdated
     /**
      * Status of the terminal application.
      *
-     * @var TerminalApplicationStatus $status
+     * @var \Moov\MoovPhp\Models\Components\TerminalApplicationStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TerminalApplicationStatus')]
@@ -29,7 +29,7 @@ class WebhookDataTerminalApplicationUpdated
 
     /**
      * @param  string  $terminalApplicationID
-     * @param  TerminalApplicationStatus  $status
+     * @param  \Moov\MoovPhp\Models\Components\TerminalApplicationStatus  $status
      * @phpstan-pure
      */
     public function __construct(string $terminalApplicationID, TerminalApplicationStatus $status)

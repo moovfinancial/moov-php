@@ -28,7 +28,7 @@ class RTPInstitution
 
     /**
      *
-     * @var RTPServices $services
+     * @var \Moov\MoovPhp\Models\Components\RTPServices $services
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('services')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RTPServices')]
@@ -37,7 +37,7 @@ class RTPInstitution
     /**
      * @param  string  $name
      * @param  string  $routingNumber
-     * @param  RTPServices  $services
+     * @param  \Moov\MoovPhp\Models\Components\RTPServices  $services
      * @phpstan-pure
      */
     public function __construct(string $name, string $routingNumber, RTPServices $services)

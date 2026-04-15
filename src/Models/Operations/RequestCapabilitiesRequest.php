@@ -21,14 +21,14 @@ class RequestCapabilitiesRequest
 
     /**
      *
-     * @var Components\AddCapabilities $addCapabilities
+     * @var \Moov\MoovPhp\Models\Components\AddCapabilities $addCapabilities
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\AddCapabilities $addCapabilities;
 
     /**
      * @param  string  $accountID
-     * @param  Components\AddCapabilities  $addCapabilities
+     * @param  \Moov\MoovPhp\Models\Components\AddCapabilities  $addCapabilities
      * @phpstan-pure
      */
     public function __construct(string $accountID, Components\AddCapabilities $addCapabilities)
