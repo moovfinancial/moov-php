@@ -29,7 +29,7 @@ class CreateAuthorizedUserError
 
     /**
      *
-     * @var ?BirthDateError $birthDate
+     * @var ?\Moov\MoovPhp\Models\Components\BirthDateError $birthDate
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('birthDate')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BirthDateError|null')]
@@ -39,7 +39,7 @@ class CreateAuthorizedUserError
     /**
      * @param  ?string  $firstName
      * @param  ?string  $lastName
-     * @param  ?BirthDateError  $birthDate
+     * @param  ?\Moov\MoovPhp\Models\Components\BirthDateError  $birthDate
      * @phpstan-pure
      */
     public function __construct(?string $firstName = null, ?string $lastName = null, ?BirthDateError $birthDate = null)

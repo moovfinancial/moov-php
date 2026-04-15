@@ -37,7 +37,7 @@ class ProductOption
     /**
      * The adjustment applied to a product's base price by this option. Can be negative, positive, or zero.
      *
-     * @var ?AmountDecimal $priceModifier
+     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimal $priceModifier
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('priceModifier')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
@@ -47,7 +47,7 @@ class ProductOption
     /**
      * The images associated with this option.
      *
-     * @var ?array<ProductImageMetadata> $images
+     * @var ?array<\Moov\MoovPhp\Models\Components\ProductImageMetadata> $images
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('images')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\ProductImageMetadata>|null')]
@@ -57,8 +57,8 @@ class ProductOption
     /**
      * @param  string  $name
      * @param  ?string  $description
-     * @param  ?AmountDecimal  $priceModifier
-     * @param  ?array<ProductImageMetadata>  $images
+     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimal  $priceModifier
+     * @param  ?array<\Moov\MoovPhp\Models\Components\ProductImageMetadata>  $images
      * @phpstan-pure
      */
     public function __construct(string $name, ?string $description = null, ?AmountDecimal $priceModifier = null, ?array $images = null)

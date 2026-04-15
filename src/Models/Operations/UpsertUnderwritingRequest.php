@@ -21,14 +21,14 @@ class UpsertUnderwritingRequest
 
     /**
      *
-     * @var Components\UpdateUnderwriting $updateUnderwriting
+     * @var \Moov\MoovPhp\Models\Components\UpdateUnderwriting $updateUnderwriting
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\UpdateUnderwriting $updateUnderwriting;
 
     /**
      * @param  string  $accountID
-     * @param  Components\UpdateUnderwriting  $updateUnderwriting
+     * @param  \Moov\MoovPhp\Models\Components\UpdateUnderwriting  $updateUnderwriting
      * @phpstan-pure
      */
     public function __construct(string $accountID, Components\UpdateUnderwriting $updateUnderwriting)

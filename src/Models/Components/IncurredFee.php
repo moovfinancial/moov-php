@@ -60,7 +60,7 @@ class IncurredFee
     /**
      * The fee amount.
      *
-     * @var ?AmountDecimal $amount
+     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimal $amount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
@@ -70,7 +70,7 @@ class IncurredFee
     /**
      * Object indicating what generated the fee (TransferID, CardID, DisputeID, AccountID, or BankAccountID).
      *
-     * @var ?GeneratedBy $generatedBy
+     * @var ?\Moov\MoovPhp\Models\Components\GeneratedBy $generatedBy
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('generatedBy')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\GeneratedBy|null')]
@@ -101,8 +101,8 @@ class IncurredFee
      * @param  ?string  $walletID
      * @param  ?\DateTime  $createdOn
      * @param  ?string  $feeName
-     * @param  ?AmountDecimal  $amount
-     * @param  ?GeneratedBy  $generatedBy
+     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimal  $amount
+     * @param  ?\Moov\MoovPhp\Models\Components\GeneratedBy  $generatedBy
      * @param  ?string  $feeGroup
      * @param  ?string  $residualID
      * @phpstan-pure

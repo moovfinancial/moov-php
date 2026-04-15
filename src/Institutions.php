@@ -56,7 +56,7 @@ class Institutions
      * @param  ?string  $routingNumber
      * @param  ?string  $state
      * @param  ?int  $limit
-     * @return Operations\ListInstitutionsResponse
+     * @return \Moov\MoovPhp\Models\Operations\ListInstitutionsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      * @deprecated  method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
@@ -151,7 +151,7 @@ class Institutions
      * @param  ?string  $name
      * @param  ?string  $routingNumber
      * @param  ?int  $limit
-     * @return Operations\SearchInstitutionsResponse
+     * @return \Moov\MoovPhp\Models\Operations\SearchInstitutionsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function searchInstitutions(?string $name = null, ?string $routingNumber = null, ?int $limit = null, ?Options $options = null): Operations\SearchInstitutionsResponse

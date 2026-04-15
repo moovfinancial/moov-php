@@ -13,7 +13,7 @@ class CreateBusinessErrorTaxID
 {
     /**
      *
-     * @var ?CreateBusinessErrorEin $ein
+     * @var ?\Moov\MoovPhp\Models\Components\CreateBusinessErrorEin $ein
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('ein')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateBusinessErrorEin|null')]
@@ -21,7 +21,7 @@ class CreateBusinessErrorTaxID
     public ?CreateBusinessErrorEin $ein = null;
 
     /**
-     * @param  ?CreateBusinessErrorEin  $ein
+     * @param  ?\Moov\MoovPhp\Models\Components\CreateBusinessErrorEin  $ein
      * @phpstan-pure
      */
     public function __construct(?CreateBusinessErrorEin $ein = null)

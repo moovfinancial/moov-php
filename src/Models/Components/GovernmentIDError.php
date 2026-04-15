@@ -13,7 +13,7 @@ class GovernmentIDError
 {
     /**
      *
-     * @var ?GovernmentIDErrorSsn $ssn
+     * @var ?\Moov\MoovPhp\Models\Components\GovernmentIDErrorSsn $ssn
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('ssn')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\GovernmentIDErrorSsn|null')]
@@ -22,7 +22,7 @@ class GovernmentIDError
 
     /**
      *
-     * @var ?GovernmentIDErrorItin $itin
+     * @var ?\Moov\MoovPhp\Models\Components\GovernmentIDErrorItin $itin
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('itin')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\GovernmentIDErrorItin|null')]
@@ -30,8 +30,8 @@ class GovernmentIDError
     public ?GovernmentIDErrorItin $itin = null;
 
     /**
-     * @param  ?GovernmentIDErrorSsn  $ssn
-     * @param  ?GovernmentIDErrorItin  $itin
+     * @param  ?\Moov\MoovPhp\Models\Components\GovernmentIDErrorSsn  $ssn
+     * @param  ?\Moov\MoovPhp\Models\Components\GovernmentIDErrorItin  $itin
      * @phpstan-pure
      */
     public function __construct(?GovernmentIDErrorSsn $ssn = null, ?GovernmentIDErrorItin $itin = null)

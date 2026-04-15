@@ -15,14 +15,14 @@ class ScheduledTransferLineItems
     /**
      * The list of line items.
      *
-     * @var array<ScheduledTransferLineItem> $items
+     * @var array<\Moov\MoovPhp\Models\Components\ScheduledTransferLineItem> $items
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('items')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\ScheduledTransferLineItem>')]
     public array $items;
 
     /**
-     * @param  array<ScheduledTransferLineItem>  $items
+     * @param  array<\Moov\MoovPhp\Models\Components\ScheduledTransferLineItem>  $items
      * @phpstan-pure
      */
     public function __construct(array $items)

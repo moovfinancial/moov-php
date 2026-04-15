@@ -22,14 +22,14 @@ class CreatePaymentLinkRequest
 
     /**
      *
-     * @var Components\CreatePaymentLink $createPaymentLink
+     * @var \Moov\MoovPhp\Models\Components\CreatePaymentLink $createPaymentLink
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\CreatePaymentLink $createPaymentLink;
 
     /**
      * @param  string  $accountID
-     * @param  Components\CreatePaymentLink  $createPaymentLink
+     * @param  \Moov\MoovPhp\Models\Components\CreatePaymentLink  $createPaymentLink
      * @phpstan-pure
      */
     public function __construct(string $accountID, Components\CreatePaymentLink $createPaymentLink)

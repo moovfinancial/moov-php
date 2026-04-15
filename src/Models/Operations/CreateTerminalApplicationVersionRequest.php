@@ -21,14 +21,14 @@ class CreateTerminalApplicationVersionRequest
 
     /**
      *
-     * @var Components\TerminalApplicationVersion $terminalApplicationVersion
+     * @var \Moov\MoovPhp\Models\Components\TerminalApplicationVersion $terminalApplicationVersion
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\TerminalApplicationVersion $terminalApplicationVersion;
 
     /**
      * @param  string  $terminalApplicationID
-     * @param  Components\TerminalApplicationVersion  $terminalApplicationVersion
+     * @param  \Moov\MoovPhp\Models\Components\TerminalApplicationVersion  $terminalApplicationVersion
      * @phpstan-pure
      */
     public function __construct(string $terminalApplicationID, Components\TerminalApplicationVersion $terminalApplicationVersion)

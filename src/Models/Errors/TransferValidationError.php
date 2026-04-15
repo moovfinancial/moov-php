@@ -94,7 +94,7 @@ class TransferValidationError
 
     /**
      *
-     * @var ?Components\CreateTransferLineItemsValidationError $lineItems
+     * @var ?\Moov\MoovPhp\Models\Components\CreateTransferLineItemsValidationError $lineItems
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('lineItems')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateTransferLineItemsValidationError|null')]
@@ -112,7 +112,7 @@ class TransferValidationError
      * @param  ?string  $metadata
      * @param  ?string  $salesTaxAmount
      * @param  ?string  $foreignID
-     * @param  ?Components\CreateTransferLineItemsValidationError  $lineItems
+     * @param  ?\Moov\MoovPhp\Models\Components\CreateTransferLineItemsValidationError  $lineItems
      * @phpstan-pure
      */
     public function __construct(?string $amount = null, ?string $source = null, ?string $sourcePaymentMethodID = null, ?string $destinationPaymentMethodID = null, ?string $description = null, ?string $facilitatorFeeTotalDecimal = null, ?string $facilitatorFeeMarkupDecimal = null, ?string $metadata = null, ?string $salesTaxAmount = null, ?string $foreignID = null, ?Components\CreateTransferLineItemsValidationError $lineItems = null)

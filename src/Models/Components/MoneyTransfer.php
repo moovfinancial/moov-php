@@ -13,7 +13,7 @@ class MoneyTransfer
 {
     /**
      *
-     * @var ?MoneyTransferPullFromCard $pullFromCard
+     * @var ?\Moov\MoovPhp\Models\Components\MoneyTransferPullFromCard $pullFromCard
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('pullFromCard')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\MoneyTransferPullFromCard|null')]
@@ -22,7 +22,7 @@ class MoneyTransfer
 
     /**
      *
-     * @var ?MoneyTransferPushToCard $pushToCard
+     * @var ?\Moov\MoovPhp\Models\Components\MoneyTransferPushToCard $pushToCard
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('pushToCard')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\MoneyTransferPushToCard|null')]
@@ -30,8 +30,8 @@ class MoneyTransfer
     public ?MoneyTransferPushToCard $pushToCard = null;
 
     /**
-     * @param  ?MoneyTransferPullFromCard  $pullFromCard
-     * @param  ?MoneyTransferPushToCard  $pushToCard
+     * @param  ?\Moov\MoovPhp\Models\Components\MoneyTransferPullFromCard  $pullFromCard
+     * @param  ?\Moov\MoovPhp\Models\Components\MoneyTransferPushToCard  $pushToCard
      * @phpstan-pure
      */
     public function __construct(?MoneyTransferPullFromCard $pullFromCard = null, ?MoneyTransferPushToCard $pushToCard = null)

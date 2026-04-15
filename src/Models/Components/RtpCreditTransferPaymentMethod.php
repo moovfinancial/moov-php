@@ -21,7 +21,7 @@ class RtpCreditTransferPaymentMethod
 
     /**
      *
-     * @var RtpCreditTransferPaymentMethodPaymentMethodType $paymentMethodType
+     * @var \Moov\MoovPhp\Models\Components\RtpCreditTransferPaymentMethodPaymentMethodType $paymentMethodType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('paymentMethodType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RtpCreditTransferPaymentMethodPaymentMethodType')]
@@ -30,7 +30,7 @@ class RtpCreditTransferPaymentMethod
     /**
      * A bank account as contained within a payment method.
      *
-     * @var TransferPaymentMethodsBankAccount $bankAccount
+     * @var \Moov\MoovPhp\Models\Components\TransferPaymentMethodsBankAccount $bankAccount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('bankAccount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferPaymentMethodsBankAccount')]
@@ -38,8 +38,8 @@ class RtpCreditTransferPaymentMethod
 
     /**
      * @param  string  $paymentMethodID
-     * @param  RtpCreditTransferPaymentMethodPaymentMethodType  $paymentMethodType
-     * @param  TransferPaymentMethodsBankAccount  $bankAccount
+     * @param  \Moov\MoovPhp\Models\Components\RtpCreditTransferPaymentMethodPaymentMethodType  $paymentMethodType
+     * @param  \Moov\MoovPhp\Models\Components\TransferPaymentMethodsBankAccount  $bankAccount
      * @phpstan-pure
      */
     public function __construct(string $paymentMethodID, RtpCreditTransferPaymentMethodPaymentMethodType $paymentMethodType, TransferPaymentMethodsBankAccount $bankAccount)

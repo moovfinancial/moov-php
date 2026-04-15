@@ -50,7 +50,7 @@ class Avatars
      * you'll need to specify the `/profile-enrichment.read` scope.
      *
      * @param  string  $uniqueID
-     * @return Operations\GetAvatarResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetAvatarResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function get(string $uniqueID, ?Options $options = null): Operations\GetAvatarResponse

@@ -38,7 +38,7 @@ class UpsertUnderwritingError
 
     /**
      *
-     * @var ?Components\VolumeShareByCustomerTypeError $volumeShareByCustomerType
+     * @var ?\Moov\MoovPhp\Models\Components\VolumeShareByCustomerTypeError $volumeShareByCustomerType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('volumeShareByCustomerType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\VolumeShareByCustomerTypeError|null')]
@@ -47,7 +47,7 @@ class UpsertUnderwritingError
 
     /**
      *
-     * @var ?Components\CollectFundsError $collectFunds
+     * @var ?\Moov\MoovPhp\Models\Components\CollectFundsError $collectFunds
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('collectFunds')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CollectFundsError|null')]
@@ -56,7 +56,7 @@ class UpsertUnderwritingError
 
     /**
      *
-     * @var ?Components\MoneyTransferError $moneyTransfer
+     * @var ?\Moov\MoovPhp\Models\Components\MoneyTransferError $moneyTransfer
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('moneyTransfer')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\MoneyTransferError|null')]
@@ -65,7 +65,7 @@ class UpsertUnderwritingError
 
     /**
      *
-     * @var ?Components\SendFundsError $sendFunds
+     * @var ?\Moov\MoovPhp\Models\Components\SendFundsError $sendFunds
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('sendFunds')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\SendFundsError|null')]
@@ -106,7 +106,7 @@ class UpsertUnderwritingError
 
     /**
      *
-     * @var ?Components\VolumeByCustomerTypeError $volumeByCustomerType
+     * @var ?\Moov\MoovPhp\Models\Components\VolumeByCustomerTypeError $volumeByCustomerType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('volumeByCustomerType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\VolumeByCustomerTypeError|null')]
@@ -115,7 +115,7 @@ class UpsertUnderwritingError
 
     /**
      *
-     * @var ?Components\CardVolumeDistributionError $cardVolumeDistribution
+     * @var ?\Moov\MoovPhp\Models\Components\CardVolumeDistributionError $cardVolumeDistribution
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardVolumeDistribution')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardVolumeDistributionError|null')]
@@ -124,7 +124,7 @@ class UpsertUnderwritingError
 
     /**
      *
-     * @var ?Components\FulfillmentDetailsError $fulfillment
+     * @var ?\Moov\MoovPhp\Models\Components\FulfillmentDetailsError $fulfillment
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('fulfillment')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\FulfillmentDetailsError|null')]
@@ -135,17 +135,17 @@ class UpsertUnderwritingError
      * @param  ?string  $geographicReach
      * @param  ?string  $businessPresence
      * @param  ?string  $pendingLitigation
-     * @param  ?Components\VolumeShareByCustomerTypeError  $volumeShareByCustomerType
-     * @param  ?Components\CollectFundsError  $collectFunds
-     * @param  ?Components\MoneyTransferError  $moneyTransfer
-     * @param  ?Components\SendFundsError  $sendFunds
+     * @param  ?\Moov\MoovPhp\Models\Components\VolumeShareByCustomerTypeError  $volumeShareByCustomerType
+     * @param  ?\Moov\MoovPhp\Models\Components\CollectFundsError  $collectFunds
+     * @param  ?\Moov\MoovPhp\Models\Components\MoneyTransferError  $moneyTransfer
+     * @param  ?\Moov\MoovPhp\Models\Components\SendFundsError  $sendFunds
      * @param  ?string  $averageMonthlyTransactionVolume
      * @param  ?string  $error
      * @param  ?string  $averageTransactionSize
      * @param  ?string  $maxTransactionSize
-     * @param  ?Components\VolumeByCustomerTypeError  $volumeByCustomerType
-     * @param  ?Components\CardVolumeDistributionError  $cardVolumeDistribution
-     * @param  ?Components\FulfillmentDetailsError  $fulfillment
+     * @param  ?\Moov\MoovPhp\Models\Components\VolumeByCustomerTypeError  $volumeByCustomerType
+     * @param  ?\Moov\MoovPhp\Models\Components\CardVolumeDistributionError  $cardVolumeDistribution
+     * @param  ?\Moov\MoovPhp\Models\Components\FulfillmentDetailsError  $fulfillment
      * @phpstan-pure
      */
     public function __construct(?string $geographicReach = null, ?string $businessPresence = null, ?string $pendingLitigation = null, ?Components\VolumeShareByCustomerTypeError $volumeShareByCustomerType = null, ?Components\CollectFundsError $collectFunds = null, ?Components\MoneyTransferError $moneyTransfer = null, ?Components\SendFundsError $sendFunds = null, ?string $averageMonthlyTransactionVolume = null, ?string $error = null, ?string $averageTransactionSize = null, ?string $maxTransactionSize = null, ?Components\VolumeByCustomerTypeError $volumeByCustomerType = null, ?Components\CardVolumeDistributionError $cardVolumeDistribution = null, ?Components\FulfillmentDetailsError $fulfillment = null)

@@ -42,7 +42,7 @@ class CreateFeePlanAgreementsResponse
     /**
      * The resource was successfully created.
      *
-     * @var ?Components\FeePlanAgreement $feePlanAgreement
+     * @var ?\Moov\MoovPhp\Models\Components\FeePlanAgreement $feePlanAgreement
      */
     public ?Components\FeePlanAgreement $feePlanAgreement = null;
 
@@ -51,7 +51,7 @@ class CreateFeePlanAgreementsResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\FeePlanAgreement  $feePlanAgreement
+     * @param  ?\Moov\MoovPhp\Models\Components\FeePlanAgreement  $feePlanAgreement
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\FeePlanAgreement $feePlanAgreement = null, ?array $headers = [])

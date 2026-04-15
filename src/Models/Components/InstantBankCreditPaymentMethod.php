@@ -22,7 +22,7 @@ class InstantBankCreditPaymentMethod
 
     /**
      *
-     * @var InstantBankCreditPaymentMethodPaymentMethodType $paymentMethodType
+     * @var \Moov\MoovPhp\Models\Components\InstantBankCreditPaymentMethodPaymentMethodType $paymentMethodType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('paymentMethodType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\InstantBankCreditPaymentMethodPaymentMethodType')]
@@ -31,7 +31,7 @@ class InstantBankCreditPaymentMethod
     /**
      * A bank account as contained within a payment method.
      *
-     * @var PaymentMethodsBankAccount $bankAccount
+     * @var \Moov\MoovPhp\Models\Components\PaymentMethodsBankAccount $bankAccount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('bankAccount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentMethodsBankAccount')]
@@ -39,8 +39,8 @@ class InstantBankCreditPaymentMethod
 
     /**
      * @param  string  $paymentMethodID
-     * @param  InstantBankCreditPaymentMethodPaymentMethodType  $paymentMethodType
-     * @param  PaymentMethodsBankAccount  $bankAccount
+     * @param  \Moov\MoovPhp\Models\Components\InstantBankCreditPaymentMethodPaymentMethodType  $paymentMethodType
+     * @param  \Moov\MoovPhp\Models\Components\PaymentMethodsBankAccount  $bankAccount
      * @phpstan-pure
      */
     public function __construct(string $paymentMethodID, InstantBankCreditPaymentMethodPaymentMethodType $paymentMethodType, PaymentMethodsBankAccount $bankAccount)

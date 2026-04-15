@@ -21,14 +21,14 @@ class CreateTicketRequest
 
     /**
      *
-     * @var Components\CreateTicket $createTicket
+     * @var \Moov\MoovPhp\Models\Components\CreateTicket $createTicket
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\CreateTicket $createTicket;
 
     /**
      * @param  string  $accountID
-     * @param  Components\CreateTicket  $createTicket
+     * @param  \Moov\MoovPhp\Models\Components\CreateTicket  $createTicket
      * @phpstan-pure
      */
     public function __construct(string $accountID, Components\CreateTicket $createTicket)

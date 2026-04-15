@@ -19,7 +19,7 @@ class RtpDetails
     /**
      * Status of a transaction within the RTP lifecycle.
      *
-     * @var ?RTPTransactionStatus $status
+     * @var ?\Moov\MoovPhp\Models\Components\RTPTransactionStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RTPTransactionStatus|null')]
@@ -38,7 +38,7 @@ class RtpDetails
     /**
      * Status codes for RTP failures.
      *
-     * @var ?RTPFailureCode $failureCode
+     * @var ?\Moov\MoovPhp\Models\Components\RTPFailureCode $failureCode
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('failureCode')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RTPFailureCode|null')]
@@ -78,9 +78,9 @@ class RtpDetails
     public ?\DateTime $acceptedWithoutPostingOn = null;
 
     /**
-     * @param  ?RTPTransactionStatus  $status
+     * @param  ?\Moov\MoovPhp\Models\Components\RTPTransactionStatus  $status
      * @param  ?string  $networkResponseCode
-     * @param  ?RTPFailureCode  $failureCode
+     * @param  ?\Moov\MoovPhp\Models\Components\RTPFailureCode  $failureCode
      * @param  ?\DateTime  $initiatedOn
      * @param  ?\DateTime  $completedOn
      * @param  ?\DateTime  $failedOn

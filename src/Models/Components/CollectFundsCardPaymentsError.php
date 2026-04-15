@@ -13,7 +13,7 @@ class CollectFundsCardPaymentsError
 {
     /**
      *
-     * @var ?CardAcceptanceMethodsError $cardAcceptanceMethods
+     * @var ?\Moov\MoovPhp\Models\Components\CardAcceptanceMethodsError $cardAcceptanceMethods
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardAcceptanceMethods')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardAcceptanceMethodsError|null')]
@@ -30,7 +30,7 @@ class CollectFundsCardPaymentsError
 
     /**
      *
-     * @var ?EstimatedActivityError $estimatedActivity
+     * @var ?\Moov\MoovPhp\Models\Components\EstimatedActivityError $estimatedActivity
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('estimatedActivity')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\EstimatedActivityError|null')]
@@ -39,7 +39,7 @@ class CollectFundsCardPaymentsError
 
     /**
      *
-     * @var ?FulfillmentError $fulfillment
+     * @var ?\Moov\MoovPhp\Models\Components\FulfillmentError $fulfillment
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('fulfillment')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\FulfillmentError|null')]
@@ -55,10 +55,10 @@ class CollectFundsCardPaymentsError
     public ?string $refundPolicy = null;
 
     /**
-     * @param  ?CardAcceptanceMethodsError  $cardAcceptanceMethods
+     * @param  ?\Moov\MoovPhp\Models\Components\CardAcceptanceMethodsError  $cardAcceptanceMethods
      * @param  ?string  $currentlyAcceptsCards
-     * @param  ?EstimatedActivityError  $estimatedActivity
-     * @param  ?FulfillmentError  $fulfillment
+     * @param  ?\Moov\MoovPhp\Models\Components\EstimatedActivityError  $estimatedActivity
+     * @param  ?\Moov\MoovPhp\Models\Components\FulfillmentError  $fulfillment
      * @param  ?string  $refundPolicy
      * @phpstan-pure
      */

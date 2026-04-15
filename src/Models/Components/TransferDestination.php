@@ -21,7 +21,7 @@ class TransferDestination
     /**
      * The payment method type that represents a payment rail and directionality
      *
-     * @var TransferPaymentMethodType $paymentMethodType
+     * @var \Moov\MoovPhp\Models\Components\TransferPaymentMethodType $paymentMethodType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('paymentMethodType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferPaymentMethodType')]
@@ -29,7 +29,7 @@ class TransferDestination
 
     /**
      *
-     * @var TransferAccount $account
+     * @var \Moov\MoovPhp\Models\Components\TransferAccount $account
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('account')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferAccount')]
@@ -38,7 +38,7 @@ class TransferDestination
     /**
      * A bank account as contained within a payment method.
      *
-     * @var ?TransferPaymentMethodsBankAccount $bankAccount
+     * @var ?\Moov\MoovPhp\Models\Components\TransferPaymentMethodsBankAccount $bankAccount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('bankAccount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferPaymentMethodsBankAccount|null')]
@@ -47,7 +47,7 @@ class TransferDestination
 
     /**
      *
-     * @var ?TransferPaymentMethodsWallet $wallet
+     * @var ?\Moov\MoovPhp\Models\Components\TransferPaymentMethodsWallet $wallet
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('wallet')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferPaymentMethodsWallet|null')]
@@ -57,7 +57,7 @@ class TransferDestination
     /**
      * A card as contained within a payment method.
      *
-     * @var ?TransferPaymentMethodsCard $card
+     * @var ?\Moov\MoovPhp\Models\Components\TransferPaymentMethodsCard $card
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('card')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferPaymentMethodsCard|null')]
@@ -67,7 +67,7 @@ class TransferDestination
     /**
      * ACH specific details about the transaction.
      *
-     * @var ?ACHTransactionDetails $achDetails
+     * @var ?\Moov\MoovPhp\Models\Components\ACHTransactionDetails $achDetails
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('achDetails')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ACHTransactionDetails|null')]
@@ -77,7 +77,7 @@ class TransferDestination
     /**
      * Describes an Apple Pay token on a Moov account.
      *
-     * @var ?ApplePayResponse $applePay
+     * @var ?\Moov\MoovPhp\Models\Components\ApplePayResponse $applePay
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('applePay')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ApplePayResponse|null')]
@@ -87,7 +87,7 @@ class TransferDestination
     /**
      * Card-specific details about the transaction.
      *
-     * @var ?CardTransactionDetails $cardDetails
+     * @var ?\Moov\MoovPhp\Models\Components\CardTransactionDetails $cardDetails
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardDetails')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardTransactionDetails|null')]
@@ -96,7 +96,7 @@ class TransferDestination
 
     /**
      *
-     * @var ?RtpDetails $rtpDetails
+     * @var ?\Moov\MoovPhp\Models\Components\RtpDetails $rtpDetails
      * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('rtpDetails')]
@@ -105,19 +105,30 @@ class TransferDestination
     public ?RtpDetails $rtpDetails = null;
 
     /**
+     * Instant-bank specific details about the transaction.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\InstantBankTransactionDetails $instantBankDetails
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('instantBankDetails')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\InstantBankTransactionDetails|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?InstantBankTransactionDetails $instantBankDetails = null;
+
+    /**
      * @param  string  $paymentMethodID
-     * @param  TransferPaymentMethodType  $paymentMethodType
-     * @param  TransferAccount  $account
-     * @param  ?TransferPaymentMethodsBankAccount  $bankAccount
-     * @param  ?TransferPaymentMethodsWallet  $wallet
-     * @param  ?TransferPaymentMethodsCard  $card
-     * @param  ?ACHTransactionDetails  $achDetails
-     * @param  ?ApplePayResponse  $applePay
-     * @param  ?CardTransactionDetails  $cardDetails
-     * @param  ?RtpDetails  $rtpDetails
+     * @param  \Moov\MoovPhp\Models\Components\TransferPaymentMethodType  $paymentMethodType
+     * @param  \Moov\MoovPhp\Models\Components\TransferAccount  $account
+     * @param  ?\Moov\MoovPhp\Models\Components\TransferPaymentMethodsBankAccount  $bankAccount
+     * @param  ?\Moov\MoovPhp\Models\Components\TransferPaymentMethodsWallet  $wallet
+     * @param  ?\Moov\MoovPhp\Models\Components\TransferPaymentMethodsCard  $card
+     * @param  ?\Moov\MoovPhp\Models\Components\ACHTransactionDetails  $achDetails
+     * @param  ?\Moov\MoovPhp\Models\Components\ApplePayResponse  $applePay
+     * @param  ?\Moov\MoovPhp\Models\Components\CardTransactionDetails  $cardDetails
+     * @param  ?\Moov\MoovPhp\Models\Components\RtpDetails  $rtpDetails
+     * @param  ?\Moov\MoovPhp\Models\Components\InstantBankTransactionDetails  $instantBankDetails
      * @phpstan-pure
      */
-    public function __construct(string $paymentMethodID, TransferPaymentMethodType $paymentMethodType, TransferAccount $account, ?TransferPaymentMethodsBankAccount $bankAccount = null, ?TransferPaymentMethodsWallet $wallet = null, ?TransferPaymentMethodsCard $card = null, ?ACHTransactionDetails $achDetails = null, ?ApplePayResponse $applePay = null, ?CardTransactionDetails $cardDetails = null, ?RtpDetails $rtpDetails = null)
+    public function __construct(string $paymentMethodID, TransferPaymentMethodType $paymentMethodType, TransferAccount $account, ?TransferPaymentMethodsBankAccount $bankAccount = null, ?TransferPaymentMethodsWallet $wallet = null, ?TransferPaymentMethodsCard $card = null, ?ACHTransactionDetails $achDetails = null, ?ApplePayResponse $applePay = null, ?CardTransactionDetails $cardDetails = null, ?RtpDetails $rtpDetails = null, ?InstantBankTransactionDetails $instantBankDetails = null)
     {
         $this->paymentMethodID = $paymentMethodID;
         $this->paymentMethodType = $paymentMethodType;
@@ -129,5 +140,6 @@ class TransferDestination
         $this->applePay = $applePay;
         $this->cardDetails = $cardDetails;
         $this->rtpDetails = $rtpDetails;
+        $this->instantBankDetails = $instantBankDetails;
     }
 }

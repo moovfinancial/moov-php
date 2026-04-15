@@ -14,7 +14,7 @@ class BrandColors
 {
     /**
      *
-     * @var BrandColor $dark
+     * @var \Moov\MoovPhp\Models\Components\BrandColor $dark
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('dark')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BrandColor')]
@@ -22,15 +22,15 @@ class BrandColors
 
     /**
      *
-     * @var BrandColor $light
+     * @var \Moov\MoovPhp\Models\Components\BrandColor $light
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('light')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BrandColor')]
     public BrandColor $light;
 
     /**
-     * @param  BrandColor  $dark
-     * @param  BrandColor  $light
+     * @param  \Moov\MoovPhp\Models\Components\BrandColor  $dark
+     * @param  \Moov\MoovPhp\Models\Components\BrandColor  $light
      * @phpstan-pure
      */
     public function __construct(BrandColor $dark, BrandColor $light)

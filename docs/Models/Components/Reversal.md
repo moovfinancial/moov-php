@@ -9,7 +9,7 @@ Contains either a cancellation or refund, depending on the method used to revers
 
 ```php
 /**
-* @var Components\ReversedWithCancellation
+* @var \Moov\MoovPhp\Models\Components\ReversedWithCancellation
 */
 Components\ReversedWithCancellation $value = /* values here */
 ```
@@ -18,7 +18,7 @@ Components\ReversedWithCancellation $value = /* values here */
 
 ```php
 /**
-* @var Components\ReversedWithRefund
+* @var \Moov\MoovPhp\Models\Components\ReversedWithRefund
 */
 Components\ReversedWithRefund $value = /* values here */
 ```

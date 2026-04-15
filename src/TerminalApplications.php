@@ -51,8 +51,8 @@ class TerminalApplications
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/terminal-applications.write` scope.
      *
-     * @param  Components\CreateTerminalApplication  $request
-     * @return Operations\CreateTerminalApplicationResponse
+     * @param  \Moov\MoovPhp\Models\Components\CreateTerminalApplication  $request
+     * @return \Moov\MoovPhp\Models\Operations\CreateTerminalApplicationResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function create(Components\CreateTerminalApplication $request, ?Options $options = null): Operations\CreateTerminalApplicationResponse
@@ -145,9 +145,9 @@ class TerminalApplications
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/terminal-applications.write` scope.
      *
-     * @param  Components\TerminalApplicationVersion  $terminalApplicationVersion
+     * @param  \Moov\MoovPhp\Models\Components\TerminalApplicationVersion  $terminalApplicationVersion
      * @param  string  $terminalApplicationID
-     * @return Operations\CreateTerminalApplicationVersionResponse
+     * @return \Moov\MoovPhp\Models\Operations\CreateTerminalApplicationVersionResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function createVersion(Components\TerminalApplicationVersion $terminalApplicationVersion, string $terminalApplicationID, ?Options $options = null): Operations\CreateTerminalApplicationVersionResponse
@@ -245,7 +245,7 @@ class TerminalApplications
      * you'll need to specify the `/terminal-applications.write` scope.
      *
      * @param  string  $terminalApplicationID
-     * @return Operations\DeleteTerminalApplicationResponse
+     * @return \Moov\MoovPhp\Models\Operations\DeleteTerminalApplicationResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function delete(string $terminalApplicationID, ?Options $options = null): Operations\DeleteTerminalApplicationResponse
@@ -316,7 +316,7 @@ class TerminalApplications
      * you'll need to specify the `/terminal-applications.read` scope.
      *
      * @param  string  $terminalApplicationID
-     * @return Operations\GetTerminalApplicationResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetTerminalApplicationResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function get(string $terminalApplicationID, ?Options $options = null): Operations\GetTerminalApplicationResponse
@@ -385,7 +385,7 @@ class TerminalApplications
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/terminal-applications.read` scope.
      *
-     * @return Operations\ListTerminalApplicationsResponse
+     * @return \Moov\MoovPhp\Models\Operations\ListTerminalApplicationsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function list(?Options $options = null): Operations\ListTerminalApplicationsResponse

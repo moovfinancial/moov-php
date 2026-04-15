@@ -13,7 +13,7 @@ class CollectFundsError
 {
     /**
      *
-     * @var ?CollectFundsAchError $ach
+     * @var ?\Moov\MoovPhp\Models\Components\CollectFundsAchError $ach
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('ach')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CollectFundsAchError|null')]
@@ -22,7 +22,7 @@ class CollectFundsError
 
     /**
      *
-     * @var ?CollectFundsCardPaymentsError $cardPayments
+     * @var ?\Moov\MoovPhp\Models\Components\CollectFundsCardPaymentsError $cardPayments
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardPayments')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CollectFundsCardPaymentsError|null')]
@@ -30,8 +30,8 @@ class CollectFundsError
     public ?CollectFundsCardPaymentsError $cardPayments = null;
 
     /**
-     * @param  ?CollectFundsAchError  $ach
-     * @param  ?CollectFundsCardPaymentsError  $cardPayments
+     * @param  ?\Moov\MoovPhp\Models\Components\CollectFundsAchError  $ach
+     * @param  ?\Moov\MoovPhp\Models\Components\CollectFundsCardPaymentsError  $cardPayments
      * @phpstan-pure
      */
     public function __construct(?CollectFundsAchError $ach = null, ?CollectFundsCardPaymentsError $cardPayments = null)

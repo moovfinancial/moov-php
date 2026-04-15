@@ -30,7 +30,7 @@ class UpdateIssuedCardError
 
     /**
      *
-     * @var ?Components\CreateAuthorizedUserError $authorizedUser
+     * @var ?\Moov\MoovPhp\Models\Components\CreateAuthorizedUserError $authorizedUser
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('authorizedUser')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateAuthorizedUserError|null')]
@@ -40,7 +40,7 @@ class UpdateIssuedCardError
     /**
      * @param  ?string  $state
      * @param  ?string  $memo
-     * @param  ?Components\CreateAuthorizedUserError  $authorizedUser
+     * @param  ?\Moov\MoovPhp\Models\Components\CreateAuthorizedUserError  $authorizedUser
      * @phpstan-pure
      */
     public function __construct(?string $state = null, ?string $memo = null, ?Components\CreateAuthorizedUserError $authorizedUser = null)

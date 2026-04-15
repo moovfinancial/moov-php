@@ -13,7 +13,7 @@ class AchParticipant
 {
     /**
      *
-     * @var AchLocation $achLocation
+     * @var \Moov\MoovPhp\Models\Components\AchLocation $achLocation
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('achLocation')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AchLocation')]
@@ -98,14 +98,14 @@ class AchParticipant
 
     /**
      *
-     * @var ?Logo $logo
+     * @var ?\Moov\MoovPhp\Models\Components\Logo $logo
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('logo')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Logo|null')]
     public ?Logo $logo;
 
     /**
-     * @param  AchLocation  $achLocation
+     * @param  \Moov\MoovPhp\Models\Components\AchLocation  $achLocation
      * @param  string  $customerName
      * @param  string  $newRoutingNumber
      * @param  string  $officeCode
@@ -117,7 +117,7 @@ class AchParticipant
      * @param  string  $statusCode
      * @param  string  $viewCode
      * @param  string  $cleanName
-     * @param  ?Logo  $logo
+     * @param  ?\Moov\MoovPhp\Models\Components\Logo  $logo
      * @phpstan-pure
      */
     public function __construct(AchLocation $achLocation, string $customerName, string $newRoutingNumber, string $officeCode, string $phoneNumber, string $recordTypeCode, string $revised, string $routingNumber, string $servicingFRBNumber, string $statusCode, string $viewCode, string $cleanName, ?Logo $logo = null)

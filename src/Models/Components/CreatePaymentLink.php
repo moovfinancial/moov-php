@@ -38,7 +38,7 @@ class CreatePaymentLink
 
     /**
      *
-     * @var Amount $amount
+     * @var \Moov\MoovPhp\Models\Components\Amount $amount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Amount')]
@@ -47,7 +47,7 @@ class CreatePaymentLink
     /**
      * Customizable display options for a payment link.
      *
-     * @var PaymentLinkDisplayOptions $display
+     * @var \Moov\MoovPhp\Models\Components\PaymentLinkDisplayOptions $display
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('display')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentLinkDisplayOptions')]
@@ -55,7 +55,7 @@ class CreatePaymentLink
 
     /**
      *
-     * @var ?Amount $salesTaxAmount
+     * @var ?\Moov\MoovPhp\Models\Components\Amount $salesTaxAmount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('salesTaxAmount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Amount|null')]
@@ -85,7 +85,7 @@ class CreatePaymentLink
 
     /**
      *
-     * @var ?PaymentLinkCustomerOptions $customer
+     * @var ?\Moov\MoovPhp\Models\Components\PaymentLinkCustomerOptions $customer
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('customer')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentLinkCustomerOptions|null')]
@@ -95,7 +95,7 @@ class CreatePaymentLink
     /**
      * Options for payment links used to collect payment.
      *
-     * @var ?PaymentLinkPaymentDetails $payment
+     * @var ?\Moov\MoovPhp\Models\Components\PaymentLinkPaymentDetails $payment
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('payment')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentLinkPaymentDetails|null')]
@@ -104,7 +104,7 @@ class CreatePaymentLink
 
     /**
      *
-     * @var ?PaymentLinkPayoutDetails $payout
+     * @var ?\Moov\MoovPhp\Models\Components\PaymentLinkPayoutDetails $payout
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('payout')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentLinkPayoutDetails|null')]
@@ -116,7 +116,7 @@ class CreatePaymentLink
      *
      * When line items are provided, their total plus sales tax must equal the payment link amount.
      *
-     * @var ?CreatePaymentLinkLineItems $lineItems
+     * @var ?\Moov\MoovPhp\Models\Components\CreatePaymentLinkLineItems $lineItems
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('lineItems')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreatePaymentLinkLineItems|null')]
@@ -126,15 +126,15 @@ class CreatePaymentLink
     /**
      * @param  string  $partnerAccountID
      * @param  string  $merchantPaymentMethodID
-     * @param  Amount  $amount
-     * @param  PaymentLinkDisplayOptions  $display
-     * @param  ?Amount  $salesTaxAmount
+     * @param  \Moov\MoovPhp\Models\Components\Amount  $amount
+     * @param  \Moov\MoovPhp\Models\Components\PaymentLinkDisplayOptions  $display
+     * @param  ?\Moov\MoovPhp\Models\Components\Amount  $salesTaxAmount
      * @param  ?int  $maxUses
      * @param  ?\DateTime  $expiresOn
-     * @param  ?PaymentLinkCustomerOptions  $customer
-     * @param  ?PaymentLinkPaymentDetails  $payment
-     * @param  ?PaymentLinkPayoutDetails  $payout
-     * @param  ?CreatePaymentLinkLineItems  $lineItems
+     * @param  ?\Moov\MoovPhp\Models\Components\PaymentLinkCustomerOptions  $customer
+     * @param  ?\Moov\MoovPhp\Models\Components\PaymentLinkPaymentDetails  $payment
+     * @param  ?\Moov\MoovPhp\Models\Components\PaymentLinkPayoutDetails  $payout
+     * @param  ?\Moov\MoovPhp\Models\Components\CreatePaymentLinkLineItems  $lineItems
      * @phpstan-pure
      */
     public function __construct(string $partnerAccountID, string $merchantPaymentMethodID, Amount $amount, PaymentLinkDisplayOptions $display, ?Amount $salesTaxAmount = null, ?int $maxUses = null, ?\DateTime $expiresOn = null, ?PaymentLinkCustomerOptions $customer = null, ?PaymentLinkPaymentDetails $payment = null, ?PaymentLinkPayoutDetails $payout = null, ?CreatePaymentLinkLineItems $lineItems = null)

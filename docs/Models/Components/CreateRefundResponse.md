@@ -7,7 +7,7 @@
 
 ```php
 /**
-* @var Components\CardAcquiringRefund
+* @var \Moov\MoovPhp\Models\Components\CardAcquiringRefund
 */
 Components\CardAcquiringRefund $value = /* values here */
 ```
@@ -16,7 +16,7 @@ Components\CardAcquiringRefund $value = /* values here */
 
 ```php
 /**
-* @var Components\AsyncCreatedRefund
+* @var \Moov\MoovPhp\Models\Components\AsyncCreatedRefund
 */
 Components\AsyncCreatedRefund $value = /* values here */
 ```

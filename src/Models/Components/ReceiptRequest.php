@@ -14,7 +14,7 @@ class ReceiptRequest
 {
     /**
      *
-     * @var Kind $kind
+     * @var \Moov\MoovPhp\Models\Components\Kind $kind
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('kind')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Kind')]
@@ -76,7 +76,7 @@ class ReceiptRequest
     public ?string $forOccurrenceID = null;
 
     /**
-     * @param  Kind  $kind
+     * @param  \Moov\MoovPhp\Models\Components\Kind  $kind
      * @param  ?string  $email
      * @param  ?string  $emailAccountID
      * @param  ?string  $forTransferID

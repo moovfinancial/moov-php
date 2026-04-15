@@ -207,7 +207,7 @@ $response = $sdk->cardIssuing->update(
 
 );
 
-if ($response->statusCode === 200) {
+if ($response->issuedCard !== null) {
     // handle response
 }
 ```

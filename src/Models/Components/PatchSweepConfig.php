@@ -13,7 +13,7 @@ class PatchSweepConfig
 {
     /**
      *
-     * @var ?Status $status
+     * @var ?\Moov\MoovPhp\Models\Components\Status $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Status|null')]
@@ -53,7 +53,7 @@ class PatchSweepConfig
     public ?string $minimumBalance = null;
 
     /**
-     * @param  ?Status  $status
+     * @param  ?\Moov\MoovPhp\Models\Components\Status  $status
      * @param  ?string  $pushPaymentMethodID
      * @param  ?string  $pullPaymentMethodID
      * @param  ?string  $statementDescriptor

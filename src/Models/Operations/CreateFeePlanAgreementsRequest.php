@@ -21,14 +21,14 @@ class CreateFeePlanAgreementsRequest
 
     /**
      *
-     * @var Components\CreateFeePlanAgreement $createFeePlanAgreement
+     * @var \Moov\MoovPhp\Models\Components\CreateFeePlanAgreement $createFeePlanAgreement
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\CreateFeePlanAgreement $createFeePlanAgreement;
 
     /**
      * @param  string  $accountID
-     * @param  Components\CreateFeePlanAgreement  $createFeePlanAgreement
+     * @param  \Moov\MoovPhp\Models\Components\CreateFeePlanAgreement  $createFeePlanAgreement
      * @phpstan-pure
      */
     public function __construct(string $accountID, Components\CreateFeePlanAgreement $createFeePlanAgreement)

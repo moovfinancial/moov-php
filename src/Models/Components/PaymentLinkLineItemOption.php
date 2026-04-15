@@ -31,7 +31,7 @@ class PaymentLinkLineItemOption
     /**
      * Optional price modification applied by this option. Can be positive, negative, or zero.
      *
-     * @var ?AmountDecimal $priceModifier
+     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimal $priceModifier
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('priceModifier')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
@@ -41,7 +41,7 @@ class PaymentLinkLineItemOption
     /**
      * Optional list of images associated with this line item option.
      *
-     * @var ?array<PaymentLinkLineItemImageMetadata> $images
+     * @var ?array<\Moov\MoovPhp\Models\Components\PaymentLinkLineItemImageMetadata> $images
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('images')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\PaymentLinkLineItemImageMetadata>|null')]
@@ -60,8 +60,8 @@ class PaymentLinkLineItemOption
     /**
      * @param  string  $name
      * @param  int  $quantity
-     * @param  ?AmountDecimal  $priceModifier
-     * @param  ?array<PaymentLinkLineItemImageMetadata>  $images
+     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimal  $priceModifier
+     * @param  ?array<\Moov\MoovPhp\Models\Components\PaymentLinkLineItemImageMetadata>  $images
      * @param  ?string  $group
      * @phpstan-pure
      */

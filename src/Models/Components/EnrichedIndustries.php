@@ -14,14 +14,14 @@ class EnrichedIndustries
     /**
      * $industries
      *
-     * @var array<IndustryTaxonomy> $industries
+     * @var array<\Moov\MoovPhp\Models\Components\IndustryTaxonomy> $industries
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('industries')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\IndustryTaxonomy>')]
     public array $industries;
 
     /**
-     * @param  array<IndustryTaxonomy>  $industries
+     * @param  array<\Moov\MoovPhp\Models\Components\IndustryTaxonomy>  $industries
      * @phpstan-pure
      */
     public function __construct(array $industries)

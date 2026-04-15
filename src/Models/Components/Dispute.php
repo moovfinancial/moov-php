@@ -28,7 +28,7 @@ class Dispute
 
     /**
      *
-     * @var Amount $amount
+     * @var \Moov\MoovPhp\Models\Components\Amount $amount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Amount')]
@@ -47,7 +47,7 @@ class Dispute
 
     /**
      *
-     * @var DisputeTransferDetails $transfer
+     * @var \Moov\MoovPhp\Models\Components\DisputeTransferDetails $transfer
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('transfer')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\DisputeTransferDetails')]
@@ -66,7 +66,7 @@ class Dispute
      *
      * Read our [disputes guide](https://docs.moov.io/guides/money-movement/accept-payments/card-acceptance/disputes/#dispute-statuses) to learn what each status means.
      *
-     * @var DisputeStatus $status
+     * @var \Moov\MoovPhp\Models\Components\DisputeStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\DisputeStatus')]
@@ -75,7 +75,7 @@ class Dispute
     /**
      * The phase of a dispute within the dispute lifecycle.
      *
-     * @var DisputePhase $phase
+     * @var \Moov\MoovPhp\Models\Components\DisputePhase $phase
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('phase')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\DisputePhase')]
@@ -108,12 +108,12 @@ class Dispute
     /**
      * @param  string  $disputeID
      * @param  string  $merchantAccountID
-     * @param  Amount  $amount
+     * @param  \Moov\MoovPhp\Models\Components\Amount  $amount
      * @param  string  $networkReasonCode
-     * @param  DisputeTransferDetails  $transfer
+     * @param  \Moov\MoovPhp\Models\Components\DisputeTransferDetails  $transfer
      * @param  \DateTime  $respondBy
-     * @param  DisputeStatus  $status
-     * @param  DisputePhase  $phase
+     * @param  \Moov\MoovPhp\Models\Components\DisputeStatus  $status
+     * @param  \Moov\MoovPhp\Models\Components\DisputePhase  $phase
      * @param  \DateTime  $createdOn
      * @param  ?string  $networkReasonDescription
      * @param  ?\DateTime  $submittedOn

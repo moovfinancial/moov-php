@@ -20,7 +20,7 @@ class SchedulePaymentMethod
 
     /**
      *
-     * @var ?AchDetails $achDetails
+     * @var ?\Moov\MoovPhp\Models\Components\AchDetails $achDetails
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('achDetails')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AchDetails|null')]
@@ -29,7 +29,7 @@ class SchedulePaymentMethod
 
     /**
      *
-     * @var ?CardDetails $cardDetails
+     * @var ?\Moov\MoovPhp\Models\Components\CardDetails $cardDetails
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardDetails')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardDetails|null')]
@@ -38,8 +38,8 @@ class SchedulePaymentMethod
 
     /**
      * @param  string  $paymentMethodID
-     * @param  ?AchDetails  $achDetails
-     * @param  ?CardDetails  $cardDetails
+     * @param  ?\Moov\MoovPhp\Models\Components\AchDetails  $achDetails
+     * @param  ?\Moov\MoovPhp\Models\Components\CardDetails  $cardDetails
      * @phpstan-pure
      */
     public function __construct(string $paymentMethodID, ?AchDetails $achDetails = null, ?CardDetails $cardDetails = null)

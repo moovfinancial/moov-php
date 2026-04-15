@@ -30,7 +30,7 @@ class Product
     /**
      * A product's starting price, before applying modifiers.
      *
-     * @var AmountDecimal $basePrice
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $basePrice
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('basePrice')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
@@ -69,7 +69,7 @@ class Product
     /**
      * Optional configuration options for a product, such as size or color.
      *
-     * @var ?array<ProductOptionGroup> $optionGroups
+     * @var ?array<\Moov\MoovPhp\Models\Components\ProductOptionGroup> $optionGroups
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('optionGroups')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\ProductOptionGroup>|null')]
@@ -79,7 +79,7 @@ class Product
     /**
      * Optional images associated with the product.
      *
-     * @var ?array<ProductImageMetadata> $images
+     * @var ?array<\Moov\MoovPhp\Models\Components\ProductImageMetadata> $images
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('images')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\ProductImageMetadata>|null')]
@@ -98,12 +98,12 @@ class Product
     /**
      * @param  string  $productID
      * @param  string  $title
-     * @param  AmountDecimal  $basePrice
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $basePrice
      * @param  \DateTime  $createdOn
      * @param  \DateTime  $updatedOn
      * @param  ?string  $description
-     * @param  ?array<ProductOptionGroup>  $optionGroups
-     * @param  ?array<ProductImageMetadata>  $images
+     * @param  ?array<\Moov\MoovPhp\Models\Components\ProductOptionGroup>  $optionGroups
+     * @param  ?array<\Moov\MoovPhp\Models\Components\ProductImageMetadata>  $images
      * @param  ?\DateTime  $disabledOn
      * @phpstan-pure
      */

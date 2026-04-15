@@ -42,7 +42,7 @@ class ListReceiptsResponse
     /**
      * The request completed successfully.
      *
-     * @var ?array<Components\ReceiptResponse> $receiptResponses
+     * @var ?array<\Moov\MoovPhp\Models\Components\ReceiptResponse> $receiptResponses
      */
     public ?array $receiptResponses = null;
 
@@ -51,7 +51,7 @@ class ListReceiptsResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?array<Components\ReceiptResponse>  $receiptResponses
+     * @param  ?array<\Moov\MoovPhp\Models\Components\ReceiptResponse>  $receiptResponses
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?array $receiptResponses = null, ?array $headers = [])

@@ -21,7 +21,7 @@ class PayoutDetailsError
 
     /**
      *
-     * @var ?PayoutRecipientError $recipient
+     * @var ?\Moov\MoovPhp\Models\Components\PayoutRecipientError $recipient
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('recipient')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PayoutRecipientError|null')]
@@ -38,7 +38,7 @@ class PayoutDetailsError
 
     /**
      * @param  ?string  $allowedMethods
-     * @param  ?PayoutRecipientError  $recipient
+     * @param  ?\Moov\MoovPhp\Models\Components\PayoutRecipientError  $recipient
      * @param  ?string  $metadata
      * @phpstan-pure
      */

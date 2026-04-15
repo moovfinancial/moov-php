@@ -21,7 +21,7 @@ class Wallet
 
     /**
      *
-     * @var WalletAvailableBalance $availableBalance
+     * @var \Moov\MoovPhp\Models\Components\WalletAvailableBalance $availableBalance
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('availableBalance')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\WalletAvailableBalance')]
@@ -48,7 +48,7 @@ class Wallet
      *   - `active`: The wallet is available for use and has an enabled payment method.
      *   - `closed`: The wallet is no longer active and the corresponding payment method has been disabled.
      *
-     * @var WalletStatus $status
+     * @var \Moov\MoovPhp\Models\Components\WalletStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\WalletStatus')]
@@ -60,7 +60,7 @@ class Wallet
      *   - `default`: The system-generated wallet automatically created when an account is granted the wallet capability.
      *   - `general`: An additional, user-defined wallet created via API or Dashboard.
      *
-     * @var WalletType $walletType
+     * @var \Moov\MoovPhp\Models\Components\WalletType $walletType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('walletType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\WalletType')]
@@ -101,11 +101,11 @@ class Wallet
 
     /**
      * @param  string  $walletID
-     * @param  WalletAvailableBalance  $availableBalance
+     * @param  \Moov\MoovPhp\Models\Components\WalletAvailableBalance  $availableBalance
      * @param  string  $partnerAccountID
      * @param  string  $name
-     * @param  WalletStatus  $status
-     * @param  WalletType  $walletType
+     * @param  \Moov\MoovPhp\Models\Components\WalletStatus  $status
+     * @param  \Moov\MoovPhp\Models\Components\WalletType  $walletType
      * @param  string  $description
      * @param  \DateTime  $createdOn
      * @param  ?array<string, string>  $metadata

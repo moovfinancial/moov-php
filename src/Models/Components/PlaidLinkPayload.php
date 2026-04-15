@@ -29,14 +29,14 @@ class PlaidLinkPayload
      * Please see <a href="https://plaid.com/docs/api/sandbox/#sandboxpublic_tokencreate" target="_blank">Plaid's sandbox documentation</a> for more 
      * details.
      *
-     * @var PlaidLinkIntegration $plaidLink
+     * @var \Moov\MoovPhp\Models\Components\PlaidLinkIntegration $plaidLink
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('plaidLink')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PlaidLinkIntegration')]
     public PlaidLinkIntegration $plaidLink;
 
     /**
-     * @param  PlaidLinkIntegration  $plaidLink
+     * @param  \Moov\MoovPhp\Models\Components\PlaidLinkIntegration  $plaidLink
      * @phpstan-pure
      */
     public function __construct(PlaidLinkIntegration $plaidLink)

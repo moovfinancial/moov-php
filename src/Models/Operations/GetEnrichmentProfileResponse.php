@@ -42,7 +42,7 @@ class GetEnrichmentProfileResponse
     /**
      * The request completed successfully.
      *
-     * @var ?Components\EnrichedBusinessResponse $enrichedBusinessResponse
+     * @var ?\Moov\MoovPhp\Models\Components\EnrichedBusinessResponse $enrichedBusinessResponse
      */
     public ?Components\EnrichedBusinessResponse $enrichedBusinessResponse = null;
 
@@ -51,7 +51,7 @@ class GetEnrichmentProfileResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\EnrichedBusinessResponse  $enrichedBusinessResponse
+     * @param  ?\Moov\MoovPhp\Models\Components\EnrichedBusinessResponse  $enrichedBusinessResponse
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\EnrichedBusinessResponse $enrichedBusinessResponse = null, ?array $headers = [])

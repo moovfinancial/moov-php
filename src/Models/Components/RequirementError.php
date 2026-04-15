@@ -14,7 +14,7 @@ class RequirementError
     /**
      * The unique ID of what the requirement is asking to be filled out.
      *
-     * @var RequirementID $requirement
+     * @var \Moov\MoovPhp\Models\Components\RequirementID $requirement
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('requirement')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RequirementID')]
@@ -22,7 +22,7 @@ class RequirementError
 
     /**
      *
-     * @var ?RequirementErrorCode $errorCode
+     * @var ?\Moov\MoovPhp\Models\Components\RequirementErrorCode $errorCode
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('errorCode')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RequirementErrorCode|null')]
@@ -30,8 +30,8 @@ class RequirementError
     public ?RequirementErrorCode $errorCode = null;
 
     /**
-     * @param  RequirementID  $requirement
-     * @param  ?RequirementErrorCode  $errorCode
+     * @param  \Moov\MoovPhp\Models\Components\RequirementID  $requirement
+     * @param  ?\Moov\MoovPhp\Models\Components\RequirementErrorCode  $errorCode
      * @phpstan-pure
      */
     public function __construct(RequirementID $requirement, ?RequirementErrorCode $errorCode = null)

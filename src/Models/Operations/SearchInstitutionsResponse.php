@@ -42,7 +42,7 @@ class SearchInstitutionsResponse
     /**
      * The request completed successfully.
      *
-     * @var ?Components\InstitutionsSearchResponse $institutionsSearchResponse
+     * @var ?\Moov\MoovPhp\Models\Components\InstitutionsSearchResponse $institutionsSearchResponse
      */
     public ?Components\InstitutionsSearchResponse $institutionsSearchResponse = null;
 
@@ -51,7 +51,7 @@ class SearchInstitutionsResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\InstitutionsSearchResponse  $institutionsSearchResponse
+     * @param  ?\Moov\MoovPhp\Models\Components\InstitutionsSearchResponse  $institutionsSearchResponse
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\InstitutionsSearchResponse $institutionsSearchResponse = null, ?array $headers = [])

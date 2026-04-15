@@ -54,7 +54,7 @@ class Statements
      *
      * @param  string  $accountID
      * @param  string  $statementID
-     * @return Operations\GetStatementResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetStatementResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function get(string $accountID, string $statementID, ?Options $options = null): Operations\GetStatementResponse
@@ -135,8 +135,8 @@ class Statements
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/profile.read` scope.
      *
-     * @param  Operations\ListStatementsRequest  $request
-     * @return Operations\ListStatementsResponse
+     * @param  \Moov\MoovPhp\Models\Operations\ListStatementsRequest  $request
+     * @return \Moov\MoovPhp\Models\Operations\ListStatementsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function list(Operations\ListStatementsRequest $request, ?Options $options = null): Operations\ListStatementsResponse

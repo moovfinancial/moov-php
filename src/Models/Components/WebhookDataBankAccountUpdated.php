@@ -27,7 +27,7 @@ class WebhookDataBankAccountUpdated
 
     /**
      *
-     * @var BankAccountStatus $status
+     * @var \Moov\MoovPhp\Models\Components\BankAccountStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BankAccountStatus')]
@@ -36,7 +36,7 @@ class WebhookDataBankAccountUpdated
     /**
      * The reason the bank account status changed to the current value.
      *
-     * @var BankAccountStatusReason $statusReason
+     * @var \Moov\MoovPhp\Models\Components\BankAccountStatusReason $statusReason
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('statusReason')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BankAccountStatusReason')]
@@ -45,7 +45,7 @@ class WebhookDataBankAccountUpdated
     /**
      * Reason for, and details related to, an `errored` or `verificationFailed` bank account status.
      *
-     * @var ?BankAccountException $exceptionDetails
+     * @var ?\Moov\MoovPhp\Models\Components\BankAccountException $exceptionDetails
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('exceptionDetails')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BankAccountException|null')]
@@ -55,9 +55,9 @@ class WebhookDataBankAccountUpdated
     /**
      * @param  string  $bankAccountID
      * @param  string  $accountID
-     * @param  BankAccountStatus  $status
-     * @param  BankAccountStatusReason  $statusReason
-     * @param  ?BankAccountException  $exceptionDetails
+     * @param  \Moov\MoovPhp\Models\Components\BankAccountStatus  $status
+     * @param  \Moov\MoovPhp\Models\Components\BankAccountStatusReason  $statusReason
+     * @param  ?\Moov\MoovPhp\Models\Components\BankAccountException  $exceptionDetails
      * @phpstan-pure
      */
     public function __construct(string $bankAccountID, string $accountID, BankAccountStatus $status, BankAccountStatusReason $statusReason, ?BankAccountException $exceptionDetails = null)

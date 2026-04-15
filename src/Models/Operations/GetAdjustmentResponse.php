@@ -42,7 +42,7 @@ class GetAdjustmentResponse
     /**
      * The request completed successfully.
      *
-     * @var ?Components\Adjustment $adjustment
+     * @var ?\Moov\MoovPhp\Models\Components\Adjustment $adjustment
      */
     public ?Components\Adjustment $adjustment = null;
 
@@ -51,7 +51,7 @@ class GetAdjustmentResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\Adjustment  $adjustment
+     * @param  ?\Moov\MoovPhp\Models\Components\Adjustment  $adjustment
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\Adjustment $adjustment = null, ?array $headers = [])

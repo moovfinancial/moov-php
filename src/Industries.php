@@ -50,7 +50,7 @@ class Industries
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/),
      * you'll need to specify the `/profile-enrichment.read` scope.
      *
-     * @return Operations\ListIndustriesResponse
+     * @return \Moov\MoovPhp\Models\Operations\ListIndustriesResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function list(?Options $options = null): Operations\ListIndustriesResponse

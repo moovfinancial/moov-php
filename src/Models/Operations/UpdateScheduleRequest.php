@@ -29,7 +29,7 @@ class UpdateScheduleRequest
 
     /**
      *
-     * @var Components\UpsertSchedule $upsertSchedule
+     * @var \Moov\MoovPhp\Models\Components\UpsertSchedule $upsertSchedule
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\UpsertSchedule $upsertSchedule;
@@ -37,7 +37,7 @@ class UpdateScheduleRequest
     /**
      * @param  string  $accountID
      * @param  string  $scheduleID
-     * @param  Components\UpsertSchedule  $upsertSchedule
+     * @param  \Moov\MoovPhp\Models\Components\UpsertSchedule  $upsertSchedule
      * @phpstan-pure
      */
     public function __construct(string $accountID, string $scheduleID, Components\UpsertSchedule $upsertSchedule)

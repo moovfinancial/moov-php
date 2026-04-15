@@ -55,7 +55,7 @@ class Disputes
      *
      * @param  string  $accountID
      * @param  string  $disputeID
-     * @return Operations\AcceptDisputeResponse
+     * @return \Moov\MoovPhp\Models\Operations\AcceptDisputeResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function accept(string $accountID, string $disputeID, ?Options $options = null): Operations\AcceptDisputeResponse
@@ -141,7 +141,7 @@ class Disputes
      * @param  string  $accountID
      * @param  string  $disputeID
      * @param  string  $evidenceID
-     * @return Operations\DeleteDisputeEvidenceFileResponse
+     * @return \Moov\MoovPhp\Models\Operations\DeleteDisputeEvidenceFileResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function deleteEvidence(string $accountID, string $disputeID, string $evidenceID, ?Options $options = null): Operations\DeleteDisputeEvidenceFileResponse
@@ -217,7 +217,7 @@ class Disputes
      *
      * @param  string  $accountID
      * @param  string  $disputeID
-     * @return Operations\GetDisputeResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetDisputeResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function get(string $accountID, string $disputeID, ?Options $options = null): Operations\GetDisputeResponse
@@ -292,7 +292,7 @@ class Disputes
      * @param  string  $accountID
      * @param  string  $disputeID
      * @param  string  $evidenceID
-     * @return Operations\GetDisputeEvidenceResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetDisputeEvidenceResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function getEvidence(string $accountID, string $disputeID, string $evidenceID, ?Options $options = null): Operations\GetDisputeEvidenceResponse
@@ -368,7 +368,7 @@ class Disputes
      * @param  string  $accountID
      * @param  string  $disputeID
      * @param  string  $evidenceID
-     * @return Operations\GetDisputeEvidenceDataResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetDisputeEvidenceDataResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function getEvidenceData(string $accountID, string $disputeID, string $evidenceID, ?Options $options = null): Operations\GetDisputeEvidenceDataResponse
@@ -462,7 +462,7 @@ class Disputes
      *
      * @param  string  $accountID
      * @param  string  $disputeID
-     * @return Operations\ListDisputeEvidenceResponse
+     * @return \Moov\MoovPhp\Models\Operations\ListDisputeEvidenceResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function listEvidence(string $accountID, string $disputeID, ?Options $options = null): Operations\ListDisputeEvidenceResponse
@@ -534,8 +534,8 @@ class Disputes
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
      *
-     * @param  Operations\ListDisputesRequest  $request
-     * @return Operations\ListDisputesResponse
+     * @param  \Moov\MoovPhp\Models\Operations\ListDisputesRequest  $request
+     * @return \Moov\MoovPhp\Models\Operations\ListDisputesResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function list(Operations\ListDisputesRequest $request, ?Options $options = null): Operations\ListDisputesResponse
@@ -622,7 +622,7 @@ class Disputes
      *
      * @param  string  $accountID
      * @param  string  $disputeID
-     * @return Operations\SubmitDisputeEvidenceResponse
+     * @return \Moov\MoovPhp\Models\Operations\SubmitDisputeEvidenceResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function submitEvidence(string $accountID, string $disputeID, ?Options $options = null): Operations\SubmitDisputeEvidenceResponse
@@ -705,11 +705,11 @@ class Disputes
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
      *
-     * @param  Components\UpdateEvidence  $updateEvidence
+     * @param  \Moov\MoovPhp\Models\Components\UpdateEvidence  $updateEvidence
      * @param  string  $accountID
      * @param  string  $disputeID
      * @param  string  $evidenceID
-     * @return Operations\UpdateDisputeEvidenceResponse
+     * @return \Moov\MoovPhp\Models\Operations\UpdateDisputeEvidenceResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function updateEvidence(Components\UpdateEvidence $updateEvidence, string $accountID, string $disputeID, string $evidenceID, ?Options $options = null): Operations\UpdateDisputeEvidenceResponse
@@ -799,10 +799,10 @@ class Disputes
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
      *
-     * @param  Components\CreateEvidenceFileMultiPart  $createEvidenceFileMultiPart
+     * @param  \Moov\MoovPhp\Models\Components\CreateEvidenceFileMultiPart  $createEvidenceFileMultiPart
      * @param  string  $accountID
      * @param  string  $disputeID
-     * @return Operations\UploadDisputeEvidenceFileResponse
+     * @return \Moov\MoovPhp\Models\Operations\UploadDisputeEvidenceFileResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function uploadEvidenceFile(Components\CreateEvidenceFileMultiPart $createEvidenceFileMultiPart, string $accountID, string $disputeID, ?Options $options = null): Operations\UploadDisputeEvidenceFileResponse
@@ -902,10 +902,10 @@ class Disputes
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
      *
-     * @param  Components\CreateEvidenceText  $createEvidenceText
+     * @param  \Moov\MoovPhp\Models\Components\CreateEvidenceText  $createEvidenceText
      * @param  string  $accountID
      * @param  string  $disputeID
-     * @return Operations\UploadDisputeEvidenceTextResponse
+     * @return \Moov\MoovPhp\Models\Operations\UploadDisputeEvidenceTextResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function uploadEvidenceText(Components\CreateEvidenceText $createEvidenceText, string $accountID, string $disputeID, ?Options $options = null): Operations\UploadDisputeEvidenceTextResponse

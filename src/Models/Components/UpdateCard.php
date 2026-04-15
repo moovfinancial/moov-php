@@ -17,7 +17,7 @@ class UpdateCard
      * This token is encrypted using the public key from /end-to-end-keys and wraps an AES key. For details and examples, refer to our 
      * [GitHub repository](https://github.com/moovfinancial/moov-go/blob/main/examples/e2ee/e2ee_test.go).
      *
-     * @var ?E2EETokenUpdate $e2ee
+     * @var ?\Moov\MoovPhp\Models\Components\E2EETokenUpdate $e2ee
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('e2ee')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\E2EETokenUpdate|null')]
@@ -27,7 +27,7 @@ class UpdateCard
     /**
      * Updated billing address to store on file for the card.
      *
-     * @var ?UpdateCardAddress $billingAddress
+     * @var ?\Moov\MoovPhp\Models\Components\UpdateCardAddress $billingAddress
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('billingAddress')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\UpdateCardAddress|null')]
@@ -36,7 +36,7 @@ class UpdateCard
 
     /**
      *
-     * @var ?UpdateCardExpiration $expiration
+     * @var ?\Moov\MoovPhp\Models\Components\UpdateCardExpiration $expiration
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('expiration')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\UpdateCardExpiration|null')]
@@ -95,9 +95,9 @@ class UpdateCard
     public ?string $holderName = null;
 
     /**
-     * @param  ?E2EETokenUpdate  $e2ee
-     * @param  ?UpdateCardAddress  $billingAddress
-     * @param  ?UpdateCardExpiration  $expiration
+     * @param  ?\Moov\MoovPhp\Models\Components\E2EETokenUpdate  $e2ee
+     * @param  ?\Moov\MoovPhp\Models\Components\UpdateCardAddress  $billingAddress
+     * @param  ?\Moov\MoovPhp\Models\Components\UpdateCardExpiration  $expiration
      * @param  ?string  $cardCvv
      * @param  ?bool  $cardOnFile
      * @param  ?string  $merchantAccountID

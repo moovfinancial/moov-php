@@ -13,7 +13,7 @@ class UpdateRepresentative
 {
     /**
      *
-     * @var ?IndividualNameUpdate $name
+     * @var ?\Moov\MoovPhp\Models\Components\IndividualNameUpdate $name
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('name')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IndividualNameUpdate|null')]
@@ -22,7 +22,7 @@ class UpdateRepresentative
 
     /**
      *
-     * @var ?Phone $phone
+     * @var ?\Moov\MoovPhp\Models\Components\Phone $phone
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('phone')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Phone|null')]
@@ -39,7 +39,7 @@ class UpdateRepresentative
 
     /**
      *
-     * @var ?UpdateRepresentativeAddress $address
+     * @var ?\Moov\MoovPhp\Models\Components\UpdateRepresentativeAddress $address
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('address')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\UpdateRepresentativeAddress|null')]
@@ -48,7 +48,7 @@ class UpdateRepresentative
 
     /**
      *
-     * @var ?UpdateRepresentativeBirthDate $birthDate
+     * @var ?\Moov\MoovPhp\Models\Components\UpdateRepresentativeBirthDate $birthDate
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('birthDate')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\UpdateRepresentativeBirthDate|null')]
@@ -57,7 +57,7 @@ class UpdateRepresentative
 
     /**
      *
-     * @var ?UpdateRepresentativeGovernmentID $governmentID
+     * @var ?\Moov\MoovPhp\Models\Components\UpdateRepresentativeGovernmentID $governmentID
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('governmentID')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\UpdateRepresentativeGovernmentID|null')]
@@ -66,7 +66,7 @@ class UpdateRepresentative
 
     /**
      *
-     * @var ?Responsibilities $responsibilities
+     * @var ?\Moov\MoovPhp\Models\Components\Responsibilities $responsibilities
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('responsibilities')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Responsibilities|null')]
@@ -74,13 +74,13 @@ class UpdateRepresentative
     public ?Responsibilities $responsibilities = null;
 
     /**
-     * @param  ?IndividualNameUpdate  $name
-     * @param  ?Phone  $phone
+     * @param  ?\Moov\MoovPhp\Models\Components\IndividualNameUpdate  $name
+     * @param  ?\Moov\MoovPhp\Models\Components\Phone  $phone
      * @param  ?string  $email
-     * @param  ?UpdateRepresentativeAddress  $address
-     * @param  ?UpdateRepresentativeBirthDate  $birthDate
-     * @param  ?UpdateRepresentativeGovernmentID  $governmentID
-     * @param  ?Responsibilities  $responsibilities
+     * @param  ?\Moov\MoovPhp\Models\Components\UpdateRepresentativeAddress  $address
+     * @param  ?\Moov\MoovPhp\Models\Components\UpdateRepresentativeBirthDate  $birthDate
+     * @param  ?\Moov\MoovPhp\Models\Components\UpdateRepresentativeGovernmentID  $governmentID
+     * @param  ?\Moov\MoovPhp\Models\Components\Responsibilities  $responsibilities
      * @phpstan-pure
      */
     public function __construct(?IndividualNameUpdate $name = null, ?Phone $phone = null, ?string $email = null, ?UpdateRepresentativeAddress $address = null, ?UpdateRepresentativeBirthDate $birthDate = null, ?UpdateRepresentativeGovernmentID $governmentID = null, ?Responsibilities $responsibilities = null)

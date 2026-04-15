@@ -51,9 +51,9 @@ class Scheduling
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
      *
-     * @param  Components\UpsertSchedule  $upsertSchedule
+     * @param  \Moov\MoovPhp\Models\Components\UpsertSchedule  $upsertSchedule
      * @param  string  $accountID
-     * @return Operations\CreateScheduleResponse
+     * @return \Moov\MoovPhp\Models\Operations\CreateScheduleResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function create(Components\UpsertSchedule $upsertSchedule, string $accountID, ?Options $options = null): Operations\CreateScheduleResponse
@@ -153,7 +153,7 @@ class Scheduling
      * @param  string  $accountID
      * @param  string  $scheduleID
      * @param  string  $occurrenceFilter
-     * @return Operations\GetScheduledOccurrenceResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetScheduledOccurrenceResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function getOccurrence(string $accountID, string $scheduleID, string $occurrenceFilter, ?Options $options = null): Operations\GetScheduledOccurrenceResponse
@@ -226,7 +226,7 @@ class Scheduling
      *
      * @param  string  $accountID
      * @param  string  $scheduleID
-     * @return Operations\GetSchedulesResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetSchedulesResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function get(string $accountID, string $scheduleID, ?Options $options = null): Operations\GetSchedulesResponse
@@ -299,8 +299,8 @@ class Scheduling
      * @param  string  $accountID
      * @param  ?int  $skip
      * @param  ?int  $count
-     * @param  ?Operations\Hydrate  $hydrate
-     * @return Operations\ListSchedulesResponse
+     * @param  ?\Moov\MoovPhp\Models\Operations\Hydrate  $hydrate
+     * @return \Moov\MoovPhp\Models\Operations\ListSchedulesResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function list(string $accountID, ?int $skip = null, ?int $count = null, ?Operations\Hydrate $hydrate = null, ?Options $options = null): Operations\ListSchedulesResponse
@@ -375,10 +375,10 @@ class Scheduling
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
      *
-     * @param  Components\UpsertSchedule  $upsertSchedule
+     * @param  \Moov\MoovPhp\Models\Components\UpsertSchedule  $upsertSchedule
      * @param  string  $accountID
      * @param  string  $scheduleID
-     * @return Operations\UpdateScheduleResponse
+     * @return \Moov\MoovPhp\Models\Operations\UpdateScheduleResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function update(Components\UpsertSchedule $upsertSchedule, string $accountID, string $scheduleID, ?Options $options = null): Operations\UpdateScheduleResponse

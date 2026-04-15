@@ -23,7 +23,7 @@ class RecurResponse
 
     /**
      *
-     * @var RunTransfer $runTransfer
+     * @var \Moov\MoovPhp\Models\Components\RunTransfer $runTransfer
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('runTransfer')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RunTransfer')]
@@ -48,7 +48,7 @@ class RecurResponse
 
     /**
      * @param  string  $recurrenceRule
-     * @param  RunTransfer  $runTransfer
+     * @param  \Moov\MoovPhp\Models\Components\RunTransfer  $runTransfer
      * @param  ?bool  $indefinite
      * @param  ?\DateTime  $start
      * @phpstan-pure
