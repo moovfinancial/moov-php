@@ -42,7 +42,7 @@ class ListTransfersResponse
     /**
      * The request completed successfully.
      *
-     * @var ?array<Components\Transfer> $transfers
+     * @var ?array<\Moov\MoovPhp\Models\Components\Transfer> $transfers
      */
     public ?array $transfers = null;
 
@@ -51,7 +51,7 @@ class ListTransfersResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?array<Components\Transfer>  $transfers
+     * @param  ?array<\Moov\MoovPhp\Models\Components\Transfer>  $transfers
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?array $transfers = null, ?array $headers = [])

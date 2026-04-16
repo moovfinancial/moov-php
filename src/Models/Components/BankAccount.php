@@ -32,7 +32,7 @@ class BankAccount
 
     /**
      *
-     * @var BankAccountStatus $status
+     * @var \Moov\MoovPhp\Models\Components\BankAccountStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BankAccountStatus')]
@@ -48,7 +48,7 @@ class BankAccount
     /**
      * The type of holder on a funding source.
      *
-     * @var BankAccountHolderType $holderType
+     * @var \Moov\MoovPhp\Models\Components\BankAccountHolderType $holderType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('holderType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BankAccountHolderType')]
@@ -64,7 +64,7 @@ class BankAccount
     /**
      * The bank account type.
      *
-     * @var BankAccountType $bankAccountType
+     * @var \Moov\MoovPhp\Models\Components\BankAccountType $bankAccountType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('bankAccountType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BankAccountType')]
@@ -94,7 +94,7 @@ class BankAccount
     /**
      * The reason the bank account status changed to the current value.
      *
-     * @var ?BankAccountStatusReason $statusReason
+     * @var ?\Moov\MoovPhp\Models\Components\BankAccountStatusReason $statusReason
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('statusReason')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BankAccountStatusReason|null')]
@@ -104,7 +104,7 @@ class BankAccount
     /**
      * Reason for, and details related to, an `errored` or `verificationFailed` bank account status.
      *
-     * @var ?BankAccountException $exceptionDetails
+     * @var ?\Moov\MoovPhp\Models\Components\BankAccountException $exceptionDetails
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('exceptionDetails')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BankAccountException|null')]
@@ -118,7 +118,7 @@ class BankAccount
      *
      * **NOTE: This field is only populated for Create BankAccount requests made with the `X-Wait-For` header.**
      *
-     * @var ?array<BasicPaymentMethod> $paymentMethods
+     * @var ?array<\Moov\MoovPhp\Models\Components\BasicPaymentMethod> $paymentMethods
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('paymentMethods')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\BasicPaymentMethod>|null')]
@@ -128,17 +128,17 @@ class BankAccount
     /**
      * @param  string  $bankAccountID
      * @param  string  $fingerprint
-     * @param  BankAccountStatus  $status
+     * @param  \Moov\MoovPhp\Models\Components\BankAccountStatus  $status
      * @param  string  $holderName
-     * @param  BankAccountHolderType  $holderType
+     * @param  \Moov\MoovPhp\Models\Components\BankAccountHolderType  $holderType
      * @param  string  $bankName
-     * @param  BankAccountType  $bankAccountType
+     * @param  \Moov\MoovPhp\Models\Components\BankAccountType  $bankAccountType
      * @param  string  $routingNumber
      * @param  string  $lastFourAccountNumber
      * @param  \DateTime  $updatedOn
-     * @param  ?BankAccountStatusReason  $statusReason
-     * @param  ?BankAccountException  $exceptionDetails
-     * @param  ?array<BasicPaymentMethod>  $paymentMethods
+     * @param  ?\Moov\MoovPhp\Models\Components\BankAccountStatusReason  $statusReason
+     * @param  ?\Moov\MoovPhp\Models\Components\BankAccountException  $exceptionDetails
+     * @param  ?array<\Moov\MoovPhp\Models\Components\BasicPaymentMethod>  $paymentMethods
      * @phpstan-pure
      */
     public function __construct(string $bankAccountID, string $fingerprint, BankAccountStatus $status, string $holderName, BankAccountHolderType $holderType, string $bankName, BankAccountType $bankAccountType, string $routingNumber, string $lastFourAccountNumber, \DateTime $updatedOn, ?BankAccountStatusReason $statusReason = null, ?BankAccountException $exceptionDetails = null, ?array $paymentMethods = null)

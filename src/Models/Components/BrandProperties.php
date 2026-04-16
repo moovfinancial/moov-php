@@ -14,14 +14,14 @@ class BrandProperties
     /**
      * Brand colors for light and dark modes.
      *
-     * @var BrandColors $colors
+     * @var \Moov\MoovPhp\Models\Components\BrandColors $colors
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('colors')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BrandColors')]
     public BrandColors $colors;
 
     /**
-     * @param  BrandColors  $colors
+     * @param  \Moov\MoovPhp\Models\Components\BrandColors  $colors
      * @phpstan-pure
      */
     public function __construct(BrandColors $colors)

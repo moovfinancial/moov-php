@@ -53,9 +53,9 @@ class ResolutionLinks
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
      * you'll need to specify the `/accounts/{accountID}/profile.write`, `/accounts/{accountID}/representatives.write` and `/accounts/{accountID}/files.write` scopes.
      *
-     * @param  Components\CreateResolutionLink  $createResolutionLink
+     * @param  \Moov\MoovPhp\Models\Components\CreateResolutionLink  $createResolutionLink
      * @param  string  $accountID
-     * @return Operations\CreateResolutionLinkResponse
+     * @return \Moov\MoovPhp\Models\Operations\CreateResolutionLinkResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function create(Components\CreateResolutionLink $createResolutionLink, string $accountID, ?Options $options = null): Operations\CreateResolutionLinkResponse
@@ -154,7 +154,7 @@ class ResolutionLinks
      *
      * @param  string  $accountID
      * @param  string  $resolutionLinkCode
-     * @return Operations\DisableResolutionLinkResponse
+     * @return \Moov\MoovPhp\Models\Operations\DisableResolutionLinkResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function disable(string $accountID, string $resolutionLinkCode, ?Options $options = null): Operations\DisableResolutionLinkResponse
@@ -227,7 +227,7 @@ class ResolutionLinks
      *
      * @param  string  $accountID
      * @param  string  $resolutionLinkCode
-     * @return Operations\GetResolutionLinkResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetResolutionLinkResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function get(string $accountID, string $resolutionLinkCode, ?Options $options = null): Operations\GetResolutionLinkResponse
@@ -298,7 +298,7 @@ class ResolutionLinks
      * you'll need to specify the `/accounts/{accountID}/profile.read` scope.
      *
      * @param  string  $accountID
-     * @return Operations\ListResolutionLinksResponse
+     * @return \Moov\MoovPhp\Models\Operations\ListResolutionLinksResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function list(string $accountID, ?Options $options = null): Operations\ListResolutionLinksResponse

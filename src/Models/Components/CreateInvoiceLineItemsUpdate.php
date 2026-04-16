@@ -15,7 +15,7 @@ class CreateInvoiceLineItemsUpdate
     /**
      * The list of line items.
      *
-     * @var ?array<CreateInvoiceLineItem> $items
+     * @var ?array<\Moov\MoovPhp\Models\Components\CreateInvoiceLineItem> $items
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('items')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\CreateInvoiceLineItem>|null')]
@@ -23,7 +23,7 @@ class CreateInvoiceLineItemsUpdate
     public ?array $items = null;
 
     /**
-     * @param  ?array<CreateInvoiceLineItem>  $items
+     * @param  ?array<\Moov\MoovPhp\Models\Components\CreateInvoiceLineItem>  $items
      * @phpstan-pure
      */
     public function __construct(?array $items = null)

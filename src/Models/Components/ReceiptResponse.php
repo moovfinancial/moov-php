@@ -30,7 +30,7 @@ class ReceiptResponse
     /**
      * The type of receipt.
      *
-     * @var ReceiptKind $kind
+     * @var \Moov\MoovPhp\Models\Components\ReceiptKind $kind
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('kind')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ReceiptKind')]
@@ -103,7 +103,7 @@ class ReceiptResponse
     /**
      * The list of receipts that have been sent.
      *
-     * @var ?array<SentReceipt> $sentFor
+     * @var ?array<\Moov\MoovPhp\Models\Components\SentReceipt> $sentFor
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('sentFor')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\SentReceipt>|null')]
@@ -113,14 +113,14 @@ class ReceiptResponse
     /**
      * @param  string  $receiptID
      * @param  string  $createdBy
-     * @param  ReceiptKind  $kind
+     * @param  \Moov\MoovPhp\Models\Components\ReceiptKind  $kind
      * @param  ?\DateTime  $disabledOn
      * @param  ?string  $email
      * @param  ?string  $emailAccountID
      * @param  ?string  $forTransferID
      * @param  ?string  $forScheduleID
      * @param  ?string  $forOccurrenceID
-     * @param  ?array<SentReceipt>  $sentFor
+     * @param  ?array<\Moov\MoovPhp\Models\Components\SentReceipt>  $sentFor
      * @phpstan-pure
      */
     public function __construct(string $receiptID, string $createdBy, ReceiptKind $kind, ?\DateTime $disabledOn = null, ?string $email = null, ?string $emailAccountID = null, ?string $forTransferID = null, ?string $forScheduleID = null, ?string $forOccurrenceID = null, ?array $sentFor = null)

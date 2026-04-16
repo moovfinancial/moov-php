@@ -21,7 +21,7 @@ class PaymentLink
 
     /**
      *
-     * @var PaymentLinkType $paymentLinkType
+     * @var \Moov\MoovPhp\Models\Components\PaymentLinkType $paymentLinkType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('paymentLinkType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentLinkType')]
@@ -30,7 +30,7 @@ class PaymentLink
     /**
      * The operating mode for an account.
      *
-     * @var Mode $mode
+     * @var \Moov\MoovPhp\Models\Components\Mode $mode
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('mode')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Mode')]
@@ -38,7 +38,7 @@ class PaymentLink
 
     /**
      *
-     * @var PaymentLinkStatus $status
+     * @var \Moov\MoovPhp\Models\Components\PaymentLinkStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentLinkStatus')]
@@ -86,7 +86,7 @@ class PaymentLink
 
     /**
      *
-     * @var Amount $amount
+     * @var \Moov\MoovPhp\Models\Components\Amount $amount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Amount')]
@@ -103,7 +103,7 @@ class PaymentLink
     /**
      * Customizable display options for a payment link.
      *
-     * @var PaymentLinkDisplayOptions $display
+     * @var \Moov\MoovPhp\Models\Components\PaymentLinkDisplayOptions $display
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('display')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentLinkDisplayOptions')]
@@ -111,7 +111,7 @@ class PaymentLink
 
     /**
      *
-     * @var PaymentLinkCustomerOptions $customer
+     * @var \Moov\MoovPhp\Models\Components\PaymentLinkCustomerOptions $customer
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('customer')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentLinkCustomerOptions')]
@@ -134,7 +134,7 @@ class PaymentLink
     /**
      * Optional sales tax amount.
      *
-     * @var ?Amount $salesTaxAmount
+     * @var ?\Moov\MoovPhp\Models\Components\Amount $salesTaxAmount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('salesTaxAmount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Amount|null')]
@@ -174,7 +174,7 @@ class PaymentLink
     /**
      * Options for payment links used to collect payment.
      *
-     * @var ?PaymentLinkPaymentDetails $payment
+     * @var ?\Moov\MoovPhp\Models\Components\PaymentLinkPaymentDetails $payment
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('payment')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentLinkPaymentDetails|null')]
@@ -183,7 +183,7 @@ class PaymentLink
 
     /**
      *
-     * @var ?PaymentLinkPayoutDetails $payout
+     * @var ?\Moov\MoovPhp\Models\Components\PaymentLinkPayoutDetails $payout
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('payout')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentLinkPayoutDetails|null')]
@@ -195,7 +195,7 @@ class PaymentLink
      *
      * When line items are provided, their total plus sales tax must equal the payment link amount.
      *
-     * @var ?PaymentLinkLineItems $lineItems
+     * @var ?\Moov\MoovPhp\Models\Components\PaymentLinkLineItems $lineItems
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('lineItems')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentLinkLineItems|null')]
@@ -212,27 +212,27 @@ class PaymentLink
 
     /**
      * @param  string  $code
-     * @param  PaymentLinkType  $paymentLinkType
-     * @param  Mode  $mode
-     * @param  PaymentLinkStatus  $status
+     * @param  \Moov\MoovPhp\Models\Components\PaymentLinkType  $paymentLinkType
+     * @param  \Moov\MoovPhp\Models\Components\Mode  $mode
+     * @param  \Moov\MoovPhp\Models\Components\PaymentLinkStatus  $status
      * @param  string  $partnerAccountID
      * @param  string  $merchantAccountID
      * @param  string  $ownerAccountID
      * @param  string  $merchantPaymentMethodID
      * @param  string  $link
-     * @param  Amount  $amount
+     * @param  \Moov\MoovPhp\Models\Components\Amount  $amount
      * @param  int  $uses
-     * @param  PaymentLinkDisplayOptions  $display
-     * @param  PaymentLinkCustomerOptions  $customer
+     * @param  \Moov\MoovPhp\Models\Components\PaymentLinkDisplayOptions  $display
+     * @param  \Moov\MoovPhp\Models\Components\PaymentLinkCustomerOptions  $customer
      * @param  \DateTime  $createdOn
      * @param  \DateTime  $updatedOn
-     * @param  ?Amount  $salesTaxAmount
+     * @param  ?\Moov\MoovPhp\Models\Components\Amount  $salesTaxAmount
      * @param  ?int  $maxUses
      * @param  ?\DateTime  $lastUsedOn
      * @param  ?\DateTime  $expiresOn
-     * @param  ?PaymentLinkPaymentDetails  $payment
-     * @param  ?PaymentLinkPayoutDetails  $payout
-     * @param  ?PaymentLinkLineItems  $lineItems
+     * @param  ?\Moov\MoovPhp\Models\Components\PaymentLinkPaymentDetails  $payment
+     * @param  ?\Moov\MoovPhp\Models\Components\PaymentLinkPayoutDetails  $payout
+     * @param  ?\Moov\MoovPhp\Models\Components\PaymentLinkLineItems  $lineItems
      * @param  ?\DateTime  $disabledOn
      * @phpstan-pure
      */

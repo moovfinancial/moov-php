@@ -21,14 +21,14 @@ class CreateResolutionLinkRequest
 
     /**
      *
-     * @var Components\CreateResolutionLink $createResolutionLink
+     * @var \Moov\MoovPhp\Models\Components\CreateResolutionLink $createResolutionLink
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\CreateResolutionLink $createResolutionLink;
 
     /**
      * @param  string  $accountID
-     * @param  Components\CreateResolutionLink  $createResolutionLink
+     * @param  \Moov\MoovPhp\Models\Components\CreateResolutionLink  $createResolutionLink
      * @phpstan-pure
      */
     public function __construct(string $accountID, Components\CreateResolutionLink $createResolutionLink)

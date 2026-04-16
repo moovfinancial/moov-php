@@ -60,7 +60,7 @@ class Invoice
 
     /**
      *
-     * @var InvoiceStatus $status
+     * @var \Moov\MoovPhp\Models\Components\InvoiceStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\InvoiceStatus')]
@@ -69,7 +69,7 @@ class Invoice
     /**
      * A collection of line items for an invoice.
      *
-     * @var InvoiceLineItems $lineItems
+     * @var \Moov\MoovPhp\Models\Components\InvoiceLineItems $lineItems
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('lineItems')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\InvoiceLineItems')]
@@ -77,7 +77,7 @@ class Invoice
 
     /**
      *
-     * @var AmountDecimal $subtotalAmount
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $subtotalAmount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('subtotalAmount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
@@ -85,7 +85,7 @@ class Invoice
 
     /**
      *
-     * @var AmountDecimal $taxAmount
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $taxAmount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('taxAmount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
@@ -94,7 +94,7 @@ class Invoice
     /**
      * Total amount of the invoice, sum of subTotalAmount and taxAmount
      *
-     * @var AmountDecimal $totalAmount
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $totalAmount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('totalAmount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
@@ -103,7 +103,7 @@ class Invoice
     /**
      * Total amount of pending transfers paid towards the invoice
      *
-     * @var AmountDecimal $pendingAmount
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $pendingAmount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('pendingAmount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
@@ -112,7 +112,7 @@ class Invoice
     /**
      * Total amount of completed transfers paid towards the invoice
      *
-     * @var AmountDecimal $paidAmount
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $paidAmount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('paidAmount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
@@ -121,7 +121,7 @@ class Invoice
     /**
      * Total amount of refunds initiated against transfers paid towards the invoice
      *
-     * @var AmountDecimal $refundedAmount
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $refundedAmount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('refundedAmount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
@@ -130,7 +130,7 @@ class Invoice
     /**
      * Total amount of disputes initiated against transfers paid towards the invoice
      *
-     * @var AmountDecimal $disputedAmount
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $disputedAmount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('disputedAmount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
@@ -162,7 +162,7 @@ class Invoice
     /**
      * Payment made towards an invoice, will be either a transfer or an external payment.
      *
-     * @var ?array<InvoicePayment> $invoicePayments
+     * @var ?array<\Moov\MoovPhp\Models\Components\InvoicePayment> $invoicePayments
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('invoicePayments')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\InvoicePayment>|null')]
@@ -224,19 +224,19 @@ class Invoice
      * @param  string  $customerDisplayName
      * @param  string  $customerEmail
      * @param  string  $partnerAccountID
-     * @param  InvoiceStatus  $status
-     * @param  InvoiceLineItems  $lineItems
-     * @param  AmountDecimal  $subtotalAmount
-     * @param  AmountDecimal  $taxAmount
-     * @param  AmountDecimal  $totalAmount
-     * @param  AmountDecimal  $pendingAmount
-     * @param  AmountDecimal  $paidAmount
-     * @param  AmountDecimal  $refundedAmount
-     * @param  AmountDecimal  $disputedAmount
+     * @param  \Moov\MoovPhp\Models\Components\InvoiceStatus  $status
+     * @param  \Moov\MoovPhp\Models\Components\InvoiceLineItems  $lineItems
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $subtotalAmount
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $taxAmount
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $totalAmount
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $pendingAmount
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $paidAmount
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $refundedAmount
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $disputedAmount
      * @param  \DateTime  $createdOn
      * @param  ?string  $description
      * @param  ?string  $paymentLinkCode
-     * @param  ?array<InvoicePayment>  $invoicePayments
+     * @param  ?array<\Moov\MoovPhp\Models\Components\InvoicePayment>  $invoicePayments
      * @param  ?\DateTime  $invoiceDate
      * @param  ?\DateTime  $dueDate
      * @param  ?\DateTime  $sentOn

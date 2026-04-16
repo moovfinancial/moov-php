@@ -13,7 +13,7 @@ class CreateIndividualErrorGovernmentID
 {
     /**
      *
-     * @var ?CreateIndividualErrorSsn $ssn
+     * @var ?\Moov\MoovPhp\Models\Components\CreateIndividualErrorSsn $ssn
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('ssn')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateIndividualErrorSsn|null')]
@@ -22,7 +22,7 @@ class CreateIndividualErrorGovernmentID
 
     /**
      *
-     * @var ?CreateIndividualErrorItin $itin
+     * @var ?\Moov\MoovPhp\Models\Components\CreateIndividualErrorItin $itin
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('itin')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateIndividualErrorItin|null')]
@@ -30,8 +30,8 @@ class CreateIndividualErrorGovernmentID
     public ?CreateIndividualErrorItin $itin = null;
 
     /**
-     * @param  ?CreateIndividualErrorSsn  $ssn
-     * @param  ?CreateIndividualErrorItin  $itin
+     * @param  ?\Moov\MoovPhp\Models\Components\CreateIndividualErrorSsn  $ssn
+     * @param  ?\Moov\MoovPhp\Models\Components\CreateIndividualErrorItin  $itin
      * @phpstan-pure
      */
     public function __construct(?CreateIndividualErrorSsn $ssn = null, ?CreateIndividualErrorItin $itin = null)

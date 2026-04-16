@@ -14,7 +14,7 @@ class InstitutionsSearchResponse
     /**
      * $ach
      *
-     * @var ?array<ACHInstitution> $ach
+     * @var ?array<\Moov\MoovPhp\Models\Components\ACHInstitution> $ach
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('ach')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\ACHInstitution>|null')]
@@ -23,7 +23,7 @@ class InstitutionsSearchResponse
     /**
      * $rtp
      *
-     * @var ?array<RTPInstitution> $rtp
+     * @var ?array<\Moov\MoovPhp\Models\Components\RTPInstitution> $rtp
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('rtp')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\RTPInstitution>|null')]
@@ -32,7 +32,7 @@ class InstitutionsSearchResponse
     /**
      * $wire
      *
-     * @var ?array<WireInstitution> $wire
+     * @var ?array<\Moov\MoovPhp\Models\Components\WireInstitution> $wire
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('wire')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\WireInstitution>|null')]
@@ -41,17 +41,17 @@ class InstitutionsSearchResponse
     /**
      * $fednow
      *
-     * @var ?array<FedNowInstitution> $fednow
+     * @var ?array<\Moov\MoovPhp\Models\Components\FedNowInstitution> $fednow
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('fednow')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\FedNowInstitution>|null')]
     public ?array $fednow;
 
     /**
-     * @param  ?array<ACHInstitution>  $ach
-     * @param  ?array<RTPInstitution>  $rtp
-     * @param  ?array<WireInstitution>  $wire
-     * @param  ?array<FedNowInstitution>  $fednow
+     * @param  ?array<\Moov\MoovPhp\Models\Components\ACHInstitution>  $ach
+     * @param  ?array<\Moov\MoovPhp\Models\Components\RTPInstitution>  $rtp
+     * @param  ?array<\Moov\MoovPhp\Models\Components\WireInstitution>  $wire
+     * @param  ?array<\Moov\MoovPhp\Models\Components\FedNowInstitution>  $fednow
      * @phpstan-pure
      */
     public function __construct(?array $ach = null, ?array $rtp = null, ?array $wire = null, ?array $fednow = null)

@@ -42,7 +42,7 @@ class UpdateTicketResponse
     /**
      * The request completed successfully.
      *
-     * @var ?Components\Ticket $ticket
+     * @var ?\Moov\MoovPhp\Models\Components\Ticket $ticket
      */
     public ?Components\Ticket $ticket = null;
 
@@ -51,7 +51,7 @@ class UpdateTicketResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\Ticket  $ticket
+     * @param  ?\Moov\MoovPhp\Models\Components\Ticket  $ticket
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\Ticket $ticket = null, ?array $headers = [])

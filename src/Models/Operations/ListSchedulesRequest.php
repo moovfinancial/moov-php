@@ -34,7 +34,7 @@ class ListSchedulesRequest
 
     /**
      *
-     * @var ?Hydrate $hydrate
+     * @var ?\Moov\MoovPhp\Models\Operations\Hydrate $hydrate
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=hydrate')]
     public ?Hydrate $hydrate = null;
@@ -43,7 +43,7 @@ class ListSchedulesRequest
      * @param  string  $accountID
      * @param  ?int  $skip
      * @param  ?int  $count
-     * @param  ?Hydrate  $hydrate
+     * @param  ?\Moov\MoovPhp\Models\Operations\Hydrate  $hydrate
      * @phpstan-pure
      */
     public function __construct(string $accountID, ?int $skip = null, ?int $count = null, ?Hydrate $hydrate = null)

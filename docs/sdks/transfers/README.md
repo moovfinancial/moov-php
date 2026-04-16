@@ -30,6 +30,14 @@ period of time. You can run multiple requests in smaller time window increments 
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
+* [batchGetTransfers](#batchgettransfers) - Retrieve transfer details for multiple transfers in one request. The response is a map from each
+requested transfer ID to its full transfer details when available; IDs that are not found or not
+accessible under this account are omitted from the map.
+
+Read our [transfers overview guide](https://docs.moov.io/guides/money-movement/overview/) to learn more.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
+you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
 * [get](#get) - Retrieve full transfer details for an individual transfer of a particular Moov account. 
 
 Payment rail-specific details are included in the source and destination. Read our [transfers overview guide](https://docs.moov.io/guides/money-movement/overview/) 
@@ -338,6 +346,72 @@ if ($response->transfers !== null) {
 | ----------------------------------- | ----------------------------------- | ----------------------------------- |
 | Errors\ListTransfersValidationError | 422                                 | application/json                    |
 | Errors\APIException                 | 4XX, 5XX                            | \*/\*                               |
+
+## batchGetTransfers
+
+Retrieve transfer details for multiple transfers in one request. The response is a map from each
+requested transfer ID to its full transfer details when available; IDs that are not found or not
+accessible under this account are omitted from the map.
+
+Read our [transfers overview guide](https://docs.moov.io/guides/money-movement/overview/) to learn more.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
+you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
+
+### Example Usage
+
+<!-- UsageSnippet language="php" operationID="batchGetTransfers" method="post" path="/accounts/{accountID}/transfers/.fetch" -->
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
+
+$sdk = MoovPhp\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
+
+$batchGetTransfersRequest = new Components\BatchGetTransfersRequest(
+    transferIDs: [
+        '<value 1>',
+        '<value 2>',
+    ],
+);
+
+$response = $sdk->transfers->batchGetTransfers(
+    accountID: '<id>',
+    batchGetTransfersRequest: $batchGetTransfersRequest
+
+);
+
+if ($response->object !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `accountID`                                                                                | *string*                                                                                   | :heavy_check_mark:                                                                         | N/A                                                                                        |
+| `batchGetTransfersRequest`                                                                 | [Components\BatchGetTransfersRequest](../../Models/Components/BatchGetTransfersRequest.md) | :heavy_check_mark:                                                                         | N/A                                                                                        |
+
+### Response
+
+**[?Operations\BatchGetTransfersResponse](../../Models/Operations/BatchGetTransfersResponse.md)**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| Errors\APIException | 4XX, 5XX            | \*/\*               |
 
 ## get
 

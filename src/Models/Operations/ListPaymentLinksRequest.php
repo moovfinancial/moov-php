@@ -37,7 +37,7 @@ class ListPaymentLinksRequest
     /**
      * A comma-separated list of payment link types to filter results.
      *
-     * @var ?array<Components\PaymentLinkType> $types
+     * @var ?array<\Moov\MoovPhp\Models\Components\PaymentLinkType> $types
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=types')]
     public ?array $types = null;
@@ -46,7 +46,7 @@ class ListPaymentLinksRequest
      * @param  string  $accountID
      * @param  ?int  $skip
      * @param  ?int  $count
-     * @param  ?array<Components\PaymentLinkType>  $types
+     * @param  ?array<\Moov\MoovPhp\Models\Components\PaymentLinkType>  $types
      * @phpstan-pure
      */
     public function __construct(string $accountID, ?int $skip = null, ?int $count = null, ?array $types = null)

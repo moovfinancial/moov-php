@@ -53,7 +53,7 @@ class PaymentMethods
      *
      * @param  string  $accountID
      * @param  string  $paymentMethodID
-     * @return Operations\GetPaymentMethodResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetPaymentMethodResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function get(string $accountID, string $paymentMethodID, ?Options $options = null): Operations\GetPaymentMethodResponse
@@ -92,7 +92,7 @@ class PaymentMethods
 
                 $serializer = Utils\JSON::createSerializer();
                 $responseData = (string) $httpResponse->getBody();
-                $obj = $serializer->deserialize($responseData, '\Moov\MoovPhp\Models\Components\MoovWalletPaymentMethod|\Moov\MoovPhp\Models\Components\AchDebitFundPaymentMethod|\Moov\MoovPhp\Models\Components\AchDebitCollectPaymentMethod|\Moov\MoovPhp\Models\Components\AchCreditStandardPaymentMethod|\Moov\MoovPhp\Models\Components\AchCreditSameDayPaymentMethod|\Moov\MoovPhp\Models\Components\RtpCreditPaymentMethod|\Moov\MoovPhp\Models\Components\CardPaymentPaymentMethod|\Moov\MoovPhp\Models\Components\PushToCardPaymentMethod|\Moov\MoovPhp\Models\Components\PullFromCardPaymentMethod|\Moov\MoovPhp\Models\Components\ApplePayPaymentMethod|\Moov\MoovPhp\Models\Components\CardPresentPaymentPaymentMethod|\Moov\MoovPhp\Models\Components\InstantBankCreditPaymentMethod', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj = $serializer->deserialize($responseData, '\Moov\MoovPhp\Models\Components\MoovWalletPaymentMethod|\Moov\MoovPhp\Models\Components\AchDebitFundPaymentMethod|\Moov\MoovPhp\Models\Components\AchDebitCollectPaymentMethod|\Moov\MoovPhp\Models\Components\AchCreditStandardPaymentMethod|\Moov\MoovPhp\Models\Components\AchCreditSameDayPaymentMethod|\Moov\MoovPhp\Models\Components\RtpCreditPaymentMethod|\Moov\MoovPhp\Models\Components\CardPaymentPaymentMethod|\Moov\MoovPhp\Models\Components\PushToCardPaymentMethod|\Moov\MoovPhp\Models\Components\PullFromCardPaymentMethod|\Moov\MoovPhp\Models\Components\ApplePayPaymentMethod|\Moov\MoovPhp\Models\Components\CardPresentPaymentPaymentMethod|\Moov\MoovPhp\Models\Components\InstantBankCreditPaymentMethod|\Moov\MoovPhp\Models\Components\PushToApplePayPaymentMethod|\Moov\MoovPhp\Models\Components\PullFromApplePayPaymentMethod', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
                 $response = new Operations\GetPaymentMethodResponse(
                     statusCode: $statusCode,
                     contentType: $contentType,
@@ -126,8 +126,8 @@ class PaymentMethods
      *
      * @param  string  $accountID
      * @param  ?string  $sourceID
-     * @param  ?Components\PaymentMethodType  $paymentMethodType
-     * @return Operations\ListPaymentMethodsResponse
+     * @param  ?\Moov\MoovPhp\Models\Components\PaymentMethodType  $paymentMethodType
+     * @return \Moov\MoovPhp\Models\Operations\ListPaymentMethodsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function list(string $accountID, ?string $sourceID = null, ?Components\PaymentMethodType $paymentMethodType = null, ?Options $options = null): Operations\ListPaymentMethodsResponse
@@ -170,7 +170,7 @@ class PaymentMethods
 
                 $serializer = Utils\JSON::createSerializer();
                 $responseData = (string) $httpResponse->getBody();
-                $obj = $serializer->deserialize($responseData, 'array<\Moov\MoovPhp\Models\Components\MoovWalletPaymentMethod|\Moov\MoovPhp\Models\Components\AchDebitFundPaymentMethod|\Moov\MoovPhp\Models\Components\AchDebitCollectPaymentMethod|\Moov\MoovPhp\Models\Components\AchCreditStandardPaymentMethod|\Moov\MoovPhp\Models\Components\AchCreditSameDayPaymentMethod|\Moov\MoovPhp\Models\Components\RtpCreditPaymentMethod|\Moov\MoovPhp\Models\Components\CardPaymentPaymentMethod|\Moov\MoovPhp\Models\Components\PushToCardPaymentMethod|\Moov\MoovPhp\Models\Components\PullFromCardPaymentMethod|\Moov\MoovPhp\Models\Components\ApplePayPaymentMethod|\Moov\MoovPhp\Models\Components\CardPresentPaymentPaymentMethod|\Moov\MoovPhp\Models\Components\InstantBankCreditPaymentMethod>', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj = $serializer->deserialize($responseData, 'array<\Moov\MoovPhp\Models\Components\MoovWalletPaymentMethod|\Moov\MoovPhp\Models\Components\AchDebitFundPaymentMethod|\Moov\MoovPhp\Models\Components\AchDebitCollectPaymentMethod|\Moov\MoovPhp\Models\Components\AchCreditStandardPaymentMethod|\Moov\MoovPhp\Models\Components\AchCreditSameDayPaymentMethod|\Moov\MoovPhp\Models\Components\RtpCreditPaymentMethod|\Moov\MoovPhp\Models\Components\CardPaymentPaymentMethod|\Moov\MoovPhp\Models\Components\PushToCardPaymentMethod|\Moov\MoovPhp\Models\Components\PullFromCardPaymentMethod|\Moov\MoovPhp\Models\Components\ApplePayPaymentMethod|\Moov\MoovPhp\Models\Components\CardPresentPaymentPaymentMethod|\Moov\MoovPhp\Models\Components\InstantBankCreditPaymentMethod|\Moov\MoovPhp\Models\Components\PushToApplePayPaymentMethod|\Moov\MoovPhp\Models\Components\PullFromApplePayPaymentMethod>', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
                 $response = new Operations\ListPaymentMethodsResponse(
                     statusCode: $statusCode,
                     contentType: $contentType,

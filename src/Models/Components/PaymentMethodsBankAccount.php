@@ -32,7 +32,7 @@ class PaymentMethodsBankAccount
 
     /**
      *
-     * @var BankAccountStatus $status
+     * @var \Moov\MoovPhp\Models\Components\BankAccountStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BankAccountStatus')]
@@ -48,7 +48,7 @@ class PaymentMethodsBankAccount
     /**
      * The type of holder on a funding source.
      *
-     * @var BankAccountHolderType $holderType
+     * @var \Moov\MoovPhp\Models\Components\BankAccountHolderType $holderType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('holderType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BankAccountHolderType')]
@@ -64,7 +64,7 @@ class PaymentMethodsBankAccount
     /**
      * The bank account type.
      *
-     * @var BankAccountType $bankAccountType
+     * @var \Moov\MoovPhp\Models\Components\BankAccountType $bankAccountType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('bankAccountType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BankAccountType')]
@@ -94,11 +94,11 @@ class PaymentMethodsBankAccount
     /**
      * @param  string  $bankAccountID
      * @param  string  $fingerprint
-     * @param  BankAccountStatus  $status
+     * @param  \Moov\MoovPhp\Models\Components\BankAccountStatus  $status
      * @param  string  $holderName
-     * @param  BankAccountHolderType  $holderType
+     * @param  \Moov\MoovPhp\Models\Components\BankAccountHolderType  $holderType
      * @param  string  $bankName
-     * @param  BankAccountType  $bankAccountType
+     * @param  \Moov\MoovPhp\Models\Components\BankAccountType  $bankAccountType
      * @param  string  $routingNumber
      * @param  string  $lastFourAccountNumber
      * @param  \DateTime  $updatedOn

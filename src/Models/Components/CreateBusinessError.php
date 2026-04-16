@@ -37,7 +37,7 @@ class CreateBusinessError
 
     /**
      *
-     * @var ?AddressError $address
+     * @var ?\Moov\MoovPhp\Models\Components\AddressError $address
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('address')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AddressError|null')]
@@ -46,7 +46,7 @@ class CreateBusinessError
 
     /**
      *
-     * @var ?PhoneNumberError $phone
+     * @var ?\Moov\MoovPhp\Models\Components\PhoneNumberError $phone
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('phone')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PhoneNumberError|null')]
@@ -79,7 +79,7 @@ class CreateBusinessError
 
     /**
      *
-     * @var ?CreateBusinessErrorTaxID $taxID
+     * @var ?\Moov\MoovPhp\Models\Components\CreateBusinessErrorTaxID $taxID
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('taxID')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateBusinessErrorTaxID|null')]
@@ -88,7 +88,7 @@ class CreateBusinessError
 
     /**
      *
-     * @var ?CreateBusinessErrorIndustryCodes $industryCodes
+     * @var ?\Moov\MoovPhp\Models\Components\CreateBusinessErrorIndustryCodes $industryCodes
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('industryCodes')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateBusinessErrorIndustryCodes|null')]
@@ -116,13 +116,13 @@ class CreateBusinessError
      * @param  ?string  $legalBusinessName
      * @param  ?string  $doingBusinessAs
      * @param  ?string  $businessType
-     * @param  ?AddressError  $address
-     * @param  ?PhoneNumberError  $phone
+     * @param  ?\Moov\MoovPhp\Models\Components\AddressError  $address
+     * @param  ?\Moov\MoovPhp\Models\Components\PhoneNumberError  $phone
      * @param  ?string  $email
      * @param  ?string  $website
      * @param  ?string  $description
-     * @param  ?CreateBusinessErrorTaxID  $taxID
-     * @param  ?CreateBusinessErrorIndustryCodes  $industryCodes
+     * @param  ?\Moov\MoovPhp\Models\Components\CreateBusinessErrorTaxID  $taxID
+     * @param  ?\Moov\MoovPhp\Models\Components\CreateBusinessErrorIndustryCodes  $industryCodes
      * @param  ?string  $industry
      * @param  ?string  $primaryRegulator
      * @phpstan-pure

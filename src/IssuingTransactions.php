@@ -52,7 +52,7 @@ class IssuingTransactions
      *
      * @param  string  $accountID
      * @param  string  $authorizationID
-     * @return Operations\GetIssuedCardAuthorizationResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetIssuedCardAuthorizationResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function getAuthorization(string $accountID, string $authorizationID, ?Options $options = null): Operations\GetIssuedCardAuthorizationResponse
@@ -126,7 +126,7 @@ class IssuingTransactions
      * @param  string  $authorizationID
      * @param  ?int  $skip
      * @param  ?int  $count
-     * @return Operations\ListIssuedCardAuthorizationEventsResponse
+     * @return \Moov\MoovPhp\Models\Operations\ListIssuedCardAuthorizationEventsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function listAuthorizationEvents(string $accountID, string $authorizationID, ?int $skip = null, ?int $count = null, ?Options $options = null): Operations\ListIssuedCardAuthorizationEventsResponse
@@ -201,8 +201,8 @@ class IssuingTransactions
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/issued-cards.read` scope.
      *
-     * @param  Operations\ListIssuedCardAuthorizationsRequest  $request
-     * @return Operations\ListIssuedCardAuthorizationsResponse
+     * @param  \Moov\MoovPhp\Models\Operations\ListIssuedCardAuthorizationsRequest  $request
+     * @return \Moov\MoovPhp\Models\Operations\ListIssuedCardAuthorizationsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function listAuthorizations(Operations\ListIssuedCardAuthorizationsRequest $request, ?Options $options = null): Operations\ListIssuedCardAuthorizationsResponse
@@ -271,8 +271,8 @@ class IssuingTransactions
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/issued-cards.read` scope.
      *
-     * @param  Operations\ListIssuedCardTransactionsRequest  $request
-     * @return Operations\ListIssuedCardTransactionsResponse
+     * @param  \Moov\MoovPhp\Models\Operations\ListIssuedCardTransactionsRequest  $request
+     * @return \Moov\MoovPhp\Models\Operations\ListIssuedCardTransactionsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function list(Operations\ListIssuedCardTransactionsRequest $request, ?Options $options = null): Operations\ListIssuedCardTransactionsResponse

@@ -42,7 +42,7 @@ class CompleteMicroDepositsResponse
     /**
      * The request completed successfully.
      *
-     * @var ?Components\CompletedMicroDeposits $completedMicroDeposits
+     * @var ?\Moov\MoovPhp\Models\Components\CompletedMicroDeposits $completedMicroDeposits
      */
     public ?Components\CompletedMicroDeposits $completedMicroDeposits = null;
 
@@ -51,7 +51,7 @@ class CompleteMicroDepositsResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\CompletedMicroDeposits  $completedMicroDeposits
+     * @param  ?\Moov\MoovPhp\Models\Components\CompletedMicroDeposits  $completedMicroDeposits
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\CompletedMicroDeposits $completedMicroDeposits = null, ?array $headers = [])

@@ -29,7 +29,7 @@ class CreateInvoiceLineItemValidationError
 
     /**
      *
-     * @var ?AmountDecimalValidationError $basePrice
+     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimalValidationError $basePrice
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('basePrice')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimalValidationError|null')]
@@ -39,7 +39,7 @@ class CreateInvoiceLineItemValidationError
     /**
      * $options
      *
-     * @var ?array<string, CreateInvoiceLineItemOptionValidationError> $options
+     * @var ?array<string, \Moov\MoovPhp\Models\Components\CreateInvoiceLineItemOptionValidationError> $options
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('options')]
     #[\Speakeasy\Serializer\Annotation\Type('array<string, \Moov\MoovPhp\Models\Components\CreateInvoiceLineItemOptionValidationError>|null')]
@@ -57,8 +57,8 @@ class CreateInvoiceLineItemValidationError
     /**
      * @param  ?string  $productID
      * @param  ?string  $name
-     * @param  ?AmountDecimalValidationError  $basePrice
-     * @param  ?array<string, CreateInvoiceLineItemOptionValidationError>  $options
+     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimalValidationError  $basePrice
+     * @param  ?array<string, \Moov\MoovPhp\Models\Components\CreateInvoiceLineItemOptionValidationError>  $options
      * @param  ?string  $quantity
      * @phpstan-pure
      */

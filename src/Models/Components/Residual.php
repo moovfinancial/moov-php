@@ -46,7 +46,7 @@ class Residual
     /**
      * Total amount of merchant fees collected during the period. This represents the partner's revenue from merchant fees.
      *
-     * @var AmountDecimal $merchantFees
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $merchantFees
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('merchantFees')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
@@ -55,7 +55,7 @@ class Residual
     /**
      * Partner's total cost (buy rate) during the period.
      *
-     * @var AmountDecimal $partnerCost
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $partnerCost
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('partnerCost')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
@@ -64,7 +64,7 @@ class Residual
     /**
      * Net income calculated as merchant fee revenue minus partner costs.
      *
-     * @var AmountDecimal $netIncome
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $netIncome
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('netIncome')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
@@ -81,7 +81,7 @@ class Residual
     /**
      * The amount the partner receives as their share of the net income (netIncome × revenueShare).
      *
-     * @var AmountDecimal $residualAmount
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $residualAmount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('residualAmount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
@@ -108,11 +108,11 @@ class Residual
      * @param  string  $partnerAccountID
      * @param  \DateTime  $periodStart
      * @param  \DateTime  $periodEnd
-     * @param  AmountDecimal  $merchantFees
-     * @param  AmountDecimal  $partnerCost
-     * @param  AmountDecimal  $netIncome
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $merchantFees
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $partnerCost
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $netIncome
      * @param  string  $revenueShare
-     * @param  AmountDecimal  $residualAmount
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $residualAmount
      * @param  \DateTime  $createdOn
      * @param  \DateTime  $updatedOn
      * @phpstan-pure

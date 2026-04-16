@@ -22,7 +22,7 @@ class TermsOfServicePayload
     /**
      * Describes the acceptance of the Terms of Service. All data is required, and must be from the user.
      *
-     * @var ?ManualTermsOfService $manual
+     * @var ?\Moov\MoovPhp\Models\Components\ManualTermsOfService $manual
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('manual')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ManualTermsOfService|null')]
@@ -31,7 +31,7 @@ class TermsOfServicePayload
 
     /**
      * @param  ?string  $token
-     * @param  ?ManualTermsOfService  $manual
+     * @param  ?\Moov\MoovPhp\Models\Components\ManualTermsOfService  $manual
      * @phpstan-pure
      */
     public function __construct(?string $token = null, ?ManualTermsOfService $manual = null)

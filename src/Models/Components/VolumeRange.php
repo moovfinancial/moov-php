@@ -23,7 +23,7 @@ class VolumeRange
     /**
      * The flat amount for a whole tier of the fee.
      *
-     * @var AmountDecimal $flatAmount
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $flatAmount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('flatAmount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
@@ -32,7 +32,7 @@ class VolumeRange
     /**
      * The unit price for a specific tier of the fee.
      *
-     * @var AmountDecimal $perUnitAmount
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $perUnitAmount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('perUnitAmount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
@@ -49,8 +49,8 @@ class VolumeRange
 
     /**
      * @param  int  $fromValue
-     * @param  AmountDecimal  $flatAmount
-     * @param  AmountDecimal  $perUnitAmount
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $flatAmount
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $perUnitAmount
      * @param  ?int  $toValue
      * @phpstan-pure
      */

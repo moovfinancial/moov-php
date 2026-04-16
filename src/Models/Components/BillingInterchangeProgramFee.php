@@ -39,7 +39,7 @@ class BillingInterchangeProgramFee
     /**
      * The per-item rate for this program.
      *
-     * @var AmountDecimal $perItemRate
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $perItemRate
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('perItemRate')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
@@ -48,7 +48,7 @@ class BillingInterchangeProgramFee
     /**
      * The total fee amount for this program.
      *
-     * @var AmountDecimal $total
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $total
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('total')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
@@ -57,7 +57,7 @@ class BillingInterchangeProgramFee
     /**
      * The total transfer volume for this program.
      *
-     * @var AmountDecimal $transferVolume
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $transferVolume
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('transferVolume')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
@@ -67,9 +67,9 @@ class BillingInterchangeProgramFee
      * @param  string  $programName
      * @param  int  $count
      * @param  \Brick\Math\BigDecimal  $percentageRate
-     * @param  AmountDecimal  $perItemRate
-     * @param  AmountDecimal  $total
-     * @param  AmountDecimal  $transferVolume
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $perItemRate
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $total
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $transferVolume
      * @phpstan-pure
      */
     public function __construct(string $programName, int $count, \Brick\Math\BigDecimal $percentageRate, AmountDecimal $perItemRate, AmountDecimal $total, AmountDecimal $transferVolume)

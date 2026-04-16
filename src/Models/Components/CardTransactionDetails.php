@@ -15,7 +15,7 @@ class CardTransactionDetails
     /**
      * Status of a transaction within the card payment lifecycle.
      *
-     * @var ?CardTransactionStatus $status
+     * @var ?\Moov\MoovPhp\Models\Components\CardTransactionStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardTransactionStatus|null')]
@@ -24,7 +24,7 @@ class CardTransactionDetails
 
     /**
      *
-     * @var ?CardTransactionFailureCode $failureCode
+     * @var ?\Moov\MoovPhp\Models\Components\CardTransactionFailureCode $failureCode
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('failureCode')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardTransactionFailureCode|null')]
@@ -47,7 +47,7 @@ class CardTransactionDetails
      * Crucial for recurring and merchant-initiated transactions as per card scheme rules. 
      * Omit for customer-initiated e-commerce transactions.
      *
-     * @var ?TransactionSource $transactionSource
+     * @var ?\Moov\MoovPhp\Models\Components\TransactionSource $transactionSource
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('transactionSource')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransactionSource|null')]
@@ -131,10 +131,10 @@ class CardTransactionDetails
     public ?string $authorizationCode = null;
 
     /**
-     * @param  ?CardTransactionStatus  $status
-     * @param  ?CardTransactionFailureCode  $failureCode
+     * @param  ?\Moov\MoovPhp\Models\Components\CardTransactionStatus  $status
+     * @param  ?\Moov\MoovPhp\Models\Components\CardTransactionFailureCode  $failureCode
      * @param  ?string  $dynamicDescriptor
-     * @param  ?TransactionSource  $transactionSource
+     * @param  ?\Moov\MoovPhp\Models\Components\TransactionSource  $transactionSource
      * @param  ?\DateTime  $initiatedOn
      * @param  ?\DateTime  $confirmedOn
      * @param  ?\DateTime  $settledOn

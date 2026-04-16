@@ -13,7 +13,7 @@ class MoneyTransferError
 {
     /**
      *
-     * @var ?MoneyTransferPullFromCardError $pullFromCard
+     * @var ?\Moov\MoovPhp\Models\Components\MoneyTransferPullFromCardError $pullFromCard
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('pullFromCard')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\MoneyTransferPullFromCardError|null')]
@@ -22,7 +22,7 @@ class MoneyTransferError
 
     /**
      *
-     * @var ?MoneyTransferPushToCardError $pushToCard
+     * @var ?\Moov\MoovPhp\Models\Components\MoneyTransferPushToCardError $pushToCard
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('pushToCard')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\MoneyTransferPushToCardError|null')]
@@ -30,8 +30,8 @@ class MoneyTransferError
     public ?MoneyTransferPushToCardError $pushToCard = null;
 
     /**
-     * @param  ?MoneyTransferPullFromCardError  $pullFromCard
-     * @param  ?MoneyTransferPushToCardError  $pushToCard
+     * @param  ?\Moov\MoovPhp\Models\Components\MoneyTransferPullFromCardError  $pullFromCard
+     * @param  ?\Moov\MoovPhp\Models\Components\MoneyTransferPushToCardError  $pushToCard
      * @phpstan-pure
      */
     public function __construct(?MoneyTransferPullFromCardError $pullFromCard = null, ?MoneyTransferPushToCardError $pushToCard = null)

@@ -28,7 +28,7 @@ class CreateTicket
 
     /**
      *
-     * @var TicketContact $contact
+     * @var \Moov\MoovPhp\Models\Components\TicketContact $contact
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('contact')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TicketContact')]
@@ -53,7 +53,7 @@ class CreateTicket
     /**
      * @param  string  $title
      * @param  string  $body
-     * @param  TicketContact  $contact
+     * @param  \Moov\MoovPhp\Models\Components\TicketContact  $contact
      * @param  ?string  $author
      * @param  ?string  $foreignID
      * @phpstan-pure

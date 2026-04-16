@@ -24,7 +24,7 @@ class ResolutionLinkRecipient
     /**
      * The phone number of the recipient.
      *
-     * @var ?PhoneNumber $phone
+     * @var ?\Moov\MoovPhp\Models\Components\PhoneNumber $phone
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('phone')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PhoneNumber|null')]
@@ -33,7 +33,7 @@ class ResolutionLinkRecipient
 
     /**
      * @param  ?string  $email
-     * @param  ?PhoneNumber  $phone
+     * @param  ?\Moov\MoovPhp\Models\Components\PhoneNumber  $phone
      * @phpstan-pure
      */
     public function __construct(?string $email = null, ?PhoneNumber $phone = null)

@@ -14,7 +14,7 @@ class IssuingControlsError
     /**
      * $velocityLimits
      *
-     * @var ?array<string, IssuingVelocityLimitError> $velocityLimits
+     * @var ?array<string, \Moov\MoovPhp\Models\Components\IssuingVelocityLimitError> $velocityLimits
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('velocityLimits')]
     #[\Speakeasy\Serializer\Annotation\Type('array<string, \Moov\MoovPhp\Models\Components\IssuingVelocityLimitError>|null')]
@@ -22,7 +22,7 @@ class IssuingControlsError
     public ?array $velocityLimits = null;
 
     /**
-     * @param  ?array<string, IssuingVelocityLimitError>  $velocityLimits
+     * @param  ?array<string, \Moov\MoovPhp\Models\Components\IssuingVelocityLimitError>  $velocityLimits
      * @phpstan-pure
      */
     public function __construct(?array $velocityLimits = null)

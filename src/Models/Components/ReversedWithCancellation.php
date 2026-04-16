@@ -13,14 +13,14 @@ class ReversedWithCancellation
 {
     /**
      *
-     * @var Cancellation $cancellation
+     * @var \Moov\MoovPhp\Models\Components\Cancellation $cancellation
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cancellation')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Cancellation')]
     public Cancellation $cancellation;
 
     /**
-     * @param  Cancellation  $cancellation
+     * @param  \Moov\MoovPhp\Models\Components\Cancellation  $cancellation
      * @phpstan-pure
      */
     public function __construct(Cancellation $cancellation)

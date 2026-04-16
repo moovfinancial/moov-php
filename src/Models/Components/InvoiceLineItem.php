@@ -23,7 +23,7 @@ class InvoiceLineItem
     /**
      * The base price of the item before applying option modifiers.
      *
-     * @var AmountDecimal $basePrice
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $basePrice
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('basePrice')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
@@ -52,7 +52,7 @@ class InvoiceLineItem
     /**
      * Optional list of modifiers applied to this item (e.g., toppings, upgrades, customizations).
      *
-     * @var ?array<InvoiceLineItemOption> $options
+     * @var ?array<\Moov\MoovPhp\Models\Components\InvoiceLineItemOption> $options
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('options')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\InvoiceLineItemOption>|null')]
@@ -62,7 +62,7 @@ class InvoiceLineItem
     /**
      * Optional list of images associated with this line item.
      *
-     * @var ?array<InvoiceLineItemImageMetadata> $images
+     * @var ?array<\Moov\MoovPhp\Models\Components\InvoiceLineItemImageMetadata> $images
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('images')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\InvoiceLineItemImageMetadata>|null')]
@@ -71,11 +71,11 @@ class InvoiceLineItem
 
     /**
      * @param  string  $name
-     * @param  AmountDecimal  $basePrice
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $basePrice
      * @param  int  $quantity
      * @param  ?string  $productID
-     * @param  ?array<InvoiceLineItemOption>  $options
-     * @param  ?array<InvoiceLineItemImageMetadata>  $images
+     * @param  ?array<\Moov\MoovPhp\Models\Components\InvoiceLineItemOption>  $options
+     * @param  ?array<\Moov\MoovPhp\Models\Components\InvoiceLineItemImageMetadata>  $images
      * @phpstan-pure
      */
     public function __construct(string $name, AmountDecimal $basePrice, int $quantity, ?string $productID = null, ?array $options = null, ?array $images = null)

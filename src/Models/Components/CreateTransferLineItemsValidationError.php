@@ -14,7 +14,7 @@ class CreateTransferLineItemsValidationError
     /**
      * $items
      *
-     * @var ?array<string, CreateTransferLineItemValidationError> $items
+     * @var ?array<string, \Moov\MoovPhp\Models\Components\CreateTransferLineItemValidationError> $items
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('items')]
     #[\Speakeasy\Serializer\Annotation\Type('array<string, \Moov\MoovPhp\Models\Components\CreateTransferLineItemValidationError>|null')]
@@ -22,7 +22,7 @@ class CreateTransferLineItemsValidationError
     public ?array $items = null;
 
     /**
-     * @param  ?array<string, CreateTransferLineItemValidationError>  $items
+     * @param  ?array<string, \Moov\MoovPhp\Models\Components\CreateTransferLineItemValidationError>  $items
      * @phpstan-pure
      */
     public function __construct(?array $items = null)

@@ -13,7 +13,7 @@ class BankAccountVerificationCreated
 {
     /**
      *
-     * @var BankAccountVerificationMethod $verificationMethod
+     * @var \Moov\MoovPhp\Models\Components\BankAccountVerificationMethod $verificationMethod
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('verificationMethod')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BankAccountVerificationMethod')]
@@ -21,15 +21,15 @@ class BankAccountVerificationCreated
 
     /**
      *
-     * @var BankAccountVerificationStatus $status
+     * @var \Moov\MoovPhp\Models\Components\BankAccountVerificationStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BankAccountVerificationStatus')]
     public BankAccountVerificationStatus $status;
 
     /**
-     * @param  BankAccountVerificationMethod  $verificationMethod
-     * @param  BankAccountVerificationStatus  $status
+     * @param  \Moov\MoovPhp\Models\Components\BankAccountVerificationMethod  $verificationMethod
+     * @param  \Moov\MoovPhp\Models\Components\BankAccountVerificationStatus  $status
      * @phpstan-pure
      */
     public function __construct(BankAccountVerificationMethod $verificationMethod, BankAccountVerificationStatus $status)

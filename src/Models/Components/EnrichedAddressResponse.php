@@ -14,14 +14,14 @@ class EnrichedAddressResponse
     /**
      * $suggestions
      *
-     * @var array<AddressSuggestion> $suggestions
+     * @var array<\Moov\MoovPhp\Models\Components\AddressSuggestion> $suggestions
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('suggestions')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\AddressSuggestion>')]
     public array $suggestions;
 
     /**
-     * @param  array<AddressSuggestion>  $suggestions
+     * @param  array<\Moov\MoovPhp\Models\Components\AddressSuggestion>  $suggestions
      * @phpstan-pure
      */
     public function __construct(array $suggestions)

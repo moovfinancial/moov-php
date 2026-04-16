@@ -13,7 +13,7 @@ class Error
 {
     /**
      *
-     * @var ?Components\IndividualNameError $name
+     * @var ?\Moov\MoovPhp\Models\Components\IndividualNameError $name
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('name')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IndividualNameError|null')]
@@ -22,7 +22,7 @@ class Error
 
     /**
      *
-     * @var ?Components\PhoneNumberError $phone
+     * @var ?\Moov\MoovPhp\Models\Components\PhoneNumberError $phone
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('phone')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PhoneNumberError|null')]
@@ -39,7 +39,7 @@ class Error
 
     /**
      *
-     * @var ?Components\AddressError $address
+     * @var ?\Moov\MoovPhp\Models\Components\AddressError $address
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('address')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AddressError|null')]
@@ -48,7 +48,7 @@ class Error
 
     /**
      *
-     * @var ?Components\BirthDateValidationError $birthDate
+     * @var ?\Moov\MoovPhp\Models\Components\BirthDateValidationError $birthDate
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('birthDate')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BirthDateValidationError|null')]
@@ -57,7 +57,7 @@ class Error
 
     /**
      *
-     * @var ?Components\GovernmentIDError $governmentID
+     * @var ?\Moov\MoovPhp\Models\Components\GovernmentIDError $governmentID
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('governmentID')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\GovernmentIDError|null')]
@@ -66,7 +66,7 @@ class Error
 
     /**
      *
-     * @var ?Components\RepresentativeResponsibilitiesError $responsibilities
+     * @var ?\Moov\MoovPhp\Models\Components\RepresentativeResponsibilitiesError $responsibilities
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('responsibilities')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RepresentativeResponsibilitiesError|null')]
@@ -74,13 +74,13 @@ class Error
     public ?Components\RepresentativeResponsibilitiesError $responsibilities = null;
 
     /**
-     * @param  ?Components\IndividualNameError  $name
-     * @param  ?Components\PhoneNumberError  $phone
+     * @param  ?\Moov\MoovPhp\Models\Components\IndividualNameError  $name
+     * @param  ?\Moov\MoovPhp\Models\Components\PhoneNumberError  $phone
      * @param  ?string  $email
-     * @param  ?Components\AddressError  $address
-     * @param  ?Components\BirthDateValidationError  $birthDate
-     * @param  ?Components\GovernmentIDError  $governmentID
-     * @param  ?Components\RepresentativeResponsibilitiesError  $responsibilities
+     * @param  ?\Moov\MoovPhp\Models\Components\AddressError  $address
+     * @param  ?\Moov\MoovPhp\Models\Components\BirthDateValidationError  $birthDate
+     * @param  ?\Moov\MoovPhp\Models\Components\GovernmentIDError  $governmentID
+     * @param  ?\Moov\MoovPhp\Models\Components\RepresentativeResponsibilitiesError  $responsibilities
      * @phpstan-pure
      */
     public function __construct(?Components\IndividualNameError $name = null, ?Components\PhoneNumberError $phone = null, ?string $email = null, ?Components\AddressError $address = null, ?Components\BirthDateValidationError $birthDate = null, ?Components\GovernmentIDError $governmentID = null, ?Components\RepresentativeResponsibilitiesError $responsibilities = null)

@@ -44,7 +44,7 @@ class FeePlanAgreement
 
     /**
      *
-     * @var FeePlanAgreementStatus $status
+     * @var \Moov\MoovPhp\Models\Components\FeePlanAgreementStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\FeePlanAgreementStatus')]
@@ -53,7 +53,7 @@ class FeePlanAgreement
     /**
      * Specifies the card processing pricing model
      *
-     * @var CardAcquiringModel $cardAcquiringModel
+     * @var \Moov\MoovPhp\Models\Components\CardAcquiringModel $cardAcquiringModel
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardAcquiringModel')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardAcquiringModel')]
@@ -62,7 +62,7 @@ class FeePlanAgreement
     /**
      * $billableFees
      *
-     * @var array<BillableFee> $billableFees
+     * @var array<\Moov\MoovPhp\Models\Components\BillableFee> $billableFees
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('billableFees')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\BillableFee>')]
@@ -71,7 +71,7 @@ class FeePlanAgreement
     /**
      * The minimum spending amount that must be met in the billing period. If actual usage is below the minimum amount, account is charged the difference.
      *
-     * @var MinimumCommitment $minimumCommitment
+     * @var \Moov\MoovPhp\Models\Components\MinimumCommitment $minimumCommitment
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('minimumCommitment')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\MinimumCommitment')]
@@ -80,7 +80,7 @@ class FeePlanAgreement
     /**
      * Fixed recurring amount paid in the billing period regardless of usage.
      *
-     * @var MonthlyPlatformFee $monthlyPlatformFee
+     * @var \Moov\MoovPhp\Models\Components\MonthlyPlatformFee $monthlyPlatformFee
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('monthlyPlatformFee')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\MonthlyPlatformFee')]
@@ -109,11 +109,11 @@ class FeePlanAgreement
      * @param  string  $planID
      * @param  string  $name
      * @param  \DateTime  $acceptedOn
-     * @param  FeePlanAgreementStatus  $status
-     * @param  CardAcquiringModel  $cardAcquiringModel
-     * @param  array<BillableFee>  $billableFees
-     * @param  MinimumCommitment  $minimumCommitment
-     * @param  MonthlyPlatformFee  $monthlyPlatformFee
+     * @param  \Moov\MoovPhp\Models\Components\FeePlanAgreementStatus  $status
+     * @param  \Moov\MoovPhp\Models\Components\CardAcquiringModel  $cardAcquiringModel
+     * @param  array<\Moov\MoovPhp\Models\Components\BillableFee>  $billableFees
+     * @param  \Moov\MoovPhp\Models\Components\MinimumCommitment  $minimumCommitment
+     * @param  \Moov\MoovPhp\Models\Components\MonthlyPlatformFee  $monthlyPlatformFee
      * @param  ?string  $accountID
      * @param  ?string  $description
      * @phpstan-pure

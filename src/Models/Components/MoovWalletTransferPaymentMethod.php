@@ -21,7 +21,7 @@ class MoovWalletTransferPaymentMethod
 
     /**
      *
-     * @var MoovWalletTransferPaymentMethodPaymentMethodType $paymentMethodType
+     * @var \Moov\MoovPhp\Models\Components\MoovWalletTransferPaymentMethodPaymentMethodType $paymentMethodType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('paymentMethodType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\MoovWalletTransferPaymentMethodPaymentMethodType')]
@@ -29,7 +29,7 @@ class MoovWalletTransferPaymentMethod
 
     /**
      *
-     * @var TransferPaymentMethodsWallet $wallet
+     * @var \Moov\MoovPhp\Models\Components\TransferPaymentMethodsWallet $wallet
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('wallet')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferPaymentMethodsWallet')]
@@ -37,8 +37,8 @@ class MoovWalletTransferPaymentMethod
 
     /**
      * @param  string  $paymentMethodID
-     * @param  MoovWalletTransferPaymentMethodPaymentMethodType  $paymentMethodType
-     * @param  TransferPaymentMethodsWallet  $wallet
+     * @param  \Moov\MoovPhp\Models\Components\MoovWalletTransferPaymentMethodPaymentMethodType  $paymentMethodType
+     * @param  \Moov\MoovPhp\Models\Components\TransferPaymentMethodsWallet  $wallet
      * @phpstan-pure
      */
     public function __construct(string $paymentMethodID, MoovWalletTransferPaymentMethodPaymentMethodType $paymentMethodType, TransferPaymentMethodsWallet $wallet)

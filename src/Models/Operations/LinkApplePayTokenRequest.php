@@ -22,14 +22,14 @@ class LinkApplePayTokenRequest
 
     /**
      *
-     * @var Components\LinkApplePay $linkApplePay
+     * @var \Moov\MoovPhp\Models\Components\LinkApplePay $linkApplePay
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\LinkApplePay $linkApplePay;
 
     /**
      * @param  string  $accountID
-     * @param  Components\LinkApplePay  $linkApplePay
+     * @param  \Moov\MoovPhp\Models\Components\LinkApplePay  $linkApplePay
      * @phpstan-pure
      */
     public function __construct(string $accountID, Components\LinkApplePay $linkApplePay)

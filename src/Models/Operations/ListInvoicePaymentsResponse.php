@@ -42,7 +42,7 @@ class ListInvoicePaymentsResponse
     /**
      * The request completed successfully.
      *
-     * @var ?array<Components\InvoicePayment> $invoicePayments
+     * @var ?array<\Moov\MoovPhp\Models\Components\InvoicePayment> $invoicePayments
      */
     public ?array $invoicePayments = null;
 
@@ -51,7 +51,7 @@ class ListInvoicePaymentsResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?array<Components\InvoicePayment>  $invoicePayments
+     * @param  ?array<\Moov\MoovPhp\Models\Components\InvoicePayment>  $invoicePayments
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?array $invoicePayments = null, ?array $headers = [])

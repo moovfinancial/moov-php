@@ -15,7 +15,7 @@ class ACHFees
     /**
      * Fees for standard credit transfers.
      *
-     * @var BillingCountAndAmount $standardCredit
+     * @var \Moov\MoovPhp\Models\Components\BillingCountAndAmount $standardCredit
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('standardCredit')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingCountAndAmount')]
@@ -24,7 +24,7 @@ class ACHFees
     /**
      * Fees for same-day credit transfers.
      *
-     * @var BillingCountAndAmount $sameDayCredit
+     * @var \Moov\MoovPhp\Models\Components\BillingCountAndAmount $sameDayCredit
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('sameDayCredit')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingCountAndAmount')]
@@ -33,7 +33,7 @@ class ACHFees
     /**
      * Fees for debit transfers.
      *
-     * @var BillingCountAndAmount $debits
+     * @var \Moov\MoovPhp\Models\Components\BillingCountAndAmount $debits
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('debits')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingCountAndAmount')]
@@ -42,7 +42,7 @@ class ACHFees
     /**
      * Fees for authorized returns.
      *
-     * @var BillingCountAndAmount $return
+     * @var \Moov\MoovPhp\Models\Components\BillingCountAndAmount $return
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('return')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingCountAndAmount')]
@@ -51,7 +51,7 @@ class ACHFees
     /**
      * Fees for unauthorized returns.
      *
-     * @var BillingCountAndAmount $unauthorizedReturn
+     * @var \Moov\MoovPhp\Models\Components\BillingCountAndAmount $unauthorizedReturn
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('unauthorizedReturn')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingCountAndAmount')]
@@ -60,7 +60,7 @@ class ACHFees
     /**
      * Fees for notices of change.
      *
-     * @var BillingCountAndAmount $noticeOfChange
+     * @var \Moov\MoovPhp\Models\Components\BillingCountAndAmount $noticeOfChange
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('noticeOfChange')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingCountAndAmount')]
@@ -69,7 +69,7 @@ class ACHFees
     /**
      * Fees for successful bank account verifications via Plaid or MX.
      *
-     * @var BillingCountAndAmount $bankAccountVerification
+     * @var \Moov\MoovPhp\Models\Components\BillingCountAndAmount $bankAccountVerification
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('bankAccountVerification')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingCountAndAmount')]
@@ -78,21 +78,21 @@ class ACHFees
     /**
      * Total ACH fees.
      *
-     * @var BillingCountAndAmount $total
+     * @var \Moov\MoovPhp\Models\Components\BillingCountAndAmount $total
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('total')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingCountAndAmount')]
     public BillingCountAndAmount $total;
 
     /**
-     * @param  BillingCountAndAmount  $standardCredit
-     * @param  BillingCountAndAmount  $sameDayCredit
-     * @param  BillingCountAndAmount  $debits
-     * @param  BillingCountAndAmount  $return
-     * @param  BillingCountAndAmount  $unauthorizedReturn
-     * @param  BillingCountAndAmount  $noticeOfChange
-     * @param  BillingCountAndAmount  $bankAccountVerification
-     * @param  BillingCountAndAmount  $total
+     * @param  \Moov\MoovPhp\Models\Components\BillingCountAndAmount  $standardCredit
+     * @param  \Moov\MoovPhp\Models\Components\BillingCountAndAmount  $sameDayCredit
+     * @param  \Moov\MoovPhp\Models\Components\BillingCountAndAmount  $debits
+     * @param  \Moov\MoovPhp\Models\Components\BillingCountAndAmount  $return
+     * @param  \Moov\MoovPhp\Models\Components\BillingCountAndAmount  $unauthorizedReturn
+     * @param  \Moov\MoovPhp\Models\Components\BillingCountAndAmount  $noticeOfChange
+     * @param  \Moov\MoovPhp\Models\Components\BillingCountAndAmount  $bankAccountVerification
+     * @param  \Moov\MoovPhp\Models\Components\BillingCountAndAmount  $total
      * @phpstan-pure
      */
     public function __construct(BillingCountAndAmount $standardCredit, BillingCountAndAmount $sameDayCredit, BillingCountAndAmount $debits, BillingCountAndAmount $return, BillingCountAndAmount $unauthorizedReturn, BillingCountAndAmount $noticeOfChange, BillingCountAndAmount $bankAccountVerification, BillingCountAndAmount $total)

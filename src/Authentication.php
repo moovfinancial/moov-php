@@ -48,8 +48,8 @@ class Authentication
     /**
      * Create or refresh an access token.
      *
-     * @param  Components\AuthTokenRequest  $request
-     * @return Operations\CreateAccessTokenResponse
+     * @param  \Moov\MoovPhp\Models\Components\AuthTokenRequest  $request
+     * @return \Moov\MoovPhp\Models\Operations\CreateAccessTokenResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function createToken(Components\AuthTokenRequest $request, ?Options $options = null): Operations\CreateAccessTokenResponse
@@ -141,8 +141,8 @@ class Authentication
      *
      * Allows clients to notify the authorization server that a previously obtained refresh or access token is no longer needed.
      *
-     * @param  Components\RevokeTokenRequest  $request
-     * @return Operations\RevokeAccessTokenResponse
+     * @param  \Moov\MoovPhp\Models\Components\RevokeTokenRequest  $request
+     * @return \Moov\MoovPhp\Models\Operations\RevokeAccessTokenResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function revokeToken(Components\RevokeTokenRequest $request, ?Options $options = null): Operations\RevokeAccessTokenResponse

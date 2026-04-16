@@ -25,7 +25,7 @@ class LinkApplePay
      *   Refer to [Apple's documentation](https://developer.apple.com/documentation/apple_pay_on_the_web/applepaypaymenttoken) 
      *   for more information.
      *
-     * @var LinkApplePayToken $token
+     * @var \Moov\MoovPhp\Models\Components\LinkApplePayToken $token
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('token')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\LinkApplePayToken')]
@@ -38,7 +38,7 @@ class LinkApplePay
      *   Refer to [Apple's documentation](https://developer.apple.com/documentation/apple_pay_on_the_web/applepaypaymentcontact) 
      *   for more information.
      *
-     * @var ?AppleBillingContact $billingContact
+     * @var ?\Moov\MoovPhp\Models\Components\AppleBillingContact $billingContact
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('billingContact')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AppleBillingContact|null')]
@@ -46,8 +46,8 @@ class LinkApplePay
     public ?AppleBillingContact $billingContact = null;
 
     /**
-     * @param  LinkApplePayToken  $token
-     * @param  ?AppleBillingContact  $billingContact
+     * @param  \Moov\MoovPhp\Models\Components\LinkApplePayToken  $token
+     * @param  ?\Moov\MoovPhp\Models\Components\AppleBillingContact  $billingContact
      * @phpstan-pure
      */
     public function __construct(LinkApplePayToken $token, ?AppleBillingContact $billingContact = null)

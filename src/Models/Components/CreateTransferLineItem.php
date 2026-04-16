@@ -23,7 +23,7 @@ class CreateTransferLineItem
     /**
      * The base price of the item before applying option modifiers.
      *
-     * @var AmountDecimal $basePrice
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $basePrice
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('basePrice')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
@@ -40,7 +40,7 @@ class CreateTransferLineItem
     /**
      * Optional list of modifiers applied to this item (e.g., toppings, upgrades, customizations).
      *
-     * @var ?array<CreateTransferLineItemOption> $options
+     * @var ?array<\Moov\MoovPhp\Models\Components\CreateTransferLineItemOption> $options
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('options')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\CreateTransferLineItemOption>|null')]
@@ -73,9 +73,9 @@ class CreateTransferLineItem
 
     /**
      * @param  string  $name
-     * @param  AmountDecimal  $basePrice
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $basePrice
      * @param  int  $quantity
-     * @param  ?array<CreateTransferLineItemOption>  $options
+     * @param  ?array<\Moov\MoovPhp\Models\Components\CreateTransferLineItemOption>  $options
      * @param  ?array<string>  $imageIDs
      * @param  ?string  $productID
      * @phpstan-pure

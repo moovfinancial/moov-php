@@ -53,7 +53,7 @@ class Images
      *
      * @param  string  $accountID
      * @param  string  $imageID
-     * @return Operations\DeleteImageResponse
+     * @return \Moov\MoovPhp\Models\Operations\DeleteImageResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function delete(string $accountID, string $imageID, ?Options $options = null): Operations\DeleteImageResponse
@@ -123,7 +123,7 @@ class Images
      *
      * @param  string  $accountID
      * @param  string  $imageID
-     * @return Operations\GetImageMetadataResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetImageMetadataResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function getMetadata(string $accountID, string $imageID, ?Options $options = null): Operations\GetImageMetadataResponse
@@ -193,7 +193,7 @@ class Images
      * @param  string  $publicID
      * @param  ?string  $ifNoneMatch
      * @param  ?string  $size
-     * @return Operations\GetPublicImageResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetPublicImageResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function getPublic(string $publicID, ?string $ifNoneMatch = null, ?string $size = null, ?Options $options = null): Operations\GetPublicImageResponse
@@ -298,7 +298,7 @@ class Images
      * @param  string  $accountID
      * @param  ?int  $skip
      * @param  ?int  $count
-     * @return Operations\ListImageMetadataResponse
+     * @return \Moov\MoovPhp\Models\Operations\ListImageMetadataResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function list(string $accountID, ?int $skip = null, ?int $count = null, ?Options $options = null): Operations\ListImageMetadataResponse
@@ -372,10 +372,10 @@ class Images
      * This endpoint replaces the existing image with the new PNG, JPEG, or WebP. Omit
      * the metadata form section to keep existing metadata. Duplicate images, and requests larger than 16MB will be rejected.
      *
-     * @param  Components\ImageUploadRequestMultiPart  $imageUploadRequestMultiPart
+     * @param  \Moov\MoovPhp\Models\Components\ImageUploadRequestMultiPart  $imageUploadRequestMultiPart
      * @param  string  $accountID
      * @param  string  $imageID
-     * @return Operations\UpdateImageResponse
+     * @return \Moov\MoovPhp\Models\Operations\UpdateImageResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function update(Components\ImageUploadRequestMultiPart $imageUploadRequestMultiPart, string $accountID, string $imageID, ?Options $options = null): Operations\UpdateImageResponse
@@ -470,10 +470,10 @@ class Images
     /**
      * Replace the metadata for an existing image.
      *
-     * @param  Components\ImageMetadataRequest  $imageMetadataRequest
+     * @param  \Moov\MoovPhp\Models\Components\ImageMetadataRequest  $imageMetadataRequest
      * @param  string  $accountID
      * @param  string  $imageID
-     * @return Operations\UpdateImageMetadataResponse
+     * @return \Moov\MoovPhp\Models\Operations\UpdateImageMetadataResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function updateMetadata(Components\ImageMetadataRequest $imageMetadataRequest, string $accountID, string $imageID, ?Options $options = null): Operations\UpdateImageMetadataResponse
@@ -569,9 +569,9 @@ class Images
      *   Upload a new PNG, JPEG, or WebP image with optional metadata. 
      *   Duplicate images, and requests larger than 16MB will be rejected.
      *
-     * @param  Components\ImageUploadRequestMultiPart  $imageUploadRequestMultiPart
+     * @param  \Moov\MoovPhp\Models\Components\ImageUploadRequestMultiPart  $imageUploadRequestMultiPart
      * @param  string  $accountID
-     * @return Operations\UploadImageResponse
+     * @return \Moov\MoovPhp\Models\Operations\UploadImageResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function upload(Components\ImageUploadRequestMultiPart $imageUploadRequestMultiPart, string $accountID, ?Options $options = null): Operations\UploadImageResponse

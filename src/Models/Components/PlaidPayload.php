@@ -26,14 +26,14 @@ class PlaidPayload
      *   Mask:          "0000"
      * ```
      *
-     * @var PlaidIntegration $plaid
+     * @var \Moov\MoovPhp\Models\Components\PlaidIntegration $plaid
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('plaid')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PlaidIntegration')]
     public PlaidIntegration $plaid;
 
     /**
-     * @param  PlaidIntegration  $plaid
+     * @param  \Moov\MoovPhp\Models\Components\PlaidIntegration  $plaid
      * @phpstan-pure
      */
     public function __construct(PlaidIntegration $plaid)

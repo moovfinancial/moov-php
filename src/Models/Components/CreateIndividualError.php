@@ -13,7 +13,7 @@ class CreateIndividualError
 {
     /**
      *
-     * @var ?IndividualNameError $name
+     * @var ?\Moov\MoovPhp\Models\Components\IndividualNameError $name
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('name')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IndividualNameError|null')]
@@ -22,7 +22,7 @@ class CreateIndividualError
 
     /**
      *
-     * @var ?PhoneNumberError $phone
+     * @var ?\Moov\MoovPhp\Models\Components\PhoneNumberError $phone
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('phone')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PhoneNumberError|null')]
@@ -39,7 +39,7 @@ class CreateIndividualError
 
     /**
      *
-     * @var ?AddressError $address
+     * @var ?\Moov\MoovPhp\Models\Components\AddressError $address
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('address')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AddressError|null')]
@@ -48,7 +48,7 @@ class CreateIndividualError
 
     /**
      *
-     * @var ?BirthDateError $birthDate
+     * @var ?\Moov\MoovPhp\Models\Components\BirthDateError $birthDate
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('birthDate')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BirthDateError|null')]
@@ -57,7 +57,7 @@ class CreateIndividualError
 
     /**
      *
-     * @var ?CreateIndividualErrorGovernmentID $governmentID
+     * @var ?\Moov\MoovPhp\Models\Components\CreateIndividualErrorGovernmentID $governmentID
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('governmentID')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateIndividualErrorGovernmentID|null')]
@@ -65,12 +65,12 @@ class CreateIndividualError
     public ?CreateIndividualErrorGovernmentID $governmentID = null;
 
     /**
-     * @param  ?IndividualNameError  $name
-     * @param  ?PhoneNumberError  $phone
+     * @param  ?\Moov\MoovPhp\Models\Components\IndividualNameError  $name
+     * @param  ?\Moov\MoovPhp\Models\Components\PhoneNumberError  $phone
      * @param  ?string  $email
-     * @param  ?AddressError  $address
-     * @param  ?BirthDateError  $birthDate
-     * @param  ?CreateIndividualErrorGovernmentID  $governmentID
+     * @param  ?\Moov\MoovPhp\Models\Components\AddressError  $address
+     * @param  ?\Moov\MoovPhp\Models\Components\BirthDateError  $birthDate
+     * @param  ?\Moov\MoovPhp\Models\Components\CreateIndividualErrorGovernmentID  $governmentID
      * @phpstan-pure
      */
     public function __construct(?IndividualNameError $name = null, ?PhoneNumberError $phone = null, ?string $email = null, ?AddressError $address = null, ?BirthDateError $birthDate = null, ?CreateIndividualErrorGovernmentID $governmentID = null)

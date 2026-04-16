@@ -35,7 +35,7 @@ class ListTicketsRequest
 
     /**
      *
-     * @var ?Components\TicketStatus $status
+     * @var ?\Moov\MoovPhp\Models\Components\TicketStatus $status
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=status')]
     public ?Components\TicketStatus $status = null;
@@ -51,7 +51,7 @@ class ListTicketsRequest
      * @param  string  $accountID
      * @param  ?string  $cursor
      * @param  ?int  $count
-     * @param  ?Components\TicketStatus  $status
+     * @param  ?\Moov\MoovPhp\Models\Components\TicketStatus  $status
      * @param  ?string  $foreignID
      * @phpstan-pure
      */

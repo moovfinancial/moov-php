@@ -28,7 +28,7 @@ class WebhookDataTransferUpdated
 
     /**
      *
-     * @var WebhookDataTransferStatus $status
+     * @var \Moov\MoovPhp\Models\Components\WebhookDataTransferStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\WebhookDataTransferStatus')]
@@ -37,7 +37,7 @@ class WebhookDataTransferUpdated
     /**
      * Payment method details for the source or destination of a transfer.
      *
-     * @var WebhookTransferPaymentMethodDetails $source
+     * @var \Moov\MoovPhp\Models\Components\WebhookTransferPaymentMethodDetails $source
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('source')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\WebhookTransferPaymentMethodDetails')]
@@ -46,7 +46,7 @@ class WebhookDataTransferUpdated
     /**
      * Payment method details for the source or destination of a transfer.
      *
-     * @var WebhookTransferPaymentMethodDetails $destination
+     * @var \Moov\MoovPhp\Models\Components\WebhookTransferPaymentMethodDetails $destination
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('destination')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\WebhookTransferPaymentMethodDetails')]
@@ -63,9 +63,9 @@ class WebhookDataTransferUpdated
     /**
      * @param  string  $accountID
      * @param  string  $transferID
-     * @param  WebhookDataTransferStatus  $status
-     * @param  WebhookTransferPaymentMethodDetails  $source
-     * @param  WebhookTransferPaymentMethodDetails  $destination
+     * @param  \Moov\MoovPhp\Models\Components\WebhookDataTransferStatus  $status
+     * @param  \Moov\MoovPhp\Models\Components\WebhookTransferPaymentMethodDetails  $source
+     * @param  \Moov\MoovPhp\Models\Components\WebhookTransferPaymentMethodDetails  $destination
      * @param  ?string  $foreignID
      * @phpstan-pure
      */

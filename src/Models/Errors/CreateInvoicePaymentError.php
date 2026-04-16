@@ -14,7 +14,7 @@ class CreateInvoicePaymentError
 {
     /**
      *
-     * @var ?Components\AmountDecimalValidationError $amount
+     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimalValidationError $amount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimalValidationError|null')]
@@ -46,7 +46,7 @@ class CreateInvoicePaymentError
     public ?string $paymentDate = null;
 
     /**
-     * @param  ?Components\AmountDecimalValidationError  $amount
+     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimalValidationError  $amount
      * @param  ?string  $foreignID
      * @param  ?string  $description
      * @param  ?string  $paymentDate

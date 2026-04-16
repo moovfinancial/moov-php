@@ -31,7 +31,7 @@ class WebhookDataWalletUpdated
      *   - `active`: The wallet is available for use and has an enabled payment method.
      *   - `closed`: The wallet is no longer active and the corresponding payment method has been disabled.
      *
-     * @var WalletStatus $status
+     * @var \Moov\MoovPhp\Models\Components\WalletStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\WalletStatus')]
@@ -40,7 +40,7 @@ class WebhookDataWalletUpdated
     /**
      * @param  string  $accountID
      * @param  string  $walletID
-     * @param  WalletStatus  $status
+     * @param  \Moov\MoovPhp\Models\Components\WalletStatus  $status
      * @phpstan-pure
      */
     public function __construct(string $accountID, string $walletID, WalletStatus $status)

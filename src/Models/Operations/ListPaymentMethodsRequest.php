@@ -34,7 +34,7 @@ class ListPaymentMethodsRequest
     /**
      * Optional parameter to filter the account's payment methods by payment method type.
      *
-     * @var ?Components\PaymentMethodType $paymentMethodType
+     * @var ?\Moov\MoovPhp\Models\Components\PaymentMethodType $paymentMethodType
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=paymentMethodType')]
     public ?Components\PaymentMethodType $paymentMethodType = null;
@@ -42,7 +42,7 @@ class ListPaymentMethodsRequest
     /**
      * @param  string  $accountID
      * @param  ?string  $sourceID
-     * @param  ?Components\PaymentMethodType  $paymentMethodType
+     * @param  ?\Moov\MoovPhp\Models\Components\PaymentMethodType  $paymentMethodType
      * @phpstan-pure
      */
     public function __construct(string $accountID, ?string $sourceID = null, ?Components\PaymentMethodType $paymentMethodType = null)

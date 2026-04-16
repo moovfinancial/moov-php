@@ -34,7 +34,7 @@ class Ticket
 
     /**
      *
-     * @var TicketContact $contact
+     * @var \Moov\MoovPhp\Models\Components\TicketContact $contact
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('contact')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TicketContact')]
@@ -42,7 +42,7 @@ class Ticket
 
     /**
      *
-     * @var TicketStatus $status
+     * @var \Moov\MoovPhp\Models\Components\TicketStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TicketStatus')]
@@ -90,8 +90,8 @@ class Ticket
      * @param  string  $ticketID
      * @param  int  $number
      * @param  string  $title
-     * @param  TicketContact  $contact
-     * @param  TicketStatus  $status
+     * @param  \Moov\MoovPhp\Models\Components\TicketContact  $contact
+     * @param  \Moov\MoovPhp\Models\Components\TicketStatus  $status
      * @param  \DateTime  $createdOn
      * @param  \DateTime  $updatedOn
      * @param  ?\DateTime  $latestMessageOn

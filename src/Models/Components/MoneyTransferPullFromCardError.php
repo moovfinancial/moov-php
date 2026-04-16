@@ -13,7 +13,7 @@ class MoneyTransferPullFromCardError
 {
     /**
      *
-     * @var ?EstimatedActivityError $estimatedActivity
+     * @var ?\Moov\MoovPhp\Models\Components\EstimatedActivityError $estimatedActivity
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('estimatedActivity')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\EstimatedActivityError|null')]
@@ -21,7 +21,7 @@ class MoneyTransferPullFromCardError
     public ?EstimatedActivityError $estimatedActivity = null;
 
     /**
-     * @param  ?EstimatedActivityError  $estimatedActivity
+     * @param  ?\Moov\MoovPhp\Models\Components\EstimatedActivityError  $estimatedActivity
      * @phpstan-pure
      */
     public function __construct(?EstimatedActivityError $estimatedActivity = null)

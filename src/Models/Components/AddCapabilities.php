@@ -14,14 +14,14 @@ class AddCapabilities
     /**
      * $capabilities
      *
-     * @var array<CapabilityID> $capabilities
+     * @var array<\Moov\MoovPhp\Models\Components\CapabilityID> $capabilities
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('capabilities')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\CapabilityID>')]
     public array $capabilities;
 
     /**
-     * @param  array<CapabilityID>  $capabilities
+     * @param  array<\Moov\MoovPhp\Models\Components\CapabilityID>  $capabilities
      * @phpstan-pure
      */
     public function __construct(array $capabilities)

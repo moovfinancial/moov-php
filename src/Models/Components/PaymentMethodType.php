@@ -24,4 +24,6 @@ enum PaymentMethodType: string
     case ApplePay = 'apple-pay';
     case CardPresentPayment = 'card-present-payment';
     case InstantBankCredit = 'instant-bank-credit';
+    case PushToApplePay = 'push-to-apple-pay';
+    case PullFromApplePay = 'pull-from-apple-pay';
 }

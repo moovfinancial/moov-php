@@ -28,7 +28,7 @@ class UploadDisputeEvidenceTextRequest
 
     /**
      *
-     * @var Components\CreateEvidenceText $createEvidenceText
+     * @var \Moov\MoovPhp\Models\Components\CreateEvidenceText $createEvidenceText
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\CreateEvidenceText $createEvidenceText;
@@ -36,7 +36,7 @@ class UploadDisputeEvidenceTextRequest
     /**
      * @param  string  $accountID
      * @param  string  $disputeID
-     * @param  Components\CreateEvidenceText  $createEvidenceText
+     * @param  \Moov\MoovPhp\Models\Components\CreateEvidenceText  $createEvidenceText
      * @phpstan-pure
      */
     public function __construct(string $accountID, string $disputeID, Components\CreateEvidenceText $createEvidenceText)

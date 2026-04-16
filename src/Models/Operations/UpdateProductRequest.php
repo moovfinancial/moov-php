@@ -28,7 +28,7 @@ class UpdateProductRequest
 
     /**
      *
-     * @var Components\ProductRequest $productRequest
+     * @var \Moov\MoovPhp\Models\Components\ProductRequest $productRequest
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\ProductRequest $productRequest;
@@ -36,7 +36,7 @@ class UpdateProductRequest
     /**
      * @param  string  $accountID
      * @param  string  $productID
-     * @param  Components\ProductRequest  $productRequest
+     * @param  \Moov\MoovPhp\Models\Components\ProductRequest  $productRequest
      * @phpstan-pure
      */
     public function __construct(string $accountID, string $productID, Components\ProductRequest $productRequest)

@@ -53,9 +53,9 @@ class Wallets
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/wallets.write` scope.
      *
-     * @param  Components\CreateWallet  $createWallet
+     * @param  \Moov\MoovPhp\Models\Components\CreateWallet  $createWallet
      * @param  string  $accountID
-     * @return Operations\CreateWalletResponse
+     * @return \Moov\MoovPhp\Models\Operations\CreateWalletResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function create(Components\CreateWallet $createWallet, string $accountID, ?Options $options = null): Operations\CreateWalletResponse
@@ -156,7 +156,7 @@ class Wallets
      *
      * @param  string  $accountID
      * @param  string  $walletID
-     * @return Operations\GetWalletResponse
+     * @return \Moov\MoovPhp\Models\Operations\GetWalletResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function get(string $accountID, string $walletID, ?Options $options = null): Operations\GetWalletResponse
@@ -228,8 +228,8 @@ class Wallets
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/wallets.read` scope.
      *
-     * @param  Operations\ListWalletTransactionsRequest  $request
-     * @return Operations\ListWalletTransactionsResponse
+     * @param  \Moov\MoovPhp\Models\Operations\ListWalletTransactionsRequest  $request
+     * @return \Moov\MoovPhp\Models\Operations\ListWalletTransactionsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function listTransactions(Operations\ListWalletTransactionsRequest $request, ?Options $options = null): Operations\ListWalletTransactionsResponse
@@ -311,8 +311,8 @@ class Wallets
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/wallets.read` scope.
      *
-     * @param  Operations\ListWalletsRequest  $request
-     * @return Operations\ListWalletsResponse
+     * @param  \Moov\MoovPhp\Models\Operations\ListWalletsRequest  $request
+     * @return \Moov\MoovPhp\Models\Operations\ListWalletsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function list(Operations\ListWalletsRequest $request, ?Options $options = null): Operations\ListWalletsResponse
@@ -394,10 +394,10 @@ class Wallets
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
      * you'll need to specify the `/accounts/{accountID}/wallets.write` scope.
      *
-     * @param  Components\PatchWallet  $patchWallet
+     * @param  \Moov\MoovPhp\Models\Components\PatchWallet  $patchWallet
      * @param  string  $walletID
      * @param  string  $accountID
-     * @return Operations\UpdateWalletResponse
+     * @return \Moov\MoovPhp\Models\Operations\UpdateWalletResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
     public function update(Components\PatchWallet $patchWallet, string $walletID, string $accountID, ?Options $options = null): Operations\UpdateWalletResponse

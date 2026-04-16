@@ -28,7 +28,7 @@ class UpdateInvoiceRequest
 
     /**
      *
-     * @var Components\UpdateInvoice $updateInvoice
+     * @var \Moov\MoovPhp\Models\Components\UpdateInvoice $updateInvoice
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\UpdateInvoice $updateInvoice;
@@ -36,7 +36,7 @@ class UpdateInvoiceRequest
     /**
      * @param  string  $accountID
      * @param  string  $invoiceID
-     * @param  Components\UpdateInvoice  $updateInvoice
+     * @param  \Moov\MoovPhp\Models\Components\UpdateInvoice  $updateInvoice
      * @phpstan-pure
      */
     public function __construct(string $accountID, string $invoiceID, Components\UpdateInvoice $updateInvoice)

@@ -42,7 +42,7 @@ class UpdateWalletResponse
     /**
      * The request completed successfully.
      *
-     * @var ?Components\Wallet $wallet
+     * @var ?\Moov\MoovPhp\Models\Components\Wallet $wallet
      */
     public ?Components\Wallet $wallet = null;
 
@@ -51,7 +51,7 @@ class UpdateWalletResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\Wallet  $wallet
+     * @param  ?\Moov\MoovPhp\Models\Components\Wallet  $wallet
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\Wallet $wallet = null, ?array $headers = [])

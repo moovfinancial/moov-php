@@ -42,7 +42,7 @@ class CreateResolutionLinkResponse
     /**
      * The request completed successfully.
      *
-     * @var ?Components\ResolutionLink $resolutionLink
+     * @var ?\Moov\MoovPhp\Models\Components\ResolutionLink $resolutionLink
      */
     public ?Components\ResolutionLink $resolutionLink = null;
 
@@ -51,7 +51,7 @@ class CreateResolutionLinkResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\ResolutionLink  $resolutionLink
+     * @param  ?\Moov\MoovPhp\Models\Components\ResolutionLink  $resolutionLink
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\ResolutionLink $resolutionLink = null, ?array $headers = [])

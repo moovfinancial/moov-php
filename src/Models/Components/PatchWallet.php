@@ -25,7 +25,7 @@ class PatchWallet
      *   - `active`: The wallet is available for use and has an enabled payment method.
      *   - `closed`: The wallet is no longer active and the corresponding payment method has been disabled.
      *
-     * @var ?WalletStatus $status
+     * @var ?\Moov\MoovPhp\Models\Components\WalletStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\WalletStatus|null')]
@@ -52,7 +52,7 @@ class PatchWallet
 
     /**
      * @param  ?string  $name
-     * @param  ?WalletStatus  $status
+     * @param  ?\Moov\MoovPhp\Models\Components\WalletStatus  $status
      * @param  ?string  $description
      * @param  ?array<string, string>  $metadata
      * @phpstan-pure

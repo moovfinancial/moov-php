@@ -42,7 +42,7 @@ class ListWalletTransactionsResponse
     /**
      * The request completed successfully.
      *
-     * @var ?array<Components\WalletTransaction> $walletTransactions
+     * @var ?array<\Moov\MoovPhp\Models\Components\WalletTransaction> $walletTransactions
      */
     public ?array $walletTransactions = null;
 
@@ -51,7 +51,7 @@ class ListWalletTransactionsResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?array<Components\WalletTransaction>  $walletTransactions
+     * @param  ?array<\Moov\MoovPhp\Models\Components\WalletTransaction>  $walletTransactions
      * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?array $walletTransactions = null, ?array $headers = [])

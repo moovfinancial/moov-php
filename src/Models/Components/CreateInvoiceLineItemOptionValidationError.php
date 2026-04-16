@@ -29,7 +29,7 @@ class CreateInvoiceLineItemOptionValidationError
 
     /**
      *
-     * @var ?AmountDecimalValidationError $priceModifier
+     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimalValidationError $priceModifier
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('priceModifier')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimalValidationError|null')]
@@ -47,7 +47,7 @@ class CreateInvoiceLineItemOptionValidationError
     /**
      * @param  ?string  $name
      * @param  ?string  $group
-     * @param  ?AmountDecimalValidationError  $priceModifier
+     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimalValidationError  $priceModifier
      * @param  ?string  $quantity
      * @phpstan-pure
      */

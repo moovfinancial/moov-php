@@ -22,7 +22,7 @@ class BillingCountAndAmount
     /**
      * The total amount.
      *
-     * @var AmountDecimal $amount
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $amount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
@@ -30,7 +30,7 @@ class BillingCountAndAmount
 
     /**
      * @param  int  $count
-     * @param  AmountDecimal  $amount
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $amount
      * @phpstan-pure
      */
     public function __construct(int $count, AmountDecimal $amount)

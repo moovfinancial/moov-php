@@ -22,7 +22,7 @@ class UpdateInvoiceError
 
     /**
      *
-     * @var ?Components\InvoiceLineItemsValidationError $lineItems
+     * @var ?\Moov\MoovPhp\Models\Components\InvoiceLineItemsValidationError $lineItems
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('lineItems')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\InvoiceLineItemsValidationError|null')]
@@ -55,7 +55,7 @@ class UpdateInvoiceError
 
     /**
      *
-     * @var ?Components\AmountDecimalValidationError $taxAmount
+     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimalValidationError $taxAmount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('taxAmount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimalValidationError|null')]
@@ -64,11 +64,11 @@ class UpdateInvoiceError
 
     /**
      * @param  ?string  $description
-     * @param  ?Components\InvoiceLineItemsValidationError  $lineItems
+     * @param  ?\Moov\MoovPhp\Models\Components\InvoiceLineItemsValidationError  $lineItems
      * @param  ?string  $invoiceDate
      * @param  ?string  $dueDate
      * @param  ?string  $status
-     * @param  ?Components\AmountDecimalValidationError  $taxAmount
+     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimalValidationError  $taxAmount
      * @phpstan-pure
      */
     public function __construct(?string $description = null, ?Components\InvoiceLineItemsValidationError $lineItems = null, ?string $invoiceDate = null, ?string $dueDate = null, ?string $status = null, ?Components\AmountDecimalValidationError $taxAmount = null)

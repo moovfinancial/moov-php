@@ -13,7 +13,7 @@ class SendFunds
 {
     /**
      *
-     * @var ?SendFundsAch $ach
+     * @var ?\Moov\MoovPhp\Models\Components\SendFundsAch $ach
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('ach')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\SendFundsAch|null')]
@@ -22,7 +22,7 @@ class SendFunds
 
     /**
      *
-     * @var ?SendFundsPushToCard $pushToCard
+     * @var ?\Moov\MoovPhp\Models\Components\SendFundsPushToCard $pushToCard
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('pushToCard')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\SendFundsPushToCard|null')]
@@ -31,7 +31,7 @@ class SendFunds
 
     /**
      *
-     * @var ?SendFundsRtp $rtp
+     * @var ?\Moov\MoovPhp\Models\Components\SendFundsRtp $rtp
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('rtp')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\SendFundsRtp|null')]
@@ -40,7 +40,7 @@ class SendFunds
 
     /**
      *
-     * @var ?SendFundsInstantBank $instantBank
+     * @var ?\Moov\MoovPhp\Models\Components\SendFundsInstantBank $instantBank
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('instantBank')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\SendFundsInstantBank|null')]
@@ -48,10 +48,10 @@ class SendFunds
     public ?SendFundsInstantBank $instantBank = null;
 
     /**
-     * @param  ?SendFundsAch  $ach
-     * @param  ?SendFundsPushToCard  $pushToCard
-     * @param  ?SendFundsRtp  $rtp
-     * @param  ?SendFundsInstantBank  $instantBank
+     * @param  ?\Moov\MoovPhp\Models\Components\SendFundsAch  $ach
+     * @param  ?\Moov\MoovPhp\Models\Components\SendFundsPushToCard  $pushToCard
+     * @param  ?\Moov\MoovPhp\Models\Components\SendFundsRtp  $rtp
+     * @param  ?\Moov\MoovPhp\Models\Components\SendFundsInstantBank  $instantBank
      * @phpstan-pure
      */
     public function __construct(?SendFundsAch $ach = null, ?SendFundsPushToCard $pushToCard = null, ?SendFundsRtp $rtp = null, ?SendFundsInstantBank $instantBank = null)

@@ -28,7 +28,7 @@ class UpdateSweepConfigRequest
 
     /**
      *
-     * @var Components\PatchSweepConfig $patchSweepConfig
+     * @var \Moov\MoovPhp\Models\Components\PatchSweepConfig $patchSweepConfig
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\PatchSweepConfig $patchSweepConfig;
@@ -36,7 +36,7 @@ class UpdateSweepConfigRequest
     /**
      * @param  string  $accountID
      * @param  string  $sweepConfigID
-     * @param  Components\PatchSweepConfig  $patchSweepConfig
+     * @param  \Moov\MoovPhp\Models\Components\PatchSweepConfig  $patchSweepConfig
      * @phpstan-pure
      */
     public function __construct(string $accountID, string $sweepConfigID, Components\PatchSweepConfig $patchSweepConfig)

@@ -42,24 +42,24 @@ class LinkApplePayTokenResponse
     /**
      * The request completed successfully.
      *
-     * @var ?Components\LinkedApplePayPaymentMethod $linkedApplePayPaymentMethod
+     * @var ?array<\Moov\MoovPhp\Models\Components\LinkedApplePayPaymentMethod> $linkedApplePayPaymentMethods
      */
-    public ?Components\LinkedApplePayPaymentMethod $linkedApplePayPaymentMethod = null;
+    public ?array $linkedApplePayPaymentMethods = null;
 
     /**
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\LinkedApplePayPaymentMethod  $linkedApplePayPaymentMethod
+     * @param  ?array<\Moov\MoovPhp\Models\Components\LinkedApplePayPaymentMethod>  $linkedApplePayPaymentMethods
      * @phpstan-pure
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\LinkedApplePayPaymentMethod $linkedApplePayPaymentMethod = null, ?array $headers = [])
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?array $linkedApplePayPaymentMethods = null, ?array $headers = [])
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
         $this->headers = $headers;
-        $this->linkedApplePayPaymentMethod = $linkedApplePayPaymentMethod;
+        $this->linkedApplePayPaymentMethods = $linkedApplePayPaymentMethods;
     }
 }

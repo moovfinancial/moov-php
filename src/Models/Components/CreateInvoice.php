@@ -22,7 +22,7 @@ class CreateInvoice
     /**
      * A collection of line items for an invoice.
      *
-     * @var CreateInvoiceLineItems $lineItems
+     * @var \Moov\MoovPhp\Models\Components\CreateInvoiceLineItems $lineItems
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('lineItems')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateInvoiceLineItems')]
@@ -54,7 +54,7 @@ class CreateInvoice
 
     /**
      *
-     * @var ?AmountDecimal $taxAmount
+     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimal $taxAmount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('taxAmount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
@@ -63,11 +63,11 @@ class CreateInvoice
 
     /**
      * @param  string  $customerAccountID
-     * @param  CreateInvoiceLineItems  $lineItems
+     * @param  \Moov\MoovPhp\Models\Components\CreateInvoiceLineItems  $lineItems
      * @param  ?string  $description
      * @param  ?\DateTime  $invoiceDate
      * @param  ?\DateTime  $dueDate
-     * @param  ?AmountDecimal  $taxAmount
+     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimal  $taxAmount
      * @phpstan-pure
      */
     public function __construct(string $customerAccountID, CreateInvoiceLineItems $lineItems, ?string $description = null, ?\DateTime $invoiceDate = null, ?\DateTime $dueDate = null, ?AmountDecimal $taxAmount = null)

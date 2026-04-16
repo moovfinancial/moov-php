@@ -22,7 +22,7 @@ class InvoicePayment
 
     /**
      *
-     * @var InvoicePaymentType $invoicePaymentType
+     * @var \Moov\MoovPhp\Models\Components\InvoicePaymentType $invoicePaymentType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('invoicePaymentType')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\InvoicePaymentType')]
@@ -30,7 +30,7 @@ class InvoicePayment
 
     /**
      *
-     * @var AmountDecimal $amount
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $amount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
@@ -38,7 +38,7 @@ class InvoicePayment
 
     /**
      *
-     * @var ?InvoiceTransferPayment $transfer
+     * @var ?\Moov\MoovPhp\Models\Components\InvoiceTransferPayment $transfer
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('transfer')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\InvoiceTransferPayment|null')]
@@ -47,7 +47,7 @@ class InvoicePayment
 
     /**
      *
-     * @var ?InvoiceExternalPayment $external
+     * @var ?\Moov\MoovPhp\Models\Components\InvoiceExternalPayment $external
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('external')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\InvoiceExternalPayment|null')]
@@ -56,10 +56,10 @@ class InvoicePayment
 
     /**
      * @param  string  $invoicePaymentID
-     * @param  InvoicePaymentType  $invoicePaymentType
-     * @param  AmountDecimal  $amount
-     * @param  ?InvoiceTransferPayment  $transfer
-     * @param  ?InvoiceExternalPayment  $external
+     * @param  \Moov\MoovPhp\Models\Components\InvoicePaymentType  $invoicePaymentType
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $amount
+     * @param  ?\Moov\MoovPhp\Models\Components\InvoiceTransferPayment  $transfer
+     * @param  ?\Moov\MoovPhp\Models\Components\InvoiceExternalPayment  $external
      * @phpstan-pure
      */
     public function __construct(string $invoicePaymentID, InvoicePaymentType $invoicePaymentType, AmountDecimal $amount, ?InvoiceTransferPayment $transfer = null, ?InvoiceExternalPayment $external = null)

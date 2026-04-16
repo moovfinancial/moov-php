@@ -38,7 +38,7 @@ class CreateTicketError
 
     /**
      *
-     * @var ?Components\CreateTicketContactError $contact
+     * @var ?\Moov\MoovPhp\Models\Components\CreateTicketContactError $contact
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('contact')]
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateTicketContactError|null')]
@@ -57,7 +57,7 @@ class CreateTicketError
      * @param  ?string  $title
      * @param  ?string  $body
      * @param  ?string  $author
-     * @param  ?Components\CreateTicketContactError  $contact
+     * @param  ?\Moov\MoovPhp\Models\Components\CreateTicketContactError  $contact
      * @param  ?string  $foreignID
      * @phpstan-pure
      */
