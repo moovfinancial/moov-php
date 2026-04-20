@@ -11,3 +11,5 @@ Payment methods allowed for disbursing funds.
 | `RtpCredit`         | rtp-credit          |
 | `AchCreditSameDay`  | ach-credit-same-day |
 | `AchCreditStandard` | ach-credit-standard |
+| `PushToApplePay`    | push-to-apple-pay   |
+| `PushToGooglePay`   | push-to-google-pay  |
