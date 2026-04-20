@@ -5,15 +5,15 @@ management:
   docVersion: v2026.04.00
   speakeasyVersion: 1.761.8
   generationVersion: 2.881.2
-  releaseVersion: 26.4.0-beta.20
-  configChecksum: 1c9af251d6d9a09ce2d64abe9361510b
+  releaseVersion: 26.4.0
+  configChecksum: fe0419a08d8c0c72b8e89475db0f9731
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php.git
   published: true
 persistentEdits:
-  generation_id: 6676038e-0737-40fe-9f0a-d6f182765d1b
-  pristine_commit_hash: f40ba4dbbaae107857c76f198491934586d8f7e8
-  pristine_tree_hash: 6dd978f845053e68c635f1e361098b641361cb2d
+  generation_id: 9176642f-b619-41e9-aa0d-ab77cac99ef8
+  pristine_commit_hash: 17f0714284ede3cbd96495ea006d79de0dd1c6b8
+  pristine_tree_hash: fe7956d2dd7108d7f1f229ee41331756afce36d9
 features:
   php:
     constsAndDefaults: 0.2.2
@@ -9362,8 +9362,8 @@ trackedFiles:
     pristine_git_object: 6c4eb9b9d1bbf57d4db0cdf0095b237b68051ed4
   src/SDKConfiguration.php:
     id: 9d60ab0bec0b
-    last_write_checksum: sha1:174565c6b06997d323b54c11a838c28f4b223d36
-    pristine_git_object: 200a58412e80237bc7cc2f15e9bc3a62e58fe85d
+    last_write_checksum: sha1:39683b069768b7f96c939fd6268b0c5df23fb5a6
+    pristine_git_object: fd52fcf7c29922704986859c144caff5f9525c36
   src/Schedules.php:
     id: 8dbe56d2d033
     last_write_checksum: sha1:6f0d21f80435c051e1beddd63bf681efac9d4099
@@ -12375,7 +12375,6 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Php SDK Changes:\n* `moov->paymentlinks->update()`: \n  *  `request.updatePaymentLink->payout->allowedMethods[]` **Changed**\n  *  `response.payout->allowedMethods[]` **Changed** (Breaking ⚠️)\n* `moov->cards->list()`:  `response.[]->paymentMethods[]->paymentMethodType` **Changed** (Breaking ⚠️)\n* `moov->bankaccounts->link()`:  `response.paymentMethods[]->paymentMethodType` **Changed** (Breaking ⚠️)\n* `moov->bankaccounts->list()`:  `response.[]->paymentMethods[]->paymentMethodType` **Changed** (Breaking ⚠️)\n* `moov->bankaccounts->get()`:  `response.paymentMethods[]->paymentMethodType` **Changed** (Breaking ⚠️)\n* `moov->cards->link()`:  `response.paymentMethods[]->paymentMethodType` **Changed** (Breaking ⚠️)\n* `moov->paymentlinks->get()`:  `response.payout->allowedMethods[]` **Changed** (Breaking ⚠️)\n* `moov->cards->get()`:  `response.paymentMethods[]->paymentMethodType` **Changed** (Breaking ⚠️)\n* `moov->cards->update()`:  `response.paymentMethods[]->paymentMethodType` **Changed** (Breaking ⚠️)\n* `moov->paymentlinks->create()`: \n  *  `request.createPaymentLink->payout->allowedMethods[]` **Changed**\n  *  `response.payout->allowedMethods[]` **Changed** (Breaking ⚠️)\n* `moov->applepay->linkToken()`:  `response.[]->paymentMethodType` **Changed** (Breaking ⚠️)\n* `moov->paymentlinks->list()`:  `response.[]->payout->allowedMethods[]` **Changed** (Breaking ⚠️)\n* `moov->transfers->update()`:  `response.source->paymentMethodType` **Changed** (Breaking ⚠️)\n* `moov->paymentmethods->list()`: \n  *  `request.paymentMethodType` **Changed**\n  *  `response.[]` **Changed** (Breaking ⚠️)\n* `moov->paymentmethods->get()`:  `response` **Changed** (Breaking ⚠️)\n* `moov->transfers->get()`:  `response.source->paymentMethodType` **Changed** (Breaking ⚠️)\n* `moov->transfers->batchGetTransfers()`:  `response.Map<Transfer>->source->paymentMethodType` **Changed** (Breaking ⚠️)\n* `moov->transfers->list()`:  `response.[]->source->paymentMethodType` **Changed** (Breaking ⚠️)\n* `moov->transfers->generateOptions()`:  `response.sourceOptions[]` **Changed** (Breaking ⚠️)\n* `moov->transfers->create()`: \n  *  `response.source->paymentMethodType` **Changed** (Breaking ⚠️)\n  *  `error.source->paymentMethodType` **Changed** (Breaking ⚠️)\n* `moov->resolution links->get()`:  `response.status` **Added**\n* `moov->google pay->linkToken()`: **Added**\n* `moov->resolution links->create()`:  `response.status` **Added**\n* `moov->resolution links->list()`:  `response.[]->status` **Added**\n"
 generatedFiles:
   - .gitattributes
   - USAGE.md
