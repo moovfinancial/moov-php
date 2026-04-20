@@ -131,3 +131,30 @@ Components\PushToApplePayTransferPaymentMethod $value = /* values here */
 Components\PullFromApplePayTransferPaymentMethod $value = /* values here */
 ```
 
+### `Components\GooglePayTransferPaymentMethod`
+
+```php
+/**
+* @var \Moov\MoovPhp\Models\Components\GooglePayTransferPaymentMethod
+*/
+Components\GooglePayTransferPaymentMethod $value = /* values here */
+```
+
+### `Components\PushToGooglePayTransferPaymentMethod`
+
+```php
+/**
+* @var \Moov\MoovPhp\Models\Components\PushToGooglePayTransferPaymentMethod
+*/
+Components\PushToGooglePayTransferPaymentMethod $value = /* values here */
+```
+
+### `Components\PullFromGooglePayTransferPaymentMethod`
+
+```php
+/**
+* @var \Moov\MoovPhp\Models\Components\PullFromGooglePayTransferPaymentMethod
+*/
+Components\PullFromGooglePayTransferPaymentMethod $value = /* values here */
+```
+

@@ -26,4 +26,7 @@ enum PaymentMethodType: string
     case InstantBankCredit = 'instant-bank-credit';
     case PushToApplePay = 'push-to-apple-pay';
     case PullFromApplePay = 'pull-from-apple-pay';
+    case GooglePay = 'google-pay';
+    case PushToGooglePay = 'push-to-google-pay';
+    case PullFromGooglePay = 'pull-from-google-pay';
 }
