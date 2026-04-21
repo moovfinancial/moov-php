@@ -21,3 +21,6 @@ The payment method type that represents a payment rail and directionality
 | `InstantBankCredit`  | instant-bank-credit  |
 | `PushToApplePay`     | push-to-apple-pay    |
 | `PullFromApplePay`   | pull-from-apple-pay  |
+| `GooglePay`          | google-pay           |
+| `PushToGooglePay`    | push-to-google-pay   |
+| `PullFromGooglePay`  | pull-from-google-pay |

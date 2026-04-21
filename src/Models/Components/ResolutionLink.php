@@ -53,6 +53,15 @@ class ResolutionLink
     public string $url;
 
     /**
+     * The current status of the resolution link.
+     *
+     * @var \Moov\MoovPhp\Models\Components\ResolutionLinkStatus $status
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ResolutionLinkStatus')]
+    public ResolutionLinkStatus $status;
+
+    /**
      * The date and time the resolution link was created.
      *
      * @var \DateTime $createdOn
@@ -91,19 +100,21 @@ class ResolutionLink
      * @param  string  $partnerAccountID
      * @param  string  $recipient
      * @param  string  $url
+     * @param  \Moov\MoovPhp\Models\Components\ResolutionLinkStatus  $status
      * @param  \DateTime  $createdOn
      * @param  \DateTime  $updatedOn
      * @param  \DateTime  $expiresOn
      * @param  ?\DateTime  $disabledOn
      * @phpstan-pure
      */
-    public function __construct(string $code, string $accountID, string $partnerAccountID, string $recipient, string $url, \DateTime $createdOn, \DateTime $updatedOn, \DateTime $expiresOn, ?\DateTime $disabledOn = null)
+    public function __construct(string $code, string $accountID, string $partnerAccountID, string $recipient, string $url, ResolutionLinkStatus $status, \DateTime $createdOn, \DateTime $updatedOn, \DateTime $expiresOn, ?\DateTime $disabledOn = null)
     {
         $this->code = $code;
         $this->accountID = $accountID;
         $this->partnerAccountID = $partnerAccountID;
         $this->recipient = $recipient;
         $this->url = $url;
+        $this->status = $status;
         $this->createdOn = $createdOn;
         $this->updatedOn = $updatedOn;
         $this->expiresOn = $expiresOn;

@@ -47,6 +47,8 @@ class Moov
 
     public Files $files;
 
+    public GooglePay $googlePay;
+
     public Images $images;
 
     public Invoices $invoices;
@@ -141,6 +143,7 @@ class Moov
         $this->disputes = new Disputes($this->sdkConfiguration);
         $this->feePlans = new FeePlans($this->sdkConfiguration);
         $this->files = new Files($this->sdkConfiguration);
+        $this->googlePay = new GooglePay($this->sdkConfiguration);
         $this->images = new Images($this->sdkConfiguration);
         $this->invoices = new Invoices($this->sdkConfiguration);
         $this->paymentLinks = new PaymentLinks($this->sdkConfiguration);

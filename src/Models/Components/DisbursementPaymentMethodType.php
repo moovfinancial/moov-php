@@ -16,4 +16,6 @@ enum DisbursementPaymentMethodType: string
     case RtpCredit = 'rtp-credit';
     case AchCreditSameDay = 'ach-credit-same-day';
     case AchCreditStandard = 'ach-credit-standard';
+    case PushToApplePay = 'push-to-apple-pay';
+    case PushToGooglePay = 'push-to-google-pay';
 }

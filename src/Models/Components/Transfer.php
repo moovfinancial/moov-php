@@ -274,6 +274,16 @@ class Transfer
     public ?string $invoiceID = null;
 
     /**
+     * The card authorization and capture IDs associated with a transfer.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\TransferCapture $capture
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('capture')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferCapture|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?TransferCapture $capture = null;
+
+    /**
      * @param  string  $transferID
      * @param  \DateTime  $createdOn
      * @param  \Moov\MoovPhp\Models\Components\TransferSource  $source
@@ -303,9 +313,10 @@ class Transfer
      * @param  ?string  $foreignID
      * @param  ?\Moov\MoovPhp\Models\Components\TransferLineItems  $lineItems
      * @param  ?string  $invoiceID
+     * @param  ?\Moov\MoovPhp\Models\Components\TransferCapture  $capture
      * @phpstan-pure
      */
-    public function __construct(string $transferID, \DateTime $createdOn, TransferSource $source, TransferDestination $destination, TransferStatus $status, Amount $amount, ?\DateTime $completedOn = null, ?TransferFailureReason $failureReason = null, ?string $description = null, ?array $metadata = null, ?FacilitatorFee $facilitatorFee = null, ?int $moovFee = null, ?string $moovFeeDecimal = null, ?MoovFeeDetails $moovFeeDetails = null, ?array $moovFees = null, ?string $groupID = null, ?array $cancellations = null, ?Amount $refundedAmount = null, ?array $refunds = null, ?Amount $disputedAmount = null, ?array $disputes = null, ?string $sweepID = null, ?string $scheduleID = null, ?string $occurrenceID = null, ?string $paymentLinkCode = null, ?Amount $salesTaxAmount = null, ?string $foreignID = null, ?TransferLineItems $lineItems = null, ?string $invoiceID = null)
+    public function __construct(string $transferID, \DateTime $createdOn, TransferSource $source, TransferDestination $destination, TransferStatus $status, Amount $amount, ?\DateTime $completedOn = null, ?TransferFailureReason $failureReason = null, ?string $description = null, ?array $metadata = null, ?FacilitatorFee $facilitatorFee = null, ?int $moovFee = null, ?string $moovFeeDecimal = null, ?MoovFeeDetails $moovFeeDetails = null, ?array $moovFees = null, ?string $groupID = null, ?array $cancellations = null, ?Amount $refundedAmount = null, ?array $refunds = null, ?Amount $disputedAmount = null, ?array $disputes = null, ?string $sweepID = null, ?string $scheduleID = null, ?string $occurrenceID = null, ?string $paymentLinkCode = null, ?Amount $salesTaxAmount = null, ?string $foreignID = null, ?TransferLineItems $lineItems = null, ?string $invoiceID = null, ?TransferCapture $capture = null)
     {
         $this->transferID = $transferID;
         $this->createdOn = $createdOn;
@@ -336,5 +347,6 @@ class Transfer
         $this->foreignID = $foreignID;
         $this->lineItems = $lineItems;
         $this->invoiceID = $invoiceID;
+        $this->capture = $capture;
     }
 }
