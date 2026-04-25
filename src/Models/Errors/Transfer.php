@@ -235,7 +235,6 @@ class Transfer
     public ?string $paymentLinkCode = null;
 
     /**
-     * Optional sales tax amount. `transfer.amount.value` should be inclusive of any sales tax and represents the total amount charged.
      *
      * @var ?\Moov\MoovPhp\Models\Components\Amount $salesTaxAmount
      */

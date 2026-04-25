@@ -37,6 +37,13 @@ class CreatePaymentLink
     public string $merchantPaymentMethodID;
 
     /**
+     * The fixed amount of the payment link. 
+     *
+     *
+     * In API versions before `2026.07.00`, this was a required field.
+     *
+     * In API version `2026.07.00` and beyond, this field is required for `fixed` payment amount types and omitted 
+     * for `open` payment amount types.
      *
      * @var \Moov\MoovPhp\Models\Components\Amount $amount
      */
@@ -54,6 +61,7 @@ class CreatePaymentLink
     public PaymentLinkDisplayOptions $display;
 
     /**
+     * Optional sales tax amount.
      *
      * @var ?\Moov\MoovPhp\Models\Components\Amount $salesTaxAmount
      */
@@ -63,7 +71,7 @@ class CreatePaymentLink
     public ?Amount $salesTaxAmount = null;
 
     /**
-     * An optional limit on the number of times this payment link can be used. 
+     * An optional limit on the number of times this payment link can be used.
      *
      *
      * **For payouts, `maxUses` is always 1.**
