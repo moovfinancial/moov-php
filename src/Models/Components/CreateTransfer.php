@@ -67,7 +67,6 @@ class CreateTransfer
     public ?array $metadata = null;
 
     /**
-     * Optional sales tax amount. `transfer.amount.value` should be inclusive of any sales tax and represents the total amount charged.
      *
      * @var ?\Moov\MoovPhp\Models\Components\Amount $salesTaxAmount
      */
