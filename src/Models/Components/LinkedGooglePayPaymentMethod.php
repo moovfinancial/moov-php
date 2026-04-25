@@ -20,12 +20,13 @@ class LinkedGooglePayPaymentMethod
     public string $paymentMethodID;
 
     /**
+     * The payment method type that represents a payment rail and directionality
      *
-     * @var \Moov\MoovPhp\Models\Components\LinkedGooglePayPaymentMethodPaymentMethodType $paymentMethodType
+     * @var \Moov\MoovPhp\Models\Components\PaymentMethodType $paymentMethodType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('paymentMethodType')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\LinkedGooglePayPaymentMethodPaymentMethodType')]
-    public LinkedGooglePayPaymentMethodPaymentMethodType $paymentMethodType;
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentMethodType')]
+    public PaymentMethodType $paymentMethodType;
 
     /**
      * Describes a Google Pay token on a Moov account.
@@ -38,11 +39,11 @@ class LinkedGooglePayPaymentMethod
 
     /**
      * @param  string  $paymentMethodID
-     * @param  \Moov\MoovPhp\Models\Components\LinkedGooglePayPaymentMethodPaymentMethodType  $paymentMethodType
+     * @param  \Moov\MoovPhp\Models\Components\PaymentMethodType  $paymentMethodType
      * @param  \Moov\MoovPhp\Models\Components\GooglePayResponse  $googlePay
      * @phpstan-pure
      */
-    public function __construct(string $paymentMethodID, LinkedGooglePayPaymentMethodPaymentMethodType $paymentMethodType, GooglePayResponse $googlePay)
+    public function __construct(string $paymentMethodID, PaymentMethodType $paymentMethodType, GooglePayResponse $googlePay)
     {
         $this->paymentMethodID = $paymentMethodID;
         $this->paymentMethodType = $paymentMethodType;

@@ -9,7 +9,8 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-enum LinkedGooglePayPaymentMethodPaymentMethodType: string
+/** The type of payment method. Always `CARD`. */
+enum Type: string
 {
-    case GooglePay = 'google-pay';
+    case Card = 'CARD';
 }

@@ -21,23 +21,34 @@ class LinkGooglePayError
     public ?string $error = null;
 
     /**
-     * Describes an error within the `token` request field.
+     * Describes an error within the `merchantAccountID` request field.
      *
-     * @var ?string $token
+     * @var ?string $merchantAccountID
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('token')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('merchantAccountID')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $token = null;
+    public ?string $merchantAccountID = null;
+
+    /**
+     * Describes an error within the `paymentMethodData` request field.
+     *
+     * @var ?string $paymentMethodData
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('paymentMethodData')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $paymentMethodData = null;
 
     /**
      * @param  ?string  $error
-     * @param  ?string  $token
+     * @param  ?string  $merchantAccountID
+     * @param  ?string  $paymentMethodData
      * @phpstan-pure
      */
-    public function __construct(?string $error = null, ?string $token = null)
+    public function __construct(?string $error = null, ?string $merchantAccountID = null, ?string $paymentMethodData = null)
     {
         $this->error = $error;
-        $this->token = $token;
+        $this->merchantAccountID = $merchantAccountID;
+        $this->paymentMethodData = $paymentMethodData;
     }
 
     public function toException(): LinkGooglePayErrorThrowable

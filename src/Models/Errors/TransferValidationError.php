@@ -102,6 +102,15 @@ class TransferValidationError
     public ?Components\CreateTransferLineItemsValidationError $lineItems = null;
 
     /**
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\CreateTransferAmountDetailsValidationError $amountDetails
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('amountDetails')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateTransferAmountDetailsValidationError|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?Components\CreateTransferAmountDetailsValidationError $amountDetails = null;
+
+    /**
      * @param  ?string  $amount
      * @param  ?string  $source
      * @param  ?string  $sourcePaymentMethodID
@@ -113,9 +122,10 @@ class TransferValidationError
      * @param  ?string  $salesTaxAmount
      * @param  ?string  $foreignID
      * @param  ?\Moov\MoovPhp\Models\Components\CreateTransferLineItemsValidationError  $lineItems
+     * @param  ?\Moov\MoovPhp\Models\Components\CreateTransferAmountDetailsValidationError  $amountDetails
      * @phpstan-pure
      */
-    public function __construct(?string $amount = null, ?string $source = null, ?string $sourcePaymentMethodID = null, ?string $destinationPaymentMethodID = null, ?string $description = null, ?string $facilitatorFeeTotalDecimal = null, ?string $facilitatorFeeMarkupDecimal = null, ?string $metadata = null, ?string $salesTaxAmount = null, ?string $foreignID = null, ?Components\CreateTransferLineItemsValidationError $lineItems = null)
+    public function __construct(?string $amount = null, ?string $source = null, ?string $sourcePaymentMethodID = null, ?string $destinationPaymentMethodID = null, ?string $description = null, ?string $facilitatorFeeTotalDecimal = null, ?string $facilitatorFeeMarkupDecimal = null, ?string $metadata = null, ?string $salesTaxAmount = null, ?string $foreignID = null, ?Components\CreateTransferLineItemsValidationError $lineItems = null, ?Components\CreateTransferAmountDetailsValidationError $amountDetails = null)
     {
         $this->amount = $amount;
         $this->source = $source;
@@ -128,6 +138,7 @@ class TransferValidationError
         $this->salesTaxAmount = $salesTaxAmount;
         $this->foreignID = $foreignID;
         $this->lineItems = $lineItems;
+        $this->amountDetails = $amountDetails;
     }
 
     public function toException(): TransferValidationErrorThrowable
