@@ -30,6 +30,15 @@ class PaymentLinkCustomerOptions
     public ?bool $requirePhone = null;
 
     /**
+     * If true, tipping is enabled on the payment form. Defaults to false.
+     *
+     * @var ?bool $tippingEnabled
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('tippingEnabled')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $tippingEnabled = null;
+
+    /**
      * Optional free-form metadata for the Moov account that will represent this customer.
      *
      * @var ?array<string, string> $metadata
@@ -42,13 +51,15 @@ class PaymentLinkCustomerOptions
     /**
      * @param  ?bool  $requireAddress
      * @param  ?bool  $requirePhone
+     * @param  ?bool  $tippingEnabled
      * @param  ?array<string, string>  $metadata
      * @phpstan-pure
      */
-    public function __construct(?bool $requireAddress = null, ?bool $requirePhone = null, ?array $metadata = null)
+    public function __construct(?bool $requireAddress = null, ?bool $requirePhone = null, ?bool $tippingEnabled = null, ?array $metadata = null)
     {
         $this->requireAddress = $requireAddress;
         $this->requirePhone = $requirePhone;
+        $this->tippingEnabled = $tippingEnabled;
         $this->metadata = $metadata;
     }
 }

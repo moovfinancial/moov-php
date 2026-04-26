@@ -10,33 +10,45 @@ namespace Moov\MoovPhp\Models\Components;
 
 
 /**
- * LinkGooglePay -   The encrypted Google Pay payment token (ECv2 format).
+ * LinkGooglePay -   Links a Google Pay token to a Moov account.
  *
  *
- *   Refer to [Google's documentation](https://developers.google.com/pay/api/web/guides/resources/payment-data-cryptography#payment-method-token-structure)
- *   for more information.
+ *   The `paymentMethodData` field should contain the `paymentMethodData` property from the
+ *   [PaymentData](https://developers.google.com/pay/api/web/reference/response-objects#PaymentData) response
+ *   returned by Google Pay's client SDK. Pass it through unmodified.
  */
 class LinkGooglePay
 {
     /**
-     *   Contains the encrypted payment token as returned from Google Pay.
+     *   The merchant accountID this token was minted for. Must match the `gatewayMerchantId`
      *
+     *   value passed to Google Pay when constructing the PaymentDataRequest. card-gateway validates
+     *   that the decrypted `gatewayMerchantId` matches this value.
      *
-     *   Refer to [Google's documentation](https://developers.google.com/pay/api/web/guides/resources/payment-data-cryptography#payment-method-token-structure)
-     *   for more information.
-     *
-     * @var \Moov\MoovPhp\Models\Components\GooglePayToken $token
+     * @var string $merchantAccountID
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('token')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\GooglePayToken')]
-    public GooglePayToken $token;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('merchantAccountID')]
+    public string $merchantAccountID;
 
     /**
-     * @param  \Moov\MoovPhp\Models\Components\GooglePayToken  $token
+     *   The `paymentMethodData` object from Google Pay's
+     *
+     *   [PaymentData](https://developers.google.com/pay/api/web/reference/response-objects#PaymentData) response.
+     *
+     * @var \Moov\MoovPhp\Models\Components\GooglePayPaymentMethodData $paymentMethodData
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('paymentMethodData')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\GooglePayPaymentMethodData')]
+    public GooglePayPaymentMethodData $paymentMethodData;
+
+    /**
+     * @param  string  $merchantAccountID
+     * @param  \Moov\MoovPhp\Models\Components\GooglePayPaymentMethodData  $paymentMethodData
      * @phpstan-pure
      */
-    public function __construct(GooglePayToken $token)
+    public function __construct(string $merchantAccountID, GooglePayPaymentMethodData $paymentMethodData)
     {
-        $this->token = $token;
+        $this->merchantAccountID = $merchantAccountID;
+        $this->paymentMethodData = $paymentMethodData;
     }
 }

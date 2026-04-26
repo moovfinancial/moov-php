@@ -6,7 +6,9 @@
 
 * [linkToken](#linktoken) - Connect a Google Pay token to the specified account.
 
-The `token` data is defined by Google Pay and should be passed through from Google Pay's response unmodified.
+The `paymentMethodData` field should contain the `paymentMethodData` property from Google Pay's
+[PaymentData](https://developers.google.com/pay/api/web/reference/response-objects#PaymentData) response,
+passed through unmodified.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
 you'll need to specify the `/accounts/{accountID}/cards.write` scope.
@@ -15,7 +17,9 @@ you'll need to specify the `/accounts/{accountID}/cards.write` scope.
 
 Connect a Google Pay token to the specified account.
 
-The `token` data is defined by Google Pay and should be passed through from Google Pay's response unmodified.
+The `paymentMethodData` field should contain the `paymentMethodData` property from Google Pay's
+[PaymentData](https://developers.google.com/pay/api/web/reference/response-objects#PaymentData) response,
+passed through unmodified.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
 you'll need to specify the `/accounts/{accountID}/cards.write` scope.
@@ -41,18 +45,21 @@ $sdk = MoovPhp\Moov::builder()
     ->build();
 
 $linkGooglePay = new Components\LinkGooglePay(
-    token: new Components\GooglePayToken(
-        protocolVersion: 'ECv2',
-        signature: '<value>',
-        intermediateSigningKey: new Components\GooglePayIntermediateSigningKey(
-            signedKey: '<value>',
-            signatures: [
-                '<value 1>',
-                '<value 2>',
-                '<value 3>',
-            ],
+    merchantAccountID: 'c5f78a7e-2fb0-4e4a-bcf0-9e1f8b0e5c7a',
+    paymentMethodData: new Components\GooglePayPaymentMethodData(
+        type: Components\Type::Card,
+        info: new Components\GooglePayCardInfo(
+            cardNetwork: Components\CardNetwork::Visa,
+            cardDetails: '1234',
+            cardFundingSource: Components\CardFundingSource::Debit,
+            billingAddress: new Components\GooglePayBillingAddress(
+                countryCode: 'US',
+            ),
         ),
-        signedMessage: '<value>',
+        tokenizationData: new Components\GooglePayTokenizationData(
+            type: Components\GooglePayTokenizationDataType::PaymentGateway,
+            token: '<value>',
+        ),
     ),
 );
 

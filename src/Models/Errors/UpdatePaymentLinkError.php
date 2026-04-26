@@ -75,6 +75,15 @@ class UpdatePaymentLinkError
     public ?Components\CreatePaymentLinkLineItemsValidationError $lineItems = null;
 
     /**
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\UpdatePaymentLinkAmountDetailsValidationError $amountDetails
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('amountDetails')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\UpdatePaymentLinkAmountDetailsValidationError|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?Components\UpdatePaymentLinkAmountDetailsValidationError $amountDetails = null;
+
+    /**
      * @param  ?\Moov\MoovPhp\Models\Components\AmountValidationError  $amount
      * @param  ?\Moov\MoovPhp\Models\Components\AmountValidationError  $salesTaxAmount
      * @param  ?string  $expiresOn
@@ -82,9 +91,10 @@ class UpdatePaymentLinkError
      * @param  ?\Moov\MoovPhp\Models\Components\PaymentDetailsError  $payment
      * @param  ?\Moov\MoovPhp\Models\Components\PayoutDetailsError  $payout
      * @param  ?\Moov\MoovPhp\Models\Components\CreatePaymentLinkLineItemsValidationError  $lineItems
+     * @param  ?\Moov\MoovPhp\Models\Components\UpdatePaymentLinkAmountDetailsValidationError  $amountDetails
      * @phpstan-pure
      */
-    public function __construct(?Components\AmountValidationError $amount = null, ?Components\AmountValidationError $salesTaxAmount = null, ?string $expiresOn = null, ?Components\DisplayOptionsError $display = null, ?Components\PaymentDetailsError $payment = null, ?Components\PayoutDetailsError $payout = null, ?Components\CreatePaymentLinkLineItemsValidationError $lineItems = null)
+    public function __construct(?Components\AmountValidationError $amount = null, ?Components\AmountValidationError $salesTaxAmount = null, ?string $expiresOn = null, ?Components\DisplayOptionsError $display = null, ?Components\PaymentDetailsError $payment = null, ?Components\PayoutDetailsError $payout = null, ?Components\CreatePaymentLinkLineItemsValidationError $lineItems = null, ?Components\UpdatePaymentLinkAmountDetailsValidationError $amountDetails = null)
     {
         $this->amount = $amount;
         $this->salesTaxAmount = $salesTaxAmount;
@@ -93,6 +103,7 @@ class UpdatePaymentLinkError
         $this->payment = $payment;
         $this->payout = $payout;
         $this->lineItems = $lineItems;
+        $this->amountDetails = $amountDetails;
     }
 
     public function toException(): UpdatePaymentLinkErrorThrowable

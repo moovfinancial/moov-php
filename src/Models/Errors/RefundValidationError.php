@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Moov\MoovPhp\Models\Errors;
 
+use Moov\MoovPhp\Models\Components;
 use Moov\MoovPhp\Utils;
 class RefundValidationError
 {
@@ -20,6 +21,15 @@ class RefundValidationError
     public ?string $amount = null;
 
     /**
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\RefundAmountDetailsValidationError $amountDetails
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('amountDetails')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RefundAmountDetailsValidationError|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?Components\RefundAmountDetailsValidationError $amountDetails = null;
+
+    /**
      * Used for generic errors when invalid request data isn't attributed to a single request field.
      *
      * @var ?string $error
@@ -30,12 +40,14 @@ class RefundValidationError
 
     /**
      * @param  ?string  $amount
+     * @param  ?\Moov\MoovPhp\Models\Components\RefundAmountDetailsValidationError  $amountDetails
      * @param  ?string  $error
      * @phpstan-pure
      */
-    public function __construct(?string $amount = null, ?string $error = null)
+    public function __construct(?string $amount = null, ?Components\RefundAmountDetailsValidationError $amountDetails = null, ?string $error = null)
     {
         $this->amount = $amount;
+        $this->amountDetails = $amountDetails;
         $this->error = $error;
     }
 

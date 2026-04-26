@@ -85,14 +85,6 @@ class PaymentLink
     public string $link;
 
     /**
-     *
-     * @var \Moov\MoovPhp\Models\Components\Amount $amount
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Amount')]
-    public Amount $amount;
-
-    /**
      * The number of times this payment link has been used.
      *
      * @var int $uses
@@ -132,6 +124,22 @@ class PaymentLink
     public \DateTime $updatedOn;
 
     /**
+     * The fixed amount of the payment link. 
+     *
+     *
+     * In API versions before `2026.07.00`, this was a required field.
+     *
+     * In API version `2026.07.00` and beyond, this field is required for `fixed` payment amount types and omitted 
+     * for `open` payment amount types.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\Amount $amount
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Amount|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?Amount $amount = null;
+
+    /**
      * Optional sales tax amount.
      *
      * @var ?\Moov\MoovPhp\Models\Components\Amount $salesTaxAmount
@@ -142,7 +150,7 @@ class PaymentLink
     public ?Amount $salesTaxAmount = null;
 
     /**
-     * An optional limit on the number of times this payment link can be used. 
+     * An optional limit on the number of times this payment link can be used.
      *
      *
      * **For payouts, `maxUses` is always 1.**
@@ -211,6 +219,15 @@ class PaymentLink
     public ?\DateTime $disabledOn = null;
 
     /**
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\PaymentLinkAmountDetails $amountDetails
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('amountDetails')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentLinkAmountDetails|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?PaymentLinkAmountDetails $amountDetails = null;
+
+    /**
      * @param  string  $code
      * @param  \Moov\MoovPhp\Models\Components\PaymentLinkType  $paymentLinkType
      * @param  \Moov\MoovPhp\Models\Components\Mode  $mode
@@ -220,12 +237,12 @@ class PaymentLink
      * @param  string  $ownerAccountID
      * @param  string  $merchantPaymentMethodID
      * @param  string  $link
-     * @param  \Moov\MoovPhp\Models\Components\Amount  $amount
      * @param  int  $uses
      * @param  \Moov\MoovPhp\Models\Components\PaymentLinkDisplayOptions  $display
      * @param  \Moov\MoovPhp\Models\Components\PaymentLinkCustomerOptions  $customer
      * @param  \DateTime  $createdOn
      * @param  \DateTime  $updatedOn
+     * @param  ?\Moov\MoovPhp\Models\Components\Amount  $amount
      * @param  ?\Moov\MoovPhp\Models\Components\Amount  $salesTaxAmount
      * @param  ?int  $maxUses
      * @param  ?\DateTime  $lastUsedOn
@@ -234,9 +251,10 @@ class PaymentLink
      * @param  ?\Moov\MoovPhp\Models\Components\PaymentLinkPayoutDetails  $payout
      * @param  ?\Moov\MoovPhp\Models\Components\PaymentLinkLineItems  $lineItems
      * @param  ?\DateTime  $disabledOn
+     * @param  ?\Moov\MoovPhp\Models\Components\PaymentLinkAmountDetails  $amountDetails
      * @phpstan-pure
      */
-    public function __construct(string $code, PaymentLinkType $paymentLinkType, Mode $mode, PaymentLinkStatus $status, string $partnerAccountID, string $merchantAccountID, string $ownerAccountID, string $merchantPaymentMethodID, string $link, Amount $amount, int $uses, PaymentLinkDisplayOptions $display, PaymentLinkCustomerOptions $customer, \DateTime $createdOn, \DateTime $updatedOn, ?Amount $salesTaxAmount = null, ?int $maxUses = null, ?\DateTime $lastUsedOn = null, ?\DateTime $expiresOn = null, ?PaymentLinkPaymentDetails $payment = null, ?PaymentLinkPayoutDetails $payout = null, ?PaymentLinkLineItems $lineItems = null, ?\DateTime $disabledOn = null)
+    public function __construct(string $code, PaymentLinkType $paymentLinkType, Mode $mode, PaymentLinkStatus $status, string $partnerAccountID, string $merchantAccountID, string $ownerAccountID, string $merchantPaymentMethodID, string $link, int $uses, PaymentLinkDisplayOptions $display, PaymentLinkCustomerOptions $customer, \DateTime $createdOn, \DateTime $updatedOn, ?Amount $amount = null, ?Amount $salesTaxAmount = null, ?int $maxUses = null, ?\DateTime $lastUsedOn = null, ?\DateTime $expiresOn = null, ?PaymentLinkPaymentDetails $payment = null, ?PaymentLinkPayoutDetails $payout = null, ?PaymentLinkLineItems $lineItems = null, ?\DateTime $disabledOn = null, ?PaymentLinkAmountDetails $amountDetails = null)
     {
         $this->code = $code;
         $this->paymentLinkType = $paymentLinkType;
@@ -247,12 +265,12 @@ class PaymentLink
         $this->ownerAccountID = $ownerAccountID;
         $this->merchantPaymentMethodID = $merchantPaymentMethodID;
         $this->link = $link;
-        $this->amount = $amount;
         $this->uses = $uses;
         $this->display = $display;
         $this->customer = $customer;
         $this->createdOn = $createdOn;
         $this->updatedOn = $updatedOn;
+        $this->amount = $amount;
         $this->salesTaxAmount = $salesTaxAmount;
         $this->maxUses = $maxUses;
         $this->lastUsedOn = $lastUsedOn;
@@ -261,5 +279,6 @@ class PaymentLink
         $this->payout = $payout;
         $this->lineItems = $lineItems;
         $this->disabledOn = $disabledOn;
+        $this->amountDetails = $amountDetails;
     }
 }

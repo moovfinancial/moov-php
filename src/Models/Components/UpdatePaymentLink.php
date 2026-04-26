@@ -81,6 +81,15 @@ class UpdatePaymentLink
 
     /**
      *
+     * @var ?\Moov\MoovPhp\Models\Components\UpdatePaymentLinkAmountDetails $amountDetails
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('amountDetails')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\UpdatePaymentLinkAmountDetails|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?UpdatePaymentLinkAmountDetails $amountDetails = null;
+
+    /**
+     *
      * @var ?\DateTime $expiresOn
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('expiresOn')]
@@ -95,10 +104,11 @@ class UpdatePaymentLink
      * @param  ?\Moov\MoovPhp\Models\Components\PaymentLinkPaymentDetailsUpdate  $payment
      * @param  ?\Moov\MoovPhp\Models\Components\PaymentLinkPayoutDetailsUpdate  $payout
      * @param  ?\Moov\MoovPhp\Models\Components\CreatePaymentLinkLineItemsUpdate  $lineItems
+     * @param  ?\Moov\MoovPhp\Models\Components\UpdatePaymentLinkAmountDetails  $amountDetails
      * @param  ?\DateTime  $expiresOn
      * @phpstan-pure
      */
-    public function __construct(?AmountUpdate $amount = null, ?AmountUpdate $salesTaxAmount = null, ?PaymentLinkDisplayOptionsUpdate $display = null, ?PaymentLinkCustomerOptions $customer = null, ?PaymentLinkPaymentDetailsUpdate $payment = null, ?PaymentLinkPayoutDetailsUpdate $payout = null, ?CreatePaymentLinkLineItemsUpdate $lineItems = null, ?\DateTime $expiresOn = null)
+    public function __construct(?AmountUpdate $amount = null, ?AmountUpdate $salesTaxAmount = null, ?PaymentLinkDisplayOptionsUpdate $display = null, ?PaymentLinkCustomerOptions $customer = null, ?PaymentLinkPaymentDetailsUpdate $payment = null, ?PaymentLinkPayoutDetailsUpdate $payout = null, ?CreatePaymentLinkLineItemsUpdate $lineItems = null, ?UpdatePaymentLinkAmountDetails $amountDetails = null, ?\DateTime $expiresOn = null)
     {
         $this->amount = $amount;
         $this->salesTaxAmount = $salesTaxAmount;
@@ -107,6 +117,7 @@ class UpdatePaymentLink
         $this->payment = $payment;
         $this->payout = $payout;
         $this->lineItems = $lineItems;
+        $this->amountDetails = $amountDetails;
         $this->expiresOn = $expiresOn;
     }
 }

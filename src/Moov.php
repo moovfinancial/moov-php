@@ -75,6 +75,8 @@ class Moov
 
     public Support $support;
 
+    public TransferConfig $transferConfig;
+
     public Transfers $transfers;
 
     public Underwriting $underwriting;
@@ -157,6 +159,7 @@ class Moov
         $this->sweeps = new Sweeps($this->sdkConfiguration);
         $this->accountTerminalApplications = new AccountTerminalApplications($this->sdkConfiguration);
         $this->support = new Support($this->sdkConfiguration);
+        $this->transferConfig = new TransferConfig($this->sdkConfiguration);
         $this->transfers = new Transfers($this->sdkConfiguration);
         $this->underwriting = new Underwriting($this->sdkConfiguration);
         $this->wallets = new Wallets($this->sdkConfiguration);

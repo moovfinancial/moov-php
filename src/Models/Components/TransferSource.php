@@ -84,6 +84,16 @@ class TransferSource
     public ?ApplePayResponse $applePay = null;
 
     /**
+     * Describes a Google Pay token on a Moov account.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\GooglePayResponse $googlePay
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('googlePay')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\GooglePayResponse|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?GooglePayResponse $googlePay = null;
+
+    /**
      * Describes payment card details captured with tap or in-person payment.
      *
      * @var ?\Moov\MoovPhp\Models\Components\TransferTerminalCard $terminalCard
@@ -122,12 +132,13 @@ class TransferSource
      * @param  ?\Moov\MoovPhp\Models\Components\TransferPaymentMethodsWallet  $wallet
      * @param  ?\Moov\MoovPhp\Models\Components\TransferPaymentMethodsCard  $card
      * @param  ?\Moov\MoovPhp\Models\Components\ApplePayResponse  $applePay
+     * @param  ?\Moov\MoovPhp\Models\Components\GooglePayResponse  $googlePay
      * @param  ?\Moov\MoovPhp\Models\Components\TransferTerminalCard  $terminalCard
      * @param  ?\Moov\MoovPhp\Models\Components\CardTransactionDetails  $cardDetails
      * @param  ?\Moov\MoovPhp\Models\Components\ACHTransactionDetails  $achDetails
      * @phpstan-pure
      */
-    public function __construct(string $paymentMethodID, TransferPaymentMethodType $paymentMethodType, TransferAccount $account, ?string $transferID = null, ?TransferPaymentMethodsBankAccount $bankAccount = null, ?TransferPaymentMethodsWallet $wallet = null, ?TransferPaymentMethodsCard $card = null, ?ApplePayResponse $applePay = null, ?TransferTerminalCard $terminalCard = null, ?CardTransactionDetails $cardDetails = null, ?ACHTransactionDetails $achDetails = null)
+    public function __construct(string $paymentMethodID, TransferPaymentMethodType $paymentMethodType, TransferAccount $account, ?string $transferID = null, ?TransferPaymentMethodsBankAccount $bankAccount = null, ?TransferPaymentMethodsWallet $wallet = null, ?TransferPaymentMethodsCard $card = null, ?ApplePayResponse $applePay = null, ?GooglePayResponse $googlePay = null, ?TransferTerminalCard $terminalCard = null, ?CardTransactionDetails $cardDetails = null, ?ACHTransactionDetails $achDetails = null)
     {
         $this->paymentMethodID = $paymentMethodID;
         $this->paymentMethodType = $paymentMethodType;
@@ -137,6 +148,7 @@ class TransferSource
         $this->wallet = $wallet;
         $this->card = $card;
         $this->applePay = $applePay;
+        $this->googlePay = $googlePay;
         $this->terminalCard = $terminalCard;
         $this->cardDetails = $cardDetails;
         $this->achDetails = $achDetails;

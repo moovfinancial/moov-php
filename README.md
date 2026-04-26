@@ -658,7 +658,9 @@ you'll need to specify the `/accounts/{accountID}/files.read` scope.
 
 * [linkToken](docs/sdks/googlepay/README.md#linktoken) - Connect a Google Pay token to the specified account.
 
-The `token` data is defined by Google Pay and should be passed through from Google Pay's response unmodified.
+The `paymentMethodData` field should contain the `paymentMethodData` property from Google Pay's
+[PaymentData](https://developers.google.com/pay/api/web/reference/response-objects#PaymentData) response,
+passed through unmodified.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
 you'll need to specify the `/accounts/{accountID}/cards.write` scope.
@@ -1058,6 +1060,12 @@ you'll need to specify the `/terminal-applications.write` scope.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/issued-cards.read` scope.
+
+### [TransferConfig](docs/sdks/transferconfig/README.md)
+
+* [create](docs/sdks/transferconfig/README.md#create) - Create a transfer config for an account.
+* [get](docs/sdks/transferconfig/README.md#get) - Get the transfer config for an account.
+* [update](docs/sdks/transferconfig/README.md#update) - Update the transfer config for an account.
 
 ### [Transfers](docs/sdks/transfers/README.md)
 

@@ -37,14 +37,6 @@ class CreatePaymentLink
     public string $merchantPaymentMethodID;
 
     /**
-     *
-     * @var \Moov\MoovPhp\Models\Components\Amount $amount
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Amount')]
-    public Amount $amount;
-
-    /**
      * Customizable display options for a payment link.
      *
      * @var \Moov\MoovPhp\Models\Components\PaymentLinkDisplayOptions $display
@@ -54,6 +46,23 @@ class CreatePaymentLink
     public PaymentLinkDisplayOptions $display;
 
     /**
+     * The fixed amount of the payment link. 
+     *
+     *
+     * In API versions before `2026.07.00`, this was a required field.
+     *
+     * In API version `2026.07.00` and beyond, this field is required for `fixed` payment amount types and omitted 
+     * for `open` payment amount types.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\Amount $amount
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Amount|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?Amount $amount = null;
+
+    /**
+     * Optional sales tax amount.
      *
      * @var ?\Moov\MoovPhp\Models\Components\Amount $salesTaxAmount
      */
@@ -63,7 +72,7 @@ class CreatePaymentLink
     public ?Amount $salesTaxAmount = null;
 
     /**
-     * An optional limit on the number of times this payment link can be used. 
+     * An optional limit on the number of times this payment link can be used.
      *
      *
      * **For payouts, `maxUses` is always 1.**
@@ -124,10 +133,19 @@ class CreatePaymentLink
     public ?CreatePaymentLinkLineItems $lineItems = null;
 
     /**
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\CreatePaymentLinkAmountDetails $amountDetails
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('amountDetails')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreatePaymentLinkAmountDetails|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?CreatePaymentLinkAmountDetails $amountDetails = null;
+
+    /**
      * @param  string  $partnerAccountID
      * @param  string  $merchantPaymentMethodID
-     * @param  \Moov\MoovPhp\Models\Components\Amount  $amount
      * @param  \Moov\MoovPhp\Models\Components\PaymentLinkDisplayOptions  $display
+     * @param  ?\Moov\MoovPhp\Models\Components\Amount  $amount
      * @param  ?\Moov\MoovPhp\Models\Components\Amount  $salesTaxAmount
      * @param  ?int  $maxUses
      * @param  ?\DateTime  $expiresOn
@@ -135,14 +153,15 @@ class CreatePaymentLink
      * @param  ?\Moov\MoovPhp\Models\Components\PaymentLinkPaymentDetails  $payment
      * @param  ?\Moov\MoovPhp\Models\Components\PaymentLinkPayoutDetails  $payout
      * @param  ?\Moov\MoovPhp\Models\Components\CreatePaymentLinkLineItems  $lineItems
+     * @param  ?\Moov\MoovPhp\Models\Components\CreatePaymentLinkAmountDetails  $amountDetails
      * @phpstan-pure
      */
-    public function __construct(string $partnerAccountID, string $merchantPaymentMethodID, Amount $amount, PaymentLinkDisplayOptions $display, ?Amount $salesTaxAmount = null, ?int $maxUses = null, ?\DateTime $expiresOn = null, ?PaymentLinkCustomerOptions $customer = null, ?PaymentLinkPaymentDetails $payment = null, ?PaymentLinkPayoutDetails $payout = null, ?CreatePaymentLinkLineItems $lineItems = null)
+    public function __construct(string $partnerAccountID, string $merchantPaymentMethodID, PaymentLinkDisplayOptions $display, ?Amount $amount = null, ?Amount $salesTaxAmount = null, ?int $maxUses = null, ?\DateTime $expiresOn = null, ?PaymentLinkCustomerOptions $customer = null, ?PaymentLinkPaymentDetails $payment = null, ?PaymentLinkPayoutDetails $payout = null, ?CreatePaymentLinkLineItems $lineItems = null, ?CreatePaymentLinkAmountDetails $amountDetails = null)
     {
         $this->partnerAccountID = $partnerAccountID;
         $this->merchantPaymentMethodID = $merchantPaymentMethodID;
-        $this->amount = $amount;
         $this->display = $display;
+        $this->amount = $amount;
         $this->salesTaxAmount = $salesTaxAmount;
         $this->maxUses = $maxUses;
         $this->expiresOn = $expiresOn;
@@ -150,5 +169,6 @@ class CreatePaymentLink
         $this->payment = $payment;
         $this->payout = $payout;
         $this->lineItems = $lineItems;
+        $this->amountDetails = $amountDetails;
     }
 }
