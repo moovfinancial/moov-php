@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: cb515762bfb129a38104984afa455972
+  docChecksum: d48dfea12aff57bf7bc14c7311d1d8fc
   docVersion: v2025.04.00
-  speakeasyVersion: 1.761.9
-  generationVersion: 2.881.4
-  releaseVersion: 25.5.3
-  configChecksum: 1f174a7fdfc474f04dadc89527731e30
+  speakeasyVersion: 1.761.11
+  generationVersion: 2.881.17
+  releaseVersion: 25.5.4
+  configChecksum: 7443f028a01d19df262dd45e101143c0
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php.git
   published: true
 persistentEdits:
-  generation_id: bf835d7f-0daf-43be-b81e-68bedad00c9f
-  pristine_commit_hash: 6284dba1ed6d55a278a7631e8c9ae02aa2037dee
-  pristine_tree_hash: 9eba1d247b5f58c11052fe6b0a44571f8baee387
+  generation_id: b5cccef4-fa4e-4b7b-b782-8cfcbfdec2e7
+  pristine_commit_hash: 4c21008b14e038373b7cf138c54beab47d547ad2
+  pristine_tree_hash: 67c7deadf2fd63f36f33b133391677d753f86a67
 features:
   php:
     constsAndDefaults: 0.2.2
@@ -1036,10 +1036,14 @@ trackedFiles:
     id: 135a32819c07
     last_write_checksum: sha1:21cca5bd36de36b9ee11578fd3b2e0e62edac8ef
     pristine_git_object: 9f17993221b9dae226925019c732cca482232252
+  docs/Models/Components/FileUploadMetadata.md:
+    id: 2ccadeceebef
+    last_write_checksum: sha1:9ce25829f48812814c80fe9475b704e63fc2c28f
+    pristine_git_object: ae306c07ead1122be44678d037e9b0630c9769f6
   docs/Models/Components/FileUploadRequestMultiPart.md:
     id: 6dc57de43d29
-    last_write_checksum: sha1:bd83bf20803a2f2797930e143a594de5f4b345db
-    pristine_git_object: 926b5e16e9b30ccdd45448ac60f6223482199de1
+    last_write_checksum: sha1:04a890d93b460236a0320c026543e2ed65e83b62
+    pristine_git_object: b4162d2805bffe0d203e7ba65282d093af62341e
   docs/Models/Components/FileUploadRequestMultiPartFile.md:
     id: 7197c3ba7e4b
     last_write_checksum: sha1:4d0a41675c58ee0dcd133570d48fff73bca6b25b
@@ -2158,8 +2162,8 @@ trackedFiles:
     pristine_git_object: b121bd29c729561f26f53dd3a3cd049c921ff006
   docs/Models/Components/WebhookDataBankAccountCreated.md:
     id: 124011d91b83
-    last_write_checksum: sha1:7cc09b38129640542330b2630d0ce43b6dd44268
-    pristine_git_object: 9a9f9fd648697f767263a5fa4ac45e7d5bc34b30
+    last_write_checksum: sha1:a9a6f28f92167c2980a40bca695dc25165d77faa
+    pristine_git_object: 9ccf3b40bb8b8af0eefcc17097ddb5d320f74705
   docs/Models/Components/WebhookDataBankAccountDeleted.md:
     id: e70f839e755e
     last_write_checksum: sha1:d15666fd2c8ecf362e159047f7ca7ba92228de6f
@@ -5108,10 +5112,14 @@ trackedFiles:
     id: 1bf1aae9c6df
     last_write_checksum: sha1:d9be76996e5237aaea8a9ed0664bb3b2527d2fff
     pristine_git_object: 51b781dc8befb5c8c3d6d6d00f90fccd96f624d0
+  src/Models/Components/FileUploadMetadata.php:
+    id: 3482ad262b81
+    last_write_checksum: sha1:a793a7137441bb89b5076802350c589b74b20351
+    pristine_git_object: dbac6db9666264de58467204a92fc62d1d98000f
   src/Models/Components/FileUploadRequestMultiPart.php:
     id: 7d5fe6dae62c
-    last_write_checksum: sha1:97f23cb848aae07939d433329910c22e0f117f2b
-    pristine_git_object: 101d2e82c3cd19599796ca4865c78700e3e5b9eb
+    last_write_checksum: sha1:08016008bad6c29f1c89e47f9510f53279efa7f0
+    pristine_git_object: 31e18f66dece34f9c5cb79b6220c2179b4da9b22
   src/Models/Components/FileUploadRequestMultiPartFile.php:
     id: 27ae3e8569ef
     last_write_checksum: sha1:65b0bf266caa2b6c784a4a25db79d7cc1704cae5
@@ -6210,8 +6218,8 @@ trackedFiles:
     pristine_git_object: 0eb8e121768450aa86803112e1d3c61306275000
   src/Models/Components/WebhookDataBankAccountCreated.php:
     id: c9f1d0e82d31
-    last_write_checksum: sha1:3c9465204d15754ba183950da6fbf7c259b51c2d
-    pristine_git_object: 86c637d7991f890bdc825ce0f23c84214fa6e1e6
+    last_write_checksum: sha1:0df092c39e3109564a4904dda63c5cd3b9d405ad
+    pristine_git_object: 3e8205c2cdb0149dd427c2774feb4719b0165eb2
   src/Models/Components/WebhookDataBankAccountDeleted.php:
     id: 480da66437d7
     last_write_checksum: sha1:0c6716290257dc0aad67030ed84a3b6c4b4cda47
@@ -8074,8 +8082,8 @@ trackedFiles:
     pristine_git_object: ed9c06928be32fb3e75a68ec0192a4fca166a592
   src/SDKConfiguration.php:
     id: 9d60ab0bec0b
-    last_write_checksum: sha1:f37eea480ca3b72f8734855fd627b2d52d436f39
-    pristine_git_object: 475812d49d469fcaffc9e2b5c0e48b34c3b1e4ec
+    last_write_checksum: sha1:64e19b939d4494413595452f161fe381f6e7d203
+    pristine_git_object: 1f35fc984cca1b51f02dcf9c616c845b5fbe5b41
   src/Schedules.php:
     id: 8dbe56d2d033
     last_write_checksum: sha1:6f0d21f80435c051e1beddd63bf681efac9d4099
@@ -11021,6 +11029,7 @@ examples:
           application/json: {"key": {"transferID": "d835gf30-4b19-4850-a9b2-c0624c41ecb3", "createdOn": "2025-01-21T21:32:16Z", "source": {"paymentMethodID": "9506dbf6-4208-44c3-ad8a-e4431660e1f2", "paymentMethodType": "card-payment", "account": {"accountID": "7e4b26c2-b399-49ef-8390-50e1ea44d550", "email": "jules@julesjackson.com", "displayName": "Jules Jackson"}, "card": {"cardID": "aefd5563-93c6-413c-875e-1bd0ebfc116d", "fingerprint": "2f5d782ceef1c3bd31ed5...", "brand": "Visa", "cardType": "credit", "lastFourCardNumber": "2000", "bin": "400020", "expiration": {"month": "01", "year": "28"}, "holderName": "Jules Jackson", "billingAddress": {"postalCode": "80301"}, "cardVerification": {"cvv": "unavailable", "addressLine1": "unavailable", "postalCode": "unavailable", "accountName": {"firstName": "unavailable", "lastName": "unavailable", "middleName": "unavailable", "fullName": "unavailable"}}, "issuer": "Moov Visa Sandbox", "issuerCountry": "US", "cardAccountUpdater": {}, "domesticPushToCard": "standard", "domesticPullFromCard": "supported"}, "cardDetails": {"status": "confirmed", "dynamicDescriptor": "WhlBdy *Yoga 11-12", "confirmedOn": "2025-01-21T21:32:16.799681237Z"}}, "destination": {"paymentMethodID": "3f9969cf-a1f3-4d83-8ddc-229a506651cf", "paymentMethodType": "moov-wallet", "account": {"accountID": "34233b72-780c-4a0d-8b08-cbbe23k878f8", "email": "john@wholebodyfitness.io", "displayName": "Whole Body Fitness"}, "wallet": {"walletID": "744b2e78-8cc8-4a6a-af42-611e3b844503", "partnerAccountID": "65b57f28-49e9-4afb-9bf6-7e4fb6444917", "walletType": "general"}}, "status": "pending", "amount": {"currency": "USD", "value": 32945}, "description": "Transfer from card to wallet", "moovFees": [{"accountID": "7e4b26c2-b399-49ef-8390-50e1ea44d550", "transferParty": "source", "totalAmount": {"currency": "USD", "valueDecimal": "0.1"}, "feeIDs": ["9d957d33-1a9a-47aa-9460-fe1a90f003dd"]}]}}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: "## Php SDK Changes:\n* `moov->files->upload()`: \n  *  `request.fileUploadRequestMultiPart->metadata` **Changed** (Breaking ⚠️)\n"
 generatedFiles:
   - .gitattributes
   - USAGE.md
