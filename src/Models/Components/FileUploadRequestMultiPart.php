@@ -12,7 +12,7 @@ use Moov\MoovPhp\Utils\SpeakeasyMetadata;
 class FileUploadRequestMultiPart
 {
     /**
-     * The file to be added. Valid types are `csv`, `png`, `jpeg`, `pdf`.
+     * The file to upload. Valid types are `csv`, `png`, `jpeg`, `pdf`.
      *
      * @var \Moov\MoovPhp\Models\Components\FileUploadRequestMultiPartFile $file
      */
@@ -28,23 +28,20 @@ class FileUploadRequestMultiPart
     public FilePurpose $filePurpose;
 
     /**
-     * Additional metadata to be stored with the file, formatted as a JSON string.
+     * Additional metadata to be stored with the file.
      *
-     *
-     * Valid keys are `representative_id`, `comment`, `requirement_id`, `error_code`.
-     *
-     * @var ?string $metadata
+     * @var ?\Moov\MoovPhp\Models\Components\FileUploadMetadata $metadata
      */
-    #[SpeakeasyMetadata('multipartForm:name=metadata')]
-    public ?string $metadata = null;
+    #[SpeakeasyMetadata('multipartForm:name=metadata,json=true')]
+    public ?FileUploadMetadata $metadata = null;
 
     /**
      * @param  \Moov\MoovPhp\Models\Components\FileUploadRequestMultiPartFile  $file
      * @param  \Moov\MoovPhp\Models\Components\FilePurpose  $filePurpose
-     * @param  ?string  $metadata
+     * @param  ?\Moov\MoovPhp\Models\Components\FileUploadMetadata  $metadata
      * @phpstan-pure
      */
-    public function __construct(FileUploadRequestMultiPartFile $file, FilePurpose $filePurpose, ?string $metadata = null)
+    public function __construct(FileUploadRequestMultiPartFile $file, FilePurpose $filePurpose, ?FileUploadMetadata $metadata = null)
     {
         $this->file = $file;
         $this->filePurpose = $filePurpose;
