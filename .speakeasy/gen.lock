@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 11c3526888e1d289df7c477e5aa87dd9
+  docChecksum: 10989337b911352dd41c58d1dc9b49cb
   docVersion: v2026.04.00
-  speakeasyVersion: 1.761.11
-  generationVersion: 2.881.17
-  releaseVersion: 26.4.2
-  configChecksum: 4c7f5ac412163e921831651376352b70
+  speakeasyVersion: 1.762.0
+  generationVersion: 2.882.0
+  releaseVersion: 26.4.3
+  configChecksum: 198e634324d9e6a43a08587e992dc1a4
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php.git
   published: true
 persistentEdits:
-  generation_id: 42f14b36-4a6e-4e6e-8d10-a3df7abc9b54
-  pristine_commit_hash: cce9764004c92739e8a2c57a5a3e86e31da47fed
-  pristine_tree_hash: ef304d9883041479e8742e7926837a6c0aa3fd80
+  generation_id: 17fb50d1-01a0-47a4-b87c-3ffa453ee456
+  pristine_commit_hash: 9a5fc3d5ea4f6c6c0719fff1b6da4cd84d5c250d
+  pristine_tree_hash: 4d90c049e5a23eaa3fa6134417f612bbd240d958
 features:
   php:
     constsAndDefaults: 0.2.2
@@ -658,8 +658,8 @@ trackedFiles:
     pristine_git_object: 056898e694b1cff95629ef1cbf15701edcfdd5f7
   docs/Models/Components/CollectionPaymentMethodType.md:
     id: 9a6da0c29551
-    last_write_checksum: sha1:72603d250c5684d71c44613bb82929ee5cb21278
-    pristine_git_object: 823d044508ebd85666dd2b79c222da4677476209
+    last_write_checksum: sha1:fe2a63658acdbcc9c8b1cb2fb2b4aaf53e1aeb99
+    pristine_git_object: 8511aa969185cec135c2e49215cdca1fc4c1e86c
   docs/Models/Components/ColorsValidationError.md:
     id: bb1553f7da7f
     last_write_checksum: sha1:64ba31c7879e6b8a3432ceddf587a9918ec3850e
@@ -5470,8 +5470,8 @@ trackedFiles:
     pristine_git_object: fc3ec7171da66405a59198ada743f9c5832bb0c1
   src/Models/Components/CollectionPaymentMethodType.php:
     id: e7d7c61deacb
-    last_write_checksum: sha1:26bc5b14193fb0ca75d473b9080a275868187218
-    pristine_git_object: eac78b543bfddccc86eced0fecb5be2d1b1a6ab8
+    last_write_checksum: sha1:86a1c6d79597c4f3e67889904999fd6813458ba3
+    pristine_git_object: c06e75d006c8b2f19bef4f7353cc83ed78048e77
   src/Models/Components/ColorsValidationError.php:
     id: c6692ba0cff4
     last_write_checksum: sha1:00fb69aa2b06032485ef9f1872397f57e5b014a6
@@ -9562,8 +9562,8 @@ trackedFiles:
     pristine_git_object: 6c4eb9b9d1bbf57d4db0cdf0095b237b68051ed4
   src/SDKConfiguration.php:
     id: 9d60ab0bec0b
-    last_write_checksum: sha1:c088de67675347afb11ed9dd208b445259311b15
-    pristine_git_object: 98d0589e1a291c99e45a77b22d3a51e38b47bf7a
+    last_write_checksum: sha1:fc930fd152d77101a5c9d92133a4526388456038
+    pristine_git_object: 94aefb8595e28b6043fb2b3a581ca7e78f116c3b
   src/Schedules.php:
     id: 8dbe56d2d033
     last_write_checksum: sha1:6f0d21f80435c051e1beddd63bf681efac9d4099
@@ -12632,7 +12632,7 @@ examples:
           application/json: {"tipPresets": {"calculationBasis": "pre-tax", "percentageOptions": [10, 15, 20]}}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Php SDK Changes:\n* `moov->files->upload()`: \n  *  `request.fileUploadRequestMultiPart->metadata` **Changed** (Breaking ⚠️)\n"
+releaseNotes: "## Php SDK Changes:\n* `moov->paymentlinks->create()`: \n  *  `request.createPaymentLink->payment->allowedMethods[]->enum(googlePay)` **Added**\n  *  `response.payment->allowedMethods[]->enum(googlePay)` **Added** (Breaking ⚠️)\n* `moov->paymentlinks->list()`:  `response.[]->payment->allowedMethods[]->enum(googlePay)` **Added** (Breaking ⚠️)\n* `moov->paymentlinks->get()`:  `response.payment->allowedMethods[]->enum(googlePay)` **Added** (Breaking ⚠️)\n* `moov->paymentlinks->update()`: \n  *  `request.updatePaymentLink->payment->allowedMethods[]->enum(googlePay)` **Added**\n  *  `response.payment->allowedMethods[]->enum(googlePay)` **Added** (Breaking ⚠️)\n"
 generatedFiles:
   - .gitattributes
   - USAGE.md

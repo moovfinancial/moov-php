@@ -15,4 +15,5 @@ enum CollectionPaymentMethodType: string
     case ApplePay = 'apple-pay';
     case CardPayment = 'card-payment';
     case AchDebitCollect = 'ach-debit-collect';
+    case GooglePay = 'google-pay';
 }
