@@ -10,3 +10,4 @@ Payment methods allowed for collecting a payment.
 | `ApplePay`        | apple-pay         |
 | `CardPayment`     | card-payment      |
 | `AchDebitCollect` | ach-debit-collect |
+| `GooglePay`       | google-pay        |

@@ -51,6 +51,12 @@ you'll need to specify the `/accounts/{accountID}/cards.write` scope.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/cards.write` scope.
+* [getMetadata](#getmetadata) - Look up metadata for a card without linking it to a Moov account.
+  
+Only use this endpoint if you have provided Moov with a copy of your PCI attestation of compliance.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/card-metadata.read` scope.
 
 ## link
 
@@ -383,3 +389,63 @@ if ($response->statusCode === 200) {
 | ------------------- | ------------------- | ------------------- |
 | Errors\GenericError | 400, 409            | application/json    |
 | Errors\APIException | 4XX, 5XX            | \*/\*               |
+
+## getMetadata
+
+Look up metadata for a card without linking it to a Moov account.
+  
+Only use this endpoint if you have provided Moov with a copy of your PCI attestation of compliance.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/card-metadata.read` scope.
+
+### Example Usage
+
+<!-- UsageSnippet language="php" operationID="getCardMetadata" method="post" path="/card-metadata" -->
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
+
+$sdk = MoovPhp\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
+
+$request = new Components\CardMetadataRequest(
+    cardNumber: '4111111111111111',
+);
+
+$response = $sdk->cards->getMetadata(
+    request: $request
+);
+
+if ($response->cardMetadata !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `$request`                                                                       | [Components\CardMetadataRequest](../../Models/Components/CardMetadataRequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+
+### Response
+
+**[?Operations\GetCardMetadataResponse](../../Models/Operations/GetCardMetadataResponse.md)**
+
+### Errors
+
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| Errors\GenericError             | 400, 409                        | application/json                |
+| Errors\CardMetadataRequestError | 422                             | application/json                |
+| Errors\APIException             | 4XX, 5XX                        | \*/\*                           |

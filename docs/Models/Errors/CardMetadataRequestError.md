@@ -1,0 +1,10 @@
+# CardMetadataRequestError
+
+
+## Fields
+
+| Field                                                                                   | Type                                                                                    | Required                                                                                | Description                                                                             |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `error`                                                                                 | *?string*                                                                               | :heavy_minus_sign:                                                                      | N/A                                                                                     |
+| `e2ee`                                                                                  | [?Components\End2EndEncryptionError](../../Models/Components/End2EndEncryptionError.md) | :heavy_minus_sign:                                                                      | N/A                                                                                     |
+| `cardNumber`                                                                            | *?string*                                                                               | :heavy_minus_sign:                                                                      | N/A                                                                                     |

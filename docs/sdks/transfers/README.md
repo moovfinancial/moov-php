@@ -954,6 +954,12 @@ $sdk = MoovPhp\Moov::builder()
 
 $createReversal = new Components\CreateReversal(
     amount: 1000,
+    amountDetails: new Components\ReversalAmountDetails(
+        surcharge: new Components\AmountDecimal(
+            currency: 'USD',
+            valueDecimal: '12.987654321',
+        ),
+    ),
 );
 
 $response = $sdk->transfers->createReversal(
@@ -990,6 +996,12 @@ $sdk = MoovPhp\Moov::builder()
 
 $createReversal = new Components\CreateReversal(
     amount: 1000,
+    amountDetails: new Components\ReversalAmountDetails(
+        surcharge: new Components\AmountDecimal(
+            currency: 'USD',
+            valueDecimal: '12.987654321',
+        ),
+    ),
 );
 
 $response = $sdk->transfers->createReversal(

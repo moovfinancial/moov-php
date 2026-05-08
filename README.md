@@ -505,6 +505,12 @@ you'll need to specify the `/accounts/{accountID}/cards.write` scope.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/cards.write` scope.
+* [getMetadata](docs/sdks/cards/README.md#getmetadata) - Look up metadata for a card without linking it to a Moov account.
+  
+Only use this endpoint if you have provided Moov with a copy of your PCI attestation of compliance.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/card-metadata.read` scope.
 
 ### [Disputes](docs/sdks/disputes/README.md)
 
