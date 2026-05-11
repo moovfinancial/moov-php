@@ -13,6 +13,14 @@ namespace Moov\MoovPhp\Models\Components;
 class GooglePayResponse
 {
     /**
+     * The unique identifier of the Google Pay token.
+     *
+     * @var string $tokenID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('tokenID')]
+    public string $tokenID;
+
+    /**
      * The card brand.
      *
      * @var \Moov\MoovPhp\Models\Components\CardBrand $brand
@@ -22,12 +30,25 @@ class GooglePayResponse
     public CardBrand $brand;
 
     /**
-     * The last four digits of the underlying card number.
+     * The type of the card.
      *
-     * @var string $cardDetails
+     * @var \Moov\MoovPhp\Models\Components\CardType $cardType
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('cardDetails')]
-    public string $cardDetails;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('cardType')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardType')]
+    public CardType $cardType;
+
+    /**
+     *   User-friendly name of the tokenized card returned by Google Pay.
+     *
+     *
+     *   It usually contains the last four digits of the underlying card.
+     *   There is no standard format.
+     *
+     * @var string $cardDisplayName
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('cardDisplayName')]
+    public string $cardDisplayName;
 
     /**
      * Uniquely identifies a linked payment card or token.
@@ -50,6 +71,14 @@ class GooglePayResponse
     public CardExpiration $expiration;
 
     /**
+     * The last four digits of the Google Pay token, which may differ from the tokenized card's last four digits.
+     *
+     * @var string $dynamicLastFour
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('dynamicLastFour')]
+    public string $dynamicLastFour;
+
+    /**
      * Country where the underlying card was issued.
      *
      * @var ?string $issuerCountry
@@ -59,19 +88,37 @@ class GooglePayResponse
     public ?string $issuerCountry = null;
 
     /**
+     * The authentication method used for the Google Pay token.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\AuthMethod $authMethod
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('authMethod')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AuthMethod|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?AuthMethod $authMethod = null;
+
+    /**
+     * @param  string  $tokenID
      * @param  \Moov\MoovPhp\Models\Components\CardBrand  $brand
-     * @param  string  $cardDetails
+     * @param  \Moov\MoovPhp\Models\Components\CardType  $cardType
+     * @param  string  $cardDisplayName
      * @param  string  $fingerprint
      * @param  \Moov\MoovPhp\Models\Components\CardExpiration  $expiration
+     * @param  string  $dynamicLastFour
      * @param  ?string  $issuerCountry
+     * @param  ?\Moov\MoovPhp\Models\Components\AuthMethod  $authMethod
      * @phpstan-pure
      */
-    public function __construct(CardBrand $brand, string $cardDetails, string $fingerprint, CardExpiration $expiration, ?string $issuerCountry = null)
+    public function __construct(string $tokenID, CardBrand $brand, CardType $cardType, string $cardDisplayName, string $fingerprint, CardExpiration $expiration, string $dynamicLastFour, ?string $issuerCountry = null, ?AuthMethod $authMethod = null)
     {
+        $this->tokenID = $tokenID;
         $this->brand = $brand;
-        $this->cardDetails = $cardDetails;
+        $this->cardType = $cardType;
+        $this->cardDisplayName = $cardDisplayName;
         $this->fingerprint = $fingerprint;
         $this->expiration = $expiration;
+        $this->dynamicLastFour = $dynamicLastFour;
         $this->issuerCountry = $issuerCountry;
+        $this->authMethod = $authMethod;
     }
 }
