@@ -105,16 +105,6 @@ class TransferDestination
     public ?CardTransactionDetails $cardDetails = null;
 
     /**
-     *
-     * @var ?\Moov\MoovPhp\Models\Components\RtpDetails $rtpDetails
-     * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('rtpDetails')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RtpDetails|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?RtpDetails $rtpDetails = null;
-
-    /**
      * Instant-bank specific details about the transaction.
      *
      * @var ?\Moov\MoovPhp\Models\Components\InstantBankTransactionDetails $instantBankDetails
@@ -135,11 +125,10 @@ class TransferDestination
      * @param  ?\Moov\MoovPhp\Models\Components\ApplePayResponse  $applePay
      * @param  ?\Moov\MoovPhp\Models\Components\GooglePayResponse  $googlePay
      * @param  ?\Moov\MoovPhp\Models\Components\CardTransactionDetails  $cardDetails
-     * @param  ?\Moov\MoovPhp\Models\Components\RtpDetails  $rtpDetails
      * @param  ?\Moov\MoovPhp\Models\Components\InstantBankTransactionDetails  $instantBankDetails
      * @phpstan-pure
      */
-    public function __construct(string $paymentMethodID, TransferPaymentMethodType $paymentMethodType, TransferAccount $account, ?TransferPaymentMethodsBankAccount $bankAccount = null, ?TransferPaymentMethodsWallet $wallet = null, ?TransferPaymentMethodsCard $card = null, ?ACHTransactionDetails $achDetails = null, ?ApplePayResponse $applePay = null, ?GooglePayResponse $googlePay = null, ?CardTransactionDetails $cardDetails = null, ?RtpDetails $rtpDetails = null, ?InstantBankTransactionDetails $instantBankDetails = null)
+    public function __construct(string $paymentMethodID, TransferPaymentMethodType $paymentMethodType, TransferAccount $account, ?TransferPaymentMethodsBankAccount $bankAccount = null, ?TransferPaymentMethodsWallet $wallet = null, ?TransferPaymentMethodsCard $card = null, ?ACHTransactionDetails $achDetails = null, ?ApplePayResponse $applePay = null, ?GooglePayResponse $googlePay = null, ?CardTransactionDetails $cardDetails = null, ?InstantBankTransactionDetails $instantBankDetails = null)
     {
         $this->paymentMethodID = $paymentMethodID;
         $this->paymentMethodType = $paymentMethodType;
@@ -151,7 +140,6 @@ class TransferDestination
         $this->applePay = $applePay;
         $this->googlePay = $googlePay;
         $this->cardDetails = $cardDetails;
-        $this->rtpDetails = $rtpDetails;
         $this->instantBankDetails = $instantBankDetails;
     }
 }
