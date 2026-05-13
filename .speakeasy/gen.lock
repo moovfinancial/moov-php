@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 72f6f601a6be1c54cf596e0541941e86
+  docChecksum: 6ea28bbd4650a230100a652b58e68479
   docVersion: v2026.07.00
   speakeasyVersion: 1.763.0
   generationVersion: 2.884.0
-  releaseVersion: 26.7.0-beta.0
-  configChecksum: 03dc9da767eb71fcd3618f7f7b9245e4
+  releaseVersion: 26.7.0-beta.1
+  configChecksum: 3e83164176771c1a3d03097a69f0cc52
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php.git
   published: true
 persistentEdits:
-  generation_id: 26acd54d-5ab5-4597-b510-3f1eadd076f2
-  pristine_commit_hash: db8f3004ba3d95c626cf0b4d5b3c773184b496d4
-  pristine_tree_hash: 029986465a319fd8f749d925bcf83c98c38ad47b
+  generation_id: 7adda1ea-f448-47ad-8569-5400206df4b5
+  pristine_commit_hash: d3822640130aa9d1284c31535f136d053413299a
+  pristine_tree_hash: 746eb67990b4b45fb5467230454dd30fdb3aab1e
 features:
   php:
     constsAndDefaults: 0.2.2
@@ -2694,8 +2694,8 @@ trackedFiles:
     pristine_git_object: 9ccf3b40bb8b8af0eefcc17097ddb5d320f74705
   docs/Models/Components/WebhookDataBankAccountDeleted.md:
     id: e70f839e755e
-    last_write_checksum: sha1:d15666fd2c8ecf362e159047f7ca7ba92228de6f
-    pristine_git_object: 5f20b0b2800f07672abb91418995462b70cb31af
+    last_write_checksum: sha1:f9aede9ae7670f763bf848e6772856ae297e2e9c
+    pristine_git_object: c9c2e357d0c2ac8937860e803e1d1655cb934f1b
   docs/Models/Components/WebhookDataBankAccountUpdated.md:
     id: 534a89c6362d
     last_write_checksum: sha1:18a3e8bf09190e364a1447f7ee528355436b1838
@@ -7526,8 +7526,8 @@ trackedFiles:
     pristine_git_object: 3e8205c2cdb0149dd427c2774feb4719b0165eb2
   src/Models/Components/WebhookDataBankAccountDeleted.php:
     id: 480da66437d7
-    last_write_checksum: sha1:0c6716290257dc0aad67030ed84a3b6c4b4cda47
-    pristine_git_object: 55305de187ae0fe115fd51d95a10d5e8f376bb18
+    last_write_checksum: sha1:67ace6068ee52e5423a0e2f10beb02cc49b27cd6
+    pristine_git_object: 66f3330ed4d7f81468715b313b7416bb1bddc802
   src/Models/Components/WebhookDataBankAccountUpdated.php:
     id: fe3ecf4edfaf
     last_write_checksum: sha1:9ed41f74320393f8f2c7477f390713e85daeb3e5
@@ -9654,8 +9654,8 @@ trackedFiles:
     pristine_git_object: 6c4eb9b9d1bbf57d4db0cdf0095b237b68051ed4
   src/SDKConfiguration.php:
     id: 9d60ab0bec0b
-    last_write_checksum: sha1:727c28b485944123416d948eb1617ee126eb8b40
-    pristine_git_object: df1a7bc284610348173ba17046d2d5ade2c81489
+    last_write_checksum: sha1:b6d722de506071979235121bbea87b0b86f0b6f7
+    pristine_git_object: a0e4383956585449372e097d74ec46cbad2726cd
   src/Schedules.php:
     id: 8dbe56d2d033
     last_write_checksum: sha1:6f0d21f80435c051e1beddd63bf681efac9d4099
@@ -12735,7 +12735,6 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Php SDK Changes:\n* `moov->paymentlinks->create()`: \n  *  `request.createPaymentLink->amountDetails->surcharge` **Removed** (Breaking ⚠️)\n  *  `response.amountDetails->surcharge` **Removed** (Breaking ⚠️)\n  *  `error.amountDetails->surcharge` **Removed** (Breaking ⚠️)\n* `moov->paymentlinks->list()`:  `response.[]->amountDetails->surcharge` **Removed** (Breaking ⚠️)\n* `moov->paymentlinks->get()`:  `response.amountDetails->surcharge` **Removed** (Breaking ⚠️)\n* `moov->paymentlinks->update()`: \n  *  `request.updatePaymentLink->amountDetails->surcharge` **Removed** (Breaking ⚠️)\n  *  `response.amountDetails->surcharge` **Removed** (Breaking ⚠️)\n  *  `error.amountDetails->surcharge` **Removed** (Breaking ⚠️)\n* `moov->transfers->create()`: \n  *  `request.createTransfer->amountDetails->surcharge` **Removed** (Breaking ⚠️)\n  *  `response` **Changed** (Breaking ⚠️)\n  *  `error` **Changed** (Breaking ⚠️)\n* `moov->transfers->list()`: \n  *  `request` **Changed** (Breaking ⚠️)\n  *  `response.[]` **Changed** (Breaking ⚠️)\n* `moov->transfers->batchGetTransfers()`:  `response.Map<Transfer>` **Changed** (Breaking ⚠️)\n* `moov->transfers->get()`:  `response` **Changed** (Breaking ⚠️)\n* `moov->transfers->update()`:  `response` **Changed** (Breaking ⚠️)\n* `moov->transfers->initiateRefund()`: \n  *  `request->createRefund->amountDetails` **Removed** (Breaking ⚠️)\n  *  `response` **Changed** (Breaking ⚠️)\n  *  `error.amountDetails` **Removed** (Breaking ⚠️)\n* `moov->transfers->listRefunds()`:  `response.[]->amountDetails` **Removed** (Breaking ⚠️)\n* `moov->transfers->getRefund()`:  `response.amountDetails` **Removed** (Breaking ⚠️)\n* `moov->transfers->createReversal()`: \n  *  `request.createReversal->amountDetails` **Removed** (Breaking ⚠️)\n  *  `response.union(ReversedWithRefund)->refund->amountDetails` **Removed** (Breaking ⚠️)\n  *  `error.amountDetails` **Removed** (Breaking ⚠️)\n"
 generatedFiles:
   - .gitattributes
   - USAGE.md
