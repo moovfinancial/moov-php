@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace Moov\MoovPhp\Models\Errors;
 
-use Moov\MoovPhp\Models\Components;
 use Moov\MoovPhp\Utils;
 class ReversalValidationError
 {
@@ -21,23 +20,12 @@ class ReversalValidationError
     public ?string $amount = null;
 
     /**
-     *
-     * @var ?\Moov\MoovPhp\Models\Components\ReversalAmountDetailsValidationError $amountDetails
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('amountDetails')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ReversalAmountDetailsValidationError|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?Components\ReversalAmountDetailsValidationError $amountDetails = null;
-
-    /**
      * @param  ?string  $amount
-     * @param  ?\Moov\MoovPhp\Models\Components\ReversalAmountDetailsValidationError  $amountDetails
      * @phpstan-pure
      */
-    public function __construct(?string $amount = null, ?Components\ReversalAmountDetailsValidationError $amountDetails = null)
+    public function __construct(?string $amount = null)
     {
         $this->amount = $amount;
-        $this->amountDetails = $amountDetails;
     }
 
     public function toException(): ReversalValidationErrorThrowable

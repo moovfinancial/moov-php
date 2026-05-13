@@ -100,22 +100,6 @@ class ListTransfersRequest
     public ?string $foreignID = null;
 
     /**
-     * Optional comma-separated IDs to filter for transfers associated with specific card authorizations.
-     *
-     * @var ?array<string> $authorizationIDs
-     */
-    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=authorizationIDs')]
-    public ?array $authorizationIDs = null;
-
-    /**
-     * Optional comma-separated IDs to filter for transfers associated with specific card captures.
-     *
-     * @var ?array<string> $captureIDs
-     */
-    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=captureIDs')]
-    public ?array $captureIDs = null;
-
-    /**
      *
      * @var ?int $skip
      */
@@ -141,13 +125,11 @@ class ListTransfersRequest
      * @param  ?bool  $refunded
      * @param  ?bool  $disputed
      * @param  ?string  $foreignID
-     * @param  ?array<string>  $authorizationIDs
-     * @param  ?array<string>  $captureIDs
      * @param  ?int  $skip
      * @param  ?int  $count
      * @phpstan-pure
      */
-    public function __construct(string $accountID, ?array $accountIDs = null, ?Components\TransferStatus $status = null, ?\DateTime $startDateTime = null, ?\DateTime $endDateTime = null, ?string $groupID = null, ?string $scheduleID = null, ?string $paymentLinkCode = null, ?bool $refunded = null, ?bool $disputed = null, ?string $foreignID = null, ?array $authorizationIDs = null, ?array $captureIDs = null, ?int $skip = null, ?int $count = null)
+    public function __construct(string $accountID, ?array $accountIDs = null, ?Components\TransferStatus $status = null, ?\DateTime $startDateTime = null, ?\DateTime $endDateTime = null, ?string $groupID = null, ?string $scheduleID = null, ?string $paymentLinkCode = null, ?bool $refunded = null, ?bool $disputed = null, ?string $foreignID = null, ?int $skip = null, ?int $count = null)
     {
         $this->accountID = $accountID;
         $this->accountIDs = $accountIDs;
@@ -160,8 +142,6 @@ class ListTransfersRequest
         $this->refunded = $refunded;
         $this->disputed = $disputed;
         $this->foreignID = $foreignID;
-        $this->authorizationIDs = $authorizationIDs;
-        $this->captureIDs = $captureIDs;
         $this->skip = $skip;
         $this->count = $count;
     }

@@ -32,25 +32,13 @@ class CreateTransferAmountDetails
     public ?AmountDecimal $tax = null;
 
     /**
-     * The amount of surcharge applied to the transfer.
-     *
-     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimal $surcharge
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('surcharge')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?AmountDecimal $surcharge = null;
-
-    /**
      * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimal  $tip
      * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimal  $tax
-     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimal  $surcharge
      * @phpstan-pure
      */
-    public function __construct(?AmountDecimal $tip = null, ?AmountDecimal $tax = null, ?AmountDecimal $surcharge = null)
+    public function __construct(?AmountDecimal $tip = null, ?AmountDecimal $tax = null)
     {
         $this->tip = $tip;
         $this->tax = $tax;
-        $this->surcharge = $surcharge;
     }
 }

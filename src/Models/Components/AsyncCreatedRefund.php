@@ -35,26 +35,15 @@ class AsyncCreatedRefund
     public Amount $amount;
 
     /**
-     *
-     * @var ?\Moov\MoovPhp\Models\Components\RefundAmountDetails $amountDetails
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('amountDetails')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RefundAmountDetails|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?RefundAmountDetails $amountDetails = null;
-
-    /**
      * @param  string  $refundID
      * @param  \DateTime  $createdOn
      * @param  \Moov\MoovPhp\Models\Components\Amount  $amount
-     * @param  ?\Moov\MoovPhp\Models\Components\RefundAmountDetails  $amountDetails
      * @phpstan-pure
      */
-    public function __construct(string $refundID, \DateTime $createdOn, Amount $amount, ?RefundAmountDetails $amountDetails = null)
+    public function __construct(string $refundID, \DateTime $createdOn, Amount $amount)
     {
         $this->refundID = $refundID;
         $this->createdOn = $createdOn;
         $this->amount = $amount;
-        $this->amountDetails = $amountDetails;
     }
 }

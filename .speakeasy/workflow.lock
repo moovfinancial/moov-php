@@ -1,31 +1,31 @@
-speakeasyVersion: 1.762.0
+speakeasyVersion: 1.763.0
 sources:
     latest:
-        sourceNamespace: php-dev
-        sourceRevisionDigest: sha256:82c7393c15cc85865b5d23b545dfc9aae45cbf6a161f774605693dc7b8b0b252
-        sourceBlobDigest: sha256:c107827434a25bf85dd44205ec6b7668a36ead8b2f58aaf2033421916701a6ab
+        sourceNamespace: php-v2026.07.00
+        sourceRevisionDigest: sha256:9c7a053bcb0df11a01ab76246e802ea4f0b645c9856376ff976e60657a2a92ab
+        sourceBlobDigest: sha256:1718a294235a73d0cbddd796242ab7436f0df55fc63a749570e2fdf895d7f4a1
         tags:
             - latest
-            - dev
+            - v2026.07.00
 targets:
     latest:
         source: latest
-        sourceNamespace: php-dev
-        sourceRevisionDigest: sha256:82c7393c15cc85865b5d23b545dfc9aae45cbf6a161f774605693dc7b8b0b252
-        sourceBlobDigest: sha256:c107827434a25bf85dd44205ec6b7668a36ead8b2f58aaf2033421916701a6ab
-        codeSamplesNamespace: dev-php-code-samples
-        codeSamplesRevisionDigest: sha256:a893d59e25ee6f4e5ad702456c8afeb7c7f11342e121bfe2a10922460608eb83
+        sourceNamespace: php-v2026.07.00
+        sourceRevisionDigest: sha256:9c7a053bcb0df11a01ab76246e802ea4f0b645c9856376ff976e60657a2a92ab
+        sourceBlobDigest: sha256:1718a294235a73d0cbddd796242ab7436f0df55fc63a749570e2fdf895d7f4a1
+        codeSamplesNamespace: v2026.07.00-php-code-samples
+        codeSamplesRevisionDigest: sha256:1117f9460ad30151a454eaee622ebe7ba8d3cfb46d89e58b2ca91e55174a6f89
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
     sources:
         latest:
             inputs:
-                - location: registry.speakeasyapi.dev/moov/moov/api-dev
+                - location: registry.speakeasyapi.dev/moov/moov/api-v2026.07.00
             overlays:
                 - location: .speakeasy/speakeasy-modifications-overlay.yaml
             registry:
-                location: registry.speakeasyapi.dev/moov/moov/php-dev
+                location: registry.speakeasyapi.dev/moov/moov/php-v2026.07.00
     targets:
         latest:
             target: php
@@ -36,7 +36,7 @@ workflow:
                     token: $packagist_token
             codeSamples:
                 registry:
-                    location: registry.speakeasyapi.dev/moov/moov/dev-php-code-samples
+                    location: registry.speakeasyapi.dev/moov/moov/v2026.07.00-php-code-samples
                 labelOverride:
                     fixedValue: Php (SDK)
                 blocking: false

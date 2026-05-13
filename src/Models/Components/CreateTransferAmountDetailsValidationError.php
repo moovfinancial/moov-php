@@ -28,23 +28,13 @@ class CreateTransferAmountDetailsValidationError
     public ?string $tax = null;
 
     /**
-     *
-     * @var ?string $surcharge
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('surcharge')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $surcharge = null;
-
-    /**
      * @param  ?string  $tip
      * @param  ?string  $tax
-     * @param  ?string  $surcharge
      * @phpstan-pure
      */
-    public function __construct(?string $tip = null, ?string $tax = null, ?string $surcharge = null)
+    public function __construct(?string $tip = null, ?string $tax = null)
     {
         $this->tip = $tip;
         $this->tax = $tax;
-        $this->surcharge = $surcharge;
     }
 }
