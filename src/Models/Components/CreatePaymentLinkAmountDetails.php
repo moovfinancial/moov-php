@@ -12,6 +12,16 @@ namespace Moov\MoovPhp\Models\Components;
 class CreatePaymentLinkAmountDetails
 {
     /**
+     * The amount of tax applied to the payment link.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimal $tax
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('tax')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?AmountDecimal $tax = null;
+
+    /**
      * The amount of surcharge applied to the payment link.
      *
      * @var ?\Moov\MoovPhp\Models\Components\AmountDecimal $surcharge
@@ -22,11 +32,13 @@ class CreatePaymentLinkAmountDetails
     public ?AmountDecimal $surcharge = null;
 
     /**
+     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimal  $tax
      * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimal  $surcharge
      * @phpstan-pure
      */
-    public function __construct(?AmountDecimal $surcharge = null)
+    public function __construct(?AmountDecimal $tax = null, ?AmountDecimal $surcharge = null)
     {
+        $this->tax = $tax;
         $this->surcharge = $surcharge;
     }
 }

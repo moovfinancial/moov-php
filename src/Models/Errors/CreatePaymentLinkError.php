@@ -39,15 +39,6 @@ class CreatePaymentLinkError
 
     /**
      *
-     * @var ?\Moov\MoovPhp\Models\Components\AmountValidationError $salesTaxAmount
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('salesTaxAmount')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountValidationError|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?Components\AmountValidationError $salesTaxAmount = null;
-
-    /**
-     *
      * @var ?string $maxUses
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('maxUses')]
@@ -111,7 +102,6 @@ class CreatePaymentLinkError
      * @param  ?string  $partnerAccountID
      * @param  ?string  $merchantPaymentMethodID
      * @param  ?\Moov\MoovPhp\Models\Components\AmountValidationError  $amount
-     * @param  ?\Moov\MoovPhp\Models\Components\AmountValidationError  $salesTaxAmount
      * @param  ?string  $maxUses
      * @param  ?string  $expiresOn
      * @param  ?\Moov\MoovPhp\Models\Components\DisplayOptionsError  $display
@@ -121,12 +111,11 @@ class CreatePaymentLinkError
      * @param  ?\Moov\MoovPhp\Models\Components\CreatePaymentLinkAmountDetailsValidationError  $amountDetails
      * @phpstan-pure
      */
-    public function __construct(?string $partnerAccountID = null, ?string $merchantPaymentMethodID = null, ?Components\AmountValidationError $amount = null, ?Components\AmountValidationError $salesTaxAmount = null, ?string $maxUses = null, ?string $expiresOn = null, ?Components\DisplayOptionsError $display = null, ?Components\PaymentDetailsError $payment = null, ?Components\PayoutDetailsError $payout = null, ?Components\CreatePaymentLinkLineItemsValidationError $lineItems = null, ?Components\CreatePaymentLinkAmountDetailsValidationError $amountDetails = null)
+    public function __construct(?string $partnerAccountID = null, ?string $merchantPaymentMethodID = null, ?Components\AmountValidationError $amount = null, ?string $maxUses = null, ?string $expiresOn = null, ?Components\DisplayOptionsError $display = null, ?Components\PaymentDetailsError $payment = null, ?Components\PayoutDetailsError $payout = null, ?Components\CreatePaymentLinkLineItemsValidationError $lineItems = null, ?Components\CreatePaymentLinkAmountDetailsValidationError $amountDetails = null)
     {
         $this->partnerAccountID = $partnerAccountID;
         $this->merchantPaymentMethodID = $merchantPaymentMethodID;
         $this->amount = $amount;
-        $this->salesTaxAmount = $salesTaxAmount;
         $this->maxUses = $maxUses;
         $this->expiresOn = $expiresOn;
         $this->display = $display;

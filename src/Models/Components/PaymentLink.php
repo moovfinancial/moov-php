@@ -140,16 +140,6 @@ class PaymentLink
     public ?Amount $amount = null;
 
     /**
-     * Optional sales tax amount.
-     *
-     * @var ?\Moov\MoovPhp\Models\Components\Amount $salesTaxAmount
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('salesTaxAmount')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Amount|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?Amount $salesTaxAmount = null;
-
-    /**
      * An optional limit on the number of times this payment link can be used.
      *
      *
@@ -201,7 +191,7 @@ class PaymentLink
     /**
      * An optional collection of line items for a payment link.
      *
-     * When line items are provided, their total plus sales tax must equal the payment link amount.
+     * When line items are provided, their total plus tax must equal the payment link amount.
      *
      * @var ?\Moov\MoovPhp\Models\Components\PaymentLinkLineItems $lineItems
      */
@@ -243,7 +233,6 @@ class PaymentLink
      * @param  \DateTime  $createdOn
      * @param  \DateTime  $updatedOn
      * @param  ?\Moov\MoovPhp\Models\Components\Amount  $amount
-     * @param  ?\Moov\MoovPhp\Models\Components\Amount  $salesTaxAmount
      * @param  ?int  $maxUses
      * @param  ?\DateTime  $lastUsedOn
      * @param  ?\DateTime  $expiresOn
@@ -254,7 +243,7 @@ class PaymentLink
      * @param  ?\Moov\MoovPhp\Models\Components\PaymentLinkAmountDetails  $amountDetails
      * @phpstan-pure
      */
-    public function __construct(string $code, PaymentLinkType $paymentLinkType, Mode $mode, PaymentLinkStatus $status, string $partnerAccountID, string $merchantAccountID, string $ownerAccountID, string $merchantPaymentMethodID, string $link, int $uses, PaymentLinkDisplayOptions $display, PaymentLinkCustomerOptions $customer, \DateTime $createdOn, \DateTime $updatedOn, ?Amount $amount = null, ?Amount $salesTaxAmount = null, ?int $maxUses = null, ?\DateTime $lastUsedOn = null, ?\DateTime $expiresOn = null, ?PaymentLinkPaymentDetails $payment = null, ?PaymentLinkPayoutDetails $payout = null, ?PaymentLinkLineItems $lineItems = null, ?\DateTime $disabledOn = null, ?PaymentLinkAmountDetails $amountDetails = null)
+    public function __construct(string $code, PaymentLinkType $paymentLinkType, Mode $mode, PaymentLinkStatus $status, string $partnerAccountID, string $merchantAccountID, string $ownerAccountID, string $merchantPaymentMethodID, string $link, int $uses, PaymentLinkDisplayOptions $display, PaymentLinkCustomerOptions $customer, \DateTime $createdOn, \DateTime $updatedOn, ?Amount $amount = null, ?int $maxUses = null, ?\DateTime $lastUsedOn = null, ?\DateTime $expiresOn = null, ?PaymentLinkPaymentDetails $payment = null, ?PaymentLinkPayoutDetails $payout = null, ?PaymentLinkLineItems $lineItems = null, ?\DateTime $disabledOn = null, ?PaymentLinkAmountDetails $amountDetails = null)
     {
         $this->code = $code;
         $this->paymentLinkType = $paymentLinkType;
@@ -271,7 +260,6 @@ class PaymentLink
         $this->createdOn = $createdOn;
         $this->updatedOn = $updatedOn;
         $this->amount = $amount;
-        $this->salesTaxAmount = $salesTaxAmount;
         $this->maxUses = $maxUses;
         $this->lastUsedOn = $lastUsedOn;
         $this->expiresOn = $expiresOn;

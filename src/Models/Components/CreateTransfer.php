@@ -67,15 +67,6 @@ class CreateTransfer
     public ?array $metadata = null;
 
     /**
-     *
-     * @var ?\Moov\MoovPhp\Models\Components\Amount $salesTaxAmount
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('salesTaxAmount')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Amount|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?Amount $salesTaxAmount = null;
-
-    /**
      * Optional alias from a foreign/external system which can be used to reference this resource.
      *
      * @var ?string $foreignID
@@ -87,7 +78,7 @@ class CreateTransfer
     /**
      * An optional collection of line items for a transfer.
      *
-     * When line items are provided, their total plus sales tax must equal the transfer amount.
+     * When line items are provided, their total plus tax must equal the transfer amount.
      *
      * @var ?\Moov\MoovPhp\Models\Components\CreateTransferLineItems $lineItems
      */
@@ -112,13 +103,12 @@ class CreateTransfer
      * @param  ?\Moov\MoovPhp\Models\Components\FacilitatorFee  $facilitatorFee
      * @param  ?string  $description
      * @param  ?array<string, string>  $metadata
-     * @param  ?\Moov\MoovPhp\Models\Components\Amount  $salesTaxAmount
      * @param  ?string  $foreignID
      * @param  ?\Moov\MoovPhp\Models\Components\CreateTransferLineItems  $lineItems
      * @param  ?\Moov\MoovPhp\Models\Components\CreateTransferAmountDetails  $amountDetails
      * @phpstan-pure
      */
-    public function __construct(CreateTransferSource $source, CreateTransferDestination $destination, Amount $amount, ?FacilitatorFee $facilitatorFee = null, ?string $description = null, ?array $metadata = null, ?Amount $salesTaxAmount = null, ?string $foreignID = null, ?CreateTransferLineItems $lineItems = null, ?CreateTransferAmountDetails $amountDetails = null)
+    public function __construct(CreateTransferSource $source, CreateTransferDestination $destination, Amount $amount, ?FacilitatorFee $facilitatorFee = null, ?string $description = null, ?array $metadata = null, ?string $foreignID = null, ?CreateTransferLineItems $lineItems = null, ?CreateTransferAmountDetails $amountDetails = null)
     {
         $this->source = $source;
         $this->destination = $destination;
@@ -126,7 +116,6 @@ class CreateTransfer
         $this->facilitatorFee = $facilitatorFee;
         $this->description = $description;
         $this->metadata = $metadata;
-        $this->salesTaxAmount = $salesTaxAmount;
         $this->foreignID = $foreignID;
         $this->lineItems = $lineItems;
         $this->amountDetails = $amountDetails;

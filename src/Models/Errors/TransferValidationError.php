@@ -78,14 +78,6 @@ class TransferValidationError
 
     /**
      *
-     * @var ?string $salesTaxAmount
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('salesTaxAmount')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $salesTaxAmount = null;
-
-    /**
-     *
      * @var ?string $foreignID
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('foreignID')]
@@ -119,13 +111,12 @@ class TransferValidationError
      * @param  ?string  $facilitatorFeeTotalDecimal
      * @param  ?string  $facilitatorFeeMarkupDecimal
      * @param  ?string  $metadata
-     * @param  ?string  $salesTaxAmount
      * @param  ?string  $foreignID
      * @param  ?\Moov\MoovPhp\Models\Components\CreateTransferLineItemsValidationError  $lineItems
      * @param  ?\Moov\MoovPhp\Models\Components\CreateTransferAmountDetailsValidationError  $amountDetails
      * @phpstan-pure
      */
-    public function __construct(?string $amount = null, ?string $source = null, ?string $sourcePaymentMethodID = null, ?string $destinationPaymentMethodID = null, ?string $description = null, ?string $facilitatorFeeTotalDecimal = null, ?string $facilitatorFeeMarkupDecimal = null, ?string $metadata = null, ?string $salesTaxAmount = null, ?string $foreignID = null, ?Components\CreateTransferLineItemsValidationError $lineItems = null, ?Components\CreateTransferAmountDetailsValidationError $amountDetails = null)
+    public function __construct(?string $amount = null, ?string $source = null, ?string $sourcePaymentMethodID = null, ?string $destinationPaymentMethodID = null, ?string $description = null, ?string $facilitatorFeeTotalDecimal = null, ?string $facilitatorFeeMarkupDecimal = null, ?string $metadata = null, ?string $foreignID = null, ?Components\CreateTransferLineItemsValidationError $lineItems = null, ?Components\CreateTransferAmountDetailsValidationError $amountDetails = null)
     {
         $this->amount = $amount;
         $this->source = $source;
@@ -135,7 +126,6 @@ class TransferValidationError
         $this->facilitatorFeeTotalDecimal = $facilitatorFeeTotalDecimal;
         $this->facilitatorFeeMarkupDecimal = $facilitatorFeeMarkupDecimal;
         $this->metadata = $metadata;
-        $this->salesTaxAmount = $salesTaxAmount;
         $this->foreignID = $foreignID;
         $this->lineItems = $lineItems;
         $this->amountDetails = $amountDetails;

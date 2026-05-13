@@ -23,15 +23,6 @@ class UpdatePaymentLinkError
 
     /**
      *
-     * @var ?\Moov\MoovPhp\Models\Components\AmountValidationError $salesTaxAmount
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('salesTaxAmount')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountValidationError|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?Components\AmountValidationError $salesTaxAmount = null;
-
-    /**
-     *
      * @var ?string $expiresOn
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('expiresOn')]
@@ -85,7 +76,6 @@ class UpdatePaymentLinkError
 
     /**
      * @param  ?\Moov\MoovPhp\Models\Components\AmountValidationError  $amount
-     * @param  ?\Moov\MoovPhp\Models\Components\AmountValidationError  $salesTaxAmount
      * @param  ?string  $expiresOn
      * @param  ?\Moov\MoovPhp\Models\Components\DisplayOptionsError  $display
      * @param  ?\Moov\MoovPhp\Models\Components\PaymentDetailsError  $payment
@@ -94,10 +84,9 @@ class UpdatePaymentLinkError
      * @param  ?\Moov\MoovPhp\Models\Components\UpdatePaymentLinkAmountDetailsValidationError  $amountDetails
      * @phpstan-pure
      */
-    public function __construct(?Components\AmountValidationError $amount = null, ?Components\AmountValidationError $salesTaxAmount = null, ?string $expiresOn = null, ?Components\DisplayOptionsError $display = null, ?Components\PaymentDetailsError $payment = null, ?Components\PayoutDetailsError $payout = null, ?Components\CreatePaymentLinkLineItemsValidationError $lineItems = null, ?Components\UpdatePaymentLinkAmountDetailsValidationError $amountDetails = null)
+    public function __construct(?Components\AmountValidationError $amount = null, ?string $expiresOn = null, ?Components\DisplayOptionsError $display = null, ?Components\PaymentDetailsError $payment = null, ?Components\PayoutDetailsError $payout = null, ?Components\CreatePaymentLinkLineItemsValidationError $lineItems = null, ?Components\UpdatePaymentLinkAmountDetailsValidationError $amountDetails = null)
     {
         $this->amount = $amount;
-        $this->salesTaxAmount = $salesTaxAmount;
         $this->expiresOn = $expiresOn;
         $this->display = $display;
         $this->payment = $payment;

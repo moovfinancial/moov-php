@@ -234,15 +234,6 @@ class Transfer
     public ?string $paymentLinkCode = null;
 
     /**
-     *
-     * @var ?\Moov\MoovPhp\Models\Components\Amount $salesTaxAmount
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('salesTaxAmount')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Amount|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?Amount $salesTaxAmount = null;
-
-    /**
      * Optional alias from a foreign/external system which can be used to reference this resource.
      *
      * @var ?string $foreignID
@@ -254,7 +245,7 @@ class Transfer
     /**
      * An optional collection of line items for a transfer.
      *
-     * When line items are provided, their total plus sales tax must equal the transfer amount.
+     * When line items are provided, their total plus tax must equal the transfer amount.
      *
      * @var ?\Moov\MoovPhp\Models\Components\TransferLineItems $lineItems
      */
@@ -317,7 +308,6 @@ class Transfer
      * @param  ?string  $scheduleID
      * @param  ?string  $occurrenceID
      * @param  ?string  $paymentLinkCode
-     * @param  ?\Moov\MoovPhp\Models\Components\Amount  $salesTaxAmount
      * @param  ?string  $foreignID
      * @param  ?\Moov\MoovPhp\Models\Components\TransferLineItems  $lineItems
      * @param  ?string  $invoiceID
@@ -325,7 +315,7 @@ class Transfer
      * @param  ?\Moov\MoovPhp\Models\Components\TransferCapture  $capture
      * @phpstan-pure
      */
-    public function __construct(string $transferID, \DateTime $createdOn, TransferSource $source, TransferDestination $destination, TransferStatus $status, Amount $amount, ?\DateTime $completedOn = null, ?TransferFailureReason $failureReason = null, ?string $description = null, ?array $metadata = null, ?FacilitatorFee $facilitatorFee = null, ?int $moovFee = null, ?string $moovFeeDecimal = null, ?MoovFeeDetails $moovFeeDetails = null, ?array $moovFees = null, ?string $groupID = null, ?array $cancellations = null, ?Amount $refundedAmount = null, ?array $refunds = null, ?Amount $disputedAmount = null, ?array $disputes = null, ?string $sweepID = null, ?string $scheduleID = null, ?string $occurrenceID = null, ?string $paymentLinkCode = null, ?Amount $salesTaxAmount = null, ?string $foreignID = null, ?TransferLineItems $lineItems = null, ?string $invoiceID = null, ?TransferAmountDetails $amountDetails = null, ?TransferCapture $capture = null)
+    public function __construct(string $transferID, \DateTime $createdOn, TransferSource $source, TransferDestination $destination, TransferStatus $status, Amount $amount, ?\DateTime $completedOn = null, ?TransferFailureReason $failureReason = null, ?string $description = null, ?array $metadata = null, ?FacilitatorFee $facilitatorFee = null, ?int $moovFee = null, ?string $moovFeeDecimal = null, ?MoovFeeDetails $moovFeeDetails = null, ?array $moovFees = null, ?string $groupID = null, ?array $cancellations = null, ?Amount $refundedAmount = null, ?array $refunds = null, ?Amount $disputedAmount = null, ?array $disputes = null, ?string $sweepID = null, ?string $scheduleID = null, ?string $occurrenceID = null, ?string $paymentLinkCode = null, ?string $foreignID = null, ?TransferLineItems $lineItems = null, ?string $invoiceID = null, ?TransferAmountDetails $amountDetails = null, ?TransferCapture $capture = null)
     {
         $this->transferID = $transferID;
         $this->createdOn = $createdOn;
@@ -352,7 +342,6 @@ class Transfer
         $this->scheduleID = $scheduleID;
         $this->occurrenceID = $occurrenceID;
         $this->paymentLinkCode = $paymentLinkCode;
-        $this->salesTaxAmount = $salesTaxAmount;
         $this->foreignID = $foreignID;
         $this->lineItems = $lineItems;
         $this->invoiceID = $invoiceID;
