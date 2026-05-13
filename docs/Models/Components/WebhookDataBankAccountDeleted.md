@@ -3,7 +3,8 @@
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `bankAccountID`    | *string*           | :heavy_check_mark: | N/A                |
-| `accountID`        | *string*           | :heavy_check_mark: | N/A                |
+| Field                                                                        | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `bankAccountID`                                                              | *string*                                                                     | :heavy_check_mark:                                                           | N/A                                                                          |
+| `accountID`                                                                  | *string*                                                                     | :heavy_check_mark:                                                           | N/A                                                                          |
+| `status`                                                                     | [Components\BankAccountStatus](../../Models/Components/BankAccountStatus.md) | :heavy_check_mark:                                                           | N/A                                                                          |
