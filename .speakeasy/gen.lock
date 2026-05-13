@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 8510112dcf67b32c004239604b8b3ce8
+  docChecksum: c69f85a9a459efe4404370d6f4d74591
   docVersion: v2026.04.00
-  speakeasyVersion: 1.762.0
-  generationVersion: 2.882.0
-  releaseVersion: 26.4.5
-  configChecksum: fa87b8a0b657bdbc434411ad7a4646b9
+  speakeasyVersion: 1.763.0
+  generationVersion: 2.884.0
+  releaseVersion: 26.4.6
+  configChecksum: 149c66c901fc2d6e34d8a5e15355dfe7
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php.git
   published: true
 persistentEdits:
-  generation_id: d4c174bd-9c04-4155-a37f-bf3f6c26222e
-  pristine_commit_hash: 671057610c92b495372b03e584b2af1d5dc2b9ef
-  pristine_tree_hash: 2be63e4a389d276a11d10282f3e5ab50e8384a8c
+  generation_id: 9abdd59b-08d8-41d7-ade4-0fb45eded3c3
+  pristine_commit_hash: ffc95c303b73af2d6af9aa4c04dac7552113be94
+  pristine_tree_hash: 41e2e642148f33b2b9d89db86cc80eeb9a2d710f
 features:
   php:
     constsAndDefaults: 0.2.2
@@ -2662,8 +2662,8 @@ trackedFiles:
     pristine_git_object: 9ccf3b40bb8b8af0eefcc17097ddb5d320f74705
   docs/Models/Components/WebhookDataBankAccountDeleted.md:
     id: e70f839e755e
-    last_write_checksum: sha1:d15666fd2c8ecf362e159047f7ca7ba92228de6f
-    pristine_git_object: 5f20b0b2800f07672abb91418995462b70cb31af
+    last_write_checksum: sha1:f9aede9ae7670f763bf848e6772856ae297e2e9c
+    pristine_git_object: c9c2e357d0c2ac8937860e803e1d1655cb934f1b
   docs/Models/Components/WebhookDataBankAccountUpdated.md:
     id: 534a89c6362d
     last_write_checksum: sha1:18a3e8bf09190e364a1447f7ee528355436b1838
@@ -7454,8 +7454,8 @@ trackedFiles:
     pristine_git_object: 3e8205c2cdb0149dd427c2774feb4719b0165eb2
   src/Models/Components/WebhookDataBankAccountDeleted.php:
     id: 480da66437d7
-    last_write_checksum: sha1:0c6716290257dc0aad67030ed84a3b6c4b4cda47
-    pristine_git_object: 55305de187ae0fe115fd51d95a10d5e8f376bb18
+    last_write_checksum: sha1:67ace6068ee52e5423a0e2f10beb02cc49b27cd6
+    pristine_git_object: 66f3330ed4d7f81468715b313b7416bb1bddc802
   src/Models/Components/WebhookDataBankAccountUpdated.php:
     id: fe3ecf4edfaf
     last_write_checksum: sha1:9ed41f74320393f8f2c7477f390713e85daeb3e5
@@ -9570,8 +9570,8 @@ trackedFiles:
     pristine_git_object: 6c4eb9b9d1bbf57d4db0cdf0095b237b68051ed4
   src/SDKConfiguration.php:
     id: 9d60ab0bec0b
-    last_write_checksum: sha1:7b28afc156d56d12cd24321eba8a76780aa8eb87
-    pristine_git_object: de533e47cb27b03156766d823374e65c882e441d
+    last_write_checksum: sha1:b551b8aeaf2831a95a98bda95f209237567fefae
+    pristine_git_object: e0bed4094d782d14576184b9ba13799f979540a5
   src/Schedules.php:
     id: 8dbe56d2d033
     last_write_checksum: sha1:6f0d21f80435c051e1beddd63bf681efac9d4099
