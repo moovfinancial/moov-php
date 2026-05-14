@@ -26,13 +26,23 @@ class WebhookDataBankAccountDeleted
     public string $accountID;
 
     /**
+     *
+     * @var \Moov\MoovPhp\Models\Components\BankAccountStatus $status
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BankAccountStatus')]
+    public BankAccountStatus $status;
+
+    /**
      * @param  string  $bankAccountID
      * @param  string  $accountID
+     * @param  \Moov\MoovPhp\Models\Components\BankAccountStatus  $status
      * @phpstan-pure
      */
-    public function __construct(string $bankAccountID, string $accountID)
+    public function __construct(string $bankAccountID, string $accountID, BankAccountStatus $status)
     {
         $this->bankAccountID = $bankAccountID;
         $this->accountID = $accountID;
+        $this->status = $status;
     }
 }
