@@ -55,12 +55,12 @@ class UpdateInvoiceError
 
     /**
      *
-     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimalValidationError $taxAmount
+     * @var ?\Moov\MoovPhp\Models\Components\AmountDetailsValidationError $amountDetails
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('taxAmount')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimalValidationError|null')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('amountDetails')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDetailsValidationError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?Components\AmountDecimalValidationError $taxAmount = null;
+    public ?Components\AmountDetailsValidationError $amountDetails = null;
 
     /**
      * @param  ?string  $description
@@ -68,17 +68,17 @@ class UpdateInvoiceError
      * @param  ?string  $invoiceDate
      * @param  ?string  $dueDate
      * @param  ?string  $status
-     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimalValidationError  $taxAmount
+     * @param  ?\Moov\MoovPhp\Models\Components\AmountDetailsValidationError  $amountDetails
      * @phpstan-pure
      */
-    public function __construct(?string $description = null, ?Components\InvoiceLineItemsValidationError $lineItems = null, ?string $invoiceDate = null, ?string $dueDate = null, ?string $status = null, ?Components\AmountDecimalValidationError $taxAmount = null)
+    public function __construct(?string $description = null, ?Components\InvoiceLineItemsValidationError $lineItems = null, ?string $invoiceDate = null, ?string $dueDate = null, ?string $status = null, ?Components\AmountDetailsValidationError $amountDetails = null)
     {
         $this->description = $description;
         $this->lineItems = $lineItems;
         $this->invoiceDate = $invoiceDate;
         $this->dueDate = $dueDate;
         $this->status = $status;
-        $this->taxAmount = $taxAmount;
+        $this->amountDetails = $amountDetails;
     }
 
     public function toException(): UpdateInvoiceErrorThrowable

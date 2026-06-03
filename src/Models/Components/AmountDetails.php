@@ -9,20 +9,10 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-class TransferAmountDetails
+class AmountDetails
 {
     /**
-     * The amount of tip applied to the transfer.
-     *
-     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimal $tip
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('tip')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?AmountDecimal $tip = null;
-
-    /**
-     * The amount of tax applied to the transfer.
+     * The amount of tax applied to the invoice.
      *
      * @var ?\Moov\MoovPhp\Models\Components\AmountDecimal $tax
      */
@@ -32,7 +22,7 @@ class TransferAmountDetails
     public ?AmountDecimal $tax = null;
 
     /**
-     * The amount of surcharge applied to the transfer.
+     * The amount of surcharge applied to the invoice.
      *
      * @var ?\Moov\MoovPhp\Models\Components\AmountDecimal $surcharge
      */
@@ -42,14 +32,12 @@ class TransferAmountDetails
     public ?AmountDecimal $surcharge = null;
 
     /**
-     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimal  $tip
      * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimal  $tax
      * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimal  $surcharge
      * @phpstan-pure
      */
-    public function __construct(?AmountDecimal $tip = null, ?AmountDecimal $tax = null, ?AmountDecimal $surcharge = null)
+    public function __construct(?AmountDecimal $tax = null, ?AmountDecimal $surcharge = null)
     {
-        $this->tip = $tip;
         $this->tax = $tax;
         $this->surcharge = $surcharge;
     }

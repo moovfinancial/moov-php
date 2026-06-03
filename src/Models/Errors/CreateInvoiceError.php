@@ -55,12 +55,12 @@ class CreateInvoiceError
 
     /**
      *
-     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimalValidationError $taxAmount
+     * @var ?\Moov\MoovPhp\Models\Components\AmountDetailsValidationError $amountDetails
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('taxAmount')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimalValidationError|null')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('amountDetails')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDetailsValidationError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?Components\AmountDecimalValidationError $taxAmount = null;
+    public ?Components\AmountDetailsValidationError $amountDetails = null;
 
     /**
      * @param  ?string  $customerAccountID
@@ -68,17 +68,17 @@ class CreateInvoiceError
      * @param  ?\Moov\MoovPhp\Models\Components\CreateInvoiceLineItemsValidationError  $lineItems
      * @param  ?string  $invoiceDate
      * @param  ?string  $dueDate
-     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimalValidationError  $taxAmount
+     * @param  ?\Moov\MoovPhp\Models\Components\AmountDetailsValidationError  $amountDetails
      * @phpstan-pure
      */
-    public function __construct(?string $customerAccountID = null, ?string $description = null, ?Components\CreateInvoiceLineItemsValidationError $lineItems = null, ?string $invoiceDate = null, ?string $dueDate = null, ?Components\AmountDecimalValidationError $taxAmount = null)
+    public function __construct(?string $customerAccountID = null, ?string $description = null, ?Components\CreateInvoiceLineItemsValidationError $lineItems = null, ?string $invoiceDate = null, ?string $dueDate = null, ?Components\AmountDetailsValidationError $amountDetails = null)
     {
         $this->customerAccountID = $customerAccountID;
         $this->description = $description;
         $this->lineItems = $lineItems;
         $this->invoiceDate = $invoiceDate;
         $this->dueDate = $dueDate;
-        $this->taxAmount = $taxAmount;
+        $this->amountDetails = $amountDetails;
     }
 
     public function toException(): CreateInvoiceErrorThrowable

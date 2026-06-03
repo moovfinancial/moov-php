@@ -20,11 +20,23 @@ class CreateReversal
     public int $amount;
 
     /**
+     * Breakdown of the reversed amount.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\ReversalAmountDetails $amountDetails
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('amountDetails')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ReversalAmountDetails|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?ReversalAmountDetails $amountDetails = null;
+
+    /**
      * @param  int  $amount
+     * @param  ?\Moov\MoovPhp\Models\Components\ReversalAmountDetails  $amountDetails
      * @phpstan-pure
      */
-    public function __construct(int $amount)
+    public function __construct(int $amount, ?ReversalAmountDetails $amountDetails = null)
     {
         $this->amount = $amount;
+        $this->amountDetails = $amountDetails;
     }
 }

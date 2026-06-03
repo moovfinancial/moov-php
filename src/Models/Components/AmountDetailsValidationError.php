@@ -9,16 +9,8 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-class CreateTransferAmountDetailsValidationError
+class AmountDetailsValidationError
 {
-    /**
-     *
-     * @var ?string $tip
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('tip')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $tip = null;
-
     /**
      *
      * @var ?string $tax
@@ -36,14 +28,12 @@ class CreateTransferAmountDetailsValidationError
     public ?string $surcharge = null;
 
     /**
-     * @param  ?string  $tip
      * @param  ?string  $tax
      * @param  ?string  $surcharge
      * @phpstan-pure
      */
-    public function __construct(?string $tip = null, ?string $tax = null, ?string $surcharge = null)
+    public function __construct(?string $tax = null, ?string $surcharge = null)
     {
-        $this->tip = $tip;
         $this->tax = $tax;
         $this->surcharge = $surcharge;
     }

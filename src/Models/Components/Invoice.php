@@ -84,15 +84,7 @@ class Invoice
     public AmountDecimal $subtotalAmount;
 
     /**
-     *
-     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $taxAmount
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('taxAmount')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
-    public AmountDecimal $taxAmount;
-
-    /**
-     * Total amount of the invoice, sum of subTotalAmount and taxAmount
+     * Total amount of the invoice, including subtotal, tax, and surcharge amounts.
      *
      * @var \Moov\MoovPhp\Models\Components\AmountDecimal $totalAmount
      */
@@ -150,6 +142,15 @@ class Invoice
     #[\Speakeasy\Serializer\Annotation\SerializedName('description')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $description = null;
+
+    /**
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\AmountDetails $amountDetails
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('amountDetails')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDetails|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?AmountDetails $amountDetails = null;
 
     /**
      *
@@ -227,7 +228,6 @@ class Invoice
      * @param  \Moov\MoovPhp\Models\Components\InvoiceStatus  $status
      * @param  \Moov\MoovPhp\Models\Components\InvoiceLineItems  $lineItems
      * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $subtotalAmount
-     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $taxAmount
      * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $totalAmount
      * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $pendingAmount
      * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $paidAmount
@@ -235,6 +235,7 @@ class Invoice
      * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $disputedAmount
      * @param  \DateTime  $createdOn
      * @param  ?string  $description
+     * @param  ?\Moov\MoovPhp\Models\Components\AmountDetails  $amountDetails
      * @param  ?string  $paymentLinkCode
      * @param  ?array<\Moov\MoovPhp\Models\Components\InvoicePayment>  $invoicePayments
      * @param  ?\DateTime  $invoiceDate
@@ -245,7 +246,7 @@ class Invoice
      * @param  ?\DateTime  $disabledOn
      * @phpstan-pure
      */
-    public function __construct(string $invoiceID, string $invoiceNumber, string $customerAccountID, string $customerDisplayName, string $customerEmail, string $partnerAccountID, InvoiceStatus $status, InvoiceLineItems $lineItems, AmountDecimal $subtotalAmount, AmountDecimal $taxAmount, AmountDecimal $totalAmount, AmountDecimal $pendingAmount, AmountDecimal $paidAmount, AmountDecimal $refundedAmount, AmountDecimal $disputedAmount, \DateTime $createdOn, ?string $description = null, ?string $paymentLinkCode = null, ?array $invoicePayments = null, ?\DateTime $invoiceDate = null, ?\DateTime $dueDate = null, ?\DateTime $sentOn = null, ?\DateTime $paidOn = null, ?\DateTime $canceledOn = null, ?\DateTime $disabledOn = null)
+    public function __construct(string $invoiceID, string $invoiceNumber, string $customerAccountID, string $customerDisplayName, string $customerEmail, string $partnerAccountID, InvoiceStatus $status, InvoiceLineItems $lineItems, AmountDecimal $subtotalAmount, AmountDecimal $totalAmount, AmountDecimal $pendingAmount, AmountDecimal $paidAmount, AmountDecimal $refundedAmount, AmountDecimal $disputedAmount, \DateTime $createdOn, ?string $description = null, ?AmountDetails $amountDetails = null, ?string $paymentLinkCode = null, ?array $invoicePayments = null, ?\DateTime $invoiceDate = null, ?\DateTime $dueDate = null, ?\DateTime $sentOn = null, ?\DateTime $paidOn = null, ?\DateTime $canceledOn = null, ?\DateTime $disabledOn = null)
     {
         $this->invoiceID = $invoiceID;
         $this->invoiceNumber = $invoiceNumber;
@@ -256,7 +257,6 @@ class Invoice
         $this->status = $status;
         $this->lineItems = $lineItems;
         $this->subtotalAmount = $subtotalAmount;
-        $this->taxAmount = $taxAmount;
         $this->totalAmount = $totalAmount;
         $this->pendingAmount = $pendingAmount;
         $this->paidAmount = $paidAmount;
@@ -264,6 +264,7 @@ class Invoice
         $this->disputedAmount = $disputedAmount;
         $this->createdOn = $createdOn;
         $this->description = $description;
+        $this->amountDetails = $amountDetails;
         $this->paymentLinkCode = $paymentLinkCode;
         $this->invoicePayments = $invoicePayments;
         $this->invoiceDate = $invoiceDate;

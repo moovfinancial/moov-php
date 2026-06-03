@@ -9,20 +9,10 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-class PaymentLinkAmountDetails
+class ReversalAmountDetails
 {
     /**
-     * The amount of tax applied to the payment link.
-     *
-     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimal $tax
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('tax')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?AmountDecimal $tax = null;
-
-    /**
-     * The amount of surcharge applied to the payment link.
+     * The amount of surcharge to refund. Should be proportionate to the surcharge on the original transfer. This does not reply if the reversal resulted in a cancellation instead of a refund
      *
      * @var ?\Moov\MoovPhp\Models\Components\AmountDecimal $surcharge
      */
@@ -32,13 +22,11 @@ class PaymentLinkAmountDetails
     public ?AmountDecimal $surcharge = null;
 
     /**
-     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimal  $tax
      * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimal  $surcharge
      * @phpstan-pure
      */
-    public function __construct(?AmountDecimal $tax = null, ?AmountDecimal $surcharge = null)
+    public function __construct(?AmountDecimal $surcharge = null)
     {
-        $this->tax = $tax;
         $this->surcharge = $surcharge;
     }
 }

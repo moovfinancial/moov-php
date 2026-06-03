@@ -30,13 +30,13 @@ class UpdateInvoice
     public ?CreateInvoiceLineItemsUpdate $lineItems = null;
 
     /**
-     * The status can be updated to one of the following values under specific conditions:
+     *   The status can be updated to one of the following values under specific conditions:
      *
-     * - `canceled`: Can only be set if the current status is `draft`, `unpaid`, or `overdue`. Canceling an invoice
-     *   indicates the invoice is no longer expected to be paid (e.g., the charge was waived or terms changed).
-     *   Canceled invoices still appear in list results by default and remain part of the invoice history.
-     *   To completely discard an invoice created by mistake, use the delete endpoint instead.
-     * - `unpaid`: Can only be set if the current status is `draft`. Setting the status to `unpaid` finalizes the invoice and sends an email with a payment link to the customer.
+     *   - `canceled`: Can only be set if the current status is `draft`, `unpaid`, or `overdue`. Canceling an invoice
+     *     indicates the invoice is no longer expected to be paid (e.g., the charge was waived or terms changed).
+     *     Canceled invoices still appear in list results by default and remain part of the invoice history.
+     *     To completely discard an invoice created by mistake, use the delete endpoint instead.
+     *   - `unpaid`: Can only be set if the current status is `draft`. Setting the status to `unpaid` finalizes the invoice and sends an email with a payment link to the customer.
      *
      * @var ?\Moov\MoovPhp\Models\Components\InvoiceStatus $status
      */
@@ -47,12 +47,12 @@ class UpdateInvoice
 
     /**
      *
-     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimalUpdate $taxAmount
+     * @var ?\Moov\MoovPhp\Models\Components\AmountDetailsUpdate $amountDetails
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('taxAmount')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimalUpdate|null')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('amountDetails')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDetailsUpdate|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?AmountDecimalUpdate $taxAmount = null;
+    public ?AmountDetailsUpdate $amountDetails = null;
 
     /**
      *
@@ -74,17 +74,17 @@ class UpdateInvoice
      * @param  ?string  $description
      * @param  ?\Moov\MoovPhp\Models\Components\CreateInvoiceLineItemsUpdate  $lineItems
      * @param  ?\Moov\MoovPhp\Models\Components\InvoiceStatus  $status
-     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimalUpdate  $taxAmount
+     * @param  ?\Moov\MoovPhp\Models\Components\AmountDetailsUpdate  $amountDetails
      * @param  ?\DateTime  $invoiceDate
      * @param  ?\DateTime  $dueDate
      * @phpstan-pure
      */
-    public function __construct(?string $description = null, ?CreateInvoiceLineItemsUpdate $lineItems = null, ?InvoiceStatus $status = null, ?AmountDecimalUpdate $taxAmount = null, ?\DateTime $invoiceDate = null, ?\DateTime $dueDate = null)
+    public function __construct(?string $description = null, ?CreateInvoiceLineItemsUpdate $lineItems = null, ?InvoiceStatus $status = null, ?AmountDetailsUpdate $amountDetails = null, ?\DateTime $invoiceDate = null, ?\DateTime $dueDate = null)
     {
         $this->description = $description;
         $this->lineItems = $lineItems;
         $this->status = $status;
-        $this->taxAmount = $taxAmount;
+        $this->amountDetails = $amountDetails;
         $this->invoiceDate = $invoiceDate;
         $this->dueDate = $dueDate;
     }

@@ -20,11 +20,21 @@ class UpdatePaymentLinkAmountDetailsValidationError
     public ?string $tax = null;
 
     /**
+     *
+     * @var ?string $surcharge
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('surcharge')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $surcharge = null;
+
+    /**
      * @param  ?string  $tax
+     * @param  ?string  $surcharge
      * @phpstan-pure
      */
-    public function __construct(?string $tax = null)
+    public function __construct(?string $tax = null, ?string $surcharge = null)
     {
         $this->tax = $tax;
+        $this->surcharge = $surcharge;
     }
 }

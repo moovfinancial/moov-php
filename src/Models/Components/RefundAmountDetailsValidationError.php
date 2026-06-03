@@ -9,16 +9,8 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-class CreatePaymentLinkAmountDetailsValidationError
+class RefundAmountDetailsValidationError
 {
-    /**
-     *
-     * @var ?string $tax
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('tax')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $tax = null;
-
     /**
      *
      * @var ?string $surcharge
@@ -28,13 +20,11 @@ class CreatePaymentLinkAmountDetailsValidationError
     public ?string $surcharge = null;
 
     /**
-     * @param  ?string  $tax
      * @param  ?string  $surcharge
      * @phpstan-pure
      */
-    public function __construct(?string $tax = null, ?string $surcharge = null)
+    public function __construct(?string $surcharge = null)
     {
-        $this->tax = $tax;
         $this->surcharge = $surcharge;
     }
 }

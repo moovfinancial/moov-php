@@ -746,6 +746,12 @@ $request = new Operations\InitiateRefundRequest(
     transferID: '04022119-95be-4ef4-9dd4-b3782f6aa7b9',
     createRefund: new Components\CreateRefund(
         amount: 1000,
+        amountDetails: new Components\RefundAmountDetails(
+            surcharge: new Components\AmountDecimal(
+                currency: 'USD',
+                valueDecimal: '12.987654321',
+            ),
+        ),
     ),
 );
 
@@ -784,6 +790,12 @@ $request = new Operations\InitiateRefundRequest(
     transferID: 'd73be489-9da4-4be7-bc04-147d8552279d',
     createRefund: new Components\CreateRefund(
         amount: 1000,
+        amountDetails: new Components\RefundAmountDetails(
+            surcharge: new Components\AmountDecimal(
+                currency: 'USD',
+                valueDecimal: '12.987654321',
+            ),
+        ),
     ),
 );
 
@@ -962,6 +974,12 @@ $sdk = MoovPhp\Moov::builder()
 
 $createReversal = new Components\CreateReversal(
     amount: 1000,
+    amountDetails: new Components\ReversalAmountDetails(
+        surcharge: new Components\AmountDecimal(
+            currency: 'USD',
+            valueDecimal: '12.987654321',
+        ),
+    ),
 );
 
 $response = $sdk->transfers->createReversal(
@@ -998,6 +1016,12 @@ $sdk = MoovPhp\Moov::builder()
 
 $createReversal = new Components\CreateReversal(
     amount: 1000,
+    amountDetails: new Components\ReversalAmountDetails(
+        surcharge: new Components\AmountDecimal(
+            currency: 'USD',
+            valueDecimal: '12.987654321',
+        ),
+    ),
 );
 
 $response = $sdk->transfers->createReversal(

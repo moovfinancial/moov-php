@@ -9,10 +9,10 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-class UpdatePaymentLinkAmountDetails
+class AmountDetailsUpdate
 {
     /**
-     * The amount of tax applied to the payment link.
+     * The amount of tax applied to the invoice.
      *
      * @var ?\Moov\MoovPhp\Models\Components\AmountDecimalUpdate $tax
      */
@@ -22,7 +22,7 @@ class UpdatePaymentLinkAmountDetails
     public ?AmountDecimalUpdate $tax = null;
 
     /**
-     * The amount of surcharge applied to the payment link.
+     * The amount of surcharge applied to the invoice.
      *
      * @var ?\Moov\MoovPhp\Models\Components\AmountDecimalUpdate $surcharge
      */
