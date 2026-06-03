@@ -1,23 +1,23 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: c69f85a9a459efe4404370d6f4d74591
+  docChecksum: 41c608443f6f99f4b0e9168827ca68cf
   docVersion: v2026.04.00
-  speakeasyVersion: 1.763.0
-  generationVersion: 2.884.0
-  releaseVersion: 26.4.6
-  configChecksum: 149c66c901fc2d6e34d8a5e15355dfe7
+  speakeasyVersion: 1.770.0
+  generationVersion: 2.893.0
+  releaseVersion: 26.4.7
+  configChecksum: 1a3b05fae194e8f11736ffebc177017a
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php.git
   published: true
 persistentEdits:
-  generation_id: 9abdd59b-08d8-41d7-ade4-0fb45eded3c3
-  pristine_commit_hash: ffc95c303b73af2d6af9aa4c04dac7552113be94
-  pristine_tree_hash: 41e2e642148f33b2b9d89db86cc80eeb9a2d710f
+  generation_id: 5c0378df-ce45-4dbc-9165-92b51bfe18cb
+  pristine_commit_hash: c39130847bdcb89b0bcc45199e4c01414a97b12b
+  pristine_tree_hash: 3ce463f0e1a5341e39b25ee53fbb932334e7a8d9
 features:
   php:
     constsAndDefaults: 0.2.2
-    core: 3.9.22
+    core: 3.9.23
     decimal: 0.1.1
     deprecations: 2.81.1
     flattening: 2.81.2
@@ -1374,8 +1374,8 @@ trackedFiles:
     pristine_git_object: e926a4b8635329b3522ed13ec7972f9f705e2f00
   docs/Models/Components/Invoice.md:
     id: ba7358ee6e48
-    last_write_checksum: sha1:d2c8a27cb88dfceb26b019d5f04e825ef9833356
-    pristine_git_object: 309b4f3f4c884a97b19849616746020a3e597d36
+    last_write_checksum: sha1:34221b59b5c7ee7262f3c86c6a58ef97852d4b52
+    pristine_git_object: e693310fd7aad6f2b4c948795fcdca6d2624c3b7
   docs/Models/Components/InvoiceExternalPayment.md:
     id: 355f31d8abd2
     last_write_checksum: sha1:49b2d80c7f47bb5e592f1d269334691b8284cdb4
@@ -2386,8 +2386,12 @@ trackedFiles:
     pristine_git_object: cc332c385d4855b6a3d2877a73761c6ac2e989bd
   docs/Models/Components/TransferConfig.md:
     id: c68b2f2ded58
-    last_write_checksum: sha1:c79fd7658982e7211ddb01807cb74969394b3fd1
-    pristine_git_object: 83497475ada46450b009b7b2f6267e88caa96b5a
+    last_write_checksum: sha1:486d3b6cbbc9aea22fd92f3224c8d437b8a0c242
+    pristine_git_object: e104059e5fc7516fb8cf1264afb578d81bcae9fe
+  docs/Models/Components/TransferControls.md:
+    id: 47e3364e54d3
+    last_write_checksum: sha1:205b73d1fd50ee80097f5f0146a74372d554e311
+    pristine_git_object: d96b3bf5f56691b9eeff04f3e7e1932c0cc92379
   docs/Models/Components/TransferDestination.md:
     id: bad241d995ea
     last_write_checksum: sha1:888ae2ea435ad479f51aa0f14a3614cf8b85c4b6
@@ -2494,8 +2498,8 @@ trackedFiles:
     pristine_git_object: cc6c8f5a18b68c2514fd08c0ea71f3b44c4aaa25
   docs/Models/Components/UpdateInvoice.md:
     id: c30d640c401a
-    last_write_checksum: sha1:2c8e86ff594f5c83e650be5eac59214f7f8fc4bf
-    pristine_git_object: 192b20146757f82dce1836fd2d7a788bced08bb6
+    last_write_checksum: sha1:86ebc995bfed7848253c9ea0f24b420e61009cae
+    pristine_git_object: cc18de9606091bc12895c145a5692daaef713823
   docs/Models/Components/UpdateIssuedCard.md:
     id: 720655aa16dc
     last_write_checksum: sha1:9fb50daade325f3137c9e355274b4bdf35192e3e
@@ -6186,8 +6190,8 @@ trackedFiles:
     pristine_git_object: 60d9f59ab309679aeaab68e7c8d6b040c72c4c60
   src/Models/Components/Invoice.php:
     id: 43df44796849
-    last_write_checksum: sha1:deeb9837b9867c1383aaadf1ac35453e2c19f9a8
-    pristine_git_object: 4d7420b4060b46b292675e74932cff16736e426f
+    last_write_checksum: sha1:0e7852ebb8a8df32073e23354520b2dc253c03aa
+    pristine_git_object: c12fbecb6d959cc7942afc2fc42c9a884df26be7
   src/Models/Components/InvoiceExternalPayment.php:
     id: 73acc86d60c2
     last_write_checksum: sha1:1d3f47a4b64565b9e8c8b790fb28ab14b5db7e93
@@ -7186,8 +7190,12 @@ trackedFiles:
     pristine_git_object: 0258cc5f7457a19788c659e6ef0c000c249e8a98
   src/Models/Components/TransferConfig.php:
     id: d5448daa68ee
-    last_write_checksum: sha1:c3014f5c3fb4968e7692a394b3d0ed7c16aa642a
-    pristine_git_object: 3239d09becac7899f64dd8b801988f936f1e5105
+    last_write_checksum: sha1:70c83a5101b588ccba6a0525023bc2a5048b3257
+    pristine_git_object: 775e6af0865ab83d06b84726cad377ae15e97fde
+  src/Models/Components/TransferControls.php:
+    id: e719a9711d95
+    last_write_checksum: sha1:d8f2074153c609bb68889e80f092a44d39027af4
+    pristine_git_object: 3768b8e97fc00ac484bb6c3b97c0c558bd21c1c0
   src/Models/Components/TransferDestination.php:
     id: 40c7ca209d43
     last_write_checksum: sha1:2f9d93e34c5b76d7357db64626a2d868bb2a95f6
@@ -7290,8 +7298,8 @@ trackedFiles:
     pristine_git_object: 8f6681789d9fbc09d55ccd6a3c0a14d7c0c9a88d
   src/Models/Components/UpdateInvoice.php:
     id: "173395773868"
-    last_write_checksum: sha1:306abce91c3cfe1002c0c95310b13f0147edea18
-    pristine_git_object: 4610182c1de8421ff6023f0fbb87fc3fd827bd34
+    last_write_checksum: sha1:c9793e2ed4ac9baabf0e95658b255bc043643e09
+    pristine_git_object: 6bd01658a89281319dc057e84f4225281d7f6fdd
   src/Models/Components/UpdateIssuedCard.php:
     id: d1d97098efbd
     last_write_checksum: sha1:2ef7e25b243606d8f9b51b10a666dc13675ea736
@@ -9570,8 +9578,8 @@ trackedFiles:
     pristine_git_object: 6c4eb9b9d1bbf57d4db0cdf0095b237b68051ed4
   src/SDKConfiguration.php:
     id: 9d60ab0bec0b
-    last_write_checksum: sha1:b551b8aeaf2831a95a98bda95f209237567fefae
-    pristine_git_object: e0bed4094d782d14576184b9ba13799f979540a5
+    last_write_checksum: sha1:9ee53d3b2e9ed132b6cb1f03cbba87165e6a90d0
+    pristine_git_object: bdda943f51bfd7ccb2f7a120b93d62c4e4daeb04
   src/Schedules.php:
     id: 8dbe56d2d033
     last_write_checksum: sha1:6f0d21f80435c051e1beddd63bf681efac9d4099
@@ -12603,7 +12611,7 @@ examples:
         application/json: {"tipPresets": {"fixedAmountOptions": [{"currency": "USD", "valueDecimal": "12.987654321"}]}}
       responses:
         "201":
-          application/json: {"tipPresets": {"calculationBasis": "pre-tax", "percentageOptions": [10, 15, 20]}}
+          application/json: {"tipPresets": {"calculationBasis": "pre-tax", "percentageOptions": [10, 15, 20]}, "transferControls": [{"accountID": "01234567-89ab-cdef-0123-456789abcdef", "partnerAccountID": "01234567-89ab-cdef-0123-456789abcdef", "debtRepayment": false, "allowDynamicDescriptor": true, "allowSurcharge": true}]}
   getTransferConfig:
     Fixed amount tip config:
       parameters:
@@ -12618,7 +12626,7 @@ examples:
           accountID: "<id>"
       responses:
         "200":
-          application/json: {"tipPresets": {"calculationBasis": "pre-tax", "percentageOptions": [10, 15, 20]}}
+          application/json: {"tipPresets": {"calculationBasis": "pre-tax", "percentageOptions": [10, 15, 20]}, "transferControls": [{"accountID": "01234567-89ab-cdef-0123-456789abcdef", "partnerAccountID": "01234567-89ab-cdef-0123-456789abcdef", "debtRepayment": false, "allowDynamicDescriptor": true, "allowSurcharge": true}]}
   updateTransferConfig:
     Updated fixed amount tip config:
       parameters:
@@ -12637,9 +12645,14 @@ examples:
         application/json: {"tipPresets": {"fixedAmountOptions": [{"currency": "USD", "valueDecimal": "12.987654321"}]}}
       responses:
         "200":
-          application/json: {"tipPresets": {"calculationBasis": "pre-tax", "percentageOptions": [10, 15, 20]}}
+          application/json: {"tipPresets": {"calculationBasis": "pre-tax", "percentageOptions": [10, 15, 20]}, "transferControls": [{"accountID": "01234567-89ab-cdef-0123-456789abcdef", "partnerAccountID": "01234567-89ab-cdef-0123-456789abcdef", "debtRepayment": false, "allowDynamicDescriptor": true, "allowSurcharge": true}]}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: |
+  ## Php SDK Changes:
+  * `moov->transfer config->create()`:  `response.transferControls` **Added**
+  * `moov->transfer config->get()`:  `response.transferControls` **Added**
+  * `moov->transfer config->update()`:  `response.transferControls` **Added**
 generatedFiles:
   - .gitattributes
   - USAGE.md
