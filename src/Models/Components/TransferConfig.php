@@ -23,11 +23,23 @@ class TransferConfig
     public ?TipPresets $tipPresets = null;
 
     /**
+     * $transferControls
+     *
+     * @var ?array<\Moov\MoovPhp\Models\Components\TransferControls> $transferControls
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('transferControls')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\TransferControls>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $transferControls = null;
+
+    /**
      * @param  ?\Moov\MoovPhp\Models\Components\TipPresets  $tipPresets
+     * @param  ?array<\Moov\MoovPhp\Models\Components\TransferControls>  $transferControls
      * @phpstan-pure
      */
-    public function __construct(?TipPresets $tipPresets = null)
+    public function __construct(?TipPresets $tipPresets = null, ?array $transferControls = null)
     {
         $this->tipPresets = $tipPresets;
+        $this->transferControls = $transferControls;
     }
 }

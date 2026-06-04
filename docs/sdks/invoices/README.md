@@ -85,10 +85,6 @@ $createInvoice = new Components\CreateInvoice(
     ),
     invoiceDate: Utils\Utils::parseDateTime('2026-01-15T00:00:00Z'),
     dueDate: Utils\Utils::parseDateTime('2026-02-15T00:00:00Z'),
-    taxAmount: new Components\AmountDecimal(
-        currency: 'USD',
-        valueDecimal: '80.00',
-    ),
 );
 
 $response = $sdk->invoices->createInvoice(
