@@ -65,7 +65,7 @@ class CardIssuing
             issuedCardID: $issuedCardID,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/issuing/{accountID}/issued-cards/{issuedCardID}/details', Operations\GetFullIssuedCardRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/issuing/{accountID}/cards/{issuedCardID}/details', Operations\GetFullIssuedCardRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $httpOptions['headers']['Accept'] = 'application/json';
@@ -131,14 +131,14 @@ class CardIssuing
      * @return \Moov\MoovPhp\Models\Operations\GetIssuedCardResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function getIssuedCard(string $accountID, string $issuedCardID, ?Options $options = null): Operations\GetIssuedCardResponse
+    public function get(string $accountID, string $issuedCardID, ?Options $options = null): Operations\GetIssuedCardResponse
     {
         $request = new Operations\GetIssuedCardRequest(
             accountID: $accountID,
             issuedCardID: $issuedCardID,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/issuing/{accountID}/issued-cards/{issuedCardID}', Operations\GetIssuedCardRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/issuing/{accountID}/cards/{issuedCardID}', Operations\GetIssuedCardRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $httpOptions['headers']['Accept'] = 'application/json';
@@ -194,6 +194,86 @@ class CardIssuing
     }
 
     /**
+     * List Moov issued cards existing for the account.
+     *
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * you'll need to specify the `/accounts/{accountID}/issued-cards.read` scope.
+     *
+     * @param  string  $accountID
+     * @param  ?int  $skip
+     * @param  ?int  $count
+     * @param  ?array<\Moov\MoovPhp\Models\Components\IssuedCardState>  $states
+     * @return \Moov\MoovPhp\Models\Operations\ListIssuedCardsResponse
+     * @throws \Moov\MoovPhp\Models\Errors\APIException
+     */
+    public function list(string $accountID, ?int $skip = null, ?int $count = null, ?array $states = null, ?Options $options = null): Operations\ListIssuedCardsResponse
+    {
+        $request = new Operations\ListIssuedCardsRequest(
+            accountID: $accountID,
+            skip: $skip,
+            count: $count,
+            states: $states,
+        );
+        $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
+        $url = Utils\Utils::generateUrl($baseUrl, '/issuing/{accountID}/cards', Operations\ListIssuedCardsRequest::class, $request);
+        $urlOverride = null;
+        $httpOptions = ['http_errors' => false];
+
+        $qp = Utils\Utils::getQueryParams(Operations\ListIssuedCardsRequest::class, $request, $urlOverride);
+        $httpOptions['headers']['Accept'] = 'application/json';
+        $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
+        $hookContext = new HookContext($this->sdkConfiguration, $baseUrl, 'listIssuedCards', null, $this->sdkConfiguration->securitySource);
+        $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
+        $httpOptions['query'] = Utils\QueryParameters::standardizeQueryParams($httpRequest, $qp);
+        $httpOptions = Utils\Utils::convertHeadersToOptions($httpRequest, $httpOptions);
+        $httpRequest = Utils\Utils::removeHeaders($httpRequest);
+        try {
+            $httpResponse = $this->sdkConfiguration->client->send($httpRequest, $httpOptions);
+        } catch (\GuzzleHttp\Exception\GuzzleException $error) {
+            $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
+            $httpResponse = $res;
+        }
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        if (Utils\Utils::matchStatusCodes($httpResponse->getStatusCode(), ['4XX', '5XX'])) {
+            $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
+            $httpResponse = $res;
+        }
+
+        $statusCode = $httpResponse->getStatusCode();
+        if (Utils\Utils::matchStatusCodes($statusCode, ['200'])) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
+
+                $serializer = Utils\JSON::createSerializer();
+                $responseData = (string) $httpResponse->getBody();
+                $obj = $serializer->deserialize($responseData, 'array<\Moov\MoovPhp\Models\Components\IssuedCard>', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\ListIssuedCardsResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    headers: $httpResponse->getHeaders(),
+                    issuedCards: $obj);
+
+                return $response;
+            } else {
+                throw new \Moov\MoovPhp\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['401', '403', '429'])) {
+            throw new \Moov\MoovPhp\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['500', '504'])) {
+            throw new \Moov\MoovPhp\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['4XX'])) {
+            throw new \Moov\MoovPhp\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['5XX'])) {
+            throw new \Moov\MoovPhp\Models\Errors\APIException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } else {
+            throw new \Moov\MoovPhp\Models\Errors\APIException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        }
+    }
+
+    /**
      * Request a virtual card be issued.
      *
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
@@ -211,7 +291,7 @@ class CardIssuing
             requestCard: $requestCard,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/issuing/{accountID}/issued-cards', Operations\RequestCardRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/issuing/{accountID}/cards', Operations\RequestCardRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'requestCard', 'json');
@@ -313,7 +393,7 @@ class CardIssuing
             updateIssuedCard: $updateIssuedCard,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/issuing/{accountID}/issued-cards/{issuedCardID}', Operations\UpdateIssuedCardRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/issuing/{accountID}/cards/{issuedCardID}', Operations\UpdateIssuedCardRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, 'updateIssuedCard', 'json');

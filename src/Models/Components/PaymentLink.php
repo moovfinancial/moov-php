@@ -85,13 +85,13 @@ class PaymentLink
     public string $link;
 
     /**
-     * The fixed amount of the payment link. 
+     * The fixed amount of the payment link.
      *
      *
      * In API versions before `2026.07.00`, this was a required field.
      *
-     * In API version `2026.07.00` and beyond, this field is required for `fixed` payment amount types and omitted 
-     * for `open` payment amount types.
+     * In API version `2026.07.00` and beyond, this field is present for `payment` and `payout` links and omitted
+     * for `customAmountPayment` links, where the payor chooses the amount.
      *
      * @var \Moov\MoovPhp\Models\Components\Amount $amount
      */

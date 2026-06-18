@@ -12,6 +12,14 @@ namespace Moov\MoovPhp\Models\Components;
 class WebhookDataSweepUpdated
 {
     /**
+     * The accountID associated with the wallet being swept.
+     *
+     * @var string $accountID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('accountID')]
+    public string $accountID;
+
+    /**
      *
      * @var string $walletID
      */
@@ -42,14 +50,16 @@ class WebhookDataSweepUpdated
     public ?string $transferID = null;
 
     /**
+     * @param  string  $accountID
      * @param  string  $walletID
      * @param  string  $sweepID
      * @param  \Moov\MoovPhp\Models\Components\SweepStatus  $status
      * @param  ?string  $transferID
      * @phpstan-pure
      */
-    public function __construct(string $walletID, string $sweepID, SweepStatus $status, ?string $transferID = null)
+    public function __construct(string $accountID, string $walletID, string $sweepID, SweepStatus $status, ?string $transferID = null)
     {
+        $this->accountID = $accountID;
         $this->walletID = $walletID;
         $this->sweepID = $sweepID;
         $this->status = $status;
