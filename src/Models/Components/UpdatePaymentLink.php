@@ -59,6 +59,16 @@ class UpdatePaymentLink
     public ?PaymentLinkPayoutDetailsUpdate $payout = null;
 
     /**
+     * Options for a custom amount payment link. A payment link's type cannot be changed after creation.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\PaymentLinkCustomAmountPaymentDetailsUpdate $customAmountPayment
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('customAmountPayment')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentLinkCustomAmountPaymentDetailsUpdate|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?PaymentLinkCustomAmountPaymentDetailsUpdate $customAmountPayment = null;
+
+    /**
      * An optional collection of line items for a payment link.
      *
      * When line items are provided, their total plus tax must equal the payment link amount.
@@ -93,18 +103,20 @@ class UpdatePaymentLink
      * @param  ?\Moov\MoovPhp\Models\Components\PaymentLinkCustomerOptions  $customer
      * @param  ?\Moov\MoovPhp\Models\Components\PaymentLinkPaymentDetailsUpdate  $payment
      * @param  ?\Moov\MoovPhp\Models\Components\PaymentLinkPayoutDetailsUpdate  $payout
+     * @param  ?\Moov\MoovPhp\Models\Components\PaymentLinkCustomAmountPaymentDetailsUpdate  $customAmountPayment
      * @param  ?\Moov\MoovPhp\Models\Components\CreatePaymentLinkLineItemsUpdate  $lineItems
      * @param  ?\Moov\MoovPhp\Models\Components\UpdatePaymentLinkAmountDetails  $amountDetails
      * @param  ?\DateTime  $expiresOn
      * @phpstan-pure
      */
-    public function __construct(?AmountUpdate $amount = null, ?PaymentLinkDisplayOptionsUpdate $display = null, ?PaymentLinkCustomerOptions $customer = null, ?PaymentLinkPaymentDetailsUpdate $payment = null, ?PaymentLinkPayoutDetailsUpdate $payout = null, ?CreatePaymentLinkLineItemsUpdate $lineItems = null, ?UpdatePaymentLinkAmountDetails $amountDetails = null, ?\DateTime $expiresOn = null)
+    public function __construct(?AmountUpdate $amount = null, ?PaymentLinkDisplayOptionsUpdate $display = null, ?PaymentLinkCustomerOptions $customer = null, ?PaymentLinkPaymentDetailsUpdate $payment = null, ?PaymentLinkPayoutDetailsUpdate $payout = null, ?PaymentLinkCustomAmountPaymentDetailsUpdate $customAmountPayment = null, ?CreatePaymentLinkLineItemsUpdate $lineItems = null, ?UpdatePaymentLinkAmountDetails $amountDetails = null, ?\DateTime $expiresOn = null)
     {
         $this->amount = $amount;
         $this->display = $display;
         $this->customer = $customer;
         $this->payment = $payment;
         $this->payout = $payout;
+        $this->customAmountPayment = $customAmountPayment;
         $this->lineItems = $lineItems;
         $this->amountDetails = $amountDetails;
         $this->expiresOn = $expiresOn;

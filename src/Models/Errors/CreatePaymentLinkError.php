@@ -82,6 +82,15 @@ class CreatePaymentLinkError
 
     /**
      *
+     * @var ?\Moov\MoovPhp\Models\Components\CustomAmountPaymentDetailsError $customAmountPayment
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('customAmountPayment')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CustomAmountPaymentDetailsError|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?Components\CustomAmountPaymentDetailsError $customAmountPayment = null;
+
+    /**
+     *
      * @var ?\Moov\MoovPhp\Models\Components\CreatePaymentLinkLineItemsValidationError $lineItems
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('lineItems')]
@@ -107,11 +116,12 @@ class CreatePaymentLinkError
      * @param  ?\Moov\MoovPhp\Models\Components\DisplayOptionsError  $display
      * @param  ?\Moov\MoovPhp\Models\Components\PaymentDetailsError  $payment
      * @param  ?\Moov\MoovPhp\Models\Components\PayoutDetailsError  $payout
+     * @param  ?\Moov\MoovPhp\Models\Components\CustomAmountPaymentDetailsError  $customAmountPayment
      * @param  ?\Moov\MoovPhp\Models\Components\CreatePaymentLinkLineItemsValidationError  $lineItems
      * @param  ?\Moov\MoovPhp\Models\Components\CreatePaymentLinkAmountDetailsValidationError  $amountDetails
      * @phpstan-pure
      */
-    public function __construct(?string $partnerAccountID = null, ?string $merchantPaymentMethodID = null, ?Components\AmountValidationError $amount = null, ?string $maxUses = null, ?string $expiresOn = null, ?Components\DisplayOptionsError $display = null, ?Components\PaymentDetailsError $payment = null, ?Components\PayoutDetailsError $payout = null, ?Components\CreatePaymentLinkLineItemsValidationError $lineItems = null, ?Components\CreatePaymentLinkAmountDetailsValidationError $amountDetails = null)
+    public function __construct(?string $partnerAccountID = null, ?string $merchantPaymentMethodID = null, ?Components\AmountValidationError $amount = null, ?string $maxUses = null, ?string $expiresOn = null, ?Components\DisplayOptionsError $display = null, ?Components\PaymentDetailsError $payment = null, ?Components\PayoutDetailsError $payout = null, ?Components\CustomAmountPaymentDetailsError $customAmountPayment = null, ?Components\CreatePaymentLinkLineItemsValidationError $lineItems = null, ?Components\CreatePaymentLinkAmountDetailsValidationError $amountDetails = null)
     {
         $this->partnerAccountID = $partnerAccountID;
         $this->merchantPaymentMethodID = $merchantPaymentMethodID;
@@ -121,6 +131,7 @@ class CreatePaymentLinkError
         $this->display = $display;
         $this->payment = $payment;
         $this->payout = $payout;
+        $this->customAmountPayment = $customAmountPayment;
         $this->lineItems = $lineItems;
         $this->amountDetails = $amountDetails;
     }

@@ -105,8 +105,6 @@ class Moov
 
     public CardIssuing $cardIssuing;
 
-    public IssuedCards $issuedCards;
-
     public Authentication $authentication;
 
     public OnboardingInvites $onboardingInvites;
@@ -174,7 +172,6 @@ class Moov
         $this->issuingTransactions = new IssuingTransactions($this->sdkConfiguration);
         $this->transactions = new Transactions($this->sdkConfiguration);
         $this->cardIssuing = new CardIssuing($this->sdkConfiguration);
-        $this->issuedCards = new IssuedCards($this->sdkConfiguration);
         $this->authentication = new Authentication($this->sdkConfiguration);
         $this->onboardingInvites = new OnboardingInvites($this->sdkConfiguration);
         $this->onboarding = new Onboarding($this->sdkConfiguration);
