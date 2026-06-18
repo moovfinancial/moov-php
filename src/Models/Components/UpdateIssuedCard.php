@@ -25,32 +25,43 @@ class UpdateIssuedCard
 
     /**
      *
-     * @var ?string $memo
+     * @var ?string $nickname
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('memo')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('nickname')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $memo = null;
+    public ?string $nickname = null;
 
     /**
-     * Fields for identifying an authorized individual.
+     * $metadata
      *
-     * @var ?\Moov\MoovPhp\Models\Components\CreateAuthorizedUserUpdate $authorizedUser
+     * @var ?array<string, string> $metadata
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('authorizedUser')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateAuthorizedUserUpdate|null')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('metadata')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string, string>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?CreateAuthorizedUserUpdate $authorizedUser = null;
+    public ?array $metadata = null;
+
+    /**
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\BillingAddress $billingAddress
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('billingAddress')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingAddress|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?BillingAddress $billingAddress = null;
 
     /**
      * @param  ?\Moov\MoovPhp\Models\Components\UpdateIssuedCardState  $state
-     * @param  ?string  $memo
-     * @param  ?\Moov\MoovPhp\Models\Components\CreateAuthorizedUserUpdate  $authorizedUser
+     * @param  ?string  $nickname
+     * @param  ?array<string, string>  $metadata
+     * @param  ?\Moov\MoovPhp\Models\Components\BillingAddress  $billingAddress
      * @phpstan-pure
      */
-    public function __construct(?UpdateIssuedCardState $state = null, ?string $memo = null, ?CreateAuthorizedUserUpdate $authorizedUser = null)
+    public function __construct(?UpdateIssuedCardState $state = null, ?string $nickname = null, ?array $metadata = null, ?BillingAddress $billingAddress = null)
     {
         $this->state = $state;
-        $this->memo = $memo;
-        $this->authorizedUser = $authorizedUser;
+        $this->nickname = $nickname;
+        $this->metadata = $metadata;
+        $this->billingAddress = $billingAddress;
     }
 }

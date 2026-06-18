@@ -13,37 +13,38 @@ class RequestCard
 {
     /**
      *
-     * @var string $fundingWalletID
+     * @var ?string $authorizedUserAccountID
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('fundingWalletID')]
-    public string $fundingWalletID;
-
-    /**
-     * Fields for identifying an authorized individual.
-     *
-     * @var \Moov\MoovPhp\Models\Components\CreateAuthorizedUser $authorizedUser
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('authorizedUser')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateAuthorizedUser')]
-    public CreateAuthorizedUser $authorizedUser;
-
-    /**
-     * Specifies the type of spend card to be issued. Presently supports virtual only, providing a digital number without a physical card.
-     *
-     * @var \Moov\MoovPhp\Models\Components\IssuedCardFormFactor $formFactor
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('formFactor')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IssuedCardFormFactor')]
-    public IssuedCardFormFactor $formFactor;
-
-    /**
-     * An optional descriptive name for the card.
-     *
-     * @var ?string $memo
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('memo')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('authorizedUserAccountID')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $memo = null;
+    public ?string $authorizedUserAccountID = null;
+
+    /**
+     *
+     * @var ?string $nickname
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('nickname')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $nickname = null;
+
+    /**
+     * Free-form key-value pair list. Useful for storing information that is not captured elsewhere.
+     *
+     * @var ?array<string, string> $metadata
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('metadata')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string, string>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $metadata = null;
+
+    /**
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\Address $billingAddress
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('billingAddress')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Address|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?Address $billingAddress = null;
 
     /**
      * The expiration date of the card or token.
@@ -65,20 +66,20 @@ class RequestCard
     public ?IssuingControls $controls = null;
 
     /**
-     * @param  string  $fundingWalletID
-     * @param  \Moov\MoovPhp\Models\Components\CreateAuthorizedUser  $authorizedUser
-     * @param  \Moov\MoovPhp\Models\Components\IssuedCardFormFactor  $formFactor
-     * @param  ?string  $memo
+     * @param  ?string  $authorizedUserAccountID
+     * @param  ?string  $nickname
+     * @param  ?array<string, string>  $metadata
+     * @param  ?\Moov\MoovPhp\Models\Components\Address  $billingAddress
      * @param  ?\Moov\MoovPhp\Models\Components\CardExpiration  $expiration
      * @param  ?\Moov\MoovPhp\Models\Components\IssuingControls  $controls
      * @phpstan-pure
      */
-    public function __construct(string $fundingWalletID, CreateAuthorizedUser $authorizedUser, IssuedCardFormFactor $formFactor, ?string $memo = null, ?CardExpiration $expiration = null, ?IssuingControls $controls = null)
+    public function __construct(?string $authorizedUserAccountID = null, ?string $nickname = null, ?array $metadata = null, ?Address $billingAddress = null, ?CardExpiration $expiration = null, ?IssuingControls $controls = null)
     {
-        $this->fundingWalletID = $fundingWalletID;
-        $this->authorizedUser = $authorizedUser;
-        $this->formFactor = $formFactor;
-        $this->memo = $memo;
+        $this->authorizedUserAccountID = $authorizedUserAccountID;
+        $this->nickname = $nickname;
+        $this->metadata = $metadata;
+        $this->billingAddress = $billingAddress;
         $this->expiration = $expiration;
         $this->controls = $controls;
     }

@@ -45,3 +45,4 @@ The type of event that occurred.
 | `WalletUpdated`              | wallet.updated               |
 | `WalletTransactionUpdated`   | walletTransaction.updated    |
 | `BillingStatementCreated`    | billingStatement.created     |
+| `AuthorizationExpiring`      | authorization.expiring       |
