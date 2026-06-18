@@ -14,36 +14,36 @@ class RequestCardError
 {
     /**
      *
-     * @var ?string $fundingWalletID
+     * @var ?string $authorizedUserAccountID
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('fundingWalletID')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('authorizedUserAccountID')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $fundingWalletID = null;
+    public ?string $authorizedUserAccountID = null;
 
     /**
      *
-     * @var ?string $formFactor
+     * @var ?string $nickname
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('formFactor')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('nickname')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $formFactor = null;
+    public ?string $nickname = null;
 
     /**
      *
-     * @var ?\Moov\MoovPhp\Models\Components\CreateAuthorizedUserError $authorizedUser
+     * @var ?string $metadata
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('authorizedUser')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateAuthorizedUserError|null')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('metadata')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?Components\CreateAuthorizedUserError $authorizedUser = null;
+    public ?string $metadata = null;
 
     /**
      *
-     * @var ?string $memo
+     * @var ?\Moov\MoovPhp\Models\Components\AddressError $billingAddress
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('memo')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('billingAddress')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AddressError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $memo = null;
+    public ?Components\AddressError $billingAddress = null;
 
     /**
      *
@@ -64,20 +64,20 @@ class RequestCardError
     public ?Components\IssuingControlsError $controls = null;
 
     /**
-     * @param  ?string  $fundingWalletID
-     * @param  ?string  $formFactor
-     * @param  ?\Moov\MoovPhp\Models\Components\CreateAuthorizedUserError  $authorizedUser
-     * @param  ?string  $memo
+     * @param  ?string  $authorizedUserAccountID
+     * @param  ?string  $nickname
+     * @param  ?string  $metadata
+     * @param  ?\Moov\MoovPhp\Models\Components\AddressError  $billingAddress
      * @param  ?\Moov\MoovPhp\Models\Components\CardExpirationError  $expiration
      * @param  ?\Moov\MoovPhp\Models\Components\IssuingControlsError  $controls
      * @phpstan-pure
      */
-    public function __construct(?string $fundingWalletID = null, ?string $formFactor = null, ?Components\CreateAuthorizedUserError $authorizedUser = null, ?string $memo = null, ?Components\CardExpirationError $expiration = null, ?Components\IssuingControlsError $controls = null)
+    public function __construct(?string $authorizedUserAccountID = null, ?string $nickname = null, ?string $metadata = null, ?Components\AddressError $billingAddress = null, ?Components\CardExpirationError $expiration = null, ?Components\IssuingControlsError $controls = null)
     {
-        $this->fundingWalletID = $fundingWalletID;
-        $this->formFactor = $formFactor;
-        $this->authorizedUser = $authorizedUser;
-        $this->memo = $memo;
+        $this->authorizedUserAccountID = $authorizedUserAccountID;
+        $this->nickname = $nickname;
+        $this->metadata = $metadata;
+        $this->billingAddress = $billingAddress;
         $this->expiration = $expiration;
         $this->controls = $controls;
     }

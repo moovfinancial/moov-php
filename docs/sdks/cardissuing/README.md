@@ -8,7 +8,11 @@
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/issued-cards.write` scope.
-* [getIssuedCard](#getissuedcard) - Retrieve a single issued card associated with a Moov account.
+* [list](#list) - List Moov issued cards existing for the account.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/issued-cards.read` scope.
+* [get](#get) - Retrieve a single issued card associated with a Moov account.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/issued-cards.read` scope.
@@ -32,7 +36,7 @@ you'll need to specify the `/accounts/{accountID}/issued-cards.write` scope.
 
 ### Example Usage
 
-<!-- UsageSnippet language="php" operationID="requestCard" method="post" path="/issuing/{accountID}/issued-cards" -->
+<!-- UsageSnippet language="php" operationID="requestCard" method="post" path="/issuing/{accountID}/cards" -->
 ```php
 declare(strict_types=1);
 
@@ -51,17 +55,17 @@ $sdk = MoovPhp\Moov::builder()
     ->build();
 
 $requestCard = new Components\RequestCard(
-    fundingWalletID: 'fd98e3b2-696f-4f67-9250-17b3474ababf',
-    authorizedUser: new Components\CreateAuthorizedUser(
-        firstName: 'Milton',
-        lastName: 'Stiedemann',
-        birthDate: new Components\BirthDate(
-            day: 9,
-            month: 11,
-            year: 1989,
-        ),
+    metadata: [
+        'optional' => 'metadata',
+    ],
+    billingAddress: new Components\Address(
+        addressLine1: '123 Main Street',
+        addressLine2: 'Apt 302',
+        city: 'Boulder',
+        stateOrProvince: 'CO',
+        postalCode: '80301',
+        country: 'US',
     ),
-    formFactor: Components\IssuedCardFormFactor::Virtual,
     expiration: new Components\CardExpiration(
         month: '01',
         year: '21',
@@ -106,16 +110,16 @@ if ($response->issuedCard !== null) {
 | Errors\RequestCardError | 422                     | application/json        |
 | Errors\APIException     | 4XX, 5XX                | \*/\*                   |
 
-## getIssuedCard
+## list
 
-Retrieve a single issued card associated with a Moov account.
+List Moov issued cards existing for the account.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/issued-cards.read` scope.
 
 ### Example Usage
 
-<!-- UsageSnippet language="php" operationID="getIssuedCard" method="get" path="/issuing/{accountID}/issued-cards/{issuedCardID}" -->
+<!-- UsageSnippet language="php" operationID="listIssuedCards" method="get" path="/issuing/{accountID}/cards" -->
 ```php
 declare(strict_types=1);
 
@@ -135,7 +139,67 @@ $sdk = MoovPhp\Moov::builder()
 
 
 
-$response = $sdk->cardIssuing->getIssuedCard(
+$response = $sdk->cardIssuing->list(
+    accountID: '17c958e0-3abe-46e5-8afb-98742f1fb8ac',
+    skip: 60,
+    count: 20
+
+);
+
+if ($response->issuedCards !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                                 | Type                                                                                                                      | Required                                                                                                                  | Description                                                                                                               | Example                                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `accountID`                                                                                                               | *string*                                                                                                                  | :heavy_check_mark:                                                                                                        | The Moov business account for which the cards have been issued.                                                           |                                                                                                                           |
+| `skip`                                                                                                                    | *?int*                                                                                                                    | :heavy_minus_sign:                                                                                                        | N/A                                                                                                                       | 60                                                                                                                        |
+| `count`                                                                                                                   | *?int*                                                                                                                    | :heavy_minus_sign:                                                                                                        | N/A                                                                                                                       | 20                                                                                                                        |
+| `states`                                                                                                                  | array<[Components\IssuedCardState](../../Models/Components/IssuedCardState.md)>                                           | :heavy_minus_sign:                                                                                                        | Optional, comma-separated states to filter the Moov list issued cards response. For example `active,pending-verification` |                                                                                                                           |
+
+### Response
+
+**[?Operations\ListIssuedCardsResponse](../../Models/Operations/ListIssuedCardsResponse.md)**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| Errors\APIException | 4XX, 5XX            | \*/\*               |
+
+## get
+
+Retrieve a single issued card associated with a Moov account.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/issued-cards.read` scope.
+
+### Example Usage
+
+<!-- UsageSnippet language="php" operationID="getIssuedCard" method="get" path="/issuing/{accountID}/cards/{issuedCardID}" -->
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
+
+$sdk = MoovPhp\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
+
+
+
+$response = $sdk->cardIssuing->get(
     accountID: '4fde8da4-b6c5-4379-82a2-4ff6a742e41a',
     issuedCardID: 'd04885c9-ea6b-43a7-9186-63d9fbd57716'
 
@@ -172,7 +236,7 @@ you'll need to specify the `/accounts/{accountID}/issued-cards.write` scope.
 
 ### Example Usage
 
-<!-- UsageSnippet language="php" operationID="updateIssuedCard" method="patch" path="/issuing/{accountID}/issued-cards/{issuedCardID}" -->
+<!-- UsageSnippet language="php" operationID="updateIssuedCard" method="patch" path="/issuing/{accountID}/cards/{issuedCardID}" -->
 ```php
 declare(strict_types=1);
 
@@ -191,12 +255,16 @@ $sdk = MoovPhp\Moov::builder()
     ->build();
 
 $updateIssuedCard = new Components\UpdateIssuedCard(
-    authorizedUser: new Components\CreateAuthorizedUserUpdate(
-        birthDate: new Components\BirthDateUpdate(
-            day: 9,
-            month: 11,
-            year: 1989,
-        ),
+    metadata: [
+        'optional' => 'metadata',
+    ],
+    billingAddress: new Components\BillingAddress(
+        addressLine1: '123 Main Street',
+        addressLine2: 'Apt 302',
+        city: 'Boulder',
+        stateOrProvince: 'CO',
+        postalCode: '80301',
+        country: 'US',
     ),
 );
 
@@ -243,7 +311,7 @@ you'll need to specify the `/accounts/{accountID}/issued-cards.read-secure` scop
 
 ### Example Usage
 
-<!-- UsageSnippet language="php" operationID="getFullIssuedCard" method="get" path="/issuing/{accountID}/issued-cards/{issuedCardID}/details" -->
+<!-- UsageSnippet language="php" operationID="getFullIssuedCard" method="get" path="/issuing/{accountID}/cards/{issuedCardID}/details" -->
 ```php
 declare(strict_types=1);
 

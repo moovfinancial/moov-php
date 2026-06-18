@@ -55,6 +55,10 @@ you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
   
   To access this endpoint using a [token](https://docs.moov.io/api/authentication/access-tokens/) you'll need 
   to specify the `/accounts/{accountID}/transfers.write` scope.
+* [listCancellations](#listcancellations) -   Get a list of cancellations for a transfer.
+  
+  To access this endpoint using a [token](https://docs.moov.io/api/authentication/access-tokens/) you'll need 
+  to specify the `/accounts/{accountID}/transfers.read` scope.
 * [getCancellation](#getcancellation) -   Get details of a cancellation for a transfer.
   
   To access this endpoint using a [token](https://docs.moov.io/api/authentication/access-tokens/) you'll need 
@@ -607,6 +611,63 @@ if ($response->cancellation !== null) {
 | Error Type          | Status Code         | Content Type        |
 | ------------------- | ------------------- | ------------------- |
 | Errors\GenericError | 400                 | application/json    |
+| Errors\APIException | 4XX, 5XX            | \*/\*               |
+
+## listCancellations
+
+  Get a list of cancellations for a transfer.
+  
+  To access this endpoint using a [token](https://docs.moov.io/api/authentication/access-tokens/) you'll need 
+  to specify the `/accounts/{accountID}/transfers.read` scope.
+
+### Example Usage
+
+<!-- UsageSnippet language="php" operationID="listCancellations" method="get" path="/accounts/{accountID}/transfers/{transferID}/cancellations" example="Cancellations" -->
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
+
+$sdk = MoovPhp\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
+
+
+
+$response = $sdk->transfers->listCancellations(
+    accountID: '<id>',
+    transferID: '<id>'
+
+);
+
+if ($response->cancellations !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `accountID`                                                         | *string*                                                            | :heavy_check_mark:                                                  | Moov account ID of the partner or transfer's source or destination. |
+| `transferID`                                                        | *string*                                                            | :heavy_check_mark:                                                  | Identifier for the transfer.                                        |
+
+### Response
+
+**[?Operations\ListCancellationsResponse](../../Models/Operations/ListCancellationsResponse.md)**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
 | Errors\APIException | 4XX, 5XX            | \*/\*               |
 
 ## getCancellation
