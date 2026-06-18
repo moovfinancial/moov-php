@@ -45,15 +45,6 @@ class FullIssuedCard
     public CardExpiration $expiration;
 
     /**
-     * Fields for identifying an authorized individual.
-     *
-     * @var \Moov\MoovPhp\Models\Components\AuthorizedUser $authorizedUser
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('authorizedUser')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AuthorizedUser')]
-    public AuthorizedUser $authorizedUser;
-
-    /**
      * Unique identifier for the wallet funding the card.
      *
      * @var string $fundingWalletID
@@ -93,6 +84,13 @@ class FullIssuedCard
     public \DateTime $createdOn;
 
     /**
+     *
+     * @var \DateTime $updatedOn
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('updatedOn')]
+    public \DateTime $updatedOn;
+
+    /**
      * The issued card's Primary Account Number (PAN)
      *
      * @var string $pan
@@ -109,13 +107,42 @@ class FullIssuedCard
     public string $cvv;
 
     /**
-     * Optional descriptor for the card.
+     * Identifier for the account of the card's authorized user.
      *
-     * @var ?string $memo
+     * @var ?string $authorizedUserAccountID
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('memo')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('authorizedUserAccountID')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $memo = null;
+    public ?string $authorizedUserAccountID = null;
+
+    /**
+     * An optional descriptive name for the card.
+     *
+     * @var ?string $nickname
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('nickname')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $nickname = null;
+
+    /**
+     * Free-form key-value pair list. Useful for storing information that is not captured elsewhere.
+     *
+     * @var ?array<string, string> $metadata
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('metadata')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string, string>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $metadata = null;
+
+    /**
+     * Billing address associated with the card.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\Address $billingAddress
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('billingAddress')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Address|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?Address $billingAddress = null;
 
     /**
      *
@@ -131,31 +158,37 @@ class FullIssuedCard
      * @param  \Moov\MoovPhp\Models\Components\CardBrand  $brand
      * @param  string  $lastFourCardNumber
      * @param  \Moov\MoovPhp\Models\Components\CardExpiration  $expiration
-     * @param  \Moov\MoovPhp\Models\Components\AuthorizedUser  $authorizedUser
      * @param  string  $fundingWalletID
      * @param  \Moov\MoovPhp\Models\Components\IssuedCardState  $state
      * @param  \Moov\MoovPhp\Models\Components\IssuedCardFormFactor  $formFactor
      * @param  \DateTime  $createdOn
+     * @param  \DateTime  $updatedOn
      * @param  string  $pan
      * @param  string  $cvv
-     * @param  ?string  $memo
+     * @param  ?string  $authorizedUserAccountID
+     * @param  ?string  $nickname
+     * @param  ?array<string, string>  $metadata
+     * @param  ?\Moov\MoovPhp\Models\Components\Address  $billingAddress
      * @param  ?\Moov\MoovPhp\Models\Components\IssuingControls  $controls
      * @phpstan-pure
      */
-    public function __construct(string $issuedCardID, CardBrand $brand, string $lastFourCardNumber, CardExpiration $expiration, AuthorizedUser $authorizedUser, string $fundingWalletID, IssuedCardState $state, IssuedCardFormFactor $formFactor, \DateTime $createdOn, string $pan, string $cvv, ?string $memo = null, ?IssuingControls $controls = null)
+    public function __construct(string $issuedCardID, CardBrand $brand, string $lastFourCardNumber, CardExpiration $expiration, string $fundingWalletID, IssuedCardState $state, IssuedCardFormFactor $formFactor, \DateTime $createdOn, \DateTime $updatedOn, string $pan, string $cvv, ?string $authorizedUserAccountID = null, ?string $nickname = null, ?array $metadata = null, ?Address $billingAddress = null, ?IssuingControls $controls = null)
     {
         $this->issuedCardID = $issuedCardID;
         $this->brand = $brand;
         $this->lastFourCardNumber = $lastFourCardNumber;
         $this->expiration = $expiration;
-        $this->authorizedUser = $authorizedUser;
         $this->fundingWalletID = $fundingWalletID;
         $this->state = $state;
         $this->formFactor = $formFactor;
         $this->createdOn = $createdOn;
+        $this->updatedOn = $updatedOn;
         $this->pan = $pan;
         $this->cvv = $cvv;
-        $this->memo = $memo;
+        $this->authorizedUserAccountID = $authorizedUserAccountID;
+        $this->nickname = $nickname;
+        $this->metadata = $metadata;
+        $this->billingAddress = $billingAddress;
         $this->controls = $controls;
     }
 }
