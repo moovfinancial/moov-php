@@ -338,3 +338,12 @@ Components\WebhookDataWalletTransactionUpdated $value = /* values here */
 Components\WebhookBillingStatementCreated $value = /* values here */
 ```
 
+### `Components\WebhookDataAuthorizationExpiring`
+
+```php
+/**
+* @var \Moov\MoovPhp\Models\Components\WebhookDataAuthorizationExpiring
+*/
+Components\WebhookDataAuthorizationExpiring $value = /* values here */
+```
+
