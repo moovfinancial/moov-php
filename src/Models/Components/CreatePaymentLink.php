@@ -13,7 +13,7 @@ namespace Moov\MoovPhp\Models\Components;
  * CreatePaymentLink - Request to create a new payment link.
  *
  *
- * A payment link must include either `payment` or `payout` details, but not both. For payout payment links,
+ * A payment link must include exactly one of `payment`, `payout`, or `customAmountPayment` details. For payout payment links,
  * `maxUses` will automatically be set to 1, as these are intended for a one-time disbursement
  * to a specific recipient.
  *
@@ -46,13 +46,13 @@ class CreatePaymentLink
     public PaymentLinkDisplayOptions $display;
 
     /**
-     * The fixed amount of the payment link. 
+     * The fixed amount of the payment link.
      *
      *
      * In API versions before `2026.07.00`, this was a required field.
      *
-     * In API version `2026.07.00` and beyond, this field is required for `fixed` payment amount types and omitted 
-     * for `open` payment amount types.
+     * In API version `2026.07.00` and beyond, this field is required for `payment` and `payout` links and must be
+     * omitted for `customAmountPayment` links, where the payor chooses the amount.
      *
      * @var ?\Moov\MoovPhp\Models\Components\Amount $amount
      */
@@ -111,6 +111,16 @@ class CreatePaymentLink
     public ?PaymentLinkPayoutDetails $payout = null;
 
     /**
+     * Options for a custom amount payment link. Mutually exclusive with `payment` and `payout`.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\PaymentLinkCustomAmountPaymentDetails $customAmountPayment
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('customAmountPayment')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentLinkCustomAmountPaymentDetails|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?PaymentLinkCustomAmountPaymentDetails $customAmountPayment = null;
+
+    /**
      * An optional collection of line items for a payment link.
      *
      * When line items are provided, their total plus tax must equal the payment link amount.
@@ -141,11 +151,12 @@ class CreatePaymentLink
      * @param  ?\Moov\MoovPhp\Models\Components\PaymentLinkCustomerOptions  $customer
      * @param  ?\Moov\MoovPhp\Models\Components\PaymentLinkPaymentDetails  $payment
      * @param  ?\Moov\MoovPhp\Models\Components\PaymentLinkPayoutDetails  $payout
+     * @param  ?\Moov\MoovPhp\Models\Components\PaymentLinkCustomAmountPaymentDetails  $customAmountPayment
      * @param  ?\Moov\MoovPhp\Models\Components\CreatePaymentLinkLineItems  $lineItems
      * @param  ?\Moov\MoovPhp\Models\Components\CreatePaymentLinkAmountDetails  $amountDetails
      * @phpstan-pure
      */
-    public function __construct(string $partnerAccountID, string $merchantPaymentMethodID, PaymentLinkDisplayOptions $display, ?Amount $amount = null, ?int $maxUses = null, ?\DateTime $expiresOn = null, ?PaymentLinkCustomerOptions $customer = null, ?PaymentLinkPaymentDetails $payment = null, ?PaymentLinkPayoutDetails $payout = null, ?CreatePaymentLinkLineItems $lineItems = null, ?CreatePaymentLinkAmountDetails $amountDetails = null)
+    public function __construct(string $partnerAccountID, string $merchantPaymentMethodID, PaymentLinkDisplayOptions $display, ?Amount $amount = null, ?int $maxUses = null, ?\DateTime $expiresOn = null, ?PaymentLinkCustomerOptions $customer = null, ?PaymentLinkPaymentDetails $payment = null, ?PaymentLinkPayoutDetails $payout = null, ?PaymentLinkCustomAmountPaymentDetails $customAmountPayment = null, ?CreatePaymentLinkLineItems $lineItems = null, ?CreatePaymentLinkAmountDetails $amountDetails = null)
     {
         $this->partnerAccountID = $partnerAccountID;
         $this->merchantPaymentMethodID = $merchantPaymentMethodID;
@@ -156,6 +167,7 @@ class CreatePaymentLink
         $this->customer = $customer;
         $this->payment = $payment;
         $this->payout = $payout;
+        $this->customAmountPayment = $customAmountPayment;
         $this->lineItems = $lineItems;
         $this->amountDetails = $amountDetails;
     }

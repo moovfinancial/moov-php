@@ -23,26 +23,6 @@ class PaymentLinkPaymentDetailsUpdate
     public ?array $allowedMethods = null;
 
     /**
-     * The minimum and maximum amounts the buyer can specify when `amountType` is `open`.
-     *
-     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimalRangeUpdate $amountRange
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('amountRange')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimalRangeUpdate|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?AmountDecimalRangeUpdate $amountRange = null;
-
-    /**
-     * Optional preset amounts displayed to the buyer when `amountType` is `open`.
-     *
-     * @var ?array<\Moov\MoovPhp\Models\Components\AmountDecimal> $suggestedAmounts
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('suggestedAmounts')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\AmountDecimal>|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?array $suggestedAmounts = null;
-
-    /**
      * Options for payment links used to collect a card payment.
      *
      * @var ?\Moov\MoovPhp\Models\Components\CardPaymentDetails $cardDetails
@@ -73,33 +53,17 @@ class PaymentLinkPaymentDetailsUpdate
     public ?array $metadata = null;
 
     /**
-     * Indicates whether the payment amount is fixed by the merchant or open for the buyer to choose.
-     *
-     * @var ?\Moov\MoovPhp\Models\Components\PaymentLinkPaymentDetailsUpdateAmountType $amountType
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('amountType')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentLinkPaymentDetailsUpdateAmountType|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?PaymentLinkPaymentDetailsUpdateAmountType $amountType = null;
-
-    /**
      * @param  ?array<\Moov\MoovPhp\Models\Components\CollectionPaymentMethodType>  $allowedMethods
-     * @param  ?\Moov\MoovPhp\Models\Components\PaymentLinkPaymentDetailsUpdateAmountType  $amountType
-     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimalRangeUpdate  $amountRange
-     * @param  ?array<\Moov\MoovPhp\Models\Components\AmountDecimal>  $suggestedAmounts
      * @param  ?\Moov\MoovPhp\Models\Components\CardPaymentDetails  $cardDetails
      * @param  ?\Moov\MoovPhp\Models\Components\ACHPaymentDetails  $achDetails
      * @param  ?array<string, string>  $metadata
      * @phpstan-pure
      */
-    public function __construct(?array $allowedMethods = null, ?AmountDecimalRangeUpdate $amountRange = null, ?array $suggestedAmounts = null, ?CardPaymentDetails $cardDetails = null, ?ACHPaymentDetails $achDetails = null, ?array $metadata = null, ?PaymentLinkPaymentDetailsUpdateAmountType $amountType = PaymentLinkPaymentDetailsUpdateAmountType::Fixed)
+    public function __construct(?array $allowedMethods = null, ?CardPaymentDetails $cardDetails = null, ?ACHPaymentDetails $achDetails = null, ?array $metadata = null)
     {
         $this->allowedMethods = $allowedMethods;
-        $this->amountRange = $amountRange;
-        $this->suggestedAmounts = $suggestedAmounts;
         $this->cardDetails = $cardDetails;
         $this->achDetails = $achDetails;
         $this->metadata = $metadata;
-        $this->amountType = $amountType;
     }
 }

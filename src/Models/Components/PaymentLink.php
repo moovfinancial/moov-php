@@ -124,13 +124,13 @@ class PaymentLink
     public \DateTime $updatedOn;
 
     /**
-     * The fixed amount of the payment link. 
+     * The fixed amount of the payment link.
      *
      *
      * In API versions before `2026.07.00`, this was a required field.
      *
-     * In API version `2026.07.00` and beyond, this field is required for `fixed` payment amount types and omitted 
-     * for `open` payment amount types.
+     * In API version `2026.07.00` and beyond, this field is present for `payment` and `payout` links and omitted
+     * for `customAmountPayment` links, where the payor chooses the amount.
      *
      * @var ?\Moov\MoovPhp\Models\Components\Amount $amount
      */
@@ -189,6 +189,20 @@ class PaymentLink
     public ?PaymentLinkPayoutDetails $payout = null;
 
     /**
+     * Options for custom amount payment links.
+     *
+     *
+     * A custom amount payment link shares all the options of a `payment` link, but the payor chooses how much to
+     * pay rather than the merchant fixing the amount. The amount may optionally be constrained to a range.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\PaymentLinkCustomAmountPaymentDetails $customAmountPayment
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('customAmountPayment')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PaymentLinkCustomAmountPaymentDetails|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?PaymentLinkCustomAmountPaymentDetails $customAmountPayment = null;
+
+    /**
      * An optional collection of line items for a payment link.
      *
      * When line items are provided, their total plus tax must equal the payment link amount.
@@ -238,12 +252,13 @@ class PaymentLink
      * @param  ?\DateTime  $expiresOn
      * @param  ?\Moov\MoovPhp\Models\Components\PaymentLinkPaymentDetails  $payment
      * @param  ?\Moov\MoovPhp\Models\Components\PaymentLinkPayoutDetails  $payout
+     * @param  ?\Moov\MoovPhp\Models\Components\PaymentLinkCustomAmountPaymentDetails  $customAmountPayment
      * @param  ?\Moov\MoovPhp\Models\Components\PaymentLinkLineItems  $lineItems
      * @param  ?\DateTime  $disabledOn
      * @param  ?\Moov\MoovPhp\Models\Components\PaymentLinkAmountDetails  $amountDetails
      * @phpstan-pure
      */
-    public function __construct(string $code, PaymentLinkType $paymentLinkType, Mode $mode, PaymentLinkStatus $status, string $partnerAccountID, string $merchantAccountID, string $ownerAccountID, string $merchantPaymentMethodID, string $link, int $uses, PaymentLinkDisplayOptions $display, PaymentLinkCustomerOptions $customer, \DateTime $createdOn, \DateTime $updatedOn, ?Amount $amount = null, ?int $maxUses = null, ?\DateTime $lastUsedOn = null, ?\DateTime $expiresOn = null, ?PaymentLinkPaymentDetails $payment = null, ?PaymentLinkPayoutDetails $payout = null, ?PaymentLinkLineItems $lineItems = null, ?\DateTime $disabledOn = null, ?PaymentLinkAmountDetails $amountDetails = null)
+    public function __construct(string $code, PaymentLinkType $paymentLinkType, Mode $mode, PaymentLinkStatus $status, string $partnerAccountID, string $merchantAccountID, string $ownerAccountID, string $merchantPaymentMethodID, string $link, int $uses, PaymentLinkDisplayOptions $display, PaymentLinkCustomerOptions $customer, \DateTime $createdOn, \DateTime $updatedOn, ?Amount $amount = null, ?int $maxUses = null, ?\DateTime $lastUsedOn = null, ?\DateTime $expiresOn = null, ?PaymentLinkPaymentDetails $payment = null, ?PaymentLinkPayoutDetails $payout = null, ?PaymentLinkCustomAmountPaymentDetails $customAmountPayment = null, ?PaymentLinkLineItems $lineItems = null, ?\DateTime $disabledOn = null, ?PaymentLinkAmountDetails $amountDetails = null)
     {
         $this->code = $code;
         $this->paymentLinkType = $paymentLinkType;
@@ -265,6 +280,7 @@ class PaymentLink
         $this->expiresOn = $expiresOn;
         $this->payment = $payment;
         $this->payout = $payout;
+        $this->customAmountPayment = $customAmountPayment;
         $this->lineItems = $lineItems;
         $this->disabledOn = $disabledOn;
         $this->amountDetails = $amountDetails;

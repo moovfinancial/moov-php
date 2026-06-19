@@ -13,3 +13,4 @@ Status of a transaction within the card payment lifecycle.
 | `Settled`   | settled     |
 | `Failed`    | failed      |
 | `Completed` | completed   |
+| `Deferred`  | deferred    |

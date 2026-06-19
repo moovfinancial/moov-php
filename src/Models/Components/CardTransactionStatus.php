@@ -18,4 +18,5 @@ enum CardTransactionStatus: string
     case Settled = 'settled';
     case Failed = 'failed';
     case Completed = 'completed';
+    case Deferred = 'deferred';
 }

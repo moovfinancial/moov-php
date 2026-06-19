@@ -41,6 +41,15 @@ class CardTransactionDetails
     public ?string $dynamicDescriptor = null;
 
     /**
+     * The scheduled date and time for the transfer to be delivered. This field is only valid for push-to-card transfers. Must be between 24 and 48 hours in the future.
+     *
+     * @var ?\DateTime $scheduledDeliveryOn
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('scheduledDeliveryOn')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?\DateTime $scheduledDeliveryOn = null;
+
+    /**
      * Specifies the nature and initiator of a transaction. 
      *
      *
@@ -134,6 +143,7 @@ class CardTransactionDetails
      * @param  ?\Moov\MoovPhp\Models\Components\CardTransactionStatus  $status
      * @param  ?\Moov\MoovPhp\Models\Components\CardTransactionFailureCode  $failureCode
      * @param  ?string  $dynamicDescriptor
+     * @param  ?\DateTime  $scheduledDeliveryOn
      * @param  ?\Moov\MoovPhp\Models\Components\TransactionSource  $transactionSource
      * @param  ?\DateTime  $initiatedOn
      * @param  ?\DateTime  $confirmedOn
@@ -146,11 +156,12 @@ class CardTransactionDetails
      * @param  ?string  $authorizationCode
      * @phpstan-pure
      */
-    public function __construct(?CardTransactionStatus $status = null, ?CardTransactionFailureCode $failureCode = null, ?string $dynamicDescriptor = null, ?TransactionSource $transactionSource = null, ?\DateTime $initiatedOn = null, ?\DateTime $confirmedOn = null, ?\DateTime $settledOn = null, ?\DateTime $failedOn = null, ?\DateTime $canceledOn = null, ?\DateTime $completedOn = null, ?string $interchangeQualification = null, ?string $feeProgram = null, ?string $authorizationCode = null)
+    public function __construct(?CardTransactionStatus $status = null, ?CardTransactionFailureCode $failureCode = null, ?string $dynamicDescriptor = null, ?\DateTime $scheduledDeliveryOn = null, ?TransactionSource $transactionSource = null, ?\DateTime $initiatedOn = null, ?\DateTime $confirmedOn = null, ?\DateTime $settledOn = null, ?\DateTime $failedOn = null, ?\DateTime $canceledOn = null, ?\DateTime $completedOn = null, ?string $interchangeQualification = null, ?string $feeProgram = null, ?string $authorizationCode = null)
     {
         $this->status = $status;
         $this->failureCode = $failureCode;
         $this->dynamicDescriptor = $dynamicDescriptor;
+        $this->scheduledDeliveryOn = $scheduledDeliveryOn;
         $this->transactionSource = $transactionSource;
         $this->initiatedOn = $initiatedOn;
         $this->confirmedOn = $confirmedOn;

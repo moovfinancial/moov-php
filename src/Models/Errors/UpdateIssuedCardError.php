@@ -22,32 +22,42 @@ class UpdateIssuedCardError
 
     /**
      *
-     * @var ?string $memo
+     * @var ?string $nickname
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('memo')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('nickname')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $memo = null;
+    public ?string $nickname = null;
 
     /**
      *
-     * @var ?\Moov\MoovPhp\Models\Components\CreateAuthorizedUserError $authorizedUser
+     * @var ?string $metadata
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('authorizedUser')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateAuthorizedUserError|null')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('metadata')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?Components\CreateAuthorizedUserError $authorizedUser = null;
+    public ?string $metadata = null;
+
+    /**
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\AddressError $billingAddress
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('billingAddress')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AddressError|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?Components\AddressError $billingAddress = null;
 
     /**
      * @param  ?string  $state
-     * @param  ?string  $memo
-     * @param  ?\Moov\MoovPhp\Models\Components\CreateAuthorizedUserError  $authorizedUser
+     * @param  ?string  $nickname
+     * @param  ?string  $metadata
+     * @param  ?\Moov\MoovPhp\Models\Components\AddressError  $billingAddress
      * @phpstan-pure
      */
-    public function __construct(?string $state = null, ?string $memo = null, ?Components\CreateAuthorizedUserError $authorizedUser = null)
+    public function __construct(?string $state = null, ?string $nickname = null, ?string $metadata = null, ?Components\AddressError $billingAddress = null)
     {
         $this->state = $state;
-        $this->memo = $memo;
-        $this->authorizedUser = $authorizedUser;
+        $this->nickname = $nickname;
+        $this->metadata = $metadata;
+        $this->billingAddress = $billingAddress;
     }
 
     public function toException(): UpdateIssuedCardErrorThrowable

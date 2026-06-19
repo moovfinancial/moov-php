@@ -9,32 +9,44 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
+/**
+ * AmountDecimalRange - A range of values that an AmountDecimal can take.
+ *
+ *
+ * If either `minimum` or `maximum` is omitted, the range is "open" on that end:
+ *
+ * `minimum` specified: `amt >= minimum`
+ * `maximum` specified: `amt <= maximum`
+ * both specified: `minimum <= amt <= maximum`
+ */
 class AmountDecimalRange
 {
     /**
      * Minimum amount allowed in the range
      *
-     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $minimum
+     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimal $minimum
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('minimum')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
-    public AmountDecimal $minimum;
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?AmountDecimal $minimum = null;
 
     /**
      * Maximum amount allowed in the range
      *
-     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $maximum
+     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimal $maximum
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('maximum')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
-    public AmountDecimal $maximum;
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?AmountDecimal $maximum = null;
 
     /**
-     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $minimum
-     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $maximum
+     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimal  $minimum
+     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimal  $maximum
      * @phpstan-pure
      */
-    public function __construct(AmountDecimal $minimum, AmountDecimal $maximum)
+    public function __construct(?AmountDecimal $minimum = null, ?AmountDecimal $maximum = null)
     {
         $this->minimum = $minimum;
         $this->maximum = $maximum;
