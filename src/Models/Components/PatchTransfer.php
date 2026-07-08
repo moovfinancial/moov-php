@@ -21,7 +21,7 @@ class PatchTransfer
     public ?string $foreignID = null;
 
     /**
-     * $metadata
+     * Free-form key-value pair list. Useful for storing information that is not captured elsewhere.
      *
      * @var ?array<string, string> $metadata
      */
