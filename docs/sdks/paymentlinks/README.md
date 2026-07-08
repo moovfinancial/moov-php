@@ -289,7 +289,7 @@ $updatePaymentLink = new Components\UpdatePaymentLink(
         requirePhone: true,
     ),
     amountDetails: new Components\UpdatePaymentLinkAmountDetails(
-        tax: new Components\AmountDecimalUpdate(
+        tax: new Components\Tax(
             currency: 'USD',
             valueDecimal: '9.25',
         ),

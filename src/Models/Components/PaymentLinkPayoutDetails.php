@@ -44,15 +44,31 @@ class PaymentLinkPayoutDetails
     public ?array $metadata = null;
 
     /**
+     * Delivery options for push-to-card payouts. Only applies when `allowedMethods` includes `push-to-card`.
+     *
+     *
+     * The `deferred` speed and `deferredBy` apply to `push-to-card` only. Other push methods
+     * (`push-to-apple-pay`, `push-to-google-pay`) are always delivered instantly regardless of these options.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\PushOptions $pushOptions
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('pushOptions')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PushOptions|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?PushOptions $pushOptions = null;
+
+    /**
      * @param  array<\Moov\MoovPhp\Models\Components\DisbursementPaymentMethodType>  $allowedMethods
      * @param  \Moov\MoovPhp\Models\Components\PayoutRecipient  $recipient
      * @param  ?array<string, string>  $metadata
+     * @param  ?\Moov\MoovPhp\Models\Components\PushOptions  $pushOptions
      * @phpstan-pure
      */
-    public function __construct(array $allowedMethods, PayoutRecipient $recipient, ?array $metadata = null)
+    public function __construct(array $allowedMethods, PayoutRecipient $recipient, ?array $metadata = null, ?PushOptions $pushOptions = null)
     {
         $this->allowedMethods = $allowedMethods;
         $this->recipient = $recipient;
         $this->metadata = $metadata;
+        $this->pushOptions = $pushOptions;
     }
 }

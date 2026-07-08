@@ -41,7 +41,7 @@ class PatchWallet
     public ?string $description = null;
 
     /**
-     * Free-form key-value pair list. Useful for storing information that is not captured elsewhere.
+     * $metadata
      *
      * @var ?array<string, string> $metadata
      */

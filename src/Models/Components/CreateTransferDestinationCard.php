@@ -21,6 +21,15 @@ class CreateTransferDestinationCard
     public ?string $dynamicDescriptor = null;
 
     /**
+     * The scheduled date and time for the transfer to be delivered. This field is only valid for push-to-card transfers. Must be between 24 and 48 hours in the future in production. In sandbox mode, any future time up to 48 hours is accepted so integrations can test deferred delivery using the sandbox test cards with relaxed wait times.
+     *
+     * @var ?\DateTime $scheduledDeliveryOn
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('scheduledDeliveryOn')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?\DateTime $scheduledDeliveryOn = null;
+
+    /**
      * An optional field to specify the type of card payout, used to route the transfer with the appropriate business application identifier (BAI).
      *
      * @var ?\Moov\MoovPhp\Models\Components\CardPayoutType $payoutType
@@ -32,12 +41,14 @@ class CreateTransferDestinationCard
 
     /**
      * @param  ?string  $dynamicDescriptor
+     * @param  ?\DateTime  $scheduledDeliveryOn
      * @param  ?\Moov\MoovPhp\Models\Components\CardPayoutType  $payoutType
      * @phpstan-pure
      */
-    public function __construct(?string $dynamicDescriptor = null, ?CardPayoutType $payoutType = null)
+    public function __construct(?string $dynamicDescriptor = null, ?\DateTime $scheduledDeliveryOn = null, ?CardPayoutType $payoutType = null)
     {
         $this->dynamicDescriptor = $dynamicDescriptor;
+        $this->scheduledDeliveryOn = $scheduledDeliveryOn;
         $this->payoutType = $payoutType;
     }
 }

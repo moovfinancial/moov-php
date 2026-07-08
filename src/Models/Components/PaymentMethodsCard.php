@@ -170,6 +170,17 @@ class PaymentMethodsCard
     public ?DomesticPullFromCard $domesticPullFromCard = null;
 
     /**
+     * The category or level of the card defined by the issuer.
+     *
+     * Examples include, but not limited to, "REWARDS", "TRADITIONAL REWARDS", "CLASSIC", and "CORPORATE PURCHASING".
+     *
+     * @var ?string $cardCategory
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('cardCategory')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $cardCategory = null;
+
+    /**
      * @param  string  $cardID
      * @param  string  $fingerprint
      * @param  \Moov\MoovPhp\Models\Components\CardBrand  $brand
@@ -187,9 +198,10 @@ class PaymentMethodsCard
      * @param  ?\Moov\MoovPhp\Models\Components\CardAccountUpdater  $cardAccountUpdater
      * @param  ?\Moov\MoovPhp\Models\Components\DomesticPushToCard  $domesticPushToCard
      * @param  ?\Moov\MoovPhp\Models\Components\DomesticPullFromCard  $domesticPullFromCard
+     * @param  ?string  $cardCategory
      * @phpstan-pure
      */
-    public function __construct(string $cardID, string $fingerprint, CardBrand $brand, CardType $cardType, string $lastFourCardNumber, string $bin, CardExpiration $expiration, CardAddress $billingAddress, CardVerification $cardVerification, ?string $holderName = null, ?string $issuer = null, ?string $issuerCountry = null, ?bool $cardOnFile = null, ?string $merchantAccountID = null, ?CardAccountUpdater $cardAccountUpdater = null, ?DomesticPushToCard $domesticPushToCard = null, ?DomesticPullFromCard $domesticPullFromCard = null)
+    public function __construct(string $cardID, string $fingerprint, CardBrand $brand, CardType $cardType, string $lastFourCardNumber, string $bin, CardExpiration $expiration, CardAddress $billingAddress, CardVerification $cardVerification, ?string $holderName = null, ?string $issuer = null, ?string $issuerCountry = null, ?bool $cardOnFile = null, ?string $merchantAccountID = null, ?CardAccountUpdater $cardAccountUpdater = null, ?DomesticPushToCard $domesticPushToCard = null, ?DomesticPullFromCard $domesticPullFromCard = null, ?string $cardCategory = null)
     {
         $this->cardID = $cardID;
         $this->fingerprint = $fingerprint;
@@ -208,5 +220,6 @@ class PaymentMethodsCard
         $this->cardAccountUpdater = $cardAccountUpdater;
         $this->domesticPushToCard = $domesticPushToCard;
         $this->domesticPullFromCard = $domesticPullFromCard;
+        $this->cardCategory = $cardCategory;
     }
 }

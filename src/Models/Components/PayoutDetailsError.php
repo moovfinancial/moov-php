@@ -37,15 +37,26 @@ class PayoutDetailsError
     public ?string $metadata = null;
 
     /**
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\PushOptionsError $pushOptions
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('pushOptions')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PushOptionsError|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?PushOptionsError $pushOptions = null;
+
+    /**
      * @param  ?string  $allowedMethods
      * @param  ?\Moov\MoovPhp\Models\Components\PayoutRecipientError  $recipient
      * @param  ?string  $metadata
+     * @param  ?\Moov\MoovPhp\Models\Components\PushOptionsError  $pushOptions
      * @phpstan-pure
      */
-    public function __construct(?string $allowedMethods = null, ?PayoutRecipientError $recipient = null, ?string $metadata = null)
+    public function __construct(?string $allowedMethods = null, ?PayoutRecipientError $recipient = null, ?string $metadata = null, ?PushOptionsError $pushOptions = null)
     {
         $this->allowedMethods = $allowedMethods;
         $this->recipient = $recipient;
         $this->metadata = $metadata;
+        $this->pushOptions = $pushOptions;
     }
 }
