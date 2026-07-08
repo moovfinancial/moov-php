@@ -13,11 +13,12 @@ The `production-app`, `platform.production-app`, and / or `platform.wallet-trans
 
 ## Values
 
-| Name            | Value           |
-| --------------- | --------------- |
-| `Transfers`     | transfers       |
-| `SendFunds`     | send-funds      |
-| `CollectFunds`  | collect-funds   |
-| `Wallet`        | wallet          |
-| `CardIssuing`   | card-issuing    |
-| `ProductionApp` | production-app  |
+| Name                | Value               |
+| ------------------- | ------------------- |
+| `Transfers`         | transfers           |
+| `SendFunds`         | send-funds          |
+| `CollectFunds`      | collect-funds       |
+| `Wallet`            | wallet              |
+| `CardIssuing`       | card-issuing        |
+| `IssuingCardholder` | issuing.cardholder  |
+| `ProductionApp`     | production-app      |
