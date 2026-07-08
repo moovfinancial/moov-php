@@ -41,6 +41,15 @@ class CardTransactionDetails
     public ?string $dynamicDescriptor = null;
 
     /**
+     * The scheduled date and time for the transfer to be delivered. This field is only valid for push-to-card transfers. Must be between 24 and 48 hours in the future in production. In sandbox mode, any future time up to 48 hours is accepted so integrations can test deferred delivery using the sandbox test cards with relaxed wait times.
+     *
+     * @var ?\DateTime $scheduledDeliveryOn
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('scheduledDeliveryOn')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?\DateTime $scheduledDeliveryOn = null;
+
+    /**
      * Specifies the nature and initiator of a transaction. 
      *
      *
@@ -103,6 +112,14 @@ class CardTransactionDetails
     public ?\DateTime $completedOn = null;
 
     /**
+     *
+     * @var ?\DateTime $deferredOn
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('deferredOn')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?\DateTime $deferredOn = null;
+
+    /**
      * The program assigned by the card network that determines the interchange rate for the transfer.
      *
      * @var ?string $interchangeQualification
@@ -134,6 +151,7 @@ class CardTransactionDetails
      * @param  ?\Moov\MoovPhp\Models\Components\CardTransactionStatus  $status
      * @param  ?\Moov\MoovPhp\Models\Components\CardTransactionFailureCode  $failureCode
      * @param  ?string  $dynamicDescriptor
+     * @param  ?\DateTime  $scheduledDeliveryOn
      * @param  ?\Moov\MoovPhp\Models\Components\TransactionSource  $transactionSource
      * @param  ?\DateTime  $initiatedOn
      * @param  ?\DateTime  $confirmedOn
@@ -141,16 +159,18 @@ class CardTransactionDetails
      * @param  ?\DateTime  $failedOn
      * @param  ?\DateTime  $canceledOn
      * @param  ?\DateTime  $completedOn
+     * @param  ?\DateTime  $deferredOn
      * @param  ?string  $interchangeQualification
      * @param  ?string  $feeProgram
      * @param  ?string  $authorizationCode
      * @phpstan-pure
      */
-    public function __construct(?CardTransactionStatus $status = null, ?CardTransactionFailureCode $failureCode = null, ?string $dynamicDescriptor = null, ?TransactionSource $transactionSource = null, ?\DateTime $initiatedOn = null, ?\DateTime $confirmedOn = null, ?\DateTime $settledOn = null, ?\DateTime $failedOn = null, ?\DateTime $canceledOn = null, ?\DateTime $completedOn = null, ?string $interchangeQualification = null, ?string $feeProgram = null, ?string $authorizationCode = null)
+    public function __construct(?CardTransactionStatus $status = null, ?CardTransactionFailureCode $failureCode = null, ?string $dynamicDescriptor = null, ?\DateTime $scheduledDeliveryOn = null, ?TransactionSource $transactionSource = null, ?\DateTime $initiatedOn = null, ?\DateTime $confirmedOn = null, ?\DateTime $settledOn = null, ?\DateTime $failedOn = null, ?\DateTime $canceledOn = null, ?\DateTime $completedOn = null, ?\DateTime $deferredOn = null, ?string $interchangeQualification = null, ?string $feeProgram = null, ?string $authorizationCode = null)
     {
         $this->status = $status;
         $this->failureCode = $failureCode;
         $this->dynamicDescriptor = $dynamicDescriptor;
+        $this->scheduledDeliveryOn = $scheduledDeliveryOn;
         $this->transactionSource = $transactionSource;
         $this->initiatedOn = $initiatedOn;
         $this->confirmedOn = $confirmedOn;
@@ -158,6 +178,7 @@ class CardTransactionDetails
         $this->failedOn = $failedOn;
         $this->canceledOn = $canceledOn;
         $this->completedOn = $completedOn;
+        $this->deferredOn = $deferredOn;
         $this->interchangeQualification = $interchangeQualification;
         $this->feeProgram = $feeProgram;
         $this->authorizationCode = $authorizationCode;

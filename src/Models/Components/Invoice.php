@@ -160,6 +160,15 @@ class Invoice
     public ?string $paymentLinkCode = null;
 
     /**
+     * URL to the hosted payment link for the invoice.
+     *
+     * @var ?string $paymentLinkURL
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('paymentLinkURL')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $paymentLinkURL = null;
+
+    /**
      * Payment made towards an invoice, will be either a transfer or an external payment.
      *
      * @var ?array<\Moov\MoovPhp\Models\Components\InvoicePayment> $invoicePayments
@@ -236,6 +245,7 @@ class Invoice
      * @param  \DateTime  $createdOn
      * @param  ?string  $description
      * @param  ?string  $paymentLinkCode
+     * @param  ?string  $paymentLinkURL
      * @param  ?array<\Moov\MoovPhp\Models\Components\InvoicePayment>  $invoicePayments
      * @param  ?\DateTime  $invoiceDate
      * @param  ?\DateTime  $dueDate
@@ -245,7 +255,7 @@ class Invoice
      * @param  ?\DateTime  $disabledOn
      * @phpstan-pure
      */
-    public function __construct(string $invoiceID, string $invoiceNumber, string $customerAccountID, string $customerDisplayName, string $customerEmail, string $partnerAccountID, InvoiceStatus $status, InvoiceLineItems $lineItems, AmountDecimal $subtotalAmount, AmountDecimal $taxAmount, AmountDecimal $totalAmount, AmountDecimal $pendingAmount, AmountDecimal $paidAmount, AmountDecimal $refundedAmount, AmountDecimal $disputedAmount, \DateTime $createdOn, ?string $description = null, ?string $paymentLinkCode = null, ?array $invoicePayments = null, ?\DateTime $invoiceDate = null, ?\DateTime $dueDate = null, ?\DateTime $sentOn = null, ?\DateTime $paidOn = null, ?\DateTime $canceledOn = null, ?\DateTime $disabledOn = null)
+    public function __construct(string $invoiceID, string $invoiceNumber, string $customerAccountID, string $customerDisplayName, string $customerEmail, string $partnerAccountID, InvoiceStatus $status, InvoiceLineItems $lineItems, AmountDecimal $subtotalAmount, AmountDecimal $taxAmount, AmountDecimal $totalAmount, AmountDecimal $pendingAmount, AmountDecimal $paidAmount, AmountDecimal $refundedAmount, AmountDecimal $disputedAmount, \DateTime $createdOn, ?string $description = null, ?string $paymentLinkCode = null, ?string $paymentLinkURL = null, ?array $invoicePayments = null, ?\DateTime $invoiceDate = null, ?\DateTime $dueDate = null, ?\DateTime $sentOn = null, ?\DateTime $paidOn = null, ?\DateTime $canceledOn = null, ?\DateTime $disabledOn = null)
     {
         $this->invoiceID = $invoiceID;
         $this->invoiceNumber = $invoiceNumber;
@@ -265,6 +275,7 @@ class Invoice
         $this->createdOn = $createdOn;
         $this->description = $description;
         $this->paymentLinkCode = $paymentLinkCode;
+        $this->paymentLinkURL = $paymentLinkURL;
         $this->invoicePayments = $invoicePayments;
         $this->invoiceDate = $invoiceDate;
         $this->dueDate = $dueDate;

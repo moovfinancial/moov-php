@@ -29,6 +29,7 @@ The `production-app`, `platform.production-app`, and / or `platform.wallet-trans
 | `Wallet`                      | wallet                        |
 | `WalletBalance`               | wallet.balance                |
 | `CardIssuing`                 | card-issuing                  |
+| `IssuingCardholder`           | issuing.cardholder            |
 | `ProductionApp`               | production-app                |
 | `PlatformProductionApp`       | platform.production-app       |
 | `PlatformWalletTransfers`     | platform.wallet-transfers     |
