@@ -35,7 +35,7 @@ class ListIssuedCardsRequest
     public ?int $count = null;
 
     /**
-     * Optional, comma-separated states to filter the Moov list issued cards response. For example `active,pending-verification`
+     * Optional, comma-separated states to filter the Moov list issued cards response. For example `active,closed`
      *
      * @var ?array<\Moov\MoovPhp\Models\Components\IssuedCardState> $states
      */
