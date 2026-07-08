@@ -28,5 +28,6 @@ enum CapabilityID: string
     case CollectFunds = 'collect-funds';
     case Wallet = 'wallet';
     case CardIssuing = 'card-issuing';
+    case IssuingCardholder = 'issuing.cardholder';
     case ProductionApp = 'production-app';
 }
