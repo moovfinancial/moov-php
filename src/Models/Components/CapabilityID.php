@@ -37,6 +37,7 @@ enum CapabilityID: string
     case Wallet = 'wallet';
     case WalletBalance = 'wallet.balance';
     case CardIssuing = 'card-issuing';
+    case IssuingCardholder = 'issuing.cardholder';
     case ProductionApp = 'production-app';
     case PlatformProductionApp = 'platform.production-app';
     case PlatformWalletTransfers = 'platform.wallet-transfers';
