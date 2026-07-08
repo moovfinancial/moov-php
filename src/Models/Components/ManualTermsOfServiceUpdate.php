@@ -22,7 +22,7 @@ class ManualTermsOfServiceUpdate
     public ?\DateTime $acceptedDate = null;
 
     /**
-     * The IP address from which the terms of service were accepted.
+     * The IP address (IPv4 or IPv6) from which the terms of service were accepted.
      *
      * @var ?string $acceptedIP
      */
