@@ -117,6 +117,8 @@ class Moov
 
     public TerminalApplications $terminalApplications;
 
+    public DepositView $depositView;
+
     /**
      * Returns a new instance of the SDK builder used to configure and create the SDK instance.
      *
@@ -178,6 +180,7 @@ class Moov
         $this->ping = new Ping($this->sdkConfiguration);
         $this->receipts = new Receipts($this->sdkConfiguration);
         $this->terminalApplications = new TerminalApplications($this->sdkConfiguration);
+        $this->depositView = new DepositView($this->sdkConfiguration);
         $this->initHooks();
 
     }

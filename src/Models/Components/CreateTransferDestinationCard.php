@@ -21,7 +21,7 @@ class CreateTransferDestinationCard
     public ?string $dynamicDescriptor = null;
 
     /**
-     * The scheduled date and time for the transfer to be delivered. This field is only valid for push-to-card transfers. Must be between 24 and 48 hours in the future.
+     * The scheduled date and time for the transfer to be delivered. This field is only valid for push-to-card transfers. Must be between 24 and 48 hours in the future in production. In sandbox mode, any future time up to 48 hours is accepted so integrations can test deferred delivery using the sandbox test cards with relaxed wait times.
      *
      * @var ?\DateTime $scheduledDeliveryOn
      */
