@@ -34,7 +34,7 @@ class FileDetails
     public string $accountID;
 
     /**
-     * The file's purpose.
+     * The purpose of the file being uploaded.
      *
      * @var \Moov\MoovPhp\Models\Components\FilePurpose $filePurpose
      */

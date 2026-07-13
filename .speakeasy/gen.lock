@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: b7fe0662c1306b5b4473576a902c8fc8
+  docChecksum: 21cdaa4c8edd6f8739d5d5f46beafd4d
   docVersion: v2026.01.00
   speakeasyVersion: 1.790.0
   generationVersion: 2.917.0
-  releaseVersion: 26.2.10
-  configChecksum: b14d85173c2bd5b60195d6ca312e03b6
+  releaseVersion: 26.2.11
+  configChecksum: f24bcd3130f93e814b69c3b79dbd1c67
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php.git
   published: true
 persistentEdits:
-  generation_id: 1e4b4b28-4b6b-4fd0-abe8-bd2b63fe7c1f
-  pristine_commit_hash: 963fd9f89bfe34cdf9ae77e30352d320ccdac4c8
-  pristine_tree_hash: 27851db251c7995288e8f086d3b2464227f0fbe2
+  generation_id: afebda24-2884-47d9-95e9-7de203e1679c
+  pristine_commit_hash: eea39f251ba534f1655bbac2ba32de64852036d9
+  pristine_tree_hash: 4f9432e453374bcc9ef64d0b1c47e877ff1d84cc
 features:
   php:
     constsAndDefaults: 0.2.2
@@ -1066,12 +1066,12 @@ trackedFiles:
     pristine_git_object: be66ee4155667cc0d8b5dc08379c3c480a7226c1
   docs/Models/Components/FileDetails.md:
     id: 7df09f671200
-    last_write_checksum: sha1:10c2d85b97133453111536f2d0d0bd12546a2da2
-    pristine_git_object: bcee9da77435d3f3547529742dcdef8a1550af4f
+    last_write_checksum: sha1:c4e10d3e52c89a77dd4fe6ba8a56d2cfd0c8a140
+    pristine_git_object: a4884361373cec908ca9e26f443aee99834034de
   docs/Models/Components/FilePurpose.md:
     id: 55b8e87f32dd
-    last_write_checksum: sha1:7e0647471a73ba118aebe0548384ace4536a2eb0
-    pristine_git_object: 9ca007ff10cbc200c0a9ff238a00828b2dd4def2
+    last_write_checksum: sha1:3c3524668e17555f5674902e8c56f8fb47e37631
+    pristine_git_object: 021ef97b00cc161d37f243b7b9eb1e203f08a34b
   docs/Models/Components/FileStatus.md:
     id: 135a32819c07
     last_write_checksum: sha1:21cca5bd36de36b9ee11578fd3b2e0e62edac8ef
@@ -1466,8 +1466,8 @@ trackedFiles:
     pristine_git_object: 1fc903c701e71ebc2c46c33e097bee602c28e213
   docs/Models/Components/OnboardingInvite.md:
     id: 94eafb195bca
-    last_write_checksum: sha1:14fc959eec30ae8e08d5095f75ab7e26518cd336
-    pristine_git_object: c1ffd8e632b778cbad60bd06961944752c7627bb
+    last_write_checksum: sha1:b925affb4e0751a4043d07d18e5f1a09d2dc00a6
+    pristine_git_object: 301c7feb68cdd60fe4a60ca8be9f3659ff4e0466
   docs/Models/Components/OnboardingInviteRequest.md:
     id: 9c0a5800e782
     last_write_checksum: sha1:126708a6b0f0205f878b21a220ae36a15789f2d9
@@ -5414,12 +5414,12 @@ trackedFiles:
     pristine_git_object: ceb1bf5c38442671701b4f4f80c99b971b76b798
   src/Models/Components/FileDetails.php:
     id: b56e6ef6c6c1
-    last_write_checksum: sha1:7ab38733433738d3da4e1cb9a8fa0eaf212843f5
-    pristine_git_object: 79f0e78edcb4afe5377c851cdc4af95880c9ffec
+    last_write_checksum: sha1:b2c8dc79d7e860cdd6dfd54e96751efa7981c1f2
+    pristine_git_object: 0b6064a0f60326fdc4ed493cbc5dd8df02a9bfc4
   src/Models/Components/FilePurpose.php:
     id: 33445f9cf48e
-    last_write_checksum: sha1:d7961c672f02d9fd5484352d24fbd267f6f989c1
-    pristine_git_object: dfca039b737d908ec3db8456a82745ef71014ecb
+    last_write_checksum: sha1:bc63d6246033e5ba0c19fba1037f04e1098c25e2
+    pristine_git_object: d028b529a072177b719820235387e91e0c00ec69
   src/Models/Components/FileStatus.php:
     id: 1bf1aae9c6df
     last_write_checksum: sha1:d9be76996e5237aaea8a9ed0664bb3b2527d2fff
@@ -5810,8 +5810,8 @@ trackedFiles:
     pristine_git_object: b200dfaa395207f87117b9f8eb1d05687587fbfb
   src/Models/Components/OnboardingInvite.php:
     id: 8d7c7278f1f0
-    last_write_checksum: sha1:6c943ea75031365c7e37c6dc1e6587861c113504
-    pristine_git_object: 3657ce8b60415ce87939cd90d46503ddf7477804
+    last_write_checksum: sha1:19c1bfa0b678b201c7d171866533b0b2e809bda8
+    pristine_git_object: 8ff3f47573117f14bc24ac9ff3db2bc68b03e2c2
   src/Models/Components/OnboardingInviteRequest.php:
     id: a1930e59667e
     last_write_checksum: sha1:fcacc5841ee50d5e82e6cb3c65c5d094d24e28fa
@@ -8642,8 +8642,8 @@ trackedFiles:
     pristine_git_object: ed9c06928be32fb3e75a68ec0192a4fca166a592
   src/SDKConfiguration.php:
     id: 9d60ab0bec0b
-    last_write_checksum: sha1:5d20ade5db11551999cad5bd7dd4e9270a7f4d7d
-    pristine_git_object: 88082b8214d6eb82a0e9431f93a5ab494952f64c
+    last_write_checksum: sha1:69a99ab11bcc810bf8ac9a7fa004b989e879c7eb
+    pristine_git_object: 1f531f8341b3abc4672c9511a18d328243a10053
   src/Schedules.php:
     id: 8dbe56d2d033
     last_write_checksum: sha1:6f0d21f80435c051e1beddd63bf681efac9d4099
@@ -11601,10 +11601,6 @@ examples:
           application/json: [{"cancellationID": "89ca7f54-13ba-4714-b9af-17163eae2057", "status": "completed", "createdOn": "2025-01-19T03:02:43.255309588Z"}]
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Php SDK Changes:
-  * `moov->statements->list()`:  `response.[]->cardAcquiringFees->visa->cardCancellations` **Added**
-  * `moov->statements->get()`:  `response.cardAcquiringFees->visa->cardCancellations` **Added**
 generatedFiles:
   - .gitattributes
   - USAGE.md
