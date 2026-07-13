@@ -2,8 +2,8 @@ speakeasyVersion: 1.790.0
 sources:
     latest:
         sourceNamespace: php-v2025.04.00
-        sourceRevisionDigest: sha256:bccd7a00e8d5df742650b72b0ab836c26627f576adac85b30fcfe30e23b18346
-        sourceBlobDigest: sha256:4576ac610b4c0fce6e4e31f47e55b9b792859fcadda7f41630ec19844fe25112
+        sourceRevisionDigest: sha256:9917445c2f11b4366a117e12e45c47e6798663baf4087bb3234eed11279f72a6
+        sourceBlobDigest: sha256:8a969afb9bb26b6f98feecd7ac6df1182f19c6463824c1c252d0ed2646a7dcfb
         tags:
             - latest
             - v2025.04.00
@@ -11,10 +11,10 @@ targets:
     latest:
         source: latest
         sourceNamespace: php-v2025.04.00
-        sourceRevisionDigest: sha256:bccd7a00e8d5df742650b72b0ab836c26627f576adac85b30fcfe30e23b18346
-        sourceBlobDigest: sha256:4576ac610b4c0fce6e4e31f47e55b9b792859fcadda7f41630ec19844fe25112
+        sourceRevisionDigest: sha256:9917445c2f11b4366a117e12e45c47e6798663baf4087bb3234eed11279f72a6
+        sourceBlobDigest: sha256:8a969afb9bb26b6f98feecd7ac6df1182f19c6463824c1c252d0ed2646a7dcfb
         codeSamplesNamespace: v2025.04.00-php-code-samples
-        codeSamplesRevisionDigest: sha256:0d7f85760cb4c70bd351614463bd8edd95f47eaaaf77ec6a7508bb14c82c5d5f
+        codeSamplesRevisionDigest: sha256:64b65393ce29babb85b4371eefaf325bf0c17a5b601444e02a3589481eda5d24
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
