@@ -84,6 +84,12 @@ to learn more.
 
 To access this endpoint using a [token](https://docs.moov.io/api/authentication/access-tokens/) you'll need 
 to specify the `/accounts/{accountID}/transfers.write` scope.
+* [getRiskOutcomes](#getriskoutcomes) - Retrieve the risk rules that contributed to a transfer's risk decision.
+
+This endpoint has limited availability and must be enabled for your account by Moov.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
+you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
 
 ## generateOptions
 
@@ -1118,3 +1124,60 @@ if ($response->reversal !== null) {
 | Errors\GenericError            | 400, 409                       | application/json               |
 | Errors\ReversalValidationError | 422                            | application/json               |
 | Errors\APIException            | 4XX, 5XX                       | \*/\*                          |
+
+## getRiskOutcomes
+
+Retrieve the risk rules that contributed to a transfer's risk decision.
+
+This endpoint has limited availability and must be enabled for your account by Moov.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
+you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
+
+### Example Usage
+
+<!-- UsageSnippet language="php" operationID="getTransferRiskOutcomes" method="get" path="/transfers/{transferID}/risk-outcomes" -->
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
+
+$sdk = MoovPhp\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
+
+
+
+$response = $sdk->transfers->getRiskOutcomes(
+    transferID: '<id>'
+);
+
+if ($response->partnerRiskOutcomesResponse !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `transferID`                                                                                             | *string*                                                                                                 | :heavy_check_mark:                                                                                       | Identifier for the transfer.                                                                             |
+| `xAccountID`                                                                                             | *?string*                                                                                                | :heavy_minus_sign:                                                                                       | The account the transfer belongs to. When omitted, the account is resolved<br/>from the calling credentials. |
+
+### Response
+
+**[?Operations\GetTransferRiskOutcomesResponse](../../Models/Operations/GetTransferRiskOutcomesResponse.md)**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| Errors\APIException | 4XX, 5XX            | \*/\*               |

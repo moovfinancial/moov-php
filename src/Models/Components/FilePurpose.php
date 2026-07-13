@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-/** The file's purpose. */
+/** The purpose of the file being uploaded. */
 enum FilePurpose: string
 {
     case BusinessVerification = 'business_verification';
