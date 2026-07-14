@@ -111,6 +111,16 @@ class CardBrandFees
     public ?BillingCountAndAmount $refunds = null;
 
     /**
+     * Details of card cancellations.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\BillingCountAndAmount $cardCancellations
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('cardCancellations')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingCountAndAmount|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?BillingCountAndAmount $cardCancellations = null;
+
+    /**
      * @param  \Moov\MoovPhp\Models\Components\BillingCountAndAmount  $total
      * @param  ?\Moov\MoovPhp\Models\Components\BillingCountAndAmount  $interchange
      * @param  ?array<\Moov\MoovPhp\Models\Components\BillingInterchangeProgramFee>  $interchangePrograms
@@ -121,9 +131,10 @@ class CardBrandFees
      * @param  ?\Moov\MoovPhp\Models\Components\BillingCountAndAmount  $completedInternationalInPerson
      * @param  ?\Moov\MoovPhp\Models\Components\BillingCountAndAmount  $declines
      * @param  ?\Moov\MoovPhp\Models\Components\BillingCountAndAmount  $refunds
+     * @param  ?\Moov\MoovPhp\Models\Components\BillingCountAndAmount  $cardCancellations
      * @phpstan-pure
      */
-    public function __construct(BillingCountAndAmount $total, ?BillingCountAndAmount $interchange = null, ?array $interchangePrograms = null, ?BillingCountAndAmount $networkPassthrough = null, ?BillingCountAndAmount $completedDomesticOnline = null, ?BillingCountAndAmount $completedDomesticInPerson = null, ?BillingCountAndAmount $completedInternationalOnline = null, ?BillingCountAndAmount $completedInternationalInPerson = null, ?BillingCountAndAmount $declines = null, ?BillingCountAndAmount $refunds = null)
+    public function __construct(BillingCountAndAmount $total, ?BillingCountAndAmount $interchange = null, ?array $interchangePrograms = null, ?BillingCountAndAmount $networkPassthrough = null, ?BillingCountAndAmount $completedDomesticOnline = null, ?BillingCountAndAmount $completedDomesticInPerson = null, ?BillingCountAndAmount $completedInternationalOnline = null, ?BillingCountAndAmount $completedInternationalInPerson = null, ?BillingCountAndAmount $declines = null, ?BillingCountAndAmount $refunds = null, ?BillingCountAndAmount $cardCancellations = null)
     {
         $this->total = $total;
         $this->interchange = $interchange;
@@ -135,5 +146,6 @@ class CardBrandFees
         $this->completedInternationalInPerson = $completedInternationalInPerson;
         $this->declines = $declines;
         $this->refunds = $refunds;
+        $this->cardCancellations = $cardCancellations;
     }
 }

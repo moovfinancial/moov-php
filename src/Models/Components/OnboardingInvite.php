@@ -66,7 +66,7 @@ class OnboardingInvite
     public \DateTime $createdOn;
 
     /**
-     * The scopes requested by the inviter.
+     * Optional URL to redirect the user to after they complete the onboarding process.
      *
      * @var ?string $returnURL
      */
