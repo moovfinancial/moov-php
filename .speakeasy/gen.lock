@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 6fbaf3ea92bda3e6e17559553320c0c6
+  docChecksum: c4359dcd967d6b77d73034827367bd27
   docVersion: v2025.01.00
-  speakeasyVersion: 1.790.0
-  generationVersion: 2.917.0
-  releaseVersion: 25.2.11
-  configChecksum: 9defa05189d77613f7ad93198b8c14f7
+  speakeasyVersion: 1.791.0
+  generationVersion: 2.924.0
+  releaseVersion: 25.2.12
+  configChecksum: a943a5f3de8b59ef8c116c2584e75305
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php.git
   published: true
 persistentEdits:
-  generation_id: 35919f6c-9ef1-4f0b-9ae8-81d30f272371
-  pristine_commit_hash: da159aa3d54342f769b02416b8b5e9ebd9738431
-  pristine_tree_hash: e5f0b24685b1f3ec096f5e0ab7d3bb151ea2a709
+  generation_id: dc306cce-1677-4773-b920-9de52be3885b
+  pristine_commit_hash: 9fc343811d5f9f0c65eb5fb8c4f7259e2614df68
+  pristine_tree_hash: bb73b092fc50c767a8f19ab9126dda51e3780933
 features:
   php:
     constsAndDefaults: 0.2.2
@@ -1174,16 +1174,16 @@ trackedFiles:
     pristine_git_object: b15343885b2f171178d0dc205fc4f912f58df3ae
   docs/Models/Components/IssuingIntervalLimit.md:
     id: 0c65f885ee0f
-    last_write_checksum: sha1:1fac32105b695a873c997f0333939168d6ffae0f
-    pristine_git_object: 11e23857ab0095fb744e912a8da5843e161215b3
+    last_write_checksum: sha1:7c705109f3cbd690eda06cda36e98e1a3f0a835c
+    pristine_git_object: 58d0b3bc5fca9a1f326b374605ff9adbaf54caf0
   docs/Models/Components/IssuingMerchantData.md:
     id: 738da20409a6
     last_write_checksum: sha1:a0276bef0731f1dfd314401520120e2dfdc6ff78
     pristine_git_object: 1bf1855970f514c08f8f01327c3fc3248bbe02d2
   docs/Models/Components/IssuingVelocityLimit.md:
     id: 63419ce7f8a5
-    last_write_checksum: sha1:1925c3d2399c7979199f219bb4dfaac3a9196b49
-    pristine_git_object: 1a8e6a48f78c37923f31c2f337f55a99d715e636
+    last_write_checksum: sha1:e9b6c21b49f932d513ff7eb359d625f028d84de2
+    pristine_git_object: 2b3e717e03b75e156b587144e9eeb9534ceb4897
   docs/Models/Components/IssuingVelocityLimitError.md:
     id: c5a44c4b4fef
     last_write_checksum: sha1:87bebb4dc7ecc34481bdc90b4834d5dfeb6a4c77
@@ -5210,16 +5210,16 @@ trackedFiles:
     pristine_git_object: bfb896a862798af780404f03c42389e541bfe492
   src/Models/Components/IssuingIntervalLimit.php:
     id: e3ed5524b264
-    last_write_checksum: sha1:badaa35e65f11b37ce5e4474336184d8ec46a826
-    pristine_git_object: 432e0853fff438f7e0bd6287ee62811579a27686
+    last_write_checksum: sha1:f36f0dc50b806e2f13f314c6ef9e894a58b24cfd
+    pristine_git_object: c00432ed5ff13b6f182f6d0798c0b21d54f232d9
   src/Models/Components/IssuingMerchantData.php:
     id: 37cf3a261515
     last_write_checksum: sha1:4cc2fb09a44bf095cadb9559f2dfaebc2631521f
     pristine_git_object: 0f2d02438cec57fc50fb009c81c8e24a584f089f
   src/Models/Components/IssuingVelocityLimit.php:
     id: 34a6f0da868d
-    last_write_checksum: sha1:8633d0e969bbbd588290db4cae4d7b8b35380bf1
-    pristine_git_object: ad881239ad54f2000fb63c49adab69be7c70ce18
+    last_write_checksum: sha1:fb9477ede7d6dc71ba6ede3b2cc6708d6167b924
+    pristine_git_object: e6982fa9989b5dbb0802aea6e3f37c4ad6f2fbc7
   src/Models/Components/IssuingVelocityLimitError.php:
     id: f3214b73d972
     last_write_checksum: sha1:beac6b52103f8b02858320027e39751c6d83fad4
@@ -8010,8 +8010,8 @@ trackedFiles:
     pristine_git_object: ed9c06928be32fb3e75a68ec0192a4fca166a592
   src/SDKConfiguration.php:
     id: 9d60ab0bec0b
-    last_write_checksum: sha1:18e626cb0c0cde792de8d0f541b3a41ee709f6c1
-    pristine_git_object: f8de85484f0e480fb76795e87cf5cadb384b29a0
+    last_write_checksum: sha1:f45cb903435765314d6d794e848d6db7f646e31b
+    pristine_git_object: 9566c2d4403ed1b17913d14a9f842596f5469900
   src/Schedules.php:
     id: 8dbe56d2d033
     last_write_checksum: sha1:6f0d21f80435c051e1beddd63bf681efac9d4099
