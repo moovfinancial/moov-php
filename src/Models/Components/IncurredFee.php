@@ -96,6 +96,16 @@ class IncurredFee
     public ?string $residualID = null;
 
     /**
+     * Indicates which party to the money movement bore this fee.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\FeePaidBy $feePaidBy
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('feePaidBy')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\FeePaidBy|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?FeePaidBy $feePaidBy = null;
+
+    /**
      * @param  ?string  $feeID
      * @param  ?string  $accountID
      * @param  ?string  $walletID
@@ -105,9 +115,10 @@ class IncurredFee
      * @param  ?\Moov\MoovPhp\Models\Components\GeneratedBy  $generatedBy
      * @param  ?string  $feeGroup
      * @param  ?string  $residualID
+     * @param  ?\Moov\MoovPhp\Models\Components\FeePaidBy  $feePaidBy
      * @phpstan-pure
      */
-    public function __construct(?string $feeID = null, ?string $accountID = null, ?string $walletID = null, ?\DateTime $createdOn = null, ?string $feeName = null, ?AmountDecimal $amount = null, ?GeneratedBy $generatedBy = null, ?string $feeGroup = null, ?string $residualID = null)
+    public function __construct(?string $feeID = null, ?string $accountID = null, ?string $walletID = null, ?\DateTime $createdOn = null, ?string $feeName = null, ?AmountDecimal $amount = null, ?GeneratedBy $generatedBy = null, ?string $feeGroup = null, ?string $residualID = null, ?FeePaidBy $feePaidBy = null)
     {
         $this->feeID = $feeID;
         $this->accountID = $accountID;
@@ -118,5 +129,6 @@ class IncurredFee
         $this->generatedBy = $generatedBy;
         $this->feeGroup = $feeGroup;
         $this->residualID = $residualID;
+        $this->feePaidBy = $feePaidBy;
     }
 }

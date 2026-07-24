@@ -87,6 +87,16 @@ class Product
     public ?array $images = null;
 
     /**
+     * The product taxonomy category associated with the product, if any.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\ProductCategory $category
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('category')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ProductCategory|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?ProductCategory $category = null;
+
+    /**
      * The date and time when the product was disabled.
      *
      * @var ?\DateTime $disabledOn
@@ -104,10 +114,11 @@ class Product
      * @param  ?string  $description
      * @param  ?array<\Moov\MoovPhp\Models\Components\ProductOptionGroup>  $optionGroups
      * @param  ?array<\Moov\MoovPhp\Models\Components\ProductImageMetadata>  $images
+     * @param  ?\Moov\MoovPhp\Models\Components\ProductCategory  $category
      * @param  ?\DateTime  $disabledOn
      * @phpstan-pure
      */
-    public function __construct(string $productID, string $title, AmountDecimal $basePrice, \DateTime $createdOn, \DateTime $updatedOn, ?string $description = null, ?array $optionGroups = null, ?array $images = null, ?\DateTime $disabledOn = null)
+    public function __construct(string $productID, string $title, AmountDecimal $basePrice, \DateTime $createdOn, \DateTime $updatedOn, ?string $description = null, ?array $optionGroups = null, ?array $images = null, ?ProductCategory $category = null, ?\DateTime $disabledOn = null)
     {
         $this->productID = $productID;
         $this->title = $title;
@@ -117,6 +128,7 @@ class Product
         $this->description = $description;
         $this->optionGroups = $optionGroups;
         $this->images = $images;
+        $this->category = $category;
         $this->disabledOn = $disabledOn;
     }
 }
