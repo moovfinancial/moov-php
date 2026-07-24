@@ -20,7 +20,7 @@ class IssuingVelocityLimit
     public int $amount;
 
     /**
-     * Specifies the time frame for the velocity limit. Currently supports only per-transaction limits.
+     * Specifies the time frame for a velocity limit. `per-transaction` applies to each individual authorization and never resets. Time-based intervals (where supported) reset at midnight ET.
      *
      * @var \Moov\MoovPhp\Models\Components\IssuingIntervalLimit $interval
      */
