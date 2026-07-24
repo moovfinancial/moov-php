@@ -27,6 +27,17 @@ class ListProductsRequest
     public ?string $title = null;
 
     /**
+     * Filter products by category. Accepts a category ID at any level of the taxonomy;
+     *
+     * a product matches when the given category is anywhere in its category's breadcrumb
+     * (i.e. filtering by a top-level category returns products in any of its descendants).
+     *
+     * @var ?string $category
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=category')]
+    public ?string $category = null;
+
+    /**
      *
      * @var ?int $skip
      */
@@ -43,14 +54,16 @@ class ListProductsRequest
     /**
      * @param  string  $accountID
      * @param  ?string  $title
+     * @param  ?string  $category
      * @param  ?int  $skip
      * @param  ?int  $count
      * @phpstan-pure
      */
-    public function __construct(string $accountID, ?string $title = null, ?int $skip = null, ?int $count = null)
+    public function __construct(string $accountID, ?string $title = null, ?string $category = null, ?int $skip = null, ?int $count = null)
     {
         $this->accountID = $accountID;
         $this->title = $title;
+        $this->category = $category;
         $this->skip = $skip;
         $this->count = $count;
     }

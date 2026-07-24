@@ -58,17 +58,32 @@ class PaymentLinkPayoutDetails
     public ?PushOptions $pushOptions = null;
 
     /**
+     * Indicates which party bears the fee, keyed by disbursement payment method (`DisbursementPaymentMethodType`).
+     *
+     *
+     * Sparse — include only the methods you want to attribute. Any method left unset defaults to `source`.
+     *
+     * @var ?array<string, \Moov\MoovPhp\Models\Components\FeePaidBy> $feePaidBy
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('feePaidBy')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string, \Moov\MoovPhp\Models\Components\FeePaidBy>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $feePaidBy = null;
+
+    /**
      * @param  array<\Moov\MoovPhp\Models\Components\DisbursementPaymentMethodType>  $allowedMethods
      * @param  \Moov\MoovPhp\Models\Components\PayoutRecipient  $recipient
      * @param  ?array<string, string>  $metadata
      * @param  ?\Moov\MoovPhp\Models\Components\PushOptions  $pushOptions
+     * @param  ?array<string, \Moov\MoovPhp\Models\Components\FeePaidBy>  $feePaidBy
      * @phpstan-pure
      */
-    public function __construct(array $allowedMethods, PayoutRecipient $recipient, ?array $metadata = null, ?PushOptions $pushOptions = null)
+    public function __construct(array $allowedMethods, PayoutRecipient $recipient, ?array $metadata = null, ?PushOptions $pushOptions = null, ?array $feePaidBy = null)
     {
         $this->allowedMethods = $allowedMethods;
         $this->recipient = $recipient;
         $this->metadata = $metadata;
         $this->pushOptions = $pushOptions;
+        $this->feePaidBy = $feePaidBy;
     }
 }

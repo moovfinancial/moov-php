@@ -11,6 +11,7 @@
 * [disable](#disable) - Disable a product by ID.
 
 The product will no longer be available, but will remain in the system for historical and reporting purposes.
+* [listCategories](#listcategories) - Returns the full, read-only list of product categories from the product taxonomy.
 
 ## list
 
@@ -26,6 +27,7 @@ require 'vendor/autoload.php';
 
 use Moov\MoovPhp;
 use Moov\MoovPhp\Models\Components;
+use Moov\MoovPhp\Models\Operations;
 
 $sdk = MoovPhp\Moov::builder()
     ->setSecurity(
@@ -36,13 +38,14 @@ $sdk = MoovPhp\Moov::builder()
     )
     ->build();
 
-
-
-$response = $sdk->products->list(
+$request = new Operations\ListProductsRequest(
     accountID: 'cd696219-4308-446c-b0d8-1759254995c2',
     skip: 60,
-    count: 20
+    count: 20,
+);
 
+$response = $sdk->products->list(
+    request: $request
 );
 
 if ($response->products !== null) {
@@ -52,12 +55,9 @@ if ($response->products !== null) {
 
 ### Parameters
 
-| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               | Example                                                                                   |
-| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `accountID`                                                                               | *string*                                                                                  | :heavy_check_mark:                                                                        | N/A                                                                                       |                                                                                           |
-| `title`                                                                                   | *?string*                                                                                 | :heavy_minus_sign:                                                                        | Allows filtering products by title. This supports partial matches and is case-insensitive |                                                                                           |
-| `skip`                                                                                    | *?int*                                                                                    | :heavy_minus_sign:                                                                        | N/A                                                                                       | 60                                                                                        |
-| `count`                                                                                   | *?int*                                                                                    | :heavy_minus_sign:                                                                        | N/A                                                                                       | 20                                                                                        |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `$request`                                                                       | [Operations\ListProductsRequest](../../Models/Operations/ListProductsRequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
 
 ### Response
 
@@ -380,4 +380,49 @@ if ($response->statusCode === 200) {
 | Error Type          | Status Code         | Content Type        |
 | ------------------- | ------------------- | ------------------- |
 | Errors\GenericError | 400, 409            | application/json    |
+| Errors\APIException | 4XX, 5XX            | \*/\*               |
+
+## listCategories
+
+Returns the full, read-only list of product categories from the product taxonomy.
+
+### Example Usage
+
+<!-- UsageSnippet language="php" operationID="listProductCategories" method="get" path="/product-categories" -->
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
+
+$sdk = MoovPhp\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
+
+
+
+$response = $sdk->products->listCategories(
+
+);
+
+if ($response->productCategories !== null) {
+    // handle response
+}
+```
+
+### Response
+
+**[?Operations\ListProductCategoriesResponse](../../Models/Operations/ListProductCategoriesResponse.md)**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
 | Errors\APIException | 4XX, 5XX            | \*/\*               |

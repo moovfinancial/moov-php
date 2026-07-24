@@ -63,19 +63,30 @@ class ProductRequest
     public ?array $optionGroups = null;
 
     /**
+     * The ID of a product taxonomy category to associate with the product.
+     *
+     * @var ?string $categoryID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('categoryID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $categoryID = null;
+
+    /**
      * @param  string  $title
      * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $basePrice
      * @param  ?string  $description
      * @param  ?array<\Moov\MoovPhp\Models\Components\AssignProductImage>  $images
      * @param  ?array<\Moov\MoovPhp\Models\Components\CreateProductOptionGroup>  $optionGroups
+     * @param  ?string  $categoryID
      * @phpstan-pure
      */
-    public function __construct(string $title, AmountDecimal $basePrice, ?string $description = null, ?array $images = null, ?array $optionGroups = null)
+    public function __construct(string $title, AmountDecimal $basePrice, ?string $description = null, ?array $images = null, ?array $optionGroups = null, ?string $categoryID = null)
     {
         $this->title = $title;
         $this->basePrice = $basePrice;
         $this->description = $description;
         $this->images = $images;
         $this->optionGroups = $optionGroups;
+        $this->categoryID = $categoryID;
     }
 }

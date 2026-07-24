@@ -58,20 +58,30 @@ class ProductRequestValidationError
     public ?array $optionGroups = null;
 
     /**
+     *
+     * @var ?string $categoryID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('categoryID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $categoryID = null;
+
+    /**
      * @param  ?string  $title
      * @param  ?string  $description
      * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimalValidationError  $basePrice
      * @param  ?array<string, \Moov\MoovPhp\Models\Components\AssignProductImageValidationError>  $images
      * @param  ?array<string, \Moov\MoovPhp\Models\Components\ProductOptionGroupValidationError>  $optionGroups
+     * @param  ?string  $categoryID
      * @phpstan-pure
      */
-    public function __construct(?string $title = null, ?string $description = null, ?Components\AmountDecimalValidationError $basePrice = null, ?array $images = null, ?array $optionGroups = null)
+    public function __construct(?string $title = null, ?string $description = null, ?Components\AmountDecimalValidationError $basePrice = null, ?array $images = null, ?array $optionGroups = null, ?string $categoryID = null)
     {
         $this->title = $title;
         $this->description = $description;
         $this->basePrice = $basePrice;
         $this->images = $images;
         $this->optionGroups = $optionGroups;
+        $this->categoryID = $categoryID;
     }
 
     public function toException(): ProductRequestValidationErrorThrowable
