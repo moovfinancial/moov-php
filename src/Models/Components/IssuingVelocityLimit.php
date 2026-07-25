@@ -12,15 +12,7 @@ namespace Moov\MoovPhp\Models\Components;
 class IssuingVelocityLimit
 {
     /**
-     * The maximum amount in cents that can be spent in a given interval.
-     *
-     * @var int $amount
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
-    public int $amount;
-
-    /**
-     * Specifies the time frame for the velocity limit. Currently supports only per-transaction limits.
+     * Specifies the time frame for a velocity limit. `per-transaction` applies to each individual authorization and never resets. Time-based intervals (where supported) reset at midnight ET.
      *
      * @var \Moov\MoovPhp\Models\Components\IssuingIntervalLimit $interval
      */
@@ -29,13 +21,33 @@ class IssuingVelocityLimit
     public IssuingIntervalLimit $interval;
 
     /**
-     * @param  int  $amount
+     * The maximum amount in cents that can be spent in a given interval.
+     *
+     * @var ?int $amount
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?int $amount = null;
+
+    /**
+     * The maximum number of transactions allowed in the given interval. At least one of `amount` or `count` must be set.
+     *
+     * @var ?int $count
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('count')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?int $count = null;
+
+    /**
      * @param  \Moov\MoovPhp\Models\Components\IssuingIntervalLimit  $interval
+     * @param  ?int  $amount
+     * @param  ?int  $count
      * @phpstan-pure
      */
-    public function __construct(int $amount, IssuingIntervalLimit $interval)
+    public function __construct(IssuingIntervalLimit $interval, ?int $amount = null, ?int $count = null)
     {
-        $this->amount = $amount;
         $this->interval = $interval;
+        $this->amount = $amount;
+        $this->count = $count;
     }
 }

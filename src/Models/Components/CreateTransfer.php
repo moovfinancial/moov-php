@@ -97,6 +97,16 @@ class CreateTransfer
     public ?CreateTransferAmountDetails $amountDetails = null;
 
     /**
+     * Indicates which party bears fees for the transfer, keyed by fee type.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\TransferFeePaidBy $feePaidBy
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('feePaidBy')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferFeePaidBy|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?TransferFeePaidBy $feePaidBy = null;
+
+    /**
      * @param  \Moov\MoovPhp\Models\Components\CreateTransferSource  $source
      * @param  \Moov\MoovPhp\Models\Components\CreateTransferDestination  $destination
      * @param  \Moov\MoovPhp\Models\Components\Amount  $amount
@@ -106,9 +116,10 @@ class CreateTransfer
      * @param  ?string  $foreignID
      * @param  ?\Moov\MoovPhp\Models\Components\CreateTransferLineItems  $lineItems
      * @param  ?\Moov\MoovPhp\Models\Components\CreateTransferAmountDetails  $amountDetails
+     * @param  ?\Moov\MoovPhp\Models\Components\TransferFeePaidBy  $feePaidBy
      * @phpstan-pure
      */
-    public function __construct(CreateTransferSource $source, CreateTransferDestination $destination, Amount $amount, ?FacilitatorFee $facilitatorFee = null, ?string $description = null, ?array $metadata = null, ?string $foreignID = null, ?CreateTransferLineItems $lineItems = null, ?CreateTransferAmountDetails $amountDetails = null)
+    public function __construct(CreateTransferSource $source, CreateTransferDestination $destination, Amount $amount, ?FacilitatorFee $facilitatorFee = null, ?string $description = null, ?array $metadata = null, ?string $foreignID = null, ?CreateTransferLineItems $lineItems = null, ?CreateTransferAmountDetails $amountDetails = null, ?TransferFeePaidBy $feePaidBy = null)
     {
         $this->source = $source;
         $this->destination = $destination;
@@ -119,5 +130,6 @@ class CreateTransfer
         $this->foreignID = $foreignID;
         $this->lineItems = $lineItems;
         $this->amountDetails = $amountDetails;
+        $this->feePaidBy = $feePaidBy;
     }
 }

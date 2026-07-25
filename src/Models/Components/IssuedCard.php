@@ -126,13 +126,14 @@ class IssuedCard
     public ?Address $billingAddress = null;
 
     /**
+     * Spend controls applied to an issued card, including velocity runtime state.
      *
-     * @var ?\Moov\MoovPhp\Models\Components\IssuingControls $controls
+     * @var ?\Moov\MoovPhp\Models\Components\IssuedControls $controls
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('controls')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IssuingControls|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IssuedControls|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?IssuingControls $controls = null;
+    public ?IssuedControls $controls = null;
 
     /**
      * @param  string  $issuedCardID
@@ -148,10 +149,10 @@ class IssuedCard
      * @param  ?string  $nickname
      * @param  ?array<string, string>  $metadata
      * @param  ?\Moov\MoovPhp\Models\Components\Address  $billingAddress
-     * @param  ?\Moov\MoovPhp\Models\Components\IssuingControls  $controls
+     * @param  ?\Moov\MoovPhp\Models\Components\IssuedControls  $controls
      * @phpstan-pure
      */
-    public function __construct(string $issuedCardID, CardBrand $brand, string $lastFourCardNumber, CardExpiration $expiration, string $fundingWalletID, IssuedCardState $state, IssuedCardFormFactor $formFactor, \DateTime $createdOn, \DateTime $updatedOn, ?string $authorizedUserAccountID = null, ?string $nickname = null, ?array $metadata = null, ?Address $billingAddress = null, ?IssuingControls $controls = null)
+    public function __construct(string $issuedCardID, CardBrand $brand, string $lastFourCardNumber, CardExpiration $expiration, string $fundingWalletID, IssuedCardState $state, IssuedCardFormFactor $formFactor, \DateTime $createdOn, \DateTime $updatedOn, ?string $authorizedUserAccountID = null, ?string $nickname = null, ?array $metadata = null, ?Address $billingAddress = null, ?IssuedControls $controls = null)
     {
         $this->issuedCardID = $issuedCardID;
         $this->brand = $brand;

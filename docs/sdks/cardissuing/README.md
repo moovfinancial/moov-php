@@ -266,6 +266,14 @@ $updateIssuedCard = new Components\UpdateIssuedCard(
         postalCode: '80301',
         country: 'US',
     ),
+    controls: new Components\UpdateIssuingControls(
+        velocityLimits: [
+            new Components\IssuingVelocityLimit(
+                amount: 10000,
+                interval: Components\IssuingIntervalLimit::Daily,
+            ),
+        ],
+    ),
 );
 
 $response = $sdk->cardIssuing->update(

@@ -46,18 +46,29 @@ class UpdateIssuedCardError
     public ?Components\AddressError $billingAddress = null;
 
     /**
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\UpdateIssuingControlsError $controls
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('controls')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\UpdateIssuingControlsError|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?Components\UpdateIssuingControlsError $controls = null;
+
+    /**
      * @param  ?string  $state
      * @param  ?string  $nickname
      * @param  ?string  $metadata
      * @param  ?\Moov\MoovPhp\Models\Components\AddressError  $billingAddress
+     * @param  ?\Moov\MoovPhp\Models\Components\UpdateIssuingControlsError  $controls
      * @phpstan-pure
      */
-    public function __construct(?string $state = null, ?string $nickname = null, ?string $metadata = null, ?Components\AddressError $billingAddress = null)
+    public function __construct(?string $state = null, ?string $nickname = null, ?string $metadata = null, ?Components\AddressError $billingAddress = null, ?Components\UpdateIssuingControlsError $controls = null)
     {
         $this->state = $state;
         $this->nickname = $nickname;
         $this->metadata = $metadata;
         $this->billingAddress = $billingAddress;
+        $this->controls = $controls;
     }
 
     public function toException(): UpdateIssuedCardErrorThrowable

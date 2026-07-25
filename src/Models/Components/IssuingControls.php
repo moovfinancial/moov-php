@@ -31,13 +31,60 @@ class IssuingControls
     public ?array $velocityLimits = null;
 
     /**
+     * Restricts card usage by merchant category. When not set, all categories are allowed.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\MerchantCategoryRestrictions $merchantCategoryRestrictions
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('merchantCategoryRestrictions')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\MerchantCategoryRestrictions|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?MerchantCategoryRestrictions $merchantCategoryRestrictions = null;
+
+    /**
+     * Restricts card usage to specific merchants, or blocks specific merchants.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\MerchantRestrictions $merchantRestrictions
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('merchantRestrictions')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\MerchantRestrictions|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?MerchantRestrictions $merchantRestrictions = null;
+
+    /**
+     * Limits card usage to specific days and times. Set to `null` to remove all schedule restrictions.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\AllowedSchedule $allowedSchedule
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('allowedSchedule')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AllowedSchedule|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?AllowedSchedule $allowedSchedule = null;
+
+    /**
+     * A spend cutoff date and time. When set, all authorizations after this datetime are declined regardless of other controls. Set to `null` for no cutoff.
+     *
+     * @var ?\DateTime $expiresOn
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('expiresOn')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?\DateTime $expiresOn = null;
+
+    /**
      * @param  ?bool  $singleUse
      * @param  ?array<\Moov\MoovPhp\Models\Components\IssuingVelocityLimit>  $velocityLimits
+     * @param  ?\Moov\MoovPhp\Models\Components\MerchantCategoryRestrictions  $merchantCategoryRestrictions
+     * @param  ?\Moov\MoovPhp\Models\Components\MerchantRestrictions  $merchantRestrictions
+     * @param  ?\Moov\MoovPhp\Models\Components\AllowedSchedule  $allowedSchedule
+     * @param  ?\DateTime  $expiresOn
      * @phpstan-pure
      */
-    public function __construct(?bool $singleUse = null, ?array $velocityLimits = null)
+    public function __construct(?bool $singleUse = null, ?array $velocityLimits = null, ?MerchantCategoryRestrictions $merchantCategoryRestrictions = null, ?MerchantRestrictions $merchantRestrictions = null, ?AllowedSchedule $allowedSchedule = null, ?\DateTime $expiresOn = null)
     {
         $this->singleUse = $singleUse;
         $this->velocityLimits = $velocityLimits;
+        $this->merchantCategoryRestrictions = $merchantCategoryRestrictions;
+        $this->merchantRestrictions = $merchantRestrictions;
+        $this->allowedSchedule = $allowedSchedule;
+        $this->expiresOn = $expiresOn;
     }
 }

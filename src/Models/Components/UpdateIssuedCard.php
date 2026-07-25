@@ -24,6 +24,16 @@ class UpdateIssuedCard
     public ?UpdateIssuedCardState $state = null;
 
     /**
+     * Mutable spend controls for the card.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\UpdateIssuingControls $controls
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('controls')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\UpdateIssuingControls|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?UpdateIssuingControls $controls = null;
+
+    /**
      *
      * @var ?string $nickname
      */
@@ -52,14 +62,16 @@ class UpdateIssuedCard
 
     /**
      * @param  ?\Moov\MoovPhp\Models\Components\UpdateIssuedCardState  $state
+     * @param  ?\Moov\MoovPhp\Models\Components\UpdateIssuingControls  $controls
      * @param  ?string  $nickname
      * @param  ?array<string, string>  $metadata
      * @param  ?\Moov\MoovPhp\Models\Components\BillingAddress  $billingAddress
      * @phpstan-pure
      */
-    public function __construct(?UpdateIssuedCardState $state = null, ?string $nickname = null, ?array $metadata = null, ?BillingAddress $billingAddress = null)
+    public function __construct(?UpdateIssuedCardState $state = null, ?UpdateIssuingControls $controls = null, ?string $nickname = null, ?array $metadata = null, ?BillingAddress $billingAddress = null)
     {
         $this->state = $state;
+        $this->controls = $controls;
         $this->nickname = $nickname;
         $this->metadata = $metadata;
         $this->billingAddress = $billingAddress;
