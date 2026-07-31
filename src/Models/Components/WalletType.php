@@ -14,9 +14,11 @@ namespace Moov\MoovPhp\Models\Components;
  *
  *   - `default`: The system-generated wallet automatically created when an account is granted the wallet capability.
  *   - `general`: An additional, user-defined wallet created via API or Dashboard.
+ *   - `card-issuing`: The system-generated wallet automatically created when an account is granted the card-issuing capability.
  */
 enum WalletType: string
 {
     case Default = 'default';
     case General = 'general';
+    case CardIssuing = 'card-issuing';
 }
