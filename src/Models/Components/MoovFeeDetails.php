@@ -15,46 +15,50 @@ class MoovFeeDetails
     /**
      * Moov processing fee. String type represents dollars with up to 9 decimal place precision.
      *
-     * @var string $moovProcessing
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $moovProcessing
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('moovProcessing')]
-    public string $moovProcessing;
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
+    public AmountDecimal $moovProcessing;
 
     /**
      * Card scheme fees accrued during authorization and settlement. String type represents dollars with up to 9 decimal place precision.
      *
-     * @var ?string $cardScheme
+     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimal $cardScheme
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardScheme')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $cardScheme = null;
+    public ?AmountDecimal $cardScheme = null;
 
     /**
      * Network interchange fee for Visa, Mastercard, or Discover. String type represents dollars with up to 9 decimal place precision.
      *
-     * @var ?string $interchange
+     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimal $interchange
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('interchange')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $interchange = null;
+    public ?AmountDecimal $interchange = null;
 
     /**
      * Network discount fee for American Express. String type represents dollars with up to 9 decimal place precision.
      *
-     * @var ?string $discount
+     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimal $discount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('discount')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $discount = null;
+    public ?AmountDecimal $discount = null;
 
     /**
-     * @param  string  $moovProcessing
-     * @param  ?string  $cardScheme
-     * @param  ?string  $interchange
-     * @param  ?string  $discount
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $moovProcessing
+     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimal  $cardScheme
+     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimal  $interchange
+     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimal  $discount
      * @phpstan-pure
      */
-    public function __construct(string $moovProcessing, ?string $cardScheme = null, ?string $interchange = null, ?string $discount = null)
+    public function __construct(AmountDecimal $moovProcessing, ?AmountDecimal $cardScheme = null, ?AmountDecimal $interchange = null, ?AmountDecimal $discount = null)
     {
         $this->moovProcessing = $moovProcessing;
         $this->cardScheme = $cardScheme;

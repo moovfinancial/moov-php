@@ -6,14 +6,14 @@
 
 * [get](#get) - Fetch enriched profile data. Requires a valid email address. This service is offered in collaboration with Clearbit. 
 
-To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
 you'll need to specify the `/profile-enrichment.read` scope.
 
 ## get
 
 Fetch enriched profile data. Requires a valid email address. This service is offered in collaboration with Clearbit. 
 
-To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
 you'll need to specify the `/profile-enrichment.read` scope.
 
 ### Example Usage

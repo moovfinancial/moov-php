@@ -31,21 +31,21 @@ class CreateTransfer
 
     /**
      *
-     * @var \Moov\MoovPhp\Models\Components\Amount $amount
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $amount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Amount')]
-    public Amount $amount;
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
+    public AmountDecimal $amount;
 
     /**
-     * Total or markup fee.
+     * Total or markup fee to apply when creating a transfer.
      *
-     * @var ?\Moov\MoovPhp\Models\Components\FacilitatorFee $facilitatorFee
+     * @var ?\Moov\MoovPhp\Models\Components\CreateTransferFacilitatorFee $facilitatorFee
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('facilitatorFee')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\FacilitatorFee|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateTransferFacilitatorFee|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?FacilitatorFee $facilitatorFee = null;
+    public ?CreateTransferFacilitatorFee $facilitatorFee = null;
 
     /**
      * An optional description of the transfer that is used on receipts and for your own internal use.
@@ -109,8 +109,8 @@ class CreateTransfer
     /**
      * @param  \Moov\MoovPhp\Models\Components\CreateTransferSource  $source
      * @param  \Moov\MoovPhp\Models\Components\CreateTransferDestination  $destination
-     * @param  \Moov\MoovPhp\Models\Components\Amount  $amount
-     * @param  ?\Moov\MoovPhp\Models\Components\FacilitatorFee  $facilitatorFee
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $amount
+     * @param  ?\Moov\MoovPhp\Models\Components\CreateTransferFacilitatorFee  $facilitatorFee
      * @param  ?string  $description
      * @param  ?array<string, string>  $metadata
      * @param  ?string  $foreignID
@@ -119,7 +119,7 @@ class CreateTransfer
      * @param  ?\Moov\MoovPhp\Models\Components\TransferFeePaidBy  $feePaidBy
      * @phpstan-pure
      */
-    public function __construct(CreateTransferSource $source, CreateTransferDestination $destination, Amount $amount, ?FacilitatorFee $facilitatorFee = null, ?string $description = null, ?array $metadata = null, ?string $foreignID = null, ?CreateTransferLineItems $lineItems = null, ?CreateTransferAmountDetails $amountDetails = null, ?TransferFeePaidBy $feePaidBy = null)
+    public function __construct(CreateTransferSource $source, CreateTransferDestination $destination, AmountDecimal $amount, ?CreateTransferFacilitatorFee $facilitatorFee = null, ?string $description = null, ?array $metadata = null, ?string $foreignID = null, ?CreateTransferLineItems $lineItems = null, ?CreateTransferAmountDetails $amountDetails = null, ?TransferFeePaidBy $feePaidBy = null)
     {
         $this->source = $source;
         $this->destination = $destination;

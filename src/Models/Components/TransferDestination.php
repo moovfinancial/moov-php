@@ -13,27 +13,30 @@ class TransferDestination
 {
     /**
      *
-     * @var string $paymentMethodID
+     * @var ?string $paymentMethodID
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('paymentMethodID')]
-    public string $paymentMethodID;
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $paymentMethodID = null;
 
     /**
      * The payment method type that represents a payment rail and directionality
      *
-     * @var \Moov\MoovPhp\Models\Components\TransferPaymentMethodType $paymentMethodType
+     * @var ?\Moov\MoovPhp\Models\Components\TransferPaymentMethodType $paymentMethodType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('paymentMethodType')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferPaymentMethodType')]
-    public TransferPaymentMethodType $paymentMethodType;
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferPaymentMethodType|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?TransferPaymentMethodType $paymentMethodType = null;
 
     /**
      *
-     * @var \Moov\MoovPhp\Models\Components\TransferAccount $account
+     * @var ?\Moov\MoovPhp\Models\Components\TransferAccount $account
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('account')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferAccount')]
-    public TransferAccount $account;
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferAccount|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?TransferAccount $account = null;
 
     /**
      * A bank account as contained within a payment method.
@@ -65,16 +68,6 @@ class TransferDestination
     public ?TransferPaymentMethodsCard $card = null;
 
     /**
-     * ACH specific details about the transaction.
-     *
-     * @var ?\Moov\MoovPhp\Models\Components\ACHTransactionDetails $achDetails
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('achDetails')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ACHTransactionDetails|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?ACHTransactionDetails $achDetails = null;
-
-    /**
      * Describes an Apple Pay token on a Moov account.
      *
      * @var ?\Moov\MoovPhp\Models\Components\ApplePayResponse $applePay
@@ -95,40 +88,17 @@ class TransferDestination
     public ?GooglePayResponse $googlePay = null;
 
     /**
-     * Card-specific details about the transaction.
-     *
-     * @var ?\Moov\MoovPhp\Models\Components\CardTransactionDetails $cardDetails
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('cardDetails')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardTransactionDetails|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?CardTransactionDetails $cardDetails = null;
-
-    /**
-     * Instant-bank specific details about the transaction.
-     *
-     * @var ?\Moov\MoovPhp\Models\Components\InstantBankTransactionDetails $instantBankDetails
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('instantBankDetails')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\InstantBankTransactionDetails|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?InstantBankTransactionDetails $instantBankDetails = null;
-
-    /**
-     * @param  string  $paymentMethodID
-     * @param  \Moov\MoovPhp\Models\Components\TransferPaymentMethodType  $paymentMethodType
-     * @param  \Moov\MoovPhp\Models\Components\TransferAccount  $account
+     * @param  ?string  $paymentMethodID
+     * @param  ?\Moov\MoovPhp\Models\Components\TransferPaymentMethodType  $paymentMethodType
+     * @param  ?\Moov\MoovPhp\Models\Components\TransferAccount  $account
      * @param  ?\Moov\MoovPhp\Models\Components\TransferPaymentMethodsBankAccount  $bankAccount
      * @param  ?\Moov\MoovPhp\Models\Components\TransferPaymentMethodsWallet  $wallet
      * @param  ?\Moov\MoovPhp\Models\Components\TransferPaymentMethodsCard  $card
-     * @param  ?\Moov\MoovPhp\Models\Components\ACHTransactionDetails  $achDetails
      * @param  ?\Moov\MoovPhp\Models\Components\ApplePayResponse  $applePay
      * @param  ?\Moov\MoovPhp\Models\Components\GooglePayResponse  $googlePay
-     * @param  ?\Moov\MoovPhp\Models\Components\CardTransactionDetails  $cardDetails
-     * @param  ?\Moov\MoovPhp\Models\Components\InstantBankTransactionDetails  $instantBankDetails
      * @phpstan-pure
      */
-    public function __construct(string $paymentMethodID, TransferPaymentMethodType $paymentMethodType, TransferAccount $account, ?TransferPaymentMethodsBankAccount $bankAccount = null, ?TransferPaymentMethodsWallet $wallet = null, ?TransferPaymentMethodsCard $card = null, ?ACHTransactionDetails $achDetails = null, ?ApplePayResponse $applePay = null, ?GooglePayResponse $googlePay = null, ?CardTransactionDetails $cardDetails = null, ?InstantBankTransactionDetails $instantBankDetails = null)
+    public function __construct(?string $paymentMethodID = null, ?TransferPaymentMethodType $paymentMethodType = null, ?TransferAccount $account = null, ?TransferPaymentMethodsBankAccount $bankAccount = null, ?TransferPaymentMethodsWallet $wallet = null, ?TransferPaymentMethodsCard $card = null, ?ApplePayResponse $applePay = null, ?GooglePayResponse $googlePay = null)
     {
         $this->paymentMethodID = $paymentMethodID;
         $this->paymentMethodType = $paymentMethodType;
@@ -136,10 +106,7 @@ class TransferDestination
         $this->bankAccount = $bankAccount;
         $this->wallet = $wallet;
         $this->card = $card;
-        $this->achDetails = $achDetails;
         $this->applePay = $applePay;
         $this->googlePay = $googlePay;
-        $this->cardDetails = $cardDetails;
-        $this->instantBankDetails = $instantBankDetails;
     }
 }

@@ -13,18 +13,28 @@ namespace Moov\MoovPhp\Models\Components;
  * CreateRefund - Specifies a partial amount to refund. 
  *
  *
- * This request body is optional, an empty body will issue a refund for the full amount of the original transfer.
+ * Before v2026.10, this request body may be omitted. In v2026.10 and later, send an empty object to refund the full amount of the original transfer.
  */
 class CreateRefund
 {
     /**
-     * Amount to refund in cents. If null, the original transfer's full amount will be refunded.
+     * Amount to refund. Before v2026.10, specify the amount in integer cents. If omitted, the original transfer's full amount will be refunded.
      *
-     * @var ?int $amount
+     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimal $amount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?int $amount = null;
+    public ?AmountDecimal $amount = null;
+
+    /**
+     * ID of the capture to refund. Required for multi-capture card payment transfers.
+     *
+     * @var ?string $captureID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('captureID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $captureID = null;
 
     /**
      * Breakdown of the refunded amount.
@@ -37,13 +47,15 @@ class CreateRefund
     public ?RefundAmountDetails $amountDetails = null;
 
     /**
-     * @param  ?int  $amount
+     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimal  $amount
+     * @param  ?string  $captureID
      * @param  ?\Moov\MoovPhp\Models\Components\RefundAmountDetails  $amountDetails
      * @phpstan-pure
      */
-    public function __construct(?int $amount = null, ?RefundAmountDetails $amountDetails = null)
+    public function __construct(?AmountDecimal $amount = null, ?string $captureID = null, ?RefundAmountDetails $amountDetails = null)
     {
         $this->amount = $amount;
+        $this->captureID = $captureID;
         $this->amountDetails = $amountDetails;
     }
 }

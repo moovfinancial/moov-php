@@ -44,11 +44,28 @@ class CardAcquiringRefund
 
     /**
      *
-     * @var \Moov\MoovPhp\Models\Components\Amount $amount
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $amount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Amount')]
-    public Amount $amount;
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
+    public AmountDecimal $amount;
+
+    /**
+     *
+     * @var \Moov\MoovPhp\Models\Components\RefundProcessingDetails $processingDetails
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('processingDetails')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RefundProcessingDetails')]
+    public RefundProcessingDetails $processingDetails;
+
+    /**
+     * ID of the capture this refund applies to, when applicable.
+     *
+     * @var ?string $captureID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('captureID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $captureID = null;
 
     /**
      *
@@ -60,32 +77,25 @@ class CardAcquiringRefund
     public ?RefundAmountDetails $amountDetails = null;
 
     /**
-     *
-     * @var ?\Moov\MoovPhp\Models\Components\RefundCardDetails $cardDetails
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('cardDetails')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RefundCardDetails|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?RefundCardDetails $cardDetails = null;
-
-    /**
      * @param  string  $refundID
      * @param  \DateTime  $createdOn
      * @param  \DateTime  $updatedOn
      * @param  \Moov\MoovPhp\Models\Components\RefundStatus  $status
-     * @param  \Moov\MoovPhp\Models\Components\Amount  $amount
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $amount
+     * @param  \Moov\MoovPhp\Models\Components\RefundProcessingDetails  $processingDetails
+     * @param  ?string  $captureID
      * @param  ?\Moov\MoovPhp\Models\Components\RefundAmountDetails  $amountDetails
-     * @param  ?\Moov\MoovPhp\Models\Components\RefundCardDetails  $cardDetails
      * @phpstan-pure
      */
-    public function __construct(string $refundID, \DateTime $createdOn, \DateTime $updatedOn, RefundStatus $status, Amount $amount, ?RefundAmountDetails $amountDetails = null, ?RefundCardDetails $cardDetails = null)
+    public function __construct(string $refundID, \DateTime $createdOn, \DateTime $updatedOn, RefundStatus $status, AmountDecimal $amount, RefundProcessingDetails $processingDetails, ?string $captureID = null, ?RefundAmountDetails $amountDetails = null)
     {
         $this->refundID = $refundID;
         $this->createdOn = $createdOn;
         $this->updatedOn = $updatedOn;
         $this->status = $status;
         $this->amount = $amount;
+        $this->processingDetails = $processingDetails;
+        $this->captureID = $captureID;
         $this->amountDetails = $amountDetails;
-        $this->cardDetails = $cardDetails;
     }
 }

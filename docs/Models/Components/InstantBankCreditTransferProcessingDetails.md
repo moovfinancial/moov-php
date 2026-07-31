@@ -1,0 +1,11 @@
+# InstantBankCreditTransferProcessingDetails
+
+
+## Fields
+
+| Field                                                                                   | Type                                                                                    | Required                                                                                | Description                                                                             |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `network`                                                                               | [Components\InstantBankNetwork](../../Models/Components/InstantBankNetwork.md)          | :heavy_check_mark:                                                                      | The network that the transaction was processed on.                                      |
+| `networkResponseCode`                                                                   | *?string*                                                                               | :heavy_minus_sign:                                                                      | N/A                                                                                     |
+| `failureCode`                                                                           | [?Components\InstantBankFailureCode](../../Models/Components/InstantBankFailureCode.md) | :heavy_minus_sign:                                                                      | Status codes for instant-bank failures.                                                 |
+| `endToEndID`                                                                            | *?string*                                                                               | :heavy_minus_sign:                                                                      | N/A                                                                                     |

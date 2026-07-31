@@ -48,17 +48,28 @@ class SendFundsError
     public ?SendFundsInstantBankError $instantBank = null;
 
     /**
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\SendFundsWireError $wire
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('wire')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\SendFundsWireError|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?SendFundsWireError $wire = null;
+
+    /**
      * @param  ?\Moov\MoovPhp\Models\Components\SendFundsAchError  $ach
      * @param  ?\Moov\MoovPhp\Models\Components\SendFundsPushToCardError  $pushToCard
      * @param  ?\Moov\MoovPhp\Models\Components\SendFundsRtpError  $rtp
      * @param  ?\Moov\MoovPhp\Models\Components\SendFundsInstantBankError  $instantBank
+     * @param  ?\Moov\MoovPhp\Models\Components\SendFundsWireError  $wire
      * @phpstan-pure
      */
-    public function __construct(?SendFundsAchError $ach = null, ?SendFundsPushToCardError $pushToCard = null, ?SendFundsRtpError $rtp = null, ?SendFundsInstantBankError $instantBank = null)
+    public function __construct(?SendFundsAchError $ach = null, ?SendFundsPushToCardError $pushToCard = null, ?SendFundsRtpError $rtp = null, ?SendFundsInstantBankError $instantBank = null, ?SendFundsWireError $wire = null)
     {
         $this->ach = $ach;
         $this->pushToCard = $pushToCard;
         $this->rtp = $rtp;
         $this->instantBank = $instantBank;
+        $this->wire = $wire;
     }
 }

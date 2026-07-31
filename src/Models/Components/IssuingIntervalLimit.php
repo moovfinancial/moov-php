@@ -13,4 +13,7 @@ namespace Moov\MoovPhp\Models\Components;
 enum IssuingIntervalLimit: string
 {
     case PerTransaction = 'per-transaction';
+    case Daily = 'daily';
+    case Weekly = 'weekly';
+    case Monthly = 'monthly';
 }

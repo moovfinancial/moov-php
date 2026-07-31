@@ -1,0 +1,13 @@
+# MerchantCategoryRestrictions
+
+Restricts card usage by merchant category.
+
+
+## Fields
+
+| Field                                                                                                        | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `mode`                                                                                                       | [Components\IssuingControlsRestrictionMode](../../Models/Components/IssuingControlsRestrictionMode.md)       | :heavy_check_mark:                                                                                           | Whether the listed categories are the only ones allowed, or the ones to block.                               |
+| `categories`                                                                                                 | array<[Components\IssuingMerchantCategory](../../Models/Components/IssuingMerchantCategory.md)>              | :heavy_minus_sign:                                                                                           | Predefined category groups to allow or block.                                                                |
+| `customMCCs`                                                                                                 | array<*string*>                                                                                              | :heavy_minus_sign:                                                                                           | Individual merchant category codes (MCCs) to allow or block, for codes not covered by a predefined category. |
+| `exemptMerchants`                                                                                            | array<[Components\MerchantEntry](../../Models/Components/MerchantEntry.md)>                                  | :heavy_minus_sign:                                                                                           | Merchants that are exempt from category restrictions regardless of their category.                           |
