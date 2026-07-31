@@ -8,3 +8,6 @@ Specifies the time frame for a velocity limit. `per-transaction` applies to each
 | Name             | Value            |
 | ---------------- | ---------------- |
 | `PerTransaction` | per-transaction  |
+| `Daily`          | daily            |
+| `Weekly`         | weekly           |
+| `Monthly`        | monthly          |

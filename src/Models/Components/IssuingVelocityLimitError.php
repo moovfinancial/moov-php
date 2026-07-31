@@ -21,6 +21,14 @@ class IssuingVelocityLimitError
 
     /**
      *
+     * @var ?string $count
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('count')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $count = null;
+
+    /**
+     *
      * @var ?string $interval
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('interval')]
@@ -29,12 +37,14 @@ class IssuingVelocityLimitError
 
     /**
      * @param  ?string  $amount
+     * @param  ?string  $count
      * @param  ?string  $interval
      * @phpstan-pure
      */
-    public function __construct(?string $amount = null, ?string $interval = null)
+    public function __construct(?string $amount = null, ?string $count = null, ?string $interval = null)
     {
         $this->amount = $amount;
+        $this->count = $count;
         $this->interval = $interval;
     }
 }

@@ -48,17 +48,28 @@ class SendFunds
     public ?SendFundsInstantBank $instantBank = null;
 
     /**
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\SendFundsWire $wire
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('wire')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\SendFundsWire|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?SendFundsWire $wire = null;
+
+    /**
      * @param  ?\Moov\MoovPhp\Models\Components\SendFundsAch  $ach
      * @param  ?\Moov\MoovPhp\Models\Components\SendFundsPushToCard  $pushToCard
      * @param  ?\Moov\MoovPhp\Models\Components\SendFundsRtp  $rtp
      * @param  ?\Moov\MoovPhp\Models\Components\SendFundsInstantBank  $instantBank
+     * @param  ?\Moov\MoovPhp\Models\Components\SendFundsWire  $wire
      * @phpstan-pure
      */
-    public function __construct(?SendFundsAch $ach = null, ?SendFundsPushToCard $pushToCard = null, ?SendFundsRtp $rtp = null, ?SendFundsInstantBank $instantBank = null)
+    public function __construct(?SendFundsAch $ach = null, ?SendFundsPushToCard $pushToCard = null, ?SendFundsRtp $rtp = null, ?SendFundsInstantBank $instantBank = null, ?SendFundsWire $wire = null)
     {
         $this->ach = $ach;
         $this->pushToCard = $pushToCard;
         $this->rtp = $rtp;
         $this->instantBank = $instantBank;
+        $this->wire = $wire;
     }
 }

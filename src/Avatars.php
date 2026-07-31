@@ -53,7 +53,7 @@ class Avatars
      *
      * This endpoint only accepts accountID values for the uniqueID parameter.
      *
-     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
      * you'll need to specify the `/accounts.write` scope.
      *
      * @param  \Moov\MoovPhp\Models\Operations\DeleteAvatarSecurity  $security
@@ -132,7 +132,7 @@ class Avatars
     /**
      * Get avatar image for an account using a unique ID.    
      *
-     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
      * you'll need to specify the `/profile-enrichment.read` scope.
      *
      * @param  string  $uniqueID
@@ -200,12 +200,12 @@ class Avatars
     /**
      * Upload a user avatar image for an account.
      *
-     * The image will be normalized to 512x512 PNG format and stored separately from 
+     * The image will be normalized to 512x512 PNG format and stored separately from
      * automatically discovered logos. User-uploaded avatars take precedence over enriched avatars at read time.
      *
      * This endpoint only accepts accountID values for the uniqueID parameter.
      *
-     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+     * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
      * you'll need to specify the `/accounts.write` scope.
      *
      * @param  \Moov\MoovPhp\Models\Operations\UploadAvatarSecurity  $security

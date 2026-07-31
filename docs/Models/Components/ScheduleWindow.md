@@ -1,0 +1,12 @@
+# ScheduleWindow
+
+A window of time during which the card may authorize.
+
+
+## Fields
+
+| Field                                                                                                             | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
+| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `days`                                                                                                            | array<[Components\IssuingScheduleDay](../../Models/Components/IssuingScheduleDay.md)>                             | :heavy_check_mark:                                                                                                | The days of the week this window applies to.                                                                      |
+| `startTime`                                                                                                       | *string*                                                                                                          | :heavy_check_mark:                                                                                                | Inclusive window start time in 24-hour `HH:MM` format.                                                            |
+| `endTime`                                                                                                         | *string*                                                                                                          | :heavy_check_mark:                                                                                                | Exclusive window end time in 24-hour `HH:MM` format. If earlier than `startTime`, the window wraps past midnight. |

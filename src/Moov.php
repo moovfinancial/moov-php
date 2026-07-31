@@ -99,11 +99,11 @@ class Moov
 
     public Institutions $institutions;
 
+    public CardIssuing $cardIssuing;
+
     public IssuingTransactions $issuingTransactions;
 
     public Transactions $transactions;
-
-    public CardIssuing $cardIssuing;
 
     public Authentication $authentication;
 
@@ -171,9 +171,9 @@ class Moov
         $this->webhooks = new Webhooks($this->sdkConfiguration);
         $this->industries = new Industries($this->sdkConfiguration);
         $this->institutions = new Institutions($this->sdkConfiguration);
+        $this->cardIssuing = new CardIssuing($this->sdkConfiguration);
         $this->issuingTransactions = new IssuingTransactions($this->sdkConfiguration);
         $this->transactions = new Transactions($this->sdkConfiguration);
-        $this->cardIssuing = new CardIssuing($this->sdkConfiguration);
         $this->authentication = new Authentication($this->sdkConfiguration);
         $this->onboardingInvites = new OnboardingInvites($this->sdkConfiguration);
         $this->onboarding = new Onboarding($this->sdkConfiguration);
