@@ -33,6 +33,9 @@ enum WebhookDataTransferStatus: string
     case DestinationReturned = 'destination.returned';
     case DestinationOriginated = 'destination.originated';
     case DestinationConfirmed = 'destination.confirmed';
+    case DestinationSettled = 'destination.settled';
     case DestinationFailed = 'destination.failed';
+    case DestinationCanceled = 'destination.canceled';
     case DestinationAcceptedWithoutPosting = 'destination.accepted-without-posting';
+    case DestinationDeferred = 'destination.deferred';
 }
