@@ -37,6 +37,13 @@ class InitiateRefundRequest
     public string $transferID;
 
     /**
+     *
+     * @var \Moov\MoovPhp\Models\Components\CreateRefund $createRefund
+     */
+    #[SpeakeasyMetadata('request:mediaType=application/json')]
+    public Components\CreateRefund $createRefund;
+
+    /**
      * Optional header that indicates whether to return a synchronous response that includes full transfer and rail-specific details or an 
      *
      * asynchronous response indicating the transfer was created (this is the default response if the header is omitted). A timeout will occur after 15 seconds.
@@ -47,26 +54,19 @@ class InitiateRefundRequest
     public ?Components\TransferWaitFor $xWaitFor = null;
 
     /**
-     *
-     * @var ?\Moov\MoovPhp\Models\Components\CreateRefund $createRefund
-     */
-    #[SpeakeasyMetadata('request:mediaType=application/json')]
-    public ?Components\CreateRefund $createRefund = null;
-
-    /**
      * @param  string  $xIdempotencyKey
      * @param  string  $accountID
      * @param  string  $transferID
+     * @param  \Moov\MoovPhp\Models\Components\CreateRefund  $createRefund
      * @param  ?\Moov\MoovPhp\Models\Components\TransferWaitFor  $xWaitFor
-     * @param  ?\Moov\MoovPhp\Models\Components\CreateRefund  $createRefund
      * @phpstan-pure
      */
-    public function __construct(string $xIdempotencyKey, string $accountID, string $transferID, ?Components\TransferWaitFor $xWaitFor = null, ?Components\CreateRefund $createRefund = null)
+    public function __construct(string $xIdempotencyKey, string $accountID, string $transferID, Components\CreateRefund $createRefund, ?Components\TransferWaitFor $xWaitFor = null)
     {
         $this->xIdempotencyKey = $xIdempotencyKey;
         $this->accountID = $accountID;
         $this->transferID = $transferID;
-        $this->xWaitFor = $xWaitFor;
         $this->createRefund = $createRefund;
+        $this->xWaitFor = $xWaitFor;
     }
 }

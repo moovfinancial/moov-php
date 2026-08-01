@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Moov\MoovPhp\Models\Operations;
 
+use Moov\MoovPhp\Models\Components;
 use Moov\MoovPhp\Utils\SpeakeasyMetadata;
 class CreateCancellationRequest
 {
@@ -28,13 +29,22 @@ class CreateCancellationRequest
     public string $transferID;
 
     /**
+     *
+     * @var \Moov\MoovPhp\Models\Components\CreateCancellation $createCancellation
+     */
+    #[SpeakeasyMetadata('request:mediaType=application/json')]
+    public Components\CreateCancellation $createCancellation;
+
+    /**
      * @param  string  $accountID
      * @param  string  $transferID
+     * @param  \Moov\MoovPhp\Models\Components\CreateCancellation  $createCancellation
      * @phpstan-pure
      */
-    public function __construct(string $accountID, string $transferID)
+    public function __construct(string $accountID, string $transferID, Components\CreateCancellation $createCancellation)
     {
         $this->accountID = $accountID;
         $this->transferID = $transferID;
+        $this->createCancellation = $createCancellation;
     }
 }

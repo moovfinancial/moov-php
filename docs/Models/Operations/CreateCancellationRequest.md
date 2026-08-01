@@ -3,7 +3,8 @@
 
 ## Fields
 
-| Field                          | Type                           | Required                       | Description                    |
-| ------------------------------ | ------------------------------ | ------------------------------ | ------------------------------ |
-| `accountID`                    | *string*                       | :heavy_check_mark:             | The partner's Moov account ID. |
-| `transferID`                   | *string*                       | :heavy_check_mark:             | The transfer ID to cancel.     |
+| Field                                                                          | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `accountID`                                                                    | *string*                                                                       | :heavy_check_mark:                                                             | The partner's Moov account ID.                                                 |
+| `transferID`                                                                   | *string*                                                                       | :heavy_check_mark:                                                             | The transfer ID to cancel.                                                     |
+| `createCancellation`                                                           | [Components\CreateCancellation](../../Models/Components/CreateCancellation.md) | :heavy_check_mark:                                                             | N/A                                                                            |

@@ -12,30 +12,6 @@ namespace Moov\MoovPhp\Models\Components;
 class TransferSource
 {
     /**
-     *
-     * @var string $paymentMethodID
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('paymentMethodID')]
-    public string $paymentMethodID;
-
-    /**
-     * The payment method type that represents a payment rail and directionality
-     *
-     * @var \Moov\MoovPhp\Models\Components\TransferPaymentMethodType $paymentMethodType
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('paymentMethodType')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferPaymentMethodType')]
-    public TransferPaymentMethodType $paymentMethodType;
-
-    /**
-     *
-     * @var \Moov\MoovPhp\Models\Components\TransferAccount $account
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('account')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferAccount')]
-    public TransferAccount $account;
-
-    /**
      * String present only if the transfer is part of a transfer group.
      *
      * @var ?string $transferID
@@ -43,6 +19,33 @@ class TransferSource
     #[\Speakeasy\Serializer\Annotation\SerializedName('transferID')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $transferID = null;
+
+    /**
+     *
+     * @var ?string $paymentMethodID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('paymentMethodID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $paymentMethodID = null;
+
+    /**
+     * The payment method type that represents a payment rail and directionality
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\TransferPaymentMethodType $paymentMethodType
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('paymentMethodType')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferPaymentMethodType|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?TransferPaymentMethodType $paymentMethodType = null;
+
+    /**
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\TransferAccount $account
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('account')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferAccount|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?TransferAccount $account = null;
 
     /**
      * A bank account as contained within a payment method.
@@ -104,53 +107,29 @@ class TransferSource
     public ?TransferTerminalCard $terminalCard = null;
 
     /**
-     * Card-specific details about the transaction.
-     *
-     * @var ?\Moov\MoovPhp\Models\Components\CardTransactionDetails $cardDetails
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('cardDetails')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardTransactionDetails|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?CardTransactionDetails $cardDetails = null;
-
-    /**
-     * ACH specific details about the transaction.
-     *
-     * @var ?\Moov\MoovPhp\Models\Components\ACHTransactionDetails $achDetails
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('achDetails')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ACHTransactionDetails|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?ACHTransactionDetails $achDetails = null;
-
-    /**
-     * @param  string  $paymentMethodID
-     * @param  \Moov\MoovPhp\Models\Components\TransferPaymentMethodType  $paymentMethodType
-     * @param  \Moov\MoovPhp\Models\Components\TransferAccount  $account
      * @param  ?string  $transferID
+     * @param  ?string  $paymentMethodID
+     * @param  ?\Moov\MoovPhp\Models\Components\TransferPaymentMethodType  $paymentMethodType
+     * @param  ?\Moov\MoovPhp\Models\Components\TransferAccount  $account
      * @param  ?\Moov\MoovPhp\Models\Components\TransferPaymentMethodsBankAccount  $bankAccount
      * @param  ?\Moov\MoovPhp\Models\Components\TransferPaymentMethodsWallet  $wallet
      * @param  ?\Moov\MoovPhp\Models\Components\TransferPaymentMethodsCard  $card
      * @param  ?\Moov\MoovPhp\Models\Components\ApplePayResponse  $applePay
      * @param  ?\Moov\MoovPhp\Models\Components\GooglePayResponse  $googlePay
      * @param  ?\Moov\MoovPhp\Models\Components\TransferTerminalCard  $terminalCard
-     * @param  ?\Moov\MoovPhp\Models\Components\CardTransactionDetails  $cardDetails
-     * @param  ?\Moov\MoovPhp\Models\Components\ACHTransactionDetails  $achDetails
      * @phpstan-pure
      */
-    public function __construct(string $paymentMethodID, TransferPaymentMethodType $paymentMethodType, TransferAccount $account, ?string $transferID = null, ?TransferPaymentMethodsBankAccount $bankAccount = null, ?TransferPaymentMethodsWallet $wallet = null, ?TransferPaymentMethodsCard $card = null, ?ApplePayResponse $applePay = null, ?GooglePayResponse $googlePay = null, ?TransferTerminalCard $terminalCard = null, ?CardTransactionDetails $cardDetails = null, ?ACHTransactionDetails $achDetails = null)
+    public function __construct(?string $transferID = null, ?string $paymentMethodID = null, ?TransferPaymentMethodType $paymentMethodType = null, ?TransferAccount $account = null, ?TransferPaymentMethodsBankAccount $bankAccount = null, ?TransferPaymentMethodsWallet $wallet = null, ?TransferPaymentMethodsCard $card = null, ?ApplePayResponse $applePay = null, ?GooglePayResponse $googlePay = null, ?TransferTerminalCard $terminalCard = null)
     {
+        $this->transferID = $transferID;
         $this->paymentMethodID = $paymentMethodID;
         $this->paymentMethodType = $paymentMethodType;
         $this->account = $account;
-        $this->transferID = $transferID;
         $this->bankAccount = $bankAccount;
         $this->wallet = $wallet;
         $this->card = $card;
         $this->applePay = $applePay;
         $this->googlePay = $googlePay;
         $this->terminalCard = $terminalCard;
-        $this->cardDetails = $cardDetails;
-        $this->achDetails = $achDetails;
     }
 }

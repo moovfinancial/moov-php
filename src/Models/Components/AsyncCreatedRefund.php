@@ -28,11 +28,20 @@ class AsyncCreatedRefund
 
     /**
      *
-     * @var \Moov\MoovPhp\Models\Components\Amount $amount
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $amount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Amount')]
-    public Amount $amount;
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
+    public AmountDecimal $amount;
+
+    /**
+     * ID of the capture this refund applies to, when applicable.
+     *
+     * @var ?string $captureID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('captureID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $captureID = null;
 
     /**
      *
@@ -46,15 +55,17 @@ class AsyncCreatedRefund
     /**
      * @param  string  $refundID
      * @param  \DateTime  $createdOn
-     * @param  \Moov\MoovPhp\Models\Components\Amount  $amount
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $amount
+     * @param  ?string  $captureID
      * @param  ?\Moov\MoovPhp\Models\Components\RefundAmountDetails  $amountDetails
      * @phpstan-pure
      */
-    public function __construct(string $refundID, \DateTime $createdOn, Amount $amount, ?RefundAmountDetails $amountDetails = null)
+    public function __construct(string $refundID, \DateTime $createdOn, AmountDecimal $amount, ?string $captureID = null, ?RefundAmountDetails $amountDetails = null)
     {
         $this->refundID = $refundID;
         $this->createdOn = $createdOn;
         $this->amount = $amount;
+        $this->captureID = $captureID;
         $this->amountDetails = $amountDetails;
     }
 }

@@ -12,12 +12,13 @@ namespace Moov\MoovPhp\Models\Components;
 class CreateReversal
 {
     /**
-     * Amount to reverse in cents. Partial amounts will automatically trigger a refund instead of a cancellation.
+     * Amount to reverse. Before v2026.10, specify the amount in integer cents. Partial amounts automatically trigger a refund instead of a cancellation.
      *
-     * @var int $amount
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $amount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
-    public int $amount;
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
+    public AmountDecimal $amount;
 
     /**
      * Breakdown of the reversed amount.
@@ -30,11 +31,11 @@ class CreateReversal
     public ?ReversalAmountDetails $amountDetails = null;
 
     /**
-     * @param  int  $amount
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $amount
      * @param  ?\Moov\MoovPhp\Models\Components\ReversalAmountDetails  $amountDetails
      * @phpstan-pure
      */
-    public function __construct(int $amount, ?ReversalAmountDetails $amountDetails = null)
+    public function __construct(AmountDecimal $amount, ?ReversalAmountDetails $amountDetails = null)
     {
         $this->amount = $amount;
         $this->amountDetails = $amountDetails;

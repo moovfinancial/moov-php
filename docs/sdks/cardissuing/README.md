@@ -4,6 +4,12 @@
 
 ### Available Operations
 
+* [listMerchantCategories](#listmerchantcategories) - List the predefined merchant category groups available for issued card spend controls, along with
+the merchant category codes (MCCs) each group covers. Use these category names in an issued card's
+`merchantCategoryRestrictions`.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/),
+you'll need to specify the `/issued-cards.read` scope.
 * [request](#request) - Request a virtual card be issued.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
@@ -26,6 +32,56 @@ Only use this endpoint if you have provided Moov with a copy of your PCI attesta
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/issued-cards.read-secure` scope.
+
+## listMerchantCategories
+
+List the predefined merchant category groups available for issued card spend controls, along with
+the merchant category codes (MCCs) each group covers. Use these category names in an issued card's
+`merchantCategoryRestrictions`.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/),
+you'll need to specify the `/issued-cards.read` scope.
+
+### Example Usage
+
+<!-- UsageSnippet language="php" operationID="listIssuingMerchantCategories" method="get" path="/issuing/merchant-categories" -->
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
+
+$sdk = MoovPhp\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
+
+
+
+$response = $sdk->cardIssuing->listMerchantCategories(
+
+);
+
+if ($response->merchantCategories !== null) {
+    // handle response
+}
+```
+
+### Response
+
+**[?Operations\ListIssuingMerchantCategoriesResponse](../../Models/Operations/ListIssuingMerchantCategoriesResponse.md)**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| Errors\APIException | 4XX, 5XX            | \*/\*               |
 
 ## request
 

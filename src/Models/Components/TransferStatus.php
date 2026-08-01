@@ -18,5 +18,6 @@ enum TransferStatus: string
     case Failed = 'failed';
     case Reversed = 'reversed';
     case Queued = 'queued';
+    case AwaitingCapture = 'awaiting-capture';
     case Canceled = 'canceled';
 }

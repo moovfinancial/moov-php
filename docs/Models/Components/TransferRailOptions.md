@@ -1,0 +1,12 @@
+# TransferRailOptions
+
+
+## Fields
+
+| Field                                                                             | Type                                                                              | Required                                                                          | Description                                                                       |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `cardPayment`                                                                     | [?Components\CardPaymentOptions](../../Models/Components/CardPaymentOptions.md)   | :heavy_minus_sign:                                                                | N/A                                                                               |
+| `pushToCard`                                                                      | [?Components\PushToCardOptions](../../Models/Components/PushToCardOptions.md)     | :heavy_minus_sign:                                                                | N/A                                                                               |
+| `pullFromCard`                                                                    | [?Components\PullFromCardOptions](../../Models/Components/PullFromCardOptions.md) | :heavy_minus_sign:                                                                | N/A                                                                               |
+| `achDebit`                                                                        | [?Components\ACHDebitOptions](../../Models/Components/ACHDebitOptions.md)         | :heavy_minus_sign:                                                                | N/A                                                                               |
+| `achCredit`                                                                       | [?Components\ACHCreditOptions](../../Models/Components/ACHCreditOptions.md)       | :heavy_minus_sign:                                                                | N/A                                                                               |

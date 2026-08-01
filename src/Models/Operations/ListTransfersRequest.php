@@ -116,6 +116,14 @@ class ListTransfersRequest
     public ?array $captureIDs = null;
 
     /**
+     * Optional, comma-separated transfer types by which the response is filtered.
+     *
+     * @var ?array<\Moov\MoovPhp\Models\Components\TransferType> $transferTypes
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=transferTypes')]
+    public ?array $transferTypes = null;
+
+    /**
      *
      * @var ?int $skip
      */
@@ -143,11 +151,12 @@ class ListTransfersRequest
      * @param  ?string  $foreignID
      * @param  ?array<string>  $authorizationIDs
      * @param  ?array<string>  $captureIDs
+     * @param  ?array<\Moov\MoovPhp\Models\Components\TransferType>  $transferTypes
      * @param  ?int  $skip
      * @param  ?int  $count
      * @phpstan-pure
      */
-    public function __construct(string $accountID, ?array $accountIDs = null, ?Components\TransferStatus $status = null, ?\DateTime $startDateTime = null, ?\DateTime $endDateTime = null, ?string $groupID = null, ?string $scheduleID = null, ?string $paymentLinkCode = null, ?bool $refunded = null, ?bool $disputed = null, ?string $foreignID = null, ?array $authorizationIDs = null, ?array $captureIDs = null, ?int $skip = null, ?int $count = null)
+    public function __construct(string $accountID, ?array $accountIDs = null, ?Components\TransferStatus $status = null, ?\DateTime $startDateTime = null, ?\DateTime $endDateTime = null, ?string $groupID = null, ?string $scheduleID = null, ?string $paymentLinkCode = null, ?bool $refunded = null, ?bool $disputed = null, ?string $foreignID = null, ?array $authorizationIDs = null, ?array $captureIDs = null, ?array $transferTypes = null, ?int $skip = null, ?int $count = null)
     {
         $this->accountID = $accountID;
         $this->accountIDs = $accountIDs;
@@ -162,6 +171,7 @@ class ListTransfersRequest
         $this->foreignID = $foreignID;
         $this->authorizationIDs = $authorizationIDs;
         $this->captureIDs = $captureIDs;
+        $this->transferTypes = $transferTypes;
         $this->skip = $skip;
         $this->count = $count;
     }

@@ -29,19 +29,19 @@ class CreateTransferOptions
 
     /**
      *
-     * @var \Moov\MoovPhp\Models\Components\Amount $amount
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $amount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Amount')]
-    public Amount $amount;
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
+    public AmountDecimal $amount;
 
     /**
      * @param  \Moov\MoovPhp\Models\Components\SourceDestinationOptions  $source
      * @param  \Moov\MoovPhp\Models\Components\SourceDestinationOptions  $destination
-     * @param  \Moov\MoovPhp\Models\Components\Amount  $amount
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $amount
      * @phpstan-pure
      */
-    public function __construct(SourceDestinationOptions $source, SourceDestinationOptions $destination, Amount $amount)
+    public function __construct(SourceDestinationOptions $source, SourceDestinationOptions $destination, AmountDecimal $amount)
     {
         $this->source = $source;
         $this->destination = $destination;

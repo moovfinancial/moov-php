@@ -21,6 +21,15 @@ class Transfer
     public string $transferID;
 
     /**
+     * The rail and direction used to move funds for a transfer.
+     *
+     * @var \Moov\MoovPhp\Models\Components\TransferType $transferType
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('transferType')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferType')]
+    public Components\TransferType $transferType;
+
+    /**
      *
      * @var \DateTime $createdOn
      */
@@ -72,11 +81,11 @@ class Transfer
 
     /**
      *
-     * @var \Moov\MoovPhp\Models\Components\Amount $amount
+     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $amount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Amount')]
-    public Components\Amount $amount;
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
+    public Components\AmountDecimal $amount;
 
     /**
      * An optional description of the transfer that is used on receipts and for your own internal use.
@@ -110,20 +119,12 @@ class Transfer
     /**
      * Fees charged to your platform account for transfers.
      *
-     * @var ?int $moovFee
+     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimal $moovFee
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('moovFee')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?int $moovFee = null;
-
-    /**
-     * Same as `moovFee`, but a decimal-formatted numerical string that represents up to 9 decimal place precision.
-     *
-     * @var ?string $moovFeeDecimal
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('moovFeeDecimal')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $moovFeeDecimal = null;
+    public ?Components\AmountDecimal $moovFee = null;
 
     /**
      * Processing and pass-through costs that add up to the moovFee.
@@ -154,52 +155,22 @@ class Transfer
     public ?string $groupID = null;
 
     /**
-     * $cancellations
      *
-     * @var ?array<\Moov\MoovPhp\Models\Components\Cancellation> $cancellations
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('cancellations')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\Cancellation>|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?array $cancellations = null;
-
-    /**
-     *
-     * @var ?\Moov\MoovPhp\Models\Components\Amount $refundedAmount
+     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimal $refundedAmount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('refundedAmount')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Amount|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?Components\Amount $refundedAmount = null;
-
-    /**
-     * $refunds
-     *
-     * @var ?array<\Moov\MoovPhp\Models\Components\CardAcquiringRefund> $refunds
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('refunds')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\CardAcquiringRefund>|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?array $refunds = null;
+    public ?Components\AmountDecimal $refundedAmount = null;
 
     /**
      *
-     * @var ?\Moov\MoovPhp\Models\Components\Amount $disputedAmount
+     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimal $disputedAmount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('disputedAmount')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Amount|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?Components\Amount $disputedAmount = null;
-
-    /**
-     * $disputes
-     *
-     * @var ?array<\Moov\MoovPhp\Models\Components\CardAcquiringDispute> $disputes
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('disputes')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\CardAcquiringDispute>|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?array $disputes = null;
+    public ?Components\AmountDecimal $disputedAmount = null;
 
     /**
      * ID of the sweep that created this transfer.
@@ -274,37 +245,51 @@ class Transfer
     public ?Components\TransferAmountDetails $amountDetails = null;
 
     /**
-     * The card authorization and capture IDs associated with a transfer.
      *
-     * @var ?\Moov\MoovPhp\Models\Components\TransferCapture $capture
+     * @var ?\Moov\MoovPhp\Models\Components\TransferAuthorization $authorization
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('capture')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferCapture|null')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('authorization')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferAuthorization|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?Components\TransferCapture $capture = null;
+    public ?Components\TransferAuthorization $authorization = null;
+
+    /**
+     *
+     * @var \Moov\MoovPhp\Models\Components\TransferRailOptions $options
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('options')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferRailOptions')]
+    public Components\TransferRailOptions $options;
+
+    /**
+     *
+     * @var \Moov\MoovPhp\Models\Components\TransferProcessingDetails $processingDetails
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('processingDetails')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferProcessingDetails')]
+    public Components\TransferProcessingDetails $processingDetails;
 
     /**
      * @param  string  $transferID
+     * @param  \Moov\MoovPhp\Models\Components\TransferType  $transferType
      * @param  \DateTime  $createdOn
      * @param  \Moov\MoovPhp\Models\Components\TransferSource  $source
      * @param  \Moov\MoovPhp\Models\Components\TransferDestination  $destination
      * @param  \Moov\MoovPhp\Models\Components\TransferStatus  $status
-     * @param  \Moov\MoovPhp\Models\Components\Amount  $amount
+     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $amount
+     * @param  \Moov\MoovPhp\Models\Components\TransferRailOptions  $options
+     * @param  \Moov\MoovPhp\Models\Components\TransferProcessingDetails  $processingDetails
      * @param  ?\DateTime  $completedOn
      * @param  ?\Moov\MoovPhp\Models\Components\TransferFailureReason  $failureReason
      * @param  ?string  $description
      * @param  ?array<string, string>  $metadata
      * @param  ?\Moov\MoovPhp\Models\Components\FacilitatorFee  $facilitatorFee
-     * @param  ?int  $moovFee
-     * @param  ?string  $moovFeeDecimal
+     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimal  $moovFee
      * @param  ?\Moov\MoovPhp\Models\Components\MoovFeeDetails  $moovFeeDetails
      * @param  ?array<\Moov\MoovPhp\Models\Components\MoovFee>  $moovFees
      * @param  ?string  $groupID
-     * @param  ?array<\Moov\MoovPhp\Models\Components\Cancellation>  $cancellations
-     * @param  ?\Moov\MoovPhp\Models\Components\Amount  $refundedAmount
-     * @param  ?array<\Moov\MoovPhp\Models\Components\CardAcquiringRefund>  $refunds
-     * @param  ?\Moov\MoovPhp\Models\Components\Amount  $disputedAmount
-     * @param  ?array<\Moov\MoovPhp\Models\Components\CardAcquiringDispute>  $disputes
+     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimal  $refundedAmount
+     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimal  $disputedAmount
      * @param  ?string  $sweepID
      * @param  ?string  $scheduleID
      * @param  ?string  $occurrenceID
@@ -313,12 +298,13 @@ class Transfer
      * @param  ?\Moov\MoovPhp\Models\Components\TransferLineItems  $lineItems
      * @param  ?string  $invoiceID
      * @param  ?\Moov\MoovPhp\Models\Components\TransferAmountDetails  $amountDetails
-     * @param  ?\Moov\MoovPhp\Models\Components\TransferCapture  $capture
+     * @param  ?\Moov\MoovPhp\Models\Components\TransferAuthorization  $authorization
      * @phpstan-pure
      */
-    public function __construct(string $transferID, \DateTime $createdOn, Components\TransferSource $source, Components\TransferDestination $destination, Components\TransferStatus $status, Components\Amount $amount, ?\DateTime $completedOn = null, ?Components\TransferFailureReason $failureReason = null, ?string $description = null, ?array $metadata = null, ?Components\FacilitatorFee $facilitatorFee = null, ?int $moovFee = null, ?string $moovFeeDecimal = null, ?Components\MoovFeeDetails $moovFeeDetails = null, ?array $moovFees = null, ?string $groupID = null, ?array $cancellations = null, ?Components\Amount $refundedAmount = null, ?array $refunds = null, ?Components\Amount $disputedAmount = null, ?array $disputes = null, ?string $sweepID = null, ?string $scheduleID = null, ?string $occurrenceID = null, ?string $paymentLinkCode = null, ?string $foreignID = null, ?Components\TransferLineItems $lineItems = null, ?string $invoiceID = null, ?Components\TransferAmountDetails $amountDetails = null, ?Components\TransferCapture $capture = null)
+    public function __construct(string $transferID, Components\TransferType $transferType, \DateTime $createdOn, Components\TransferSource $source, Components\TransferDestination $destination, Components\TransferStatus $status, Components\AmountDecimal $amount, Components\TransferRailOptions $options, Components\TransferProcessingDetails $processingDetails, ?\DateTime $completedOn = null, ?Components\TransferFailureReason $failureReason = null, ?string $description = null, ?array $metadata = null, ?Components\FacilitatorFee $facilitatorFee = null, ?Components\AmountDecimal $moovFee = null, ?Components\MoovFeeDetails $moovFeeDetails = null, ?array $moovFees = null, ?string $groupID = null, ?Components\AmountDecimal $refundedAmount = null, ?Components\AmountDecimal $disputedAmount = null, ?string $sweepID = null, ?string $scheduleID = null, ?string $occurrenceID = null, ?string $paymentLinkCode = null, ?string $foreignID = null, ?Components\TransferLineItems $lineItems = null, ?string $invoiceID = null, ?Components\TransferAmountDetails $amountDetails = null, ?Components\TransferAuthorization $authorization = null)
     {
         $this->transferID = $transferID;
+        $this->transferType = $transferType;
         $this->createdOn = $createdOn;
         $this->source = $source;
         $this->destination = $destination;
@@ -330,15 +316,11 @@ class Transfer
         $this->metadata = $metadata;
         $this->facilitatorFee = $facilitatorFee;
         $this->moovFee = $moovFee;
-        $this->moovFeeDecimal = $moovFeeDecimal;
         $this->moovFeeDetails = $moovFeeDetails;
         $this->moovFees = $moovFees;
         $this->groupID = $groupID;
-        $this->cancellations = $cancellations;
         $this->refundedAmount = $refundedAmount;
-        $this->refunds = $refunds;
         $this->disputedAmount = $disputedAmount;
-        $this->disputes = $disputes;
         $this->sweepID = $sweepID;
         $this->scheduleID = $scheduleID;
         $this->occurrenceID = $occurrenceID;
@@ -347,7 +329,9 @@ class Transfer
         $this->lineItems = $lineItems;
         $this->invoiceID = $invoiceID;
         $this->amountDetails = $amountDetails;
-        $this->capture = $capture;
+        $this->authorization = $authorization;
+        $this->options = $options;
+        $this->processingDetails = $processingDetails;
     }
 
     public function toException(): TransferThrowable
