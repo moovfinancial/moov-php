@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
+/** IssuingControls - Mutable spend controls for the card. */
 class IssuingControls
 {
     /**
