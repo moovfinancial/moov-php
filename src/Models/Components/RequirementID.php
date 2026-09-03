@@ -107,6 +107,13 @@ enum RequirementID: string
     case UnderwritingSendFundsPushToCardEstimatedActivityMonthlyVolumeRange = 'underwriting.sendFunds.pushToCard.estimatedActivity.monthlyVolumeRange';
     case UnderwritingSendFundsPushToCardFulfillment = 'underwriting.sendFunds.pushToCard.fulfillment';
     case UnderwritingSendFundsPushToCardRefundPolicy = 'underwriting.sendFunds.pushToCard.refundPolicy';
+    case UnderwritingSendFundsInstantBankCardAcceptanceMethods = 'underwriting.sendFunds.instantBank.cardAcceptanceMethods';
+    case UnderwritingSendFundsInstantBankCurrentlyAcceptsCards = 'underwriting.sendFunds.instantBank.currentlyAcceptsCards';
+    case UnderwritingSendFundsInstantBankEstimatedActivityAverageTransactionAmount = 'underwriting.sendFunds.instantBank.estimatedActivity.averageTransactionAmount';
+    case UnderwritingSendFundsInstantBankEstimatedActivityMaximumTransactionAmount = 'underwriting.sendFunds.instantBank.estimatedActivity.maximumTransactionAmount';
+    case UnderwritingSendFundsInstantBankEstimatedActivityMonthlyVolumeRange = 'underwriting.sendFunds.instantBank.estimatedActivity.monthlyVolumeRange';
+    case UnderwritingSendFundsInstantBankFulfillment = 'underwriting.sendFunds.instantBank.fulfillment';
+    case UnderwritingSendFundsInstantBankRefundPolicy = 'underwriting.sendFunds.instantBank.refundPolicy';
     case UnderwritingMoneyTransferPullFromCardCardAcceptanceMethods = 'underwriting.moneyTransfer.pullFromCard.cardAcceptanceMethods';
     case UnderwritingMoneyTransferPullFromCardCurrentlyAcceptsCards = 'underwriting.moneyTransfer.pullFromCard.currentlyAcceptsCards';
     case UnderwritingMoneyTransferPullFromCardEstimatedActivityAverageTransactionAmount = 'underwriting.moneyTransfer.pullFromCard.estimatedActivity.averageTransactionAmount';

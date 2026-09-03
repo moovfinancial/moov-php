@@ -34,6 +34,7 @@ class ListIssuedCardAuthorizationEventsRequest
     public ?int $skip = null;
 
     /**
+     * Page size. When omitted, the server defaults to `200`.
      *
      * @var ?int $count
      */

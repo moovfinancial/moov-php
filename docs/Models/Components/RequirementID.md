@@ -102,6 +102,13 @@ The unique ID of what the requirement is asking to be filled out.
 | `UnderwritingSendFundsPushToCardEstimatedActivityMonthlyVolumeRange`               | underwriting.sendFunds.pushToCard.estimatedActivity.monthlyVolumeRange             |
 | `UnderwritingSendFundsPushToCardFulfillment`                                       | underwriting.sendFunds.pushToCard.fulfillment                                      |
 | `UnderwritingSendFundsPushToCardRefundPolicy`                                      | underwriting.sendFunds.pushToCard.refundPolicy                                     |
+| `UnderwritingSendFundsInstantBankCardAcceptanceMethods`                            | underwriting.sendFunds.instantBank.cardAcceptanceMethods                           |
+| `UnderwritingSendFundsInstantBankCurrentlyAcceptsCards`                            | underwriting.sendFunds.instantBank.currentlyAcceptsCards                           |
+| `UnderwritingSendFundsInstantBankEstimatedActivityAverageTransactionAmount`        | underwriting.sendFunds.instantBank.estimatedActivity.averageTransactionAmount      |
+| `UnderwritingSendFundsInstantBankEstimatedActivityMaximumTransactionAmount`        | underwriting.sendFunds.instantBank.estimatedActivity.maximumTransactionAmount      |
+| `UnderwritingSendFundsInstantBankEstimatedActivityMonthlyVolumeRange`              | underwriting.sendFunds.instantBank.estimatedActivity.monthlyVolumeRange            |
+| `UnderwritingSendFundsInstantBankFulfillment`                                      | underwriting.sendFunds.instantBank.fulfillment                                     |
+| `UnderwritingSendFundsInstantBankRefundPolicy`                                     | underwriting.sendFunds.instantBank.refundPolicy                                    |
 | `UnderwritingMoneyTransferPullFromCardCardAcceptanceMethods`                       | underwriting.moneyTransfer.pullFromCard.cardAcceptanceMethods                      |
 | `UnderwritingMoneyTransferPullFromCardCurrentlyAcceptsCards`                       | underwriting.moneyTransfer.pullFromCard.currentlyAcceptsCards                      |
 | `UnderwritingMoneyTransferPullFromCardEstimatedActivityAverageTransactionAmount`   | underwriting.moneyTransfer.pullFromCard.estimatedActivity.averageTransactionAmount |

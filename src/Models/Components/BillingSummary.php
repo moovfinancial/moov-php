@@ -64,15 +64,15 @@ class BillingSummary
     public ?BillingSummaryDetails $accountFees = null;
 
     /**
-     * The total amount of adjustment fees. This field is deprecated and will be removed in a future release.
+     * The total amount of adjustment fees. This field is deprecated and will be removed in a future release. Use adjustments.total.
      *
-     * @var ?\Moov\MoovPhp\Models\Components\AdjustmentFees $adjustmentFees
+     * @var ?\Moov\MoovPhp\Models\Components\BillingSummaryAdjustmentFees $adjustmentFees
      * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('adjustmentFees')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AdjustmentFees|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingSummaryAdjustmentFees|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?AdjustmentFees $adjustmentFees = null;
+    public ?BillingSummaryAdjustmentFees $adjustmentFees = null;
 
     /**
      * The total amount of other card fees. This field is deprecated and will be removed in a future release. Use summary.otherCardFees.
@@ -155,12 +155,22 @@ class BillingSummary
     public ?AmountDecimal $netPartnerPayment = null;
 
     /**
+     * Final partner payment after deducting monthlyPartnerCosts and any adjustments.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimal $totalNetPartnerPayment
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('totalNetPartnerPayment')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?AmountDecimal $totalNetPartnerPayment = null;
+
+    /**
      * @param  ?\Moov\MoovPhp\Models\Components\CardAcquiring  $cardAcquiring
      * @param  ?\Moov\MoovPhp\Models\Components\BillingSummaryDetails  $ach
      * @param  ?\Moov\MoovPhp\Models\Components\BillingSummaryDetails  $instantPayments
      * @param  ?\Moov\MoovPhp\Models\Components\BillingSummaryPlatformFees  $platformFees
      * @param  ?\Moov\MoovPhp\Models\Components\BillingSummaryDetails  $accountFees
-     * @param  ?\Moov\MoovPhp\Models\Components\AdjustmentFees  $adjustmentFees
+     * @param  ?\Moov\MoovPhp\Models\Components\BillingSummaryAdjustmentFees  $adjustmentFees
      * @param  ?\Moov\MoovPhp\Models\Components\OtherFees  $otherFees
      * @param  ?\Moov\MoovPhp\Models\Components\BillingSummaryDetails  $otherCardFees
      * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimal  $total
@@ -169,9 +179,10 @@ class BillingSummary
      * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimal  $residualSubtotal
      * @param  ?\Moov\MoovPhp\Models\Components\PartnerFees  $monthlyPartnerCosts
      * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimal  $netPartnerPayment
+     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimal  $totalNetPartnerPayment
      * @phpstan-pure
      */
-    public function __construct(?CardAcquiring $cardAcquiring = null, ?BillingSummaryDetails $ach = null, ?BillingSummaryDetails $instantPayments = null, ?BillingSummaryPlatformFees $platformFees = null, ?BillingSummaryDetails $accountFees = null, ?AdjustmentFees $adjustmentFees = null, ?OtherFees $otherFees = null, ?BillingSummaryDetails $otherCardFees = null, ?AmountDecimal $total = null, ?BillingSummaryDetails $netIncomeSubtotal = null, ?string $revenueShare = null, ?AmountDecimal $residualSubtotal = null, ?PartnerFees $monthlyPartnerCosts = null, ?AmountDecimal $netPartnerPayment = null)
+    public function __construct(?CardAcquiring $cardAcquiring = null, ?BillingSummaryDetails $ach = null, ?BillingSummaryDetails $instantPayments = null, ?BillingSummaryPlatformFees $platformFees = null, ?BillingSummaryDetails $accountFees = null, ?BillingSummaryAdjustmentFees $adjustmentFees = null, ?OtherFees $otherFees = null, ?BillingSummaryDetails $otherCardFees = null, ?AmountDecimal $total = null, ?BillingSummaryDetails $netIncomeSubtotal = null, ?string $revenueShare = null, ?AmountDecimal $residualSubtotal = null, ?PartnerFees $monthlyPartnerCosts = null, ?AmountDecimal $netPartnerPayment = null, ?AmountDecimal $totalNetPartnerPayment = null)
     {
         $this->cardAcquiring = $cardAcquiring;
         $this->ach = $ach;
@@ -187,5 +198,6 @@ class BillingSummary
         $this->residualSubtotal = $residualSubtotal;
         $this->monthlyPartnerCosts = $monthlyPartnerCosts;
         $this->netPartnerPayment = $netPartnerPayment;
+        $this->totalNetPartnerPayment = $totalNetPartnerPayment;
     }
 }
