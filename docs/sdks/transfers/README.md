@@ -53,25 +53,29 @@ To access this endpoint using an [access token](https://docs.moov.io/api/authent
 you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
 * [createCancellation](#createcancellation) -   Initiate a cancellation for a card, ACH, or queued transfer.
   
+  In v2026.10 and later, an auth-capture `card-payment` transfer can be canceled before any captures exist.
+  For these transfers, a successful cancellation reduces `capturableAmount` without changing `authorizedAmount`.
+  For these transfers, a partial cancellation leaves the remaining `capturableAmount` available for capture.
   To access this endpoint using a [token](https://docs.moov.io/api/authentication/access-tokens/) you'll need 
   to specify the `/accounts/{accountID}/transfers.write` scope.
 * [listCancellations](#listcancellations) -   Get a list of cancellations for a transfer.
-  
+
   To access this endpoint using a [token](https://docs.moov.io/api/authentication/access-tokens/) you'll need 
   to specify the `/accounts/{accountID}/transfers.read` scope.
 * [getCancellation](#getcancellation) -   Get details of a cancellation for a transfer.
   
   To access this endpoint using a [token](https://docs.moov.io/api/authentication/access-tokens/) you'll need 
   to specify the `/accounts/{accountID}/transfers.read` scope.
-* [createCapture](#createcapture) - Create a capture against an authorized transfer.
+* [createCapture](#createcapture) - Create a capture against an auth-capture `card-payment` transfer.
+The `accountID` must identify the partner account for the transfer.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
 you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
-* [listCaptures](#listcaptures) - Get a list of captures for a transfer.
+* [listCaptures](#listcaptures) - Get a list of captures for an auth-capture `card-payment` transfer.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
-* [getCapture](#getcapture) - Get details of a capture for a transfer.
+* [getCapture](#getcapture) - Get details of a capture for an auth-capture `card-payment` transfer.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
@@ -90,7 +94,10 @@ you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
-* [createReversal](#createreversal) - Reverses a card transfer by initiating a cancellation or refund depending on the transaction status. 
+* [createReversal](#createreversal) - Reverses a card transfer by initiating a cancellation or refund depending on the transaction status.
+In v2026.10 and later, reversing an auth-capture `card-payment` transfer with no captures cancels the entire `capturableAmount`.
+In those API versions, an auth-capture `card-payment` transfer with one final capture is canceled or refunded depending on its processing state.
+Auth-capture `card-payment` transfers with a non-final capture or multiple captures are not supported in those API versions.
 Read our [reversals guide](https://docs.moov.io/guides/money-movement/accept-payments/card-acceptance/reversals/) 
 to learn more.
 
@@ -465,9 +472,41 @@ to learn more.
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
 
-### Example Usage
+### Example Usage: Awaiting capture card authorization transfer
 
 <!-- UsageSnippet language="php" operationID="getTransfer" method="get" path="/accounts/{accountID}/transfers/{transferID}" example="Awaiting capture card authorization transfer" -->
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
+
+$sdk = MoovPhp\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
+
+
+
+$response = $sdk->transfers->get(
+    transferID: '<id>',
+    accountID: '<id>'
+
+);
+
+if ($response->transfer !== null) {
+    // handle response
+}
+```
+### Example Usage: Awaiting capture card payment transfer
+
+<!-- UsageSnippet language="php" operationID="getTransfer" method="get" path="/accounts/{accountID}/transfers/{transferID}" example="Awaiting capture card payment transfer" -->
 ```php
 declare(strict_types=1);
 
@@ -585,6 +624,9 @@ if ($response->transfer !== null) {
 
   Initiate a cancellation for a card, ACH, or queued transfer.
   
+  In v2026.10 and later, an auth-capture `card-payment` transfer can be canceled before any captures exist.
+  For these transfers, a successful cancellation reduces `capturableAmount` without changing `authorizedAmount`.
+  For these transfers, a partial cancellation leaves the remaining `capturableAmount` available for capture.
   To access this endpoint using a [token](https://docs.moov.io/api/authentication/access-tokens/) you'll need 
   to specify the `/accounts/{accountID}/transfers.write` scope.
 
@@ -643,13 +685,13 @@ if ($response->cancellation !== null) {
 
 | Error Type          | Status Code         | Content Type        |
 | ------------------- | ------------------- | ------------------- |
-| Errors\GenericError | 400                 | application/json    |
+| Errors\GenericError | 400, 409, 422       | application/json    |
 | Errors\APIException | 4XX, 5XX            | \*/\*               |
 
 ## listCancellations
 
   Get a list of cancellations for a transfer.
-  
+
   To access this endpoint using a [token](https://docs.moov.io/api/authentication/access-tokens/) you'll need 
   to specify the `/accounts/{accountID}/transfers.read` scope.
 
@@ -797,7 +839,8 @@ if ($response->cancellation !== null) {
 
 ## createCapture
 
-Create a capture against an authorized transfer.
+Create a capture against an auth-capture `card-payment` transfer.
+The `accountID` must identify the partner account for the transfer.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
 you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
@@ -873,8 +916,8 @@ if ($response->capture !== null) {
 | Parameter                                                            | Type                                                                 | Required                                                             | Description                                                          |
 | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
 | `xIdempotencyKey`                                                    | *string*                                                             | :heavy_check_mark:                                                   | Prevents duplicate captures from being created.                      |
-| `accountID`                                                          | *string*                                                             | :heavy_check_mark:                                                   | The merchant's Moov account ID.                                      |
-| `transferID`                                                         | *string*                                                             | :heavy_check_mark:                                                   | Identifier for the transfer.                                         |
+| `accountID`                                                          | *string*                                                             | :heavy_check_mark:                                                   | Moov account ID of the partner for the transfer.                     |
+| `transferID`                                                         | *string*                                                             | :heavy_check_mark:                                                   | Identifier for the auth-capture `card-payment` transfer.             |
 | `createCapture`                                                      | [Components\CreateCapture](../../Models/Components/CreateCapture.md) | :heavy_check_mark:                                                   | N/A                                                                  |
 
 ### Response
@@ -891,7 +934,7 @@ if ($response->capture !== null) {
 
 ## listCaptures
 
-Get a list of captures for a transfer.
+Get a list of captures for an auth-capture `card-payment` transfer.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
@@ -931,10 +974,10 @@ if ($response->captures !== null) {
 
 ### Parameters
 
-| Parameter                       | Type                            | Required                        | Description                     |
-| ------------------------------- | ------------------------------- | ------------------------------- | ------------------------------- |
-| `accountID`                     | *string*                        | :heavy_check_mark:              | The merchant's Moov account ID. |
-| `transferID`                    | *string*                        | :heavy_check_mark:              | Identifier for the transfer.    |
+| Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `accountID`                                                                       | *string*                                                                          | :heavy_check_mark:                                                                | Moov account ID of an authorized partner or the transfer's source or destination. |
+| `transferID`                                                                      | *string*                                                                          | :heavy_check_mark:                                                                | Identifier for the auth-capture `card-payment` transfer.                          |
 
 ### Response
 
@@ -948,7 +991,7 @@ if ($response->captures !== null) {
 
 ## getCapture
 
-Get details of a capture for a transfer.
+Get details of a capture for an auth-capture `card-payment` transfer.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
@@ -989,11 +1032,11 @@ if ($response->capture !== null) {
 
 ### Parameters
 
-| Parameter                       | Type                            | Required                        | Description                     |
-| ------------------------------- | ------------------------------- | ------------------------------- | ------------------------------- |
-| `accountID`                     | *string*                        | :heavy_check_mark:              | The merchant's Moov account ID. |
-| `transferID`                    | *string*                        | :heavy_check_mark:              | Identifier for the transfer.    |
-| `captureID`                     | *string*                        | :heavy_check_mark:              | Identifier for the capture.     |
+| Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `accountID`                                                                       | *string*                                                                          | :heavy_check_mark:                                                                | Moov account ID of an authorized partner or the transfer's source or destination. |
+| `transferID`                                                                      | *string*                                                                          | :heavy_check_mark:                                                                | Identifier for the auth-capture `card-payment` transfer.                          |
+| `captureID`                                                                       | *string*                                                                          | :heavy_check_mark:                                                                | Identifier for the capture.                                                       |
 
 ### Response
 
@@ -1247,7 +1290,10 @@ if ($response->cardAcquiringRefund !== null) {
 
 ## createReversal
 
-Reverses a card transfer by initiating a cancellation or refund depending on the transaction status. 
+Reverses a card transfer by initiating a cancellation or refund depending on the transaction status.
+In v2026.10 and later, reversing an auth-capture `card-payment` transfer with no captures cancels the entire `capturableAmount`.
+In those API versions, an auth-capture `card-payment` transfer with one final capture is canceled or refunded depending on its processing state.
+Auth-capture `card-payment` transfers with a non-final capture or multiple captures are not supported in those API versions.
 Read our [reversals guide](https://docs.moov.io/guides/money-movement/accept-payments/card-acceptance/reversals/) 
 to learn more.
 

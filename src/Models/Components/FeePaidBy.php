@@ -9,7 +9,6 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-/** Indicates which party to a money movement bears an incurred fee. */
 enum FeePaidBy: string
 {
     case Source = 'source';

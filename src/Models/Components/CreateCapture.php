@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-/** CreateCapture - Request to capture funds against an authorized transfer. */
+/** CreateCapture - Request to capture funds against an authorization. */
 class CreateCapture
 {
     /**
@@ -21,7 +21,9 @@ class CreateCapture
     public string $destinationPaymentMethodID;
 
     /**
-     * Amount to capture. If omitted, the remaining authorized amount is captured.
+     * Amount to capture.
+     *
+     * If omitted, the remaining capturable amount is captured.
      *
      * @var ?\Moov\MoovPhp\Models\Components\AmountDecimal $amount
      */
@@ -31,7 +33,9 @@ class CreateCapture
     public ?AmountDecimal $amount = null;
 
     /**
-     * Indicates whether this is the final capture against the authorization. When `true`, any remaining authorized amount is voided.
+     * Indicates whether this is intended to be the final capture.
+     *
+     * When `true`, any remaining capturable amount is voided.
      *
      * @var ?bool $isFinal
      */
@@ -89,7 +93,9 @@ class CreateCapture
     public ?CreateTransferAmountDetails $amountDetails = null;
 
     /**
-     * The facilitator fee amount applied to the capture.
+     * The facilitator fee applied to this capture.
+     *
+     * The transfer's facilitator fee is the sum of its capture fees.
      *
      * @var ?\Moov\MoovPhp\Models\Components\AmountDecimal $facilitatorFeeAmount
      */

@@ -18,7 +18,7 @@ namespace Moov\MoovPhp\Models\Components;
 class CreateRefund
 {
     /**
-     * Amount to refund. Before v2026.10, specify the amount in integer cents. If omitted, the original transfer's full amount will be refunded.
+     * Amount to refund. If omitted, the original transfer's full amount will be refunded.
      *
      * @var ?\Moov\MoovPhp\Models\Components\AmountDecimal $amount
      */
@@ -28,7 +28,7 @@ class CreateRefund
     public ?AmountDecimal $amount = null;
 
     /**
-     * ID of the capture to refund. Required for multi-capture card payment transfers.
+     * ID of the capture to refund. This field is only relevant for an auth-capture `card-payment` transfer.
      *
      * @var ?string $captureID
      */

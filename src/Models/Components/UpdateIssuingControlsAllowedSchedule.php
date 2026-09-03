@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-/** UpdateIssuingControlsAllowedSchedule - Replaces the allowed schedule. Set to `null` to remove all schedule restrictions. */
+/** UpdateIssuingControlsAllowedSchedule - Limits card usage to specific days and times. Set to `null` to remove all schedule restrictions. */
 class UpdateIssuingControlsAllowedSchedule
 {
     /**

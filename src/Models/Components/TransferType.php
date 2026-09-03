@@ -20,4 +20,5 @@ enum TransferType: string
     case AchDebitToAchCredit = 'ach-debit-to-ach-credit';
     case InstantBankCredit = 'instant-bank-credit';
     case Wallet = 'wallet';
+    case WireCredit = 'wire-credit';
 }

@@ -9,9 +9,11 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
+/** TransferAuthorization - Authorization and capture amounts for an auth-capture `card-payment` transfer. */
 class TransferAuthorization
 {
     /**
+     * Identifier for the authorization.
      *
      * @var string $authorizationID
      */
@@ -19,6 +21,7 @@ class TransferAuthorization
     public string $authorizationID;
 
     /**
+     * Amount submitted for authorization.
      *
      * @var \Moov\MoovPhp\Models\Components\AmountDecimal $requestedAmount
      */
@@ -27,6 +30,7 @@ class TransferAuthorization
     public AmountDecimal $requestedAmount;
 
     /**
+     * Hold approved by the issuer.
      *
      * @var \Moov\MoovPhp\Models\Components\AmountDecimal $authorizedAmount
      */
@@ -35,6 +39,7 @@ class TransferAuthorization
     public AmountDecimal $authorizedAmount;
 
     /**
+     * Cumulative amount of captures that have not failed or been canceled.
      *
      * @var \Moov\MoovPhp\Models\Components\AmountDecimal $capturedAmount
      */
@@ -43,6 +48,7 @@ class TransferAuthorization
     public AmountDecimal $capturedAmount;
 
     /**
+     * Amount of the authorization still available after captures and authorization cancellations.
      *
      * @var \Moov\MoovPhp\Models\Components\AmountDecimal $capturableAmount
      */
@@ -51,6 +57,7 @@ class TransferAuthorization
     public AmountDecimal $capturableAmount;
 
     /**
+     * Expiration time for the approved authorization, when available.
      *
      * @var ?\DateTime $expiresOn
      */

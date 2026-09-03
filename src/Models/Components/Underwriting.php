@@ -137,6 +137,19 @@ class Underwriting
     public ?SendFunds $sendFunds = null;
 
     /**
+     * Underwriting data for the `card-issuing` capability.
+     *
+     *
+     * Issued cards are funded from the account's card-issuing wallet before they can be spent, so estimated activity is the only data collected.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\CardIssuing $cardIssuing
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('cardIssuing')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardIssuing|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?CardIssuing $cardIssuing = null;
+
+    /**
      * @param  ?int  $averageTransactionSize
      * @param  ?int  $maxTransactionSize
      * @param  ?int  $averageMonthlyTransactionVolume
@@ -151,9 +164,10 @@ class Underwriting
      * @param  ?\Moov\MoovPhp\Models\Components\CollectFunds  $collectFunds
      * @param  ?\Moov\MoovPhp\Models\Components\MoneyTransfer  $moneyTransfer
      * @param  ?\Moov\MoovPhp\Models\Components\SendFunds  $sendFunds
+     * @param  ?\Moov\MoovPhp\Models\Components\CardIssuing  $cardIssuing
      * @phpstan-pure
      */
-    public function __construct(?int $averageTransactionSize = null, ?int $maxTransactionSize = null, ?int $averageMonthlyTransactionVolume = null, ?UnderwritingStatus $status = null, ?VolumeByCustomerType $volumeByCustomerType = null, ?CardVolumeDistribution $cardVolumeDistribution = null, ?FulfillmentDetails $fulfillment = null, ?GeographicReach $geographicReach = null, ?BusinessPresence $businessPresence = null, ?PendingLitigation $pendingLitigation = null, ?VolumeShareByCustomerType $volumeShareByCustomerType = null, ?CollectFunds $collectFunds = null, ?MoneyTransfer $moneyTransfer = null, ?SendFunds $sendFunds = null)
+    public function __construct(?int $averageTransactionSize = null, ?int $maxTransactionSize = null, ?int $averageMonthlyTransactionVolume = null, ?UnderwritingStatus $status = null, ?VolumeByCustomerType $volumeByCustomerType = null, ?CardVolumeDistribution $cardVolumeDistribution = null, ?FulfillmentDetails $fulfillment = null, ?GeographicReach $geographicReach = null, ?BusinessPresence $businessPresence = null, ?PendingLitigation $pendingLitigation = null, ?VolumeShareByCustomerType $volumeShareByCustomerType = null, ?CollectFunds $collectFunds = null, ?MoneyTransfer $moneyTransfer = null, ?SendFunds $sendFunds = null, ?CardIssuing $cardIssuing = null)
     {
         $this->averageTransactionSize = $averageTransactionSize;
         $this->maxTransactionSize = $maxTransactionSize;
@@ -169,5 +183,6 @@ class Underwriting
         $this->collectFunds = $collectFunds;
         $this->moneyTransfer = $moneyTransfer;
         $this->sendFunds = $sendFunds;
+        $this->cardIssuing = $cardIssuing;
     }
 }

@@ -21,7 +21,7 @@ class CreateCaptureRequest
     public string $xIdempotencyKey;
 
     /**
-     * The merchant's Moov account ID.
+     * Moov account ID of the partner for the transfer.
      *
      * @var string $accountID
      */
@@ -29,7 +29,7 @@ class CreateCaptureRequest
     public string $accountID;
 
     /**
-     * Identifier for the transfer.
+     * Identifier for the auth-capture `card-payment` transfer.
      *
      * @var string $transferID
      */

@@ -91,6 +91,27 @@ The following formats are accepted:
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/bank-accounts.write` scope.
+* [createAttestation](#createattestation) -   Submit a new authorization attestation for a bank account in an `errored` status due to an R29 ACH return (`Corporate Customer Advises Not Authorized`).
+
+  After obtaining new authorization from the receiver, submit an attestation with the date the authorization was obtained and a brief description of how the authorization was obtained. If the attestation is accepted, the bank account transitions from `errored` to `verified`.
+
+  Constraints
+
+  - The bank account's current errored status must be the result of an R29 return.
+  - `attestedAt` must be on or after the date of the bank account's most recent R29 return and cannot be a future date.
+  - Only one attestation may be submitted for a bank account. Use the [Get attestation eligibility](https://docs.moov.io/api/sources/bank-accounts/attestation-eligibility/) endpoint to confirm eligibility before submitting an attestation.
+
+  This endpoint is available only to allowlisted partners. Contact Moov Support for more information.
+* [listAttestations](#listattestations) - List the attestations submitted for a bank account.
+* [getAttestationEligibility](#getattestationeligibility) - Check whether a bank account is currently eligible for a new authorization attestation without submitting one.
+
+- `enabled` indicates whether the calling account has access to the attestations feature. If `enabled` is `false`, `eligible` is always `false`.
+- When `enabled` is `true`, `eligible` indicates whether the bank account currently meets the eligibility requirements for a new attestation: the bank account must be `errored` due to an R29 return, with no prior attestations.
+
+This endpoint always returns `200`, including when the bank account is not eligible. Check the `eligible` field to determine eligibility.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
+you'll need to specify the `/accounts/{accountID}/bank-accounts.read` scope.
 
 ## link
 
@@ -676,4 +697,194 @@ if ($response->bankAccountVerification !== null) {
 | Error Type          | Status Code         | Content Type        |
 | ------------------- | ------------------- | ------------------- |
 | Errors\GenericError | 400, 409, 422       | application/json    |
+| Errors\APIException | 4XX, 5XX            | \*/\*               |
+
+## createAttestation
+
+  Submit a new authorization attestation for a bank account in an `errored` status due to an R29 ACH return (`Corporate Customer Advises Not Authorized`).
+
+  After obtaining new authorization from the receiver, submit an attestation with the date the authorization was obtained and a brief description of how the authorization was obtained. If the attestation is accepted, the bank account transitions from `errored` to `verified`.
+
+  Constraints
+
+  - The bank account's current errored status must be the result of an R29 return.
+  - `attestedAt` must be on or after the date of the bank account's most recent R29 return and cannot be a future date.
+  - Only one attestation may be submitted for a bank account. Use the [Get attestation eligibility](https://docs.moov.io/api/sources/bank-accounts/attestation-eligibility/) endpoint to confirm eligibility before submitting an attestation.
+
+  This endpoint is available only to allowlisted partners. Contact Moov Support for more information.
+
+### Example Usage
+
+<!-- UsageSnippet language="php" operationID="createBankAccountAttestation" method="post" path="/accounts/{accountID}/bank-accounts/{bankAccountID}/attestations" -->
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Brick\DateTime\LocalDate;
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
+
+$sdk = MoovPhp\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
+
+$createBankAccountAttestation = new Components\CreateBankAccountAttestation(
+    attestedAt: LocalDate::parse('2026-05-15'),
+    description: 'each duh famously athwart',
+);
+
+$response = $sdk->bankAccounts->createAttestation(
+    accountID: '<id>',
+    bankAccountID: '<id>',
+    createBankAccountAttestation: $createBankAccountAttestation
+
+);
+
+if ($response->bankAccountAttestation !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `accountID`                                                                                        | *string*                                                                                           | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| `bankAccountID`                                                                                    | *string*                                                                                           | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| `createBankAccountAttestation`                                                                     | [Components\CreateBankAccountAttestation](../../Models/Components/CreateBankAccountAttestation.md) | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+
+### Response
+
+**[?Operations\CreateBankAccountAttestationResponse](../../Models/Operations/CreateBankAccountAttestationResponse.md)**
+
+### Errors
+
+| Error Type                                   | Status Code                                  | Content Type                                 |
+| -------------------------------------------- | -------------------------------------------- | -------------------------------------------- |
+| Errors\GenericError                          | 400, 409                                     | application/json                             |
+| Errors\BankAccountAttestationValidationError | 422                                          | application/json                             |
+| Errors\APIException                          | 4XX, 5XX                                     | \*/\*                                        |
+
+## listAttestations
+
+List the attestations submitted for a bank account.
+
+### Example Usage
+
+<!-- UsageSnippet language="php" operationID="listBankAccountAttestations" method="get" path="/accounts/{accountID}/bank-accounts/{bankAccountID}/attestations" -->
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
+
+$sdk = MoovPhp\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
+
+
+
+$response = $sdk->bankAccounts->listAttestations(
+    accountID: '<id>',
+    bankAccountID: '<id>'
+
+);
+
+if ($response->bankAccountAttestationSummaries !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter          | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `accountID`        | *string*           | :heavy_check_mark: | N/A                |
+| `bankAccountID`    | *string*           | :heavy_check_mark: | N/A                |
+
+### Response
+
+**[?Operations\ListBankAccountAttestationsResponse](../../Models/Operations/ListBankAccountAttestationsResponse.md)**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| Errors\APIException | 4XX, 5XX            | \*/\*               |
+
+## getAttestationEligibility
+
+Check whether a bank account is currently eligible for a new authorization attestation without submitting one.
+
+- `enabled` indicates whether the calling account has access to the attestations feature. If `enabled` is `false`, `eligible` is always `false`.
+- When `enabled` is `true`, `eligible` indicates whether the bank account currently meets the eligibility requirements for a new attestation: the bank account must be `errored` due to an R29 return, with no prior attestations.
+
+This endpoint always returns `200`, including when the bank account is not eligible. Check the `eligible` field to determine eligibility.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
+you'll need to specify the `/accounts/{accountID}/bank-accounts.read` scope.
+
+### Example Usage
+
+<!-- UsageSnippet language="php" operationID="getBankAccountAttestationEligibility" method="get" path="/accounts/{accountID}/bank-accounts/{bankAccountID}/attestations-eligibility" -->
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
+
+$sdk = MoovPhp\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
+
+
+
+$response = $sdk->bankAccounts->getAttestationEligibility(
+    accountID: '<id>',
+    bankAccountID: '<id>'
+
+);
+
+if ($response->bankAccountAttestationEligibility !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                                   | Type                                                                                                                        | Required                                                                                                                    | Description                                                                                                                 |
+| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `accountID`                                                                                                                 | *string*                                                                                                                    | :heavy_check_mark:                                                                                                          | N/A                                                                                                                         |
+| `bankAccountID`                                                                                                             | *string*                                                                                                                    | :heavy_check_mark:                                                                                                          | N/A                                                                                                                         |
+| `attestedAt`                                                                                                                | [\DateTime](https://www.php.net/manual/en/class.datetime.php)                                                               | :heavy_minus_sign:                                                                                                          | Date to check eligibility against, as if it were the `attestedAt` value of a new attestation. Defaults<br/>to the current date. |
+
+### Response
+
+**[?Operations\GetBankAccountAttestationEligibilityResponse](../../Models/Operations/GetBankAccountAttestationEligibilityResponse.md)**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| Errors\GenericError | 400                 | application/json    |
 | Errors\APIException | 4XX, 5XX            | \*/\*               |

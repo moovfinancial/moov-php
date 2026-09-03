@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
+/** Cancellation - Cancellation of a transfer. */
 class Cancellation
 {
     /**

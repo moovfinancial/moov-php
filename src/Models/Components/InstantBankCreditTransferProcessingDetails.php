@@ -12,6 +12,15 @@ namespace Moov\MoovPhp\Models\Components;
 class InstantBankCreditTransferProcessingDetails
 {
     /**
+     * Status of a transaction within the instant-bank lifecycle.
+     *
+     * @var \Moov\MoovPhp\Models\Components\InstantBankTransactionStatus $status
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\InstantBankTransactionStatus')]
+    public InstantBankTransactionStatus $status;
+
+    /**
      * The network that the transaction was processed on.
      *
      * @var \Moov\MoovPhp\Models\Components\InstantBankNetwork $network
@@ -47,14 +56,16 @@ class InstantBankCreditTransferProcessingDetails
     public ?string $endToEndID = null;
 
     /**
+     * @param  \Moov\MoovPhp\Models\Components\InstantBankTransactionStatus  $status
      * @param  \Moov\MoovPhp\Models\Components\InstantBankNetwork  $network
      * @param  ?string  $networkResponseCode
      * @param  ?\Moov\MoovPhp\Models\Components\InstantBankFailureCode  $failureCode
      * @param  ?string  $endToEndID
      * @phpstan-pure
      */
-    public function __construct(InstantBankNetwork $network, ?string $networkResponseCode = null, ?InstantBankFailureCode $failureCode = null, ?string $endToEndID = null)
+    public function __construct(InstantBankTransactionStatus $status, InstantBankNetwork $network, ?string $networkResponseCode = null, ?InstantBankFailureCode $failureCode = null, ?string $endToEndID = null)
     {
+        $this->status = $status;
         $this->network = $network;
         $this->networkResponseCode = $networkResponseCode;
         $this->failureCode = $failureCode;

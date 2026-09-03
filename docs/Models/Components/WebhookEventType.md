@@ -15,6 +15,7 @@ The type of event that occurred.
 | `BankAccountCreated`         | bankAccount.created          |
 | `BankAccountUpdated`         | bankAccount.updated          |
 | `BankAccountDeleted`         | bankAccount.deleted          |
+| `CaptureUpdated`             | capture.updated              |
 | `CancellationCreated`        | cancellation.created         |
 | `CancellationUpdated`        | cancellation.updated         |
 | `CardAutoUpdated`            | card.autoUpdated             |

@@ -12,8 +12,6 @@ namespace Moov\MoovPhp\Models\Components;
 enum CaptureStatus: string
 {
     case Pending = 'pending';
-    case Submitted = 'submitted';
-    case Settled = 'settled';
     case Completed = 'completed';
     case Failed = 'failed';
     case Canceled = 'canceled';

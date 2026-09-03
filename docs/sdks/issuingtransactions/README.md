@@ -186,7 +186,7 @@ if ($response->issuedCardAuthorizationEvents !== null) {
 | `accountID`                                                 | *string*                                                    | :heavy_check_mark:                                          | The Moov business account for which cards have been issued. |                                                             |
 | `authorizationID`                                           | *string*                                                    | :heavy_check_mark:                                          | N/A                                                         |                                                             |
 | `skip`                                                      | *?int*                                                      | :heavy_minus_sign:                                          | N/A                                                         | 60                                                          |
-| `count`                                                     | *?int*                                                      | :heavy_minus_sign:                                          | N/A                                                         | 20                                                          |
+| `count`                                                     | *?int*                                                      | :heavy_minus_sign:                                          | Page size. When omitted, the server defaults to `200`.      | 20                                                          |
 
 ### Response
 

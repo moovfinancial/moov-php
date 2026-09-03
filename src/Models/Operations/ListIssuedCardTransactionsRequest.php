@@ -27,6 +27,7 @@ class ListIssuedCardTransactionsRequest
     public ?int $skip = null;
 
     /**
+     * Page size. When omitted, the server defaults to `200`.
      *
      * @var ?int $count
      */
@@ -40,6 +41,14 @@ class ListIssuedCardTransactionsRequest
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=issuedCardID')]
     public ?string $issuedCardID = null;
+
+    /**
+     * Optional case-insensitive substring match on the merchant name to filter results.
+     *
+     * @var ?string $merchantName
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=merchantName')]
+    public ?string $merchantName = null;
 
     /**
      * Optional date-time which inclusively filters all card transactions created after this date-time.
@@ -62,16 +71,18 @@ class ListIssuedCardTransactionsRequest
      * @param  ?int  $skip
      * @param  ?int  $count
      * @param  ?string  $issuedCardID
+     * @param  ?string  $merchantName
      * @param  ?\DateTime  $startDateTime
      * @param  ?\DateTime  $endDateTime
      * @phpstan-pure
      */
-    public function __construct(string $accountID, ?int $skip = null, ?int $count = null, ?string $issuedCardID = null, ?\DateTime $startDateTime = null, ?\DateTime $endDateTime = null)
+    public function __construct(string $accountID, ?int $skip = null, ?int $count = null, ?string $issuedCardID = null, ?string $merchantName = null, ?\DateTime $startDateTime = null, ?\DateTime $endDateTime = null)
     {
         $this->accountID = $accountID;
         $this->skip = $skip;
         $this->count = $count;
         $this->issuedCardID = $issuedCardID;
+        $this->merchantName = $merchantName;
         $this->startDateTime = $startDateTime;
         $this->endDateTime = $endDateTime;
     }

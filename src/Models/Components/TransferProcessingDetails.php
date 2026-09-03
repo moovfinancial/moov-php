@@ -66,15 +66,26 @@ class TransferProcessingDetails
     public ?InstantBankCreditTransferProcessingDetails $instantBankCredit = null;
 
     /**
+     * Wire-specific processing details returned on a transfer.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\WireTransferProcessingDetails $wire
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('wire')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\WireTransferProcessingDetails|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?WireTransferProcessingDetails $wire = null;
+
+    /**
      * @param  ?\Moov\MoovPhp\Models\Components\CardPaymentTransferProcessingDetails  $cardPayment
      * @param  ?\Moov\MoovPhp\Models\Components\PushToCardTransferProcessingDetails  $pushToCard
      * @param  ?\Moov\MoovPhp\Models\Components\PullFromCardTransferProcessingDetails  $pullFromCard
      * @param  ?\Moov\MoovPhp\Models\Components\ACHDebitTransferProcessingDetails  $achDebit
      * @param  ?\Moov\MoovPhp\Models\Components\ACHCreditTransferProcessingDetails  $achCredit
      * @param  ?\Moov\MoovPhp\Models\Components\InstantBankCreditTransferProcessingDetails  $instantBankCredit
+     * @param  ?\Moov\MoovPhp\Models\Components\WireTransferProcessingDetails  $wire
      * @phpstan-pure
      */
-    public function __construct(?CardPaymentTransferProcessingDetails $cardPayment = null, ?PushToCardTransferProcessingDetails $pushToCard = null, ?PullFromCardTransferProcessingDetails $pullFromCard = null, ?ACHDebitTransferProcessingDetails $achDebit = null, ?ACHCreditTransferProcessingDetails $achCredit = null, ?InstantBankCreditTransferProcessingDetails $instantBankCredit = null)
+    public function __construct(?CardPaymentTransferProcessingDetails $cardPayment = null, ?PushToCardTransferProcessingDetails $pushToCard = null, ?PullFromCardTransferProcessingDetails $pullFromCard = null, ?ACHDebitTransferProcessingDetails $achDebit = null, ?ACHCreditTransferProcessingDetails $achCredit = null, ?InstantBankCreditTransferProcessingDetails $instantBankCredit = null, ?WireTransferProcessingDetails $wire = null)
     {
         $this->cardPayment = $cardPayment;
         $this->pushToCard = $pushToCard;
@@ -82,5 +93,6 @@ class TransferProcessingDetails
         $this->achDebit = $achDebit;
         $this->achCredit = $achCredit;
         $this->instantBankCredit = $instantBankCredit;
+        $this->wire = $wire;
     }
 }

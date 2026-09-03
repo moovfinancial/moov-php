@@ -13,7 +13,7 @@ namespace Moov\MoovPhp\Models\Components;
 class TransferFeePaidBy
 {
     /**
-     * For payouts, indicates which party bears the fee. Defaults to `source`.
+     * Defaults to `source`.
      *
      * @var ?\Moov\MoovPhp\Models\Components\FeePaidBy $payout
      */

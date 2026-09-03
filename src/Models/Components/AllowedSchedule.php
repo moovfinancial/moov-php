@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-/** AllowedSchedule - Limits card usage to specific days and times. Set to `null` to remove all schedule restrictions. */
+/** AllowedSchedule - Limits card usage to specific days and times. */
 class AllowedSchedule
 {
     /**

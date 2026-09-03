@@ -102,6 +102,7 @@ class CreatePaymentLink
     public ?PaymentLinkPaymentDetails $payment = null;
 
     /**
+     * Options for payout links used to send a payout.
      *
      * @var ?\Moov\MoovPhp\Models\Components\PaymentLinkPayoutDetails $payout
      */

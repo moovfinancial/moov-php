@@ -12,6 +12,16 @@ namespace Moov\MoovPhp\Models\Components;
 class CardPaymentTransferProcessingDetails
 {
     /**
+     * Status of a card payment transaction.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\CardPaymentTransactionStatus $status
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardPaymentTransactionStatus|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?CardPaymentTransactionStatus $status = null;
+
+    /**
      *
      * @var ?string $authorizationCode
      */
@@ -29,14 +39,6 @@ class CardPaymentTransferProcessingDetails
 
     /**
      *
-     * @var ?string $networkResponseCode
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('networkResponseCode')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $networkResponseCode = null;
-
-    /**
-     *
      * @var ?\Moov\MoovPhp\Models\Components\CardTransactionFailureCode $failureCode
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('failureCode')]
@@ -45,17 +47,28 @@ class CardPaymentTransferProcessingDetails
     public ?CardTransactionFailureCode $failureCode = null;
 
     /**
+     * The retrieval reference number assigned by the card network to the card payment.
+     *
+     * @var ?string $retrievalReferenceNumber
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('retrievalReferenceNumber')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $retrievalReferenceNumber = null;
+
+    /**
+     * @param  ?\Moov\MoovPhp\Models\Components\CardPaymentTransactionStatus  $status
      * @param  ?string  $authorizationCode
      * @param  ?string  $networkTransactionID
-     * @param  ?string  $networkResponseCode
      * @param  ?\Moov\MoovPhp\Models\Components\CardTransactionFailureCode  $failureCode
+     * @param  ?string  $retrievalReferenceNumber
      * @phpstan-pure
      */
-    public function __construct(?string $authorizationCode = null, ?string $networkTransactionID = null, ?string $networkResponseCode = null, ?CardTransactionFailureCode $failureCode = null)
+    public function __construct(?CardPaymentTransactionStatus $status = null, ?string $authorizationCode = null, ?string $networkTransactionID = null, ?CardTransactionFailureCode $failureCode = null, ?string $retrievalReferenceNumber = null)
     {
+        $this->status = $status;
         $this->authorizationCode = $authorizationCode;
         $this->networkTransactionID = $networkTransactionID;
-        $this->networkResponseCode = $networkResponseCode;
         $this->failureCode = $failureCode;
+        $this->retrievalReferenceNumber = $retrievalReferenceNumber;
     }
 }

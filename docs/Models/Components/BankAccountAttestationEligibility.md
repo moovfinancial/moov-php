@@ -1,0 +1,11 @@
+# BankAccountAttestationEligibility
+
+Whether a bank account is currently eligible to receive a new attestation.
+
+
+## Fields
+
+| Field                                                                                                                | Type                                                                                                                 | Required                                                                                                             | Description                                                                                                          |
+| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `enabled`                                                                                                            | *bool*                                                                                                               | :heavy_check_mark:                                                                                                   | Whether the calling account is allowlisted for the attestations feature. When `false`, `eligible` is always `false`. |
+| `eligible`                                                                                                           | *bool*                                                                                                               | :heavy_check_mark:                                                                                                   | Whether the bank account currently meets the requirements to receive a new attestation.                              |

@@ -50,6 +50,7 @@ class UpdatePaymentLink
     public ?PaymentLinkPaymentDetailsUpdate $payment = null;
 
     /**
+     * Options for payout links used to send a payout.
      *
      * @var ?\Moov\MoovPhp\Models\Components\PaymentLinkPayoutDetailsUpdate $payout
      */

@@ -12,7 +12,10 @@ namespace Moov\MoovPhp\Models\Components;
 class ReversalAmountDetails
 {
     /**
-     * The amount of surcharge to refund. Should be proportionate to the surcharge on the original transfer. This does not reply if the reversal resulted in a cancellation instead of a refund
+     * The amount of surcharge to refund.
+     *
+     * It should be proportional to the surcharge on the original transfer.
+     * This field applies only when the reversal results in a refund.
      *
      * @var ?\Moov\MoovPhp\Models\Components\AmountDecimal $surcharge
      */

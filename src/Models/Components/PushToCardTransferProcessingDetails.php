@@ -12,6 +12,15 @@ namespace Moov\MoovPhp\Models\Components;
 class PushToCardTransferProcessingDetails
 {
     /**
+     * Status of a push-to-card transaction.
+     *
+     * @var \Moov\MoovPhp\Models\Components\PushToCardTransactionStatus $status
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\PushToCardTransactionStatus')]
+    public PushToCardTransactionStatus $status;
+
+    /**
      *
      * @var ?string $authorizationCode
      */
@@ -45,14 +54,16 @@ class PushToCardTransferProcessingDetails
     public ?CardTransactionFailureCode $failureCode = null;
 
     /**
+     * @param  \Moov\MoovPhp\Models\Components\PushToCardTransactionStatus  $status
      * @param  ?string  $authorizationCode
      * @param  ?string  $networkTransactionID
      * @param  ?string  $networkResponseCode
      * @param  ?\Moov\MoovPhp\Models\Components\CardTransactionFailureCode  $failureCode
      * @phpstan-pure
      */
-    public function __construct(?string $authorizationCode = null, ?string $networkTransactionID = null, ?string $networkResponseCode = null, ?CardTransactionFailureCode $failureCode = null)
+    public function __construct(PushToCardTransactionStatus $status, ?string $authorizationCode = null, ?string $networkTransactionID = null, ?string $networkResponseCode = null, ?CardTransactionFailureCode $failureCode = null)
     {
+        $this->status = $status;
         $this->authorizationCode = $authorizationCode;
         $this->networkTransactionID = $networkTransactionID;
         $this->networkResponseCode = $networkResponseCode;

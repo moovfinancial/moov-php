@@ -9,11 +9,11 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-/** UpdateIssuingControlsMerchantRestrictions - Replaces the merchant restrictions. Set to `null` to remove. */
+/** UpdateIssuingControlsMerchantRestrictions - Restricts card usage to specific merchants, independent of merchant category. Set to `null` to remove merchant restrictions. */
 class UpdateIssuingControlsMerchantRestrictions
 {
     /**
-     * Whether the listed merchants are the only ones allowed, or the ones to block.
+     * Whether the listed items should be allowed (`allow`) or blocked (`block`).
      *
      * @var ?\Moov\MoovPhp\Models\Components\IssuingControlsRestrictionMode $mode
      */

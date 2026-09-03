@@ -20,6 +20,7 @@ enum WebhookEventType: string
     case BankAccountCreated = 'bankAccount.created';
     case BankAccountUpdated = 'bankAccount.updated';
     case BankAccountDeleted = 'bankAccount.deleted';
+    case CaptureUpdated = 'capture.updated';
     case CancellationCreated = 'cancellation.created';
     case CancellationUpdated = 'cancellation.updated';
     case CardAutoUpdated = 'card.autoUpdated';
