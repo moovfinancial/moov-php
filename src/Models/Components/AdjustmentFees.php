@@ -9,40 +9,35 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-/**
- * AdjustmentFees - The total amount of adjustment fees. This field is deprecated and will be removed in a future release.
- *
- * @deprecated  class: This will be removed in a future release, please migrate away from it as soon as possible.
- */
+/** AdjustmentFees - A detailed breakdown of adjustment (correction) fees by fee name. */
 class AdjustmentFees
 {
     /**
-     * A 3-letter ISO 4217 currency code.
+     * Adjustment fees grouped by fee name.
      *
-     * @var string $currency
+     * @var array<\Moov\MoovPhp\Models\Components\BillingAdjustment> $items
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('currency')]
-    public string $currency;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('items')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\Moov\MoovPhp\Models\Components\BillingAdjustment>')]
+    public array $items;
 
     /**
-     * A decimal-formatted numerical string that represents up to 9 decimal place precision. 
+     * Total adjustment fees.
      *
-     *
-     * For example, $12.987654321 is '12.987654321'.
-     *
-     * @var string $valueDecimal
+     * @var \Moov\MoovPhp\Models\Components\BillingCountAndAmount $total
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('valueDecimal')]
-    public string $valueDecimal;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('total')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingCountAndAmount')]
+    public BillingCountAndAmount $total;
 
     /**
-     * @param  string  $currency
-     * @param  string  $valueDecimal
+     * @param  array<\Moov\MoovPhp\Models\Components\BillingAdjustment>  $items
+     * @param  \Moov\MoovPhp\Models\Components\BillingCountAndAmount  $total
      * @phpstan-pure
      */
-    public function __construct(string $currency, string $valueDecimal)
+    public function __construct(array $items, BillingCountAndAmount $total)
     {
-        $this->currency = $currency;
-        $this->valueDecimal = $valueDecimal;
+        $this->items = $items;
+        $this->total = $total;
     }
 }

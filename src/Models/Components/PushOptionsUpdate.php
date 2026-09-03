@@ -9,13 +9,13 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-/** PushOptionsUpdate - Delivery options for push-to-card payouts. */
 class PushOptionsUpdate
 {
     /**
-     * Delivery speeds the recipient may choose from for `push-to-card`. Include `instant` to allow immediate
+     * Delivery speeds the recipient may choose from for `push-to-card` and `push-to-apple-pay`.
      *
-     * delivery, `deferred` to allow delayed delivery, or both to let the recipient choose at checkout.
+     * Include `instant` to allow immediate delivery, `deferred` to allow delayed delivery, or both
+     * to let the recipient choose at checkout.
      *
      * @var ?array<\Moov\MoovPhp\Models\Components\PushDeliverySpeed> $allowedSpeeds
      */
@@ -25,7 +25,7 @@ class PushOptionsUpdate
     public ?array $allowedSpeeds = null;
 
     /**
-     * Delay before delivering a deferred `push-to-card` payout. Required when `allowedSpeeds` includes `deferred`.
+     * Delay before delivering a deferred payout. Required when `allowedSpeeds` includes `deferred`.
      *
      * Accepted values are `24h` or `48h`.
      *

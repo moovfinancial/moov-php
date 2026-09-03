@@ -10,10 +10,8 @@ namespace Moov\MoovPhp\Models\Components;
 
 
 /**
- * AmountDecimalRangeUpdate - A range of values that an AmountDecimal can take.
+ * AmountDecimalRangeUpdate - If either `minimum` or `maximum` is omitted, the range is "open" on that end:
  *
- *
- * If either `minimum` or `maximum` is omitted, the range is "open" on that end:
  *
  * `minimum` specified: `amt >= minimum`
  * `maximum` specified: `amt <= maximum`

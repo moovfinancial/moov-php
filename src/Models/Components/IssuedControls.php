@@ -42,7 +42,7 @@ class IssuedControls
     public ?MerchantCategoryRestrictions $merchantCategoryRestrictions = null;
 
     /**
-     * Restricts card usage to specific merchants, or blocks specific merchants.
+     * Restricts card usage to specific merchants, independent of merchant category.
      *
      * @var ?\Moov\MoovPhp\Models\Components\MerchantRestrictions $merchantRestrictions
      */
@@ -52,7 +52,6 @@ class IssuedControls
     public ?MerchantRestrictions $merchantRestrictions = null;
 
     /**
-     * Limits card usage to specific days and times.
      *
      * @var ?\Moov\MoovPhp\Models\Components\IssuedControlsAllowedSchedule $allowedSchedule
      */

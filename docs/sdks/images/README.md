@@ -6,7 +6,7 @@
 
 * [list](#list) - List metadata for all images in the specified account.
 * [upload](#upload) -   Upload a new PNG, JPEG, or WebP image with optional metadata. 
-  Duplicate images, and requests larger than 16MB will be rejected.
+  Duplicate images return the existing image's metadata with a 409 status. Requests larger than 16MB will be rejected.
 * [getMetadata](#getmetadata) - Retrieve metadata for a specific image by its ID.
 * [update](#update) - Replace an existing image and, optionally, its metadata.
 
@@ -78,7 +78,7 @@ if ($response->imageMetadata !== null) {
 ## upload
 
   Upload a new PNG, JPEG, or WebP image with optional metadata. 
-  Duplicate images, and requests larger than 16MB will be rejected.
+  Duplicate images return the existing image's metadata with a 409 status. Requests larger than 16MB will be rejected.
 
 ### Example Usage
 
