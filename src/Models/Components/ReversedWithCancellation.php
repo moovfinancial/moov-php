@@ -12,6 +12,7 @@ namespace Moov\MoovPhp\Models\Components;
 class ReversedWithCancellation
 {
     /**
+     * Cancellation of a transfer.
      *
      * @var \Moov\MoovPhp\Models\Components\Cancellation $cancellation
      */

@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
+/** PaymentLinkPayoutDetailsUpdate - Options for payout links used to send a payout. */
 class PaymentLinkPayoutDetailsUpdate
 {
     /**

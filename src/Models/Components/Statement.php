@@ -166,6 +166,16 @@ class Statement
     public ?PartnerFees $partnerFees = null;
 
     /**
+     * A detailed breakdown of adjustment (correction) fees by fee name.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\AdjustmentFees $adjustments
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('adjustments')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AdjustmentFees|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?AdjustmentFees $adjustments = null;
+
+    /**
      * @param  string  $statementID
      * @param  string  $statementName
      * @param  string  $fileName
@@ -183,9 +193,10 @@ class Statement
      * @param  ?\Moov\MoovPhp\Models\Components\AccountFees  $accountFees
      * @param  ?\Moov\MoovPhp\Models\Components\OtherCardFees  $otherCardFees
      * @param  ?\Moov\MoovPhp\Models\Components\PartnerFees  $partnerFees
+     * @param  ?\Moov\MoovPhp\Models\Components\AdjustmentFees  $adjustments
      * @phpstan-pure
      */
-    public function __construct(string $statementID, string $statementName, string $fileName, int $fileSize, \DateTime $billingPeriodStartDateTime, \DateTime $billingPeriodEndDateTime, array $subscriptionIDs, BillingSummary $summary, \DateTime $createdOn, \DateTime $updatedOn, ?CardAcquiringFees $cardAcquiringFees = null, ?ACHFees $achFees = null, ?InstantPaymentFees $instantPaymentFees = null, ?PlatformFees $platformFees = null, ?AccountFees $accountFees = null, ?OtherCardFees $otherCardFees = null, ?PartnerFees $partnerFees = null)
+    public function __construct(string $statementID, string $statementName, string $fileName, int $fileSize, \DateTime $billingPeriodStartDateTime, \DateTime $billingPeriodEndDateTime, array $subscriptionIDs, BillingSummary $summary, \DateTime $createdOn, \DateTime $updatedOn, ?CardAcquiringFees $cardAcquiringFees = null, ?ACHFees $achFees = null, ?InstantPaymentFees $instantPaymentFees = null, ?PlatformFees $platformFees = null, ?AccountFees $accountFees = null, ?OtherCardFees $otherCardFees = null, ?PartnerFees $partnerFees = null, ?AdjustmentFees $adjustments = null)
     {
         $this->statementID = $statementID;
         $this->statementName = $statementName;
@@ -204,5 +215,6 @@ class Statement
         $this->accountFees = $accountFees;
         $this->otherCardFees = $otherCardFees;
         $this->partnerFees = $partnerFees;
+        $this->adjustments = $adjustments;
     }
 }
