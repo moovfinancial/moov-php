@@ -57,6 +57,7 @@ class RequestCard
     public ?CardExpiration $expiration = null;
 
     /**
+     * Mutable spend controls for the card.
      *
      * @var ?\Moov\MoovPhp\Models\Components\IssuingControls $controls
      */
