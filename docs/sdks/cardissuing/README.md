@@ -25,7 +25,7 @@ you'll need to specify the `/accounts/{accountID}/issued-cards.write` scope.
 Only use this endpoint if you have provided Moov with a copy of your PCI attestation of compliance.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
-you'll need to specify the `/accounts/{accountID}/issued-cards.read-secure` scope.
+you'll need to specify the `/accounts/{accountID}/issued-cards.read-private` scope.
 
 ## request
 
@@ -157,7 +157,7 @@ if ($response->issuedCards !== null) {
 | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
 | `accountID`                                                                                                 | *string*                                                                                                    | :heavy_check_mark:                                                                                          | The Moov business account for which the cards have been issued.                                             |                                                                                                             |
 | `skip`                                                                                                      | *?int*                                                                                                      | :heavy_minus_sign:                                                                                          | N/A                                                                                                         | 60                                                                                                          |
-| `count`                                                                                                     | *?int*                                                                                                      | :heavy_minus_sign:                                                                                          | N/A                                                                                                         | 20                                                                                                          |
+| `count`                                                                                                     | *?int*                                                                                                      | :heavy_minus_sign:                                                                                          | Page size. When omitted, the server defaults to `200`.                                                      | 20                                                                                                          |
 | `states`                                                                                                    | array<[Components\IssuedCardState](../../Models/Components/IssuedCardState.md)>                             | :heavy_minus_sign:                                                                                          | Optional, comma-separated states to filter the Moov list issued cards response. For example `active,closed` |                                                                                                             |
 
 ### Response
@@ -307,7 +307,7 @@ Get issued card with PAN, CVV, and expiration.
 Only use this endpoint if you have provided Moov with a copy of your PCI attestation of compliance.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
-you'll need to specify the `/accounts/{accountID}/issued-cards.read-secure` scope.
+you'll need to specify the `/accounts/{accountID}/issued-cards.read-private` scope.
 
 ### Example Usage
 

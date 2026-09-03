@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
+/** PaymentLinkPayoutDetailsUpdate - Options for payout links used to send a payout. */
 class PaymentLinkPayoutDetailsUpdate
 {
     /**
@@ -46,11 +47,7 @@ class PaymentLinkPayoutDetailsUpdate
     public ?array $metadata = null;
 
     /**
-     * Delivery options for push-to-card payouts. Only applies when `allowedMethods` includes `push-to-card`.
-     *
-     *
-     * The `deferred` speed and `deferredBy` apply to `push-to-card` only. Other push methods
-     * (`push-to-apple-pay`, `push-to-google-pay`) are always delivered instantly regardless of these options.
+     * Delivery options for `push-to-card` and `push-to-apple-pay` payouts.
      *
      * @var ?\Moov\MoovPhp\Models\Components\PushOptionsUpdate $pushOptions
      */

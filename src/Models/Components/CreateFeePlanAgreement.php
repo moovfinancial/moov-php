@@ -12,7 +12,10 @@ namespace Moov\MoovPhp\Models\Components;
 class CreateFeePlanAgreement
 {
     /**
-     * A unique identifier for a Moov resource. Supports UUID format (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx) or typed format with base32-encoded UUID and type suffix (e.g., kuoaydiojf7uszaokc2ggnaaaa_xfer).
+     * A unique identifier for a fee plan: the pricing terms, such as flat-rate or cost-plus, that an account 
+     *
+     * is charged under its fee plan agreement. Use GET /accounts/{accountID}/fee-plans to list the fee plans 
+     * available to assign to a given account.
      *
      * @var string $planID
      */
@@ -20,11 +23,27 @@ class CreateFeePlanAgreement
     public string $planID;
 
     /**
+     * The account's active fee plan agreement to supersede. When set, that agreement is terminated and
+     *
+     * the new one takes its place in a single operation, so the account is never without an active fee
+     * plan agreement. This new agreement always receives a newly issued agreementID.
+     *
+     * Omit it if the account doesn't already have an active fee plan agreement.
+     *
+     * @var ?string $priorAgreementID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('priorAgreementID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $priorAgreementID = null;
+
+    /**
      * @param  string  $planID
+     * @param  ?string  $priorAgreementID
      * @phpstan-pure
      */
-    public function __construct(string $planID)
+    public function __construct(string $planID, ?string $priorAgreementID = null)
     {
         $this->planID = $planID;
+        $this->priorAgreementID = $priorAgreementID;
     }
 }

@@ -72,6 +72,11 @@ class CreatedTransfer
     public ?TransferFailureReason $failureReason = null;
 
     /**
+     * Amount associated with this transfer.
+     *
+     * In v2026.10 and later, an auth-capture `card-payment` transfer reports the approved authorization amount until a final capture is created.
+     * For these transfers, when a final capture is created, this is updated to the cumulative captured amount.
+     * For other transfer types, this is the transfer amount.
      *
      * @var ?\Moov\MoovPhp\Models\Components\Amount $amount
      */
