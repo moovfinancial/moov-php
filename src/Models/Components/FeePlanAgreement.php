@@ -105,6 +105,24 @@ class FeePlanAgreement
     public ?string $description = null;
 
     /**
+     * The agreement this one replaced. Only set when the agreement was created by replacing another.
+     *
+     * @var ?string $priorAgreementID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('priorAgreementID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $priorAgreementID = null;
+
+    /**
+     * The date and time the prior agreement was terminated.
+     *
+     * @var ?\DateTime $priorAgreementTerminatedOn
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('priorAgreementTerminatedOn')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?\DateTime $priorAgreementTerminatedOn = null;
+
+    /**
      * @param  string  $agreementID
      * @param  string  $planID
      * @param  string  $name
@@ -116,9 +134,11 @@ class FeePlanAgreement
      * @param  \Moov\MoovPhp\Models\Components\MonthlyPlatformFee  $monthlyPlatformFee
      * @param  ?string  $accountID
      * @param  ?string  $description
+     * @param  ?string  $priorAgreementID
+     * @param  ?\DateTime  $priorAgreementTerminatedOn
      * @phpstan-pure
      */
-    public function __construct(string $agreementID, string $planID, string $name, \DateTime $acceptedOn, FeePlanAgreementStatus $status, CardAcquiringModel $cardAcquiringModel, array $billableFees, MinimumCommitment $minimumCommitment, MonthlyPlatformFee $monthlyPlatformFee, ?string $accountID = null, ?string $description = null)
+    public function __construct(string $agreementID, string $planID, string $name, \DateTime $acceptedOn, FeePlanAgreementStatus $status, CardAcquiringModel $cardAcquiringModel, array $billableFees, MinimumCommitment $minimumCommitment, MonthlyPlatformFee $monthlyPlatformFee, ?string $accountID = null, ?string $description = null, ?string $priorAgreementID = null, ?\DateTime $priorAgreementTerminatedOn = null)
     {
         $this->agreementID = $agreementID;
         $this->planID = $planID;
@@ -131,5 +151,7 @@ class FeePlanAgreement
         $this->monthlyPlatformFee = $monthlyPlatformFee;
         $this->accountID = $accountID;
         $this->description = $description;
+        $this->priorAgreementID = $priorAgreementID;
+        $this->priorAgreementTerminatedOn = $priorAgreementTerminatedOn;
     }
 }

@@ -13,7 +13,7 @@ namespace Moov\MoovPhp\Models\Components;
 class FacilitatorFee
 {
     /**
-     * Total facilitator fee in cents. Only either `total` or `totalDecimal` can be set.
+     * Total facilitator fee.
      *
      * @var ?int $total
      */
@@ -34,7 +34,7 @@ class FacilitatorFee
     public ?string $totalDecimal = null;
 
     /**
-     * Markup facilitator fee in cents. Only either `markup` or `markupDecimal` can be set.
+     * Markup facilitator fee.
      *
      * @var ?int $markup
      */

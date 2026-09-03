@@ -100,7 +100,7 @@ class ListTransfersRequest
     public ?string $foreignID = null;
 
     /**
-     * Optional comma-separated IDs to filter for transfers associated with specific card authorizations.
+     * Optional comma-separated authorization IDs.
      *
      * @var ?array<string> $authorizationIDs
      */
@@ -123,6 +123,7 @@ class ListTransfersRequest
     public ?int $skip = null;
 
     /**
+     * Page size. When omitted, the server defaults to `200`.
      *
      * @var ?int $count
      */

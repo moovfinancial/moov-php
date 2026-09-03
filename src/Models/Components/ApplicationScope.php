@@ -32,7 +32,7 @@ enum ApplicationScope: string
     case FilesWrite = 'files.write';
     case IssuedCardsRead = 'issued-cards.read';
     case IssuedCardsWrite = 'issued-cards.write';
-    case IssuedCardsReadSecure = 'issued-cards.read-secure';
+    case IssuedCardsReadPrivate = 'issued-cards.read-private';
     case PaymentMethodsRead = 'payment-methods.read';
     case PingRead = 'ping.read';
     case ProfileEnrichmentRead = 'profile-enrichment.read';
