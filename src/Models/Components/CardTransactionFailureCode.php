@@ -34,6 +34,22 @@ enum CardTransactionFailureCode: string
     case IssuerNotAvailable = 'issuer-not-available';
     case CouldNotRoute = 'could-not-route';
     case CardholderAccountClosed = 'cardholder-account-closed';
+    case AccountClosed = 'account-closed';
+    case AccountNotActivated = 'account-not-activated';
+    case AuthenticationFailed = 'authentication-failed';
+    case AuthenticationRequired = 'authentication-required';
+    case CardholderActionRequired = 'cardholder-action-required';
+    case FormatError = 'format-error';
+    case InvalidPin = 'invalid-pin';
+    case OfflineApproved = 'offline-approved';
+    case OfflineDeclined = 'offline-declined';
+    case PartialApproval = 'partial-approval';
+    case PaymentStopped = 'payment-stopped';
+    case PinRequired = 'pin-required';
+    case RecordNotFound = 'record-not-found';
+    case SurchargeNotPermitted = 'surcharge-not-permitted';
+    case TransactionReversed = 'transaction-reversed';
+    case VerificationFailed = 'verification-failed';
     case UnknownIssue = 'unknown-issue';
     case DuplicateTransaction = 'duplicate-transaction';
 }

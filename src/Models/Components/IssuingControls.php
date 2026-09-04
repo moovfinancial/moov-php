@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
+/** IssuingControls - Mutable spend controls for the card. */
 class IssuingControls
 {
     /**
@@ -41,7 +42,7 @@ class IssuingControls
     public ?MerchantCategoryRestrictions $merchantCategoryRestrictions = null;
 
     /**
-     * Restricts card usage to specific merchants, or blocks specific merchants.
+     * Restricts card usage to specific merchants, independent of merchant category.
      *
      * @var ?\Moov\MoovPhp\Models\Components\MerchantRestrictions $merchantRestrictions
      */
@@ -51,7 +52,6 @@ class IssuingControls
     public ?MerchantRestrictions $merchantRestrictions = null;
 
     /**
-     * Limits card usage to specific days and times. Set to `null` to remove all schedule restrictions.
      *
      * @var ?\Moov\MoovPhp\Models\Components\AllowedSchedule $allowedSchedule
      */

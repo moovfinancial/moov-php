@@ -9,11 +9,11 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-/** MerchantCategoryRestrictions - Restricts card usage by merchant category. */
+/** MerchantCategoryRestrictions - Restricts card usage by merchant category. When not set, all categories are allowed. */
 class MerchantCategoryRestrictions
 {
     /**
-     * Whether the listed categories are the only ones allowed, or the ones to block.
+     * Whether the listed items should be allowed (`allow`) or blocked (`block`).
      *
      * @var \Moov\MoovPhp\Models\Components\IssuingControlsRestrictionMode $mode
      */

@@ -33,3 +33,4 @@
 | `FeeRevenue`                   | fee-revenue                    |
 | `Residual`                     | residual                       |
 | `InstantBankFailure`           | instant-bank-failure           |
+| `WireFailure`                  | wire-failure                   |

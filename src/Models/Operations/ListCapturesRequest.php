@@ -12,7 +12,7 @@ use Moov\MoovPhp\Utils\SpeakeasyMetadata;
 class ListCapturesRequest
 {
     /**
-     * The merchant's Moov account ID.
+     * Moov account ID of an authorized partner or the transfer's source or destination.
      *
      * @var string $accountID
      */
@@ -20,7 +20,7 @@ class ListCapturesRequest
     public string $accountID;
 
     /**
-     * Identifier for the transfer.
+     * Identifier for the auth-capture `card-payment` transfer.
      *
      * @var string $transferID
      */

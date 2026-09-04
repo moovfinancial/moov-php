@@ -57,19 +57,31 @@ class TransferRailOptions
     public ?ACHCreditOptions $achCredit = null;
 
     /**
+     * Wire-specific options returned on a transfer.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\WireOptions $wire
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('wire')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\WireOptions|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?WireOptions $wire = null;
+
+    /**
      * @param  ?\Moov\MoovPhp\Models\Components\CardPaymentOptions  $cardPayment
      * @param  ?\Moov\MoovPhp\Models\Components\PushToCardOptions  $pushToCard
      * @param  ?\Moov\MoovPhp\Models\Components\PullFromCardOptions  $pullFromCard
      * @param  ?\Moov\MoovPhp\Models\Components\ACHDebitOptions  $achDebit
      * @param  ?\Moov\MoovPhp\Models\Components\ACHCreditOptions  $achCredit
+     * @param  ?\Moov\MoovPhp\Models\Components\WireOptions  $wire
      * @phpstan-pure
      */
-    public function __construct(?CardPaymentOptions $cardPayment = null, ?PushToCardOptions $pushToCard = null, ?PullFromCardOptions $pullFromCard = null, ?ACHDebitOptions $achDebit = null, ?ACHCreditOptions $achCredit = null)
+    public function __construct(?CardPaymentOptions $cardPayment = null, ?PushToCardOptions $pushToCard = null, ?PullFromCardOptions $pullFromCard = null, ?ACHDebitOptions $achDebit = null, ?ACHCreditOptions $achCredit = null, ?WireOptions $wire = null)
     {
         $this->cardPayment = $cardPayment;
         $this->pushToCard = $pushToCard;
         $this->pullFromCard = $pullFromCard;
         $this->achDebit = $achDebit;
         $this->achCredit = $achCredit;
+        $this->wire = $wire;
     }
 }

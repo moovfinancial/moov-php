@@ -12,6 +12,15 @@ namespace Moov\MoovPhp\Models\Components;
 class ACHDebitTransferProcessingDetails
 {
     /**
+     * Status of a transaction within the ACH lifecycle.
+     *
+     * @var \Moov\MoovPhp\Models\Components\ACHTransactionStatus $status
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ACHTransactionStatus')]
+    public ACHTransactionStatus $status;
+
+    /**
      *
      * @var string $traceNumber
      */
@@ -37,13 +46,15 @@ class ACHDebitTransferProcessingDetails
     public ?ACHException $correction = null;
 
     /**
+     * @param  \Moov\MoovPhp\Models\Components\ACHTransactionStatus  $status
      * @param  string  $traceNumber
      * @param  ?\Moov\MoovPhp\Models\Components\ACHException  $return
      * @param  ?\Moov\MoovPhp\Models\Components\ACHException  $correction
      * @phpstan-pure
      */
-    public function __construct(string $traceNumber, ?ACHException $return = null, ?ACHException $correction = null)
+    public function __construct(ACHTransactionStatus $status, string $traceNumber, ?ACHException $return = null, ?ACHException $correction = null)
     {
+        $this->status = $status;
         $this->traceNumber = $traceNumber;
         $this->return = $return;
         $this->correction = $correction;

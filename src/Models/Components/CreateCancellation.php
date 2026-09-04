@@ -9,9 +9,14 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
+/** CreateCancellation - Cancellation request. */
 class CreateCancellation
 {
     /**
+     * Amount to void. This field can only be set for an auth-capture `card-payment` transfer.
+     *
+     * This cannot exceed `capturableAmount`.
+     * Omit this field to void the entire `capturableAmount`.
      *
      * @var ?\Moov\MoovPhp\Models\Components\AmountDecimal $amount
      */

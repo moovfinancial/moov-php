@@ -17,6 +17,7 @@ enum WebhookDataTransferStatus: string
     case Failed = 'failed';
     case Reversed = 'reversed';
     case Queued = 'queued';
+    case AwaitingCapture = 'awaiting-capture';
     case Canceled = 'canceled';
     case SourceCompleted = 'source.completed';
     case SourceCorrected = 'source.corrected';

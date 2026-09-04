@@ -74,6 +74,15 @@ class UpsertUnderwritingError
 
     /**
      *
+     * @var ?\Moov\MoovPhp\Models\Components\CardIssuingError $cardIssuing
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('cardIssuing')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardIssuingError|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?Components\CardIssuingError $cardIssuing = null;
+
+    /**
+     *
      * @var ?string $averageMonthlyTransactionVolume
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('averageMonthlyTransactionVolume')]
@@ -139,6 +148,7 @@ class UpsertUnderwritingError
      * @param  ?\Moov\MoovPhp\Models\Components\CollectFundsError  $collectFunds
      * @param  ?\Moov\MoovPhp\Models\Components\MoneyTransferError  $moneyTransfer
      * @param  ?\Moov\MoovPhp\Models\Components\SendFundsError  $sendFunds
+     * @param  ?\Moov\MoovPhp\Models\Components\CardIssuingError  $cardIssuing
      * @param  ?string  $averageMonthlyTransactionVolume
      * @param  ?string  $error
      * @param  ?string  $averageTransactionSize
@@ -148,7 +158,7 @@ class UpsertUnderwritingError
      * @param  ?\Moov\MoovPhp\Models\Components\FulfillmentDetailsError  $fulfillment
      * @phpstan-pure
      */
-    public function __construct(?string $geographicReach = null, ?string $businessPresence = null, ?string $pendingLitigation = null, ?Components\VolumeShareByCustomerTypeError $volumeShareByCustomerType = null, ?Components\CollectFundsError $collectFunds = null, ?Components\MoneyTransferError $moneyTransfer = null, ?Components\SendFundsError $sendFunds = null, ?string $averageMonthlyTransactionVolume = null, ?string $error = null, ?string $averageTransactionSize = null, ?string $maxTransactionSize = null, ?Components\VolumeByCustomerTypeError $volumeByCustomerType = null, ?Components\CardVolumeDistributionError $cardVolumeDistribution = null, ?Components\FulfillmentDetailsError $fulfillment = null)
+    public function __construct(?string $geographicReach = null, ?string $businessPresence = null, ?string $pendingLitigation = null, ?Components\VolumeShareByCustomerTypeError $volumeShareByCustomerType = null, ?Components\CollectFundsError $collectFunds = null, ?Components\MoneyTransferError $moneyTransfer = null, ?Components\SendFundsError $sendFunds = null, ?Components\CardIssuingError $cardIssuing = null, ?string $averageMonthlyTransactionVolume = null, ?string $error = null, ?string $averageTransactionSize = null, ?string $maxTransactionSize = null, ?Components\VolumeByCustomerTypeError $volumeByCustomerType = null, ?Components\CardVolumeDistributionError $cardVolumeDistribution = null, ?Components\FulfillmentDetailsError $fulfillment = null)
     {
         $this->geographicReach = $geographicReach;
         $this->businessPresence = $businessPresence;
@@ -157,6 +167,7 @@ class UpsertUnderwritingError
         $this->collectFunds = $collectFunds;
         $this->moneyTransfer = $moneyTransfer;
         $this->sendFunds = $sendFunds;
+        $this->cardIssuing = $cardIssuing;
         $this->averageMonthlyTransactionVolume = $averageMonthlyTransactionVolume;
         $this->error = $error;
         $this->averageTransactionSize = $averageTransactionSize;

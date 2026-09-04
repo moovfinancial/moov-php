@@ -13,11 +13,11 @@ class MerchantEntryError
 {
     /**
      *
-     * @var ?string $mid
+     * @var ?string $networkID
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('mid')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('networkID')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $mid = null;
+    public ?string $networkID = null;
 
     /**
      *
@@ -28,13 +28,13 @@ class MerchantEntryError
     public ?string $descriptorPattern = null;
 
     /**
-     * @param  ?string  $mid
+     * @param  ?string  $networkID
      * @param  ?string  $descriptorPattern
      * @phpstan-pure
      */
-    public function __construct(?string $mid = null, ?string $descriptorPattern = null)
+    public function __construct(?string $networkID = null, ?string $descriptorPattern = null)
     {
-        $this->mid = $mid;
+        $this->networkID = $networkID;
         $this->descriptorPattern = $descriptorPattern;
     }
 }

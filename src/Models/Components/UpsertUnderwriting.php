@@ -75,6 +75,19 @@ class UpsertUnderwriting
     public ?SendFunds $sendFunds = null;
 
     /**
+     * Underwriting data for the `card-issuing` capability.
+     *
+     *
+     * Issued cards are funded from the account's card-issuing wallet before they can be spent, so estimated activity is the only data collected.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\CardIssuing $cardIssuing
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('cardIssuing')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardIssuing|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?CardIssuing $cardIssuing = null;
+
+    /**
      *
      * @var ?\Moov\MoovPhp\Models\Components\SubmissionIntent $submissionIntent
      */
@@ -91,10 +104,11 @@ class UpsertUnderwriting
      * @param  ?\Moov\MoovPhp\Models\Components\CollectFunds  $collectFunds
      * @param  ?\Moov\MoovPhp\Models\Components\MoneyTransfer  $moneyTransfer
      * @param  ?\Moov\MoovPhp\Models\Components\SendFunds  $sendFunds
+     * @param  ?\Moov\MoovPhp\Models\Components\CardIssuing  $cardIssuing
      * @param  ?\Moov\MoovPhp\Models\Components\SubmissionIntent  $submissionIntent
      * @phpstan-pure
      */
-    public function __construct(?GeographicReach $geographicReach = null, ?BusinessPresence $businessPresence = null, ?PendingLitigation $pendingLitigation = null, ?VolumeShareByCustomerType $volumeShareByCustomerType = null, ?CollectFunds $collectFunds = null, ?MoneyTransfer $moneyTransfer = null, ?SendFunds $sendFunds = null, ?SubmissionIntent $submissionIntent = null)
+    public function __construct(?GeographicReach $geographicReach = null, ?BusinessPresence $businessPresence = null, ?PendingLitigation $pendingLitigation = null, ?VolumeShareByCustomerType $volumeShareByCustomerType = null, ?CollectFunds $collectFunds = null, ?MoneyTransfer $moneyTransfer = null, ?SendFunds $sendFunds = null, ?CardIssuing $cardIssuing = null, ?SubmissionIntent $submissionIntent = null)
     {
         $this->geographicReach = $geographicReach;
         $this->businessPresence = $businessPresence;
@@ -103,6 +117,7 @@ class UpsertUnderwriting
         $this->collectFunds = $collectFunds;
         $this->moneyTransfer = $moneyTransfer;
         $this->sendFunds = $sendFunds;
+        $this->cardIssuing = $cardIssuing;
         $this->submissionIntent = $submissionIntent;
     }
 }

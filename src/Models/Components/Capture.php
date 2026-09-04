@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-/** Capture - Details of a capture against an authorized transfer. */
+/** Capture - Details of a capture against an authorization. */
 class Capture
 {
     /**
@@ -29,7 +29,7 @@ class Capture
     public AmountDecimal $amount;
 
     /**
-     * Indicates whether this is the final capture against the authorization. When `true`, no further captures can be made.
+     * Indicates whether this is intended to be the final capture.
      *
      * @var bool $isFinal
      */
@@ -109,7 +109,9 @@ class Capture
     public ?TransferAmountDetails $amountDetails = null;
 
     /**
-     * The facilitator fee amount applied to the capture.
+     * The facilitator fee applied to this capture.
+     *
+     * The transfer's facilitator fee is the sum of its capture fees.
      *
      * @var ?\Moov\MoovPhp\Models\Components\AmountDecimal $facilitatorFeeAmount
      */
@@ -117,6 +119,15 @@ class Capture
     #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?AmountDecimal $facilitatorFeeAmount = null;
+
+    /**
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\CardTransactionFailureCode $failureCode
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('failureCode')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardTransactionFailureCode|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?CardTransactionFailureCode $failureCode = null;
 
     /**
      * @param  string  $captureID
@@ -131,9 +142,10 @@ class Capture
      * @param  ?\Moov\MoovPhp\Models\Components\TransferLineItems  $lineItems
      * @param  ?\Moov\MoovPhp\Models\Components\TransferAmountDetails  $amountDetails
      * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimal  $facilitatorFeeAmount
+     * @param  ?\Moov\MoovPhp\Models\Components\CardTransactionFailureCode  $failureCode
      * @phpstan-pure
      */
-    public function __construct(string $captureID, AmountDecimal $amount, bool $isFinal, CaptureStatus $status, \DateTime $createdOn, string $destinationPaymentMethodID, ?string $description = null, ?array $metadata = null, ?string $foreignID = null, ?TransferLineItems $lineItems = null, ?TransferAmountDetails $amountDetails = null, ?AmountDecimal $facilitatorFeeAmount = null)
+    public function __construct(string $captureID, AmountDecimal $amount, bool $isFinal, CaptureStatus $status, \DateTime $createdOn, string $destinationPaymentMethodID, ?string $description = null, ?array $metadata = null, ?string $foreignID = null, ?TransferLineItems $lineItems = null, ?TransferAmountDetails $amountDetails = null, ?AmountDecimal $facilitatorFeeAmount = null, ?CardTransactionFailureCode $failureCode = null)
     {
         $this->captureID = $captureID;
         $this->amount = $amount;
@@ -147,5 +159,6 @@ class Capture
         $this->lineItems = $lineItems;
         $this->amountDetails = $amountDetails;
         $this->facilitatorFeeAmount = $facilitatorFeeAmount;
+        $this->failureCode = $failureCode;
     }
 }

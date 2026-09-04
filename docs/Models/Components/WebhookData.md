@@ -68,6 +68,15 @@ Components\WebhookDataBankAccountUpdated $value = /* values here */
 Components\WebhookDataBankAccountDeleted $value = /* values here */
 ```
 
+### `Components\WebhookDataCaptureUpdated`
+
+```php
+/**
+* @var \Moov\MoovPhp\Models\Components\WebhookDataCaptureUpdated
+*/
+Components\WebhookDataCaptureUpdated $value = /* values here */
+```
+
 ### `Components\WebhookDataCancellationCreated`
 
 ```php

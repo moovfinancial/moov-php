@@ -38,15 +38,27 @@ class CreateTransferDestination
     public ?CreateTransferDestinationACH $achDetails = null;
 
     /**
+     * Wire-specific options supplied when creating a transfer.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\CreateTransferDestinationWire $wireDetails
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('wireDetails')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateTransferDestinationWire|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?CreateTransferDestinationWire $wireDetails = null;
+
+    /**
      * @param  string  $paymentMethodID
      * @param  ?\Moov\MoovPhp\Models\Components\CreateTransferDestinationCard  $cardDetails
      * @param  ?\Moov\MoovPhp\Models\Components\CreateTransferDestinationACH  $achDetails
+     * @param  ?\Moov\MoovPhp\Models\Components\CreateTransferDestinationWire  $wireDetails
      * @phpstan-pure
      */
-    public function __construct(string $paymentMethodID, ?CreateTransferDestinationCard $cardDetails = null, ?CreateTransferDestinationACH $achDetails = null)
+    public function __construct(string $paymentMethodID, ?CreateTransferDestinationCard $cardDetails = null, ?CreateTransferDestinationACH $achDetails = null, ?CreateTransferDestinationWire $wireDetails = null)
     {
         $this->paymentMethodID = $paymentMethodID;
         $this->cardDetails = $cardDetails;
         $this->achDetails = $achDetails;
+        $this->wireDetails = $wireDetails;
     }
 }

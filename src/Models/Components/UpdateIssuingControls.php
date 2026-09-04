@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-/** UpdateIssuingControls - Mutable spend controls. Each field replaces the entire corresponding value. */
+/** UpdateIssuingControls - Each field replaces the entire corresponding value. */
 class UpdateIssuingControls
 {
     /**
@@ -23,7 +23,7 @@ class UpdateIssuingControls
     public ?array $velocityLimits = null;
 
     /**
-     * Replaces the merchant category restrictions. Set to `null` to remove.
+     * Restricts card usage by merchant category. Set to `null` to remove all category restrictions.
      *
      * @var ?\Moov\MoovPhp\Models\Components\UpdateIssuingControlsMerchantCategoryRestrictions $merchantCategoryRestrictions
      */
@@ -33,7 +33,7 @@ class UpdateIssuingControls
     public ?UpdateIssuingControlsMerchantCategoryRestrictions $merchantCategoryRestrictions = null;
 
     /**
-     * Replaces the merchant restrictions. Set to `null` to remove.
+     * Restricts card usage to specific merchants, independent of merchant category. Set to `null` to remove merchant restrictions.
      *
      * @var ?\Moov\MoovPhp\Models\Components\UpdateIssuingControlsMerchantRestrictions $merchantRestrictions
      */
@@ -43,7 +43,7 @@ class UpdateIssuingControls
     public ?UpdateIssuingControlsMerchantRestrictions $merchantRestrictions = null;
 
     /**
-     * Replaces the allowed schedule. Set to `null` to remove all schedule restrictions.
+     * Limits card usage to specific days and times. Set to `null` to remove all schedule restrictions.
      *
      * @var ?\Moov\MoovPhp\Models\Components\UpdateIssuingControlsAllowedSchedule $allowedSchedule
      */
@@ -53,7 +53,7 @@ class UpdateIssuingControls
     public ?UpdateIssuingControlsAllowedSchedule $allowedSchedule = null;
 
     /**
-     * A spend cutoff date and time. Set to `null` to remove the cutoff.
+     * A spend cutoff date and time. Set to `null` to remove the spend cutoff.
      *
      * @var ?\DateTime $expiresOn
      */

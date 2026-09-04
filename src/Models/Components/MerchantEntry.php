@@ -9,17 +9,17 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-/** MerchantEntry - Identifies a merchant by ID, descriptor pattern, or both. At least one of `mid` or `descriptorPattern` must be set. */
+/** MerchantEntry - Identifies a merchant by ID, descriptor pattern, or both. At least one of `networkID` or `descriptorPattern` must be set. */
 class MerchantEntry
 {
     /**
      * The merchant's unique identifier (ISO 8583 DE42), matched exactly.
      *
-     * @var ?string $mid
+     * @var ?string $networkID
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('mid')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('networkID')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $mid = null;
+    public ?string $networkID = null;
 
     /**
      * A case-insensitive RE2 regular expression matched against the merchant descriptor (ISO 8583 DE43).
@@ -40,14 +40,14 @@ class MerchantEntry
     public ?string $name = null;
 
     /**
-     * @param  ?string  $mid
+     * @param  ?string  $networkID
      * @param  ?string  $descriptorPattern
      * @param  ?string  $name
      * @phpstan-pure
      */
-    public function __construct(?string $mid = null, ?string $descriptorPattern = null, ?string $name = null)
+    public function __construct(?string $networkID = null, ?string $descriptorPattern = null, ?string $name = null)
     {
-        $this->mid = $mid;
+        $this->networkID = $networkID;
         $this->descriptorPattern = $descriptorPattern;
         $this->name = $name;
     }

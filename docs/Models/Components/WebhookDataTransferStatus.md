@@ -11,6 +11,7 @@
 | `Failed`                             | failed                               |
 | `Reversed`                           | reversed                             |
 | `Queued`                             | queued                               |
+| `AwaitingCapture`                    | awaiting-capture                     |
 | `Canceled`                           | canceled                             |
 | `SourceCompleted`                    | source.completed                     |
 | `SourceCorrected`                    | source.corrected                     |

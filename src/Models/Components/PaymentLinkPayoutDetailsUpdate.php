@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
+/** PaymentLinkPayoutDetailsUpdate - Options for payout links used to send a payout. */
 class PaymentLinkPayoutDetailsUpdate
 {
     /**
@@ -46,11 +47,7 @@ class PaymentLinkPayoutDetailsUpdate
     public ?array $metadata = null;
 
     /**
-     * Delivery options for push-to-card payouts. Only applies when `allowedMethods` includes `push-to-card`.
-     *
-     *
-     * The `deferred` speed and `deferredBy` apply to `push-to-card` only. Other push methods
-     * (`push-to-apple-pay`, `push-to-google-pay`) are always delivered instantly regardless of these options.
+     * Delivery options for `push-to-card` and `push-to-apple-pay` payouts.
      *
      * @var ?\Moov\MoovPhp\Models\Components\PushOptionsUpdate $pushOptions
      */
@@ -60,10 +57,11 @@ class PaymentLinkPayoutDetailsUpdate
     public ?PushOptionsUpdate $pushOptions = null;
 
     /**
-     * Indicates which party bears the fee, keyed by disbursement payment method (`DisbursementPaymentMethodType`).
+     * Indicates which party pays the fee, keyed by `PayoutFeePaidByKey`. If keys are not set,
      *
+     * the default is `source`.
      *
-     * Sparse — include only the methods you want to attribute. Any method left unset defaults to `source`.
+     * Possible `PayoutFeePaidByKey` keys: `instant-push-to-card`, `deferred-push-to-card`, `instant-push-to-apple-pay`, `deferred-push-to-apple-pay`, `rtp-credit`, `ach-credit-same-day`, `ach-credit-standard`, `push-to-google-pay`
      *
      * @var ?array<string, \Moov\MoovPhp\Models\Components\FeePaidBy> $feePaidBy
      */

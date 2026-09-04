@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-/** Whether the listed items are the only ones allowed (`allow`) or the ones to block (`block`). */
+/** Whether the listed items should be allowed (`allow`) or blocked (`block`). */
 enum IssuingControlsRestrictionMode: string
 {
     case Allow = 'allow';
