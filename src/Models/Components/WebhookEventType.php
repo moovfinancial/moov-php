@@ -52,4 +52,5 @@ enum WebhookEventType: string
     case WalletTransactionUpdated = 'walletTransaction.updated';
     case BillingStatementCreated = 'billingStatement.created';
     case AuthorizationExpiring = 'authorization.expiring';
+    case EventTest = 'event.test';
 }
