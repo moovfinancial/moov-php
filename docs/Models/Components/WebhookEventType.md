@@ -46,3 +46,4 @@ The type of event that occurred.
 | `WalletTransactionUpdated`   | walletTransaction.updated    |
 | `BillingStatementCreated`    | billingStatement.created     |
 | `AuthorizationExpiring`      | authorization.expiring       |
+| `EventTest`                  | event.test                   |
