@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: a0a500f6c3181ddf1e26cac46f6cf838
+  docChecksum: 43f6ceba6630402fbd1778a81d422c23
   docVersion: v2026.07.00
   speakeasyVersion: 1.796.4
   generationVersion: 2.935.1
-  releaseVersion: 26.7.2
-  configChecksum: 8cee30ff4ca859009e2e4d741a6dae95
+  releaseVersion: 26.7.3
+  configChecksum: c00fc1062b26c1981c268d6eee4d5e0a
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php.git
   published: true
 persistentEdits:
-  generation_id: 1f23cb85-31c7-46bf-9f87-1834cd4f50e7
-  pristine_commit_hash: 1b431047fa319a079b39aa96c94faf7beb647221
-  pristine_tree_hash: 924fe1e628301e4295c576d297617f7dc58712ce
+  generation_id: f25ab33b-97b3-4759-9666-13f71637986c
+  pristine_commit_hash: 647019441919f5c8bf259de593d0e8f43f069fd4
+  pristine_tree_hash: b431f929125727c95c2e9589c285e517593f0edb
 features:
   php:
     constsAndDefaults: 0.2.2
@@ -1491,8 +1491,8 @@ trackedFiles:
     pristine_git_object: 5c383a9a7dbf6393fee9e8dfa202312f88882d57
   docs/Models/Components/IssuedCardAuthorization.md:
     id: 1a7f1852f82e
-    last_write_checksum: sha1:361c7c46dc2b1c7f6e71a8013d52d79fcadd015e
-    pristine_git_object: f890685c8ce8a8ed39526faaec5f1ff0e60ded23
+    last_write_checksum: sha1:6dc2bc5dfc8353b9ae34d3c720e0332fb334b19a
+    pristine_git_object: 43be2ff11e433157d10e4b4612ca28cb7aed553a
   docs/Models/Components/IssuedCardAuthorizationEvent.md:
     id: ea67f1b67407
     last_write_checksum: sha1:e2241917fe34b1abe57085074c48723045adcfa4
@@ -1515,8 +1515,8 @@ trackedFiles:
     pristine_git_object: 5e39c60a46ab1a0d44aeaae0b03de38049ca1bbf
   docs/Models/Components/IssuedCardTransaction.md:
     id: cfc7b32a1c7e
-    last_write_checksum: sha1:318a2cea10470d2ef6223823fc848644737a1219
-    pristine_git_object: 7d5cdaec3e22a89c30dfb6cf5d7a13f3df6c2ae0
+    last_write_checksum: sha1:d52921124f9e667eb2cdc480f351a5c9c5332462
+    pristine_git_object: 435140e45c219334baf0c70418318b67dfe1acbd
   docs/Models/Components/IssuedControls.md:
     id: b723ff3d4939
     last_write_checksum: sha1:7b0544a09b8210dd7bd6ae348d6b273e1ef7efe0
@@ -2863,8 +2863,8 @@ trackedFiles:
     pristine_git_object: d109e2206b57dbce11cd7afed42a311da5c49b67
   docs/Models/Components/WebhookData.md:
     id: 118e182c9cbd
-    last_write_checksum: sha1:d62635715ad8b2d2d97b23051a3247d9cf3a4711
-    pristine_git_object: a08acf0c585d6441e597ce35d28e9f0e91744bf8
+    last_write_checksum: sha1:a6f5563fb2f7097d662c050f930bf117ccdc8b9c
+    pristine_git_object: 9128bed0be7a97d6369010bf36eea9fd36d249ca
   docs/Models/Components/WebhookDataAccountCreated.md:
     id: b844ac6e1811
     last_write_checksum: sha1:82391aa0d6d9b214c9a0e826f51690c87b1a2dec
@@ -2925,6 +2925,10 @@ trackedFiles:
     id: 6faebb34d293
     last_write_checksum: sha1:e12f098e55d05eba0d322fe2c350829e4b6c3805
     pristine_git_object: b7913faf395184daaa5ddecb8579c3b662797390
+  docs/Models/Components/WebhookDataEventTest.md:
+    id: 73e401b38ef8
+    last_write_checksum: sha1:dc64a47df714a11ba7433ba6104ec7a1fa08cae6
+    pristine_git_object: bfd70e1931ac6ff3f027b6dace71b6dc2bdac3d8
   docs/Models/Components/WebhookDataInvoiceCreated.md:
     id: 7edee5e3471f
     last_write_checksum: sha1:629ffef7cb0ae79b504b41287ca9b26df1b869f2
@@ -3019,12 +3023,12 @@ trackedFiles:
     pristine_git_object: 303b84a1ee21d6b230b73c761fb28325c7e73b2a
   docs/Models/Components/WebhookEvent.md:
     id: c4631090d54a
-    last_write_checksum: sha1:8065da200082bc33993a3a61a21ee2f0da906160
-    pristine_git_object: ab6b2a27f44214da705e943ed925d87cce360cd6
+    last_write_checksum: sha1:9c9c9df3c3988b6473e525745380c73955b31f55
+    pristine_git_object: a95ca822144144c205d53d4c9c605986710dcae5
   docs/Models/Components/WebhookEventType.md:
     id: 234a36136da0
-    last_write_checksum: sha1:4d06a4632794496bce73cf8af201a82ef1badf45
-    pristine_git_object: c422ad71678929daa66d201b3c1ba929caa851b1
+    last_write_checksum: sha1:1c1a99605ecd51b7ca58d54f36afb67f64a2fa75
+    pristine_git_object: 84f6a68e543059212e5b3360518a52103d42837f
   docs/Models/Components/WebhookSecret.md:
     id: a28a960a8b66
     last_write_checksum: sha1:cdd7416a0d05f949e680732b53d7fd9b41910659
@@ -6595,8 +6599,8 @@ trackedFiles:
     pristine_git_object: 017f87ce1b511cd8ddaa5769d3e48ec848c2d283
   src/Models/Components/IssuedCardAuthorization.php:
     id: 22d1da65902d
-    last_write_checksum: sha1:7379a25499045dd81910e1c92a1dae9ac78481c0
-    pristine_git_object: 5ea35263f38bf0103c140eb2e7e4ba58028c1264
+    last_write_checksum: sha1:dbf519194b0787bd372ba712f33e36418dd64e7b
+    pristine_git_object: 847566ac94d865ef6376af9e278f16ded131c138
   src/Models/Components/IssuedCardAuthorizationEvent.php:
     id: 34f982b66949
     last_write_checksum: sha1:c9ddb3321d1dc1f8b093ab70b7928e5ae11baf1f
@@ -6619,8 +6623,8 @@ trackedFiles:
     pristine_git_object: 1900acb49ccbe973e6f47a47866e99f6510d9102
   src/Models/Components/IssuedCardTransaction.php:
     id: 8874464bbaba
-    last_write_checksum: sha1:41a0f31c7f1ead50f4a164df4b82805bd7fad615
-    pristine_git_object: ea27329792a0a7acfb60d01221f26d3f1b4a7d51
+    last_write_checksum: sha1:4236134c70c2e278c672d3331bb5e1566be2cd16
+    pristine_git_object: 6fef60f0580315c3a44497fb705a5f8aca90ff75
   src/Models/Components/IssuedControls.php:
     id: f8187aa723bb
     last_write_checksum: sha1:16ec0b8737692f6c9762a1d84d4316bfd806704d
@@ -8009,6 +8013,10 @@ trackedFiles:
     id: b9651108eb99
     last_write_checksum: sha1:b4d99280f9c91eca569a4eea41933a65bd9704b2
     pristine_git_object: 9939142467867ccad8387b83b2af52717f85eb37
+  src/Models/Components/WebhookDataEventTest.php:
+    id: 46dcba2e70ce
+    last_write_checksum: sha1:ce50bd424eb1bfff44adbdde39cabd1bddd859f8
+    pristine_git_object: b5210e2524f55ff4c50f77e9ca3a613e96f1b445
   src/Models/Components/WebhookDataInvoiceCreated.php:
     id: 12d274af12bc
     last_write_checksum: sha1:80da58f6d7638ccd5569bfd0ebfaba0510db9939
@@ -8103,12 +8111,12 @@ trackedFiles:
     pristine_git_object: 89117de422f2ef44aa2dab585c5ca9acc8166614
   src/Models/Components/WebhookEvent.php:
     id: f5dc50f4c466
-    last_write_checksum: sha1:c664edb7f3a50194bef16ceb41b2267620a32569
-    pristine_git_object: cd8c3e58c5f838a1d674b602152535c25887f068
+    last_write_checksum: sha1:c0741f027d850582b6dfbe9b97818846697047be
+    pristine_git_object: bfdc1dcdb28631ba63c5e5a2f9cc55a2f31cb9b3
   src/Models/Components/WebhookEventType.php:
     id: aa6707ce7d20
-    last_write_checksum: sha1:c3294b8a710130f53fbc5614869a2ea0e9377cbc
-    pristine_git_object: 9d7df048400cffd6f3ebf7ba138bde86175bc34d
+    last_write_checksum: sha1:65eaf0190af17ed898122980cd8d3f1fb9bb4cfe
+    pristine_git_object: 11bf79256ac405337051a00b2058125a8247d6d2
   src/Models/Components/WebhookSecret.php:
     id: c261793f77e0
     last_write_checksum: sha1:6f51fa15216be92df4496a86b28e51538c74aa6e
@@ -10159,8 +10167,8 @@ trackedFiles:
     pristine_git_object: 6c4eb9b9d1bbf57d4db0cdf0095b237b68051ed4
   src/SDKConfiguration.php:
     id: 9d60ab0bec0b
-    last_write_checksum: sha1:d13a286b8efed0ba39769c75fdf0f31f688baa05
-    pristine_git_object: fd095286765b8455d04bb30e554cdd83f15b77fe
+    last_write_checksum: sha1:34fdeb412656858cff605da2672fe339f53f3c4a
+    pristine_git_object: 68ac27e52ef77708ddc0afdd3b9a98c6df29d346
   src/Schedules.php:
     id: 8dbe56d2d033
     last_write_checksum: sha1:6f0d21f80435c051e1beddd63bf681efac9d4099
@@ -13293,7 +13301,7 @@ examples:
           application/json: {"merchantCategories": []}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Php SDK Changes:\n* `moov->card issuing->request()`: \n  *  `requestCard->controls->merchantCategoryRestrictions->exemptMerchants[]` **Changed** (Breaking ⚠️)\n  *  `response` **Changed** (Breaking ⚠️)\n  *  `error.controls->merchantCategoryRestrictions->exemptMerchants->Map<MerchantEntryError>` **Changed** (Breaking ⚠️)\n* `moov->capabilities->list()`:  `response.[]->requirements->currentlyDue[]` **Changed** (Breaking ⚠️)\n* `moov->capabilities->request()`:  `response.[]->requirements->currentlyDue[]` **Changed** (Breaking ⚠️)\n* `moov->capabilities->get()`:  `response.requirements->currentlyDue[]` **Changed** (Breaking ⚠️)\n* `moov->onboarding->getInvite()`:  `response.scopes[]` **Changed** (Breaking ⚠️)\n* `moov->accounts->connect()`: \n  *  `request.shareScopes->allowScopes[]` **Changed** (Breaking ⚠️)\n* `moov->onboarding->listInvites()`:  `response.[]->scopes[]` **Changed** (Breaking ⚠️)\n* `moov->onboardinginvites->create()`: \n  *  `request->scopes[]` **Changed** (Breaking ⚠️)\n  *  `response.scopes[]` **Changed** (Breaking ⚠️)\n* `moov->card issuing->getFull()`:  `response` **Changed** (Breaking ⚠️)\n* `moov->card issuing->update()`: \n  *  `request.updateIssuedCard` **Changed** (Breaking ⚠️)\n  *  `response` **Changed** (Breaking ⚠️)\n  *  `error.controls->merchantCategoryRestrictions->exemptMerchants->Map<MerchantEntryError>` **Changed** (Breaking ⚠️)\n* `moov->card issuing->get()`:  `response` **Changed** (Breaking ⚠️)\n* `moov->card issuing->list()`: \n  *  `request.states` **Changed**\n  *  `response.[]` **Changed** (Breaking ⚠️)\n* `moov->feeplans->createAgreements()`: \n  *  `request.createFeePlanAgreement->priorAgreementId` **Added**\n  *  `response` **Changed**\n* `moov->transfers->listRefunds()`:  `error.status[404]` **Added**\n* `moov->transfers->listCancellations()`:  `error.status[404]` **Added**\n* `moov->transfers->createCancellation()`:  `error` **Changed**\n* `moov->statements->get()`:  `response` **Changed**\n* `moov->issuingtransactions->list()`: \n  *  `request->merchantName` **Added**\n* `moov->statements->list()`:  `response.[]` **Changed**\n* `moov->feeplans->listPartnerPricingAgreements()`:  `response.[]` **Changed**\n* `moov->feeplans->list()`:  `response.[]` **Changed**\n"
+releaseNotes: "## Php SDK Changes:\n* `moov->webhooks->list()`:  `response.[]->eventTypes[]->enum(event.test)` **Added** (Breaking ⚠️)\n* `moov->webhooks->create()`: \n  *  `request->eventTypes[]->enum(event.test)` **Added**\n  *  `response.eventTypes[]->enum(event.test)` **Added** (Breaking ⚠️)\n* `moov->webhooks->get()`:  `response.eventTypes[]->enum(event.test)` **Added** (Breaking ⚠️)\n* `moov->webhooks->update()`: \n  *  `request.updateWebhook->eventTypes[]->enum(event.test)` **Added**\n  *  `response.eventTypes[]->enum(event.test)` **Added** (Breaking ⚠️)\n* `moov->webhooks->ping()`:  `response.webhook->eventTypes[]->enum(event.test)` **Added** (Breaking ⚠️)\n* `moov->issuingtransactions->listAuthorizations()`:  `response.[]->lastFourCardNumber` **Added**\n* `moov->issuingtransactions->getAuthorization()`:  `response.lastFourCardNumber` **Added**\n* `moov->issuingtransactions->list()`:  `response.[]->lastFourCardNumber` **Added**\n* `moov->transactions->get()`:  `response.lastFourCardNumber` **Added**\n"
 generatedFiles:
   - .gitattributes
   - USAGE.md
