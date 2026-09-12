@@ -356,3 +356,12 @@ Components\WebhookBillingStatementCreated $value = /* values here */
 Components\WebhookDataAuthorizationExpiring $value = /* values here */
 ```
 
+### `Components\WebhookDataEventTest`
+
+```php
+/**
+* @var \Moov\MoovPhp\Models\Components\WebhookDataEventTest
+*/
+Components\WebhookDataEventTest $value = /* values here */
+```
+
