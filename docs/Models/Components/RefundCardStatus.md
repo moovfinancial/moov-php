@@ -3,10 +3,11 @@
 
 ## Values
 
-| Name        | Value       |
-| ----------- | ----------- |
-| `Initiated` | initiated   |
-| `Confirmed` | confirmed   |
-| `Settled`   | settled     |
-| `Failed`    | failed      |
-| `Completed` | completed   |
+| Name              | Value             |
+| ----------------- | ----------------- |
+| `Initiated`       | initiated         |
+| `Confirmed`       | confirmed         |
+| `Settled`         | settled           |
+| `Failed`          | failed            |
+| `Completed`       | completed         |
+| `ClearedExternal` | cleared-external  |
