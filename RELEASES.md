@@ -1759,3 +1759,13 @@ Based on:
 - [php v26.7.3] .
 ### Releases
 - [Composer v26.7.3] https://packagist.org/packages/moov/moov-php#v26.7.3 - .
+
+## 2026-09-14 16:52:10
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.796.4 (2.935.1) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [php v26.7.4] .
+### Releases
+- [Composer v26.7.4] https://packagist.org/packages/moov/moov-php#v26.7.4 - .
