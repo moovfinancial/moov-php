@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 81c31af83336d51d62f7606ff73d4e33
+  docChecksum: 7f73410562f3981a47dc2a9547ab7ff3
   docVersion: v2025.04.00
   speakeasyVersion: 1.796.4
   generationVersion: 2.935.1
-  releaseVersion: 25.5.15
-  configChecksum: 519a7b275be638ff2b43356dc903e364
+  releaseVersion: 25.5.16
+  configChecksum: 277be93f7df70b0e5d83aaaa87e9f005
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php.git
   published: true
 persistentEdits:
-  generation_id: 0de73f17-467a-49b5-b239-c19520da142f
-  pristine_commit_hash: ba97751dddc964b1d6478dceab68df893554e30f
-  pristine_tree_hash: a2480e7f9dea158f6abaec3544d7dc97171628aa
+  generation_id: 4c786b7e-3081-4747-9810-e1f62cd00394
+  pristine_commit_hash: ca43f836b25186032ebb2e4a1eb55d36bfaba243
+  pristine_tree_hash: 3dbb5ec992c5d9fae1942d51c49a3d17bf99671e
 features:
   php:
     constsAndDefaults: 0.2.2
@@ -586,8 +586,8 @@ trackedFiles:
     pristine_git_object: dbe51e577e6d6ee671a339217331ce0a24a4ced3
   docs/Models/Components/CardTransactionStatus.md:
     id: 8726682a48a7
-    last_write_checksum: sha1:eaee3e10e20027df3f4b0763f8dfbde2b9e2eb62
-    pristine_git_object: 36f4407487c81a7b10e6f19b593896bb241a84c2
+    last_write_checksum: sha1:f7cd5ee565f8ca1dd3471030ab6a5dcf819b35ad
+    pristine_git_object: 985cec75174e4dc554eda62d0421acef156b9fdf
   docs/Models/Components/CardType.md:
     id: fc1f89a53483
     last_write_checksum: sha1:5fa348672835c046298f0e9372c0b0b2e825b6d2
@@ -1658,8 +1658,8 @@ trackedFiles:
     pristine_git_object: 221c03b05a8a728b6e7a0ff3c7f2f650287985b9
   docs/Models/Components/RefundCardStatus.md:
     id: 369055e7f589
-    last_write_checksum: sha1:9771b242356bdf0940168eb56f3d717bbeb615be
-    pristine_git_object: d3d92607acada00d64b506f17ce32ca2ad04a44c
+    last_write_checksum: sha1:c418e54ea6ce7a63ae10b4d20ce8b9da582f449f
+    pristine_git_object: 07f2c96e7b6359e03e3ee24d64b23f0e3872522e
   docs/Models/Components/RefundStatus.md:
     id: 71e703ebbb2a
     last_write_checksum: sha1:2503ada8b8a85ecb5d2d5b4119c3f6bc667a7e53
@@ -4674,8 +4674,8 @@ trackedFiles:
     pristine_git_object: f239fa9970f9917c86af8d3ad14d66f92b1ae26f
   src/Models/Components/CardTransactionStatus.php:
     id: 5d63d97f77fb
-    last_write_checksum: sha1:dac4ad00300886364d3ffe058a8fc95aa40f48ee
-    pristine_git_object: c71500f36ddc5978e7e3fda7371554daaf78277f
+    last_write_checksum: sha1:543eca5390b2fea3e6d0e61024676ab0ce6e7925
+    pristine_git_object: b7fd0d44234a6186658f621b6e29e689480d67d8
   src/Models/Components/CardType.php:
     id: 2cd1df7f1a2a
     last_write_checksum: sha1:3b745c2206e02b9b80b3b93edbc690a7a792926d
@@ -5734,8 +5734,8 @@ trackedFiles:
     pristine_git_object: 95583e1d7dc287986c3fb8cb4a585c8940dc3b9a
   src/Models/Components/RefundCardStatus.php:
     id: 4ae802467786
-    last_write_checksum: sha1:d868256a274ace996e576387011643657d2bad25
-    pristine_git_object: 65d4864e1a2d864fc862c4b6af87197ae5947502
+    last_write_checksum: sha1:0a805d8c92f3d564101dfdf87539145ec2bb5a7b
+    pristine_git_object: a297d1d5094a724b84a64928b9a1bdcb0ab9b6f4
   src/Models/Components/RefundStatus.php:
     id: 4a5861e07ab2
     last_write_checksum: sha1:35cf4df1761a6c98206ceb06633d85f947416891
@@ -8106,8 +8106,8 @@ trackedFiles:
     pristine_git_object: ed9c06928be32fb3e75a68ec0192a4fca166a592
   src/SDKConfiguration.php:
     id: 9d60ab0bec0b
-    last_write_checksum: sha1:ea3bfb89305be164ff724da1fd4453ce621c09d0
-    pristine_git_object: b431bce605b5d6fe2e385e31b0c996f290839015
+    last_write_checksum: sha1:8c1b10ee98c4467044b1be2749648058875fad14
+    pristine_git_object: 2f3075613d7c3c14ce819fc56b2b572bcf4443e2
   src/Schedules.php:
     id: 8dbe56d2d033
     last_write_checksum: sha1:6f0d21f80435c051e1beddd63bf681efac9d4099
@@ -11062,7 +11062,7 @@ examples:
           application/json: [{"cancellationID": "89ca7f54-13ba-4714-b9af-17163eae2057", "status": "completed", "createdOn": "2025-01-19T03:02:43.255309588Z"}]
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Php SDK Changes:\n* `moov->webhooks->list()`:  `response.[]->eventTypes[]->enum(event.test)` **Added** (Breaking ⚠️)\n* `moov->webhooks->create()`: \n  *  `request->eventTypes[]->enum(event.test)` **Added**\n  *  `response.eventTypes[]->enum(event.test)` **Added** (Breaking ⚠️)\n* `moov->webhooks->get()`:  `response.eventTypes[]->enum(event.test)` **Added** (Breaking ⚠️)\n* `moov->webhooks->update()`: \n  *  `request.updateWebhook->eventTypes[]->enum(event.test)` **Added**\n  *  `response.eventTypes[]->enum(event.test)` **Added** (Breaking ⚠️)\n* `moov->webhooks->ping()`:  `response.webhook->eventTypes[]->enum(event.test)` **Added** (Breaking ⚠️)\n* `moov->issuingtransactions->listAuthorizations()`:  `response.[]->lastFourCardNumber` **Added**\n* `moov->issuingtransactions->getAuthorization()`:  `response.lastFourCardNumber` **Added**\n* `moov->issuingtransactions->list()`:  `response.[]->lastFourCardNumber` **Added**\n* `moov->transactions->get()`:  `response.lastFourCardNumber` **Added**\n"
+releaseNotes: "## Php SDK Changes:\n* `moov->transfers->create()`: \n  *  `response` **Changed** (Breaking ⚠️)\n  *  `error` **Changed** (Breaking ⚠️)\n* `moov->transfers->list()`:  `response.[]` **Changed** (Breaking ⚠️)\n* `moov->transfers->batchGetTransfers()`:  `response.Map<Transfer>` **Changed** (Breaking ⚠️)\n* `moov->transfers->get()`:  `response` **Changed** (Breaking ⚠️)\n* `moov->transfers->update()`:  `response` **Changed** (Breaking ⚠️)\n* `moov->transfers->initiateRefund()`: \n  *  `response` **Changed** (Breaking ⚠️)\n  *  `error.cardDetails->status->enum(clearedExternal)` **Added** (Breaking ⚠️)\n* `moov->transfers->listRefunds()`:  `response.[]->cardDetails->status->enum(clearedExternal)` **Added** (Breaking ⚠️)\n* `moov->transfers->getRefund()`:  `response.cardDetails->status->enum(clearedExternal)` **Added** (Breaking ⚠️)\n* `moov->transfers->createReversal()`:  `response.union(ReversedWithRefund)->refund->cardDetails->status->enum(clearedExternal)` **Added** (Breaking ⚠️)\n"
 generatedFiles:
   - .gitattributes
   - USAGE.md
