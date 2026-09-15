@@ -16,5 +16,5 @@ enum RefundCardStatus: string
     case Settled = 'settled';
     case Failed = 'failed';
     case Completed = 'completed';
-    case ClearedExternal = 'cleared-external';
+    case ClearedExternally = 'cleared-externally';
 }
