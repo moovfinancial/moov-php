@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: a25f5b458f4bf403e1f45aab6a9830d4
+  docChecksum: 106f51fe40fbc2c75b6536919ee61ef9
   docVersion: v2026.10.00
-  speakeasyVersion: 1.796.4
-  generationVersion: 2.935.1
-  releaseVersion: 26.10.0-beta.5
-  configChecksum: 6d791b1993017fd783b902332979f04e
+  speakeasyVersion: 1.797.0
+  generationVersion: 2.937.18
+  releaseVersion: 26.10.0-beta.6
+  configChecksum: 72267aa112a206f14ab6108bd467c452
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php.git
   published: true
 persistentEdits:
-  generation_id: 3c35dceb-c850-4ebe-8efb-26db2bef5905
-  pristine_commit_hash: ae645ba02eba66ada5225f2f7f04d62eaeb63649
-  pristine_tree_hash: 912275f2e878d6a4f6c21a61d2c947b74a3fc84c
+  generation_id: d4b1bd72-ceb5-4013-81ce-cb4dc04a16b4
+  pristine_commit_hash: d8b94ee6e58a22aa7110fe07bfb36bbe1aac4370
+  pristine_tree_hash: a527de19b0732374c43bcc07f3c509408e1683bd
 features:
   php:
     constsAndDefaults: 0.2.2
@@ -671,8 +671,8 @@ trackedFiles:
     pristine_git_object: 148f10eca09d5d9690bce531b18ca8d3ac57b25b
   docs/Models/Components/CardPaymentTransactionStatus.md:
     id: 593a4bd956e4
-    last_write_checksum: sha1:53f7664e161dd508ef80896ab091665c1acd1ec6
-    pristine_git_object: a4349afe156fe952bde46ee7f56157b1a67c965d
+    last_write_checksum: sha1:2eab79b856f23cb8cf5ffaeb3c0d0183b4016c53
+    pristine_git_object: 79d77beb08326ad51db3ae4dff583173baabdc83
   docs/Models/Components/CardPaymentTransferPaymentMethod.md:
     id: 8effc2a6fb80
     last_write_checksum: sha1:f36bad7428357f02caf8b95c1e46de0e6bd42fb7
@@ -5991,8 +5991,8 @@ trackedFiles:
     pristine_git_object: b67dbff691f9c86670ebe9fbeff667bbe293bb9d
   src/Models/Components/CardPaymentTransactionStatus.php:
     id: ba791cdcd058
-    last_write_checksum: sha1:04e203e66578dfc792ecd372e6090662c7c5029f
-    pristine_git_object: 7d3b43b15f44e10dc0000d09aea21f010ed060f2
+    last_write_checksum: sha1:df3f25990babac963239979ab41433a48aed2b96
+    pristine_git_object: 2327dddb8e9b3d4746a34a1d36919d69c51ae29f
   src/Models/Components/CardPaymentTransferPaymentMethod.php:
     id: 97d770c8565f
     last_write_checksum: sha1:ed0f48ed247d82343e1b5c25d78b3e773857ae7d
@@ -10595,8 +10595,8 @@ trackedFiles:
     pristine_git_object: 6c4eb9b9d1bbf57d4db0cdf0095b237b68051ed4
   src/SDKConfiguration.php:
     id: 9d60ab0bec0b
-    last_write_checksum: sha1:3299394e152e14f12412c042481464bf02c2ea24
-    pristine_git_object: 0e949c6bcd9e353147fded9d88a5166a02c2e0b5
+    last_write_checksum: sha1:89d62e31a4f66254d7ada7d234d1e8e71de18aea
+    pristine_git_object: 209db8dfa0845ffaae995180cae121ca21cf99bf
   src/Schedules.php:
     id: 8dbe56d2d033
     last_write_checksum: sha1:6f0d21f80435c051e1beddd63bf681efac9d4099
@@ -10775,8 +10775,8 @@ trackedFiles:
     pristine_git_object: b68136b0f454ae7d2923685cc5639ddcf9834685
   src/Utils/Utils.php:
     id: c902f57e2422
-    last_write_checksum: sha1:f51104ff79c6cd0f2215f1b44e756d8eef2504eb
-    pristine_git_object: b72c8eb93ba10b6e4c4d6609ea45ab41bf3a31c4
+    last_write_checksum: sha1:bcbdaa316247398d42e8b64779b70e2c10750816
+    pristine_git_object: de4aec0223e097dd4372d1b302b3640fff6c10d7
   src/WalletTransactions.php:
     id: a3b30851458e
     last_write_checksum: sha1:afea5376ee22c4f5ce1111d454371f7b3250f582
@@ -13824,7 +13824,7 @@ examples:
           application/json: {"error": "<value>"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Php SDK Changes:\n* `moov->transfers->create()`: \n  *  `response.processingDetails->cardPayment->status->enum(clearedExternal)` **Added** (Breaking ⚠️)\n  *  `error.processingDetails->cardPayment->status->enum(clearedExternal)` **Added** (Breaking ⚠️)\n* `moov->transfers->list()`:  `response.[]->processingDetails->cardPayment->status->enum(clearedExternal)` **Added** (Breaking ⚠️)\n* `moov->transfers->batchGetTransfers()`:  `response.Map<Transfer>->processingDetails->cardPayment->status->enum(clearedExternal)` **Added** (Breaking ⚠️)\n* `moov->transfers->get()`:  `response.processingDetails->cardPayment->status->enum(clearedExternal)` **Added** (Breaking ⚠️)\n* `moov->transfers->update()`:  `response.processingDetails->cardPayment->status->enum(clearedExternal)` **Added** (Breaking ⚠️)\n"
+releaseNotes: "## Php SDK Changes:\n* `moov->transfers->create()`: \n  *  `response.processingDetails->cardPayment->status` **Changed** (Breaking ⚠️)\n  *  `error.processingDetails->cardPayment->status` **Changed** (Breaking ⚠️)\n* `moov->transfers->list()`:  `response.[]->processingDetails->cardPayment->status` **Changed** (Breaking ⚠️)\n* `moov->transfers->batchGetTransfers()`:  `response.Map<Transfer>->processingDetails->cardPayment->status` **Changed** (Breaking ⚠️)\n* `moov->transfers->get()`:  `response.processingDetails->cardPayment->status` **Changed** (Breaking ⚠️)\n* `moov->transfers->update()`:  `response.processingDetails->cardPayment->status` **Changed** (Breaking ⚠️)\n"
 generatedFiles:
   - .gitattributes
   - USAGE.md
