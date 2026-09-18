@@ -26,11 +26,11 @@ class SDKConfiguration
 
     public string $openapiDocVersion = 'v2026.04.00';
 
-    public string $sdkVersion = '26.4.17';
+    public string $sdkVersion = '26.4.18';
 
-    public string $genVersion = '2.937.18';
+    public string $genVersion = '2.938.0';
 
-    public string $userAgent = 'speakeasy-sdk/php 26.4.17 2.937.18 v2026.04.00 moov/moov-php';
+    public string $userAgent = 'speakeasy-sdk/php 26.4.18 2.938.0 v2026.04.00 moov/moov-php';
 
     public ?RetryConfig $retryConfig = null;
 
