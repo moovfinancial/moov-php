@@ -43,6 +43,15 @@ class ProductRequest
     public ?string $description = null;
 
     /**
+     * Whether applicable tax rules may be applied to this product. True does not guarantee tax is charged; false excludes the product from tax calculation. Omitted values default to true on creation and preserve the existing setting on update.
+     *
+     * @var ?bool $isTaxable
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('isTaxable')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $isTaxable = null;
+
+    /**
      * Assign previously uploaded images to a product or option.
      *
      * @var ?array<\Moov\MoovPhp\Models\Components\AssignProductImage> $images
@@ -75,16 +84,18 @@ class ProductRequest
      * @param  string  $title
      * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $basePrice
      * @param  ?string  $description
+     * @param  ?bool  $isTaxable
      * @param  ?array<\Moov\MoovPhp\Models\Components\AssignProductImage>  $images
      * @param  ?array<\Moov\MoovPhp\Models\Components\CreateProductOptionGroup>  $optionGroups
      * @param  ?string  $categoryID
      * @phpstan-pure
      */
-    public function __construct(string $title, AmountDecimal $basePrice, ?string $description = null, ?array $images = null, ?array $optionGroups = null, ?string $categoryID = null)
+    public function __construct(string $title, AmountDecimal $basePrice, ?string $description = null, ?bool $isTaxable = null, ?array $images = null, ?array $optionGroups = null, ?string $categoryID = null)
     {
         $this->title = $title;
         $this->basePrice = $basePrice;
         $this->description = $description;
+        $this->isTaxable = $isTaxable;
         $this->images = $images;
         $this->optionGroups = $optionGroups;
         $this->categoryID = $categoryID;
