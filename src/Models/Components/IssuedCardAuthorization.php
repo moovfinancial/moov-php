@@ -93,6 +93,18 @@ class IssuedCardAuthorization
     public ?array $cardTransactions = null;
 
     /**
+     * The reason an authorization or authorization event was declined. Only present if the
+     *
+     * authorization or event has been declined.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\IssuingDeclineReason $declineReason
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('declineReason')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IssuingDeclineReason|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?IssuingDeclineReason $declineReason = null;
+
+    /**
      * @param  string  $authorizationID
      * @param  string  $issuedCardID
      * @param  string  $fundingWalletID
@@ -103,9 +115,10 @@ class IssuedCardAuthorization
      * @param  \DateTime  $createdOn
      * @param  ?string  $lastFourCardNumber
      * @param  ?array<string>  $cardTransactions
+     * @param  ?\Moov\MoovPhp\Models\Components\IssuingDeclineReason  $declineReason
      * @phpstan-pure
      */
-    public function __construct(string $authorizationID, string $issuedCardID, string $fundingWalletID, CardIssuingNetwork $network, string $authorizedAmount, IssuingAuthorizationStatus $status, IssuingMerchantData $merchantData, \DateTime $createdOn, ?string $lastFourCardNumber = null, ?array $cardTransactions = null)
+    public function __construct(string $authorizationID, string $issuedCardID, string $fundingWalletID, CardIssuingNetwork $network, string $authorizedAmount, IssuingAuthorizationStatus $status, IssuingMerchantData $merchantData, \DateTime $createdOn, ?string $lastFourCardNumber = null, ?array $cardTransactions = null, ?IssuingDeclineReason $declineReason = null)
     {
         $this->authorizationID = $authorizationID;
         $this->issuedCardID = $issuedCardID;
@@ -117,5 +130,6 @@ class IssuedCardAuthorization
         $this->createdOn = $createdOn;
         $this->lastFourCardNumber = $lastFourCardNumber;
         $this->cardTransactions = $cardTransactions;
+        $this->declineReason = $declineReason;
     }
 }

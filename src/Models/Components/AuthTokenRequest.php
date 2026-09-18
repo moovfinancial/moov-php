@@ -66,19 +66,32 @@ class AuthTokenRequest
     public ?string $refreshToken = null;
 
     /**
+     * The client type requesting a token. `device` and `service` clients do not require browser origin binding. Defaults to `web` when omitted. This field applies to the `client_credentials` grant; refreshed tokens keep the original client type.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\OAuth2ClientType $clientType
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('client_type')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\OAuth2ClientType|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    #[SpeakeasyMetadata('form:name=client_type')]
+    public ?OAuth2ClientType $clientType = null;
+
+    /**
      * @param  \Moov\MoovPhp\Models\Components\GrantType  $grantType
      * @param  ?string  $clientId
      * @param  ?string  $clientSecret
      * @param  ?string  $scope
      * @param  ?string  $refreshToken
+     * @param  ?\Moov\MoovPhp\Models\Components\OAuth2ClientType  $clientType
      * @phpstan-pure
      */
-    public function __construct(GrantType $grantType, ?string $clientId = null, ?string $clientSecret = null, ?string $scope = null, ?string $refreshToken = null)
+    public function __construct(GrantType $grantType, ?string $clientId = null, ?string $clientSecret = null, ?string $scope = null, ?string $refreshToken = null, ?OAuth2ClientType $clientType = null)
     {
         $this->grantType = $grantType;
         $this->clientId = $clientId;
         $this->clientSecret = $clientSecret;
         $this->scope = $scope;
         $this->refreshToken = $refreshToken;
+        $this->clientType = $clientType;
     }
 }
