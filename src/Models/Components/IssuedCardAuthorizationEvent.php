@@ -53,19 +53,33 @@ class IssuedCardAuthorizationEvent
     public \DateTime $createdOn;
 
     /**
+     * The reason an authorization or authorization event was declined. Only present if the
+     *
+     * authorization or event has been declined.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\IssuingDeclineReason $declineReason
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('declineReason')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IssuingDeclineReason|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?IssuingDeclineReason $declineReason = null;
+
+    /**
      * @param  string  $eventID
      * @param  \Moov\MoovPhp\Models\Components\IssuedCardEventType  $eventType
      * @param  string  $amount
      * @param  \Moov\MoovPhp\Models\Components\IssuedCardAuthorizationEventResult  $result
      * @param  \DateTime  $createdOn
+     * @param  ?\Moov\MoovPhp\Models\Components\IssuingDeclineReason  $declineReason
      * @phpstan-pure
      */
-    public function __construct(string $eventID, IssuedCardEventType $eventType, string $amount, IssuedCardAuthorizationEventResult $result, \DateTime $createdOn)
+    public function __construct(string $eventID, IssuedCardEventType $eventType, string $amount, IssuedCardAuthorizationEventResult $result, \DateTime $createdOn, ?IssuingDeclineReason $declineReason = null)
     {
         $this->eventID = $eventID;
         $this->eventType = $eventType;
         $this->amount = $amount;
         $this->result = $result;
         $this->createdOn = $createdOn;
+        $this->declineReason = $declineReason;
     }
 }

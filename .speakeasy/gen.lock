@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 53e8a3ef5ce9bda1acde90087afe0553
+  docChecksum: 57c55bb7fee0837d314ed84288d31f5b
   docVersion: v2026.07.00
-  speakeasyVersion: 1.797.0
-  generationVersion: 2.937.18
-  releaseVersion: 26.7.5
-  configChecksum: 4a3261cd6568747368359c96299e31c4
+  speakeasyVersion: 1.798.0
+  generationVersion: 2.938.0
+  releaseVersion: 26.7.6
+  configChecksum: d33c215883bd7eddb3e6cb26034e739a
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php.git
   published: true
 persistentEdits:
-  generation_id: c5eec7d8-2b4b-42a1-9966-95894d0943ed
-  pristine_commit_hash: 3a1131175feea8ade94207e37b96887878cdf8d2
-  pristine_tree_hash: 25ece0f4d541343f983390692526c78020e4d124
+  generation_id: c2205f72-edba-4fe9-b41d-b985a7bd0a4b
+  pristine_commit_hash: 391d2d02e41c59c7495e310921050c561c44aa28
+  pristine_tree_hash: 8f67cdbb335c9ff4545476a99ef5b198fb48045a
 features:
   php:
     constsAndDefaults: 0.2.2
@@ -335,8 +335,8 @@ trackedFiles:
     pristine_git_object: 5a62de5d1c8e1403d70d332b7022b9fff77d18d6
   docs/Models/Components/AuthTokenRequest.md:
     id: 1fdffea40fba
-    last_write_checksum: sha1:781895f4d741e9b783f9df6e6a4ec390ba5cfe4f
-    pristine_git_object: 30797328a9d8416140078967691efdcf348cb6d8
+    last_write_checksum: sha1:02877bc559e46614a6aff1c1e5dfcb3cb32c2ca3
+    pristine_git_object: d4aff739458ba70bb6bc6658c976635f58798b23
   docs/Models/Components/AvatarUploadRequest.md:
     id: 28761ea127c9
     last_write_checksum: sha1:c6ce0ca20228eebeb25eb25ca860e039860e41d4
@@ -1491,12 +1491,12 @@ trackedFiles:
     pristine_git_object: 5c383a9a7dbf6393fee9e8dfa202312f88882d57
   docs/Models/Components/IssuedCardAuthorization.md:
     id: 1a7f1852f82e
-    last_write_checksum: sha1:6dc2bc5dfc8353b9ae34d3c720e0332fb334b19a
-    pristine_git_object: 43be2ff11e433157d10e4b4612ca28cb7aed553a
+    last_write_checksum: sha1:18bce14f65802d3c661fbcb970b6fb5f4e1fd0dc
+    pristine_git_object: bab74fcdca0d6d771416ac2abe2f777264660536
   docs/Models/Components/IssuedCardAuthorizationEvent.md:
     id: ea67f1b67407
-    last_write_checksum: sha1:e2241917fe34b1abe57085074c48723045adcfa4
-    pristine_git_object: eee93d1e7d12c0c286789bdf729acb40c3f43f3b
+    last_write_checksum: sha1:860e715339aeea440cf9a96b12e401052ded2594
+    pristine_git_object: 8529fb0f4182fbea69590a8104ef0003e79388e3
   docs/Models/Components/IssuedCardAuthorizationEventResult.md:
     id: 196b2c5f247b
     last_write_checksum: sha1:a5b1b0d369ee8f34050c8794de1a6cfc63dba3d1
@@ -1545,6 +1545,10 @@ trackedFiles:
     id: 946e5fba2ffa
     last_write_checksum: sha1:cc180138bc832cfc75ba6e1bdebbb7e8e54c5de6
     pristine_git_object: 548babbaa5ab746df6f6f6a64ebecfd3b4fc54b5
+  docs/Models/Components/IssuingDeclineReason.md:
+    id: 12a5323fa68e
+    last_write_checksum: sha1:5ac3649ef2032a02c12acece5c15d753f2a2fd37
+    pristine_git_object: 3c446105918972a48226d9c28be79432bff0556c
   docs/Models/Components/IssuingIntervalLimit.md:
     id: 0c65f885ee0f
     last_write_checksum: sha1:c7a9e17724671c41f8d777646a1469b5169a0342
@@ -1757,6 +1761,10 @@ trackedFiles:
     id: 061c25346c55
     last_write_checksum: sha1:f3bbf950be5b38753e9bc6fd99929e3561ef9752
     pristine_git_object: a82b1295a409aee0eea63a7ae6cf7d9f433529b8
+  docs/Models/Components/OAuth2ClientType.md:
+    id: 47250a6c8cfb
+    last_write_checksum: sha1:84db7d594eade6ef50f4a74fa61d9f6e87c76bc0
+    pristine_git_object: 8be3e647011da90a62810a8d2318e87cffb2a114
   docs/Models/Components/Occurrence.md:
     id: e78224a068ce
     last_write_checksum: sha1:54716c71d04fbdc8ceb9237eb7b3df7cb78d3cd7
@@ -5447,8 +5455,8 @@ trackedFiles:
     pristine_git_object: 4c42538ee65fcb06cc58e8dbb1a3fd5a87bc4257
   src/Models/Components/AuthTokenRequest.php:
     id: fe9b0a636c07
-    last_write_checksum: sha1:d1372ee9d25116b5bcf5f57ee004ad8b87876a91
-    pristine_git_object: 4f28b8d4d917aea3434a99ba4dab22afbf78cdee
+    last_write_checksum: sha1:b4aa874b0e7ce4fd5664e57520a8c4785d029e69
+    pristine_git_object: 51f59fcb4074a5395a37a5facd6a02287d67df1b
   src/Models/Components/AvatarUploadRequest.php:
     id: 408aa0684f6e
     last_write_checksum: sha1:0798ba30be9031f5a0c069dc047d79fd6a75f5c7
@@ -6599,12 +6607,12 @@ trackedFiles:
     pristine_git_object: 017f87ce1b511cd8ddaa5769d3e48ec848c2d283
   src/Models/Components/IssuedCardAuthorization.php:
     id: 22d1da65902d
-    last_write_checksum: sha1:dbf519194b0787bd372ba712f33e36418dd64e7b
-    pristine_git_object: 847566ac94d865ef6376af9e278f16ded131c138
+    last_write_checksum: sha1:55367897c2d1aeeef00f6cf3568eae3b445fc418
+    pristine_git_object: 314298ad816ba2e10781480b37ac7e9cb7e7a49d
   src/Models/Components/IssuedCardAuthorizationEvent.php:
     id: 34f982b66949
-    last_write_checksum: sha1:c9ddb3321d1dc1f8b093ab70b7928e5ae11baf1f
-    pristine_git_object: b9708f8e70d048f036673de83834f5c0f0f3ea1b
+    last_write_checksum: sha1:9579dffe84975ffea0c17fd460dbf5674af96b73
+    pristine_git_object: 7b9f2235ae69abae136ddd589b4fbc4f4b3724f1
   src/Models/Components/IssuedCardAuthorizationEventResult.php:
     id: 908bb2ebcc14
     last_write_checksum: sha1:317653e7029b24cad0e29f3487191b6a33261f5d
@@ -6653,6 +6661,10 @@ trackedFiles:
     id: a523628654cc
     last_write_checksum: sha1:13a02f6718321537252c5539448a9d08fb55b2c5
     pristine_git_object: cf313524e2d930f027155abad3f0fdb7efe5ee12
+  src/Models/Components/IssuingDeclineReason.php:
+    id: bbba2a67a9fc
+    last_write_checksum: sha1:54e0b29705fa0b1ae7d28686292bff763191846c
+    pristine_git_object: 2463718e4d9b1e81bf92dc7e155b9b738b8174bb
   src/Models/Components/IssuingIntervalLimit.php:
     id: e3ed5524b264
     last_write_checksum: sha1:6b989b0164ab3d59e8d4a6e2ff1844b83a4fc39a
@@ -6861,6 +6873,10 @@ trackedFiles:
     id: 335e6828a1ed
     last_write_checksum: sha1:8abb8d762fefcf9a3c06fc2ebf43d3355ce744a7
     pristine_git_object: 961752337e187e1f1ff3dc4ddcebdfd4979b3ebd
+  src/Models/Components/OAuth2ClientType.php:
+    id: 6ea155a84702
+    last_write_checksum: sha1:ff3a472d4a8bc971baf2a67ae428f1d746977678
+    pristine_git_object: dc306809e08b4fb1fd095be4499573124490b441
   src/Models/Components/Occurrence.php:
     id: 48efb5287203
     last_write_checksum: sha1:12d3d3a441105ac78ff9b854afa3626c26381abf
@@ -10167,8 +10183,8 @@ trackedFiles:
     pristine_git_object: 6c4eb9b9d1bbf57d4db0cdf0095b237b68051ed4
   src/SDKConfiguration.php:
     id: 9d60ab0bec0b
-    last_write_checksum: sha1:2dc6353b4cced1d0285708da37718f3a7b59c622
-    pristine_git_object: 13aa62f54005ac3d7fbd2119b5a5c5279001a798
+    last_write_checksum: sha1:7baceeb79056022e017acaefee21be9fec6bc1df
+    pristine_git_object: ecf14f5af1c4391056e0c0bba258d285e76ffe2d
   src/Schedules.php:
     id: 8dbe56d2d033
     last_write_checksum: sha1:6f0d21f80435c051e1beddd63bf681efac9d4099
@@ -13301,7 +13317,7 @@ examples:
           application/json: {"merchantCategories": []}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Php SDK Changes:\n* `moov->transfers->create()`: \n  *  `response` **Changed** (Breaking ⚠️)\n  *  `error` **Changed** (Breaking ⚠️)\n* `moov->transfers->list()`:  `response.[]` **Changed** (Breaking ⚠️)\n* `moov->transfers->batchGetTransfers()`:  `response.Map<Transfer>` **Changed** (Breaking ⚠️)\n* `moov->transfers->get()`:  `response` **Changed** (Breaking ⚠️)\n* `moov->transfers->update()`:  `response` **Changed** (Breaking ⚠️)\n* `moov->transfers->initiateRefund()`: \n  *  `response` **Changed** (Breaking ⚠️)\n  *  `error.cardDetails->status` **Changed** (Breaking ⚠️)\n* `moov->transfers->listRefunds()`:  `response.[]->cardDetails->status` **Changed** (Breaking ⚠️)\n* `moov->transfers->getRefund()`:  `response.cardDetails->status` **Changed** (Breaking ⚠️)\n* `moov->transfers->createReversal()`:  `response.union(ReversedWithRefund)->refund->cardDetails->status` **Changed** (Breaking ⚠️)\n"
+releaseNotes: "## Php SDK Changes:\n* `moov->issuingtransactions->listAuthorizations()`:  `response.[]->declineReason` **Added**\n* `moov->issuingtransactions->getAuthorization()`:  `response.declineReason` **Added**\n* `moov->issuingtransactions->listAuthorizationEvents()`:  `response.[]->declineReason` **Added**\n* `moov->authentication->createToken()`: \n  *  `request->clientType` **Added**\n"
 generatedFiles:
   - .gitattributes
   - USAGE.md
