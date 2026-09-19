@@ -37,6 +37,14 @@ class Product
     public AmountDecimal $basePrice;
 
     /**
+     * Whether applicable tax rules may be applied to this product. True does not guarantee tax is charged; false excludes the product from tax calculation. This setting does not determine jurisdiction-specific taxability.
+     *
+     * @var bool $isTaxable
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('isTaxable')]
+    public bool $isTaxable;
+
+    /**
      * The date and time when the product was added.
      *
      * @var \DateTime $createdOn
@@ -109,6 +117,7 @@ class Product
      * @param  string  $productID
      * @param  string  $title
      * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $basePrice
+     * @param  bool  $isTaxable
      * @param  \DateTime  $createdOn
      * @param  \DateTime  $updatedOn
      * @param  ?string  $description
@@ -118,11 +127,12 @@ class Product
      * @param  ?\DateTime  $disabledOn
      * @phpstan-pure
      */
-    public function __construct(string $productID, string $title, AmountDecimal $basePrice, \DateTime $createdOn, \DateTime $updatedOn, ?string $description = null, ?array $optionGroups = null, ?array $images = null, ?ProductCategory $category = null, ?\DateTime $disabledOn = null)
+    public function __construct(string $productID, string $title, AmountDecimal $basePrice, bool $isTaxable, \DateTime $createdOn, \DateTime $updatedOn, ?string $description = null, ?array $optionGroups = null, ?array $images = null, ?ProductCategory $category = null, ?\DateTime $disabledOn = null)
     {
         $this->productID = $productID;
         $this->title = $title;
         $this->basePrice = $basePrice;
+        $this->isTaxable = $isTaxable;
         $this->createdOn = $createdOn;
         $this->updatedOn = $updatedOn;
         $this->description = $description;
