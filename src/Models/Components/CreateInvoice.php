@@ -29,6 +29,15 @@ class CreateInvoice
     public CreateInvoiceLineItems $lineItems;
 
     /**
+     * Email address to use for invoice checkout OTP verification instead of the customer account email.
+     *
+     * @var ?string $customerEmail
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('customerEmail')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $customerEmail = null;
+
+    /**
      *
      * @var ?string $description
      */
@@ -64,16 +73,18 @@ class CreateInvoice
     /**
      * @param  string  $customerAccountID
      * @param  \Moov\MoovPhp\Models\Components\CreateInvoiceLineItems  $lineItems
+     * @param  ?string  $customerEmail
      * @param  ?string  $description
      * @param  ?\DateTime  $invoiceDate
      * @param  ?\DateTime  $dueDate
      * @param  ?\Moov\MoovPhp\Models\Components\AmountDetails  $amountDetails
      * @phpstan-pure
      */
-    public function __construct(string $customerAccountID, CreateInvoiceLineItems $lineItems, ?string $description = null, ?\DateTime $invoiceDate = null, ?\DateTime $dueDate = null, ?AmountDetails $amountDetails = null)
+    public function __construct(string $customerAccountID, CreateInvoiceLineItems $lineItems, ?string $customerEmail = null, ?string $description = null, ?\DateTime $invoiceDate = null, ?\DateTime $dueDate = null, ?AmountDetails $amountDetails = null)
     {
         $this->customerAccountID = $customerAccountID;
         $this->lineItems = $lineItems;
+        $this->customerEmail = $customerEmail;
         $this->description = $description;
         $this->invoiceDate = $invoiceDate;
         $this->dueDate = $dueDate;
