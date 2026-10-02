@@ -158,12 +158,3 @@ Components\PushToGooglePayPaymentMethod $value = /* values here */
 Components\PullFromGooglePayPaymentMethod $value = /* values here */
 ```
 
-### `Components\WireCreditPaymentMethod`
-
-```php
-/**
-* @var \Moov\MoovPhp\Models\Components\WireCreditPaymentMethod
-*/
-Components\WireCreditPaymentMethod $value = /* values here */
-```
-

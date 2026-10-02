@@ -29,5 +29,4 @@ enum TransferPaymentMethodType: string
     case GooglePay = 'google-pay';
     case PushToGooglePay = 'push-to-google-pay';
     case PullFromGooglePay = 'pull-from-google-pay';
-    case WireCredit = 'wire-credit';
 }

@@ -15,6 +15,11 @@ you'll need to specify the `/accounts/{accountID}/files.write` scope.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/files.read` scope.
+* [download](#download) - Download the contents of a file associated with a specific Moov account. Files reserved for
+internal Moov use are not available through this endpoint.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
+you'll need to specify the `/accounts/{accountID}/files.download` scope.
 
 ## upload
 
@@ -131,6 +136,64 @@ if ($response->fileDetails !== null) {
 ### Response
 
 **[?Operations\ListFilesResponse](../../Models/Operations/ListFilesResponse.md)**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| Errors\APIException | 4XX, 5XX            | \*/\*               |
+
+## download
+
+Download the contents of a file associated with a specific Moov account. Files reserved for
+internal Moov use are not available through this endpoint.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
+you'll need to specify the `/accounts/{accountID}/files.download` scope.
+
+### Example Usage
+
+<!-- UsageSnippet language="php" operationID="downloadFile" method="get" path="/accounts/{accountID}/files/{fileID}/contents" -->
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
+
+$sdk = MoovPhp\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
+
+
+
+$response = $sdk->files->download(
+    accountID: '<id>',
+    fileID: '<id>'
+
+);
+
+if ($response->twoHundredApplicationPdfBytes !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter          | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `accountID`        | *string*           | :heavy_check_mark: | N/A                |
+| `fileID`           | *string*           | :heavy_check_mark: | N/A                |
+
+### Response
+
+**[?Operations\DownloadFileResponse](../../Models/Operations/DownloadFileResponse.md)**
 
 ### Errors
 

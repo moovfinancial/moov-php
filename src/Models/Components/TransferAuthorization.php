@@ -57,6 +57,20 @@ class TransferAuthorization
     public AmountDecimal $capturableAmount;
 
     /**
+     * The tip, tax, and surcharge authorized by the card network.
+     *
+     *
+     * These describe the authorized amount and are fixed.
+     * They can differ from the transfer's `amountDetails`, which is the aggregate of all captures' `amountDetails`.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\TransferAmountDetails $amountDetails
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('amountDetails')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferAmountDetails|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?TransferAmountDetails $amountDetails = null;
+
+    /**
      * Expiration time for the approved authorization, when available.
      *
      * @var ?\DateTime $expiresOn
@@ -71,16 +85,18 @@ class TransferAuthorization
      * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $authorizedAmount
      * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $capturedAmount
      * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $capturableAmount
+     * @param  ?\Moov\MoovPhp\Models\Components\TransferAmountDetails  $amountDetails
      * @param  ?\DateTime  $expiresOn
      * @phpstan-pure
      */
-    public function __construct(string $authorizationID, AmountDecimal $requestedAmount, AmountDecimal $authorizedAmount, AmountDecimal $capturedAmount, AmountDecimal $capturableAmount, ?\DateTime $expiresOn = null)
+    public function __construct(string $authorizationID, AmountDecimal $requestedAmount, AmountDecimal $authorizedAmount, AmountDecimal $capturedAmount, AmountDecimal $capturableAmount, ?TransferAmountDetails $amountDetails = null, ?\DateTime $expiresOn = null)
     {
         $this->authorizationID = $authorizationID;
         $this->requestedAmount = $requestedAmount;
         $this->authorizedAmount = $authorizedAmount;
         $this->capturedAmount = $capturedAmount;
         $this->capturableAmount = $capturableAmount;
+        $this->amountDetails = $amountDetails;
         $this->expiresOn = $expiresOn;
     }
 }

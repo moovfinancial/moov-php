@@ -108,6 +108,14 @@ class ListTransfersRequest
     public ?array $authorizationIDs = null;
 
     /**
+     * Optional comma-separated invoice IDs.
+     *
+     * @var ?array<string> $invoiceIDs
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=invoiceIDs')]
+    public ?array $invoiceIDs = null;
+
+    /**
      * Optional, comma-separated transfer types by which the response is filtered.
      *
      * @var ?array<\Moov\MoovPhp\Models\Components\TransferType> $transferTypes
@@ -143,12 +151,13 @@ class ListTransfersRequest
      * @param  ?bool  $disputed
      * @param  ?string  $foreignID
      * @param  ?array<string>  $authorizationIDs
+     * @param  ?array<string>  $invoiceIDs
      * @param  ?array<\Moov\MoovPhp\Models\Components\TransferType>  $transferTypes
      * @param  ?int  $skip
      * @param  ?int  $count
      * @phpstan-pure
      */
-    public function __construct(string $accountID, ?array $accountIDs = null, ?Components\TransferStatus $status = null, ?\DateTime $startDateTime = null, ?\DateTime $endDateTime = null, ?string $groupID = null, ?string $scheduleID = null, ?string $paymentLinkCode = null, ?bool $refunded = null, ?bool $disputed = null, ?string $foreignID = null, ?array $authorizationIDs = null, ?array $transferTypes = null, ?int $skip = null, ?int $count = null)
+    public function __construct(string $accountID, ?array $accountIDs = null, ?Components\TransferStatus $status = null, ?\DateTime $startDateTime = null, ?\DateTime $endDateTime = null, ?string $groupID = null, ?string $scheduleID = null, ?string $paymentLinkCode = null, ?bool $refunded = null, ?bool $disputed = null, ?string $foreignID = null, ?array $authorizationIDs = null, ?array $invoiceIDs = null, ?array $transferTypes = null, ?int $skip = null, ?int $count = null)
     {
         $this->accountID = $accountID;
         $this->accountIDs = $accountIDs;
@@ -162,6 +171,7 @@ class ListTransfersRequest
         $this->disputed = $disputed;
         $this->foreignID = $foreignID;
         $this->authorizationIDs = $authorizationIDs;
+        $this->invoiceIDs = $invoiceIDs;
         $this->transferTypes = $transferTypes;
         $this->skip = $skip;
         $this->count = $count;

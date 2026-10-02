@@ -126,6 +126,18 @@ class BankAccount
     public ?array $paymentMethods = null;
 
     /**
+     * The outcome of a requested risk-verification attempt. `notAttempted` when
+     *
+     * `requestRiskVerification` was not set, or the calling account was not allowlisted.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\RiskVerificationOutcome $riskVerificationOutcome
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('riskVerificationOutcome')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RiskVerificationOutcome|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?RiskVerificationOutcome $riskVerificationOutcome = null;
+
+    /**
      * @param  string  $bankAccountID
      * @param  string  $fingerprint
      * @param  \Moov\MoovPhp\Models\Components\BankAccountStatus  $status
@@ -139,9 +151,10 @@ class BankAccount
      * @param  ?\Moov\MoovPhp\Models\Components\BankAccountStatusReason  $statusReason
      * @param  ?\Moov\MoovPhp\Models\Components\BankAccountException  $exceptionDetails
      * @param  ?array<\Moov\MoovPhp\Models\Components\BasicPaymentMethod>  $paymentMethods
+     * @param  ?\Moov\MoovPhp\Models\Components\RiskVerificationOutcome  $riskVerificationOutcome
      * @phpstan-pure
      */
-    public function __construct(string $bankAccountID, string $fingerprint, BankAccountStatus $status, string $holderName, BankAccountHolderType $holderType, string $bankName, BankAccountType $bankAccountType, string $routingNumber, string $lastFourAccountNumber, \DateTime $updatedOn, ?BankAccountStatusReason $statusReason = null, ?BankAccountException $exceptionDetails = null, ?array $paymentMethods = null)
+    public function __construct(string $bankAccountID, string $fingerprint, BankAccountStatus $status, string $holderName, BankAccountHolderType $holderType, string $bankName, BankAccountType $bankAccountType, string $routingNumber, string $lastFourAccountNumber, \DateTime $updatedOn, ?BankAccountStatusReason $statusReason = null, ?BankAccountException $exceptionDetails = null, ?array $paymentMethods = null, ?RiskVerificationOutcome $riskVerificationOutcome = null)
     {
         $this->bankAccountID = $bankAccountID;
         $this->fingerprint = $fingerprint;
@@ -156,5 +169,6 @@ class BankAccount
         $this->statusReason = $statusReason;
         $this->exceptionDetails = $exceptionDetails;
         $this->paymentMethods = $paymentMethods;
+        $this->riskVerificationOutcome = $riskVerificationOutcome;
     }
 }

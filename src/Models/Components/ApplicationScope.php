@@ -28,6 +28,7 @@ enum ApplicationScope: string
     case DocumentsRead = 'documents.read';
     case DocumentsWrite = 'documents.write';
     case FedRead = 'fed.read';
+    case FilesDownload = 'files.download';
     case FilesRead = 'files.read';
     case FilesWrite = 'files.write';
     case IssuedCardsRead = 'issued-cards.read';

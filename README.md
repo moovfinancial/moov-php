@@ -753,6 +753,11 @@ you'll need to specify the `/accounts/{accountID}/files.write` scope.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/files.read` scope.
+* [download](docs/sdks/files/README.md#download) - Download the contents of a file associated with a specific Moov account. Files reserved for
+internal Moov use are not available through this endpoint.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
+you'll need to specify the `/accounts/{accountID}/files.download` scope.
 
 ### [GooglePay](docs/sdks/googlepay/README.md)
 
@@ -846,6 +851,12 @@ you'll need to specify the `/accounts/{accountID}/invoices.read` scope.
 
 ### [IssuingTransactions](docs/sdks/issuingtransactions/README.md)
 
+* [listActivity](docs/sdks/issuingtransactions/README.md#listactivity) - List issued card activity associated with a Moov account.
+
+Activity includes authorizations and settlements in a single list.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
+you'll need to specify the `/accounts/{accountID}/issued-cards.read` scope.
 * [listAuthorizations](docs/sdks/issuingtransactions/README.md#listauthorizations) - List issued card authorizations associated with a Moov account.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 

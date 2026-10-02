@@ -24,4 +24,3 @@ The payment method type that represents a payment rail and directionality
 | `GooglePay`          | google-pay           |
 | `PushToGooglePay`    | push-to-google-pay   |
 | `PullFromGooglePay`  | pull-from-google-pay |
-| `WireCredit`         | wire-credit          |

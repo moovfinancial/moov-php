@@ -13,6 +13,14 @@ class CardPaymentRefundProcessingDetails
 {
     /**
      *
+     * @var ?string $networkTransactionID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('networkTransactionID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $networkTransactionID = null;
+
+    /**
+     *
      * @var ?\Moov\MoovPhp\Models\Components\CardTransactionFailureCode $failureCode
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('failureCode')]
@@ -21,11 +29,13 @@ class CardPaymentRefundProcessingDetails
     public ?CardTransactionFailureCode $failureCode = null;
 
     /**
+     * @param  ?string  $networkTransactionID
      * @param  ?\Moov\MoovPhp\Models\Components\CardTransactionFailureCode  $failureCode
      * @phpstan-pure
      */
-    public function __construct(?CardTransactionFailureCode $failureCode = null)
+    public function __construct(?string $networkTransactionID = null, ?CardTransactionFailureCode $failureCode = null)
     {
+        $this->networkTransactionID = $networkTransactionID;
         $this->failureCode = $failureCode;
     }
 }
