@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: baac47190397f47725fa5c4f65148133
+  docChecksum: 329022655fd97a35f73b6b835afe2ae3
   docVersion: v2026.04.00
-  speakeasyVersion: 1.798.0
-  generationVersion: 2.938.0
-  releaseVersion: 26.4.18
-  configChecksum: f713359450ab32c9b7c28e0c1b27a50b
+  speakeasyVersion: 1.800.1
+  generationVersion: 2.943.0
+  releaseVersion: 26.4.19
+  configChecksum: 4a502e88e2ef9bc038d8b1a67ff0c111
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php.git
   published: true
 persistentEdits:
-  generation_id: 105f657c-1d2b-4348-9a8f-6202be9b3fb6
-  pristine_commit_hash: 4237bc1825151f496e57d3978402b01a54f2c865
-  pristine_tree_hash: 2cc8b042e6089e1eeb3cca433c367b4db6bc9785
+  generation_id: 346ecb9d-d51b-46c9-81c9-73cd7da93837
+  pristine_commit_hash: 434913f1efc44a16f78846e8ee5ac954f3c738cf
+  pristine_tree_hash: ecbf0ec221c9baa0a3d64591ddb2aad1217c1a6e
 features:
   php:
     constsAndDefaults: 0.2.2
@@ -30,7 +30,7 @@ features:
     nameOverrides: 2.81.4
     nullables: 1.0.1
     responseFormat: 0.1.0
-    unions: 0.1.9
+    unions: 0.1.11
 trackedFiles:
   .gitattributes:
     id: 24139dae6567
@@ -762,8 +762,8 @@ trackedFiles:
     pristine_git_object: fb34d5dfc8caee3487d7fc47a19b75983ce0f7d3
   docs/Models/Components/CreateInvoice.md:
     id: 8a2ed469bf75
-    last_write_checksum: sha1:969f5076e3af62ccc7c9eae1cc39f5629afc4dd8
-    pristine_git_object: b530ff4e1a9e29bc92923aa4f6b5f9466f3789e2
+    last_write_checksum: sha1:1f01612d2fcd4b94c13dcffe12c8de34dfba1e28
+    pristine_git_object: c075c272e8bf41d92ecdb2edeab3a1ffc6da6ba4
   docs/Models/Components/CreateInvoiceLineItem.md:
     id: 6bf0e99fc44c
     last_write_checksum: sha1:de57355eacc9758d4d64d0edd4089aad99c76817
@@ -982,8 +982,8 @@ trackedFiles:
     pristine_git_object: 60ea8160bcad757dcfda21626dde630edbda1a38
   docs/Models/Components/CreatedTransfer.md:
     id: be59306a1485
-    last_write_checksum: sha1:b99450ea15db3478930045a1a73a50663e5aad55
-    pristine_git_object: fad0269aaa2076e64e5fa78852429248bbaa1298
+    last_write_checksum: sha1:02072988fdd45aa7afc70f231571c32a12377ca3
+    pristine_git_object: 772734f077e83da856dda1e7d84d6eef77f6ea00
   docs/Models/Components/CustomerSupport.md:
     id: 3126ce9def83
     last_write_checksum: sha1:79054e8fc0c4df0e8c5509cddfe11e126744d139
@@ -2390,8 +2390,8 @@ trackedFiles:
     pristine_git_object: e6d88adf8ff920b6876c1ef326db4331c11406b5
   docs/Models/Components/Transfer.md:
     id: 477890c615c4
-    last_write_checksum: sha1:2b416896737e7feafd1d08d614b227884500cb08
-    pristine_git_object: 66caf81e731b27c91d3aa75c0603a95520c88679
+    last_write_checksum: sha1:46c4cd92980f6bf9c08560e737b7a32ddb773c9c
+    pristine_git_object: 9e073e1f336db9fc4f5c23ab8f21c6ad4d22a184
   docs/Models/Components/TransferACHAddendaRecord.md:
     id: c6e5c77f125d
     last_write_checksum: sha1:dcb45b1b04f4d079c843aa89359e996388914954
@@ -2806,8 +2806,8 @@ trackedFiles:
     pristine_git_object: 797a0d2dff0b96db866a80a4cdb5b5f01b0b4d14
   docs/Models/Components/WebhookDataTransferStatus.md:
     id: de9daf682380
-    last_write_checksum: sha1:439ff94d9db13dbcacadca099bf5f91c350d3624
-    pristine_git_object: 2e1021d2afab37d17a2d19e0545621d64410b4c1
+    last_write_checksum: sha1:aeb98ba0a20af6614a3880e861db24f93261aa49
+    pristine_git_object: 888b85a4f0f0e63fe5e98910fbcbb8cdbbd94fe7
   docs/Models/Components/WebhookDataTransferUpdated.md:
     id: ce5b14a3ae84
     last_write_checksum: sha1:6500a135806a282e9f4b82734f761f91c71cc543
@@ -2890,8 +2890,8 @@ trackedFiles:
     pristine_git_object: fec2abe2834d13fda2ffec07cfbcccfab4464bde
   docs/Models/Errors/CreateInvoiceError.md:
     id: f6beebd9c6da
-    last_write_checksum: sha1:5769aaca5cc18456e48f2e8aa96536005f25889f
-    pristine_git_object: 4f9db15d17f77b78fd2facde6525ee91d3c3255a
+    last_write_checksum: sha1:750dadb90c82b631c8bdf62893a3a9a2420ca68e
+    pristine_git_object: 59872bc42a5dda599bfaf98005c9a06d8d66c0ce
   docs/Models/Errors/CreateInvoicePaymentError.md:
     id: e1ed8c3320d6
     last_write_checksum: sha1:52be17700e8fb5c5d53cb6fe9a6cff0a7c82a930
@@ -3042,8 +3042,8 @@ trackedFiles:
     pristine_git_object: 92a8d083afd38cd13a2442c2ae36776b11dee3f4
   docs/Models/Errors/Transfer.md:
     id: 5092eef72b0a
-    last_write_checksum: sha1:2b416896737e7feafd1d08d614b227884500cb08
-    pristine_git_object: 66caf81e731b27c91d3aa75c0603a95520c88679
+    last_write_checksum: sha1:46c4cd92980f6bf9c08560e737b7a32ddb773c9c
+    pristine_git_object: 9e073e1f336db9fc4f5c23ab8f21c6ad4d22a184
   docs/Models/Errors/TransferConfigValidationError.md:
     id: 3bf9a665a69a
     last_write_checksum: sha1:3759a604a899cb7128504f853cf1baff9189ae94
@@ -4242,8 +4242,8 @@ trackedFiles:
     pristine_git_object: 74b3323ac8c0395605aa0d477dc785bebdea3757
   docs/Models/Operations/ListTransfersRequest.md:
     id: f3500c937c94
-    last_write_checksum: sha1:b547f388315f538c98c8dfaf4fc8d11b776eb5f4
-    pristine_git_object: f43a709bb129c53455ea3c5611993d108bcf2319
+    last_write_checksum: sha1:a016d7b072e7d9c70c0adc0adcd868caa6a3d596
+    pristine_git_object: 15baffaa39cdfdd75f625255b756cf1c20603335
   docs/Models/Operations/ListTransfersResponse.md:
     id: f443b939c225
     last_write_checksum: sha1:86aebc3dd2a68874d753cc037274ad83b0e0a6ad
@@ -5614,8 +5614,8 @@ trackedFiles:
     pristine_git_object: 86ed20116f6f694e00b3f577c44b907b25bb5201
   src/Models/Components/CreateInvoice.php:
     id: 51125af74fd9
-    last_write_checksum: sha1:009eb486c69c8de080872149954a6103ab684226
-    pristine_git_object: e5c78b6e9745751d538672ec34eb0eb58c55e106
+    last_write_checksum: sha1:be6d646af66d8b4d06b80a0270606d84a48c8091
+    pristine_git_object: 7636f076723d8d75c27d9ae590733b27262a4a94
   src/Models/Components/CreateInvoiceLineItem.php:
     id: 01c6f8160eed
     last_write_checksum: sha1:5f12c1aa203e44f96e0d1ff53deab69c5e2edf1d
@@ -5830,8 +5830,8 @@ trackedFiles:
     pristine_git_object: 06c052c276828c89a48f05f518afa575210da76e
   src/Models/Components/CreatedTransfer.php:
     id: 2405fa09db3d
-    last_write_checksum: sha1:dcf4e67d35eef03afd90353b942238988592ca50
-    pristine_git_object: ac5dde3ee78993116f78f1f0288eb24ac8a6dc35
+    last_write_checksum: sha1:7fd459f6aaca15c4eaaa87e68d156dd9d5e6ac2b
+    pristine_git_object: 43ddf20761fa50efe0817d0a1555ed4db3b3bdaf
   src/Models/Components/CustomerSupport.php:
     id: 6e55a91fa2ce
     last_write_checksum: sha1:3b64370654e1c6c2214b81a9da5d6168b0cc74a4
@@ -7226,8 +7226,8 @@ trackedFiles:
     pristine_git_object: 5d93335b597041aead3fc955f00d79fb3aa5fa3b
   src/Models/Components/Transfer.php:
     id: 7ca39b81b4d0
-    last_write_checksum: sha1:6cd0b21b2f2fc4128a2679b92dacd9c6732b7c4a
-    pristine_git_object: 4fdb01687e35516d34dca76a0394fbe5332bd1cd
+    last_write_checksum: sha1:93417329fe99d57fc56c9ac4c2ecb214728f3429
+    pristine_git_object: db7c7298d473020e2ea21ca17a07c0193ae4edb4
   src/Models/Components/TransferACHAddendaRecord.php:
     id: 1ff63ac29eda
     last_write_checksum: sha1:d8b504af4492b158a3c91239506f99aaeaefa63f
@@ -7634,8 +7634,8 @@ trackedFiles:
     pristine_git_object: eeb9e4be7771afb8d71991222399c6306875d0fd
   src/Models/Components/WebhookDataTransferStatus.php:
     id: f8c098af03e4
-    last_write_checksum: sha1:d571d72791c226cf4df1a60772eb04d5305af25d
-    pristine_git_object: 0f38fe70120d4cc9471a9b7ebdfc9c9a1f465187
+    last_write_checksum: sha1:87eae1bf1ac772d6db667c4e387838a6d9afb720
+    pristine_git_object: 9259b60fd8b3478505859188ef77f3eea682c523
   src/Models/Components/WebhookDataTransferUpdated.php:
     id: 6526e5df0bac
     last_write_checksum: sha1:487f90ff2c87bbe9849927c1bc344cef9bf5b198
@@ -7758,8 +7758,8 @@ trackedFiles:
     pristine_git_object: 4892dcb4763eef4697eed03c522c644e72cebe70
   src/Models/Errors/CreateInvoiceError.php:
     id: 1520ffb50ea7
-    last_write_checksum: sha1:fddec1abf04a0810242a7b0a50810edcea30452b
-    pristine_git_object: 3d560948f1c7437e34f9424d6f553f903ab038b1
+    last_write_checksum: sha1:fb0e1d45b2295e9f86ba90e4c587c8fc76aef6bd
+    pristine_git_object: 99b67325924754b22fcd14e457b78f8b03014e09
   src/Models/Errors/CreateInvoiceErrorThrowable.php:
     id: 14e4c2cf7408
     last_write_checksum: sha1:e3f4835fd22a36bd3833543bdf29c1cdf0400442
@@ -8054,8 +8054,8 @@ trackedFiles:
     pristine_git_object: 28be0b1bb9d1a50009643f9026732fd1935d843c
   src/Models/Errors/Transfer.php:
     id: d8717ba9f3f4
-    last_write_checksum: sha1:25c58f12a43d6db649785f56e6efcc030ca14dd6
-    pristine_git_object: aa29b9ad8a849616c5f9e930dd41a5ad990f6656
+    last_write_checksum: sha1:dc4d9d23841154f7665dbcf349974f3a2e0d554c
+    pristine_git_object: 088813562049afa47abc54b98fb424d0dd07ca00
   src/Models/Errors/TransferConfigValidationError.php:
     id: fea8fad7ac7c
     last_write_checksum: sha1:26f86c494c7890d39c78cf9ab155a69c1d5181ba
@@ -9302,8 +9302,8 @@ trackedFiles:
     pristine_git_object: 16b5387fa1e9d86141e40cc542da4c23d4d5eed9
   src/Models/Operations/ListTransfersRequest.php:
     id: d96b58cf3395
-    last_write_checksum: sha1:f9177059e0bebe918fd8df0ee9798faefd532e6a
-    pristine_git_object: 91e88c60b223de722c8a9618612d3b745fe5cbcb
+    last_write_checksum: sha1:4de85525d76d10189d0103a6640a0dcbc2c7ab1d
+    pristine_git_object: f628853ef7bebca1a6cdc3c559a68717d8a69c26
   src/Models/Operations/ListTransfersResponse.php:
     id: 70b28a3b6946
     last_write_checksum: sha1:3fb853b3f9a507325ab07fe8708e405536755dad
@@ -9650,8 +9650,8 @@ trackedFiles:
     pristine_git_object: 6c4eb9b9d1bbf57d4db0cdf0095b237b68051ed4
   src/SDKConfiguration.php:
     id: 9d60ab0bec0b
-    last_write_checksum: sha1:478211f27c4cf90872fb7e8e1ff1b9849d19b9ed
-    pristine_git_object: 98b83922d3dded6005dd40f195f98fe6ad1d99fa
+    last_write_checksum: sha1:29537ddbbb1ae7f66ceb69d1710d16a24844bc28
+    pristine_git_object: 6018617b3f93f7cac9f82e07d77ee1a85ced6e93
   src/Schedules.php:
     id: 8dbe56d2d033
     last_write_checksum: sha1:6f0d21f80435c051e1beddd63bf681efac9d4099
@@ -12729,7 +12729,7 @@ examples:
           application/json: [{"cancellationID": "89ca7f54-13ba-4714-b9af-17163eae2057", "status": "completed", "createdOn": "2025-01-19T03:02:43.255309588Z"}]
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Php SDK Changes:\n* `moov->issuingtransactions->listAuthorizations()`:  `response.[]->declineReason` **Added**\n* `moov->issuingtransactions->getAuthorization()`:  `response.declineReason` **Added**\n* `moov->issuingtransactions->listAuthorizationEvents()`:  `response.[]->declineReason` **Added**\n* `moov->authentication->createToken()`: \n  *  `request->clientType` **Added**\n"
+releaseNotes: "## Php SDK Changes:\n* `moov->invoices->createInvoice()`: \n  *  `request.createInvoice->customerEmail` **Added**\n  *  `error.customerEmail` **Added**\n* `moov->transfers->list()`: \n  *  `request->invoiceIDs` **Added**\n"
 generatedFiles:
   - .gitattributes
   - USAGE.md

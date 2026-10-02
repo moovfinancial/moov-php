@@ -22,6 +22,14 @@ class CreateInvoiceError
 
     /**
      *
+     * @var ?string $customerEmail
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('customerEmail')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $customerEmail = null;
+
+    /**
+     *
      * @var ?string $description
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('description')]
@@ -64,6 +72,7 @@ class CreateInvoiceError
 
     /**
      * @param  ?string  $customerAccountID
+     * @param  ?string  $customerEmail
      * @param  ?string  $description
      * @param  ?\Moov\MoovPhp\Models\Components\CreateInvoiceLineItemsValidationError  $lineItems
      * @param  ?string  $invoiceDate
@@ -71,9 +80,10 @@ class CreateInvoiceError
      * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimalValidationError  $taxAmount
      * @phpstan-pure
      */
-    public function __construct(?string $customerAccountID = null, ?string $description = null, ?Components\CreateInvoiceLineItemsValidationError $lineItems = null, ?string $invoiceDate = null, ?string $dueDate = null, ?Components\AmountDecimalValidationError $taxAmount = null)
+    public function __construct(?string $customerAccountID = null, ?string $customerEmail = null, ?string $description = null, ?Components\CreateInvoiceLineItemsValidationError $lineItems = null, ?string $invoiceDate = null, ?string $dueDate = null, ?Components\AmountDecimalValidationError $taxAmount = null)
     {
         $this->customerAccountID = $customerAccountID;
+        $this->customerEmail = $customerEmail;
         $this->description = $description;
         $this->lineItems = $lineItems;
         $this->invoiceDate = $invoiceDate;

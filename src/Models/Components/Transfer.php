@@ -278,6 +278,9 @@ class Transfer
     public ?string $invoiceID = null;
 
     /**
+     * The tip, tax, and surcharge portion of the transfer amount.
+     *
+     * For an auth-capture `card-payment` transfer, this is the aggregate of all captures' `amountDetails`.
      *
      * @var ?\Moov\MoovPhp\Models\Components\TransferAmountDetails $amountDetails
      */
