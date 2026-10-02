@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: c4c18053dbdfa3aa83ae7346eb4a5afd
+  docChecksum: 30373bc6e075568a29f92fa0c293793a
   docVersion: v2025.07.00
-  speakeasyVersion: 1.798.0
-  generationVersion: 2.938.0
-  releaseVersion: 25.8.18
-  configChecksum: e4623f4ec5bd9b350a35b096da3d3880
+  speakeasyVersion: 1.800.1
+  generationVersion: 2.943.0
+  releaseVersion: 25.8.19
+  configChecksum: b3565b50aa4109dca5d7ab8a0976fa5b
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php.git
   published: true
 persistentEdits:
-  generation_id: b85f76b2-d207-4df4-a6cd-87d3a19db475
-  pristine_commit_hash: a99d8971541f52dcaa80d562bb46774a5842d548
-  pristine_tree_hash: ba83491873b55c4d5c28cf3818b819df4b57e713
+  generation_id: f4146d32-f44b-4114-9717-0f81b9ad08ff
+  pristine_commit_hash: 4c613504d05b349004e1528019bcaa56c3f91599
+  pristine_tree_hash: 28bbce9fafe8a2d1243c3904e8cb97ef0d565bd0
 features:
   php:
     constsAndDefaults: 0.2.2
@@ -30,7 +30,7 @@ features:
     nameOverrides: 2.81.4
     nullables: 1.0.1
     responseFormat: 0.1.0
-    unions: 0.1.9
+    unions: 0.1.11
 trackedFiles:
   .gitattributes:
     id: 24139dae6567
@@ -2486,8 +2486,8 @@ trackedFiles:
     pristine_git_object: 797a0d2dff0b96db866a80a4cdb5b5f01b0b4d14
   docs/Models/Components/WebhookDataTransferStatus.md:
     id: de9daf682380
-    last_write_checksum: sha1:439ff94d9db13dbcacadca099bf5f91c350d3624
-    pristine_git_object: 2e1021d2afab37d17a2d19e0545621d64410b4c1
+    last_write_checksum: sha1:aeb98ba0a20af6614a3880e861db24f93261aa49
+    pristine_git_object: 888b85a4f0f0e63fe5e98910fbcbb8cdbbd94fe7
   docs/Models/Components/WebhookDataTransferUpdated.md:
     id: ce5b14a3ae84
     last_write_checksum: sha1:6500a135806a282e9f4b82734f761f91c71cc543
@@ -3790,8 +3790,8 @@ trackedFiles:
     pristine_git_object: 74b3323ac8c0395605aa0d477dc785bebdea3757
   docs/Models/Operations/ListTransfersRequest.md:
     id: f3500c937c94
-    last_write_checksum: sha1:b547f388315f538c98c8dfaf4fc8d11b776eb5f4
-    pristine_git_object: f43a709bb129c53455ea3c5611993d108bcf2319
+    last_write_checksum: sha1:a016d7b072e7d9c70c0adc0adcd868caa6a3d596
+    pristine_git_object: 15baffaa39cdfdd75f625255b756cf1c20603335
   docs/Models/Operations/ListTransfersResponse.md:
     id: f443b939c225
     last_write_checksum: sha1:86aebc3dd2a68874d753cc037274ad83b0e0a6ad
@@ -6822,8 +6822,8 @@ trackedFiles:
     pristine_git_object: eeb9e4be7771afb8d71991222399c6306875d0fd
   src/Models/Components/WebhookDataTransferStatus.php:
     id: f8c098af03e4
-    last_write_checksum: sha1:d571d72791c226cf4df1a60772eb04d5305af25d
-    pristine_git_object: 0f38fe70120d4cc9471a9b7ebdfc9c9a1f465187
+    last_write_checksum: sha1:87eae1bf1ac772d6db667c4e387838a6d9afb720
+    pristine_git_object: 9259b60fd8b3478505859188ef77f3eea682c523
   src/Models/Components/WebhookDataTransferUpdated.php:
     id: 6526e5df0bac
     last_write_checksum: sha1:487f90ff2c87bbe9849927c1bc344cef9bf5b198
@@ -8330,8 +8330,8 @@ trackedFiles:
     pristine_git_object: 16b5387fa1e9d86141e40cc542da4c23d4d5eed9
   src/Models/Operations/ListTransfersRequest.php:
     id: d96b58cf3395
-    last_write_checksum: sha1:f9177059e0bebe918fd8df0ee9798faefd532e6a
-    pristine_git_object: 91e88c60b223de722c8a9618612d3b745fe5cbcb
+    last_write_checksum: sha1:4de85525d76d10189d0103a6640a0dcbc2c7ab1d
+    pristine_git_object: f628853ef7bebca1a6cdc3c559a68717d8a69c26
   src/Models/Operations/ListTransfersResponse.php:
     id: 70b28a3b6946
     last_write_checksum: sha1:3fb853b3f9a507325ab07fe8708e405536755dad
@@ -8658,8 +8658,8 @@ trackedFiles:
     pristine_git_object: ed9c06928be32fb3e75a68ec0192a4fca166a592
   src/SDKConfiguration.php:
     id: 9d60ab0bec0b
-    last_write_checksum: sha1:42c5b464885529aa806d1caaa2073718138ac7a0
-    pristine_git_object: 4249140511d45e6fc21a6d3ad58226d02b3c3635
+    last_write_checksum: sha1:7a13cd997833b084e64dd180652eece18105f756
+    pristine_git_object: 93c1af4f7c57e03372b03f56811fef2f109db364
   src/Schedules.php:
     id: 8dbe56d2d033
     last_write_checksum: sha1:6f0d21f80435c051e1beddd63bf681efac9d4099
@@ -11617,7 +11617,7 @@ examples:
           application/json: [{"cancellationID": "89ca7f54-13ba-4714-b9af-17163eae2057", "status": "completed", "createdOn": "2025-01-19T03:02:43.255309588Z"}]
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Php SDK Changes:\n* `moov->issuingtransactions->listAuthorizations()`:  `response.[]->declineReason` **Added**\n* `moov->issuingtransactions->getAuthorization()`:  `response.declineReason` **Added**\n* `moov->issuingtransactions->listAuthorizationEvents()`:  `response.[]->declineReason` **Added**\n* `moov->authentication->createToken()`: \n  *  `request->clientType` **Added**\n"
+releaseNotes: "## Php SDK Changes:\n* `moov->transfers->list()`: \n  *  `request->invoiceIDs` **Added**\n"
 generatedFiles:
   - .gitattributes
   - USAGE.md
