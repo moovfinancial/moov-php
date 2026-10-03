@@ -22,6 +22,7 @@
 | `SourceSettled`                      | source.settled                       |
 | `SourceFailed`                       | source.failed                        |
 | `SourceCanceled`                     | source.canceled                      |
+| `SourceClearedExternally`            | source.cleared-externally            |
 | `DestinationCompleted`               | destination.completed                |
 | `DestinationCorrected`               | destination.corrected                |
 | `DestinationInitiated`               | destination.initiated                |

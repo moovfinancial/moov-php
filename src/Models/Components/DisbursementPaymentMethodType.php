@@ -18,4 +18,5 @@ enum DisbursementPaymentMethodType: string
     case AchCreditStandard = 'ach-credit-standard';
     case PushToApplePay = 'push-to-apple-pay';
     case PushToGooglePay = 'push-to-google-pay';
+    case InstantBankCredit = 'instant-bank-credit';
 }

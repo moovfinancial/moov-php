@@ -87,6 +87,15 @@ class IncurredFee
     public ?string $feeGroup = null;
 
     /**
+     * The program assigned by the card network that determines the interchange rate for the fee. Present only for interchange or discount fees.
+     *
+     * @var ?string $feeProgram
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('feeProgram')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $feeProgram = null;
+
+    /**
      * Unique identifier for this residual payment calculation.
      *
      * @var ?string $residualID
@@ -114,11 +123,12 @@ class IncurredFee
      * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimal  $amount
      * @param  ?\Moov\MoovPhp\Models\Components\GeneratedBy  $generatedBy
      * @param  ?string  $feeGroup
+     * @param  ?string  $feeProgram
      * @param  ?string  $residualID
      * @param  ?\Moov\MoovPhp\Models\Components\FeePaidBy  $feePaidBy
      * @phpstan-pure
      */
-    public function __construct(?string $feeID = null, ?string $accountID = null, ?string $walletID = null, ?\DateTime $createdOn = null, ?string $feeName = null, ?AmountDecimal $amount = null, ?GeneratedBy $generatedBy = null, ?string $feeGroup = null, ?string $residualID = null, ?FeePaidBy $feePaidBy = null)
+    public function __construct(?string $feeID = null, ?string $accountID = null, ?string $walletID = null, ?\DateTime $createdOn = null, ?string $feeName = null, ?AmountDecimal $amount = null, ?GeneratedBy $generatedBy = null, ?string $feeGroup = null, ?string $feeProgram = null, ?string $residualID = null, ?FeePaidBy $feePaidBy = null)
     {
         $this->feeID = $feeID;
         $this->accountID = $accountID;
@@ -128,6 +138,7 @@ class IncurredFee
         $this->amount = $amount;
         $this->generatedBy = $generatedBy;
         $this->feeGroup = $feeGroup;
+        $this->feeProgram = $feeProgram;
         $this->residualID = $residualID;
         $this->feePaidBy = $feePaidBy;
     }

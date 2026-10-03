@@ -79,6 +79,12 @@ you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
+* [listTransferEvents](#listtransferevents) - Retrieve the complete ordered event timeline for a Transfer.
+
+Events are returned oldest to newest by occurrence time, with deterministic ordering when multiple events have the same occurrence time. An existing Transfer with no stored events returns an empty list.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
+you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
 * [initiateRefund](#initiaterefund) - Initiate a refund for a card transfer.
 
 **Use the [Cancel or refund a card transfer](https://docs.moov.io/api/money-movement/refunds/cancel/) endpoint for more comprehensive cancel and refund options.**    
@@ -1041,6 +1047,161 @@ if ($response->capture !== null) {
 ### Response
 
 **[?Operations\GetCaptureResponse](../../Models/Operations/GetCaptureResponse.md)**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| Errors\APIException | 4XX, 5XX            | \*/\*               |
+
+## listTransferEvents
+
+Retrieve the complete ordered event timeline for a Transfer.
+
+Events are returned oldest to newest by occurrence time, with deterministic ordering when multiple events have the same occurrence time. An existing Transfer with no stored events returns an empty list.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
+you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
+
+### Example Usage: Auth-capture card payment
+
+<!-- UsageSnippet language="php" operationID="listTransferEvents" method="get" path="/accounts/{accountID}/transfers/{transferID}/events" example="Auth-capture card payment" -->
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
+
+$sdk = MoovPhp\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
+
+
+
+$response = $sdk->transfers->listTransferEvents(
+    accountID: '<id>',
+    transferID: '<id>'
+
+);
+
+if ($response->transferEvents !== null) {
+    // handle response
+}
+```
+### Example Usage: Bank-to-bank transfer with source-wallet reversal
+
+<!-- UsageSnippet language="php" operationID="listTransferEvents" method="get" path="/accounts/{accountID}/transfers/{transferID}/events" example="Bank-to-bank transfer with source-wallet reversal" -->
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
+
+$sdk = MoovPhp\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
+
+
+
+$response = $sdk->transfers->listTransferEvents(
+    accountID: '<id>',
+    transferID: '<id>'
+
+);
+
+if ($response->transferEvents !== null) {
+    // handle response
+}
+```
+### Example Usage: Card-to-wallet transfer with refund
+
+<!-- UsageSnippet language="php" operationID="listTransferEvents" method="get" path="/accounts/{accountID}/transfers/{transferID}/events" example="Card-to-wallet transfer with refund" -->
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
+
+$sdk = MoovPhp\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
+
+
+
+$response = $sdk->transfers->listTransferEvents(
+    accountID: '<id>',
+    transferID: '<id>'
+
+);
+
+if ($response->transferEvents !== null) {
+    // handle response
+}
+```
+### Example Usage: Wallet-to-bank RTP transfer
+
+<!-- UsageSnippet language="php" operationID="listTransferEvents" method="get" path="/accounts/{accountID}/transfers/{transferID}/events" example="Wallet-to-bank RTP transfer" -->
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
+
+$sdk = MoovPhp\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
+
+
+
+$response = $sdk->transfers->listTransferEvents(
+    accountID: '<id>',
+    transferID: '<id>'
+
+);
+
+if ($response->transferEvents !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
+| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `accountID`                                                             | *string*                                                                | :heavy_check_mark:                                                      | Moov account ID of the partner or the Transfer's source or destination. |
+| `transferID`                                                            | *string*                                                                | :heavy_check_mark:                                                      | Identifier for the Transfer.                                            |
+
+### Response
+
+**[?Operations\ListTransferEventsResponse](../../Models/Operations/ListTransferEventsResponse.md)**
 
 ### Errors
 

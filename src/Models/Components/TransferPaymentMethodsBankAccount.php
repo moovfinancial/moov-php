@@ -92,6 +92,18 @@ class TransferPaymentMethodsBankAccount
     public \DateTime $updatedOn;
 
     /**
+     * The outcome of a requested risk-verification attempt. `notAttempted` when
+     *
+     * `requestRiskVerification` was not set, or the calling account was not allowlisted.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\RiskVerificationOutcome $riskVerificationOutcome
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('riskVerificationOutcome')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\RiskVerificationOutcome|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?RiskVerificationOutcome $riskVerificationOutcome = null;
+
+    /**
      * @param  string  $bankAccountID
      * @param  string  $fingerprint
      * @param  \Moov\MoovPhp\Models\Components\BankAccountStatus  $status
@@ -102,9 +114,10 @@ class TransferPaymentMethodsBankAccount
      * @param  string  $routingNumber
      * @param  string  $lastFourAccountNumber
      * @param  \DateTime  $updatedOn
+     * @param  ?\Moov\MoovPhp\Models\Components\RiskVerificationOutcome  $riskVerificationOutcome
      * @phpstan-pure
      */
-    public function __construct(string $bankAccountID, string $fingerprint, BankAccountStatus $status, string $holderName, BankAccountHolderType $holderType, string $bankName, BankAccountType $bankAccountType, string $routingNumber, string $lastFourAccountNumber, \DateTime $updatedOn)
+    public function __construct(string $bankAccountID, string $fingerprint, BankAccountStatus $status, string $holderName, BankAccountHolderType $holderType, string $bankName, BankAccountType $bankAccountType, string $routingNumber, string $lastFourAccountNumber, \DateTime $updatedOn, ?RiskVerificationOutcome $riskVerificationOutcome = null)
     {
         $this->bankAccountID = $bankAccountID;
         $this->fingerprint = $fingerprint;
@@ -116,5 +129,6 @@ class TransferPaymentMethodsBankAccount
         $this->routingNumber = $routingNumber;
         $this->lastFourAccountNumber = $lastFourAccountNumber;
         $this->updatedOn = $updatedOn;
+        $this->riskVerificationOutcome = $riskVerificationOutcome;
     }
 }

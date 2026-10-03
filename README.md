@@ -516,6 +516,21 @@ the merchant category codes (MCCs) each group covers. Use these category names i
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/),
 you'll need to specify the `/issued-cards.read` scope.
+* [createAuthorization](docs/sdks/cardissuing/README.md#createauthorization) - Create a simulated authorization for an issued card in test mode. See our [test mode](https://docs.moov.io/guides/get-started/test-mode)
+guide for more information.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/issued-cards.write` scope.
+* [createClearing](docs/sdks/cardissuing/README.md#createclearing) - Create a simulated clearing for an authorization on an issued card in test mode. See our [test mode](https://docs.moov.io/guides/get-started/test-mode)
+guide for more information.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/issued-cards.write` scope.
+* [createReversal](docs/sdks/cardissuing/README.md#createreversal) - Create a simulated reversal for an authorization on an issued card in test mode. See our [test mode](https://docs.moov.io/guides/get-started/test-mode)
+guide for more information.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/issued-cards.write` scope.
 * [request](docs/sdks/cardissuing/README.md#request) - Request a virtual card be issued.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
@@ -753,6 +768,11 @@ you'll need to specify the `/accounts/{accountID}/files.write` scope.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/files.read` scope.
+* [download](docs/sdks/files/README.md#download) - Download the contents of a file associated with a specific Moov account. Files reserved for
+internal Moov use are not available through this endpoint.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
+you'll need to specify the `/accounts/{accountID}/files.download` scope.
 
 ### [GooglePay](docs/sdks/googlepay/README.md)
 
@@ -846,6 +866,12 @@ you'll need to specify the `/accounts/{accountID}/invoices.read` scope.
 
 ### [IssuingTransactions](docs/sdks/issuingtransactions/README.md)
 
+* [listActivity](docs/sdks/issuingtransactions/README.md#listactivity) - List issued card activity associated with a Moov account.
+
+Activity includes authorizations and settlements in a single list.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
+you'll need to specify the `/accounts/{accountID}/issued-cards.read` scope.
 * [listAuthorizations](docs/sdks/issuingtransactions/README.md#listauthorizations) - List issued card authorizations associated with a Moov account.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
@@ -1237,6 +1263,12 @@ you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
 * [getCapture](docs/sdks/transfers/README.md#getcapture) - Get details of a capture for an auth-capture `card-payment` transfer.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
+* [listTransferEvents](docs/sdks/transfers/README.md#listtransferevents) - Retrieve the complete ordered event timeline for a Transfer.
+
+Events are returned oldest to newest by occurrence time, with deterministic ordering when multiple events have the same occurrence time. An existing Transfer with no stored events returns an empty list.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
 you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
 * [initiateRefund](docs/sdks/transfers/README.md#initiaterefund) - Initiate a refund for a card transfer.
 

@@ -28,6 +28,7 @@ enum WebhookDataTransferStatus: string
     case SourceSettled = 'source.settled';
     case SourceFailed = 'source.failed';
     case SourceCanceled = 'source.canceled';
+    case SourceClearedExternally = 'source.cleared-externally';
     case DestinationCompleted = 'destination.completed';
     case DestinationCorrected = 'destination.corrected';
     case DestinationInitiated = 'destination.initiated';

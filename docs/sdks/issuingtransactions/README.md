@@ -4,6 +4,12 @@
 
 ### Available Operations
 
+* [listActivity](#listactivity) - List issued card activity associated with a Moov account.
+
+Activity includes authorizations and settlements in a single list.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
+you'll need to specify the `/accounts/{accountID}/issued-cards.read` scope.
 * [listAuthorizations](#listauthorizations) - List issued card authorizations associated with a Moov account.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
@@ -20,6 +26,67 @@ you'll need to specify the `/accounts/{accountID}/issued-cards.read` scope.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/accounts/{accountID}/issued-cards.read` scope.
+
+## listActivity
+
+List issued card activity associated with a Moov account.
+
+Activity includes authorizations and settlements in a single list.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
+you'll need to specify the `/accounts/{accountID}/issued-cards.read` scope.
+
+### Example Usage
+
+<!-- UsageSnippet language="php" operationID="listIssuedCardActivity" method="get" path="/issuing/{accountID}/activity" -->
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
+use Moov\MoovPhp\Models\Operations;
+
+$sdk = MoovPhp\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
+
+$request = new Operations\ListIssuedCardActivityRequest(
+    accountID: '<id>',
+    skip: 60,
+    count: 20,
+);
+
+$response = $sdk->issuingTransactions->listActivity(
+    request: $request
+);
+
+if ($response->issuedCardActivities !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                           | [Operations\ListIssuedCardActivityRequest](../../Models/Operations/ListIssuedCardActivityRequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
+
+### Response
+
+**[?Operations\ListIssuedCardActivityResponse](../../Models/Operations/ListIssuedCardActivityResponse.md)**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| Errors\APIException | 4XX, 5XX            | \*/\*               |
 
 ## listAuthorizations
 

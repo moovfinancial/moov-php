@@ -21,11 +21,24 @@ class BankAccountPayload
     public BankAccountIntegration $account;
 
     /**
+     * Requests a synchronous risk-verification attempt on create or re-link. Only honored for
+     *
+     * allowlisted calling accounts; ignored otherwise.
+     *
+     * @var ?bool $requestRiskVerification
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('requestRiskVerification')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $requestRiskVerification = null;
+
+    /**
      * @param  \Moov\MoovPhp\Models\Components\BankAccountIntegration  $account
+     * @param  ?bool  $requestRiskVerification
      * @phpstan-pure
      */
-    public function __construct(BankAccountIntegration $account)
+    public function __construct(BankAccountIntegration $account, ?bool $requestRiskVerification = null)
     {
         $this->account = $account;
+        $this->requestRiskVerification = $requestRiskVerification;
     }
 }
