@@ -28,13 +28,25 @@ class CreateCancellationRequest
     public string $transferID;
 
     /**
+     * Prevents duplicate cancellations from being created.
+     *
+     * In v2026.10 and later, this header is required, and reusing a key returns a `409` response with the original cancellation.
+     *
+     * @var ?string $xIdempotencyKey
+     */
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=x-idempotency-key')]
+    public ?string $xIdempotencyKey = null;
+
+    /**
      * @param  string  $accountID
      * @param  string  $transferID
+     * @param  ?string  $xIdempotencyKey
      * @phpstan-pure
      */
-    public function __construct(string $accountID, string $transferID)
+    public function __construct(string $accountID, string $transferID, ?string $xIdempotencyKey = null)
     {
         $this->accountID = $accountID;
         $this->transferID = $transferID;
+        $this->xIdempotencyKey = $xIdempotencyKey;
     }
 }
