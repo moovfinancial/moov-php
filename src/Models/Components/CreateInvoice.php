@@ -38,6 +38,15 @@ class CreateInvoice
     public ?string $customerEmail = null;
 
     /**
+     * Optional merchant-defined invoice number, up to 64 characters. Must be unique for the account. If omitted, empty, or whitespace-only, the next number in the INV-<n> sequence is assigned automatically.
+     *
+     * @var ?string $invoiceNumber
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('invoiceNumber')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $invoiceNumber = null;
+
+    /**
      *
      * @var ?string $description
      */
@@ -62,6 +71,16 @@ class CreateInvoice
     public ?\DateTime $dueDate = null;
 
     /**
+     * Payment options for the invoice.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\InvoicePaymentOptions $payment
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('payment')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\InvoicePaymentOptions|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?InvoicePaymentOptions $payment = null;
+
+    /**
      *
      * @var ?\Moov\MoovPhp\Models\Components\AmountDetails $amountDetails
      */
@@ -74,20 +93,24 @@ class CreateInvoice
      * @param  string  $customerAccountID
      * @param  \Moov\MoovPhp\Models\Components\CreateInvoiceLineItems  $lineItems
      * @param  ?string  $customerEmail
+     * @param  ?string  $invoiceNumber
      * @param  ?string  $description
      * @param  ?\DateTime  $invoiceDate
      * @param  ?\DateTime  $dueDate
+     * @param  ?\Moov\MoovPhp\Models\Components\InvoicePaymentOptions  $payment
      * @param  ?\Moov\MoovPhp\Models\Components\AmountDetails  $amountDetails
      * @phpstan-pure
      */
-    public function __construct(string $customerAccountID, CreateInvoiceLineItems $lineItems, ?string $customerEmail = null, ?string $description = null, ?\DateTime $invoiceDate = null, ?\DateTime $dueDate = null, ?AmountDetails $amountDetails = null)
+    public function __construct(string $customerAccountID, CreateInvoiceLineItems $lineItems, ?string $customerEmail = null, ?string $invoiceNumber = null, ?string $description = null, ?\DateTime $invoiceDate = null, ?\DateTime $dueDate = null, ?InvoicePaymentOptions $payment = null, ?AmountDetails $amountDetails = null)
     {
         $this->customerAccountID = $customerAccountID;
         $this->lineItems = $lineItems;
         $this->customerEmail = $customerEmail;
+        $this->invoiceNumber = $invoiceNumber;
         $this->description = $description;
         $this->invoiceDate = $invoiceDate;
         $this->dueDate = $dueDate;
+        $this->payment = $payment;
         $this->amountDetails = $amountDetails;
     }
 }

@@ -30,6 +30,14 @@ class CreateInvoiceError
 
     /**
      *
+     * @var ?string $invoiceNumber
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('invoiceNumber')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $invoiceNumber = null;
+
+    /**
+     *
      * @var ?string $description
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('description')]
@@ -63,6 +71,15 @@ class CreateInvoiceError
 
     /**
      *
+     * @var ?\Moov\MoovPhp\Models\Components\InvoicePaymentOptionsError $payment
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('payment')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\InvoicePaymentOptionsError|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?Components\InvoicePaymentOptionsError $payment = null;
+
+    /**
+     *
      * @var ?\Moov\MoovPhp\Models\Components\AmountDetailsValidationError $amountDetails
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('amountDetails')]
@@ -73,21 +90,25 @@ class CreateInvoiceError
     /**
      * @param  ?string  $customerAccountID
      * @param  ?string  $customerEmail
+     * @param  ?string  $invoiceNumber
      * @param  ?string  $description
      * @param  ?\Moov\MoovPhp\Models\Components\CreateInvoiceLineItemsValidationError  $lineItems
      * @param  ?string  $invoiceDate
      * @param  ?string  $dueDate
+     * @param  ?\Moov\MoovPhp\Models\Components\InvoicePaymentOptionsError  $payment
      * @param  ?\Moov\MoovPhp\Models\Components\AmountDetailsValidationError  $amountDetails
      * @phpstan-pure
      */
-    public function __construct(?string $customerAccountID = null, ?string $customerEmail = null, ?string $description = null, ?Components\CreateInvoiceLineItemsValidationError $lineItems = null, ?string $invoiceDate = null, ?string $dueDate = null, ?Components\AmountDetailsValidationError $amountDetails = null)
+    public function __construct(?string $customerAccountID = null, ?string $customerEmail = null, ?string $invoiceNumber = null, ?string $description = null, ?Components\CreateInvoiceLineItemsValidationError $lineItems = null, ?string $invoiceDate = null, ?string $dueDate = null, ?Components\InvoicePaymentOptionsError $payment = null, ?Components\AmountDetailsValidationError $amountDetails = null)
     {
         $this->customerAccountID = $customerAccountID;
         $this->customerEmail = $customerEmail;
+        $this->invoiceNumber = $invoiceNumber;
         $this->description = $description;
         $this->lineItems = $lineItems;
         $this->invoiceDate = $invoiceDate;
         $this->dueDate = $dueDate;
+        $this->payment = $payment;
         $this->amountDetails = $amountDetails;
     }
 
