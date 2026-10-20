@@ -21,7 +21,7 @@ class InitiateRefundRequest
     public string $xIdempotencyKey;
 
     /**
-     * The merchant's Moov account ID.
+     * Moov account ID of the partner for the transfer.
      *
      * @var string $accountID
      */
