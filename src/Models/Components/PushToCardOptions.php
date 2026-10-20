@@ -21,11 +21,22 @@ class PushToCardOptions
     public ?string $dynamicDescriptor = null;
 
     /**
+     * The scheduled date and time for the push-to-card transfer to be delivered, as set when the transfer was created.
+     *
+     * @var ?\DateTime $scheduledDeliveryOn
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('scheduledDeliveryOn')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?\DateTime $scheduledDeliveryOn = null;
+
+    /**
      * @param  ?string  $dynamicDescriptor
+     * @param  ?\DateTime  $scheduledDeliveryOn
      * @phpstan-pure
      */
-    public function __construct(?string $dynamicDescriptor = null)
+    public function __construct(?string $dynamicDescriptor = null, ?\DateTime $scheduledDeliveryOn = null)
     {
         $this->dynamicDescriptor = $dynamicDescriptor;
+        $this->scheduledDeliveryOn = $scheduledDeliveryOn;
     }
 }

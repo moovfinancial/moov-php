@@ -20,33 +20,11 @@ class CreateTransferDestination
     public string $paymentMethodID;
 
     /**
-     *
-     * @var ?\Moov\MoovPhp\Models\Components\CreateTransferDestinationCard $cardDetails
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('cardDetails')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateTransferDestinationCard|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?CreateTransferDestinationCard $cardDetails = null;
-
-    /**
-     *
-     * @var ?\Moov\MoovPhp\Models\Components\CreateTransferDestinationACH $achDetails
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('achDetails')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateTransferDestinationACH|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?CreateTransferDestinationACH $achDetails = null;
-
-    /**
      * @param  string  $paymentMethodID
-     * @param  ?\Moov\MoovPhp\Models\Components\CreateTransferDestinationCard  $cardDetails
-     * @param  ?\Moov\MoovPhp\Models\Components\CreateTransferDestinationACH  $achDetails
      * @phpstan-pure
      */
-    public function __construct(string $paymentMethodID, ?CreateTransferDestinationCard $cardDetails = null, ?CreateTransferDestinationACH $achDetails = null)
+    public function __construct(string $paymentMethodID)
     {
         $this->paymentMethodID = $paymentMethodID;
-        $this->cardDetails = $cardDetails;
-        $this->achDetails = $achDetails;
     }
 }

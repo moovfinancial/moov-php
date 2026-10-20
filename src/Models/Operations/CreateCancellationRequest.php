@@ -13,6 +13,16 @@ use Moov\MoovPhp\Utils\SpeakeasyMetadata;
 class CreateCancellationRequest
 {
     /**
+     * Prevents duplicate cancellations from being created.
+     *
+     * In v2026.10 and later, this header is required, and reusing a key returns a `409` response with the original cancellation.
+     *
+     * @var string $xIdempotencyKey
+     */
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=x-idempotency-key')]
+    public string $xIdempotencyKey;
+
+    /**
      * The partner's Moov account ID.
      *
      * @var string $accountID
@@ -36,13 +46,15 @@ class CreateCancellationRequest
     public Components\CreateCancellation $createCancellation;
 
     /**
+     * @param  string  $xIdempotencyKey
      * @param  string  $accountID
      * @param  string  $transferID
      * @param  \Moov\MoovPhp\Models\Components\CreateCancellation  $createCancellation
      * @phpstan-pure
      */
-    public function __construct(string $accountID, string $transferID, Components\CreateCancellation $createCancellation)
+    public function __construct(string $xIdempotencyKey, string $accountID, string $transferID, Components\CreateCancellation $createCancellation)
     {
+        $this->xIdempotencyKey = $xIdempotencyKey;
         $this->accountID = $accountID;
         $this->transferID = $transferID;
         $this->createCancellation = $createCancellation;

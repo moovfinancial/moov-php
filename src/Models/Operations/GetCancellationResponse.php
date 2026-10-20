@@ -42,19 +42,19 @@ class GetCancellationResponse
     /**
      * The request completed successfully.
      *
-     * @var ?\Moov\MoovPhp\Models\Components\Cancellation $cancellation
+     * @var ?\Moov\MoovPhp\Models\Components\Cancellation1 $cancellation
      */
-    public ?Components\Cancellation $cancellation = null;
+    public ?Components\Cancellation1 $cancellation = null;
 
     /**
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?\Moov\MoovPhp\Models\Components\Cancellation  $cancellation
+     * @param  ?\Moov\MoovPhp\Models\Components\Cancellation1  $cancellation
      * @phpstan-pure
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\Cancellation $cancellation = null, ?array $headers = [])
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\Cancellation1 $cancellation = null, ?array $headers = [])
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;

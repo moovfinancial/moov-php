@@ -46,6 +46,16 @@ class UpdateInvoice
     public ?InvoiceStatus $status = null;
 
     /**
+     * Payment options to update on the invoice.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\InvoicePaymentOptionsUpdate $payment
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('payment')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\InvoicePaymentOptionsUpdate|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?InvoicePaymentOptionsUpdate $payment = null;
+
+    /**
      *
      * @var ?\Moov\MoovPhp\Models\Components\AmountDetailsUpdate $amountDetails
      */
@@ -74,16 +84,18 @@ class UpdateInvoice
      * @param  ?string  $description
      * @param  ?\Moov\MoovPhp\Models\Components\CreateInvoiceLineItemsUpdate  $lineItems
      * @param  ?\Moov\MoovPhp\Models\Components\InvoiceStatus  $status
+     * @param  ?\Moov\MoovPhp\Models\Components\InvoicePaymentOptionsUpdate  $payment
      * @param  ?\Moov\MoovPhp\Models\Components\AmountDetailsUpdate  $amountDetails
      * @param  ?\DateTime  $invoiceDate
      * @param  ?\DateTime  $dueDate
      * @phpstan-pure
      */
-    public function __construct(?string $description = null, ?CreateInvoiceLineItemsUpdate $lineItems = null, ?InvoiceStatus $status = null, ?AmountDetailsUpdate $amountDetails = null, ?\DateTime $invoiceDate = null, ?\DateTime $dueDate = null)
+    public function __construct(?string $description = null, ?CreateInvoiceLineItemsUpdate $lineItems = null, ?InvoiceStatus $status = null, ?InvoicePaymentOptionsUpdate $payment = null, ?AmountDetailsUpdate $amountDetails = null, ?\DateTime $invoiceDate = null, ?\DateTime $dueDate = null)
     {
         $this->description = $description;
         $this->lineItems = $lineItems;
         $this->status = $status;
+        $this->payment = $payment;
         $this->amountDetails = $amountDetails;
         $this->invoiceDate = $invoiceDate;
         $this->dueDate = $dueDate;

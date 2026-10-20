@@ -137,14 +137,16 @@ class Transfers
      *   to specify the `/accounts/{accountID}/transfers.write` scope.
      *
      * @param  \Moov\MoovPhp\Models\Components\CreateCancellation  $createCancellation
+     * @param  string  $xIdempotencyKey
      * @param  string  $accountID
      * @param  string  $transferID
      * @return \Moov\MoovPhp\Models\Operations\CreateCancellationResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function createCancellation(Components\CreateCancellation $createCancellation, string $accountID, string $transferID, ?Options $options = null): Operations\CreateCancellationResponse
+    public function createCancellation(Components\CreateCancellation $createCancellation, string $xIdempotencyKey, string $accountID, string $transferID, ?Options $options = null): Operations\CreateCancellationResponse
     {
         $request = new Operations\CreateCancellationRequest(
+            xIdempotencyKey: $xIdempotencyKey,
             accountID: $accountID,
             transferID: $transferID,
             createCancellation: $createCancellation,
@@ -158,6 +160,10 @@ class Transfers
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
+        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
+        if (! array_key_exists('headers', $httpOptions)) {
+            $httpOptions['headers'] = [];
+        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
@@ -197,7 +203,19 @@ class Transfers
             } else {
                 throw new \Moov\MoovPhp\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['400', '409', '422'])) {
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['409'])) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
+
+                $serializer = Utils\JSON::createSerializer();
+                $responseData = (string) $httpResponse->getBody();
+                $obj = $serializer->deserialize($responseData, '\Moov\MoovPhp\Models\Errors\GenericError|\Moov\MoovPhp\Models\Errors\Cancellation', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj->rawResponse = $httpResponse;
+                throw $obj->toException();
+            } else {
+                throw new \Moov\MoovPhp\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['400', '422'])) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
@@ -506,13 +524,13 @@ class Transfers
 
                 $serializer = Utils\JSON::createSerializer();
                 $responseData = (string) $httpResponse->getBody();
-                $obj = $serializer->deserialize($responseData, '\Moov\MoovPhp\Models\Components\CreatedTransfer', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj = $serializer->deserialize($responseData, '\Moov\MoovPhp\Models\Components\CreatedTransfer|\Moov\MoovPhp\Models\Components\AsyncTransfer', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
                 $response = new Operations\CreateTransferResponse(
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
                     headers: $httpResponse->getHeaders(),
-                    createdTransfer: $obj);
+                    createTransferResponse: $obj);
 
                 return $response;
             } else {
@@ -755,7 +773,7 @@ class Transfers
 
                 $serializer = Utils\JSON::createSerializer();
                 $responseData = (string) $httpResponse->getBody();
-                $obj = $serializer->deserialize($responseData, '\Moov\MoovPhp\Models\Components\Cancellation', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj = $serializer->deserialize($responseData, '\Moov\MoovPhp\Models\Components\Cancellation1', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
                 $response = new Operations\GetCancellationResponse(
                     statusCode: $statusCode,
                     contentType: $contentType,
@@ -1087,6 +1105,7 @@ class Transfers
 
     /**
      * Initiate a refund for a card transfer.
+     * The `accountID` must identify the partner account for the transfer.
      *
      * **Use the [Cancel or refund a card transfer](https://docs.moov.io/api/money-movement/refunds/cancel/) endpoint for more comprehensive cancel and refund options.**    
      * See the [reversals](https://docs.moov.io/guides/money-movement/accept-payments/card-acceptance/reversals/) guide for more information. 
@@ -1264,7 +1283,7 @@ class Transfers
 
                 $serializer = Utils\JSON::createSerializer();
                 $responseData = (string) $httpResponse->getBody();
-                $obj = $serializer->deserialize($responseData, 'array<\Moov\MoovPhp\Models\Components\Cancellation>', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj = $serializer->deserialize($responseData, 'array<\Moov\MoovPhp\Models\Components\Cancellation1>', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
                 $response = new Operations\ListCancellationsResponse(
                     statusCode: $statusCode,
                     contentType: $contentType,

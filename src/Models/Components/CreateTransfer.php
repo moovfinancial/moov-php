@@ -38,6 +38,16 @@ class CreateTransfer
     public AmountDecimal $amount;
 
     /**
+     * Rail-specific options for a new transfer. Set only the key that matches the transfer's rail.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\CreateTransferRailOptions $options
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('options')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateTransferRailOptions|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?CreateTransferRailOptions $options = null;
+
+    /**
      * Total or markup fee to apply when creating a transfer.
      *
      * @var ?\Moov\MoovPhp\Models\Components\CreateTransferFacilitatorFee $facilitatorFee
@@ -110,6 +120,7 @@ class CreateTransfer
      * @param  \Moov\MoovPhp\Models\Components\CreateTransferSource  $source
      * @param  \Moov\MoovPhp\Models\Components\CreateTransferDestination  $destination
      * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $amount
+     * @param  ?\Moov\MoovPhp\Models\Components\CreateTransferRailOptions  $options
      * @param  ?\Moov\MoovPhp\Models\Components\CreateTransferFacilitatorFee  $facilitatorFee
      * @param  ?string  $description
      * @param  ?array<string, string>  $metadata
@@ -119,11 +130,12 @@ class CreateTransfer
      * @param  ?\Moov\MoovPhp\Models\Components\TransferFeePaidBy  $feePaidBy
      * @phpstan-pure
      */
-    public function __construct(CreateTransferSource $source, CreateTransferDestination $destination, AmountDecimal $amount, ?CreateTransferFacilitatorFee $facilitatorFee = null, ?string $description = null, ?array $metadata = null, ?string $foreignID = null, ?CreateTransferLineItems $lineItems = null, ?CreateTransferAmountDetails $amountDetails = null, ?TransferFeePaidBy $feePaidBy = null)
+    public function __construct(CreateTransferSource $source, CreateTransferDestination $destination, AmountDecimal $amount, ?CreateTransferRailOptions $options = null, ?CreateTransferFacilitatorFee $facilitatorFee = null, ?string $description = null, ?array $metadata = null, ?string $foreignID = null, ?CreateTransferLineItems $lineItems = null, ?CreateTransferAmountDetails $amountDetails = null, ?TransferFeePaidBy $feePaidBy = null)
     {
         $this->source = $source;
         $this->destination = $destination;
         $this->amount = $amount;
+        $this->options = $options;
         $this->facilitatorFee = $facilitatorFee;
         $this->description = $description;
         $this->metadata = $metadata;
