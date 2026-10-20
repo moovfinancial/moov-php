@@ -138,19 +138,25 @@ class Transfers
      *
      * @param  string  $accountID
      * @param  string  $transferID
+     * @param  ?string  $xIdempotencyKey
      * @return \Moov\MoovPhp\Models\Operations\CreateCancellationResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function createCancellation(string $accountID, string $transferID, ?Options $options = null): Operations\CreateCancellationResponse
+    public function createCancellation(string $accountID, string $transferID, ?string $xIdempotencyKey = null, ?Options $options = null): Operations\CreateCancellationResponse
     {
         $request = new Operations\CreateCancellationRequest(
             accountID: $accountID,
             transferID: $transferID,
+            xIdempotencyKey: $xIdempotencyKey,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/transfers/{transferID}/cancellations', Operations\CreateCancellationRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
+        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
+        if (! array_key_exists('headers', $httpOptions)) {
+            $httpOptions['headers'] = [];
+        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
@@ -816,6 +822,7 @@ class Transfers
 
     /**
      * Initiate a refund for a card transfer.
+     * The `accountID` must identify the partner account for the transfer.
      *
      * **Use the [Cancel or refund a card transfer](https://docs.moov.io/api/money-movement/refunds/cancel/) endpoint for more comprehensive cancel and refund options.**    
      * See the [reversals](https://docs.moov.io/guides/money-movement/accept-payments/card-acceptance/reversals/) guide for more information. 
