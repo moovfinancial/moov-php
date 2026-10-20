@@ -55,6 +55,15 @@ class UpdateInvoiceError
 
     /**
      *
+     * @var ?\Moov\MoovPhp\Models\Components\InvoicePaymentOptionsError $payment
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('payment')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\InvoicePaymentOptionsError|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?Components\InvoicePaymentOptionsError $payment = null;
+
+    /**
+     *
      * @var ?\Moov\MoovPhp\Models\Components\AmountDecimalValidationError $taxAmount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('taxAmount')]
@@ -68,16 +77,18 @@ class UpdateInvoiceError
      * @param  ?string  $invoiceDate
      * @param  ?string  $dueDate
      * @param  ?string  $status
+     * @param  ?\Moov\MoovPhp\Models\Components\InvoicePaymentOptionsError  $payment
      * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimalValidationError  $taxAmount
      * @phpstan-pure
      */
-    public function __construct(?string $description = null, ?Components\InvoiceLineItemsValidationError $lineItems = null, ?string $invoiceDate = null, ?string $dueDate = null, ?string $status = null, ?Components\AmountDecimalValidationError $taxAmount = null)
+    public function __construct(?string $description = null, ?Components\InvoiceLineItemsValidationError $lineItems = null, ?string $invoiceDate = null, ?string $dueDate = null, ?string $status = null, ?Components\InvoicePaymentOptionsError $payment = null, ?Components\AmountDecimalValidationError $taxAmount = null)
     {
         $this->description = $description;
         $this->lineItems = $lineItems;
         $this->invoiceDate = $invoiceDate;
         $this->dueDate = $dueDate;
         $this->status = $status;
+        $this->payment = $payment;
         $this->taxAmount = $taxAmount;
     }
 

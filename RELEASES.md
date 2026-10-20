@@ -1819,3 +1819,13 @@ Based on:
 - [php v26.4.19] .
 ### Releases
 - [Composer v26.4.19] https://packagist.org/packages/moov/moov-php#v26.4.19 - .
+
+## 2026-10-20 18:12:56
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.803.0 (2.950.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [php v26.4.20] .
+### Releases
+- [Composer v26.4.20] https://packagist.org/packages/moov/moov-php#v26.4.20 - .

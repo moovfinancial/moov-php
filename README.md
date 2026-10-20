@@ -736,6 +736,18 @@ its status to `canceled`.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
 you'll need to specify the `/accounts/{accountID}/invoices.write` scope.
+* [createInvoiceNotification](docs/sdks/invoices/README.md#createinvoicenotification) - Create a notification for an invoice, which resends the invoice email to the customer. The required
+`channels` body lists the channels to notify on; today only `email` is supported. Returns a 409
+if the invoice is not in `unpaid` or `overdue` status, or if the merchant or customer account has no
+email set.
+
+The request is all-or-nothing: if any requested channel is rate limited, nothing is sent. Each channel
+can be sent at most once every 24 hours, and not within 24 hours of the invoice being sent. A 429
+response lists the limited channels with `availableOn` and lists the `availableChannels` that can be
+sent in a new request.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
+you'll need to specify the `/accounts/{accountID}/invoices.write` scope.
 * [createInvoicePayment](docs/sdks/invoices/README.md#createinvoicepayment) - Creates a payment resource to represent that an invoice was paid outside of the Moov platform.
 If a payment link was created for the invoice, the corresponding payment link is canceled, but a receipt is still sent.
 
@@ -1127,6 +1139,7 @@ you'll need to specify the `/accounts/{accountID}/transfers.write` scope.
   To access this endpoint using a [token](https://docs.moov.io/api/authentication/access-tokens/) you'll need 
   to specify the `/accounts/{accountID}/transfers.read` scope.
 * [initiateRefund](docs/sdks/transfers/README.md#initiaterefund) - Initiate a refund for a card transfer.
+The `accountID` must identify the partner account for the transfer.
 
 **Use the [Cancel or refund a card transfer](https://docs.moov.io/api/money-movement/refunds/cancel/) endpoint for more comprehensive cancel and refund options.**    
 See the [reversals](https://docs.moov.io/guides/money-movement/accept-payments/card-acceptance/reversals/) guide for more information. 

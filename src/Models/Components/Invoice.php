@@ -169,6 +169,16 @@ class Invoice
     public ?string $paymentLinkURL = null;
 
     /**
+     * Payment options for the invoice.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\InvoicePaymentOptions $payment
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('payment')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\InvoicePaymentOptions|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?InvoicePaymentOptions $payment = null;
+
+    /**
      * Payment made towards an invoice, will be either a transfer or an external payment.
      *
      * @var ?array<\Moov\MoovPhp\Models\Components\InvoicePayment> $invoicePayments
@@ -246,6 +256,7 @@ class Invoice
      * @param  ?string  $description
      * @param  ?string  $paymentLinkCode
      * @param  ?string  $paymentLinkURL
+     * @param  ?\Moov\MoovPhp\Models\Components\InvoicePaymentOptions  $payment
      * @param  ?array<\Moov\MoovPhp\Models\Components\InvoicePayment>  $invoicePayments
      * @param  ?\DateTime  $invoiceDate
      * @param  ?\DateTime  $dueDate
@@ -255,7 +266,7 @@ class Invoice
      * @param  ?\DateTime  $disabledOn
      * @phpstan-pure
      */
-    public function __construct(string $invoiceID, string $invoiceNumber, string $customerAccountID, string $customerDisplayName, string $customerEmail, string $partnerAccountID, InvoiceStatus $status, InvoiceLineItems $lineItems, AmountDecimal $subtotalAmount, AmountDecimal $taxAmount, AmountDecimal $totalAmount, AmountDecimal $pendingAmount, AmountDecimal $paidAmount, AmountDecimal $refundedAmount, AmountDecimal $disputedAmount, \DateTime $createdOn, ?string $description = null, ?string $paymentLinkCode = null, ?string $paymentLinkURL = null, ?array $invoicePayments = null, ?\DateTime $invoiceDate = null, ?\DateTime $dueDate = null, ?\DateTime $sentOn = null, ?\DateTime $paidOn = null, ?\DateTime $canceledOn = null, ?\DateTime $disabledOn = null)
+    public function __construct(string $invoiceID, string $invoiceNumber, string $customerAccountID, string $customerDisplayName, string $customerEmail, string $partnerAccountID, InvoiceStatus $status, InvoiceLineItems $lineItems, AmountDecimal $subtotalAmount, AmountDecimal $taxAmount, AmountDecimal $totalAmount, AmountDecimal $pendingAmount, AmountDecimal $paidAmount, AmountDecimal $refundedAmount, AmountDecimal $disputedAmount, \DateTime $createdOn, ?string $description = null, ?string $paymentLinkCode = null, ?string $paymentLinkURL = null, ?InvoicePaymentOptions $payment = null, ?array $invoicePayments = null, ?\DateTime $invoiceDate = null, ?\DateTime $dueDate = null, ?\DateTime $sentOn = null, ?\DateTime $paidOn = null, ?\DateTime $canceledOn = null, ?\DateTime $disabledOn = null)
     {
         $this->invoiceID = $invoiceID;
         $this->invoiceNumber = $invoiceNumber;
@@ -276,6 +287,7 @@ class Invoice
         $this->description = $description;
         $this->paymentLinkCode = $paymentLinkCode;
         $this->paymentLinkURL = $paymentLinkURL;
+        $this->payment = $payment;
         $this->invoicePayments = $invoicePayments;
         $this->invoiceDate = $invoiceDate;
         $this->dueDate = $dueDate;
