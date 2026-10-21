@@ -42,9 +42,9 @@ class CreateTransferResponse
     /**
      * The request completed successfully.
      *
-     * @var ?\Moov\MoovPhp\Models\Components\CreatedTransfer $createdTransfer
+     * @var \Moov\MoovPhp\Models\Components\CreatedTransfer|\Moov\MoovPhp\Models\Components\AsyncTransfer|null $createTransferResponse
      */
-    public ?Components\CreatedTransfer $createdTransfer = null;
+    public Components\CreatedTransfer|Components\AsyncTransfer|null $createTransferResponse = null;
 
     /**
      * A transfer was successfully created but an error occurred while generating the synchronous response. The asynchronous response object will be returned.
@@ -65,18 +65,18 @@ class CreateTransferResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?\Moov\MoovPhp\Models\Components\CreatedTransfer  $createdTransfer
+     * @param  \Moov\MoovPhp\Models\Components\CreatedTransfer|\Moov\MoovPhp\Models\Components\AsyncTransfer|null  $createTransferResponse
      * @param  ?\Moov\MoovPhp\Models\Components\AsyncTransfer  $asyncTransfer
      * @param  ?\Moov\MoovPhp\Models\Components\Transfer  $transfer
      * @phpstan-pure
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\CreatedTransfer $createdTransfer = null, ?Components\AsyncTransfer $asyncTransfer = null, ?Components\Transfer $transfer = null, ?array $headers = [])
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, Components\CreatedTransfer|Components\AsyncTransfer|null $createTransferResponse = null, ?Components\AsyncTransfer $asyncTransfer = null, ?Components\Transfer $transfer = null, ?array $headers = [])
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
         $this->headers = $headers;
-        $this->createdTransfer = $createdTransfer;
+        $this->createTransferResponse = $createTransferResponse;
         $this->asyncTransfer = $asyncTransfer;
         $this->transfer = $transfer;
     }

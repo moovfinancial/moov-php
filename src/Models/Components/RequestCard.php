@@ -47,16 +47,6 @@ class RequestCard
     public ?Address $billingAddress = null;
 
     /**
-     * The expiration date of the card or token.
-     *
-     * @var ?\Moov\MoovPhp\Models\Components\CardExpiration $expiration
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('expiration')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardExpiration|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?CardExpiration $expiration = null;
-
-    /**
      * Mutable spend controls for the card.
      *
      * @var ?\Moov\MoovPhp\Models\Components\IssuingControls $controls
@@ -71,17 +61,15 @@ class RequestCard
      * @param  ?string  $nickname
      * @param  ?array<string, string>  $metadata
      * @param  ?\Moov\MoovPhp\Models\Components\Address  $billingAddress
-     * @param  ?\Moov\MoovPhp\Models\Components\CardExpiration  $expiration
      * @param  ?\Moov\MoovPhp\Models\Components\IssuingControls  $controls
      * @phpstan-pure
      */
-    public function __construct(?string $authorizedUserAccountID = null, ?string $nickname = null, ?array $metadata = null, ?Address $billingAddress = null, ?CardExpiration $expiration = null, ?IssuingControls $controls = null)
+    public function __construct(?string $authorizedUserAccountID = null, ?string $nickname = null, ?array $metadata = null, ?Address $billingAddress = null, ?IssuingControls $controls = null)
     {
         $this->authorizedUserAccountID = $authorizedUserAccountID;
         $this->nickname = $nickname;
         $this->metadata = $metadata;
         $this->billingAddress = $billingAddress;
-        $this->expiration = $expiration;
         $this->controls = $controls;
     }
 }

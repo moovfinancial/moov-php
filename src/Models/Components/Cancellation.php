@@ -35,15 +35,26 @@ class Cancellation
     public \DateTime $createdOn;
 
     /**
+     * Raw HTTP response; suitable for custom response parsing
+     *
+     * @var ?\Psr\Http\Message\ResponseInterface $rawResponse
+     */
+    #[\Speakeasy\Serializer\Annotation\Exclude]
+
+    public ?\Psr\Http\Message\ResponseInterface $rawResponse = null;
+
+    /**
      * @param  string  $cancellationID
      * @param  \Moov\MoovPhp\Models\Components\CancellationStatus  $status
      * @param  \DateTime  $createdOn
+     * @param  ?\Psr\Http\Message\ResponseInterface  $rawResponse
      * @phpstan-pure
      */
-    public function __construct(string $cancellationID, CancellationStatus $status, \DateTime $createdOn)
+    public function __construct(string $cancellationID, CancellationStatus $status, \DateTime $createdOn, ?\Psr\Http\Message\ResponseInterface $rawResponse = null)
     {
         $this->cancellationID = $cancellationID;
         $this->status = $status;
         $this->createdOn = $createdOn;
+        $this->rawResponse = $rawResponse;
     }
 }

@@ -12,7 +12,6 @@ use Moov\MoovPhp\Utils;
 class ClearingSimulationValidationError
 {
     /**
-     * A decimal-formatted numerical string that represents up to 2 decimal place precision. In USD for example, 12.34 is $12.34 and 0.99 is $0.99.
      *
      * @var ?string $amount
      */

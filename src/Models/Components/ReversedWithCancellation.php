@@ -14,17 +14,17 @@ class ReversedWithCancellation
     /**
      * Cancellation of a transfer.
      *
-     * @var \Moov\MoovPhp\Models\Components\Cancellation $cancellation
+     * @var \Moov\MoovPhp\Models\Components\Cancellation1 $cancellation
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cancellation')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Cancellation')]
-    public Cancellation $cancellation;
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Cancellation1')]
+    public Cancellation1 $cancellation;
 
     /**
-     * @param  \Moov\MoovPhp\Models\Components\Cancellation  $cancellation
+     * @param  \Moov\MoovPhp\Models\Components\Cancellation1  $cancellation
      * @phpstan-pure
      */
-    public function __construct(Cancellation $cancellation)
+    public function __construct(Cancellation1 $cancellation)
     {
         $this->cancellation = $cancellation;
     }

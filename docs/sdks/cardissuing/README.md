@@ -129,7 +129,7 @@ $sdk = MoovPhp\Moov::builder()
 $createAuthorizationSimulation = new Components\CreateAuthorizationSimulation(
     issuedCardID: '<id>',
     amount: '-14.89',
-    merchantData: new Components\IssuingMerchantData(
+    merchantData: new Components\SimulationIssuingMerchantData(
         networkID: '<id>',
         name: 'Whole Body Fitness',
         city: 'San Francisco',
@@ -331,10 +331,6 @@ $requestCard = new Components\RequestCard(
         stateOrProvince: 'CO',
         postalCode: '80301',
         country: 'US',
-    ),
-    expiration: new Components\CardExpiration(
-        month: '01',
-        year: '21',
     ),
     controls: new Components\IssuingControls(
         velocityLimits: [

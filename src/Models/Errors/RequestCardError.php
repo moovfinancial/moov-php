@@ -47,15 +47,6 @@ class RequestCardError
 
     /**
      *
-     * @var ?\Moov\MoovPhp\Models\Components\CardExpirationError $expiration
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('expiration')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CardExpirationError|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?Components\CardExpirationError $expiration = null;
-
-    /**
-     *
      * @var ?\Moov\MoovPhp\Models\Components\IssuingControlsError $controls
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('controls')]
@@ -68,17 +59,15 @@ class RequestCardError
      * @param  ?string  $nickname
      * @param  ?string  $metadata
      * @param  ?\Moov\MoovPhp\Models\Components\AddressError  $billingAddress
-     * @param  ?\Moov\MoovPhp\Models\Components\CardExpirationError  $expiration
      * @param  ?\Moov\MoovPhp\Models\Components\IssuingControlsError  $controls
      * @phpstan-pure
      */
-    public function __construct(?string $authorizedUserAccountID = null, ?string $nickname = null, ?string $metadata = null, ?Components\AddressError $billingAddress = null, ?Components\CardExpirationError $expiration = null, ?Components\IssuingControlsError $controls = null)
+    public function __construct(?string $authorizedUserAccountID = null, ?string $nickname = null, ?string $metadata = null, ?Components\AddressError $billingAddress = null, ?Components\IssuingControlsError $controls = null)
     {
         $this->authorizedUserAccountID = $authorizedUserAccountID;
         $this->nickname = $nickname;
         $this->metadata = $metadata;
         $this->billingAddress = $billingAddress;
-        $this->expiration = $expiration;
         $this->controls = $controls;
     }
 

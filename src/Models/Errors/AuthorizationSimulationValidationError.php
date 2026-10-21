@@ -21,7 +21,6 @@ class AuthorizationSimulationValidationError
     public ?string $issuedCardID = null;
 
     /**
-     * A decimal-formatted numerical string that represents up to 2 decimal place precision. In USD for example, 12.34 is $12.34 and 0.99 is $0.99.
      *
      * @var ?string $amount
      */
@@ -31,20 +30,20 @@ class AuthorizationSimulationValidationError
 
     /**
      *
-     * @var ?\Moov\MoovPhp\Models\Components\IssuingMerchantDataValidationError $merchantData
+     * @var ?\Moov\MoovPhp\Models\Components\SimulationIssuingMerchantDataValidationError $merchantData
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('merchantData')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IssuingMerchantDataValidationError|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\SimulationIssuingMerchantDataValidationError|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?Components\IssuingMerchantDataValidationError $merchantData = null;
+    public ?Components\SimulationIssuingMerchantDataValidationError $merchantData = null;
 
     /**
      * @param  ?string  $issuedCardID
      * @param  ?string  $amount
-     * @param  ?\Moov\MoovPhp\Models\Components\IssuingMerchantDataValidationError  $merchantData
+     * @param  ?\Moov\MoovPhp\Models\Components\SimulationIssuingMerchantDataValidationError  $merchantData
      * @phpstan-pure
      */
-    public function __construct(?string $issuedCardID = null, ?string $amount = null, ?Components\IssuingMerchantDataValidationError $merchantData = null)
+    public function __construct(?string $issuedCardID = null, ?string $amount = null, ?Components\SimulationIssuingMerchantDataValidationError $merchantData = null)
     {
         $this->issuedCardID = $issuedCardID;
         $this->amount = $amount;

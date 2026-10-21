@@ -28,20 +28,20 @@ class CreateAuthorizationSimulation
 
     /**
      *
-     * @var ?\Moov\MoovPhp\Models\Components\IssuingMerchantData $merchantData
+     * @var ?\Moov\MoovPhp\Models\Components\SimulationIssuingMerchantData $merchantData
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('merchantData')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\IssuingMerchantData|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\SimulationIssuingMerchantData|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?IssuingMerchantData $merchantData = null;
+    public ?SimulationIssuingMerchantData $merchantData = null;
 
     /**
      * @param  string  $issuedCardID
      * @param  string  $amount
-     * @param  ?\Moov\MoovPhp\Models\Components\IssuingMerchantData  $merchantData
+     * @param  ?\Moov\MoovPhp\Models\Components\SimulationIssuingMerchantData  $merchantData
      * @phpstan-pure
      */
-    public function __construct(string $issuedCardID, string $amount, ?IssuingMerchantData $merchantData = null)
+    public function __construct(string $issuedCardID, string $amount, ?SimulationIssuingMerchantData $merchantData = null)
     {
         $this->issuedCardID = $issuedCardID;
         $this->amount = $amount;
