@@ -40,7 +40,7 @@ class ListTransfersResponse
     public array $headers;
 
     /**
-     * The request completed successfully.
+     * Transfers were successfully listed matching the provided filter parameters and returned
      *
      * @var ?array<\Moov\MoovPhp\Models\Components\Transfer> $transfers
      */
