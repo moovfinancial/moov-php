@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Moov\MoovPhp\Models\Errors;
 
+use Moov\MoovPhp\Models\Components;
 use Moov\MoovPhp\Utils;
 class CreateSweepConfigError
 {
@@ -60,15 +61,25 @@ class CreateSweepConfigError
     public ?string $minimumBalance = null;
 
     /**
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\SweepConfigScheduleError $schedule
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('schedule')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\SweepConfigScheduleError|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?Components\SweepConfigScheduleError $schedule = null;
+
+    /**
      * @param  ?string  $walletID
      * @param  ?string  $status
      * @param  ?string  $pushPaymentMethodID
      * @param  ?string  $pullPaymentMethodID
      * @param  ?string  $statementDescriptor
      * @param  ?string  $minimumBalance
+     * @param  ?\Moov\MoovPhp\Models\Components\SweepConfigScheduleError  $schedule
      * @phpstan-pure
      */
-    public function __construct(?string $walletID = null, ?string $status = null, ?string $pushPaymentMethodID = null, ?string $pullPaymentMethodID = null, ?string $statementDescriptor = null, ?string $minimumBalance = null)
+    public function __construct(?string $walletID = null, ?string $status = null, ?string $pushPaymentMethodID = null, ?string $pullPaymentMethodID = null, ?string $statementDescriptor = null, ?string $minimumBalance = null, ?Components\SweepConfigScheduleError $schedule = null)
     {
         $this->walletID = $walletID;
         $this->status = $status;
@@ -76,6 +87,7 @@ class CreateSweepConfigError
         $this->pullPaymentMethodID = $pullPaymentMethodID;
         $this->statementDescriptor = $statementDescriptor;
         $this->minimumBalance = $minimumBalance;
+        $this->schedule = $schedule;
     }
 
     public function toException(): CreateSweepConfigErrorThrowable

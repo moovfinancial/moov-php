@@ -44,17 +44,27 @@ class ListIssuedCardsRequest
     public ?array $states = null;
 
     /**
+     * Optional identifier for the account of the card's authorized user.
+     *
+     * @var ?string $authorizedUserAccountID
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=authorizedUserAccountID')]
+    public ?string $authorizedUserAccountID = null;
+
+    /**
      * @param  string  $accountID
      * @param  ?int  $skip
      * @param  ?int  $count
      * @param  ?array<\Moov\MoovPhp\Models\Components\IssuedCardState>  $states
+     * @param  ?string  $authorizedUserAccountID
      * @phpstan-pure
      */
-    public function __construct(string $accountID, ?int $skip = null, ?int $count = null, ?array $states = null)
+    public function __construct(string $accountID, ?int $skip = null, ?int $count = null, ?array $states = null, ?string $authorizedUserAccountID = null)
     {
         $this->accountID = $accountID;
         $this->skip = $skip;
         $this->count = $count;
         $this->states = $states;
+        $this->authorizedUserAccountID = $authorizedUserAccountID;
     }
 }

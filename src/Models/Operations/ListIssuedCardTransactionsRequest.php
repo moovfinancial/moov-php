@@ -43,6 +43,14 @@ class ListIssuedCardTransactionsRequest
     public ?string $issuedCardID = null;
 
     /**
+     * Optional identifier for the account of the card's authorized user.
+     *
+     * @var ?string $authorizedUserAccountID
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=authorizedUserAccountID')]
+    public ?string $authorizedUserAccountID = null;
+
+    /**
      * Optional case-insensitive substring match on the merchant name to filter results.
      *
      * @var ?string $merchantName
@@ -71,17 +79,19 @@ class ListIssuedCardTransactionsRequest
      * @param  ?int  $skip
      * @param  ?int  $count
      * @param  ?string  $issuedCardID
+     * @param  ?string  $authorizedUserAccountID
      * @param  ?string  $merchantName
      * @param  ?\DateTime  $startDateTime
      * @param  ?\DateTime  $endDateTime
      * @phpstan-pure
      */
-    public function __construct(string $accountID, ?int $skip = null, ?int $count = null, ?string $issuedCardID = null, ?string $merchantName = null, ?\DateTime $startDateTime = null, ?\DateTime $endDateTime = null)
+    public function __construct(string $accountID, ?int $skip = null, ?int $count = null, ?string $issuedCardID = null, ?string $authorizedUserAccountID = null, ?string $merchantName = null, ?\DateTime $startDateTime = null, ?\DateTime $endDateTime = null)
     {
         $this->accountID = $accountID;
         $this->skip = $skip;
         $this->count = $count;
         $this->issuedCardID = $issuedCardID;
+        $this->authorizedUserAccountID = $authorizedUserAccountID;
         $this->merchantName = $merchantName;
         $this->startDateTime = $startDateTime;
         $this->endDateTime = $endDateTime;

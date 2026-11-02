@@ -20,6 +20,8 @@ namespace Moov\MoovPhp\Models\Components;
  * Read our [capabilities reference](https://docs.moov.io/guides/accounts/capabilities/reference/) to choose the right capabilities for your integration.
  *
  * The `production-app`, `platform.production-app`, and / or `platform.wallet-transfers` capabilities might appear in the list for your Partner account. These are read-only capabilities that Moov requests. These capabilities remain active with your account and require no additional action.
+ *
+ * Starting in v2026.10.00, the `platform.moov-money` capability might appear in the list for accounts enrolled in Moov Money. This is a read-only capability that Moov requests. It requires no additional action.
  */
 enum CapabilityID: string
 {
@@ -42,4 +44,5 @@ enum CapabilityID: string
     case ProductionApp = 'production-app';
     case PlatformProductionApp = 'platform.production-app';
     case PlatformWalletTransfers = 'platform.wallet-transfers';
+    case PlatformMoovMoney = 'platform.moov-money';
 }

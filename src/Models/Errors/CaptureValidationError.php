@@ -15,14 +15,6 @@ class CaptureValidationError
 {
     /**
      *
-     * @var ?string $destinationPaymentMethodID
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('destinationPaymentMethodID')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $destinationPaymentMethodID = null;
-
-    /**
-     *
      * @var ?\Moov\MoovPhp\Models\Components\AmountDecimalValidationError $amount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
@@ -90,7 +82,6 @@ class CaptureValidationError
     public ?Components\CreateTransferAmountDetailsValidationError $amountDetails = null;
 
     /**
-     * @param  ?string  $destinationPaymentMethodID
      * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimalValidationError  $amount
      * @param  ?string  $isFinal
      * @param  ?string  $description
@@ -101,9 +92,8 @@ class CaptureValidationError
      * @param  ?\Moov\MoovPhp\Models\Components\CreateTransferAmountDetailsValidationError  $amountDetails
      * @phpstan-pure
      */
-    public function __construct(?string $destinationPaymentMethodID = null, ?Components\AmountDecimalValidationError $amount = null, ?string $isFinal = null, ?string $description = null, ?Components\AmountDecimalValidationError $facilitatorFeeAmount = null, ?string $metadata = null, ?string $foreignID = null, ?Components\CreateTransferLineItemsValidationError $lineItems = null, ?Components\CreateTransferAmountDetailsValidationError $amountDetails = null)
+    public function __construct(?Components\AmountDecimalValidationError $amount = null, ?string $isFinal = null, ?string $description = null, ?Components\AmountDecimalValidationError $facilitatorFeeAmount = null, ?string $metadata = null, ?string $foreignID = null, ?Components\CreateTransferLineItemsValidationError $lineItems = null, ?Components\CreateTransferAmountDetailsValidationError $amountDetails = null)
     {
-        $this->destinationPaymentMethodID = $destinationPaymentMethodID;
         $this->amount = $amount;
         $this->isFinal = $isFinal;
         $this->description = $description;
