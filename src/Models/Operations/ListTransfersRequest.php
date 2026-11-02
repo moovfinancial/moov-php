@@ -139,6 +139,16 @@ class ListTransfersRequest
     public ?int $count = null;
 
     /**
+     * Opaque cursor from a previous response's `X-Next-Cursor` header. Reuse the same filters and `count` between pages.
+     *
+     * Cannot be combined with a nonzero `skip`.
+     *
+     * @var ?string $cursor
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=cursor')]
+    public ?string $cursor = null;
+
+    /**
      * @param  string  $accountID
      * @param  ?array<string>  $accountIDs
      * @param  ?\Moov\MoovPhp\Models\Components\TransferStatus  $status
@@ -155,9 +165,10 @@ class ListTransfersRequest
      * @param  ?array<string>  $captureIDs
      * @param  ?int  $skip
      * @param  ?int  $count
+     * @param  ?string  $cursor
      * @phpstan-pure
      */
-    public function __construct(string $accountID, ?array $accountIDs = null, ?Components\TransferStatus $status = null, ?\DateTime $startDateTime = null, ?\DateTime $endDateTime = null, ?string $groupID = null, ?string $scheduleID = null, ?string $paymentLinkCode = null, ?bool $refunded = null, ?bool $disputed = null, ?string $foreignID = null, ?array $authorizationIDs = null, ?array $invoiceIDs = null, ?array $captureIDs = null, ?int $skip = null, ?int $count = null)
+    public function __construct(string $accountID, ?array $accountIDs = null, ?Components\TransferStatus $status = null, ?\DateTime $startDateTime = null, ?\DateTime $endDateTime = null, ?string $groupID = null, ?string $scheduleID = null, ?string $paymentLinkCode = null, ?bool $refunded = null, ?bool $disputed = null, ?string $foreignID = null, ?array $authorizationIDs = null, ?array $invoiceIDs = null, ?array $captureIDs = null, ?int $skip = null, ?int $count = null, ?string $cursor = null)
     {
         $this->accountID = $accountID;
         $this->accountIDs = $accountIDs;
@@ -175,5 +186,6 @@ class ListTransfersRequest
         $this->captureIDs = $captureIDs;
         $this->skip = $skip;
         $this->count = $count;
+        $this->cursor = $cursor;
     }
 }
