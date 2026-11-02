@@ -88,6 +88,16 @@ class SweepConfig
     public ?string $statementDescriptor = null;
 
     /**
+     * A configured wallet-level override of the time of day the sweep runs.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\SweepConfigSchedule $schedule
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('schedule')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\SweepConfigSchedule|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?SweepConfigSchedule $schedule = null;
+
+    /**
      * An array of fields that are locked. To request updates, please contact Moov support.
      *
      * @var ?array<string> $lockedFields
@@ -107,10 +117,11 @@ class SweepConfig
      * @param  \DateTime  $updatedOn
      * @param  ?string  $minimumBalance
      * @param  ?string  $statementDescriptor
+     * @param  ?\Moov\MoovPhp\Models\Components\SweepConfigSchedule  $schedule
      * @param  ?array<string>  $lockedFields
      * @phpstan-pure
      */
-    public function __construct(string $sweepConfigID, string $walletID, SweepConfigStatus $status, SweepConfigPaymentMethod $pushPaymentMethod, SweepConfigPaymentMethod $pullPaymentMethod, \DateTime $createdOn, \DateTime $updatedOn, ?string $minimumBalance = null, ?string $statementDescriptor = null, ?array $lockedFields = null)
+    public function __construct(string $sweepConfigID, string $walletID, SweepConfigStatus $status, SweepConfigPaymentMethod $pushPaymentMethod, SweepConfigPaymentMethod $pullPaymentMethod, \DateTime $createdOn, \DateTime $updatedOn, ?string $minimumBalance = null, ?string $statementDescriptor = null, ?SweepConfigSchedule $schedule = null, ?array $lockedFields = null)
     {
         $this->sweepConfigID = $sweepConfigID;
         $this->walletID = $walletID;
@@ -121,6 +132,7 @@ class SweepConfig
         $this->updatedOn = $updatedOn;
         $this->minimumBalance = $minimumBalance;
         $this->statementDescriptor = $statementDescriptor;
+        $this->schedule = $schedule;
         $this->lockedFields = $lockedFields;
     }
 }
