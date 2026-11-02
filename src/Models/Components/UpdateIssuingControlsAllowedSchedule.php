@@ -22,7 +22,7 @@ class UpdateIssuingControlsAllowedSchedule
     public ?string $timezone = null;
 
     /**
-     * Time windows during which the card may authorize. Any matching window allows the transaction.
+     * Time windows during which authorizations on the card can be approved. Any matching window allows the transaction.
      *
      * @var ?array<\Moov\MoovPhp\Models\Components\ScheduleWindow> $windows
      */

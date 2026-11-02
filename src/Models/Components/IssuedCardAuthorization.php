@@ -83,6 +83,15 @@ class IssuedCardAuthorization
     public ?string $lastFourCardNumber = null;
 
     /**
+     * Identifier for the account of the card's authorized user.
+     *
+     * @var ?string $authorizedUserAccountID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('authorizedUserAccountID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $authorizedUserAccountID = null;
+
+    /**
      * List of card transaction IDs associated with this authorization.
      *
      * @var ?array<string> $cardTransactions
@@ -114,11 +123,12 @@ class IssuedCardAuthorization
      * @param  \Moov\MoovPhp\Models\Components\IssuingMerchantData  $merchantData
      * @param  \DateTime  $createdOn
      * @param  ?string  $lastFourCardNumber
+     * @param  ?string  $authorizedUserAccountID
      * @param  ?array<string>  $cardTransactions
      * @param  ?\Moov\MoovPhp\Models\Components\IssuingDeclineReason  $declineReason
      * @phpstan-pure
      */
-    public function __construct(string $authorizationID, string $issuedCardID, string $fundingWalletID, CardIssuingNetwork $network, string $authorizedAmount, IssuingAuthorizationStatus $status, IssuingMerchantData $merchantData, \DateTime $createdOn, ?string $lastFourCardNumber = null, ?array $cardTransactions = null, ?IssuingDeclineReason $declineReason = null)
+    public function __construct(string $authorizationID, string $issuedCardID, string $fundingWalletID, CardIssuingNetwork $network, string $authorizedAmount, IssuingAuthorizationStatus $status, IssuingMerchantData $merchantData, \DateTime $createdOn, ?string $lastFourCardNumber = null, ?string $authorizedUserAccountID = null, ?array $cardTransactions = null, ?IssuingDeclineReason $declineReason = null)
     {
         $this->authorizationID = $authorizationID;
         $this->issuedCardID = $issuedCardID;
@@ -129,6 +139,7 @@ class IssuedCardAuthorization
         $this->merchantData = $merchantData;
         $this->createdOn = $createdOn;
         $this->lastFourCardNumber = $lastFourCardNumber;
+        $this->authorizedUserAccountID = $authorizedUserAccountID;
         $this->cardTransactions = $cardTransactions;
         $this->declineReason = $declineReason;
     }

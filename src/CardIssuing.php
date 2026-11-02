@@ -199,21 +199,12 @@ class CardIssuing
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
      * you'll need to specify the `/accounts/{accountID}/issued-cards.read` scope.
      *
-     * @param  string  $accountID
-     * @param  ?int  $skip
-     * @param  ?int  $count
-     * @param  ?array<\Moov\MoovPhp\Models\Components\IssuedCardState>  $states
+     * @param  \Moov\MoovPhp\Models\Operations\ListIssuedCardsRequest  $request
      * @return \Moov\MoovPhp\Models\Operations\ListIssuedCardsResponse
      * @throws \Moov\MoovPhp\Models\Errors\APIException
      */
-    public function list(string $accountID, ?int $skip = null, ?int $count = null, ?array $states = null, ?Options $options = null): Operations\ListIssuedCardsResponse
+    public function list(Operations\ListIssuedCardsRequest $request, ?Options $options = null): Operations\ListIssuedCardsResponse
     {
-        $request = new Operations\ListIssuedCardsRequest(
-            accountID: $accountID,
-            skip: $skip,
-            count: $count,
-            states: $states,
-        );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/issuing/{accountID}/cards', Operations\ListIssuedCardsRequest::class, $request);
         $urlOverride = null;
