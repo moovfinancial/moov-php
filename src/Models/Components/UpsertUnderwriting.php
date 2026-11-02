@@ -75,6 +75,7 @@ class UpsertUnderwriting
     public ?SendFunds $sendFunds = null;
 
     /**
+     * For most use cases, you can omit `submissionIntent`. Set it to `wait` to pause the account's underwriting approval process until you send a subsequent request with `submissionIntent` set to `submit`.
      *
      * @var ?\Moov\MoovPhp\Models\Components\SubmissionIntent $submissionIntent
      */

@@ -61,6 +61,14 @@ class ListTransfersValidationError
 
     /**
      *
+     * @var ?string $cursor
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('cursor')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $cursor = null;
+
+    /**
+     *
      * @var ?string $groupID
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('groupID')]
@@ -114,6 +122,7 @@ class ListTransfersValidationError
      * @param  ?string  $endDateTime
      * @param  ?string  $skip
      * @param  ?string  $count
+     * @param  ?string  $cursor
      * @param  ?string  $groupID
      * @param  ?string  $foreignID
      * @param  ?string  $scheduleID
@@ -122,7 +131,7 @@ class ListTransfersValidationError
      * @param  ?string  $disputed
      * @phpstan-pure
      */
-    public function __construct(?string $accountIDs = null, ?string $status = null, ?string $startDateTime = null, ?string $endDateTime = null, ?string $skip = null, ?string $count = null, ?string $groupID = null, ?string $foreignID = null, ?string $scheduleID = null, ?string $paymentLinkCode = null, ?string $refunded = null, ?string $disputed = null)
+    public function __construct(?string $accountIDs = null, ?string $status = null, ?string $startDateTime = null, ?string $endDateTime = null, ?string $skip = null, ?string $count = null, ?string $cursor = null, ?string $groupID = null, ?string $foreignID = null, ?string $scheduleID = null, ?string $paymentLinkCode = null, ?string $refunded = null, ?string $disputed = null)
     {
         $this->accountIDs = $accountIDs;
         $this->status = $status;
@@ -130,6 +139,7 @@ class ListTransfersValidationError
         $this->endDateTime = $endDateTime;
         $this->skip = $skip;
         $this->count = $count;
+        $this->cursor = $cursor;
         $this->groupID = $groupID;
         $this->foreignID = $foreignID;
         $this->scheduleID = $scheduleID;
