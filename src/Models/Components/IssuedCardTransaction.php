@@ -72,6 +72,15 @@ class IssuedCardTransaction
     public ?string $lastFourCardNumber = null;
 
     /**
+     * Identifier for the account of the card's authorized user.
+     *
+     * @var ?string $authorizedUserAccountID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('authorizedUserAccountID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $authorizedUserAccountID = null;
+
+    /**
      *
      * @var ?string $authorizationID
      */
@@ -88,10 +97,11 @@ class IssuedCardTransaction
      * @param  \Moov\MoovPhp\Models\Components\IssuingMerchantData  $merchantData
      * @param  \DateTime  $createdOn
      * @param  ?string  $lastFourCardNumber
+     * @param  ?string  $authorizedUserAccountID
      * @param  ?string  $authorizationID
      * @phpstan-pure
      */
-    public function __construct(string $cardTransactionID, string $issuedCardID, string $fundingWalletID, string $amount, \DateTime $authorizedOn, IssuingMerchantData $merchantData, \DateTime $createdOn, ?string $lastFourCardNumber = null, ?string $authorizationID = null)
+    public function __construct(string $cardTransactionID, string $issuedCardID, string $fundingWalletID, string $amount, \DateTime $authorizedOn, IssuingMerchantData $merchantData, \DateTime $createdOn, ?string $lastFourCardNumber = null, ?string $authorizedUserAccountID = null, ?string $authorizationID = null)
     {
         $this->cardTransactionID = $cardTransactionID;
         $this->issuedCardID = $issuedCardID;
@@ -101,6 +111,7 @@ class IssuedCardTransaction
         $this->merchantData = $merchantData;
         $this->createdOn = $createdOn;
         $this->lastFourCardNumber = $lastFourCardNumber;
+        $this->authorizedUserAccountID = $authorizedUserAccountID;
         $this->authorizationID = $authorizationID;
     }
 }
