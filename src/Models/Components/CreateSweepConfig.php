@@ -60,15 +60,26 @@ class CreateSweepConfig
     public ?string $minimumBalance = null;
 
     /**
+     * Overrides the time of day this wallet's sweep runs. Sweeps only run on US banking days.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\SweepConfigSchedule $schedule
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('schedule')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\SweepConfigSchedule|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?SweepConfigSchedule $schedule = null;
+
+    /**
      * @param  string  $walletID
      * @param  \Moov\MoovPhp\Models\Components\SweepConfigStatus  $status
      * @param  string  $pushPaymentMethodID
      * @param  string  $pullPaymentMethodID
      * @param  ?string  $statementDescriptor
      * @param  ?string  $minimumBalance
+     * @param  ?\Moov\MoovPhp\Models\Components\SweepConfigSchedule  $schedule
      * @phpstan-pure
      */
-    public function __construct(string $walletID, SweepConfigStatus $status, string $pushPaymentMethodID, string $pullPaymentMethodID, ?string $statementDescriptor = null, ?string $minimumBalance = null)
+    public function __construct(string $walletID, SweepConfigStatus $status, string $pushPaymentMethodID, string $pullPaymentMethodID, ?string $statementDescriptor = null, ?string $minimumBalance = null, ?SweepConfigSchedule $schedule = null)
     {
         $this->walletID = $walletID;
         $this->status = $status;
@@ -76,5 +87,6 @@ class CreateSweepConfig
         $this->pullPaymentMethodID = $pullPaymentMethodID;
         $this->statementDescriptor = $statementDescriptor;
         $this->minimumBalance = $minimumBalance;
+        $this->schedule = $schedule;
     }
 }
