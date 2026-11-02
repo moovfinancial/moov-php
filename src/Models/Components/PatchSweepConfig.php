@@ -53,19 +53,31 @@ class PatchSweepConfig
     public ?string $minimumBalance = null;
 
     /**
+     * Overrides the time of day this wallet's sweep runs. Sweeps only run on US banking days.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\Schedule $schedule
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('schedule')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\Schedule|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?Schedule $schedule = null;
+
+    /**
      * @param  ?\Moov\MoovPhp\Models\Components\Status  $status
      * @param  ?string  $pushPaymentMethodID
      * @param  ?string  $pullPaymentMethodID
      * @param  ?string  $statementDescriptor
      * @param  ?string  $minimumBalance
+     * @param  ?\Moov\MoovPhp\Models\Components\Schedule  $schedule
      * @phpstan-pure
      */
-    public function __construct(?Status $status = null, ?string $pushPaymentMethodID = null, ?string $pullPaymentMethodID = null, ?string $statementDescriptor = null, ?string $minimumBalance = null)
+    public function __construct(?Status $status = null, ?string $pushPaymentMethodID = null, ?string $pullPaymentMethodID = null, ?string $statementDescriptor = null, ?string $minimumBalance = null, ?Schedule $schedule = null)
     {
         $this->status = $status;
         $this->pushPaymentMethodID = $pushPaymentMethodID;
         $this->pullPaymentMethodID = $pullPaymentMethodID;
         $this->statementDescriptor = $statementDescriptor;
         $this->minimumBalance = $minimumBalance;
+        $this->schedule = $schedule;
     }
 }
