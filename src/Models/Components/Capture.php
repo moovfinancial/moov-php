@@ -52,14 +52,6 @@ class Capture
     public \DateTime $createdOn;
 
     /**
-     * Payment method of the merchant account the funds were captured into. For card-acquiring transfers, this must be a moov-wallet payment method.
-     *
-     * @var string $destinationPaymentMethodID
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('destinationPaymentMethodID')]
-    public string $destinationPaymentMethodID;
-
-    /**
      * An optional description of the capture that is used on receipts and for your own internal use.
      *
      * @var ?string $description
@@ -135,7 +127,6 @@ class Capture
      * @param  bool  $isFinal
      * @param  \Moov\MoovPhp\Models\Components\CaptureStatus  $status
      * @param  \DateTime  $createdOn
-     * @param  string  $destinationPaymentMethodID
      * @param  ?string  $description
      * @param  ?array<string, string>  $metadata
      * @param  ?string  $foreignID
@@ -145,14 +136,13 @@ class Capture
      * @param  ?\Moov\MoovPhp\Models\Components\CardTransactionFailureCode  $failureCode
      * @phpstan-pure
      */
-    public function __construct(string $captureID, AmountDecimal $amount, bool $isFinal, CaptureStatus $status, \DateTime $createdOn, string $destinationPaymentMethodID, ?string $description = null, ?array $metadata = null, ?string $foreignID = null, ?TransferLineItems $lineItems = null, ?TransferAmountDetails $amountDetails = null, ?AmountDecimal $facilitatorFeeAmount = null, ?CardTransactionFailureCode $failureCode = null)
+    public function __construct(string $captureID, AmountDecimal $amount, bool $isFinal, CaptureStatus $status, \DateTime $createdOn, ?string $description = null, ?array $metadata = null, ?string $foreignID = null, ?TransferLineItems $lineItems = null, ?TransferAmountDetails $amountDetails = null, ?AmountDecimal $facilitatorFeeAmount = null, ?CardTransactionFailureCode $failureCode = null)
     {
         $this->captureID = $captureID;
         $this->amount = $amount;
         $this->isFinal = $isFinal;
         $this->status = $status;
         $this->createdOn = $createdOn;
-        $this->destinationPaymentMethodID = $destinationPaymentMethodID;
         $this->description = $description;
         $this->metadata = $metadata;
         $this->foreignID = $foreignID;

@@ -35,13 +35,47 @@ class CardPaymentOptions
     public ?TransactionSource $transactionSource = null;
 
     /**
+     * When funds for a `card-payment` transfer are captured.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\CaptureMethod $captureMethod
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('captureMethod')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CaptureMethod|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?CaptureMethod $captureMethod = null;
+
+    /**
+     * Whether an extended authorization hold was requested.
+     *
+     * @var ?bool $isExtendedAuthorizationRequested
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('isExtendedAuthorizationRequested')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $isExtendedAuthorizationRequested = null;
+
+    /**
+     * Whether the authorization was flagged as an estimate.
+     *
+     * @var ?bool $isEstimatedAuthorization
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('isEstimatedAuthorization')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $isEstimatedAuthorization = null;
+
+    /**
      * @param  ?string  $dynamicDescriptor
      * @param  ?\Moov\MoovPhp\Models\Components\TransactionSource  $transactionSource
+     * @param  ?\Moov\MoovPhp\Models\Components\CaptureMethod  $captureMethod
+     * @param  ?bool  $isExtendedAuthorizationRequested
+     * @param  ?bool  $isEstimatedAuthorization
      * @phpstan-pure
      */
-    public function __construct(?string $dynamicDescriptor = null, ?TransactionSource $transactionSource = null)
+    public function __construct(?string $dynamicDescriptor = null, ?TransactionSource $transactionSource = null, ?CaptureMethod $captureMethod = null, ?bool $isExtendedAuthorizationRequested = null, ?bool $isEstimatedAuthorization = null)
     {
         $this->dynamicDescriptor = $dynamicDescriptor;
         $this->transactionSource = $transactionSource;
+        $this->captureMethod = $captureMethod;
+        $this->isExtendedAuthorizationRequested = $isExtendedAuthorizationRequested;
+        $this->isEstimatedAuthorization = $isEstimatedAuthorization;
     }
 }

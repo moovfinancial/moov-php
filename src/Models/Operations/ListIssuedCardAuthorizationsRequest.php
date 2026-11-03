@@ -44,6 +44,14 @@ class ListIssuedCardAuthorizationsRequest
     public ?string $issuedCardID = null;
 
     /**
+     * Optional identifier for the account of the card's authorized user.
+     *
+     * @var ?string $authorizedUserAccountID
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=false,name=authorizedUserAccountID')]
+    public ?string $authorizedUserAccountID = null;
+
+    /**
      * Optional date-time which inclusively filters all authorizations created after this date-time.
      *
      * @var ?\DateTime $startDateTime
@@ -72,17 +80,19 @@ class ListIssuedCardAuthorizationsRequest
      * @param  ?int  $skip
      * @param  ?int  $count
      * @param  ?string  $issuedCardID
+     * @param  ?string  $authorizedUserAccountID
      * @param  ?\DateTime  $startDateTime
      * @param  ?\DateTime  $endDateTime
      * @param  ?array<\Moov\MoovPhp\Models\Components\IssuingAuthorizationStatus>  $statuses
      * @phpstan-pure
      */
-    public function __construct(string $accountID, ?int $skip = null, ?int $count = null, ?string $issuedCardID = null, ?\DateTime $startDateTime = null, ?\DateTime $endDateTime = null, ?array $statuses = null)
+    public function __construct(string $accountID, ?int $skip = null, ?int $count = null, ?string $issuedCardID = null, ?string $authorizedUserAccountID = null, ?\DateTime $startDateTime = null, ?\DateTime $endDateTime = null, ?array $statuses = null)
     {
         $this->accountID = $accountID;
         $this->skip = $skip;
         $this->count = $count;
         $this->issuedCardID = $issuedCardID;
+        $this->authorizedUserAccountID = $authorizedUserAccountID;
         $this->startDateTime = $startDateTime;
         $this->endDateTime = $endDateTime;
         $this->statuses = $statuses;

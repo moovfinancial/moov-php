@@ -13,14 +13,6 @@ namespace Moov\MoovPhp\Models\Components;
 class CreateCapture
 {
     /**
-     * Payment method of the merchant account to capture funds into. For card-acquiring transfers, this must be a moov-wallet payment method.
-     *
-     * @var string $destinationPaymentMethodID
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('destinationPaymentMethodID')]
-    public string $destinationPaymentMethodID;
-
-    /**
      * Amount to capture.
      *
      * If omitted, the remaining capturable amount is captured.
@@ -105,7 +97,6 @@ class CreateCapture
     public ?AmountDecimal $facilitatorFeeAmount = null;
 
     /**
-     * @param  string  $destinationPaymentMethodID
      * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimal  $amount
      * @param  ?bool  $isFinal
      * @param  ?string  $description
@@ -116,9 +107,8 @@ class CreateCapture
      * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimal  $facilitatorFeeAmount
      * @phpstan-pure
      */
-    public function __construct(string $destinationPaymentMethodID, ?AmountDecimal $amount = null, ?bool $isFinal = null, ?string $description = null, ?array $metadata = null, ?string $foreignID = null, ?CreateTransferLineItems $lineItems = null, ?CreateTransferAmountDetails $amountDetails = null, ?AmountDecimal $facilitatorFeeAmount = null)
+    public function __construct(?AmountDecimal $amount = null, ?bool $isFinal = null, ?string $description = null, ?array $metadata = null, ?string $foreignID = null, ?CreateTransferLineItems $lineItems = null, ?CreateTransferAmountDetails $amountDetails = null, ?AmountDecimal $facilitatorFeeAmount = null)
     {
-        $this->destinationPaymentMethodID = $destinationPaymentMethodID;
         $this->amount = $amount;
         $this->isFinal = $isFinal;
         $this->description = $description;
