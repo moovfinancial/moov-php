@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-/** CreateTransferSource - Where funds for a transfer originate. For the source, you must include either a `paymentMethodID` or a `transferID`. */
+/** CreateTransferSource - Where funds for a transfer originate. For the source, you must include exactly one of `paymentMethodID`, `paymentToken`, or `transferID`. */
 class CreateTransferSource
 {
     /**

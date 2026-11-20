@@ -442,6 +442,8 @@ class Invoices
     /**
      * Retrieve an invoice by ID.
      *
+     * Use the `Accept` header to specify the format of the response. Supported formats are `application/json` and `application/pdf`. The PDF does not include the payment link or QR code.
+     *
      * To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
      * you'll need to specify the `/accounts/{accountID}/invoices.read` scope.
      *
@@ -460,7 +462,7 @@ class Invoices
         $url = Utils\Utils::generateUrl($baseUrl, '/accounts/{accountID}/invoices/{invoiceID}', Operations\GetInvoiceRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $httpOptions['headers']['Accept'] = 'application/json';
+        $httpOptions['headers']['Accept'] = 'application/json;q=1, application/pdf;q=0';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
         $hookContext = new HookContext($this->sdkConfiguration, $baseUrl, 'getInvoice', null, $this->sdkConfiguration->securitySource);
@@ -496,6 +498,17 @@ class Invoices
                     invoice: $obj);
 
                 return $response;
+            } elseif (Utils\Utils::matchContentType($contentType, 'application/pdf')) {
+                $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
+
+                $obj = $httpResponse->getBody()->getContents();
+
+                return new Operations\GetInvoiceResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    headers: $httpResponse->getHeaders(),
+                    bytes: $obj);
             } else {
                 throw new \Moov\MoovPhp\Models\Errors\APIException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }

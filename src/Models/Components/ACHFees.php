@@ -85,6 +85,16 @@ class ACHFees
     public BillingCountAndAmount $total;
 
     /**
+     * Fees for bank account risk verifications.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\BillingCountAndAmount $bankAccountRiskVerification
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('bankAccountRiskVerification')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\BillingCountAndAmount|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?BillingCountAndAmount $bankAccountRiskVerification = null;
+
+    /**
      * @param  \Moov\MoovPhp\Models\Components\BillingCountAndAmount  $standardCredit
      * @param  \Moov\MoovPhp\Models\Components\BillingCountAndAmount  $sameDayCredit
      * @param  \Moov\MoovPhp\Models\Components\BillingCountAndAmount  $debits
@@ -93,9 +103,10 @@ class ACHFees
      * @param  \Moov\MoovPhp\Models\Components\BillingCountAndAmount  $noticeOfChange
      * @param  \Moov\MoovPhp\Models\Components\BillingCountAndAmount  $bankAccountVerification
      * @param  \Moov\MoovPhp\Models\Components\BillingCountAndAmount  $total
+     * @param  ?\Moov\MoovPhp\Models\Components\BillingCountAndAmount  $bankAccountRiskVerification
      * @phpstan-pure
      */
-    public function __construct(BillingCountAndAmount $standardCredit, BillingCountAndAmount $sameDayCredit, BillingCountAndAmount $debits, BillingCountAndAmount $return, BillingCountAndAmount $unauthorizedReturn, BillingCountAndAmount $noticeOfChange, BillingCountAndAmount $bankAccountVerification, BillingCountAndAmount $total)
+    public function __construct(BillingCountAndAmount $standardCredit, BillingCountAndAmount $sameDayCredit, BillingCountAndAmount $debits, BillingCountAndAmount $return, BillingCountAndAmount $unauthorizedReturn, BillingCountAndAmount $noticeOfChange, BillingCountAndAmount $bankAccountVerification, BillingCountAndAmount $total, ?BillingCountAndAmount $bankAccountRiskVerification = null)
     {
         $this->standardCredit = $standardCredit;
         $this->sameDayCredit = $sameDayCredit;
@@ -105,5 +116,6 @@ class ACHFees
         $this->noticeOfChange = $noticeOfChange;
         $this->bankAccountVerification = $bankAccountVerification;
         $this->total = $total;
+        $this->bankAccountRiskVerification = $bankAccountRiskVerification;
     }
 }
