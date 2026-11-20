@@ -38,12 +38,12 @@ class UpdateInvoice
      *     To completely discard an invoice created by mistake, use the delete endpoint instead.
      *   - `unpaid`: Can only be set if the current status is `draft`. Setting the status to `unpaid` finalizes the invoice and sends an email with a payment link to the customer.
      *
-     * @var ?\Moov\MoovPhp\Models\Components\InvoiceStatus $status
+     * @var ?\Moov\MoovPhp\Models\Components\UpdateInvoiceStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\InvoiceStatus|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\UpdateInvoiceStatus|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?InvoiceStatus $status = null;
+    public ?UpdateInvoiceStatus $status = null;
 
     /**
      * Payment options to update on the invoice.
@@ -83,14 +83,14 @@ class UpdateInvoice
     /**
      * @param  ?string  $description
      * @param  ?\Moov\MoovPhp\Models\Components\CreateInvoiceLineItemsUpdate  $lineItems
-     * @param  ?\Moov\MoovPhp\Models\Components\InvoiceStatus  $status
+     * @param  ?\Moov\MoovPhp\Models\Components\UpdateInvoiceStatus  $status
      * @param  ?\Moov\MoovPhp\Models\Components\InvoicePaymentOptionsUpdate  $payment
      * @param  ?\Moov\MoovPhp\Models\Components\AmountDetailsUpdate  $amountDetails
      * @param  ?\DateTime  $invoiceDate
      * @param  ?\DateTime  $dueDate
      * @phpstan-pure
      */
-    public function __construct(?string $description = null, ?CreateInvoiceLineItemsUpdate $lineItems = null, ?InvoiceStatus $status = null, ?InvoicePaymentOptionsUpdate $payment = null, ?AmountDetailsUpdate $amountDetails = null, ?\DateTime $invoiceDate = null, ?\DateTime $dueDate = null)
+    public function __construct(?string $description = null, ?CreateInvoiceLineItemsUpdate $lineItems = null, ?UpdateInvoiceStatus $status = null, ?InvoicePaymentOptionsUpdate $payment = null, ?AmountDetailsUpdate $amountDetails = null, ?\DateTime $invoiceDate = null, ?\DateTime $dueDate = null)
     {
         $this->description = $description;
         $this->lineItems = $lineItems;

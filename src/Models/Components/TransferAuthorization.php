@@ -80,6 +80,15 @@ class TransferAuthorization
     public ?\DateTime $expiresOn = null;
 
     /**
+     * Whether the card network granted the extended authorization hold. Returned only when `options.cardPayment.isExtendedAuthorizationRequested` is `true`.
+     *
+     * @var ?bool $isExtendedAuthorizationGranted
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('isExtendedAuthorizationGranted')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $isExtendedAuthorizationGranted = null;
+
+    /**
      * @param  string  $authorizationID
      * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $requestedAmount
      * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $authorizedAmount
@@ -87,9 +96,10 @@ class TransferAuthorization
      * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $capturableAmount
      * @param  ?\Moov\MoovPhp\Models\Components\TransferAmountDetails  $amountDetails
      * @param  ?\DateTime  $expiresOn
+     * @param  ?bool  $isExtendedAuthorizationGranted
      * @phpstan-pure
      */
-    public function __construct(string $authorizationID, AmountDecimal $requestedAmount, AmountDecimal $authorizedAmount, AmountDecimal $capturedAmount, AmountDecimal $capturableAmount, ?TransferAmountDetails $amountDetails = null, ?\DateTime $expiresOn = null)
+    public function __construct(string $authorizationID, AmountDecimal $requestedAmount, AmountDecimal $authorizedAmount, AmountDecimal $capturedAmount, AmountDecimal $capturableAmount, ?TransferAmountDetails $amountDetails = null, ?\DateTime $expiresOn = null, ?bool $isExtendedAuthorizationGranted = null)
     {
         $this->authorizationID = $authorizationID;
         $this->requestedAmount = $requestedAmount;
@@ -98,5 +108,6 @@ class TransferAuthorization
         $this->capturableAmount = $capturableAmount;
         $this->amountDetails = $amountDetails;
         $this->expiresOn = $expiresOn;
+        $this->isExtendedAuthorizationGranted = $isExtendedAuthorizationGranted;
     }
 }

@@ -838,6 +838,8 @@ To access this endpoint using an [access token](https://docs.moov.io/api/authent
 you'll need to specify the `/accounts/{accountID}/invoices.read` scope.
 * [getInvoice](docs/sdks/invoices/README.md#getinvoice) - Retrieve an invoice by ID.
 
+Use the `Accept` header to specify the format of the response. Supported formats are `application/json` and `application/pdf`. The PDF does not include the payment link or QR code.
+
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
 you'll need to specify the `/accounts/{accountID}/invoices.read` scope.
 * [updateInvoice](docs/sdks/invoices/README.md#updateinvoice) - Updates an invoice.
@@ -1284,6 +1286,12 @@ you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
 * [getCapture](docs/sdks/transfers/README.md#getcapture) - Get details of a capture for an auth-capture `card-payment` transfer.
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
+you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
+* [listTransferEvents](docs/sdks/transfers/README.md#listtransferevents) - Retrieve the complete ordered event timeline for a Transfer.
+
+Events are returned oldest to newest by occurrence time, with deterministic ordering when multiple events have the same occurrence time. An existing Transfer with no stored events returns an empty list.
+
+To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/)
 you'll need to specify the `/accounts/{accountID}/transfers.read` scope.
 * [initiateRefund](docs/sdks/transfers/README.md#initiaterefund) - Initiate a refund for a card transfer.
 The `accountID` must identify the partner account for the transfer.

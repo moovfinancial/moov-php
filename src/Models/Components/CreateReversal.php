@@ -12,17 +12,18 @@ namespace Moov\MoovPhp\Models\Components;
 class CreateReversal
 {
     /**
-     * Amount to reverse.
+     * Amount to reverse. In v2026.10 and later, if omitted, the original transfer's full amount will be reversed.
      *
      * Before v2026.10, specify the amount in integer cents.
      * For supported auth-capture `card-payment` reversals in v2026.10 and later, a transfer with no captures uses the full `capturableAmount`.
      * For those transfers with one final capture, a cancellation uses the full capture amount, while a refund may be partial.
      *
-     * @var \Moov\MoovPhp\Models\Components\AmountDecimal $amount
+     * @var ?\Moov\MoovPhp\Models\Components\AmountDecimal $amount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('amount')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal')]
-    public AmountDecimal $amount;
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\AmountDecimal|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?AmountDecimal $amount = null;
 
     /**
      * Breakdown of the reversed amount.
@@ -35,11 +36,11 @@ class CreateReversal
     public ?ReversalAmountDetails $amountDetails = null;
 
     /**
-     * @param  \Moov\MoovPhp\Models\Components\AmountDecimal  $amount
+     * @param  ?\Moov\MoovPhp\Models\Components\AmountDecimal  $amount
      * @param  ?\Moov\MoovPhp\Models\Components\ReversalAmountDetails  $amountDetails
      * @phpstan-pure
      */
-    public function __construct(AmountDecimal $amount, ?ReversalAmountDetails $amountDetails = null)
+    public function __construct(?AmountDecimal $amount = null, ?ReversalAmountDetails $amountDetails = null)
     {
         $this->amount = $amount;
         $this->amountDetails = $amountDetails;

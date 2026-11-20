@@ -13,13 +13,14 @@ namespace Moov\MoovPhp\Models\Components;
 class CreateTransferRailOptions
 {
     /**
+     * Options for a new `card-payment` transfer.
      *
-     * @var ?\Moov\MoovPhp\Models\Components\CreateTransferSourceCard $cardPayment
+     * @var ?\Moov\MoovPhp\Models\Components\CreateCardPaymentOptions $cardPayment
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cardPayment')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateTransferSourceCard|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateCardPaymentOptions|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?CreateTransferSourceCard $cardPayment = null;
+    public ?CreateCardPaymentOptions $cardPayment = null;
 
     /**
      *
@@ -58,14 +59,14 @@ class CreateTransferRailOptions
     public ?CreateTransferDestinationACH $achCredit = null;
 
     /**
-     * @param  ?\Moov\MoovPhp\Models\Components\CreateTransferSourceCard  $cardPayment
+     * @param  ?\Moov\MoovPhp\Models\Components\CreateCardPaymentOptions  $cardPayment
      * @param  ?\Moov\MoovPhp\Models\Components\CreateTransferDestinationCard  $pushToCard
      * @param  ?\Moov\MoovPhp\Models\Components\CreateTransferSourceCard  $pullFromCard
      * @param  ?\Moov\MoovPhp\Models\Components\CreateTransferSourceACH  $achDebit
      * @param  ?\Moov\MoovPhp\Models\Components\CreateTransferDestinationACH  $achCredit
      * @phpstan-pure
      */
-    public function __construct(?CreateTransferSourceCard $cardPayment = null, ?CreateTransferDestinationCard $pushToCard = null, ?CreateTransferSourceCard $pullFromCard = null, ?CreateTransferSourceACH $achDebit = null, ?CreateTransferDestinationACH $achCredit = null)
+    public function __construct(?CreateCardPaymentOptions $cardPayment = null, ?CreateTransferDestinationCard $pushToCard = null, ?CreateTransferSourceCard $pullFromCard = null, ?CreateTransferSourceACH $achDebit = null, ?CreateTransferDestinationACH $achCredit = null)
     {
         $this->cardPayment = $cardPayment;
         $this->pushToCard = $pushToCard;
