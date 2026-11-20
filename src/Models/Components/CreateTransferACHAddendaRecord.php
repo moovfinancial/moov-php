@@ -13,7 +13,7 @@ namespace Moov\MoovPhp\Models\Components;
 class CreateTransferACHAddendaRecord
 {
     /**
-     * The raw ACH addenda record. Must only contain valid NACHA characters
+     * The raw ACH addenda record. Must only contain valid NACHA characters. JSON is UTF-8. Moov originates each character as one byte in the Nacha file.
      *
      * @var string $record
      */

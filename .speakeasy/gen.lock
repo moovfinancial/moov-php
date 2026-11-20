@@ -1,23 +1,23 @@
 lockVersion: 2.0.0
 id: ee1e5eb3-b690-486d-b5c3-f102db66e238
 management:
-  docChecksum: 015a44a07fbef3dc5e03be6dee47007a
+  docChecksum: e67b21f3f8b0d197b19345f7d43d8504
   docVersion: v2025.10.00
-  speakeasyVersion: 1.805.0
-  generationVersion: 2.954.8
-  releaseVersion: 25.11.21
-  configChecksum: e8288bb1cf635ed612adb057895a3438
+  speakeasyVersion: 1.811.0
+  generationVersion: 2.968.1
+  releaseVersion: 25.11.22
+  configChecksum: f5227b7ab4b7ea886196e5bf4ffbcc51
   repoURL: https://github.com/moovfinancial/moov-php.git
   installationURL: https://github.com/moovfinancial/moov-php.git
   published: true
 persistentEdits:
-  generation_id: 912216c1-0029-45f3-b834-3058eecba392
-  pristine_commit_hash: 2b81011c45f42bf4295499b695cb94c7e70b04d2
-  pristine_tree_hash: c4fcea18f4ba8652eccde9e1b3c91abe56598eaa
+  generation_id: a183ca3f-be9d-478a-9371-8bd4a42add0a
+  pristine_commit_hash: 853abf0a8786f04e79cdfdf1a5cb9cf60c60c9c8
+  pristine_tree_hash: 8cf0220a579826a1a13d11c6e183250248da40f3
 features:
   php:
     constsAndDefaults: 0.2.2
-    core: 3.9.29
+    core: 3.9.30
     decimal: 0.1.1
     deprecations: 2.81.1
     flattening: 2.81.2
@@ -50,8 +50,8 @@ trackedFiles:
     pristine_git_object: 21739eb9826b6b075f42c02f7e0481c47a37ec6d
   docs/Models/Components/ACHFees.md:
     id: f9e9513233d1
-    last_write_checksum: sha1:96c77e9d5ffbbdf940bf3efd2d292ba3dd8ff297
-    pristine_git_object: f1e8d37e4076e6307aa098141929f36554ee08c7
+    last_write_checksum: sha1:0bc4b2e64a72fbf325c23a5dfd91db1a43b93c96
+    pristine_git_object: 739297e1f7d835117147ac45b8a0ae2ef3f95b19
   docs/Models/Components/ACHInstitution.md:
     id: afd0b382b7a9
     last_write_checksum: sha1:6ecf339f57b3bd881576b672f9bb1e933a7177f9
@@ -802,8 +802,8 @@ trackedFiles:
     pristine_git_object: 93dd1aff2d39fa42236545d165951eb146614640
   docs/Models/Components/CreateReversal.md:
     id: f3a76e2438e4
-    last_write_checksum: sha1:c385e9f55393fcb208ac5b090f1bda8c8508256b
-    pristine_git_object: cddaef27530c093c80239508bf161dc50d0d06ef
+    last_write_checksum: sha1:2734bcacc0d1ff4e8bc8213efce6a03a82dba86a
+    pristine_git_object: 062a7416a6c18c8aee1983be355d7b1244976f1e
   docs/Models/Components/CreateRunTransfer.md:
     id: 0b8c506e72ce
     last_write_checksum: sha1:6f1165dbd0ada4b51fd77cc151c07cd28c874797
@@ -838,12 +838,12 @@ trackedFiles:
     pristine_git_object: 0bab0d01e25c4feac8ae64e660b8a4479b600adf
   docs/Models/Components/CreateTransfer.md:
     id: e2fd435e8496
-    last_write_checksum: sha1:a883c2c6224df05658d2d2b40a222ae329b4a9f3
-    pristine_git_object: 32ff1a5ac73abe148bf5df81c6a0d3b4bb7e4beb
+    last_write_checksum: sha1:ddc6e65f880b6823b1617925e141ea4099df4747
+    pristine_git_object: 7e40dc21620c4801809c0d33daa714d249354618
   docs/Models/Components/CreateTransferACHAddendaRecord.md:
     id: e59cdd30eaf1
-    last_write_checksum: sha1:f5d2bf4a13e45676ca0aeae2222c1db9dfd47bb9
-    pristine_git_object: a9efb534bdc3ee1a0b221e29d7302e474fa425ad
+    last_write_checksum: sha1:8cbce815ea0c8f6e83798020365053e06dae0781
+    pristine_git_object: 31e403bb640b6fd29fba38921db1e46164a8eccf
   docs/Models/Components/CreateTransferDestination.md:
     id: bcb83dd552dc
     last_write_checksum: sha1:1a7ab0d48e5fbfbcbc11f9138535c6285de08ffe
@@ -886,8 +886,8 @@ trackedFiles:
     pristine_git_object: e8a7b04d975e3d968c9073632c8c15173be0134a
   docs/Models/Components/CreateTransferSource.md:
     id: 136a4c89f03f
-    last_write_checksum: sha1:6460897a52c9460a16502b296c91a1e56945e12b
-    pristine_git_object: 191f334d30b670e144467e5df8f1bf495a5d4fa5
+    last_write_checksum: sha1:7f9d075a89d2b13c5623d2113fb9de79af1192d4
+    pristine_git_object: 12ea00f2f7ee89bd9449c90b439f3f1ad2147e43
   docs/Models/Components/CreateTransferSourceACH.md:
     id: d70a73bf0fd9
     last_write_checksum: sha1:b5c433bf2502c8f0924dfc5481fc39fe08b9f580
@@ -4426,8 +4426,8 @@ trackedFiles:
     pristine_git_object: 88d160608a6ae707ecfaa8a8bd4e483bdf5df020
   src/Models/Components/ACHFees.php:
     id: 880838ec3cc5
-    last_write_checksum: sha1:de3bd318604f644738bde332be10c3f923125385
-    pristine_git_object: 6edc01d29c9dd676bb6631491592983adb4fa6de
+    last_write_checksum: sha1:4c50f24065694f00e0704c70b7343cbc650a297e
+    pristine_git_object: 7032d60a24241128ce1c675b9ba25302a026fe6b
   src/Models/Components/ACHInstitution.php:
     id: b4462025a783
     last_write_checksum: sha1:55972492820b8869cf5a62799cfa7ec7db78493c
@@ -5174,8 +5174,8 @@ trackedFiles:
     pristine_git_object: 53226284a541f52d2ccb49e148611012fd39c1a6
   src/Models/Components/CreateReversal.php:
     id: e0d05bc725ae
-    last_write_checksum: sha1:02f8298bf85fad52f51df30759b4b36b311ac20c
-    pristine_git_object: ddf950edbcfc3ec0889491715c9c2904cbd29bd8
+    last_write_checksum: sha1:b0cf08a1cbe73b7e78a75294a56dc1c8028a4fa0
+    pristine_git_object: 7d4b07d6b0931753c600bb27a9776a15da0e78bf
   src/Models/Components/CreateRunTransfer.php:
     id: c994ec6ace30
     last_write_checksum: sha1:902497c7b97d148cd569d06cfcb32110035a3248
@@ -5210,12 +5210,12 @@ trackedFiles:
     pristine_git_object: 9c78b433fd81877299c753b00709169872f5d1cc
   src/Models/Components/CreateTransfer.php:
     id: 2fe6ca1bf12e
-    last_write_checksum: sha1:e163a5e50126901040d82be5c8228a6b81e62a8f
-    pristine_git_object: 96f8af747dfac808d4fd51baf0aca9ec8b031ffe
+    last_write_checksum: sha1:078f558735e47098b03067602fc0686baaeee279
+    pristine_git_object: dcf4b18dd40c209ac935aaeb25580d991c234d03
   src/Models/Components/CreateTransferACHAddendaRecord.php:
     id: 6d53677d6d5d
-    last_write_checksum: sha1:031f719948b9fd5423a3aebc0e7d1cb516592957
-    pristine_git_object: 6f5d6cf52c64a4d30a53a6250aa185be694c168d
+    last_write_checksum: sha1:84c0080e7460432a6d704b08c85efe2e5ac7e7c3
+    pristine_git_object: cd0bffb737b8d67ee4d3ad393a55ccc667275912
   src/Models/Components/CreateTransferDestination.php:
     id: 28dcd35cd169
     last_write_checksum: sha1:69d25d78838d4f5b2c33e1fd60b7f037e69819f6
@@ -5258,8 +5258,8 @@ trackedFiles:
     pristine_git_object: 0aad594b701a104e8e6419b0579afaf1c82044ff
   src/Models/Components/CreateTransferSource.php:
     id: ff1702aeb0d7
-    last_write_checksum: sha1:229b9d9ab2d29edf395f1512e83cf48b2090e1e5
-    pristine_git_object: 219e36d9212e8ccabc5d64514d18adb0de79d08f
+    last_write_checksum: sha1:06adbb95995f4c3e8a7c1d95633363c462336ef2
+    pristine_git_object: 9b6d840cd7ea32b3e80420fb7d0b05e09bd55160
   src/Models/Components/CreateTransferSourceACH.php:
     id: ff454ed6f375
     last_write_checksum: sha1:0d28235907ec49f33fc58c0b412615fd7dbbc40d
@@ -8690,8 +8690,8 @@ trackedFiles:
     pristine_git_object: ed9c06928be32fb3e75a68ec0192a4fca166a592
   src/SDKConfiguration.php:
     id: 9d60ab0bec0b
-    last_write_checksum: sha1:7a2b3c736ad94dc3dba9502d4df9e28e35d08547
-    pristine_git_object: 520d1e125e3ed4678255f7beab8ef043f336efb8
+    last_write_checksum: sha1:9d6fdce907984069b4e5d8cd30ef43ed90cb8f6f
+    pristine_git_object: 20c0c4a9db7c5710ba27815b82dd2e43236fb10d
   src/Schedules.php:
     id: 8dbe56d2d033
     last_write_checksum: sha1:6f0d21f80435c051e1beddd63bf681efac9d4099
@@ -8770,8 +8770,8 @@ trackedFiles:
     pristine_git_object: f11a8c2362484a399bffc820f18e8a9a579c7b22
   src/Utils/Headers.php:
     id: 98710f1dd715
-    last_write_checksum: sha1:c90eaaabcd8df8f59191c7b28f5b17425e8595ce
-    pristine_git_object: f80b630501d59fae8ba371e532752f44b2d95390
+    last_write_checksum: sha1:b8b586391c70f16c1f454e4e6f024c4f30f11077
+    pristine_git_object: 99138141a2d7b042aa77e65a35ade736c2e79516
   src/Utils/JSON.php:
     id: fb267328a809
     last_write_checksum: sha1:81afd0d4931254c4d1334f10be79f3c26f8803d4
@@ -11167,7 +11167,7 @@ examples:
           X-Moov-Version: "v2024.01.00"
       responses:
         "200":
-          application/json: {"statementID": "6fcce0d9-75c1-4c2f-b04e-ce0f1cecf736", "statementName": "<value>", "fileName": "example.file", "fileSize": 491710, "billingPeriodStartDateTime": "2025-01-30T13:15:52.427Z", "billingPeriodEndDateTime": "2024-03-15T11:54:00.098Z", "subscriptionIDs": ["<value 1>", "<value 2>", "<value 3>"], "summary": {"cardAcquiring": {"feeAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "merchantFeesCollected": {"currency": "USD", "valueDecimal": "12.987654321"}, "partnerFeesAssessed": {"currency": "USD", "valueDecimal": "12.987654321"}, "netIncome": {"currency": "USD", "valueDecimal": "12.987654321"}, "interchangeFees": {"visa": {"currency": "USD", "valueDecimal": "12.987654321"}, "mastercard": {"currency": "USD", "valueDecimal": "12.987654321"}, "discover": {"currency": "USD", "valueDecimal": "12.987654321"}, "americanExpress": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "ach": {"feeAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "merchantFeesCollected": {"currency": "USD", "valueDecimal": "12.987654321"}, "partnerFeesAssessed": {"currency": "USD", "valueDecimal": "12.987654321"}, "netIncome": {"currency": "USD", "valueDecimal": "12.987654321"}}, "instantPayments": {"feeAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "merchantFeesCollected": {"currency": "USD", "valueDecimal": "12.987654321"}, "partnerFeesAssessed": {"currency": "USD", "valueDecimal": "12.987654321"}, "netIncome": {"currency": "USD", "valueDecimal": "12.987654321"}}, "accountFees": {"feeAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "merchantFeesCollected": {"currency": "USD", "valueDecimal": "12.987654321"}, "partnerFeesAssessed": {"currency": "USD", "valueDecimal": "12.987654321"}, "netIncome": {"currency": "USD", "valueDecimal": "12.987654321"}}, "otherCardFees": {"feeAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "merchantFeesCollected": {"currency": "USD", "valueDecimal": "12.987654321"}, "partnerFeesAssessed": {"currency": "USD", "valueDecimal": "12.987654321"}, "netIncome": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"currency": "USD", "valueDecimal": "12.987654321"}, "netIncomeSubtotal": {"feeAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "merchantFeesCollected": {"currency": "USD", "valueDecimal": "12.987654321"}, "partnerFeesAssessed": {"currency": "USD", "valueDecimal": "12.987654321"}, "netIncome": {"currency": "USD", "valueDecimal": "12.987654321"}}, "residualSubtotal": {"currency": "USD", "valueDecimal": "12.987654321"}, "monthlyPartnerCosts": {"minimumCommitment": {"currency": "USD", "valueDecimal": "12.987654321"}, "monthlyPlatform": {"currency": "USD", "valueDecimal": "12.987654321"}, "total": {"currency": "USD", "valueDecimal": "12.987654321"}}, "netPartnerPayment": {"currency": "USD", "valueDecimal": "12.987654321"}, "totalNetPartnerPayment": {"currency": "USD", "valueDecimal": "12.987654321"}}, "cardAcquiringFees": {"visa": {"interchange": {"count": 566266, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "interchangePrograms": [{"programName": "<value>", "count": 311812, "percentageRate": 1208.53, "perItemRate": {"currency": "USD", "valueDecimal": "12.987654321"}, "total": {"currency": "USD", "valueDecimal": "12.987654321"}, "transferVolume": {"currency": "USD", "valueDecimal": "12.987654321"}}], "networkPassthrough": {"count": 314153, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticOnline": {"count": 830656, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticInPerson": {"count": 767457, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalOnline": {"count": 687826, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalInPerson": {"count": 141784, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "declines": {"count": 6447, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "refunds": {"count": 510292, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "cardCancellations": {"count": 336705, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"count": 179729, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "mastercard": {"interchange": {"count": 566266, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "interchangePrograms": [{"programName": "<value>", "count": 311812, "percentageRate": 1208.53, "perItemRate": {"currency": "USD", "valueDecimal": "12.987654321"}, "total": {"currency": "USD", "valueDecimal": "12.987654321"}, "transferVolume": {"currency": "USD", "valueDecimal": "12.987654321"}}], "networkPassthrough": {"count": 314153, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticOnline": {"count": 830656, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticInPerson": {"count": 767457, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalOnline": {"count": 687826, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalInPerson": {"count": 141784, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "declines": {"count": 6447, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "refunds": {"count": 510292, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "cardCancellations": {"count": 336705, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"count": 179729, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "discover": {"interchange": {"count": 566266, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "interchangePrograms": [{"programName": "<value>", "count": 311812, "percentageRate": 1208.53, "perItemRate": {"currency": "USD", "valueDecimal": "12.987654321"}, "total": {"currency": "USD", "valueDecimal": "12.987654321"}, "transferVolume": {"currency": "USD", "valueDecimal": "12.987654321"}}], "networkPassthrough": {"count": 314153, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticOnline": {"count": 830656, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticInPerson": {"count": 767457, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalOnline": {"count": 687826, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalInPerson": {"count": 141784, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "declines": {"count": 6447, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "refunds": {"count": 510292, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "cardCancellations": {"count": 336705, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"count": 179729, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "americanExpress": {"interchange": {"count": 566266, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "interchangePrograms": [{"programName": "<value>", "count": 311812, "percentageRate": 1208.53, "perItemRate": {"currency": "USD", "valueDecimal": "12.987654321"}, "total": {"currency": "USD", "valueDecimal": "12.987654321"}, "transferVolume": {"currency": "USD", "valueDecimal": "12.987654321"}}], "networkPassthrough": {"count": 314153, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticOnline": {"count": 830656, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticInPerson": {"count": 767457, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalOnline": {"count": 687826, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalInPerson": {"count": 141784, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "declines": {"count": 6447, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "refunds": {"count": 510292, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "cardCancellations": {"count": 336705, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"count": 179729, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}}, "achFees": {"standardCredit": {"count": 178500, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "sameDayCredit": {"count": 231593, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "debits": {"count": 940652, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "return": {"count": 437920, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "unauthorizedReturn": {"count": 476712, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "noticeOfChange": {"count": 950531, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "bankAccountVerification": {"count": 336705, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"count": 179729, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "instantPaymentFees": {"rtpCreditTransaction": {"count": 497959, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "rtpDecline": {"count": 84081, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "pushToCardTransaction": {"count": 933887, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "pushToCardDecline": {"count": 148596, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "pullFromCardTransaction": {"count": 186879, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "pullFromCardDecline": {"count": 32245, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "pullFromCardRefund": {"count": 815075, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "instantVerification": {"count": 336705, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"count": 179729, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "accountFees": {"walletFee": {"currency": "USD", "valueDecimal": "12.987654321"}, "merchantPCIFee": {"currency": "USD", "valueDecimal": "12.987654321"}, "invoicePaymentFee": {"currency": "USD", "valueDecimal": "12.987654321"}, "kybFee": {"currency": "USD", "valueDecimal": "12.987654321"}, "kycFee": {"currency": "USD", "valueDecimal": "12.987654321"}, "transactionMonitoringFee": {"currency": "USD", "valueDecimal": "12.987654321"}, "total": {"currency": "USD", "valueDecimal": "12.987654321"}}, "otherCardFees": {"disputes": {"count": 979998, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "cardAccountUpdater": {"count": 589185, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "cardVerification": {"count": 477464, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "nameVerification": {"count": 854516, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"count": 179729, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "partnerFees": {"minimumCommitment": {"currency": "USD", "valueDecimal": "12.987654321"}, "monthlyPlatform": {"currency": "USD", "valueDecimal": "12.987654321"}, "total": {"currency": "USD", "valueDecimal": "12.987654321"}}, "adjustments": {"items": [], "total": {"count": 179729, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "createdOn": "2023-03-21T23:03:13.806Z", "updatedOn": "2025-12-26T06:16:23.912Z"}
+          application/json: {"statementID": "6fcce0d9-75c1-4c2f-b04e-ce0f1cecf736", "statementName": "<value>", "fileName": "example.file", "fileSize": 491710, "billingPeriodStartDateTime": "2025-01-30T13:15:52.427Z", "billingPeriodEndDateTime": "2024-03-15T11:54:00.098Z", "subscriptionIDs": ["<value 1>", "<value 2>", "<value 3>"], "summary": {"cardAcquiring": {"feeAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "merchantFeesCollected": {"currency": "USD", "valueDecimal": "12.987654321"}, "partnerFeesAssessed": {"currency": "USD", "valueDecimal": "12.987654321"}, "netIncome": {"currency": "USD", "valueDecimal": "12.987654321"}, "interchangeFees": {"visa": {"currency": "USD", "valueDecimal": "12.987654321"}, "mastercard": {"currency": "USD", "valueDecimal": "12.987654321"}, "discover": {"currency": "USD", "valueDecimal": "12.987654321"}, "americanExpress": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "ach": {"feeAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "merchantFeesCollected": {"currency": "USD", "valueDecimal": "12.987654321"}, "partnerFeesAssessed": {"currency": "USD", "valueDecimal": "12.987654321"}, "netIncome": {"currency": "USD", "valueDecimal": "12.987654321"}}, "instantPayments": {"feeAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "merchantFeesCollected": {"currency": "USD", "valueDecimal": "12.987654321"}, "partnerFeesAssessed": {"currency": "USD", "valueDecimal": "12.987654321"}, "netIncome": {"currency": "USD", "valueDecimal": "12.987654321"}}, "accountFees": {"feeAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "merchantFeesCollected": {"currency": "USD", "valueDecimal": "12.987654321"}, "partnerFeesAssessed": {"currency": "USD", "valueDecimal": "12.987654321"}, "netIncome": {"currency": "USD", "valueDecimal": "12.987654321"}}, "otherCardFees": {"feeAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "merchantFeesCollected": {"currency": "USD", "valueDecimal": "12.987654321"}, "partnerFeesAssessed": {"currency": "USD", "valueDecimal": "12.987654321"}, "netIncome": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"currency": "USD", "valueDecimal": "12.987654321"}, "netIncomeSubtotal": {"feeAmount": {"currency": "USD", "valueDecimal": "12.987654321"}, "merchantFeesCollected": {"currency": "USD", "valueDecimal": "12.987654321"}, "partnerFeesAssessed": {"currency": "USD", "valueDecimal": "12.987654321"}, "netIncome": {"currency": "USD", "valueDecimal": "12.987654321"}}, "residualSubtotal": {"currency": "USD", "valueDecimal": "12.987654321"}, "monthlyPartnerCosts": {"minimumCommitment": {"currency": "USD", "valueDecimal": "12.987654321"}, "monthlyPlatform": {"currency": "USD", "valueDecimal": "12.987654321"}, "total": {"currency": "USD", "valueDecimal": "12.987654321"}}, "netPartnerPayment": {"currency": "USD", "valueDecimal": "12.987654321"}, "totalNetPartnerPayment": {"currency": "USD", "valueDecimal": "12.987654321"}}, "cardAcquiringFees": {"visa": {"interchange": {"count": 566266, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "interchangePrograms": [{"programName": "<value>", "count": 311812, "percentageRate": 1208.53, "perItemRate": {"currency": "USD", "valueDecimal": "12.987654321"}, "total": {"currency": "USD", "valueDecimal": "12.987654321"}, "transferVolume": {"currency": "USD", "valueDecimal": "12.987654321"}}], "networkPassthrough": {"count": 314153, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticOnline": {"count": 830656, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticInPerson": {"count": 767457, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalOnline": {"count": 687826, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalInPerson": {"count": 141784, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "declines": {"count": 6447, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "refunds": {"count": 510292, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "cardCancellations": {"count": 336705, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"count": 179729, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "mastercard": {"interchange": {"count": 566266, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "interchangePrograms": [{"programName": "<value>", "count": 311812, "percentageRate": 1208.53, "perItemRate": {"currency": "USD", "valueDecimal": "12.987654321"}, "total": {"currency": "USD", "valueDecimal": "12.987654321"}, "transferVolume": {"currency": "USD", "valueDecimal": "12.987654321"}}], "networkPassthrough": {"count": 314153, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticOnline": {"count": 830656, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticInPerson": {"count": 767457, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalOnline": {"count": 687826, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalInPerson": {"count": 141784, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "declines": {"count": 6447, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "refunds": {"count": 510292, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "cardCancellations": {"count": 336705, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"count": 179729, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "discover": {"interchange": {"count": 566266, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "interchangePrograms": [{"programName": "<value>", "count": 311812, "percentageRate": 1208.53, "perItemRate": {"currency": "USD", "valueDecimal": "12.987654321"}, "total": {"currency": "USD", "valueDecimal": "12.987654321"}, "transferVolume": {"currency": "USD", "valueDecimal": "12.987654321"}}], "networkPassthrough": {"count": 314153, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticOnline": {"count": 830656, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticInPerson": {"count": 767457, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalOnline": {"count": 687826, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalInPerson": {"count": 141784, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "declines": {"count": 6447, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "refunds": {"count": 510292, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "cardCancellations": {"count": 336705, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"count": 179729, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "americanExpress": {"interchange": {"count": 566266, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "interchangePrograms": [{"programName": "<value>", "count": 311812, "percentageRate": 1208.53, "perItemRate": {"currency": "USD", "valueDecimal": "12.987654321"}, "total": {"currency": "USD", "valueDecimal": "12.987654321"}, "transferVolume": {"currency": "USD", "valueDecimal": "12.987654321"}}], "networkPassthrough": {"count": 314153, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticOnline": {"count": 830656, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedDomesticInPerson": {"count": 767457, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalOnline": {"count": 687826, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "completedInternationalInPerson": {"count": 141784, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "declines": {"count": 6447, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "refunds": {"count": 510292, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "cardCancellations": {"count": 336705, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"count": 179729, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}}, "achFees": {"standardCredit": {"count": 178500, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "sameDayCredit": {"count": 231593, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "debits": {"count": 940652, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "return": {"count": 437920, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "unauthorizedReturn": {"count": 476712, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "noticeOfChange": {"count": 950531, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "bankAccountVerification": {"count": 336705, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "bankAccountRiskVerification": {"count": 336705, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"count": 179729, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "instantPaymentFees": {"rtpCreditTransaction": {"count": 497959, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "rtpDecline": {"count": 84081, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "pushToCardTransaction": {"count": 933887, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "pushToCardDecline": {"count": 148596, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "pullFromCardTransaction": {"count": 186879, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "pullFromCardDecline": {"count": 32245, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "pullFromCardRefund": {"count": 815075, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "instantVerification": {"count": 336705, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"count": 179729, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "accountFees": {"walletFee": {"currency": "USD", "valueDecimal": "12.987654321"}, "merchantPCIFee": {"currency": "USD", "valueDecimal": "12.987654321"}, "invoicePaymentFee": {"currency": "USD", "valueDecimal": "12.987654321"}, "kybFee": {"currency": "USD", "valueDecimal": "12.987654321"}, "kycFee": {"currency": "USD", "valueDecimal": "12.987654321"}, "transactionMonitoringFee": {"currency": "USD", "valueDecimal": "12.987654321"}, "total": {"currency": "USD", "valueDecimal": "12.987654321"}}, "otherCardFees": {"disputes": {"count": 979998, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "cardAccountUpdater": {"count": 589185, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "cardVerification": {"count": 477464, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "nameVerification": {"count": 854516, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}, "total": {"count": 179729, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "partnerFees": {"minimumCommitment": {"currency": "USD", "valueDecimal": "12.987654321"}, "monthlyPlatform": {"currency": "USD", "valueDecimal": "12.987654321"}, "total": {"currency": "USD", "valueDecimal": "12.987654321"}}, "adjustments": {"items": [], "total": {"count": 179729, "amount": {"currency": "USD", "valueDecimal": "12.987654321"}}}, "createdOn": "2023-03-21T23:03:13.806Z", "updatedOn": "2025-12-26T06:16:23.912Z"}
           application/pdf: "0xfE7bF3258c"
   listImageMetadata:
     speakeasy-default-list-image-metadata:
@@ -11649,7 +11649,10 @@ examples:
           application/json: [{"cancellationID": "89ca7f54-13ba-4714-b9af-17163eae2057", "status": "completed", "createdOn": "2025-01-19T03:02:43.255309588Z"}]
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Php SDK Changes:\n* `moov->card issuing->list()`:  `request` **Changed** (Breaking ⚠️)\n* `moov->sweeps->createConfig()`: \n  *  `request.createSweepConfig->schedule` **Added**\n  *  `response.schedule` **Added**\n  *  `error.schedule` **Added**\n* `moov->sweeps->listConfigs()`:  `response.[]->schedule` **Added**\n* `moov->sweeps->getConfig()`:  `response.schedule` **Added**\n* `moov->sweeps->updateConfig()`: \n  *  `request.patchSweepConfig->schedule` **Added**\n  *  `response.schedule` **Added**\n  *  `error.schedule` **Added**\n* `moov->transfers->list()`: \n  *  `request->cursor` **Added**\n  *  `error.cursor` **Added**\n* `moov->issuingtransactions->listAuthorizations()`: \n  *  `request->authorizedUserAccountId` **Added**\n  *  `response.[]->authorizedUserAccountId` **Added**\n* `moov->issuingtransactions->getAuthorization()`:  `response.authorizedUserAccountId` **Added**\n* `moov->issuingtransactions->list()`: \n  *  `request->authorizedUserAccountId` **Added**\n  *  `response.[]->authorizedUserAccountId` **Added**\n* `moov->transactions->get()`:  `response.authorizedUserAccountId` **Added**\n"
+releaseNotes: |
+  ## Php SDK Changes:
+  * `moov->statements->list()`:  `response.[]->achFees->bankAccountRiskVerification` **Added**
+  * `moov->statements->get()`:  `response.achFees->bankAccountRiskVerification` **Added**
 generatedFiles:
   - .gitattributes
   - USAGE.md
