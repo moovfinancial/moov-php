@@ -12,7 +12,7 @@ namespace Moov\MoovPhp\Models\Components;
 class CreateReversal
 {
     /**
-     * Amount to reverse.
+     * Amount to reverse. In v2026.10 and later, if omitted, the original transfer's full amount will be reversed.
      *
      * Before v2026.10, specify the amount in integer cents.
      * For supported auth-capture `card-payment` reversals in v2026.10 and later, a transfer with no captures uses the full `capturableAmount`.
