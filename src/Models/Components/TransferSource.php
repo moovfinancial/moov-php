@@ -77,24 +77,24 @@ class TransferSource
     public ?TransferPaymentMethodsCard $card = null;
 
     /**
-     * Describes an Apple Pay token on a Moov account.
+     * Describes the Apple Pay token used as a transfer's source.
      *
-     * @var ?\Moov\MoovPhp\Models\Components\ApplePayResponse $applePay
+     * @var ?\Moov\MoovPhp\Models\Components\TransferApplePay $applePay
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('applePay')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\ApplePayResponse|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferApplePay|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?ApplePayResponse $applePay = null;
+    public ?TransferApplePay $applePay = null;
 
     /**
-     * Describes a Google Pay token on a Moov account.
+     * Describes the Google Pay token used as a transfer's source.
      *
-     * @var ?\Moov\MoovPhp\Models\Components\GooglePayResponse $googlePay
+     * @var ?\Moov\MoovPhp\Models\Components\TransferGooglePay $googlePay
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('googlePay')]
-    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\GooglePayResponse|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\TransferGooglePay|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?GooglePayResponse $googlePay = null;
+    public ?TransferGooglePay $googlePay = null;
 
     /**
      * Describes payment card details captured with tap or in-person payment.
@@ -114,12 +114,12 @@ class TransferSource
      * @param  ?\Moov\MoovPhp\Models\Components\TransferPaymentMethodsBankAccount  $bankAccount
      * @param  ?\Moov\MoovPhp\Models\Components\TransferPaymentMethodsWallet  $wallet
      * @param  ?\Moov\MoovPhp\Models\Components\TransferPaymentMethodsCard  $card
-     * @param  ?\Moov\MoovPhp\Models\Components\ApplePayResponse  $applePay
-     * @param  ?\Moov\MoovPhp\Models\Components\GooglePayResponse  $googlePay
+     * @param  ?\Moov\MoovPhp\Models\Components\TransferApplePay  $applePay
+     * @param  ?\Moov\MoovPhp\Models\Components\TransferGooglePay  $googlePay
      * @param  ?\Moov\MoovPhp\Models\Components\TransferTerminalCard  $terminalCard
      * @phpstan-pure
      */
-    public function __construct(?string $transferID = null, ?string $paymentMethodID = null, ?TransferPaymentMethodType $paymentMethodType = null, ?TransferAccount $account = null, ?TransferPaymentMethodsBankAccount $bankAccount = null, ?TransferPaymentMethodsWallet $wallet = null, ?TransferPaymentMethodsCard $card = null, ?ApplePayResponse $applePay = null, ?GooglePayResponse $googlePay = null, ?TransferTerminalCard $terminalCard = null)
+    public function __construct(?string $transferID = null, ?string $paymentMethodID = null, ?TransferPaymentMethodType $paymentMethodType = null, ?TransferAccount $account = null, ?TransferPaymentMethodsBankAccount $bankAccount = null, ?TransferPaymentMethodsWallet $wallet = null, ?TransferPaymentMethodsCard $card = null, ?TransferApplePay $applePay = null, ?TransferGooglePay $googlePay = null, ?TransferTerminalCard $terminalCard = null)
     {
         $this->transferID = $transferID;
         $this->paymentMethodID = $paymentMethodID;

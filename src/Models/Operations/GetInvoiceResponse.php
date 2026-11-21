@@ -40,11 +40,18 @@ class GetInvoiceResponse
     public array $headers;
 
     /**
-     * The request completed successfully.
+     * The request has succeeded.
      *
      * @var ?\Moov\MoovPhp\Models\Components\Invoice $invoice
      */
     public ?Components\Invoice $invoice = null;
+
+    /**
+     * The request has succeeded.
+     *
+     * @var ?string $bytes
+     */
+    public ?string $bytes = null;
 
     /**
      * @param  string  $contentType
@@ -52,14 +59,16 @@ class GetInvoiceResponse
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
      * @param  ?\Moov\MoovPhp\Models\Components\Invoice  $invoice
+     * @param  ?string  $bytes
      * @phpstan-pure
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\Invoice $invoice = null, ?array $headers = [])
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\Invoice $invoice = null, ?string $bytes = null, ?array $headers = [])
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
         $this->headers = $headers;
         $this->invoice = $invoice;
+        $this->bytes = $bytes;
     }
 }

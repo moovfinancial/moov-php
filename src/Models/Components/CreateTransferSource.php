@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Moov\MoovPhp\Models\Components;
 
 
-/** CreateTransferSource - Where funds for a transfer originate. For the source, you must include either a `paymentMethodID` or a `transferID`. */
+/** CreateTransferSource - Where funds for a transfer originate. For the source, you must include exactly one of `paymentMethodID`, `paymentToken`, or `transferID`. */
 class CreateTransferSource
 {
     /**
@@ -32,20 +32,25 @@ class CreateTransferSource
     public ?string $paymentMethodID = null;
 
     /**
+     * A single-use payment token to use as the transfer's source.
      *
-     * @var ?string $paymentToken
+     *
+     * The payment is authorized when the transfer is created.
+     *
+     * @var ?\Moov\MoovPhp\Models\Components\CreateTransferPaymentToken $paymentToken
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('paymentToken')]
+    #[\Speakeasy\Serializer\Annotation\Type('\Moov\MoovPhp\Models\Components\CreateTransferPaymentToken|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $paymentToken = null;
+    public ?CreateTransferPaymentToken $paymentToken = null;
 
     /**
      * @param  ?string  $transferID
      * @param  ?string  $paymentMethodID
-     * @param  ?string  $paymentToken
+     * @param  ?\Moov\MoovPhp\Models\Components\CreateTransferPaymentToken  $paymentToken
      * @phpstan-pure
      */
-    public function __construct(?string $transferID = null, ?string $paymentMethodID = null, ?string $paymentToken = null)
+    public function __construct(?string $transferID = null, ?string $paymentMethodID = null, ?CreateTransferPaymentToken $paymentToken = null)
     {
         $this->transferID = $transferID;
         $this->paymentMethodID = $paymentMethodID;

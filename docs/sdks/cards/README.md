@@ -57,6 +57,13 @@ Only use this endpoint if you have provided Moov with a copy of your PCI attesta
 
 To access this endpoint using an [access token](https://docs.moov.io/api/authentication/access-tokens/) 
 you'll need to specify the `/card-metadata.read` scope.
+* [tokenize](#tokenize) - Exchange card data for a single-use payment token. Use the token as `source.paymentToken.token` when
+[creating a transfer](https://docs.moov.io/api/money-movement/transfers/create/).
+
+Tokenizing does not link the card to an account, verify the card, or contact the card networks.
+The card is authorized when the transfer is created.
+
+Call this endpoint directly from the browser using Moov's card Drop, so card data never reaches your servers.
 
 ## link
 
@@ -449,3 +456,80 @@ if ($response->cardMetadata !== null) {
 | Errors\GenericError             | 400, 409                        | application/json                |
 | Errors\CardMetadataRequestError | 422                             | application/json                |
 | Errors\APIException             | 4XX, 5XX                        | \*/\*                           |
+
+## tokenize
+
+Exchange card data for a single-use payment token. Use the token as `source.paymentToken.token` when
+[creating a transfer](https://docs.moov.io/api/money-movement/transfers/create/).
+
+Tokenizing does not link the card to an account, verify the card, or contact the card networks.
+The card is authorized when the transfer is created.
+
+Call this endpoint directly from the browser using Moov's card Drop, so card data never reaches your servers.
+
+### Example Usage
+
+<!-- UsageSnippet language="php" operationID="createPaymentToken" method="post" path="/tokenize" -->
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Moov\MoovPhp;
+use Moov\MoovPhp\Models\Components;
+
+$sdk = MoovPhp\Moov::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
+
+$request = new Components\CreatePaymentToken(
+    card: new Components\CreatePaymentTokenCard(
+        cardNumber: '4111111111111111',
+        cardCvv: '123',
+        expiration: new Components\CardExpiration(
+            month: '01',
+            year: '21',
+        ),
+        holderName: 'Jules Jackson',
+        billingAddress: new Components\CardAddress(
+            addressLine1: '123 Main Street',
+            addressLine2: 'Apt 302',
+            city: 'Boulder',
+            stateOrProvince: 'CO',
+            postalCode: '80301',
+            country: 'US',
+        ),
+    ),
+);
+
+$response = $sdk->cards->tokenize(
+    request: $request
+);
+
+if ($response->paymentToken !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `$request`                                                                     | [Components\CreatePaymentToken](../../Models/Components/CreatePaymentToken.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
+
+### Response
+
+**[?Operations\CreatePaymentTokenResponse](../../Models/Operations/CreatePaymentTokenResponse.md)**
+
+### Errors
+
+| Error Type                     | Status Code                    | Content Type                   |
+| ------------------------------ | ------------------------------ | ------------------------------ |
+| Errors\GenericError            | 400, 409                       | application/json               |
+| Errors\CreatePaymentTokenError | 422                            | application/json               |
+| Errors\APIException            | 4XX, 5XX                       | \*/\*                          |
